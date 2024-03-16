@@ -9,7 +9,7 @@
 \usepackage{amsfonts}
 \usepackage{float}
 \usepackage{subcaption}
-
+\usepackage{multicol}
 \usepackage{graphicx}
 \usepackage[margin=1.4cm]{geometry}
 \usepackage[T1]{fontenc}
@@ -381,11 +381,30 @@
 		\begin{align*}
 			\boxed{ Tc_{ja\downarrow} T^{-1}=-c_{ja\uparrow} \hspace{1cm}  Tc_{ja\uparrow} T^{-1}=c_{ja\downarrow } }
 		\end{align*} 
+		This can be more compactly written as: $Tc_{ja\sigma} T^{-1}=i \mathbf{\sigma^y}_{\sigma\sigma'} c_{ja\sigma'}$ where $\mathbf{\sigma^y}$ is the Pauli-Y matrix and $\mathbf{\sigma^y}_{\sigma\sigma'}$ is the $\sigma, \sigma'$ element of the matrix. (Here we denote down spin by 1 and up spin by 0). Similarly, we get: $Tc^\dagger_{ja\sigma} T^{-1}=-i \mathbf{\sigma^y}_{\sigma\sigma'} c^\dagger_{ja\sigma'}$ \\[0.5cm]
 		As in the case of spinless particles, we now see how TR acts on the Bloch hamiltonian. For this, we perform fourier transform. We know: 
-		\[c_{ja\sigma}=\frac{1}{\sqrt{N}} \sum \limits_\mathbf{k}e^{i\mathbf{k.R_j}}c_{ka\sigma} \implies c_{ka\sigma}=\frac{1}{\sqrt{N}} \sum \limits_\mathbf{k}e^{-i\mathbf{k.R_j}}c_{ja\sigma} \]
+		\[c_{ja\sigma}=\frac{1}{\sqrt{N}} \sum \limits_\mathbf{k}e^{i\mathbf{k.R_j}}c_{ka\sigma} \implies c_{ka\sigma}=\frac{1}{\sqrt{N}} \sum \limits_\mathbf{j}e^{-i\mathbf{j.R_j}}c_{ja\sigma} \]
+		
+		\begin{multicols}{2}
+			\noindent
+			\begin{align*}
+				T \ c_{ka\sigma}\ T^{-1}&= \frac{1}{\sqrt{N}} \sum \limits_\mathbf{j}e^{+i\mathbf{j.R_j}}\ T\ c_{ja\sigma} \ T^{-1}\\
+				&= \frac{1}{\sqrt{N}} \sum \limits_\mathbf{j}e^{+i\mathbf{j.R_j}}\ i \mathbf{\sigma^y}_{\sigma\sigma'} c_{ja\sigma'}\\
+				&=i \mathbf{\sigma^y}_{\sigma\sigma'}  \frac{1}{\sqrt{N}} \sum \limits_\mathbf{j}e^{+i\mathbf{j.R_j}}\  c_{ja\sigma'}\\
+				&=i \mathbf{\sigma^y}_{\sigma\sigma'}  c_{-ka\sigma'}
+			\end{align*}
+			\begin{align*}
+				T \ c^\dagger_{ka\sigma}\ T^{-1}&= \frac{1}{\sqrt{N}} \sum \limits_\mathbf{j}e^{+i\mathbf{j.R_j}}\ T\ c^\dagger_{ja\sigma} \ T^{-1}\\
+				&= \frac{1}{\sqrt{N}} \sum \limits_\mathbf{j}e^{+i\mathbf{j.R_j}}\ (-i) \mathbf{\sigma^y}_{\sigma\sigma'} c^\dagger_{ja\sigma'}\\
+				&=-i \mathbf{\sigma^y}_{\sigma\sigma'}  \frac{1}{\sqrt{N}} \sum \limits_\mathbf{j}e^{+i\mathbf{j.R_j}}\  c^\dagger_{ja\sigma'}\\
+				&=-i \mathbf{\sigma^y}_{\sigma\sigma'}  c^\dagger_{-ka\sigma'}
+			\end{align*}
+		\end{multicols}
+		We now see the transformation of the bloch hamiltonian in presence of TR symmetry. 
+		\[ H = \sum \limits c^\dagger_{ka\sigma}h(k)c^\dagger_{kb\sigma'}\]
 		\begin{align*}
-			T \ c_{ka\sigma}\ T^{-1}= \frac{1}{\sqrt{N}} \sum \limits_\mathbf{k}e^{+i\mathbf{k.R_j}}\ T\ c_{ja\sigma} \ T^{-1}\\
-			&=
+			T \ H \ T^{-1}&= \sum \limits_k T\ c^\dagger_{ka\sigma}\ T^{-1}T\ h(k)\  T^{-1}T \ c^\dagger_{kb\sigma' }T^{-1}\\
+			&=\sum \limits_k (-i \mathbf{\sigma^y}_{\sigma\sigma''}  c^\dagger_{-ka\sigma''}) \ (T\ h(k)\  T^{-1})\ ( i \mathbf{\sigma^y}_{\sigma\sigma'''}  c_{-kb\sigma'''})
 		\end{align*}
 	\end{chapter}
 	
