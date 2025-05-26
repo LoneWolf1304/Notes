@@ -1,0 +1,17 @@
+
+
+
+\tikzstyle{tensor}=[rectangle,draw=blue!50,fill=blue!20,thick]
+
+\begin{tikzpicture}[scale=1.5, inner sep=1mm]
+    \foreach \i in {1,...,5} {
+        \node[tensor] (\i) at (\i, 0) {};
+        \node (\i spin) at (\i, -0.7) {};
+        \draw[-] (\i) -- (\i spin);
+    };
+    \foreach \i in {1,...,4} {
+        \pgfmathtruncatemacro{\iplusone}{\i + 1};
+        \draw[-] (\i) -- (\iplusone);
+    };
+    \draw[-] (1.west) .. controls +(-1.5, 1) and +(1.5, 1) .. (5.east);
+\end{tikzpicture}

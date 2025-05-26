@@ -1,0 +1,53 @@
+\section{Metric Tensor: how yo mama's fatness is quantified!}
+Let us consider the spherical polar coordinates $(r,\theta,\phi)$. Note that the coordinate displacement $d\phi$ does not have the dimension of length. So, while considering the displacement vector, we write $d\veb{r} \sim r\sin\theta d\phi \hat{\veb{\phi}}$. Thus, in general, for any displacement we write it in terms of the ``metric tensor'' $g^{ij}$ as:
+$$ds^2 = g_{ij}x^ix^j$$
+In rectangular coordinates, we have $g_{ij} = \delta_{ij}$, that is, the metric tensor is just the identity matrix. In cylindrical coordinates where $dx^1 = d\rho, dx^2 = d\phi, dx^3 = z$, we have:
+$$g_{ij}= \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & \rho^2 & 0\\
+    0 & 0 & 1
+\end{pmatrix}$$
+Thus, the displacement is written as
+$$ds^2 = g_{ij}dx^i dx^j = d\rho^2 + \rho^2 d\phi^2 + dz^2$$
+In spherical polar coordinates, we have:
+$$g_{ij} = \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & r^2 & 0\\
+    0 & 0 & r^2\sin^2\theta
+\end{pmatrix}$$
+Thus, the displacement is written as:
+$$ds^2 = d\theta^2 + r^2 d\phi^2 + r^2\sin^2\theta d\phi^2$$
+If all of $g_{ij}$ are non-negative we call that geometry ``Riemannian'' and if some of them are negative, it is termed ``pseudo-Riemannian''.\\[0.3cm]
+\textbf{Now, how the hell do we calculate the components of the metric tensor?}\\[0.3cm]
+Well we have previously seen how we could obtain the basis vectors using the partial derivatives of the coordinates. So, suppose we have to find the metric tensor for spherical polar coordinate system. For that, let us first write the position vector:
+$$\veb{r} = x \veb{e}_x+y \veb{e}_y+z \veb{e}_z = r \sin\theta \cos\phi \ \veb{e}_x + r \sin\theta \sin\phi \ \veb{e}_y + r \cos\theta \ \veb{e}_z$$
+From this we obtain:
+\begin{align*}
+    \veb{e}_r &= \pdv{\veb{r}}{r} =  \sin\theta \cos\phi \ \veb{e}_x + \sin\theta \sin\phi \ \veb{e}_y + \cos\theta \ \veb{e}_z\\
+    \veb{e}_\theta &= \pdv{\veb{r}}{\theta} = r \cos\theta \cos\phi \ \veb{e}_x + r \cos\theta \sin\phi \ \veb{e}_y - r \sin\theta \ \veb{e}_z\\
+    \veb{e}_\phi &= \pdv{\veb{r}}{\phi} = -r \sin\theta \sin\phi \ \veb{e}_x + r \sin\theta \cos\phi \ \veb{e}_y
+\end{align*}
+Now, we had defined the metric tensor components to be the scalar product of the basis vectors. Also note that since the basis vectors are orthogonal, there will be no cross terms, so the tensor is diagonal. Using this we have:
+\begin{align*}
+    g_{rr} &= \veb{e}_r\cdot \veb{e}_r = \sin^2\theta \cos^2\phi + \sin^2\theta \sin^2\phi + \cos^2\theta = 1\\
+    g_{\theta\theta} &= \veb{e}_\theta\cdot \veb{e}_\theta = r^2 \cos^2\theta \cos^2\phi + r^2 \cos^2\theta \sin^2\phi + r^2 \sin^2\theta = r^2\\
+    g_{\phi\phi} &= \veb{e}_\phi\cdot \veb{e}_\phi = r^2 \sin^2\theta \sin^2\phi + r^2 \sin^2\theta \cos^2\phi = r^2 \sin^2\theta
+\end{align*}
+This is exactly what we had written before. Thus using this procedure, we can easily find the components of the metric tensor and then just chill! 
+\subsection{Metric in relativity:}
+We now consider the case of Minkowski space, where the coordinate displacements between two events are described by four component vector (\textbf{4 vector}):
+$$dx^\mu = (dt, dx,dy,dz)\equiv (dt, d\veb{r})$$
+The spacetime interval can be written in terms of the metric tensor $g_{\mu\nu}$ as:
+$$ds^2 = dt^2-dx^2-dy^2-dz^2= g_{\mu\nu} dx^\mu dx^\nu$$
+Thus in this case the metric tensor is:
+$$g_{\mu\nu} = \begin{pmatrix}
+    1 & 0 & 0 & 0\\
+     1 & -1 & 0 & 0\\
+      1 & 0 & -1 & 0\\
+       1 & 0 & 0 & -1\\
+\end{pmatrix}$$
+Note the convention. Other conventions include the obnoxious $(+,-,-,-)$ or the $(+,+,+,+)$ with an imaginary time. The overall thing is, spatial and temporal part should have some difference.\\[0.3cm] We also define the ``proper time'' as $d\tau = \frac{ds}{c}$. Since we take $c=1$, then both are equivalent but let's take $c$ to be $c$ for once. Then,
+$$c^2 d\tau^2 = c^2dt^2-dx^2-dy^2-dz^2 = c^2dt^2\brac{1 - \frac{dx^2+dy^2+dz^2}{c^2dt^2}} = c^2dt^2\brac{1-\frac{v^2}{c^2}}$$
+From this we have
+$$\boxed{\dv{\tau}{t} = \sqrt{1- \frac{v^2}{c^2}}:=\gamma}$$
+

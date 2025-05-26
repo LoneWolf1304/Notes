@@ -1,0 +1,41 @@
+\section{Why are tensors so sigma!}
+Nakahara defines tensor as:
+\begin{quote}
+    \textit{A tensor $T$ of type $(p,q)$ is a multi-linear map that maps $q$ vectors and $p$ dual vectors to $\mathbb{R}$, that is:
+    $$ T: \brac{\bigotimes\limits^p \mathbf{V}^* } \brac{\bigotimes\limits^q \mathbf{V} }\to \mathbb{R} $$}
+\end{quote}
+Dayummm!! \emoji{expressionless-face} Let us break this down. Consider a scalar which has no vector and no dual vector. Thus, it is a $(0,0)$ type tensor. Now, let us consider a vector $\mathbf{v}$. This is a $(1,0)$ tensor, that is, it maps a dual vector to a scalar. If we have a dual vector $\mathbf{f}$, then it is of type $(0,1)$ and maps a vector to a scalar. This does not clear anything. Let us instead consider few examples:\\[0.3cm]
+\textbf{Moment of Intertia Tensor:}\\[0.3cm]
+Perhaps the first example of a tensor we had encountered during our classical mechanics course (which we had been told to understand just as a `matrix'). 
+\begin{figure}[H]
+    \centering
+    \input{plot&diagrams/rigid.tex}
+    \caption{A rigid body rotating about an axis}
+\end{figure}
+\noindent
+Consider a rigid body made of tiny masses $dm$. Consider one such mass sitauted as a distance $s$ from the fixed axis of rotation. It goes around a circle with speed $v = \omega s$. The angular momentum can be calculated as:
+$$\mathbf{L} = \int (\veb{r}\times \veb{v})dm = \int (\veb{r}\times (\veb{\omega}\times \veb{r}))dm = \int (\veb{r}\cdot \veb{r})\veb{\omega} -  \cancelto{0}{(\veb{r}\cdot \veb{\omega})}\veb{r}dm =\veb{\omega} \underbrace{\int s^2 dm}_{\text{I}} $$
+The integral is called the moment of inertia. In a more general case, where there is no fixed axis of rotation, we write: 
+\begin{align*}
+    \mathbf{L} &= \int (\veb{r}\times \veb{v})dm \\
+    &= \int (\veb{r}\times (\veb{\omega}\times \veb{r}))dm \\
+    &= \int (\veb{r}\cdot \veb{r})\veb{\omega} -  {(\veb{r}\cdot \veb{\omega})}\veb{r}dm
+\end{align*}
+We now write it in index notation, noting that $\omega^i = \tensor*{\delta}{^i^j}\omega_j$:
+\begin{align*}
+    L^i &= \int (\veb{r}\cdot \veb{r})\tensor*{\delta}{^i^j}\omega_j - x^i(x^j\omega_j)dm\\
+    &= \omega_j \brac{\int (\veb{r}\cdot \veb{r})\tensor*{\delta}{^i^j} - x^ix^j\ dm} 
+\end{align*}
+The integral in the bracket is defined to be the inertia tensor:
+$$I^{ij} = \int (\veb{r}\cdot \veb{r})\tensor*{\delta}{^i^j} - x^ix^j \ dm$$
+Note that $i$ and $j$ goes from $1$ to $3$ and thus it has $9$ components but since the expression is symmetric, we only have $6$ independent components. This states that the angular momentum and the angular velocity are not necessarily parallel in some coordinate system where $I$ have non-zero off-diagonal entries.\\[0.3cm]
+\textbf{Electromagnetic Tensor:}\\[0.3cm]
+The electromagnetic tensor is very useful in combining the electric field and magnetic field and finding their transformations. It is defined as:
+$$F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$$
+where $A_\mu$ is the 4-potential. The indices $\mu$ and $\nu$ can take values from $0$ to $3$. The tensor has $16$ components but only $6$ of them are independent. The tensor is antisymmetric, that is, $F_{\mu\nu} = -F_{\nu\mu}$ and thus the diagonal entries are zero. We will discuss this later but Maxwell's equations can be written in a very compact form using the components of the electromagnetic tensor.\\[0.3cm]
+\textbf{Electric-Susceptibility Tensor:}\\[0.3cm]
+We had studied about polarisation in dielectrics in our classical electrodynamics course where we had often taken (for simplicity):
+$$\veb{P} = \epsilon_0\chi\veb{E}$$
+Here we had taken the electric field to be parallel to the polarisation vector but in general, these are related by the susceptibility tensor as:
+$$P^i = \epsilon_0\chi^{ij}E^{j}$$
+\subsection{Matrices vs. Tensor? same same but different....}
