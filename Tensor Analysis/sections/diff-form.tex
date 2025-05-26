@@ -1,2 +1,13 @@
-\section{Differential Forms: Dayuum!!}
-\textit{Definition.} Suppose $C\subset \mathbb{R}^2$ be a curve and let $p\in C$ is a point. The tangent space to $C$ at $p$ is the set of all vectors tangent to $C$ at $p$ and is denoted by $T_pC$. 
+\section{Bit of  Differential Geometry: Dayuum!!}
+Let us look into a bit of differential geometry which is a formal way of treating this tensor thingy. We will try to be as intuitive and non-rigorous as possible (and thus increasing our chances of making a mathematician crazy!) but yeah, we will try to be rigorous enough so that I am satisfied.
+\subsection{Manifolds}
+Before touching manifolds, let us define what an abstract topological space is, since manifolds are special case of topological spaces. Basically, a topological space is a set $(X, U )$ where $U \subset \mathcal{P}$ is a collection of subsets of $X$ such that:
+\begin{itemize}
+    \item $\emptyset, X \in U$.
+    \item $U_\alpha \in U \implies \bigcup \limits_{\alpha\in J} U_\alpha \in U$  (closed under arbitrary union).
+    \item $U_i \in U \implies \bigcap \limits_{i=1}^n U_i \in U$  (closed under finite intersection)\footnote{Here $\alpha$ index is used when we want the indexing set $J$ (indexing set means the set from where the incides to denote the elements of the set are taken from) to be arbitrary, meaning that the set $\{U_\alpha\}$ can be finite, countable or uncountable. On the other hand, index $i$ is mostly used when the indexing set is finite.}.
+\end{itemize}
+Well well, this does not look anything like coffee cup and donut which most people associate topology with. That is a case of \textit{homeomorphism} which will be discussed later (hopefully). However, for now let us proceed. The sets belonging to $U$ are called \textbf{open sets}. We define a \textbf{closed set} as a set whose complement is open. There are umpteen other definitions like \textbf{closure, boundary, interior, neighbourhood}, etc. We will fill in those if needed later \emoji{loudly-crying-face}. 
+\subsection{Tangent Spaces}
+\subsection{Differential Forms}
+% \textit{Definition.} Suppose $C\subset \mathbb{R}^2$ be a curve and let $p\in C$ is a point. The tangent space to $C$ at $p$ is the set of all vectors tangent to $C$ at $p$ and is denoted by $T_pC$. 
