@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Introduction:}{3}{section.1}%
+\contentsline {section}{\numberline {2}Indices: the ultimate rizzler!}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Einstein Convention}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Examples}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Some vector BS}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Contravariant and Covariant: why the skibidi!}{7}{section.3}%
+\contentsline {section}{\numberline {4}Why are tensors so sigma!}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Matrices vs. Tensor? same same but different....}{10}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Metric Tensor: how yo mama's fatness is quantified!}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Metric in relativity:}{11}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Covariant Derivatives: levelling up the rizz!}{11}{section.6}%
+\contentsline {section}{\numberline {7}Differential Forms: Dayuum!!}{11}{section.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
