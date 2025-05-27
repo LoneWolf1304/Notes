@@ -1,5 +1,27 @@
 \ProvidesPackage{mystyle1}
+\usepackage{pst-solides3d}
+
+
+\tikzset{
+  pics/torus/.style n args={3}{
+    code = {
+      \providecolor{pgffillcolor}{rgb}{1,1,1}
+      \begin{scope}[
+          yscale=cos(#3),
+          outer torus/.style = {draw,line width/.expanded={\the\dimexpr2\pgflinewidth+#2*2},line join=round},
+          inner torus/.style = {draw=pgffillcolor,line width={#2*2}}
+        ]
+        \draw[outer torus] circle(#1);\draw[inner torus] circle(#1);
+        \draw[outer torus] (180:#1) arc (180:360:#1);\draw[inner torus,line cap=round] (180:#1) arc (180:360:#1);
+      \end{scope}
+    }
+  }
+}
+
+
 \RequirePackage{bm}
+\usepackage{perpage}
+\MakePerPage{footnote}
 \RequirePackage{enumitem}
 \usepackage{emoji}
 \usepackage{cancel}

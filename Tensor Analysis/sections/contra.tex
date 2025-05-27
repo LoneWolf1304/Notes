@@ -7,7 +7,7 @@ Let us suppose we have a vector space $\mathbf{V}$ and two bases $\{\mathbf{e}_i
 Now if we have a vector, we can write it in terms of the basis vectors as:
 $$\mathbf{x} =  (x')^j \mathbf{e}'_j = x^i \mathbf{e}_i = (x^i \tensor*{\Lambda}{^j_i}) \mathbf{e}'_j $$
 From this we get: $(x')^j = \tensor*{\Lambda}{^j_i} x^i$. Well note that, in the transformation equation of the basis, if we have the primed basis in the left, then we had the inverse transformation matrix $\Lambda^{-1}$ in the right, but here it is different (primed component in the left and $\Lambda$ in the right). Thus, the basis vectors and the components transform in the ``opposite'' or ``\textbf{contra}ry'' way. Thus, these components are called the \textbf{contravariant} components of the vector.\\[0.3cm]
-Let us now consider the dual space $\mathbf{V}^*$\footnote{The dual space is the set of all linear functionals, that is, linear maps $f: \mathbf{V} \to \mathbb{R}$.} of the vector space $\mathbf{V}$. From the linearity property, we have:
+Let us now consider the dual space $\mathbf{V}^*$\footnote{The dual space is the set of all linear functionals, that is, linear maps $f: \mathbf{V} \to \mathbb{R}$. One example is say the \textit{bra} vector which is dual to the \textit{ket}. So basically a bra takes a ket and returns a real (complex) number: $\braket{\psi|\psi}$ (braket)} of the vector space $\mathbf{V}$. From the linearity property, we have:
 $$f(x^i\mathbf{e}_i) = x^i f(\mathbf{e}_i) \equiv x^i f_i$$
 Now, we use the basis transformation equation:
 $$f_i = f(\mathbf{e}_i) = f(\tensor*{\Lambda}{^j_i}\mathbf{e}'_j) = \tensor*{\Lambda}{^j_i}f(\mathbf{e}'_j) = \tensor*{\Lambda}{^j_i}f'_j$$

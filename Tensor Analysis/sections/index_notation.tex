@@ -3,9 +3,9 @@ Indices make our lives easier when writing abstract quantitites having multiple 
  Why are the indices written as superscript? Well, these are contravariant indices which will be discussed later. For now, let's just say that `upstairs' indices are the `normal thing'. Index placement is important and these are not powers...just the way we denote the components.\\[0.3cm]
  Consider the (in)famous equation: 
  $$\mathbf{F}= m \mathbf{a}$$
- This can be written as $F\indices{^i} = m a\indices{^i}$, for each component $i$. Just remember that we should have the same kind of indices on both side of the equation finally. That is, if we have `upstairs' index on the right, same should be on the left.\\[0.3cm]
+ This can be written as $F\indices{^i} = m a\indices{^i}$, for each component $i$. Just remember that we should have the same kind of indices on both side of the equation finally. That is, if we have `upstairs' index on the right, same should be on the left.
  \subsection{Einstein Convention}
- The OG rule...whenever you see two same indices, sum them.  That's it! Let's make our hands dirty and look at some examples:\\[0.3cm]
+ The OG rule...whenever you see two same indices, sum them.  That's it! Let's make our hands dirty and look at some examples:
  \subsection{Examples}
  \textbf{Matrix Multiplication:}\\[0.3cm]
  Let us have the eigenvalue equation $M\mathbf{v} = \lambda\mathbf{v}$. We can write this as: 
@@ -45,7 +45,7 @@ These $g_{nm}$ are coefficients of metric tensor which will be discussed later. 
 \end{align*}
 Note that we have used the \textit{regular vector} with an upper index here, with the metric $g$. We can define a cross product of two vectors as:
 $$(\mathbf{A}\times \mathbf{B})^i = \epsilon^{ijk}A^jB^k$$
-where $\epsilon^{ijk}$ is the Levi-Civita symbol (cyclic permutation of ${i,j,k}$ gives 1 and non-cyclic permutation gives -1 while repeated index in the symbol gives 0). \\[0.3cm]
+where $\epsilon^{ijk}$ is the Levi-Civita symbol (cyclic permutation of ${i,j,k}$ gives 1 and non-cyclic permutation gives -1 while repeated index in the symbol gives 0). 
 \subsection{Some vector BS}
 \textbf{Vectors as Directional Derivatives:}\\[0.3cm]
 A vector can be thought of as a directional derivative. We define the directional derivative operator as:
@@ -53,18 +53,6 @@ $$\mathbf{v}\cdot \nabla = v^i \partial_i\equiv  v^i \dfrac{\partial}{\partial x
 This is very similar to the vector expansion in terms of the basis vectors. Thus, the partial derivatives somewhat act like a basis. The basis of partial derivatives is indeed called a \textit{coordinate basis}. Now let us calculate:
 $$\mathbf{v}\cdot \nabla x^j = v^i \partial_i x^j = v^i\pdv{x^j}{x^i} = v^i\tensor*{\delta}{^j_i} = v^j$$
 We have used the fact that coordinate components are independent of each other, that is, partial derivative of one component with respect to another gives a kronecker delta. Note that we have used the proper index placement here: $\partial_j\equiv \pdv{x^j}$ has a lower index (by definition) while $x^j$ has an upper index, thus kronecker delta has an upper as well as lower index.\\[0.3cm]
-Now, let us consider we have a position vector written in a basis $\{\veb{e}_i\}$, that is, $$\veb{r} = x^i \veb{e}_i$$
-Since $\veb{r}$ depends on the coordinate $\{x^i\}$, we can expand the differential displacement as:
-\begin{align*}
-    d\veb{r} &= \pdv{\veb{r}}{{x}^i}dx^i \\
-    &= \pdv{(x^j \veb{e}_j)}{x^i}dx^i \\
-    &=\brac{\pdv{x^j }{x^i}\veb{e}_j + \pdv{ \veb{e}_j}{x^i}x^j }dx^i
-\end{align*}
-The second term is zero as the basis vectors are independent of the coordinates and the first term gives Kronecker delta, thus we have:
-$$d\veb{r} = \veb{e_i}dx^i $$
-Comparing this with the first line of the previous expansion we have:
-$$\boxed{\veb{e}_i = \pdv{\veb{r}}{x^i}}$$
-Thus any basis vector can be obtained from the partial derivative of the position vector with respect to the coordinates.\\[0.3cm] 
 \textbf{Vector Transformation:}\\[0.3cm]
 Let us suppose we have a coordinate system $(x,y,z)$ and we rotate it about the $z$-axis by an angle $\theta$. The new coordinates are given by:
 \begin{figure}[H]
@@ -96,4 +84,17 @@ As we defined the transformation from $x$ to $x'$, we can also define the revers
     x^i &= \pdv{x^i}{x'^j} x'^j \\
     & =  \brac{\pdv{x^i}{x'^j}\pdv{x'^j}{x^k}}x^k \\
 \end{align*}
-Now in the above sum, $j$ and $k$ indices are summed over. We must obtain $x^i$ from the right hand side also. Thus by observation, we can see that the term $\pdv{x^i}{x'^j}\pdv{x'^j}{x^k}$ must be equal to the kronecker delta $\tensor*{\delta}{^i_k}$.
+Now in the above sum, $j$ and $k$ indices are summed over. We must obtain $x^i$ from the right hand side also. Thus by observation, we can see that the term $\pdv{x^i}{x'^j}\pdv{x'^j}{x^k}$ must be equal to the kronecker delta $\tensor*{\delta}{^i_k}$.\\[0.3cm]
+Now, let us consider we have a position vector written in the Cartesian coordinate system with basis $\{\veb{e}_i\}$, that is, $$\veb{r} = x^i \veb{e}_i$$ Now, consider another coordinate system and write the cartesian coordinates as a function of these new coordinates, that is, $x^i \equiv x^i(x'^j)$.
+Since $\veb{r}$ depends on the coordinate $\{x'^i\}$, we can expand the differential displacement as:
+\begin{align*}
+    d\veb{r} &= \pdv{\veb{r}}{{x'}^i}dx'^i \\
+    &= \pdv{(x^j \veb{e}_j)}{x'^i}dx'^i \\
+    &=\brac{\pdv{x^j }{x'^i}\veb{e}_j + \pdv{ \veb{e}_j}{x'^i}x^j }dx'^i\\
+    &=\brac{\pdv{x^j }{x'^i}\veb{e}_j}dx'^i\\
+    &=\veb{e}_j'\ dx'^j
+\end{align*}
+The second term in the third step is zero, as the Cartesian basis vectors are independent of the new coordinates. The final line is obtained from the previous step as this defines the transformation of the basis vectors. 
+Comparing this with the first line of the previous expansion we have:
+$$\boxed{\veb{e}'_i = \pdv{\veb{r}}{x'^i}}$$
+Thus any basis vector (in a coordinate system) can be obtained from the partial derivative of the position vector with respect to the coordinates (in that system).
