@@ -3,33 +3,33 @@ Let us look into a bit of differential geometry which is a formal way of treatin
 \subsection{Some prior things}
 Before touching manifolds, let us define what an abstract topological space is, since manifolds are special case of topological spaces. 
 \begin{definition}[Topological Space]
-  A topological space is a set $(X, \tau )$ where $\tau \subset \mathcal{P}$ is a collection of subsets of $X$ such that:
+  A topological space is a set $(X, \uptau )$ where $\uptau \subset \mathcal{P}$ is a collection of subsets of $X$ such that:
 \begin{itemize}
-    \item $\emptyset, X \in \tau$.
-    \item $U_\alpha \in \tau \implies \bigcup \limits_{\alpha\in J} U_\alpha \in \tau$  (closed under arbitrary union).
-    \item $U_i \in \tau \implies \bigcap \limits_{i=1}^n U_i \in \tau$  (closed under finite intersection)\footnotemark.
+    \item $\emptyset, X \in \uptau$.
+    \item $U_\alpha \in \uptau \implies \bigcup \limits_{\alpha\in J} U_\alpha \in \uptau$  (closed under arbitrary union).
+    \item $U_i \in \uptau \implies \bigcap \limits_{i=1}^n U_i \in \uptau$  (closed under finite intersection)\footnotemark.
 \end{itemize}
 \end{definition}
 \footnote{Here $\alpha$ index is used when we want the indexing set $J$ (indexing set means the set from where the incides to denote the elements of the set are taken from) to be arbitrary, meaning that the set $\{U_\alpha\}$ can be finite, countable or uncountable. On the other hand, index $i$ is mostly used when the indexing set is finite.}
 
-Well well, this does not look anything like coffee cup and donut which most people associate topology with. That is a case of \textit{homeomorphism} which will be discussed later (hopefully). However, for now let us proceed. The sets belonging to $\tau$ are called \textbf{open sets}. We define a \textbf{closed set} as a set whose complement is open. There are umpteen other definitions like \textbf{closure, boundary, interior, neighbourhood}, etc. Let define few of them \emoji{loudly-crying-face}. 
+Well well, this does not look anything like coffee cup and donut which most people associate topology with. That is a case of \textit{homeomorphism} which will be discussed later (hopefully). However, for now let us proceed. The sets belonging to $\uptau$ are called \textbf{open sets}. We define a \textbf{closed set} as a set whose complement is open. There are umpteen other definitions like \textbf{closure, boundary, interior, neighbourhood}, etc. Let define few of them \emoji{loudly-crying-face}. 
 \begin{itemize}
     \item \textit{Closure} of a set $A$ is the smallest closed set containing $A$ and is denoted by $\overline{A}$.
     \item \textit{Interior} of a set $A$ is the largest open set contained in $A$ and is denoted by $\text{int}(A)$.
     \item \textit{Boundary} of a set $A$ is the set of points which are neither in the interior nor in the exterior of $A$ and is denoted by $\partial A$.
-    \item If $p\in X$, then a \textit{neighbourhood} of $p$ is a set $N$ such that there exists an open set $U\in \tau$ with $p\in U\subseteq N$.
+    \item If $p\in X$, then a \textit{neighbourhood} of $p$ is a set $N$ such that there exists an open set $U\in \uptau$ with $p\in U\subseteq N$.
 \begin{figure}[H]
       \centering
       \input{plot&diagrams/neighbourhood.tex}
       \caption{Neighbourhood of a point $p$ in  $X$}
 \end{figure}
-          \item \textit{Hausdorff Space}: A topological space is called Hausdorff if for any two distinct points $x,y\in X$, there exist open sets $U,V\in \tau$ such that $x\in U, y\in V$ and $U\cap V = \emptyset$. 
+          \item \textit{Hausdorff Space}: A topological space is called Hausdorff if for any two distinct points $x,y\in X$, there exist open sets $U,V\in \uptau$ such that $x\in U, y\in V$ and $U\cap V = \emptyset$. 
     \begin{figure}[H]
       \centering
       \input{plot&diagrams/hausdorff.tex}
       \caption{A \textbf{Hausdorff Space}, where the points $x$ and $y$ are separated by the open sets $U$ and $V$.}
     \end{figure}
-    \item \textit{Topological Continuity}: A function $f: X \to Y$ between two topological spaces is said to be continuous if for every open set $V \in \tau_Y$, the preimage $f^{-1}(V)\footnote{The preimage of a set $Y$ under the function $f$ is defined as $f^{-1}(Y) = \{x|f(x)\in Y\}$. Note that this has nothing to do with inverse of a function (sadly we use the same notation)} \in \tau_X$ is open in $X$.
+    \item \textit{Topological Continuity}: A function $f: X \to Y$ between two topological spaces is said to be continuous if for every open set $V \in \uptau_Y$, the preimage $f^{-1}(V)\footnote{The preimage of a set $Y$ under the function $f$ is defined as $f^{-1}(Y) = \{x|f(x)\in Y\}$. Note that this has nothing to do with inverse of a function (sadly we use the same notation)} \in \uptau_X$ is open in $X$.
     \item \textit{Homeomorphism}: A homeomorphism is a bijective function $f: X\to Y$ between two topological spaces such that both $f$ and its inverse $f^{-1}$ are continuous. If such a function exists, we say that the two spaces are \textbf{homeomorphic} and we write $X\cong Y$.
     \item \textit{Cover:} A cover of a topological space $X$ is a collection of sets $\{U_\alpha \}$whose union is $X$ that is, $\bigcup\limits_\alpha U_\alpha = X$. If each set is an open set, then it is called an \textbf{open cover}. If there exists a finite collection of subsets of the cover such that their union is $X$, that is, $\bigcup\limits_{i=1}^k U_i = X$ then it is called a \textbf{finite subcover}.
     \begin{figure}[H]
@@ -37,6 +37,8 @@ Well well, this does not look anything like coffee cup and donut which most peop
     \input{plot&diagrams/opencov.tex}
     \caption{Open cover of a space}
   \end{figure}
+  \item \textit{Subspace Topology }is the topology on a subset $Y\subseteq X$ induced by the topology of $X$. In this case, open sets of $Y$ are basically the intersection of open sets of $X$ with $Y$. So,
+  $$\uptau_Y = \{U\cap Y| U\in \uptau_X\}$$
   \end{itemize}
 \subsection{Manifolds}
 Let us see some pictures. 
@@ -80,7 +82,41 @@ A smooth map is a function which is infinitely differentiable, that is, all the 
   \input{plot&diagrams/manifold.tex}
   \caption{The figure shows the third point in the definition. So basically we see where the homeomorphism maps the intersection of the open sets and then define the map $\psi_{ij}$ between these two regions.}
 \end{figure}
-The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps). 
+The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps).\\[0.3cm]
+Now let us unfold this carefully. For the open set $U_i$, the map $\phi_i$ takes it to another open set in $\mathbb{R}^m$. So for all $x\in U_i$ we got a mapping to an Euclidean space. Same goes for $U_j$, that is we obtain a mapping into another copy of $\mathbb{R}^m$. Now for points in the intersection of $U_i$ and $U_j$, we have got two different mappings and we can go back and forth between the two copies of $\mathbb{R}^m$ since these mappings were homeomorphisms. This is what we had with the mapping $\psi_{ij}$ (and thus, these are aptly called \textit{transition functions}). It first maps with the inverse of $\phi_j$  and then applies $\phi_i$. The net effect is that we are mapping between a point in one copy of $\mathbb{R}^m$ to another copy of $\mathbb{R}^m$. \\[0.3cm]
+Imagine the open sets as patches in the manifold. We can then patch together the whole manifold by taking the union of all the open sets, all of which can be viewed as a Euclidean space. There are also manifolds which do not have the smooth property on then transient function, only continuity is required. These are called \textbf{topological manifolds}. We also assume that our manifolds are \textbf{Hausdorff} and paracompact (which we will not define here). Now comes the good thing: examples!!
+\subsubsection{Examples:}
+\textbf{The Space $\mathbf{\mathbb{R}^n}$}\\[0.3cm]
+Duh, it looks like $\mathbb{R}^n$ locally since it is $\mathbb{R}^n$ itself. A single chart is enough for the purpose and the homeomorphism is the identity map. \\[0.3cm]
+\textbf{The Circle $\mathbb{S}^1$}\\[0.3cm]
+Circle is a curve in $\mathbb{R}^2$ with coordinates $(\cos\theta, \sin\theta)$. We mostly take $\theta \in [0,2\pi)$ but we come across a problem. Note that the open sets on a circle are basically union of ``open arcs''. However, $[0,2\pi)$ is not open. Thus we need atleast two charts to cover the circle.\\[0.3cm]
+We take two antipodal points on the circle and then define the charts as follows: \\[0.3cm]
+Let $U_1 = \mathbb{S}^1\backslash \{(1,0)\},U_2 = \mathbb{S}^1\backslash \{(-1,0)\}$. Then define the homeomorphisms as:
+$$\phi_1: \mathbb{S}^1\backslash \{(1,0)\}\rightarrow (0,2\pi) \quad \quad \phi_2: \mathbb{S}^1\backslash \{(-1,0)\}\rightarrow (-\pi,\pi)$$
+These functions basically take the value of the angle $\theta$ that a point on the circle makes with the x-axis.  
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \input{plot&diagrams/circchart1.tex}
+    \caption{Here the point $(1,0)$ is removed and $\phi_1$ maps the rest of the circle to the interval $(0,2\pi)$.}
+    \label{fig:circchart1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \input{plot&diagrams/circchart2.tex}
+    \caption{Here the point $(-1,0)$ is removed and $\phi_2$ maps the rest of the circle to the interval $(-\pi,\pi)$.}
+    \label{fig:circchart2}
+  \end{subfigure}
+  \caption{$\phi_1$ and $\phi_2$ are invertiable and continuous (easily seen).  The two charts intersect in the upper and lower semicircles (as the antipodal points are removed). The transition function is given by:
+  \(\phi_1 \circ \phi_2^{-1}(\theta) = \begin{cases}   \theta  & \text{if } \theta\in (0, \pi) \\  \theta+2\pi & \text{if } \theta \in (-\pi, 0) \end{cases}\)which is \textit{smooth} on each of the semicircles as required. Thus this is a valid chart for the circle.}  
+  
+\end{figure}
+\noindent
+The same circle can be described by another chart using the stereographic projection, resulting in the \textbf{Mercator Atlas}. \textcolor{red}{show this maybe}..
+Similarly we can prove that the $n$-dimensional sphere is a manifold. 
+\subsubsection{Differentiable Maps}
 \subsection{Tangent Spaces}
 \subsection{Differential Forms}
 % \textit{Definition.} Suppose $C\subset \mathbb{R}^2$ be a curve and let $p\in C$ is a point. The tangent space to $C$ at $p$ is the set of all vectors tangent to $C$ at $p$ and is denoted by $T_pC$. 
