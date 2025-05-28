@@ -38,4 +38,28 @@ We had studied about polarisation in dielectrics in our classical electrodynamic
 $$\veb{P} = \epsilon_0\chi\veb{E}$$
 Here we had taken the electric field to be parallel to the polarisation vector but in general, these are related by the susceptibility tensor as:
 $$P^i = \epsilon_0\chi^{ij}E^{j}$$
+\subsection{Tensor Transformations}
+As previously seen for vector transformation, the transformation of a tensor from one system to another is very similar. For simplicity, we show for a second rank tensor:
+$$\tensor{T }{^{\prime ij}} = \pdv{x^{\prime i}}{x^k} \pdv{x^{\prime j}}{x^n} \tensor{T}{^{kn}}$$
+This is simple: in the left everything is prime and contravariant, so in the right the numerator must have primes and the denominator must have unprimed indices and contraction should be done so as to match the contra and co indices on both sides in the final expansion. Well, this transformation law is such a nice thing that many people say that: 
+$$\boxed{\mathrm{Tensors\ are \ defined\ in\ the\ way\ they\ transform}}$$
 \subsection{Matrices vs. Tensor? same same but different....}
+Not all matrices are second-rank tensors \emoji{expressionless}. Yes, the components of a second-rank tensor can be arranged in a matrix form but there are many matrices which do not transform according to the above equation. Take for example the following matrix, which we assume as a tensor:
+$$[T^{lm}] \equiv \begin{pmatrix}
+    (x^2)^2 & x^1x^2\\
+    x^1x^2 & (x^2)^2
+\end{pmatrix}$$
+Note that the 2 outside the bracket is the power and inside the bracket is the index of the component. Then after rotation, we have the following relation:
+\begin{align*}
+    x'^1 &= x^1\cos\theta + x^2\sin\theta \\
+    x'^2 &= -x^1\sin\theta + x^2\cos\theta
+\end{align*}
+Let us find $T^{'11}$ which according to the transformation rule, should be:
+\begin{align*}
+    T^{'11} &= \pdv{x'^1}{x^k} \pdv{x'^1}{x^n} T^{kn} \\
+    &=\pdv{x'^1}{x^1} \pdv{x'^1}{x^1} T^{11} + \pdv{x'^1}{x^1} \pdv{x'^1}{x^2} T^{12}+\pdv{x'^1}{x^2} \pdv{x'^1}{x^1} T^{21} +\pdv{x'^1}{x^2} \pdv{x'^1}{x^2}T^{22}\\
+    &= \cos\theta\cos\theta T^{11} + \cos\theta \sin\theta T^{12} + \sin\theta\cos\theta T^{21} + \sin\theta\sin\theta T^{22} \\
+    &= \cos^2\theta (x^2)^2 + 2\sin\theta\cos\theta (x^1)(x^2) + \sin^2\theta (x^2)^2\\
+    &=(x^2\cos\theta + x^1\sin\theta)^2
+\end{align*}
+Well note that if $T$ was indeed a tensor, then $T^{'11}$ should be equal to $(x'^2)^2$ but it is not. Thus, $T$ is not a tensor and our assumption was wrong.  \textbf{Thus all matrices are not tensors!}

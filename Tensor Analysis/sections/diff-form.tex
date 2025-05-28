@@ -1,12 +1,17 @@
 \section{Bit of  Differential Geometry: Dayuum!!}
 Let us look into a bit of differential geometry which is a formal way of treating this tensor thingy. We will try to be as intuitive and non-rigorous as possible (and thus increasing our chances of making a mathematician crazy!) but yeah, we will try to be rigorous enough so that I am satisfied.
 \subsection{Some prior things}
-Before touching manifolds, let us define what an abstract topological space is, since manifolds are special case of topological spaces. Basically, a topological space is a set $(X, \tau )$ where $\tau \subset \mathcal{P}$ is a collection of subsets of $X$ such that:
+Before touching manifolds, let us define what an abstract topological space is, since manifolds are special case of topological spaces. 
+\begin{definition}[Topological Space]
+  A topological space is a set $(X, \tau )$ where $\tau \subset \mathcal{P}$ is a collection of subsets of $X$ such that:
 \begin{itemize}
     \item $\emptyset, X \in \tau$.
     \item $U_\alpha \in \tau \implies \bigcup \limits_{\alpha\in J} U_\alpha \in \tau$  (closed under arbitrary union).
-    \item $U_i \in \tau \implies \bigcap \limits_{i=1}^n U_i \in \tau$  (closed under finite intersection)\footnote{Here $\alpha$ index is used when we want the indexing set $J$ (indexing set means the set from where the incides to denote the elements of the set are taken from) to be arbitrary, meaning that the set $\{U_\alpha\}$ can be finite, countable or uncountable. On the other hand, index $i$ is mostly used when the indexing set is finite.}.
+    \item $U_i \in \tau \implies \bigcap \limits_{i=1}^n U_i \in \tau$  (closed under finite intersection)\footnotemark.
 \end{itemize}
+\end{definition}
+\footnote{Here $\alpha$ index is used when we want the indexing set $J$ (indexing set means the set from where the incides to denote the elements of the set are taken from) to be arbitrary, meaning that the set $\{U_\alpha\}$ can be finite, countable or uncountable. On the other hand, index $i$ is mostly used when the indexing set is finite.}
+
 Well well, this does not look anything like coffee cup and donut which most people associate topology with. That is a case of \textit{homeomorphism} which will be discussed later (hopefully). However, for now let us proceed. The sets belonging to $\tau$ are called \textbf{open sets}. We define a \textbf{closed set} as a set whose complement is open. There are umpteen other definitions like \textbf{closure, boundary, interior, neighbourhood}, etc. Let define few of them \emoji{loudly-crying-face}. 
 \begin{itemize}
     \item \textit{Closure} of a set $A$ is the smallest closed set containing $A$ and is denoted by $\overline{A}$.
@@ -25,7 +30,13 @@ Well well, this does not look anything like coffee cup and donut which most peop
       \caption{A \textbf{Hausdorff Space}, where the points $x$ and $y$ are separated by the open sets $U$ and $V$.}
     \end{figure}
     \item \textit{Topological Continuity}: A function $f: X \to Y$ between two topological spaces is said to be continuous if for every open set $V \in \tau_Y$, the preimage $f^{-1}(V)\footnote{The preimage of a set $Y$ under the function $f$ is defined as $f^{-1}(Y) = \{x|f(x)\in Y\}$. Note that this has nothing to do with inverse of a function (sadly we use the same notation)} \in \tau_X$ is open in $X$.
-    \item \textit{homeomorphism}: A homeomorphism is a bijective function $f: X\to Y$ between two topological spaces such that both $f$ and its inverse $f^{-1}$ are continuous. If such a function exists, we say that the two spaces are \textbf{homeomorphic} and we write $X\cong Y$.
+    \item \textit{Homeomorphism}: A homeomorphism is a bijective function $f: X\to Y$ between two topological spaces such that both $f$ and its inverse $f^{-1}$ are continuous. If such a function exists, we say that the two spaces are \textbf{homeomorphic} and we write $X\cong Y$.
+    \item \textit{Cover:} A cover of a topological space $X$ is a collection of sets $\{U_\alpha \}$whose union is $X$ that is, $\bigcup\limits_\alpha U_\alpha = X$. If each set is an open set, then it is called an \textbf{open cover}. If there exists a finite collection of subsets of the cover such that their union is $X$, that is, $\bigcup\limits_{i=1}^k U_i = X$ then it is called a \textbf{finite subcover}.
+    \begin{figure}[H]
+    \centering
+    \input{plot&diagrams/opencov.tex}
+    \caption{Open cover of a space}
+  \end{figure}
   \end{itemize}
 \subsection{Manifolds}
 Let us see some pictures. 
@@ -53,7 +64,23 @@ Let us see some pictures.
   \caption{\textbf{What's common in all these?}}
 \end{figure}
 \noindent
-So, what is common in all these pictures? Note that they all look very different from each other but if we really ZOOM in \emoji{mag-right} we can see that each of them look alike, like a \textit{flat plane}. Well, the road ahead of us looks flat but the road is on the freaking Earth which is, let's say to a physicist's satisfaction, a sphere. So, we can say that all of these things look `locally' like the flat plane $\mathbb{R}^2$. This is essentially the idea behind a \textbf{manifold}, things which look locally Euclidean. 
+So, what is common in all these pictures? Note that they all look very different from each other but if we really ZOOM in \emoji{mag-right} we can see that each of them look alike, like a \textit{flat plane}. Well, the road ahead of us looks flat but the road is on the freaking Earth which is, let's say to a physicist's satisfaction, a sphere. So, we can say that all of these things look `locally' like the flat plane $\mathbb{R}^2$. This is essentially the idea behind a \textbf{manifold}, things which look locally Euclidean (like $\mathbb{R}^n$). Let us define manifolds formally:
+\begin{definition}[Manifold]
+  $\mathcal{M}$ is a m-dimensional manifold if:
+  \begin{itemize}
+    \item $\mathcal{M}$ is a topological space.
+    \item There exists an open cover $\{U_\alpha\}$ of $\mathcal{M}$ and for each $\alpha$, there exists a homeomorphism $\phi_\alpha: U_\alpha \to V_\alpha$ where $V_\alpha$ is an open subset of $\mathbb{R}^m$.
+    \item Two open sets $U_i, U_j$ such that $U_i \cap U_j \neq \emptyset$, then the map $\psi_{ij} = \phi_i \circ \phi_j^{-1}$ is a smooth map \footnotemark, where $\psi_{ij}: \phi_j(U_i \cap U_j) \to \phi_i(U_i \cap U_j)$.
+  \end{itemize}
+\end{definition}
+\footnotetext{
+A smooth map is a function which is infinitely differentiable, that is, all the derivatives exist and are continuous. Sometimes a smooth map $f$ is said to belong to the class $C^\infty$. In general, $C^k$ is the class of functions which are $k$ times continuously differentiable. }
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/manifold.tex}
+  \caption{The figure shows the third point in the definition. So basically we see where the homeomorphism maps the intersection of the open sets and then define the map $\psi_{ij}$ between these two regions.}
+\end{figure}
+The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps). 
 \subsection{Tangent Spaces}
 \subsection{Differential Forms}
 % \textit{Definition.} Suppose $C\subset \mathbb{R}^2$ be a curve and let $p\in C$ is a point. The tangent space to $C$ at $p$ is the set of all vectors tangent to $C$ at $p$ and is denoted by $T_pC$. 
