@@ -20,3 +20,11 @@ $$v_i = g_{ij} v^j$$
 Thus when changing from contravariant to covariant, we just need to invoke the holy metric tensor (to be dicussed later further).\\[0.3cm]
 \noindent
 \textbf{Note:} In the Cartesian coordinates, the metric tensor is the Kronecker delta, that is, $g_{nm} = \delta_{nm}$ and hence the components of the vectors and dual vectors are the same, that is, $x^i = x_i$. 
+\textbf{Transformation of dual vectors:}
+We had seen the transformation of the vectors. Now, generally we want to keep the inner product same in any basis that we choose. Then, we have:
+\begin{align*}
+    A'^iA'_i &= A^j A_j\\
+  \implies\  \pdv{x'^i}{x^j}\cancel{ A^j} A'_i &= \cancel{A^j} A_j\\
+   \implies\ \pdv{x'^i}{x^j} A'_i &= A_j \\
+   \implies\ A'_i &= \pdv{x^j}{x'^i} A_j
+\end{align*}

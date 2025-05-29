@@ -51,3 +51,12 @@ $$c^2 d\tau^2 = c^2dt^2-dx^2-dy^2-dz^2 = c^2dt^2\brac{1 - \frac{dx^2+dy^2+dz^2}{
 From this we have
 $$\boxed{\dv{\tau}{t} = \sqrt{1- \frac{v^2}{c^2}}:=\frac{1}{\gamma}}$$
 
+\subsection{Metric Tensor is a Tensor!}
+Okay, we so since beginning we had been calling \textit{g} to be the metric \textit{tensor}. But hey, why so? Let us show that it is indeed a tensor. We have said that the displacement \sout{doesn't} shouldn't change. So we have:
+$$ds^2 = ds'^2 \ \implies g_{\alpha \beta}x^\alpha x^\beta =  g'_{\mu \nu}x'^\mu x'^\nu$$
+We already know how the coordinates transform, so well let's put that:
+$$g_{\alpha \beta}x^\alpha x^\beta =  g'_{\mu\nu}\pdv{x'^\mu}{x^\alpha} \pdv{x'^\nu}{x^\beta} x^\alpha x^\beta$$
+Since the coordinates are arbitrary (lol, the OG reason we use everytime to compare both sides), we have finally that:
+$$g_{\alpha \beta} = \pdv{x'^\mu}{x^\alpha} \pdv{x'^\nu}{x^\beta}g'_{\mu\nu}$$
+It indeed transforms like a tensor and hence is a tensor. 
+\subsection{Relating Ordinary and Co/Contra components}

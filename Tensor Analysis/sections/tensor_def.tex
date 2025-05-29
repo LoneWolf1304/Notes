@@ -38,11 +38,26 @@ We had studied about polarisation in dielectrics in our classical electrodynamic
 $$\veb{P} = \epsilon_0\chi\veb{E}$$
 Here we had taken the electric field to be parallel to the polarisation vector but in general, these are related by the susceptibility tensor as:
 $$P^i = \epsilon_0\chi^{ij}E^{j}$$
+\subsection{Gradient}
+The components of the gradient (basically partial derivative) are covariant. We denote it with a lower index explicitly to show that it is a covariant vector:
+$$\partial_\mu \equiv \pdv{x^\mu}$$
+Then accordingly we will have:
+$$\partial^\mu \equiv \pdv{x_\mu} \quad \quad \partial^\mu = g^{\mu\nu}\partial_\nu$$
 \subsection{Tensor Transformations}
 As previously seen for vector transformation, the transformation of a tensor from one system to another is very similar. For simplicity, we show for a second rank tensor:
 $$\tensor{T }{^{\prime ij}} = \pdv{x^{\prime i}}{x^k} \pdv{x^{\prime j}}{x^n} \tensor{T}{^{kn}}$$
 This is simple: in the left everything is prime and contravariant, so in the right the numerator must have primes and the denominator must have unprimed indices and contraction should be done so as to match the contra and co indices on both sides in the final expansion. Well, this transformation law is such a nice thing that many people say that: 
 $$\boxed{\mathrm{Tensors\ are \ defined\ in\ the\ way\ they\ transform}}$$
+Let us see some more examples of tensors and their transformation from lower to upper indices (it's easy, just use the metric tensor appropriately):
+\begin{align*}
+    \tensor{T}{^\mu^\nu} &=g^{\rho\mu}g^{\sigma\nu} \tensor{T}{_\rho_\sigma}\\
+    \tensor{T}{^\mu _\nu} &=\tensor{g}{^\mu _\rho}\tensor{g}{^\sigma _\nu} \tensor{T}{^\rho _\sigma}
+\end{align*}
+Lastly we show an example of a mixed tensor transformation from one system to another \emoji{fire}:
+\begin{align*}
+    \tensor{T}{^{\prime\mu} _\nu _\rho} =\pdv{x^\beta}{x'^\rho}\ \pdv{x^\alpha}{x'^\nu} \ \pdv{x'^\mu}{x^\sigma}  \tensor{T}{^\sigma _\alpha _\beta}
+\end{align*}
+So basically, while changing the covariant indices, the prime is in the denominator and for contravariant, it is above. And then the positioning of the indices is trivial (I guess...)
 \subsection{Matrices vs. Tensor? same same but different....}
 Not all matrices are second-rank tensors \emoji{expressionless}. Yes, the components of a second-rank tensor can be arranged in a matrix form but there are many matrices which do not transform according to the above equation. Take for example the following matrix, which we assume as a tensor:
 $$[T^{lm}] \equiv \begin{pmatrix}
