@@ -60,3 +60,88 @@ Since the coordinates are arbitrary (lol, the OG reason we use everytime to comp
 $$g_{\alpha \beta} = \pdv{x'^\mu}{x^\alpha} \pdv{x'^\nu}{x^\beta}g'_{\mu\nu}$$
 It indeed transforms like a tensor and hence is a tensor. 
 \subsection{Relating Ordinary and Co/Contra components}
+Okay, so for this section, forget the Einstein summation rule. We will explicitly use the Sigma \emoji{flexed-biceps} symbol to denote the sum when needed. \\[0.3cm]
+
+So, we consider the `ordinary vectors' whose components are just the coefficients of the unit basis vectors. For example:
+\begin{align*}
+    \widetilde{\veb{A}} &= \widetilde{A}_x \hat{i}+\widetilde{A}_y \hat{j}+\widetilde{A}_z \hat{k}\\
+    &=\widetilde{A}_\rho \hat{\rho}+\widetilde{A}_\phi \hat{\phi}+\widetilde{A}_z \hat{k}
+\end{align*}
+The subscripts do not mean contravariant here, these are just index of the components. To distinguish this, we use tilde to denote the ordinary vector components. Now, note that we had written the displacement as:
+$$ds^2 = \sum\limits_{\mu\nu} g_{\mu\nu}dx^\mu dx^\nu$$
+In a diagonal metric tensor then, each component of the metric can be written as $g_{\mu\nu} = h_\mu^2\delta_{\mu\nu}$ (no sum is there). For example, see the displacement in spherical polar coordinates:
+$$ds^2 = dr^2 + r^2 d\theta^2 + r^2\sin\theta^2 d\phi^2$$
+So, $h_1 = 1, h_2 = r, h_3 = r\sin\theta$. We then do this magic and define the contravariant component to be:
+$$A^\mu = \frac{\widetilde{A}_\mu}{h_\mu}$$
+\textbf{So why does that make sense?}\\[0.3cm]
+Note that for ordinary vectors, we define the dot product as: 
+$$\veb{A}\cdot\veb{B} = \widetilde{A}_1\widetilde{B}_1+\widetilde{A}_2\widetilde{B}_2+\widetilde{A}_3\widetilde{B}_3 =\sum\limits_\mu h_\mu^2 A^\mu B^\mu = \sum\limits_{\mu\nu} g_{\mu\nu}A^\mu B^\nu$$
+We had used the definition of $h$ using the delta function and metric tensor. Thus we see that using this kind of definition, the dot product for ordinary vectors can be made analogous to the definition of the inner product using the metric tensor. Once we have the contravariant components, we can find the covariant using the metric tensor:
+$$A_\mu = \sum\limits_\nu g_{\mu\nu}A^\nu = \sum\limits_\nu h^2_\mu \delta_{\mu\nu} A^\nu = h^2_\mu A^\mu = h_\mu \widetilde{A}^\mu$$
+Let us see an example for the spherical polar coordinates:
+\begin{alignat*}{3}
+    A^1   & = \frac{\widetilde{A}_r}{1}        &\quad\quad  A_1   &= 1 \cdot \widetilde{A}_r \\
+    A^2   & = \frac{\widetilde{A}_\theta}{r}   &\quad\quad  A_2   &= r \cdot \widetilde{A}_\theta \\
+    A^3   & = \frac{1}{\sin\theta} \frac{\widetilde{A}_\phi}{r} &\quad\quad  A_3   &= r\sin\theta \cdot \widetilde{A}_\phi \\
+\end{alignat*}
+\subsubsection{Case of the Gradient}
+We define the ordinary gradient in similar lines to the ordinary vectors. Given a function $f$, the ordinary gradient is just:
+$$\nabla f \equiv \pdv{f}{x}\hat{i}+\pdv{f}{y}\hat{j}+\pdv{f}{z}\hat{k}$$
+So basically we take derivatives with respect to the lengths $x,y \ \text{or} \ z$. On the other hand, we have `covariant' gradient $\partial_\mu$ where we take derivatives with respect to a coordinate. So, in systems where the coordinates do not have the unit of length, like $\theta$ does not have length unit, both of these will differ. We can relate them by:
+$$\nabla_\mu = \frac{1}{h_\mu}\partial_\mu f$$
+Here $\nabla_\mu$ means the ordinary derivative with respect to coordinate $\mu$ but with units of length. Let's clear this with an example of the dear spherical coordinates:
+\begin{alignat*}{3}
+    \nabla_r      & = \frac{1}{h_1} \partial_r f              &\quad& = \partial_r f \\
+    \nabla_\theta & = \frac{1}{h_2} \partial_\theta f         &\quad& = \frac{1}{r} \partial_\theta f \\
+    \nabla_\phi   & = \frac{1}{h_3} \partial_\phi f           &\quad& = \frac{1}{r \sin\theta} \partial_\phi f
+\end{alignat*}
+Note that using this, we easily get the formula for gradient in spherical coordinate:
+$$\nabla f = \pdv{f}{r}\veb{\hat{r}} +\frac{1}{r} \pdv{f}{\theta} \veb{\hat{\theta}}+\frac{1}{r \sin\theta} \pdv{f}{\phi}\veb{\hat{\phi}}$$
+\subsubsection{Jacobian}
+Let us take the example of a curve $C$ enclosing some area. We have two coordinate systems, $\{x,y\}$ and $\{x',y'\}$ with transformations given by:
+$$x' = f(x,y)\quad\quad y'=g(x,y)$$. Let $a$ and $b$ be the point on the x-axis where the tangent to the curve is vertical. 
+\begin{figure}[H]
+    \centering
+    \input{plot&diagrams/jac.tex}
+    \caption{Measuring area in two coordinate systems}
+\end{figure}
+\noindent
+Now, the area enclosed by the curve in the $\{x,y\}$ system is given by:
+$$A = \int\limits_a^b y_{\mathrm{blue}}(x) dx - \int\limits_a^b y_{\mathrm{black}}(x) dx = \int\limits_a^b y_{\mathrm{blue}}(x) dx + \int\limits_b^a y_{\mathrm{black}}(x) dx = -\oint\limits_{C}y dx$$ 
+The negative sign comes since the curve is taken anti-clockwise. Similarly for the $\{x',y'\}$ system, we have:
+\begin{align*}
+    A' &= -\oint\limits_{C}y' dx' 
+\end{align*}
+Note that $y'$ in the integrand is the y' coordinate. We are basically integrating the value $ydx$ over the curve. Then we can write:
+\begin{align*}
+    A' &= -\oint\limits_{C}y' dx' \\
+    &= -\oint\limits_{C}g(x,y)\brac{\pdv{f}{x}dx+\pdv{f}{y}dy}\\
+    &= -\oint\limits_{C}(M_xdx + M_ydy)\\
+    &= -\oint\limits_{C} \veb{M}\cdot d\veb{r}\\
+&= -\int\int\limits_S (\nabla\times \veb{M})\cdot \veb{\hat{n}}\ da
+\end{align*}
+where have defined $M_x = g(x,y)\pdv{f}{x}\equiv gf_x$ and $M_y = g(x,y)\pdv{f}{y}\equiv gf_y$ and used Stokes' Theorem.
+In our case, $\veb{\hat{n}}$ is along the z-direction and $da \equiv dxdy$, so only $(\nabla\times \veb{M})_z = \pdv{M_y}{x}-\pdv{M_x}{y}$ will survive. Thus, we finally have:
+\begin{align*}
+    A' &=-\iint\limits_S \brac{\pdv{(gf_y)}{x}-\pdv{(gf_x)}{y}}dxdy\\
+    &=-\iint\limits_S \brac{\cancel{g\pdv{f_y}{x}}+f_y\pdv{g}{x}-\cancel{g\pdv{f_x}{y}}-f_x\pdv{g}{y}}dxdy\\
+    &=-\iint\limits_S \brac{\pdv{f}{y}\pdv{g}{x} - \pdv{f}{x}\pdv{g}{y}}dxdy\\
+    &=\iint\limits_S \brac{  \pdv{x'}{x}\pdv{y'}{y}-\pdv{x'}{y}\pdv{y'}{x}}dxdy\\
+    &=\iint\limits_S \det \begin{bmatrix}
+        \pdv{x'}{x} & \pdv{x'}{y} \\[0.2cm]
+        \pdv{y'}{x} & \pdv{y'}{y}
+    \end{bmatrix} dxdy
+\end{align*}
+Note that the terms in the second step cancelled because partial derivatives commute. Like we have terms like $\pdv{f_x}{y}\equiv \frac{\partial^2 f}{\partial x\partial y}$ and $\pdv{f_y}{x}\equiv \frac{\partial^2 f}{\partial y\partial x}$, both of which are equal. Now we define this weird determinant with a high-sounding name called Jacobian:
+$$\mathrm{J} := \det \begin{bmatrix}
+        \pdv{x'}{x} & \pdv{x'}{y} \\[0.2cm]
+        \pdv{y'}{x} & \pdv{y'}{y}
+    \end{bmatrix}$$
+    Then the integral becomes:
+    $$A' = \iint\limits_S  \mathrm{J}\ dxdy = \iint\limits_S dx'dy'$$
+    In short notation, we write $\mathrm{J} = \left|\pdv{x'}{x}\right|$. So this serves two purposes: \begin{itemize}
+        \item Firstly, it tells where the prime and the unprimed things come in the matrix. Since unprimed things are in the denominator, we have the unprimed in the denominator in the matrix also. 
+        \item Secondly, it tells us where to put the Jacobian while doing the transformation. Like we can make the mathematicians crazy and write:
+        $$\iint \left|\pdv{x'}{\cancel{x}}\right| \cancel{dxdy} \equiv \iint dx'dy'$$
+        So the unprimed denominator cancels with the unprimed differentials and the net result is the primed thing. So we can say that the from primed to unprimed frame, the Jacobian always comes with `$dxdy$'
+    \end{itemize}

@@ -115,8 +115,14 @@ These functions basically take the value of the angle $\theta$ that a point on t
 \end{figure}
 \noindent
 The same circle can be described by another chart using the stereographic projection, resulting in the \textbf{Mercator Atlas}. \textcolor{red}{show this maybe}..
-Similarly we can prove that the $n$-dimensional sphere is a manifold. 
+Similarly we can prove that the $n$-dimensional sphere is a manifold. \\[0.3cm]
+\textbf{Product Manifold:}\\[0.2cm]
+Let $\mathcal{M}$ be an $m$-dimensional manifold with atlas $\{U_i,\phi_i\}$ and $\mathcal{N}$ be an $n$-dimensional manifold with atlas $\{V_i,\psi_i\}$, then we define the product manifold as an $(m+n)-$ dimensional manifold with atlas $\{U_i\times V_j, (\phi_i\, \psi_j)\}$. So basically we took the Cartesian product of the two coordinate neighbourhoods to define the new neighbourhood and then used the ordered pair of the two homeomorphisms to define the new coordinate function. \\[0.3cm]
+\textit{Example.} The torus is a product manifold of two circles, that is, $T^2 = \mathbb{S}^1\times \mathbb{S}^1$. Note that by our definition, it is a two $(1+1)$ dimensional manifold. We can generalise the notion of torus by taking multiple product of circles: $$T^n = \underbrace{\mathbb{S}^1\times \mathbb{S}^1\times \cdots \times \mathbb{S}^1}_n$$ 
 \subsubsection{Differentiable Maps}
+\begin{definition}[Differentiable Map]
+  Let $f: \mathcal{M}_m \to \mathcal{N}_n$ be a map between two manifolds such that $p\in M, p \mapsto f(p)\in N$
+\end{definition}
 \subsection{Tangent Spaces}
 \subsection{Differential Forms}
 % \textit{Definition.} Suppose $C\subset \mathbb{R}^2$ be a curve and let $p\in C$ is a point. The tangent space to $C$ at $p$ is the set of all vectors tangent to $C$ at $p$ and is denoted by $T_pC$. 
