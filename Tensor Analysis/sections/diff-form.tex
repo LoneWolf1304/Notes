@@ -121,8 +121,31 @@ Let $\mathcal{M}$ be an $m$-dimensional manifold with atlas $\{U_i,\phi_i\}$ and
 \textit{Example.} The torus is a product manifold of two circles, that is, $T^2 = \mathbb{S}^1\times \mathbb{S}^1$. Note that by our definition, it is a two $(1+1)$ dimensional manifold. We can generalise the notion of torus by taking multiple product of circles: $$T^n = \underbrace{\mathbb{S}^1\times \mathbb{S}^1\times \cdots \times \mathbb{S}^1}_n$$ 
 \subsubsection{Differentiable Maps}
 \begin{definition}[Differentiable Map]
-  Let $f: \mathcal{M}_m \to \mathcal{N}_n$ be a map between two manifolds such that $p\in M, p \mapsto f(p)\in N$
+  A map $f: \mathcal{M}_m \to \mathcal{N}_n$ between two manifolds is \textit{differentiable} at $p$ if for any charts $(U,\phi)$ on $\mathcal{M}$ and $(V,\psi)$ on $\mathcal{N}$ (where $p\in U$ and $f(p)\in V$), the map $$\psi \circ f \circ \phi^{-1}: \mathbb{R}^m \rightarrow \mathbb{R}^n$$
+  is a smooth map, that is, the map belongs to $C^\infty$, that is, infinitely continuously differentiable. 
 \end{definition}
+WTH...\emoji{worried-face} what is this weird map that we want to be smooth? Let us see in more details. So, what does $f$ do? It is a map from manifold $\mathcal{M}$ to manifold $\mathcal{N}$ and it maps $p \mapsto f(p)$. So far good...Now, we know that we can obtain coordinate representations using the homeomorphisms. Let them be:
+$$\phi(p) \equiv \{x^\mu\}\quad\quad\quad \psi(f(p)) \equiv \{y^\alpha\}$$
+So what $\psi \circ f \circ \phi^{-1}$ does is, it takes a vector from $\mathbb{R}^m$, sends it back to the manifold $\mathcal{M}$, applies $f$ to it to send it to manifold $\mathcal{N}$ and then sends it to $\mathbb{R}^n$, so finally we obtain a $n$ element output from $m$ element input, using $f$. So this is just the usual map like what we write $\veb{y} = f(\veb{x})$. Lol, this is nothing but the differentiability of a function, albeit in a more sylish (and appropriate way).
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/diffmap.tex}
+  \caption{Representation of a differentiable map}
+\end{figure}
+Next to come to another \textit{-morphism} related to the differentiable manifolds. 
+\begin{definition}[Diffeomorphism]
+  Let $f: \mathcal{M}_m \rightarrow \mathcal{N}_n$ be a homeomorphism and $\psi$ and $\phi$ be the coordinate functions as defined before. If $\psi\circ f\circ\phi^{-1}$ is invertible and both $\psi\circ f\circ\phi^{-1}$ and its inverse $\phi\circ f^{-1}\circ\psi^{-1}$ are smooth maps, then $f$ is called a \textit{diffeomorphism}. The manifolds are then said to be diffeomorphic to each other.
+\end{definition}
+Well, we had earlier seen that homeomorphisms characterise spaces which can be `continuously' deformed into each other. Diffeomorphism does one thing extra, it characterises spaces which are transformed `smoothly' into each other. Evidently, a diffeomorphism is also a homeomorphism. If two spaces a diffeomorphic, then their dimensions are same, that is $\dim \mathcal{M} = \dim \mathcal{N}$\\[0.3cm]
+The set of diffeomorphisms $f:\mathcal{M}\rightarrow\mathcal{M}$ is a group and is denoted by $\mathrm{Diff}(\mathcal{M})$. 
+\subsubsection{Curves}
+
 \subsection{Tangent Spaces}
 \subsection{Differential Forms}
+
+
+
+
+
+
 % \textit{Definition.} Suppose $C\subset \mathbb{R}^2$ be a curve and let $p\in C$ is a point. The tangent space to $C$ at $p$ is the set of all vectors tangent to $C$ at $p$ and is denoted by $T_pC$. 
