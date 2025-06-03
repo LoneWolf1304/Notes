@@ -98,8 +98,9 @@ Here $\nabla_\mu$ means the ordinary derivative with respect to coordinate $\mu$
 Note that using this, we easily get the formula for gradient in spherical coordinate:
 $$\nabla f = \pdv{f}{r}\veb{\hat{r}} +\frac{1}{r} \pdv{f}{\theta} \veb{\hat{\theta}}+\frac{1}{r \sin\theta} \pdv{f}{\phi}\veb{\hat{\phi}}$$
 \subsubsection{Jacobian}
+We had often written (while doing some calculations in classical mechanics) $dm = \rho dV \equiv \rho dxdydz$. Now, since mass is a scalar (duh!), there is no reason to disbelief that $dm$ is also a scalar. We know that $dV$ is not a scalar (here by $dV$ I mean the product of the differentials), I mean $dV$ depends on the coordinate system, $dxdxydx \neq dx'dy'dz'$. And, since $\rho$ and $dV$ combine to give a scalar, $\rho$ can also not be a scalar. So, let's see how to deal with this.\\[0.3cm]
 Let us take the example of a curve $C$ enclosing some area. We have two coordinate systems, $\{x,y\}$ and $\{x',y'\}$ with transformations given by:
-$$x' = f(x,y)\quad\quad y'=g(x,y)$$. Let $a$ and $b$ be the point on the x-axis where the tangent to the curve is vertical. 
+$$x' = f(x,y)\quad\quad y'=g(x,y)$$ Let $a$ and $b$ be the point on the x-axis where the tangent to the curve is vertical. 
 \begin{figure}[H]
     \centering
     \input{plot&diagrams/jac.tex}
@@ -139,9 +140,30 @@ $$\mathrm{J} := \det \begin{bmatrix}
     \end{bmatrix}$$
     Then the integral becomes:
     $$A' = \iint\limits_S  \mathrm{J}\ dxdy = \iint\limits_S dx'dy'$$
-    In short notation, we write $\mathrm{J} = \left|\pdv{x'}{x}\right|$. So this serves two purposes: \begin{itemize}
+    In short notation, we write $\mathrm{J} = \left|\pdv{x'}{x}\right|$. Well the thing is, technically we should call the Jacobian matrix as $\mathrm{J}$ but it's fine I guess. Just understand from the context. So this serves two purposes: \begin{itemize}
         \item Firstly, it tells where the prime and the unprimed things come in the matrix. Since unprimed things are in the denominator, we have the unprimed in the denominator in the matrix also. 
         \item Secondly, it tells us where to put the Jacobian while doing the transformation. Like we can make the mathematicians crazy and write:
         $$\iint \left|\pdv{x'}{\cancel{x}}\right| \cancel{dxdy} \equiv \iint dx'dy'$$
         So the unprimed denominator cancels with the unprimed differentials and the net result is the primed thing. So we can say that the from primed to unprimed frame, the Jacobian always comes with `$dxdy$'
     \end{itemize}
+    Generalising this to a volume element, we would have obtained $dx' dy' dz' = \mathrm{J}dx dy dz$
+    \subsubsection{Relating Metric and Jacobian}
+    We take the absolute value of the determinant of both sides of the metric tensor transformation equation:
+    $$\left|\det g'_{\mu\nu}\right| = \left|\det\pdv{x'^\rho}{x^\mu}\right|\left|\det\pdv{x'^\sigma}{x^\nu}\right|\left|\det g_{\rho\sigma}\right|$$
+    Note that the determinants written above are just representations, like they are actually determinants of the matrices whose components are written in the above expression. For simplicity, we will denote the absolute value of the determinant of something simply by $|\cdot|$. Thus, we have 
+    $|g'| = \left|\pdv{x}{x'}\right|^2 |g|$
+    We take the absolute value since we had seen that for pseudo-Riemannian metric, the determinant of $g$ is negative, like the Minkowski metric has determinant -1. Also note that since $\pdv{x}{x'}$ and $\pdv{x'}{x}$ are inverses of each other (again, their matrices), then we have
+    $$\left|\pdv{x}{x'}\right| = \left|\pdv{x'}{x}\right|^{-1}$$ 
+    Then we can write:
+    $$\left|\pdv{x}{x'}\right||g| = \left|\pdv{x'}{x}\right||g'|\implies \mathrm{J}^{-1} |g| = J |g'|$$
+We used the fact that determinant of the inverse matrix is just the inverse (reciprocal) of the determinant. Then we have 
+$$\mathrm{J} = \sqrt{\frac{|g|}{|g'|}}$$
+Then we can write the area transformation as:
+$$\sqrt{|g'|}dx'dy' = \sqrt{|g|}dxdy$$
+This quantity is a scalar and this is a \textit{scalar transformation}. Generalising this, we can write for arbitrary dimension:
+$$\sqrt{|g'|}d^nx' = \sqrt{|g|}d^nx$$
+So we saw how volume element changes between coordinate systems. Now, since we have to keep $dq$ or $dm$ for example, to be scalars then we need the density to transform as $\rho' = \mathrm{J}^{-1}\rho$, so that the jacobian cancels from the volume element and it gives us a scalar.\\[0.3cm]
+\textbf{In a nutshell...}\\[0.3cm]
+Any quantity that transform in the following way: 
+$$Q' = J^w Q$$
+is called a \textit{tensor density} of weight $w$. So the volume element is a tensor density of weight $+1$ and the charge or mass density is of weight $-1$. 

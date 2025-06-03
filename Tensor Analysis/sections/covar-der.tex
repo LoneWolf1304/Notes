@@ -1,1 +1,30 @@
 \section{Covariant Derivatives: levelling up the rizz!}
+Till now, we had just seen the transformation of tensors and tensor densities. However, an important aspect of any calculation is the ability to take derivatives \footnote{A person's intellectual prowess can be judged their ability to take derivatives \emoji{smiling-face-with-sunglasses}}. Derivatives occur everywhere in calculations and we need a way to tackle them. So let's start\dots
+
+\subsubsection{Velocity}
+Well velocity is a vector (we had been reminded many a times) and it should then transform as a vector. Now, 
+we know the transformation:
+$$dx'^i = \pdv{x'^i}{x^l}x^l$$
+To find velocity components, we have to differentiate with respect to time $t$. 
+\begin{align*}
+    \dv{x'^i}{t} &= \dv{\pdv{x'^i}{x^l}x^l}{dt}\\
+    &=\pdv{x'^i}{x^l}\dv{x^l}{t} + x^l \dv{\pdv{x'^i}{x^l}}{t}\\
+    &=\pdv{x'^i}{x^l}\dv{x^l}{t} + x^l \pdv{x'^i}{x^k}{x^l}\dv{x^k}{t}
+\end{align*}
+Now we define $v^k = \dv{x^k}{t}$. Then the above expression would give:
+\begin{align*}
+    v'^k = \pdv{x'^i}{x^l}v^l +  \pdv{x'^i}{x^k}{x^l}x^l v^k
+\end{align*}
+The first term gives the proper thing for velocity to be a vector, like the correct transformation. The second term is the BAD term \emoji{face-with-steam-from-nose}. Let's see some examples of this term in some transformation:
+\textbf{Rotation:}\\
+\begin{align*}
+    x' &= x\cos\theta+y\sin\theta\\
+    y'&=-x\sin\theta + y\cos\theta
+\end{align*}
+So we have: 
+\begin{align*}
+    \pdv{x'}{x} = \cos\theta \quad  \pdv{x'}{y} = \sin\theta \quad  \pdv{y'}{x} = -\sin\theta \quad
+    \pdv{y'}{y} = \cos\theta
+\end{align*}
+Note that the first derivatives do not depend on the coordinate anymore. For a fixed $\theta$, the first derivatives are constants. 
+And if we consider the transformation of the velocity components, then the second term will vanish, since these contain double derivatives. Thus, the BAD term vanishes and we happily see that velocity is a vector under rotation. In Galilean transformation ($x'=x-vt, y'=y, z'=z, t'=t$) too, the second term vanish. Even in Lorentz transformation ($t' = \gamma \brac{t-vx}, x=\gamma(x-vt), y'=y, z'=z$) the bad term vanishes. So in basic transformations, velocity is indeed a vector.  
