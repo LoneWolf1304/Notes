@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      view={135}{30},
+      colormap/cool,
+      axis lines=center,
+      xlabel={}, ylabel={}, zlabel={},
+      domain=-2:2,
+      y domain=-2:2,
+      samples=40,
+      samples y=40,xtick=\empty,
+ytick=\empty,
+ztick=\empty
+    ]
+
+    % Paraboloid surface z = x^2 + y^2
+    \addplot3[
+      surf,
+      opacity=0.8
+    ]
+    {x^2 + y^2};
+
+    % Tangent plane at origin z = 0
+    \addplot3 [
+      surf,
+      domain=-1:1,
+      y domain=-1:1,
+      samples=2,
+      samples y=2,
+      fill=yellow,
+      opacity=0.3
+    ]
+    {0};
+
+  
+   
+
+  \end{axis}
+\end{tikzpicture}
