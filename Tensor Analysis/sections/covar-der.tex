@@ -57,6 +57,41 @@ Here we have identified the scary blue term with a symbol with three indices, on
 Note that since derivatives commute\footnote{If a space has something called a `torsion', then the derivatives no longer commute and the following property does not hold true} generally, we have the lower indices of the affine connection to be symmetric, that is,
 $$\tensor{\Gamma}{^\alpha _\mu _\nu} =\tensor{\Gamma}{^\alpha _\nu _\mu}$$
 \subsubsection{Transformation of Affine Connection}
+Note that the affine connection contains both coordinates $X^\alpha$ and $x\mu$. Suppose we want to transform from $x$ to $x'$ coordinate system, then only the $x$ things will be changed, not the $X$ things. Leave the $X$ alone. Anyways, the $X^\alpha$ is getting summed over, so put primes only on the indices which remain finally. So we have:
+\begin{align*}
+    \tensor{(\Gamma')}{^\lambda _\mu _\nu} &= \mathcolor{blue}{\pdv{x'^\lambda}{X^\alpha}}\pdv{X^\alpha}{x'^\mu}{x'^\nu}\\
+    &= \mathcolor{blue}{\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{X^\alpha}}\pdv{X^\alpha}{x'^\mu}{x'^\nu} \quad \text{(using chain rule )}\\
+    &=\brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{X^\alpha}} \pdv{x'^\mu}\brac{\mathcolor{OliveGreen}{\pdv{X^\alpha}{x^\sigma}}\mathcolor{red}{ \pdv{x^\sigma}{x'^\nu}}} \quad \text{(using chain rule again )}\\
+    &=\brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{X^\alpha}}\brac{ { \mathcolor{red}{\pdv{x^\sigma}{x'^\nu}}\pdv{x'^\mu}\brac{\mathcolor{OliveGreen}{\pdv{X^\alpha}{x^\sigma}}} + \mathcolor{OliveGreen}{\pdv{X^\alpha}{x^\sigma}}\pdv{\mathcolor{red}{x^\sigma}}{x'^\mu}{\mathcolor{red}{x'^\nu}}}}\quad \text{(using product rule )}\\
+    &=\brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{X^\alpha}} \brac{\pdv{x^\sigma}{x'^\nu} \pdv{X^\alpha}{x^\kappa}{x^\sigma}\pdv{x^\kappa}{x'^\mu}+ \pdv{X^\alpha}{x^\sigma}\pdv{x^\sigma}{x'^\mu}{x'^\nu}}\quad \text{(using chain rule )}
+\end{align*}
+Well well, I know this was a shitty calculation but hey, sometimes shit is what relieves us! We now focus on the two terms separately in the above expression. 
+\begin{itemize}
+    \item \textbf{The First Term:} $\brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{X^\alpha}}\pdv{x^\sigma}{x'^\nu} \pdv{X^\alpha}{x^\kappa}{x^\sigma}\pdv{x^\kappa}{x'^\mu}$\\[0.3cm]
+This can be rearranged a bit and can be written as 
+$$   \brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\sigma}{x'^\nu} \pdv{x^\kappa}{x'^\mu}}   \brac{\pdv{x^\rho}{X^\alpha}\pdv{X^\alpha}{x^\kappa}{x^\sigma}} \equiv \brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\sigma}{x'^\nu} \pdv{x^\kappa}{x'^\mu}}  \tensor{\Gamma}{^\rho _\kappa _\sigma}$$
+\item \textbf{The Second Term:} $\brac{\pdv{x'^\lambda}{x^\rho}\mathcolor{blue}{\pdv{x^\rho}{X^\alpha}}}\mathcolor{blue}{\pdv{X^\alpha}{x^\sigma}}\pdv{x^\sigma}{x'^\mu}{x'^\nu}$
+The blue terms together gives $\tensor{\delta}{^\rho _\sigma}$ which reduces the expression to:
+$$\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{x'^\mu}{x'^\nu}$$
+\end{itemize}
+Thus, finally we obtain the expression for the transformation of the affine connection:
+$$\boxed{ \tensor{(\Gamma')}{^\lambda _\mu _\nu} = \brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\sigma}{x'^\nu} \pdv{x^\kappa}{x'^\mu}}  \tensor{\Gamma}{^\rho _\kappa _\sigma} +\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{x'^\mu}{x'^\nu} }$$
+Note that the first term is the usual transformation rule for the affine connection but again the second BAD term emerges which, if non-zero, will lead to the affine connection not being a tensor.\\[0.3cm]
+Now note that the BAD term contains the second derivative of the old coordinates with respect to the old coordinates, but generally we have the other way. So it would be a bit nice if we could change it. For that, note the identity and differentiate with respect to $x'^\mu$:
+\begin{align*}
+   &\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{x'^\nu}=\tensor{\delta}{^\lambda_\nu}\\
+\implies & \pdv{x'^\mu}\brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{x'^\nu}}=0\\
+\implies & \brac{\pdv{x'^\lambda}{x^\rho}} \brac{\pdv{x^\rho}{x'^\nu}{x'^\mu} }+ \brac{\pdv{x^\rho}{x'^\nu}}\brac{\pdv{x'^\lambda}{x^\rho}{x'^\mu}}=0\\
+\implies & \brac{\pdv{x'^\lambda}{x^\rho}} \brac{\pdv{x^\rho}{x'^\nu}{x'^\mu} } + \brac{\pdv{x^\rho}{x'^\nu}}\brac{\pdv{x'^\lambda}{x^\rho}{x^\sigma}\pdv{x^\sigma}{x'^\mu}}=0
+\end{align*}
+The first term in the above is exactly the BAD term in the affine connection transformation and thus we replace this. Then we have: 
+$$\boxed{ \tensor{(\Gamma')}{^\lambda _\mu _\nu} = \brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\sigma}{x'^\nu} \pdv{x^\kappa}{x'^\mu}}  \tensor{\Gamma}{^\rho _\kappa _\sigma} - \brac{\pdv{x^\rho}{x'^\nu}}\brac{\pdv{x'^\lambda}{x^\rho}{x^\sigma}\pdv{x^\sigma}{x'^\mu}} }$$
 \subsection{Covariant Derivatives}
+In every transformation seen so far, we had got a BAD term (containing a second derivative) which spoils the transformation. So wouldn't it be nice if we just redefine the definition of a derivative so that this BAD term gets cancelled from the definition only? This brings us to \textit{covariant derivative} 
+\\[0.3cm]
+\textbf{A Notational Nightmare:}
+The symbol of covariant derivative is very confusing. Different people use different notation for it. Some use $D$ for it, some use $\nabla$ while some use $;$. We will use $;$ for it, I guess...\\[0.3cm]
+The covariant derivative of a vector component with respect to a coordinate is defined as \footnote{$\tensor{A}{^\nu _, _\mu}$ means the normal derivative, that is, $\partial_\mu A^\nu$}: 
+$$\tensor{A}{^\lambda _; _\mu} :=  \tensor{A}{^\lambda _, _\mu} +\tensor{\Gamma}{^\lambda _\mu _\nu}A^\nu$$
 \subsection{Relating metric and affine connection}
 \subsection{Curls, divergences and other craps}
