@@ -1,4 +1,4 @@
-\section{Covariant Derivatives: levelling up the rizz!}
+\section{Tensor Derivatives: levelling up the rizz!}
 Till now, we had just seen the transformation of tensors and tensor densities. However, an important aspect of any calculation is the ability to take derivatives \footnote{A person's intellectual prowess can be judged their ability to take derivatives \emoji{smiling-face-with-sunglasses}}. Derivatives occur everywhere in calculations and we need a way to tackle them. So let's start\dots
 
 \subsection{Velocity}
@@ -42,3 +42,21 @@ Imagine the position vector $\veb{r}(t)$ on a flat space. Then the tangent vecto
     \caption{Notice how all the tangents at the lowest point of the paraboloid $(x=0,y=0)$ is constrained to be in the yellow coloured plane. Now only some area around $x=0,y=0$ can be made to look locally like the yellow plane and hence the definition of velocity will be valid only locally, within that patch.   }
 \end{figure}
 \subsection{Affine Connection}
+Suppose in a locally inertial frame, for an object we have zero acceleration, that is:
+$$\dv[2]{X^\alpha}{\uptau} = 0$$
+Suppose the coordinates $X^\alpha \equiv X^\alpha(x^\mu)$ where $x^\mu$ are coordinates of a ground-based inertial reference frame relative to which the object accelerates. Then using chain rule, we have from the previous relation:
+$$\frac{d}{d\uptau}\brac{\pdv{X^\alpha}{x^\mu}\dv{x^\mu}{\uptau}} = 0$$
+
+Using product rule and chain rule again, we have:
+$$\pdv{X^\alpha}{x^\mu}\dv[2]{x^\mu}{\uptau} +\pdv{X^\alpha}{x^\mu}{x^\rho} \dv{x^\rho}{\uptau} \dv{x^\mu}{\uptau}=0$$
+Now we do one nice thing: multiply the above with $\pdv{x^\lambda}{X^\alpha}$:
+$$\pdv{x^\lambda}{X^\alpha}\brac{\pdv{X^\alpha}{x^\mu}\dv[2]{x^\mu}{\uptau}} +\pdv{x^\lambda}{X^\alpha}\brac{\pdv{X^\alpha}{x^\mu}{x^\rho} \dv{x^\rho}{\uptau} \dv{x^\mu}{\uptau}}=0$$
+Doing this, a nice thing occurs but for that we have to note that $\pdv{x^\lambda}{X^\alpha}\pdv{X^\alpha}{X^\mu} = \tensor{\delta}{^\lambda _\mu}$. Then from the first term, we get the kronecker delta and the expression reduces to:
+$$\dv[2]{x^\lambda}{\uptau} +\mathcolor{blue}{\pdv{x^\lambda}{X^\alpha}\pdv{X^\alpha}{x^\mu}{x^\rho}} \dv{x^\rho}{\uptau} \dv{x^\mu}{\uptau}=0 \quad \implies \quad \dv[2]{x^\lambda}{\uptau} +\mathcolor{blue}{\tensor{\Gamma}{^\lambda _\mu _\rho}} \dv{x^\rho}{\uptau} \dv{x^\mu}{\uptau}=0$$
+Here we have identified the scary blue term with a symbol with three indices, one upper and two lower (since in the blue term, there is one upper and two lower indices). This thing, we call the \textbf{affine connection}. 
+Note that since derivatives commute\footnote{If a space has something called a `torsion', then the derivatives no longer commute and the following property does not hold true} generally, we have the lower indices of the affine connection to be symmetric, that is,
+$$\tensor{\Gamma}{^\alpha _\mu _\nu} =\tensor{\Gamma}{^\alpha _\nu _\mu}$$
+\subsubsection{Transformation of Affine Connection}
+\subsection{Covariant Derivatives}
+\subsection{Relating metric and affine connection}
+\subsection{Curls, divergences and other craps}
