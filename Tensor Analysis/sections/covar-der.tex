@@ -7,16 +7,16 @@ we know the transformation:
 $$dx'^i = \pdv{x'^i}{x^l}x^l$$
 To find velocity components, we have to differentiate with respect to time $t$. 
 \begin{align*}
-    \dv{x'^i}{t} &= \dv{\pdv{x'^i}{x^l}x^l}{dt}\\
-    &=\pdv{x'^i}{x^l}\dv{x^l}{t} + x^l \dv{\pdv{x'^i}{x^l}}{t}\\
+    \dv{x'^i}{t} &= \dv{t}\brac{\pdv{x'^i}{x^l}x^l}\\
+    &=\pdv{x'^i}{x^l}\dv{x^l}{t} + x^l \dv{t}\brac{\pdv{x'^i}{x^l}}\\
     &=\pdv{x'^i}{x^l}\dv{x^l}{t} + x^l \pdv{x'^i}{x^k}{x^l}\dv{x^k}{t}
 \end{align*}
 Now we define $v^k = \dv{x^k}{t}$. Then the above expression would give:
 \begin{align*}
-    v'^k = \pdv{x'^i}{x^l}v^l +  \pdv{x'^i}{x^k}{x^l}x^l v^k
+    v'^i = \pdv{x'^i}{x^l}v^l +  \pdv{x'^i}{x^k}{x^l}x^l v^k
 \end{align*}
-The first term gives the proper thing for velocity to be a vector, like the correct transformation. The second term is the BAD term \emoji{face-with-steam-from-nose}. Let's see some examples of this term in some transformation:
-\textbf{Rotation:}\\
+The first term gives the proper thing for velocity to be a vector, like the correct transformation. The second term is the BAD term \emoji{face-with-steam-from-nose}. Let's see some examples of this term in some transformation:\\[0.3cm]
+\textbf{Rotation:}
 \begin{align*}
     x' &= x\cos\theta+y\sin\theta\\
     y'&=-x\sin\theta + y\cos\theta
@@ -36,11 +36,11 @@ And if we consider the transformation of the velocity components, then the secon
 Again, the first term is the usual thing but the BAD term appears again! Notice how always the bad term contains a double derivative. Now we know that double derivatives have something to do with curvatures. Let us clarify a bit more.\\[0.3cm]
 Imagine the position vector $\veb{r}(t)$ on a flat space. Then the tangent vector to a point having position $\veb{r}(t)$, say $\veb{v}$, will lie entirely on the same space, right? But now, imagine the space being curved. Now if we draw the tangent, it will inevitable leave the space. Imagine the people living on the surface of a sphere. The velocity vector for a moving body in the space will be tangent to the sphere and points off of it. So, for the inhabitants, the velocity vector doesn't exist since it is not contained entirely on the space (Is this the same case with \textit{God}? Hmm, something to think about \emoji{thinking}). What they can do it, just take some small patch of the sphere (which is flat) where the tangent touches the surface and around it, locally, they can define the velocity vector. So, in general the velocity is not a tensor in curved space, where the second derivative is non-zero. 
 
-\begin{figure}[H]
-    \centering 
-    \input{plot&diagrams/tangent.tex}
-    \caption{Notice how all the tangents at the lowest point of the paraboloid $(x=0,y=0)$ is constrained to be in the yellow coloured plane. Now only some area around $x=0,y=0$ can be made to look locally like the yellow plane and hence the definition of velocity will be valid only locally, within that patch.   }
-\end{figure}
+% \begin{figure}[H]
+%     \centering 
+%     \input{plot&diagrams/tangent.tex}
+%     \caption{Notice how all the tangents at the lowest point of the paraboloid $(x=0,y=0)$ is constrained to be in the yellow coloured plane. Now only some area around $x=0,y=0$ can be made to look locally like the yellow plane and hence the definition of velocity will be valid only locally, within that patch.   }
+% \end{figure}
 \subsection{Affine Connection}
 Suppose in a locally inertial frame, for an object we have zero acceleration, that is:
 $$\dv[2]{X^\alpha}{\uptau} = 0$$
@@ -57,7 +57,7 @@ Here we have identified the scary blue term with a symbol with three indices, on
 Note that since derivatives commute\footnote{If a space has something called a `torsion', then the derivatives no longer commute and the following property does not hold true} generally, we have the lower indices of the affine connection to be symmetric, that is,
 $$\tensor{\Gamma}{^\alpha _\mu _\nu} =\tensor{\Gamma}{^\alpha _\nu _\mu}$$
 \subsubsection{Transformation of Affine Connection}
-Note that the affine connection contains both coordinates $X^\alpha$ and $x\mu$. Suppose we want to transform from $x$ to $x'$ coordinate system, then only the $x$ things will be changed, not the $X$ things. Leave the $X$ alone. Anyways, the $X^\alpha$ is getting summed over, so put primes only on the indices which remain finally. So we have:
+Note that the affine connection contains both coordinates $X^\alpha$ and $x\mu$. Suppose we want to transform from $x$ to $x'$ coordinate system, then only the $x$ things will be changed, not the $X$ things. Leave the $X$ alone because the transformation being studied is specifically about how the connection coefficients behave when you change coordinate systems on the ground. So we have:
 \begin{align*}
     \tensor{(\Gamma')}{^\lambda _\mu _\nu} &= \mathcolor{blue}{\pdv{x'^\lambda}{X^\alpha}}\pdv{X^\alpha}{x'^\mu}{x'^\nu}\\
     &= \mathcolor{blue}{\pdv{x'^\lambda}{x^\rho}\pdv{x^\rho}{X^\alpha}}\pdv{X^\alpha}{x'^\mu}{x'^\nu} \quad \text{(using chain rule )}\\
@@ -89,9 +89,88 @@ $$\boxed{ \tensor{(\Gamma')}{^\lambda _\mu _\nu} = \brac{\pdv{x'^\lambda}{x^\rho
 \subsection{Covariant Derivatives}
 In every transformation seen so far, we had got a BAD term (containing a second derivative) which spoils the transformation. So wouldn't it be nice if we just redefine the definition of a derivative so that this BAD term gets cancelled from the definition only? This brings us to \textit{covariant derivative} 
 \\[0.3cm]
-\textbf{A Notational Nightmare:}
+\textbf{A Notational Nightmare:}\\[0.3cm]
 The symbol of covariant derivative is very confusing. Different people use different notation for it. Some use $D$ for it, some use $\nabla$ while some use $;$. We will use $;$ for it, I guess...\\[0.3cm]
-The covariant derivative of a vector component with respect to a coordinate is defined as \footnote{$\tensor{A}{^\nu _, _\mu}$ means the normal derivative, that is, $\partial_\mu A^\nu$}: 
-$$\tensor{A}{^\lambda _; _\mu} :=  \tensor{A}{^\lambda _, _\mu} +\tensor{\Gamma}{^\lambda _\mu _\nu}A^\nu$$
+The covariant derivative of a vector component with respect to a scalar is defined as\footnote{$\tensor{A}{^\nu _, _\mu}$ means the normal derivative, that is, $\partial_\mu A^\nu$}:
+$$\tensor{A}{^\lambda _; _\uptau} := \tensor{A}{^\lambda _, _\uptau}+ \tensor{\Gamma}{^\lambda _\mu _\nu}\dv{x^\mu}{\uptau}A^\nu$$
+The covariant derivative of a vector component with respect to a coordinate is then: 
+$$\tensor{A}{^\lambda _; _\mu} =  \tensor{A}{^\lambda _, _\mu} +\tensor{\Gamma}{^\lambda _\mu _\nu}A^\nu$$
+Notice how the taking derivative with respect to the coordinate gives 1 from the previous expression. The covariant derivative of a covariant component is similarly defined:
+$$\tensor{A}{_\lambda _; _\mu} :=  \tensor{A}{_\lambda _, _\mu} +\tensor{\Gamma}{^\alpha _\lambda _\nu}A_\alpha$$
+\subsubsection{Transformation of Covariant Derivative}
+In the primed frame, we have: 
+\begin{align*}
+\tensor{{A'}}{^\lambda _{;\uptau}} &= \tensor{{A'}}{^\lambda _{,\uptau}} + \tensor{{\Gamma'}}{^\lambda _{\mu \nu}} \dv{x'^\mu}{\uptau} \tensor{{A'}}{^\nu} \\
+&= \left( \pdv{x'^\lambda}{x^l} \dv{A^l}{\uptau} 
++ A^l \pdv{x'^\lambda}{x^k}{x^l} \dv{x^k}{\uptau} \right) \\
+&\quad + \Bigg[ 
+\brac{\pdv{x'^\lambda}{x^\rho}\pdv{{x^\sigma}}{{x'^\nu}} \pdv{{x^\kappa}}{{x'^\mu}}}  \tensor{\Gamma}{^\rho _\kappa _\sigma} - \brac{\pdv{{x^\rho}}{{x'^\nu}}}\brac{\pdv{x'^\lambda}{x^\rho}{x^\sigma}\pdv{{x^\sigma}}{{x'^\mu}}}  \Bigg]
+ \\
+&\qquad \times \left( 
+\pdv{x'^\mu}{x^\omega} \dv{x^\omega}{\uptau} 
++ x^\omega \pdv[2]{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} 
+\right)
+\pdv{{x'^\nu}}{{x^\theta}} A^\theta
+\end{align*}
+
+% The first red term gives $\tensor{\delta}{^\sigma _\theta}$ while the second term gives $\tensor{\delta}{^\rho _\theta}$ with the last red term. Thus, after reducing this, the expression becomes:
+% \begin{align*}
+%     \tensor{{A'}}{^\lambda _{;\uptau}}  &= \left( \pdv{x'^\lambda}{x^l} \dv{A^l}{\uptau} 
+% + \mathcolor{purple}{A^l \pdv{x'^\lambda}{x^k}{x^l} \dv{x^k}{\uptau}} \right)\\ 
+% &\quad + \Bigg[ 
+% \brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\kappa}{x'^\mu}}  \left( 
+% \pdv{x'^\mu}{x^l} \dv{x^l}{\uptau} 
+% + x^l \pdv[2]{x'^\mu}{x^k}{x^l} \dv{x^k}{\uptau} 
+% \right) \tensor{\Gamma}{^\rho _\kappa _\sigma} A^\sigma
+%  \\
+%  & - \mathcolor{OliveGreen}{\brac{\pdv{x^\sigma}{x'^\mu}}\brac{\pdv{x'^\lambda}{x^\rho}{x^\sigma}}}  \left( 
+% \mathcolor{OliveGreen}{\pdv{x'^\mu}{x^l} \dv{x^l}{\uptau} }
+% + x^l \pdv[2]{x'^\mu}{x^k}{x^l} \dv{x^k}{\uptau} 
+% \right)
+%  A^\rho \Bigg]
+% \end{align*}
+% Note the green term, after repeated contractions, become: 
+% $${\brac{\pdv{\mathcolor{Aquamarine}{x^\sigma}}{x'^\mu}}\brac{\pdv{x'^\lambda}{x^\rho}{\mathcolor{Aquamarine}{x^\sigma}}}}  \left( 
+% {\pdv{x'^\mu}{x^l} \dv{x^l}{\uptau} }\right) ={\brac{\pdv{x'^\lambda}{x^\rho}{\mathcolor{Brown}{x'^\mu}}}}  \left( 
+% {\pdv{\mathcolor{Brown}{x'^\mu}}{x^l} \dv{x^l}{\uptau} }\right) = {\brac{\pdv{x'^\lambda}{x^\rho}{{x^l}}}}  \left( 
+% { \dv{x^l}{\uptau} }\right)$$
+% This is equal to the first term, if the indices in the first term and second term are like this: $\rho \leftrightarrow l $ and $k \leftrightarrow l$. However, the thing is, since these indices are summed over (they don't remain in the final expression), we can indeed do this (it is like calling someone who doesn't actually matter, by some other name). And hence the purple and green terms cancel \emoji{relieved} and the expression becomes:  
+
+Let's see this term by term. 
+\begin{itemize}
+    \item \textbf{The First Term:} Transformation of normal derivative 
+    $$ \boxed{\pdv{x'^\lambda}{x^l} \dv{A^l}{\uptau} }
++ \mathcolor{OliveGreen}{A^l \pdv{x'^\lambda}{x^q}{x^l} \dv{x^q}{\uptau}}$$
+This is fine for now. Let's leave it here!
+    \item \textbf{The Second Term:} Multiplication of three individual terms
+    Well, this is the monster \emoji{alien-monster} actually. When expanded, it will have four terms. Let us write them one by one: 
+    \begin{enumerate}
+        \item After reducing the Kronecker delta, the final expression becomes: \begin{align*} 
+            \pdv{x'^\lambda}{x^\rho}\pdv{{x^\sigma}}{\mathcolor{blue}{x'^\nu}} \pdv{{x^\kappa}}{\mathcolor{purple}{x'^\mu}}\pdv{\mathcolor{blue}{x'^\nu}}{x^\theta}\pdv{\mathcolor{purple}{x'^\mu}}{x^\omega}\dv{x^\omega}{\uptau}\tensor{\Gamma}{^\rho _\kappa _\sigma}A^\theta =\boxed{\pdv{x'^\lambda}{x^\rho}\dv{x^\kappa}{\uptau}\tensor{\Gamma}{^\rho _\kappa _\sigma}A^\sigma}
+        \end{align*}
+        \item After reducing the Kronecker delta, we have:
+        \begin{align*}
+            - {\pdv{{x^\rho}}{\mathcolor{blue}{x'^\nu}}}{\pdv{x'^\lambda}{x^\rho}{x^\sigma}\pdv{{x^\sigma}}{{\mathcolor{red}{{x'^\mu}}}}}\pdv{\mathcolor{blue}{x'^\nu}}{x^\theta}\pdv{\mathcolor{red}{x'^\mu}}{x^\omega}\dv{x^\omega}{\uptau}A^\theta = -\mathcolor{OliveGreen}{\pdv{x'^\lambda}{x^\rho}{x^\sigma} \dv{x^\sigma}{\uptau}A^\rho}
+        \end{align*}
+        Note this final term and the \textbf{first term}, both of these differ only by the fact that $q\rightarrow \sigma$ and $l \rightarrow \rho$ but since these are dummy indices, we can just rename them and these terms are actually equal but we have a minus sign in this term, so this cancels with the first term. 
+        \item After reducing the Kronecker delta, we have:
+        \begin{align*}
+            \pdv{x'^\lambda}{x^\rho} \pdv{x^\kappa}{x'^\mu} \pdv{x'^\sigma}{\mathcolor{purple}{x'^\nu}} \pdv{\mathcolor{purple}{x'^\nu}}{x^\theta} \pdv{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} x^\omega \tensor{\Gamma}{^\rho_\kappa _\sigma} A^\theta = \pdv{x'^\lambda}{x^\rho} \pdv{x^\kappa}{x'^\mu} \pdv{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} x^\omega \tensor{\Gamma}{^\rho_\kappa _\sigma} A^\sigma
+        \end{align*}
+        \item Same, after reducing the Kronecker delta, we have: \begin{align*}
+           - \pdv{x^\sigma}{x'^\mu} \pdv{x^\rho}{\mathcolor{cyan}{x'^\nu}} \pdv{\mathcolor{cyan}{x'^\nu}}{x^\theta} \pdv{x'^\lambda}{x^\rho}{x^\sigma}\pdv{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} x^\omega  A^\theta = -\pdv{x^\sigma}{x'^\mu}  \pdv{x'^\lambda}{x^\rho}{x^\sigma}\pdv{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} x^\omega  A^\rho
+        \end{align*}
+    \end{enumerate}
+\end{itemize}
+Okay, so the green terms cancel and note the boxed terms, these are actually the terms which should have been in the transformation equation of covariant derivative, if it were a tensor. So, let us now focus on the remaining terms, that is, the last two terms. Note the third term:
+\begin{align*}
+    \pdv{x'^\lambda}{x^\rho} \pdv{x^\kappa}{x'^\mu} \pdv{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} x^\omega \brac{\tensor{\Gamma}{^\rho_\kappa _\sigma}} A^\sigma &= \pdv{x'^\lambda}{\mathcolor{cyan}{x^\rho}} \pdv{x^\kappa}{x'^\mu} \pdv{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} \brac{\pdv{\mathcolor{cyan}{x^\rho}}{x'^\gamma}\pdv{x'^\gamma}{x^\kappa}{x^\sigma}}x^\omega A^\sigma \\
+    &= \pdv{x^\kappa}{x'^\mu} \pdv{x'^\mu}{x^\omega}{x^\beta} \dv{x^\beta}{\uptau} \pdv{x'^\lambda}{x^\kappa}{x^\sigma}x^\omega A^\sigma
+\end{align*}
+We had just replaced the affine connection coefficient and reduced the kronecker delta. Then this turns into the fourth term ($\rho \rightarrow \sigma$ and $\sigma \rightarrow \kappa$) and hence these two terms cancel. Then we remain only with the boxed terms and hence the covariant derivative with respect to a scalar actually transforms as a vector. 
+$$\tensor{{A'}}{^\lambda _{;\uptau}} = \pdv{x'^\lambda}{x^\rho} \dv{A^\rho}{\uptau} +\pdv{x'^\lambda}{x^\rho}\dv{x^\kappa}{\uptau}\tensor{\Gamma}{^\rho _\kappa _\sigma}A^\sigma =  \pdv{x'^\lambda}{x^\rho}\brac{\dv{A^\rho}{\uptau}+\dv{x^\kappa}{\uptau}\tensor{\Gamma}{^\rho _\kappa _\sigma}A^\sigma} = \pdv{x'^\lambda}{x^\rho} \dv{A^\rho}{\uptau}\tensor{A}{^\rho _; _\uptau}$$
+We saw how \textit{easy} it was to show the transformation of covariant derivative. It's going to get easier as we progress. Now, similar to the above, we can show that the covariant derivative with respect to a coordinate is a second-rank tensor. 
+$$\tensor{{A'}}{^\lambda _{;\mu}} =\pdv{x'^\lambda}{x^\rho} \pdv{x^\sigma}{x'^\mu}\tensor{A}{^\rho _; _\mu}$$
 \subsection{Relating metric and affine connection}
+
 \subsection{Curls, divergences and other craps}

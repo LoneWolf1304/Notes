@@ -67,8 +67,8 @@ Let us see some pictures.
 \end{figure}
 \noindent
 So, what is common in all these pictures? Note that they all look very different from each other but if we really ZOOM in \emoji{mag-right} we can see that each of them look alike, like a \textit{flat plane}. Well, the road ahead of us looks flat but the road is on the freaking Earth which is, let's say to a physicist's satisfaction, a sphere. So, we can say that all of these things look `locally' like the flat plane $\mathbb{R}^2$. This is essentially the idea behind a \textbf{manifold}, things which look locally Euclidean (like $\mathbb{R}^n$). Let us define manifolds formally:
-\begin{definition}[Manifold]
-  $\mathcal{M}$ is a m-dimensional manifold if:
+\begin{definition}[Differentiable Manifold]
+  $\mathcal{M}$ is a m-dimensional differentiable manifold if:
   \begin{itemize}
     \item $\mathcal{M}$ is a topological space.
     \item There exists an open cover $\{U_\alpha\}$ of $\mathcal{M}$ and for each $\alpha$, there exists a homeomorphism $\phi_\alpha: U_\alpha \to V_\alpha$ where $V_\alpha$ is an open subset of $\mathbb{R}^m$.
@@ -82,7 +82,7 @@ A smooth map is a function which is infinitely differentiable, that is, all the 
   \input{plot&diagrams/manifold.tex}
   \caption{The figure shows the third point in the definition. So basically we see where the homeomorphism maps the intersection of the open sets and then define the map $\psi_{ij}$ between these two regions.}
 \end{figure}
-The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps).\\[0.3cm]
+The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps). \\[0.3cm]
 Now let us unfold this carefully. For the open set $U_i$, the map $\phi_i$ takes it to another open set in $\mathbb{R}^m$. So for all $x\in U_i$ we got a mapping to an Euclidean space. Same goes for $U_j$, that is we obtain a mapping into another copy of $\mathbb{R}^m$. Now for points in the intersection of $U_i$ and $U_j$, we have got two different mappings and we can go back and forth between the two copies of $\mathbb{R}^m$ since these mappings were homeomorphisms. This is what we had with the mapping $\psi_{ij}$ (and thus, these are aptly called \textit{transition functions}). It first maps with the inverse of $\phi_j$  and then applies $\phi_i$. The net effect is that we are mapping between a point in one copy of $\mathbb{R}^m$ to another copy of $\mathbb{R}^m$. \\[0.3cm]
 Imagine the open sets as patches in the manifold. We can then patch together the whole manifold by taking the union of all the open sets, all of which can be viewed as a Euclidean space. There are also manifolds which do not have the smooth property on then transient function, only continuity is required. These are called \textbf{topological manifolds}. We also assume that our manifolds are \textbf{Hausdorff} and paracompact (which we will not define here). Now comes the good thing: examples!!
 \subsubsection{Examples:}
@@ -146,7 +146,14 @@ The set of diffeomorphisms $f:\mathcal{M}\rightarrow\mathcal{M}$ is a group and 
 We had included zero in the interval for convenience. 
 \subsubsection{Vectors}
 In our usual sense, we imagine vectors as straight arrows drawn from the origin but in manifolds, which is `curved', firstly, straight arrows cannot be drawn and secondly, there is no origin from which the arrow can be drawn. 
-\subsection{Tangent Spaces}
+\subsection{Tangent Space}
+\begin{definition}[Tangent]
+  Let $\mathcal{M}$ be a manifold and $p\in \mathcal{M}$. Then two curves $\sigma_1$ and $\sigma_2$ are tangent to the manifold at $p$ if:
+  \begin{itemize}
+    \item $\sigma_1(0) = \sigma_2(0) = p$
+  \end{itemize}
+  
+\end{definition}
 \subsection{Differential Forms}
 
 
