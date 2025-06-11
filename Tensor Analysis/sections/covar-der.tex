@@ -56,6 +56,10 @@ $$\dv[2]{x^\lambda}{\uptau} +\mathcolor{blue}{\pdv{x^\lambda}{X^\alpha}\pdv{X^\a
 Here we have identified the scary blue term with a symbol with three indices, one upper and two lower (since in the blue term, there is one upper and two lower indices). This thing, we call the \textbf{affine connection}. 
 Note that since derivatives commute\footnote{If a space has something called a `torsion', then the derivatives no longer commute and the following property does not hold true} generally, we have the lower indices of the affine connection to be symmetric, that is,
 $$\tensor{\Gamma}{^\alpha _\mu _\nu} =\tensor{\Gamma}{^\alpha _\nu _\mu}$$
+\subsubsection{Definition in terms of basis vectors}
+We can define the affine connection using basis vectors also. Consider the derivative of the basis vector $\veb{e}_i$ with respect to some coordinates. This derivate is another vector which when expanded in terms of the basis, the coefficients are nothing but the affine connection. 
+$$\pdv{\veb{e}_i}{x^j} = \tensor{\Gamma}{^k _{ij}}\veb{e}_k$$
+
 \subsubsection{Transformation of Affine Connection}
 Note that the affine connection contains both coordinates $X^\alpha$ and $x\mu$. Suppose we want to transform from $x$ to $x'$ coordinate system, then only the $x$ things will be changed, not the $X$ things. Leave the $X$ alone because the transformation being studied is specifically about how the connection coefficients behave when you change coordinate systems on the ground. So we have:
 \begin{align*}
@@ -112,30 +116,6 @@ In the primed frame, we have:
 \right)
 \pdv{{x'^\nu}}{{x^\theta}} A^\theta
 \end{align*}
-
-% The first red term gives $\tensor{\delta}{^\sigma _\theta}$ while the second term gives $\tensor{\delta}{^\rho _\theta}$ with the last red term. Thus, after reducing this, the expression becomes:
-% \begin{align*}
-%     \tensor{{A'}}{^\lambda _{;\uptau}}  &= \left( \pdv{x'^\lambda}{x^l} \dv{A^l}{\uptau} 
-% + \mathcolor{purple}{A^l \pdv{x'^\lambda}{x^k}{x^l} \dv{x^k}{\uptau}} \right)\\ 
-% &\quad + \Bigg[ 
-% \brac{\pdv{x'^\lambda}{x^\rho}\pdv{x^\kappa}{x'^\mu}}  \left( 
-% \pdv{x'^\mu}{x^l} \dv{x^l}{\uptau} 
-% + x^l \pdv[2]{x'^\mu}{x^k}{x^l} \dv{x^k}{\uptau} 
-% \right) \tensor{\Gamma}{^\rho _\kappa _\sigma} A^\sigma
-%  \\
-%  & - \mathcolor{OliveGreen}{\brac{\pdv{x^\sigma}{x'^\mu}}\brac{\pdv{x'^\lambda}{x^\rho}{x^\sigma}}}  \left( 
-% \mathcolor{OliveGreen}{\pdv{x'^\mu}{x^l} \dv{x^l}{\uptau} }
-% + x^l \pdv[2]{x'^\mu}{x^k}{x^l} \dv{x^k}{\uptau} 
-% \right)
-%  A^\rho \Bigg]
-% \end{align*}
-% Note the green term, after repeated contractions, become: 
-% $${\brac{\pdv{\mathcolor{Aquamarine}{x^\sigma}}{x'^\mu}}\brac{\pdv{x'^\lambda}{x^\rho}{\mathcolor{Aquamarine}{x^\sigma}}}}  \left( 
-% {\pdv{x'^\mu}{x^l} \dv{x^l}{\uptau} }\right) ={\brac{\pdv{x'^\lambda}{x^\rho}{\mathcolor{Brown}{x'^\mu}}}}  \left( 
-% {\pdv{\mathcolor{Brown}{x'^\mu}}{x^l} \dv{x^l}{\uptau} }\right) = {\brac{\pdv{x'^\lambda}{x^\rho}{{x^l}}}}  \left( 
-% { \dv{x^l}{\uptau} }\right)$$
-% This is equal to the first term, if the indices in the first term and second term are like this: $\rho \leftrightarrow l $ and $k \leftrightarrow l$. However, the thing is, since these indices are summed over (they don't remain in the final expression), we can indeed do this (it is like calling someone who doesn't actually matter, by some other name). And hence the purple and green terms cancel \emoji{relieved} and the expression becomes:  
-
 Let's see this term by term. 
 \begin{itemize}
     \item \textbf{The First Term:} Transformation of normal derivative 
@@ -171,6 +151,211 @@ We had just replaced the affine connection coefficient and reduced the kronecker
 $$\tensor{{A'}}{^\lambda _{;\uptau}} = \pdv{x'^\lambda}{x^\rho} \dv{A^\rho}{\uptau} +\pdv{x'^\lambda}{x^\rho}\dv{x^\kappa}{\uptau}\tensor{\Gamma}{^\rho _\kappa _\sigma}A^\sigma =  \pdv{x'^\lambda}{x^\rho}\brac{\dv{A^\rho}{\uptau}+\dv{x^\kappa}{\uptau}\tensor{\Gamma}{^\rho _\kappa _\sigma}A^\sigma} = \pdv{x'^\lambda}{x^\rho} \dv{A^\rho}{\uptau}\tensor{A}{^\rho _; _\uptau}$$
 We saw how \textit{easy} it was to show the transformation of covariant derivative. It's going to get easier as we progress. Now, similar to the above, we can show that the covariant derivative with respect to a coordinate is a second-rank tensor. 
 $$\tensor{{A'}}{^\lambda _{;\mu}} =\pdv{x'^\lambda}{x^\rho} \pdv{x^\sigma}{x'^\mu}\tensor{A}{^\rho _; _\mu}$$
-\subsection{Relating metric and affine connection}
+The covariant derivative of a general tensor is given by the following formula:
+$$\tensor{A}{^{i_1\ldots i_r} _{j_1\ldots j_s;p}} = \tensor{A}{^{i_1\ldots i_r} _{j_1\ldots j_s,p}} + 
+\sum\limits_{u=1}^r \tensor{\Gamma}{^{i_u} _{h_u p}}\tensor{A}{^{i_1\ldots i_{u-1}h_u i_{u+1}\ldots i_r} _{j_1\ldots j_s}} - \sum\limits_{u=1}^s \tensor{A}{^{i_1\ldots i_r} _{j_1 \ldots j_{u-1}h_u j_{u+1}\ldots j_s}}\tensor{\Gamma}{^{h_u} _{j_u p}}$$
+Basically, the first term is the conventional derivative. For all the contravariant indices, we have $+$ sign while for covariant indices, we have $-$ sign. And in each sum, remove the $u^{\text{th}}$ index and replace it with an arbitrary variable in the tensor and then accordingly adjust the affine connection. Let us see some examples perhaps, using this formula:
+\begin{align*}
+    \tensor{T}{^\mu ^\nu _{;\beta}} &= \tensor{T}{^\mu ^\nu _{,\beta}} + \tensor{\Gamma}{^\mu _\kappa _\beta}\tensor{T}{^\kappa ^\nu} + \tensor{\Gamma}{^\nu _\kappa _\beta}\tensor{T}{^\mu ^\kappa}\\
+\tensor{T}{^\mu ^\nu _{\sigma;\beta}} &= \tensor{T}{^\mu ^\nu _{\sigma,\beta}} + \tensor{\Gamma}{^\mu _\kappa _\beta}\tensor{T}{^\kappa ^\nu _\sigma} + \tensor{\Gamma}{^\nu _\kappa _\beta}\tensor{T}{^\mu ^\kappa _\sigma} - \tensor{\Gamma}{^\kappa _{\sigma \beta}}\tensor{A}{^{\mu \nu} _\kappa}
+\end{align*}
+\subsubsection{Covariant Derivatives using Basis Vectors}
 
+\begin{theorem}[Product Rule]
+    The covariant derivative satisfies a kind of product rule like: 
+    \[
+\tensor{(A^\nu B^\mu)}{_{;\alpha}} = \tensor{A}{^\nu} \tensor{B}{^\mu _{;\alpha}} + \tensor{B}{^\mu} \tensor{A}{^\nu _{;\alpha}}
+\]
+
+\end{theorem}
+\textit{Proof.} We show it for a rank two contravariant tensor. We begin with the usual expansion of the covariant derivative:
+\begin{align*}
+    \tensor{(A^\nu B^\mu)}{_{;\alpha}} &=   \partial_\alpha(A^\nu B^\mu) + \tensor{\Gamma}{^\nu _{\kappa \alpha}}A^\kappa B^\mu +\tensor{\Gamma}{^\mu _{\kappa \alpha}}A^\nu B^\kappa  \\
+    &= B^\mu \partial_\alpha A^\nu +  A^\nu \partial_\alpha B^\mu  + \tensor{\Gamma}{^\nu _{\kappa \alpha}}A^\kappa B^\mu +\tensor{\Gamma}{^\mu _{\kappa \alpha}}A^\nu B^\kappa\\
+    &=B^\mu\brac{\partial_\alpha A^\nu  + \tensor{\Gamma}{^\nu _{\kappa \alpha}}A^\kappa} + A^\nu \brac{\partial_\alpha B^\mu +\tensor{\Gamma}{^\mu _{\kappa \alpha}} B^\kappa}\\
+    &= \tensor{B}{^\mu} \tensor{A}{^\nu _{;\alpha}} + \tensor{A}{^\nu} \tensor{B}{^\mu _{;\alpha}}
+\end{align*}
+This can be generalised to higher rank tensor with mixed indices as well. 
+% \begin{theorem}[Metric Compatibility]
+%     The covariant derivative of the metric tensor is identically zero
+%     $$g_{\mu\nu ; \alpha} = 0$$
+% \end{theorem}
+% \textit{Proof.} So from the above expression, we can write the covariant derivative of the metric tensor as: 
+% $$g_{\mu\nu ; \alpha} = g_{\mu\nu , \alpha} - \tensor{\Gamma}{^\kappa _{\mu \alpha}} g_{\kappa \nu} - \tensor{\Gamma}{^\kappa  _\nu _\alpha} g_{\mu \kappa}$$ 
+% Let us start with an arbitrary vector $v^\nu$. Then we have: 
+% $$\tensor{v}{_\nu _{;\alpha}} = \tensor{{g_{\lambda \nu}v}}{^{\lambda} _{;\alpha}} = g_{\lambda \nu}( \tensor{v}{^{\lambda} _{;\alpha}}) +v^\lambda(\tensor{{g_{\lambda \nu}}}{ _{;\alpha}}) $$
+% Now, consider the following where the unprimed indices denote Cartesian system and primed ones represent arbitrary system. Then we have the following valid in any coordinate system:
+% $$v_{\alpha'} = g_{\alpha'\mu'}v^{\mu '}$$
+% since it is a tensor equation. However, in Cartesian system, since metric tensor is identity, we have $V_\alpha = V^\alpha$. Also, the affine connection vanishes, hence the covariant and normal derivatives become same. So, using the above facts, in Cartesian coordinates, we have:
+% \[
+% \tensor{v}{^\alpha _{;\beta}} = \tensor{v}{^\alpha _{,\beta}} = \tensor{v}{_\alpha _{,\beta}} = \tensor{v}{_\alpha _{;\beta}} = \tensor{{g_{\alpha \mu}v^\mu}}{ _{;\beta}}
+% \]
+
+\subsection{Relating metric and affine connection}
+% Let us write the transformation of the metric tensor. 
+% $$g'_{\mu \nu} = \pdv{x^\rho}{x'^\mu}\pdv{x^\sigma}{x'^\nu}g_{\rho\sigma}$$
+% And now comes the scary part, differentiate this expression with respect to some coordinate in the new frame:
+% $$\pdv{x'^\kappa}\brac{\pdv{x^\rho}{x'^\mu}\pdv{x^\sigma}{x'^\nu}g_{\rho\sigma}} = \pdv{x^\rho}{x'^\mu}{x'^\kappa}\pdv{x^\sigma}{x'^\nu}g_{\rho\sigma}+\pdv{x^\rho}{x'^\mu}\pdv{x^\sigma}{x'^\nu}{x'^\kappa}g_{\rho\sigma}+\pdv{x^\rho}{x'^\mu}\pdv{x^\sigma}{x'^\nu}\partial_{\kappa'}g_{\rho\sigma}$$
+% We write this in brief, as: 
+% $$\partial_{\kappa '}g'_{\mu\nu} = ( \ \ldots\ )\partial_{\nu'}x^\sigma g_{\rho\sigma} +\partial_{\mu'}x^\rho( \ \ldots\ )g_{\rho\sigma} +\partial_{\nu'}x^\sigma\partial_{\mu'}x^\rho \partial_{\kappa '}g_{\rho\sigma}$$
+
+
+% \noindent
+% Now let us follow some steps blindly, which will lead to a result: 
+% \begin{itemize}
+%     \item We include two more expressions, pertaining to the permutations of these symbols. We then have three equations: 
+% \begin{align*}
+%     \partial_{\mu'}g'_{\kappa\nu} &= \partial_{\nu'}x^\sigma\frac{\partial^2 x^\rho}{\partial x'^{\kappa}\partial x'^{\mu}}g_{\rho\sigma} + \frac{\partial^2 x^\sigma}{\partial x'^{\nu}\partial x'^{\mu}}\partial_{\kappa'}x^\rho g_{\rho\sigma} + \partial_{\nu'}x^\sigma \partial_{\kappa'}x^\rho\partial_{\mu'}g_{\rho\sigma}\\
+%      \partial_{\nu'}g'_{\kappa\mu} &= \partial_{\mu'}x^\sigma\frac{\partial^2 x^\rho}{\partial x'^{\kappa}\partial x'^{\nu}}g_{\rho\sigma} + \frac{\partial^2 x^\sigma}{\partial x'^{\mu}\partial x'^{\nu}}\partial_{\kappa'}x^\rho g_{\rho\sigma} + \partial_{\mu'}x^\sigma \partial_{\kappa'}x^\rho\partial_{\nu'}g_{\rho\sigma}
+% \end{align*}
+% \item We now try to construct the following quantity:
+% $$\frac{1}{2}g^{\lambda \kappa}[\partial_{\mu'}g'_{\kappa\nu}+\partial_{\nu'}g'_{\kappa\mu}  - \partial_{\kappa '}g'_{\mu\nu}]$$
+% In the bracket term, we have:
+% \begin{align*}
+%  \Big[ 
+%    & \cancel{\partial_{\nu'}x^\sigma \partial_{\kappa'}\partial_{\mu'}x^\rho }
+%    + \partial_{\nu'}\partial_{\mu'}x^\sigma \partial_{\kappa'}x^\rho 
+%    + \partial_{\nu'}x^\sigma \partial_{\kappa'}x^\rho \partial_{\mu'} \\
+%  & + \partial_{\mu'}x^\sigma \partial_{\kappa'}\partial_{\nu'}x^\rho 
+%    + \partial_{\mu'}\partial_{\nu'}x^\sigma \partial_{\kappa'}x^\rho 
+%    + \partial_{\mu'}x^\sigma \partial_{\kappa'}x^\rho \partial_{\nu'} \\
+%  & - \cancel{\partial_{\kappa'}\partial_{\mu'}x^\rho \partial_{\nu'}x^\sigma }
+%    - \partial_{\mu'}x^\rho \partial_{\kappa'}\partial_{\nu'}x^\sigma 
+%    - \partial_{\mu'}x^\rho \partial_{\nu'}x^\sigma \partial_{\kappa'} \Big]g_{\rho\sigma}
+% \end{align*}
+% \begin{align*}
+%  \Big[2\partial_{\nu'}\partial_{\mu'}x^\sigma \partial_{\kappa'}x^\rho 
+%    + \partial_{\nu'}x^\sigma \partial_{\kappa'}x^\rho \partial_{\mu'} + \partial_{\mu'}x^\sigma \partial_{\kappa'}\partial_{\nu'}x^\rho 
+%    + \partial_{\mu'}x^\sigma \partial_{\kappa'}x^\rho \partial_{\nu'}- \partial_{\mu'}x^\rho \partial_{\kappa'}\partial_{\nu'}x^\sigma 
+%    - \partial_{\mu'}x^\rho \partial_{\nu'}x^\sigma \partial_{\kappa'} \Big]g_{\rho\sigma}
+% \end{align*}
+% \end{itemize}
+We use the basis definition of the affine connection. 
+\begin{align*}
+    \tensor{\Gamma}{^\lambda _{\kappa \mu}}g_{\lambda\nu}&= \tensor{\Gamma}{^\lambda _{\kappa \mu}}(\veb{e}_\lambda \cdot \veb{e}_\nu) \\
+    &= (\partial_{\mu}\veb{e}_\kappa)\cdot \veb{e}_\nu\\
+    &=\partial_\mu(\veb{e}_\kappa \cdot \veb{e}_\nu)-\veb{e}_\kappa \cdot  \partial_{\mu}\veb{e}_\nu\\
+    &=\partial_\mu g_{\kappa\nu} -  \tensor{\Gamma}{^\lambda _{\nu \mu}}\veb{e}_\kappa\cdot \veb{e}_\lambda
+\end{align*}
+Thus we get:
+$$ \tensor{\Gamma}{^\lambda _{\kappa \mu}}g_{\lambda\nu} +\tensor{\Gamma}{^\lambda _{\nu \mu}}g_{\kappa\lambda} = \partial_\mu g_{\kappa\nu}$$
+\begin{figure}[H]
+    \centering 
+    \input{plot&diagrams/circ_perm_no_arr.tex}
+\end{figure}
+\noindent
+We now use a cyclic permutation of $\mu, \kappa, \nu $ to obtain the following two equations\footnote{$\lambda$ is summed over in the expression, so we do not consider it in permutation}:
+\begin{align*}
+    \tensor{\Gamma}{^\lambda _{ \mu \nu}}g_{\kappa \lambda} +\tensor{\Gamma}{^\lambda _{\kappa \nu }}g_{\lambda \mu} &= \partial_\nu g_{\mu\kappa}\\
+    \tensor{\Gamma}{^\lambda _{\nu \kappa }}g_{\lambda\mu} +\tensor{\Gamma}{^\lambda _{ \mu \kappa}}g_{\lambda \nu} &= \partial_\kappa g_{\nu\mu}
+\end{align*}
+Let us now add the first and last equations and subtract the middle one:
+
+\begin{align*}
+\partial_\kappa g_{\nu\mu}+\partial_\mu g_{\kappa\nu}- \partial_\nu g_{\mu\kappa}=    \cancel{ \mathcolor{red}{\tensor{\Gamma}{^\lambda _{\nu \kappa }}g_{\lambda\mu}}} +\tensor{\Gamma}{^\lambda _{ \mu \kappa}}g_{\lambda\nu} +\tensor{\Gamma}{^\lambda _{\kappa \mu}}g_{\lambda\nu} +\mathcolor{OliveGreen}{\cancel{\tensor{\Gamma}{^\lambda _{\nu \mu}}g_{\lambda \kappa}}-\cancel{\tensor{\Gamma}{^\lambda _{ \mu \nu}}g_{\lambda\kappa}}} -\cancel{\mathcolor{red}{\tensor{\Gamma}{^\lambda _{\kappa \nu }}g_{\lambda\mu}}}
+\end{align*}
+We had assumed a torsion-free space and hence the affine connections commute in their lower indices. Hence those terms get cancelled and we finally have the expression as: 
+$$\tensor{\Gamma}{^\lambda _{ \mu \kappa}}g_{\lambda\nu} = \frac{1}{2}\brac{\partial_\kappa g_{\nu\mu}+\partial_\mu g_{\kappa\nu}- \partial_\nu g_{\mu\kappa}}$$
+Multiply the above by $g^{\nu\alpha}$, then we have: 
+\begin{align*}
+&\tensor{\Gamma}{^\lambda _{ \mu \kappa}}g_{\lambda\nu} = \frac{1}{2}\brac{\partial_\kappa g_{\nu\mu}+\partial_\mu g_{\kappa\nu}- \partial_\nu g_{\mu\kappa}}\\
+\implies &\tensor{\Gamma}{^\lambda _{ \mu \kappa}}g_{\lambda\nu}g^{\nu\alpha} = \frac{1}{2}g^{\nu\alpha}\brac{\partial_\kappa g_{\nu\mu}+\partial_\mu g_{\kappa\nu}- \partial_\nu g_{\mu\kappa}}\\
+\implies &\tensor{\Gamma}{^\lambda _{ \mu \kappa}}\tensor{\delta}{^\alpha _\lambda} = \frac{1}{2}g^{\nu\alpha}\brac{\partial_\kappa g_{\nu\mu}+\partial_\mu g_{\kappa\nu}- \partial_\nu g_{\mu\kappa}}\\
+\implies &\tensor{\Gamma}{^\alpha _{ \mu \kappa}} = \frac{1}{2}g^{\nu\alpha}\brac{\partial_\kappa g_{\nu\mu}+\partial_\mu g_{\kappa\nu}- \partial_\nu g_{\mu\kappa}}
+\end{align*}
+Whew!!\emoji{relieved-face} Let us now see an example to find the connection coefficient for 2D polar coordinates.The metric and inverse metric tensor are: 
+$$g_{ij} \equiv \begin{pmatrix}
+    1 & 0 \\
+    0 & r^2
+\end{pmatrix}\quad \quad   g^{ij} \equiv \begin{pmatrix}
+    1 & 0 \\
+    0 & \frac{1}{r^2}
+\end{pmatrix}$$
+Then taking the derivative of the metric tensor, we have: 
+$$\partial_r g_{ij} \equiv \begin{pmatrix}
+    1 & 0 \\
+    0 & 2r
+\end{pmatrix}\quad \quad   \partial_\theta g_{ij} \equiv \begin{pmatrix}
+    0 & 0 \\
+    0 & 0
+\end{pmatrix}$$
+The only non-zero element is at $\partial_r g_{\theta \theta}$. Then we only have two non-zero connection coefficients:
+\begin{minipage}[t]{0.48\textwidth}
+\begin{align*}
+\tensor{\Gamma}{^\theta _{r\theta}} &= \frac{1}{2}g^{\theta \theta}\left(\cancel{\partial_\theta g_{\theta r}} + \partial_r g_{\theta \theta} - \cancel{\partial_\theta g_{r \theta}}\right) \\
+&= \frac{1}{2r^2} \cdot 2r \\
+&= \frac{1}{r}
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{align*}
+\tensor{\Gamma}{^r _{\theta \theta}} &= \frac{1}{2}g^{r r}\left(\cancel{\partial_\theta g_{r \theta}} + \cancel{\partial_\theta g_{\theta r}} - \partial_r g_{\theta \theta}\right) \\
+&= -\frac{1}{2} \cdot 2r \\
+&= -r
+\end{align*}
+\end{minipage}
 \subsection{Curls, divergences and other craps}
+The `ordinary' gradient that we had written earlier, will be generalised to the covariant derivative. Then we will have the divergence modified as: 
+\begin{align*}
+    \nabla \cdot \tilde{A}\quad \rightarrow \quad \tensor{A}{^\mu _{; \mu}} = \partial_\mu A^\mu + \tensor{\Gamma}{^\mu _{\mu \lambda}}
+\end{align*}
+From the above relation between metric tensor and the Christoffel symbol, we have:
+\begin{align*}
+    \tensor{\Gamma}{^\mu _{\mu \lambda}} = \frac{1}{2}g^{\nu \mu}\brac{\partial_\lambda g_{\nu \mu}+\partial_\mu g_{\lambda \nu}-\partial_\nu g_{\mu \lambda}} = \frac{1}{2}\brac{{g^{\nu \mu}\partial_\lambda g_{\nu \mu}}+\mathcolor{blue}{g^{\nu \mu}\partial_\mu g_{\lambda \nu}}-\mathcolor{red}{g^{\nu \mu}\partial_\nu g_{\mu \lambda}}}
+\end{align*}
+Notice the two coloured terms. Since $\mu$ and $\nu$ are being summed over, we can just interchange them in the, say, red term. Then we will have that both the terms cancel. Thus, we have a simplified expression for the contracted Christoffel symbol as $\tensor{\Gamma}{^\mu _{\mu \lambda}} = \frac{1}{2}g^{\nu \mu}\brac{\partial_\lambda g_{\nu \mu}}$. We will now show that this expression can be reduced to the expression:
+$$\tensor{\Gamma}{^\mu _{\mu \lambda}} = \frac{1}{\sqrt{|g|}}\partial_\lambda \brac{\sqrt{|g|}}$$
+% $$\tensor{A}{}$$
+For that we prove some basic identities:
+\begin{identity}
+    For any (diagonalisable) matrix $M$, we have:
+    $$\Tr (M^{-1}\partial_\lambda M) = \partial_\lambda \ln |M|$$
+\end{identity}
+\textit{Proof}. Let us calculate the variation of the quantity in the right hand side due to some variation $\delta x^\lambda$ in $x^\lambda$:
+\begin{align*}
+    \delta \ln |M| &= \ln |M+\delta M| - \ln |M| \\
+    &= \ln \brac{\frac{|M+\delta M|}{|M|}} \\
+    &= \ln \brac{|M^{-1}||M+\delta M|}\\
+    &=\ln \brac{|M^{-1}M + M^{-1}\delta M|}\\
+    &=\ln \brac{|\mathds{1}+  M^{-1}\delta M|}
+\end{align*}
+We now prove another small identity:
+$$\ln |M| = \Tr \ln (M)$$
+Since M is diagonalisable, we can write the following and then proceed:
+\begin{align*}
+M &= P D P^{-1}  \\
+\Rightarrow \det M &= \det(P D P^{-1}) = \det(D) = \prod_i \lambda_i \\
+\Rightarrow \ln \det M &= \ln \left( \prod_i \lambda_i \right) = \sum_i \ln \lambda_i \\
+&= \Tr \left( \begin{bmatrix}
+\ln \lambda_1 & & \\
+& \ln \lambda_2 & \\
+& & \ddots
+\end{bmatrix} \right) \\
+&= \Tr(P^{-1} P \begin{bmatrix}
+\ln \lambda_1 & & \\
+& \ln \lambda_2 & \\
+& & \ddots
+\end{bmatrix}) \\
+&= \Tr(P \begin{bmatrix}
+\ln \lambda_1 & & \\
+& \ln \lambda_2 & \\
+& & \ddots
+\end{bmatrix} P^{-1}) \\
+&= \Tr(\ln M)
+\end{align*}
+So using this identity in the previous result, we have:
+\begin{align*}
+    \ln \brac{|\mathds{1}+  M^{-1}\delta M|} &= \Tr\ln (\mathds{1}+  M^{-1}\delta M)\\
+    &= \Tr\brac{M^{-1}\delta M - \frac{1}{2}{(M^{-1})(\delta M)(M^{-1})(\delta M)}+\ldots}\\
+    &=  \Tr M^{-1}\times \delta M  + \ldots
+\end{align*}
+We somewhat proved this identity\footnote{This derivation is given in Weinberg's book of Cosmology and Gravitation}. Now, we take the case when $M= g$, then we get:
+\begin{align*}
+   \partial_\lambda \ln |g| &=  \Tr(g^{-1}\partial_\lambda g) \\
+&=\tensor{{\brac{g^{-1}\partial_\lambda g}}}{^\rho _\rho}\\
+&= \tensor{{g}}{^\rho ^\sigma}\partial_\lambda \tensor{g}{_\sigma _\rho}\\
+&=2\tensor{\Gamma}{^\mu _\mu _\lambda}
+\end{align*}
+Thus we get:
+$$\tensor{\Gamma}{^\mu _\mu _\lambda} = \frac{1}{2}\partial_\lambda \ln |g|= \frac{1}{2|g|}\partial_\lambda |g|= \frac{1}{\sqrt{|g|}}\partial_\lambda \brac{\sqrt{|g|}}$$

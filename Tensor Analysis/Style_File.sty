@@ -62,6 +62,11 @@
 \RequirePackage[most]{tcolorbox}
 \definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
 \definecolor{mycolor1}{rgb}{1 ,2.5 ,0 } 
+\definecolor{brickred}{rgb}{0.59, 0.44, 0.84}
+\definecolor{cadmiumred}{rgb}{0.89, 0.0, 0.13}
+\definecolor{darkpastelpurple}{rgb}{0.59, 0.44, 0.84}
+\definecolor{springgreen}{rgb}{0.0, 1.0, 0.5}
+
 \def\maincolor{DarkTurquoise} %width=6cm
 \newtcolorbox{mybox}[2][]{colback=mycolor!10!white,
 	colframe=black,fonttitle=\bfseries,
@@ -138,8 +143,75 @@
     notefont={\sffamily\bfseries},
     headfont={\color{blue}\sffamily\bfseries},
     headpunct={:\\},
-    postheadspace={0pt},
+    postheadspace={0.5pt},
     notebraces={(}{)},
 ]{def}
 
 \declaretheorem[style=def, name=Definition]{definition}
+
+
+
+\mdfdefinestyle{theobox}{
+    backgroundcolor=cadmiumred!12!white,
+    nobreak=true,
+    innertopmargin=7pt,
+    innerleftmargin=7pt,
+    innerrightmargin=7pt,
+    linecolor=cadmiumred,
+    linewidth=3pt,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    leftline=true
+}
+
+\declaretheoremstyle[
+    mdframed={style=theobox},
+    spaceabove={0pt},
+    spacebelow={2pt},
+    bodyfont={\normalfont},
+    headindent={0pt},
+    notefont={\sffamily\bfseries},
+    headfont={\color{cadmiumred}\sffamily\bfseries},
+    headpunct={:\\},
+    postheadspace={0.5pt},
+]{theo}
+
+\declaretheorem[style=theo, name=Theorem]{theorem}
+
+
+
+
+
+
+
+
+
+
+\mdfdefinestyle{idbox}{
+    backgroundcolor=springgreen!10!white,
+    nobreak=true,
+    innertopmargin=7pt,
+    innerleftmargin=7pt,
+    innerrightmargin=7pt,
+    linecolor=springgreen,
+    linewidth=3pt,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    leftline=true
+}
+
+\declaretheoremstyle[
+    mdframed={style=idbox},
+    spaceabove={0pt},
+    spacebelow={2pt},
+    bodyfont={\normalfont},
+    headindent={0pt},
+    notefont={\sffamily\bfseries},
+    headfont={\color{OliveGreen}\sffamily\bfseries},
+    headpunct={:\\},
+    postheadspace={1pt},
+]{idty}
+ 
+\declaretheorem[style=idty, name=Identity]{identity}
