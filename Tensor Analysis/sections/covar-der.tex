@@ -99,8 +99,8 @@ The covariant derivative of a vector component with respect to a scalar is defin
 $$\frac{DA^\lambda}{D\uptau} := \frac{dA^\lambda}{d\uptau}+ \tensor{\Gamma}{^\lambda _\mu _\nu}\dv{x^\mu}{\uptau}A^\nu$$
 Here we used the $D$ notation since the $;$ notation is mostly used when we differentiate with respect to some coordinate. The covariant derivative of a vector component with respect to a coordinate is then\footnote{$\tensor{A}{^\nu _, _\mu}$ means the normal derivative, that is, $\partial_\mu A^\nu$}: 
 $$\tensor{A}{^\lambda _; _\mu} :=  \tensor{A}{^\lambda _, _\mu} +\tensor{\Gamma}{^\lambda _\mu _\nu}A^\nu$$
-The covariant derivative of a covariant component is similarly defined:
-$$\tensor{A}{_\lambda _; _\mu} :=  \tensor{A}{_\lambda _, _\mu} +\tensor{\Gamma}{^\alpha _\lambda _\nu}A_\alpha$$
+The covariant derivative of a covariant component is similarly:
+$$\tensor{A}{_\lambda _; _\mu} :=  \tensor{A}{_\lambda _, _\mu} -\tensor{\Gamma}{^\alpha _\lambda _\mu}A_\alpha$$
 \subsubsection{Transformation of Covariant Derivative}
 In the primed frame, we have: 
 \begin{align*}
@@ -438,12 +438,34 @@ $$\epsilon^{\mu_1 \mu_2 \cdots \mu_p \alpha_1 \cdots \alpha_{n-p}}
 \epsilon_{\mu_1 \mu_2 \cdots \mu_p \beta_1 \cdots \beta_{n-p}} 
 = (-1)^s p! \det{\delta}$$
 Well, let us see one example, for this that we know. For this, we take $p=1$ and $n=3$, then $n-p = 2$. So, we have:
-$$\epsilon^{ijk}\epsilon{ilm} = (-1)^s \times 1! \times \det\begin{pmatrix}
+$$\epsilon^{ijk}\epsilon_{ilm} = (-1)^s \times 1! \times \det\begin{pmatrix}
     \delta^j_l &  \delta^k_l \\
      \delta^j_m &  \delta^k_m
 \end{pmatrix} = (-1)^s \brac{\delta^j_l \delta^k_m - \delta^j_m \delta^k_l}$$
 Isn't this fun to finally see how this expression comes? Well, for me, yes but it is just an amusement for me, 'coz ultimately, to use it, we have to kinda remember it. Deriving things from scratch is a painful patch, with time to lose and little to match. 
 \subsubsection{Covariant Curl}
+In our normal vector calculus, we had often written the curl to be $\brac{\nabla\times A}^i = \epsilon_{ijk}\partial_i A^j$ (Note that I am not caring about any index position here, just placing them randomly). The natural generalisation is to replace the normal derivative with covariant derivative and the epsilon with the Levi-Civita tensor and proceed. Let us compute the $i^{\text{th}}$ component of the curl, that is, $C^i \equiv \epsilon^{ijk}D_j A_k =\frac{1}{\sqrt{|g|}}\widetilde{epsilon}^{ijk}D_j A_k $. Note that in the right side only two terms will contribute for which $j,k \neq i$. Consider $j\rightarrow k$ is symmetric while $k\rightarrow j$ is anti-symmetric. 
+\begin{align*}
+    C^i &= \frac{1}{\sqrt{|g|}}\brac{\widetilde{\epsilon}^{ijk}D_j A_k+\widetilde{\epsilon}^{ikj}D_k A_j }\\
+    &=\frac{1}{\sqrt{|g|}}\brac{D_j A_k-D_k A_j }\\
+    &=\frac{1}{\sqrt{|g|}}\brac{\partial_j A_k- \cancel{\tensor{\Gamma}{^\nu _{jk}}A_\nu} -\partial_k A_j + \cancel{\tensor{\Gamma}{^\nu _{kj}}A_\nu}}\\
+    &=\frac{1}{\sqrt{|g|}} \brac{\partial_j A_k-\partial_k A_j}
+\end{align*}
+The Christoffel symbols cancel because we assumed no torsion. Thus we have a cool expression for the curl. Let us see an example, with our dear spherical coordinates:
+\begin{align*}
+    \widetilde{C}_r = C_r &= \frac{1}{r^2\sin \theta}\brac{\partial_\theta A_\phi - \partial_\phi A_\theta}\\
+    &=\frac{1}{r^2\sin \theta}\brac{\partial_\theta (r\sin\theta \widetilde{A}_\phi) - \partial_\phi (r\widetilde{A}_\theta)}\\
+    &=\frac{1}{r\sin \theta}\brac{\partial_\theta (\sin\theta \widetilde{A}_\phi) - \partial_\phi (\widetilde{A}_\theta)}
+\end{align*}
 
+\begin{align*}
+    \widetilde{C}_\theta = rC_\theta &= \frac{r}{r^2\sin \theta}\brac{\partial_\phi A_r - \partial_r A_\phi}\\
+    &=\frac{1}{r\sin \theta}\brac{\partial_\phi (\widetilde{A}_r) - \partial_r (r\sin\theta\widetilde{A}_\phi)}\\
+    &=\frac{1}{r}\brac{\frac{1}{\sin \theta}\partial_\phi (\widetilde{A}_r) - \partial_r (r\widetilde{A}_\phi)}
+\end{align*}
 
-
+\begin{align*}
+    \widetilde{C}_\phi &= r\sin\theta C_\phi = \frac{r\sin\theta}{r^2\sin \theta}\brac{\partial_r A_\theta- \partial_\theta A_r}\\
+    &=\frac{1}{r}\brac{\partial_r (r\widetilde{A}_\theta) - \partial_\theta (\widetilde{A}_r)}
+\end{align*}
+We had nicely found the components of the curl in spherical coordinates just by using the above formula which is way easy to remember and then using the conversion between `ordinary' and covariant vector components. 
