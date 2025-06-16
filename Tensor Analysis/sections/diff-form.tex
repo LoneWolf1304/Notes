@@ -82,6 +82,7 @@ A smooth map is a function which is infinitely differentiable, that is, all the 
   \input{plot&diagrams/manifold.tex}
   \caption{The figure shows the third point in the definition. So basically we see where the homeomorphism maps the intersection of the open sets and then define the map $\psi_{ij}$ between these two regions.}
 \end{figure}
+A point $p \in U \subset \mathcal{M}$ has the coordinates $(\phi^1(p),\ldots, \phi^m(p) )\in \mathbb{R}^m$ with respect to the chart $(U,\phi)$. The coordinate functions $\phi^i$ are defined in terms of the projection map $phi^i:\mathbb{R}^m \longrightarrow \mathbb{R}$ such that $\phi(p) \mapsto \mathrm{proj}_i(\phi(p))$. So basically $\phi$ sends $p$ to some point in $\mathbb{R}^m$ and then to find the individual components, we take the projection of $\phi(p)$ along that coordinate. \\[0.3cm]
 The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps). \\[0.3cm]
 Now let us unfold this carefully. For the open set $U_i$, the map $\phi_i$ takes it to another open set in $\mathbb{R}^m$. So for all $x\in U_i$ we got a mapping to an Euclidean space. Same goes for $U_j$, that is we obtain a mapping into another copy of $\mathbb{R}^m$. Now for points in the intersection of $U_i$ and $U_j$, we have got two different mappings and we can go back and forth between the two copies of $\mathbb{R}^m$ since these mappings were homeomorphisms. This is what we had with the mapping $\psi_{ij}$ (and thus, these are aptly called \textit{transition functions}). It first maps with the inverse of $\phi_j$  and then applies $\phi_i$. The net effect is that we are mapping between a point in one copy of $\mathbb{R}^m$ to another copy of $\mathbb{R}^m$. \\[0.3cm]
 Imagine the open sets as patches in the manifold. We can then patch together the whole manifold by taking the union of all the open sets, all of which can be viewed as a Euclidean space. There are also manifolds which do not have the smooth property on then transient function, only continuity is required. These are called \textbf{topological manifolds}. We also assume that our manifolds are \textbf{Hausdorff} and paracompact (which we will not define here). Now comes the good thing: examples!!
@@ -117,7 +118,7 @@ These functions basically take the value of the angle $\theta$ that a point on t
 The same circle can be described by another chart using the stereographic projection, resulting in the \textbf{Mercator Atlas}. \textcolor{red}{show this maybe}..
 Similarly we can prove that the $n$-dimensional sphere is a manifold. \\[0.3cm]
 \textbf{Product Manifold:}\\[0.2cm]
-Let $\mathcal{M}$ be an $m$-dimensional manifold with atlas $\{U_i,\phi_i\}$ and $\mathcal{N}$ be an $n$-dimensional manifold with atlas $\{V_i,\psi_i\}$, then we define the product manifold as an $(m+n)-$ dimensional manifold with atlas $\{U_i\times V_j, (\phi_i\, \psi_j)\}$. So basically we took the Cartesian product of the two coordinate neighbourhoods to define the new neighbourhood and then used the ordered pair of the two homeomorphisms to define the new coordinate function. \\[0.3cm]
+Let $\mathcal{M}$ be an $m$-dimensional manifold with atlas $\{U_i,\phi_i\}$ and $\mathcal{N}$ be an $n$-dimensional manifold with atlas $\{V_i,\psi_i\}$, then we define the product manifold as an $(m+n)-$ dimensional manifold with atlas $\{U_i\times V_j, (\phi_i , \psi_j)\}$. So basically we took the Cartesian product of the two coordinate neighbourhoods to define the new neighbourhood and then used the ordered pair of the two homeomorphisms to define the new coordinate function. \\[0.3cm]
 \textit{Example.} The torus is a product manifold of two circles, that is, $T^2 = \mathbb{S}^1\times \mathbb{S}^1$. Note that by our definition, it is a two $(1+1)$ dimensional manifold. We can generalise the notion of torus by taking multiple product of circles: $$T^n = \underbrace{\mathbb{S}^1\times \mathbb{S}^1\times \cdots \times \mathbb{S}^1}_n$$ 
 \subsubsection{Differentiable Maps}
 \begin{definition}[Differentiable Map]
@@ -145,15 +146,36 @@ The set of diffeomorphisms $f:\mathcal{M}\rightarrow\mathcal{M}$ is a group and 
 \end{definition}
 We had included zero in the interval for convenience. 
 \subsubsection{Vectors}
-In our usual sense, we imagine vectors as straight arrows drawn from the origin but in manifolds, which is `curved', firstly, straight arrows cannot be drawn and secondly, there is no origin from which the arrow can be drawn. 
+In our usual sense, we imagine vectors as straight arrows drawn from the origin but in manifolds, which is `curved', firstly, straight arrows cannot be drawn in general and secondly, there is no origin from which the arrow can be drawn. If the arrow is `small' enough we can locally obtain something like a ``vector space''. Suppose the tail of the arrow is at a point $p\in \mathcal{M}$ and the tip is at a point $p'$ which is `close' to $p$, then the vector space can be approximated by the \textit{tangent space} at the point $p$. 
 \subsection{Tangent Space}
+Intuitively, if we use the word tangent space, we can think of some space which contains the tangent at a point of the manifold. Like in the following diagram: 
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/tang_sp.tex}
+  \caption{A very badly made representation of a tangent space. Here a sphere is considered and from the centre of the sphere, a vector $\veb{x}$ is drawn and then, a plane is drawn which just touches the sphere at point $\veb{x}$. This constitutes the tangent plane. }
+\end{figure}
+\noindent
+Note that since the tangent is always perpendicular to the vector $\veb{x}$, we can somewhat define the tangent space at the point $\veb{x}\in S^n \subset \mathbb{R}^{n+1}$ by: $$\mathrm{T}_{x}S^n = \{\veb{v}\in \mathbb{R}^{n+1}| \veb{x}\cdot \veb{v} = 0\}$$
+See an apparent problem with this: This approach depends on the sphere being embedded in a higher dimension vector space and the tangent space being a specific linear subspace of this larger space. It would be better to find some `intrinsic' definition of tangent space which does not depend on this embedding of the manifold in a higher dimensional space.\\[0.3cm]
+For this, we can think of the tangent vector as a tangent to a curve on the manifold. The vector is tangent to a curve on the manifold at point $\veb{x}$. Note that this curve lies on the manifold and hence the notion of a higher-dimensional embedding is done away with. 
+\begin{figure}[H]
+  \centering
+  \input{plot&diagrams/tang_sp_curv.tex}
+\end{figure}
+\noindent
+However, note that, as in the above picture, many different curves can be drawn to satisfy this condition. Hence, the tangent vector can be rather thought as an equivalence class of all the curves satisfying this relation. \emoji{exploding-head}
 \begin{definition}[Tangent]
   Let $\mathcal{M}$ be a manifold and $p\in \mathcal{M}$. Then two curves $\sigma_1$ and $\sigma_2$ are tangent to the manifold at $p$ if:
   \begin{itemize}
     \item $\sigma_1(0) = \sigma_2(0) = p$
+    \item In some `local coordinate system' $(x^i)$ around $p$, the two curves are tangent in the normal way, that is, 
+    $$\dv{x^i}{t}(\sigma_1(t))\Big|_{t=0} =\dv{x^i}{t}(\sigma_2(t))\Big|_{t=0}  \ \forall \ i = 1,2,\ldots,m$$
   \end{itemize}
   
 \end{definition}
+If $\sigma_1$ and $sigma_2$ are `tangent' in one system, then they are tanget in any other coordinate system local around $p$, and hence this definition is independent of any coordinates. We define the tangent vector at $p \in \mathcal{M}$ as the euivalence class of curves, that is:
+$$[\sigma_i] = \{\sigma | \sigma \sim_t \sigma_i \}$$
+where $\sim_t$ is the relation satisfying that two curves are tangent to the manifold. The tangent space $T_p\mathcal{M}$ to manifold $\mathcal{M}$ at point $p$, is the set of all tangent vectors at the point $p$. 
 \subsection{Differential Forms}
 
 
