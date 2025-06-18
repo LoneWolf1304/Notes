@@ -63,9 +63,12 @@
 \definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
 \definecolor{mycolor1}{rgb}{1 ,2.5 ,0 } 
 \definecolor{brickred}{rgb}{0.59, 0.44, 0.84}
-\definecolor{cadmiumred}{rgb}{0.89, 0.0, 0.13}
+\definecolor{cherryblossompink}{rgb}{1.0, 0.72, 0.77}
 \definecolor{darkpastelpurple}{rgb}{0.59, 0.44, 0.84}
 \definecolor{springgreen}{rgb}{0.0, 1.0, 0.5}
+\definecolor{lemon}{rgb}{1.0, 0.97, 0.0}
+
+
 
 \def\maincolor{DarkTurquoise} %width=6cm
 \newtcolorbox{mybox}[2][]{colback=mycolor!10!white,
@@ -152,12 +155,12 @@
 
 
 \mdfdefinestyle{theobox}{
-    backgroundcolor=cadmiumred!12!white,
+    backgroundcolor=cherryblossompink!40!white,
     nobreak=true,
     innertopmargin=7pt,
     innerleftmargin=7pt,
     innerrightmargin=7pt,
-    linecolor=cadmiumred,
+    linecolor=cherryblossompink,
     linewidth=3pt,
     topline=false,
     bottomline=false,
@@ -172,7 +175,7 @@
     bodyfont={\normalfont},
     headindent={0pt},
     notefont={\sffamily\bfseries},
-    headfont={\color{cadmiumred}\sffamily\bfseries},
+    headfont={\color{cherryblossompink!17!red}\sffamily\bfseries},
     headpunct={:\\},
     postheadspace={0.5pt},
 ]{theo}
@@ -215,3 +218,41 @@
 ]{idty}
  
 \declaretheorem[style=idty, name=Identity]{identity}
+
+
+
+
+
+
+
+
+
+\mdfdefinestyle{propbox}{
+    backgroundcolor=lemon!20!white,
+    nobreak=true,
+    innertopmargin=7pt,
+    innerleftmargin=7pt,
+    innerrightmargin=7pt,
+    linecolor=lemon,
+    linewidth=3pt,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    leftline=true
+}
+
+\declaretheoremstyle[
+    mdframed={style=propbox},
+    spaceabove={0pt},
+    spacebelow={2pt},
+    bodyfont={\normalfont},
+    headindent={0pt},
+    notefont={\sffamily\bfseries},
+    headfont={\color{orange}\sffamily\bfseries},
+    headpunct={:\\},
+    postheadspace={0.5pt},
+]{propo}
+
+\declaretheorem[style=propo, name=Proposition]{proposition}
+
+

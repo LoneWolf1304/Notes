@@ -82,7 +82,7 @@ A smooth map is a function which is infinitely differentiable, that is, all the 
   \input{plot&diagrams/manifold.tex}
   \caption{The figure shows the third point in the definition. So basically we see where the homeomorphism maps the intersection of the open sets and then define the map $\psi_{ij}$ between these two regions.}
 \end{figure}
-A point $p \in U \subset \mathcal{M}$ has the coordinates $(\phi^1(p),\ldots, \phi^m(p) )\in \mathbb{R}^m$ with respect to the chart $(U,\phi)$. The coordinate functions $\phi^i$ are defined in terms of the projection map $phi^i:\mathbb{R}^m \longrightarrow \mathbb{R}$ such that $\phi(p) \mapsto \mathrm{proj}_i(\phi(p))$. So basically $\phi$ sends $p$ to some point in $\mathbb{R}^m$ and then to find the individual components, we take the projection of $\phi(p)$ along that coordinate. \\[0.3cm]
+A point $p \in U \subset \mathcal{M}$ has the coordinates $(\phi^1(p),\ldots, \phi^m(p) )\in \mathbb{R}^m$ with respect to the chart $(U,\phi)$. The coordinate functions $\phi^i$ are defined in terms of the projection map $\mathrm{proj}_i:\mathbb{R}^m \longrightarrow \mathbb{R}$ such that $\mathrm{proj}_i(x) \mapsto x^i$\footnote{This just selects the $i^{\text{th}}$ component of a m-dimensional vector $x$ in $\mathbb{R}^m$} and $\phi^\mu: \mathcal{M}\rightarrow \mathbb{R}$ such that $p \mapsto \mathrm{proj}_\mu(\phi(p))$. So basically $\phi$ sends $p$ to some point in $\mathbb{R}^m$ and then to find the individual components, we take the projection of $\phi(p)$ along that coordinate. Henceforth we will use $r^i$ to denote $\mathrm{proj}_i$ (cause brevity is the soul of wit!)\\[0.3cm]
 The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps). \\[0.3cm]
 Now let us unfold this carefully. For the open set $U_i$, the map $\phi_i$ takes it to another open set in $\mathbb{R}^m$. So for all $x\in U_i$ we got a mapping to an Euclidean space. Same goes for $U_j$, that is we obtain a mapping into another copy of $\mathbb{R}^m$. Now for points in the intersection of $U_i$ and $U_j$, we have got two different mappings and we can go back and forth between the two copies of $\mathbb{R}^m$ since these mappings were homeomorphisms. This is what we had with the mapping $\psi_{ij}$ (and thus, these are aptly called \textit{transition functions}). It first maps with the inverse of $\phi_j$  and then applies $\phi_i$. The net effect is that we are mapping between a point in one copy of $\mathbb{R}^m$ to another copy of $\mathbb{R}^m$. \\[0.3cm]
 Imagine the open sets as patches in the manifold. We can then patch together the whole manifold by taking the union of all the open sets, all of which can be viewed as a Euclidean space. There are also manifolds which do not have the smooth property on then transient function, only continuity is required. These are called \textbf{topological manifolds}. We also assume that our manifolds are \textbf{Hausdorff} and paracompact (which we will not define here). Now comes the good thing: examples!!
@@ -115,10 +115,57 @@ These functions basically take the value of the angle $\theta$ that a point on t
   
 \end{figure}
 \noindent
-The same circle can be described by another chart using the stereographic projection, resulting in the \textbf{Mercator Atlas}. \textcolor{red}{show this maybe}..
+The same circle can be described by another chart using the stereographic projection, resulting in the \textbf{Mercator Atlas}. For this let us consider $U_1 = \mathbb{S}\backslash(0,1)$ and $U_2 = \mathbb{S}\backslash(0,-1)$. Then what we do is, we define maps $\phi_1: U_1 \rightarrow \mathbb{R}$ ($\phi_2:U_2 \rightarrow \mathbb{R}$) which maps a point $p\in U_1(U_2)$ to some point on the x-axis. This is called a stereographic projection.  Let us find explicit forms for these maps:
+\begin{figure}[H]
+  \centering
+  \input{plot&diagrams/steoreo.tex}
+  \caption{Stereographic projection of the circle} 
+\end{figure}
+\noindent
+In the above picture, the equation of the straight line for $\phi_1$ is given by:
+$$\frac{y-1}{x-0} = \frac{0-y}{a-x}$$ from where we obtain $a=\frac{x}{1-y}$. Similarly, we obtain $b = \frac{x}{1+y}$. Then what we have is $(x,y) \mapsto \frac{x}{1-y}$ (we take only the x-component since y-component is always 0 and thus the codomain is a real number) for $\phi_1$ and $(x,y) \mapsto \frac{x}{1+y}$ for $\phi_2$.  Suppose we are given a point \( (t, 0) \in \mathbb{R} \times \{0\} \), and we want to compute the inverse image under the stereographic projection \( \varphi_1^{-1} \).\\[0.2cm]
+We are given that \( \varphi_1(x, y) = \dfrac{x}{1 - y} = t \). Solving for \( x \), we get:
+\[
+x = t(1 - y)
+\]
+Substitute this into the unit circle equation \( x^2 + y^2 = 1 \):
+\begin{align*}
+x^2 + y^2 &= 1 \\
+\implies \ t^2(1 - y)^2 + y^2 &= 1 \\
+\implies \ t^2(1 - 2y + y^2) + y^2 &= 1 \\
+\implies \ t^2 - 2t^2 y + t^2 y^2 + y^2 &= 1 \\
+\implies \ (1 + t^2)y^2 - 2t^2 y + (t^2 - 1) &= 0
+\end{align*}
+This is a quadratic in \( y \). Solving it gives:
+\[
+y = \frac{2t^2 \pm \sqrt{4}}{2(1 + t^2)} = \frac{t^2 \pm 1}{t^2 + 1}
+\]
+So the two roots are:
+\[
+y = 1, \quad y = \frac{t^2 - 1}{t^2 + 1}
+\]
+Since \( y = 1 \) corresponds to the north pole (which is excluded from the domain of \( \varphi_1 \)), we discard it. Thus, we have:
+\[
+y = \frac{t^2 - 1}{t^2 + 1}
+\]
+Now substitute back to find \( x \):
+\begin{align*}
+x &= t(1 - y) = t \left(1 - \frac{t^2 - 1}{t^2 + 1} \right)
+= t \left( \frac{(t^2 + 1) - (t^2 - 1)}{t^2 + 1} \right)
+= t \left( \frac{2}{t^2 + 1} \right)
+= \frac{2t}{t^2 + 1}
+\end{align*}
+Hence, the inverse map \( \varphi_1^{-1}: \mathbb{R} \to S^1 \setminus \{(0,1)\} \) is given by:
+\[
+\boxed{
+\varphi_1^{-1}(t) = \left( \frac{2t}{1 + t^2}, \frac{t^2 - 1}{1 + t^2} \right)
+}
+\]
+Note that this map is continuous and hence this is a homeomorphism. Similarly, we can prove it for $\phi_2$ also. Now, if we take a point from the intersection, $U_1\bigcap U_2$ (that is, the circle without the poles), then we can never obtain the point $(0,0)$ since both maps give $(0,0)$ only when one of the input is along the y-xis. Thus, $\phi_1(U_1\bigcap U_2) = \mathbb{R}\backslash 0, \phi_2(U_1\bigcap U_2) = \mathbb{R}\backslash 0$. Now let's see the transition map: 
+$$\phi_2 \circ \phi_1^{-1} = \phi_2 \brac{\frac{2t}{1+t^2}, \frac{t^2-1}{t^2+1}} = \frac{\frac{2t}{t^2+1}}{\frac{t^2-1}{t^2+1}-1} = \frac{2t}{2t^2} = \frac{1}{t}$$ which is smooth on $\mathbb{R}\backslash 0 $. Similarly for the other case also, we can show. Thus $\{(U_1, \varphi_1), (U_2, \varphi_2)\}$ for an atlas for the circle and is called the Mercator Atlas. 
 Similarly we can prove that the $n$-dimensional sphere is a manifold. \\[0.3cm]
 \textbf{Product Manifold:}\\[0.2cm]
-Let $\mathcal{M}$ be an $m$-dimensional manifold with atlas $\{U_i,\phi_i\}$ and $\mathcal{N}$ be an $n$-dimensional manifold with atlas $\{V_i,\psi_i\}$, then we define the product manifold as an $(m+n)-$ dimensional manifold with atlas $\{U_i\times V_j, (\phi_i , \psi_j)\}$. So basically we took the Cartesian product of the two coordinate neighbourhoods to define the new neighbourhood and then used the ordered pair of the two homeomorphisms to define the new coordinate function. \\[0.3cm]
+Let $\mathcal{M}$ be an $m$-dimensional manifold with atlas $\{U_i,\varphi_i\}$ and $\mathcal{N}$ be an $n$-dimensional manifold with atlas $\{V_i,\psi_i\}$, then we define the product manifold as an $(m+n)-$ dimensional manifold with atlas $\{U_i\times V_j, (\phi_i , \psi_j)\}$. So basically we took the Cartesian product of the two coordinate neighbourhoods to define the new neighbourhood and then used the ordered pair of the two homeomorphisms to define the new coordinate function. \\[0.3cm]
 \textit{Example.} The torus is a product manifold of two circles, that is, $T^2 = \mathbb{S}^1\times \mathbb{S}^1$. Note that by our definition, it is a two $(1+1)$ dimensional manifold. We can generalise the notion of torus by taking multiple product of circles: $$T^n = \underbrace{\mathbb{S}^1\times \mathbb{S}^1\times \cdots \times \mathbb{S}^1}_n$$ 
 \subsubsection{Differentiable Maps}
 \begin{definition}[Differentiable Map]
@@ -127,12 +174,13 @@ Let $\mathcal{M}$ be an $m$-dimensional manifold with atlas $\{U_i,\phi_i\}$ and
 \end{definition}
 WTH...\emoji{worried-face} what is this weird map that we want to be smooth? Let us see in more details. So, what does $f$ do? It is a map from manifold $\mathcal{M}$ to manifold $\mathcal{N}$ and it maps $p \mapsto f(p)$. So far good...Now, we know that we can obtain coordinate representations using the homeomorphisms. Let them be:
 $$\phi(p) \equiv \{x^\mu\}\quad\quad\quad \psi(f(p)) \equiv \{y^\alpha\}$$
-So what $\psi \circ f \circ \phi^{-1}$ does is, it takes a vector from $\mathbb{R}^m$, sends it back to the manifold $\mathcal{M}$, applies $f$ to it to send it to manifold $\mathcal{N}$ and then sends it to $\mathbb{R}^n$, so finally we obtain a $n$ element output from $m$ element input, using $f$. So this is just the usual map like what we write $\veb{y} = f(\veb{x})$. Lol, this is nothing but the differentiability of a function, albeit in a more sylish (and appropriate way).
+So what $\psi \circ f \circ \phi^{-1}$ does is, it takes a vector from $\mathbb{R}^m$, sends it back to the manifold $\mathcal{M}$, applies $f$ to it to send it to manifold $\mathcal{N}$ and then sends it to $\mathbb{R}^n$, so finally we obtain a $n$ element output from $m$ element input, using $f$. So this is just the usual map like what we write $\veb{y} = f(\veb{x})$. Lol, this is nothing but the differentiability of a function, albeit in a more stylish (and appropriate) way.
 \begin{figure}[H]
   \centering 
   \input{plot&diagrams/diffmap.tex}
   \caption{Representation of a differentiable map}
 \end{figure}
+\noindent
 Next to come to another \textit{-morphism} related to the differentiable manifolds. 
 \begin{definition}[Diffeomorphism]
   Let $f: \mathcal{M}_m \rightarrow \mathcal{N}_n$ be a homeomorphism and $\psi$ and $\phi$ be the coordinate functions as defined before. If $\psi\circ f\circ\phi^{-1}$ is invertible and both $\psi\circ f\circ\phi^{-1}$ and its inverse $\phi\circ f^{-1}\circ\psi^{-1}$ are smooth maps, then $f$ is called a \textit{diffeomorphism}. The manifolds are then said to be diffeomorphic to each other.
@@ -175,12 +223,145 @@ However, note that, as in the above picture, many different curves can be drawn 
 \end{definition}
 If $\sigma_1$ and $sigma_2$ are `tangent' in one system, then they are tanget in any other coordinate system local around $p$, and hence this definition is independent of any coordinates. We define the tangent vector at $p \in \mathcal{M}$ as the euivalence class of curves, that is:
 $$[\sigma_i] = \{\sigma | \sigma \sim_t \sigma_i \}$$
-where $\sim_t$ is the relation satisfying that two curves are tangent to the manifold. The tangent space $T_p\mathcal{M}$ to manifold $\mathcal{M}$ at point $p$, is the set of all tangent vectors at the point $p$. 
+where $\sim_t$ is the equivalence relation\footnote{It can easily be shown to be reflexive, symmetric and transitive} satisfying that two curves are tangent to the manifold. The tangent space $T_p\mathcal{M}$ to manifold $\mathcal{M}$ at point $p$, is the set of all tangent vectors at the point $p$. 
+\subsubsection{Tangent Bundles}
+The tangent bundle of a manifold $\mathcal{M}$ is the union of all the tangent spaces, hence: 
+$$T\mathcal{M} = \bigcup\limits_{p\in \mathcal{M}}T_p\mathcal{M}$$
+We can define a `natural' (coordinate or chart independent) map $\pi$ from the tangent bundle to the manifold given by $\pi(v) = p, \ \ v \in T_p\mathcal{M}$
+Notice that the tangent bundle is just a set, with no structure or anything else. Let us modify this a bit. Suppose we have a chart $(U,\phi)$, then we will have:
+$$TU =  \bigcup\limits_{p\in {U}}T_p{U}= \bigcup\limits_{p\in \mathcal{U}}T_p\mathcal{M}$$ 
+The last two things can be shown to be equal. Since the set of derivations form a basis for the tangent space at $p$, we can write the tangent vector uniquely as a linear combination:
+$$T_p\mathcal{M}\ni v = \sum\limits_{i}^n c^i \pdv{x^i}\Bigg|$$
+Here $c^i$ are functions on $TU$. Then tangent bundle can also be shown to be \textit{Hausdorff}. Well, tangent bundles are a special case of something called a fibre bundle. 
+\begin{definition}[Bundle]
+  Given a map $\pi: \mathcal{E}\rightarrow M$, the inverse image $pi^{-1}(p)$ to be the \textit{fibre} at $p\in \mathcal{M}$, denoted as $E_p$. For two maps $\pi: \mathcal{E}\rightarrow M$ and $\pi: \mathcal{E}'\rightarrow M$, a map $\phi$ is said to be fibre-preserving if $\phi(E_p)\subset E_p'$.\\[0.2cm]
+  A bundle is a triple $(\mathcal{E},\mathcal{M},\pi)$ consisting of manifolds $\mathcal{M}$ which is called the \textit{base space} and the manifold $\mathcal{E}$, called the \textit{total space} and $\pi$ is a continuous, surjective map from the total space to the base space.  
+\end{definition}
+
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/vec_bun.tex}
+  \caption{Commutative diagram for a bundle, showing the fibre preserving map $\phi$}
+\end{figure}
+\noindent
+Fibres can be thought of as points in $\mathcal{E}$ which `strings' together with $p$ in $\mathcal{M}$ (hence the name bundle, like a bundle of strings perhaps...) In a bundle, different points of the base manifold may have (topologically) different fibres. If all points have a fibre, which is togologically equivalent to a single space, say $F$, then we call that bundle a \textit{fibre bundle}. In other words, fibre bundles have a single fibre. \\[0.3cm]
+We now define a section of a bundle. Given a bundle $(\mathcal{E}, \mathcal{M}, \pi)$, the section is a map $\sigma: \mathcal{M}\rightarrow \mathcal{E}$ such that $\pi \circ \sigma = \mathds{1}_\mathcal{M}$, the identity map of the base space. What it means that, this map $\sigma$ takes $p$ to some point in the fibre $F_p$ such that when $\pi$ is acted on $\sigma(p)$, we obtain the same point $p$.\\[0.2cm]
+Okay, so what was this thing really needed for? Well, we had earlier seen the tangent bundle, which we had written as $T\mathcal{M}$. More appropriately, we should have written it as $(T\mathcal{M}, \mathcal{M}, \pi)$. Then a vector field is nothing but a section of the tangent bundle which assigns a tangent vector (belonging to the tangent space) to each point $p$ in the manifold. 
+
+\subsubsection{Vector Space Structure on the Tangent Space}
+The intuitive idea of tangent space as a plane implies that vectors can be added and multiplied with some scalar, leading to a vector space structure. We now prove that the tangent space $T_p\mathcal{M}$ also carries a structure of a real vector space. 
+\begin{theorem}
+  The tangent space $T_p\mathcal{M}$ carries a structure of a real vector space.
+\end{theorem}
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/tang_sp_vsp.tex}
+  \caption{Two tangent vectors and their representative curves are shown on the manifold at point $p$.}
+\end{figure}
+\noindent
+In the above figure, we have two tangent vectors $\veb{v}_1$ and $\veb{v}_2$ at $p$ with $\sigma_1$ and $\sigma_2$ as their representative curves (that is, $\veb{v}_1 = [\sigma_1]$ and $\veb{v}_2 = [\sigma_2]$). We use a local chart $(U,\phi)$ around $p$ such that $\phi(p) = \veb{0} \in \mathbb{R}^m$.\\[0.3cm]
+Consider the maps $\phi \circ \sigma_1$ and $\phi \circ \sigma_2$. Since a curve $\sigma$ maps an open interval to the manifold and the homeomorphism maps an open set in the manifold to an open set in $\mathbb{R}^m$, the above composite functions maps an open interval to an open set in $\mathbb{R}^m$.\\[0.3cm]
+Now, the addition $\phi \circ \sigma_1 (t) + \phi \circ \sigma_2(t)$ is valid, since these are elements of $\mathbb{R}^m$ (actually, these are also curves in $\mathbb{R}^m$). Then we consider the map:
+$$\phi^{-1}\circ (\phi \circ \sigma_1 (t) + \phi \circ \sigma_2(t))$$
+which is a curve back on the manifold and passes through $p$ when $t=0$. We then define:
+\begin{enumerate}
+  \item $v_1+v_2 :=[\phi^{-1}\circ (\phi \circ \sigma_1  + \phi \circ \sigma_2)]$
+  \item $rv :=[\phi^{-1}\circ (r\phi \circ \sigma )]\ \forall \ r\in \mathbb{R}$ 
+\end{enumerate}
+It can then be shown that these definitions are independent of the charts and the representative curves, and using these, the tangent space can be shown to be a vector space.
+\subsubsection{Tangents as derivatives}
+We saw a geometric way of defining tangents using the tangent space approach. Now, we will define it algebraically. The directional derivative of a function $f$ along a tangent  vector $v$ is defined as:
+$$v(f) := \dv{t}f(\sigma(t))\Big|_{t=0}$$
+where $v = [\sigma]$. This definition helps us to view $v$ as a differential operator on the space $C^\infty(\mathcal{M})$ of real-valued functions on the manifold. 
+\begin{definition}[Derivations]
+  A derivation at a point $p\in\mathcal{M}$ is a map $v:C^\infty(\mathcal{M})\rightarrow \mathbb{R}$ such that:
+  \begin{itemize}
+    \item 
+    \begin{align*}
+      v(f+g) &= v(f) + v(g) \ \forall \ f,g\in C^\infty(\mathcal{M})\\
+      v(rf) &= r v(f) \ \forall \ f \in C^\infty(\mathcal{M}), r \in \mathbb{R}
+    \end{align*}
+    \item $v(fg) = f(p)v(g)+ g(p)v(f)\ \forall \ f,g\in C^\infty(\mathcal{M})$
+  \end{itemize}
+  The set of all derivations at $p$ is denoted as $D_p\mathcal{M}$
+\end{definition}
+The first condition tells us that $v$ should be a linear map and the second condition (kind of like the product rule) is the actual thing for which we call it \textit{derivation}. We can define
+\begin{align*}
+  (v_1+v_2)(f) &:=v_1(f)+v_2(f)\\
+(rv)(f) &:= rv(f)
+\end{align*}
+This gives a natural vector space structure to the space of derivations. We can also show that $T_p\mathcal{M}$ and $D_p\mathcal{M}$ are actually isomorphic and thus, both approaches can be taken to describe the tangent-space structure (However, the algebraic approach is a bit problematic for infinite-dimensional space). 
+We now define a set of derivations of a function $f$ at $p$, with the help of a local chart $(U,\phi)$ where $f\in C^\infty$ and $\phi^\mu$ are the coordinate components.
+$$\brac{\pdv{\phi^\mu}}_p f := \pdv{r^\mu}f\circ \phi^{-1}\Big|_{\phi(p)}\quad \mu = 1,2,\ldots, m$$
+Note that in the right hand side, the partial derivative with respect to the coordinate is well defined, but in the left hand side, even though the notation is of partial derivative, the action is not well defined since the function is defined on the manifold which doesn't have the vector space structure required for definition of partial derivatives. Sometimes we use the notation $\pdv{f}{\phi^\mu}$ directly. Then, using this notation and also the fact that $\phi^{-1}\circ \phi(p) = p$, we can write:
+
+$$\brac{\pdv{f}{\phi^\mu}} \brac{p} = \brac{\pdv{f}{\phi^\mu}}\brac{\phi^{-1}\circ \phi(p)} = \pdv{r^\mu}\brac{f\circ \phi^{-1}}{\phi(p)}$$
+Then we can write 
+$$\brac{\pdv{f}{\phi^\mu}}\circ \phi^{-1} \equiv   \pdv{r^\mu}\brac{f\circ \phi^{-1}}$$
+These quantitites form a basis set for the vector space $D_p\mathcal{M}$
+\begin{proposition}
+  Suppose $(U,\phi)$ is a chart with coordinates $\phi^i$. Then $\pdv{\phi^i}{\phi^j} = \tensor{\delta}{^i _j}$
+\end{proposition}
+\textit{Proof.} From the previous result, we have:
+$$\pdv{\phi^i}{\phi^j}\brac{\phi(p)} = \pdv{\phi^i \circ \phi^{-1}}{r^j}\brac{\phi(p)} = \pdv{r^i\circ \phi \circ \phi^{-1}}{r^j}\brac{\phi(p)} =\pdv{r^i}{r^j}\brac{\phi(p)} = \tensor{\delta}{^i _j}$$
+We just used the coordinate definition using the projection maps. \\[0.3cm]
+We now define something which we had already seen earlier, the Jacobian. For that, let $\mathcal{M}$ and $\mathcal{N}$ be two manifolds and $(U,\phi)$ and $(V,\psi)$ be two charts on these manifolds respectively and $F: \mathcal{M}\rightarrow N$ be a smooth map between the manifolds such that $F(U) \subset V$. Let $F^i$ denote the $i^{\text{th}}$ component of $F$ in chart $(V,\psi)$. Then we have:
+$$F^i := \psi^i \circ F = r^i \circ \psi \circ F$$
+We call the matrix $[\pdv{F^i}{\phi^j}]$ to be the Jacobian matrix of $F$ relative to these charts and if the two manifolds have same dimension, we can also calculate the determinant of this matrix. If the manifolds are same and we have two overlapping charts, then the transition map $\gamma = \psi \circ \phi^{-1}$ is from $\mathbb{R}^m$ to $\mathbb{R}^m$. Previously, in the definition, we had $F:\mathcal{M}\rightarrow \mathcal{N}$. If we take $F= \gamma$, then $\mathcal{N},\mathcal{M} = \mathbb{R}^m$ whose coordinates are $r^\mu$. Then
+$$\pdv{\gamma^i}{r^j}\brac{\phi(p)} = \pdv{\brac{\psi \circ \phi^{-1}}^i}{r^j}\brac{\phi(p)} =\pdv{r^i \circ \brac{\psi \circ \phi^{-1}}}{r^j}\brac{\phi(p)} = \pdv{ \psi^i { \circ \phi^{-1}}}{r^j}\brac{\phi(p)} = \pdv{\psi^i}{\phi^j}\brac{p}$$
+What this tells us is that the Jacobian matrix of the transition map is the matrix of the partial derivatives at $p$. This is very similar to what we had earlier seen, the Jacobian written as $\pdv{x'}{x}$. 
+
+\begin{theorem}[Inverse Function Theorem]
+  \textbf{For $\mathbf{\mathbb{R}^n}$}: Let $F: W\rightarrow \mathbb{R}^n$ be a smooth map where $W$ is an open subset of $\mathbb{R}^n$. For $p\in W$, $F$ is locally invertible at $p$ iff determinant of the Jacobian matrix is not zero. \\[0.2cm]
+  \textbf{For manifolds}: Let $F:\mathcal{M}\rightarrow \mathcal{N}$ be a smooth map between two manifolds and $p\in \mathcal{M}$. Let $(U,\phi)$ and $(V,\psi)$ be two charts about $p$ and $F(p)$ respectively and $F(U)\subset V$. Let $F^i = \psi^i \circ F$. Then $F$ is locally invertible at $p$ iff Jacobian determinant is non-zero.
+\end{theorem}
+This is a local result and hence, directly translated to manifolds too from $\mathbb{R}^n$.
 \subsection{Differential Forms}
+\subsubsection{Vector Fields}
+\begin{definition}[Vector Field]
+  A vector field $X$ on a smooth manifold assigns a tangent vector $X_p\in T_p\mathcal{M}$ at each point $p\in \mathcal{M}$.
+\end{definition}
+As a vector field assigns a tangent vector to each point of its domain and the tangent vector (from algebraic approach) maps differentiable functions to real numbers, we can define function: 
+$$(\veb{X}f)(p) \equiv\veb{X}_p[f]$$
+Then, from the definition of derivations, we have the following:
+$$\veb{X}(af+bg)=a\veb{X}f + b\veb{X}g \quad \quad \veb{X}(fg) = f\veb{X}g + g\veb{X}f\quad \forall \ f,g \in C^\infty(\mathcal{M}) \ \ \text{and}\ \ a,b\in\mathbb{R}$$
+We also have stated that $\brac{\pdv{x^i}}$ form a basis for the tangent space (or space of derivation which is isomorphic to he tangent space, so we)
+\subsubsection{Lie stuffs (it's pronounced lee)}
+We will now see when `multiplying' two vector fields will yield another field. For this, note:
+\begin{minipage}{0.48\textwidth}
+\begin{align*}
+  X \circ Y (fg) &= X(fYg + gYf) \\
+                 &= X(fYg) + X(gYf) \\
+                 &= XgYf + gXYf + XfYg + fXYg
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{align*}
+  Y \circ X (fg) &= Y(fXg + gXf) \\
+                 &= Y(fXg) + Y(gXf) \\
+                 &= YgXf + gYXf + YfXg + fYXg
+\end{align*}
+\end{minipage}
+Note that on its own these two quantities are not vector fields, since these do not satisfy the `product rule', however, if we subtract these quantities, we get:
+  \begin{align*}
+    (X\circ Y - Y\circ X)(fg) &=\cancel{XgYf} + gXYf + \cancel{XfYg} + fXYg - (\cancel{YgXf} + gYXf + \cancel{YfXg} + fYXg)\\
+    &= f(X\circ Y - Y\circ X)g +g(X\circ Y - Y\circ X)f
+  \end{align*}
+  This difference satisfies the product rule and is a vector field.
+\begin{definition}[Lie Bracket]
+  The Lie Bracket of two vector fields $X,Y$ on $\mathcal{M}$ is defined by:
+  $$[X,Y]f = X(Yf) - Y(Xf) \quad \forall f\in C^\infty(\mathcal{M})$$
+\end{definition}
+\begin{definition}[Lie Group]
+A Lie group $(G, *)$ is a $C^\infty$ manifold having a group structure such that the multiplication map $* : G \times G\rightarrow  G$ and the inverse map $\iota: G\rightarrow G \ \text{and} \ \iota(x) = x^{-1}$ are both $C^\infty$
+\end{definition}
+\subsection{Riemannian Geometry}
+Okay, so whatever BS we had been seeing earlier (I admit, I got a bit carried away with diff geo part since it was so interesting), we will now use that to see our previous discussions on tensors in a more stronger form. We will re-discuss metrics, connections, covariant derivatives, etc. but now in a more sophisticated language (which goes against my initial intentions). 
 
-
-
-
-
+% \begin{figure}
+%   \centering
+% \includesvg{plot&diagrams/vect_sphere.svg}
+% \end{figure}
 
 % \textit{Definition.} Suppose $C\subset \mathbb{R}^2$ be a curve and let $p\in C$ is a point. The tangent space to $C$ at $p$ is the set of all vectors tangent to $C$ at $p$ and is denoted by $T_pC$. 

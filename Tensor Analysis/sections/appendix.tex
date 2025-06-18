@@ -1,5 +1,22 @@
 \begin{appendices}
     \section{Equivalence Relations and Equivalence Classes}
+    \section{Vector Space}
 \section{Groups}
 A group is a 
+\section{Ring}
+A structure $(R,+, \cdot)$ is a ring, with $R\neq \emptyset$ and $+$ and $\cdot$ two binary operations such that:
+\begin{itemize}
+    \item \textbf{Addition}: $(R,+)$ is an abelian group that is associative, has a zero element, an inverse and is commutative. 
+    \item \textbf{Multiplication}: is associative.
+    \item \textbf{Distributive: } $(a+b)\cdot c = a\cdot c + b\cdot c$ and $a\cdot (b+c) = a\cdot b + a\cdot c$
+\end{itemize}
+Well, since multiplication is not necessarily commutative in a ring, the distributive law is postulated as two laws.
+\section{Algebra}
+An algebra over a field $K$ is a vector space $A$ with a multiplication map $\mu : A\times A \rightarrow A$ denoted by $\mu(a,b) = a\cdot b$, such that for all $a,b,c\in A$ and $r\in K$ we have: 
+\begin{itemize}
+    \item Associativity: $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ \\
+    \item Distributivity: $a\cdot (b+c) = a\cdot b + a \cdot c$ and $(a+b)\cdot (c) = a\cdot c + b \cdot c$
+    \item Homogenity: $r(a\cdot b) = (ra)\cdot b = a\cdot (rb)$
+\end{itemize}
+If $A,A'$ are algebras over field $K$, then an algebra homeomorphism is a linear map $\mathcal{L}: A\rightarrow A'$ such that multiplication is preserved, that is, $\mathcal{L}(ab) = \mathcal{L}(a)\mathcal{L}(b) \ \forall \ a,b \in A$. 
 \end{appendices}
