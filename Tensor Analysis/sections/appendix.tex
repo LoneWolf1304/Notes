@@ -8,13 +8,22 @@ A structure $(R,+, \cdot)$ is a ring, with $R\neq \emptyset$ and $+$ and $\cdot$
 \begin{itemize}
     \item \textbf{Addition}: $(R,+)$ is an abelian group that is associative, has a zero element, an inverse and is commutative. 
     \item \textbf{Multiplication}: is associative.
-    \item \textbf{Distributive: } $(a+b)\cdot c = a\cdot c + b\cdot c$ and $a\cdot (b+c) = a\cdot b + a\cdot c$
+    \item \textbf{Distribution: } $(a+b)\cdot c = a\cdot c + b\cdot c$ and $a\cdot (b+c) = a\cdot b + a\cdot c$
 \end{itemize}
 Well, since multiplication is not necessarily commutative in a ring, the distributive law is postulated as two laws.
+\section{Module}
+Let $R$ be a ring. Then a \textit{left R-module} is an abelian group $(M,+)$ together with a map $\cdot : R\times M \rightarrow M$ satisfying:
+\begin{itemize}
+    \item $\alpha \cdot (x+y) = \alpha \cdot x + \alpha \cdot y \ \forall \ \alpha \in R \text{ and } x,y\in M$
+    \item $(\alpha+\beta)\cdot x = \alpha\cdot x + \beta\cdot y\ \forall \ \alpha,\beta \in R \text{ and } x\in M$
+    \item $(\alpha \beta)\cdot x = \alpha \cdot (\beta \cdot x)$
+    \item $\mathds{1}\cdot x = x$
+\end{itemize}
+The elements of the ring are sometimes called as \textit{scalars}. Since the scalars always appear on the left, it is called a left module. We can similarly define the right module but by module, we will always mean left module.
 \section{Algebra}
 An algebra over a field $K$ is a vector space $A$ with a multiplication map $\mu : A\times A \rightarrow A$ denoted by $\mu(a,b) = a\cdot b$, such that for all $a,b,c\in A$ and $r\in K$ we have: 
 \begin{itemize}
-    \item Associativity: $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ \\
+    \item Associativity: $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ 
     \item Distributivity: $a\cdot (b+c) = a\cdot b + a \cdot c$ and $(a+b)\cdot (c) = a\cdot c + b \cdot c$
     \item Homogenity: $r(a\cdot b) = (ra)\cdot b = a\cdot (rb)$
 \end{itemize}

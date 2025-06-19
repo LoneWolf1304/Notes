@@ -76,7 +76,7 @@ So, what is common in all these pictures? Note that they all look very different
   \end{itemize}
 \end{definition}
 \footnotetext{
-A smooth map is a function which is infinitely differentiable, that is, all the derivatives exist and are continuous. Sometimes a smooth map $f$ is said to belong to the class $C^\infty$. In general, $C^k$ is the class of functions which are $k$ times continuously differentiable. }
+A smooth map is a function which is infinitely differentiable, that is, all the derivatives exist and are continuous. Sometimes a smooth map $f$ is said to belong to the class $C^\infty$. In general, $C^k$ is the class of functions which are $k$ times continuously differentiable. \textcolor{blue}{We will consider mostly `smooth' things here, so we will always in general take $k$ to be $\infty$}}
 \begin{figure}[H]
   \centering 
   \input{plot&diagrams/manifold.tex}
@@ -86,6 +86,9 @@ A point $p \in U \subset \mathcal{M}$ has the coordinates $(\phi^1(p),\ldots, \p
 The terminologies used here are very much related to the geography of Earth. The pair $(U_i, \phi_i)$ is called a \textit{chart} (maybe because they help us to locally ``chart'' the manifold, that is, understand it using some coordinates) and the collection of all charts is called an \textit{atlas} (well, because it is collection of maps). \\[0.3cm]
 Now let us unfold this carefully. For the open set $U_i$, the map $\phi_i$ takes it to another open set in $\mathbb{R}^m$. So for all $x\in U_i$ we got a mapping to an Euclidean space. Same goes for $U_j$, that is we obtain a mapping into another copy of $\mathbb{R}^m$. Now for points in the intersection of $U_i$ and $U_j$, we have got two different mappings and we can go back and forth between the two copies of $\mathbb{R}^m$ since these mappings were homeomorphisms. This is what we had with the mapping $\psi_{ij}$ (and thus, these are aptly called \textit{transition functions}). It first maps with the inverse of $\phi_j$  and then applies $\phi_i$. The net effect is that we are mapping between a point in one copy of $\mathbb{R}^m$ to another copy of $\mathbb{R}^m$. \\[0.3cm]
 Imagine the open sets as patches in the manifold. We can then patch together the whole manifold by taking the union of all the open sets, all of which can be viewed as a Euclidean space. There are also manifolds which do not have the smooth property on then transient function, only continuity is required. These are called \textbf{topological manifolds}. We also assume that our manifolds are \textbf{Hausdorff} and paracompact (which we will not define here). Now comes the good thing: examples!!
+\begin{ffact}
+For a differentiable manifold $\SM$, the set of smooth real-valued functions on it $C^\infty(\SM)$ is a \textit{ring}
+\end{ffact}
 \subsubsection{Examples:}
 \textbf{The Space $\mathbf{\mathbb{R}^n}$}\\[0.3cm]
 Duh, it looks like $\mathbb{R}^n$ locally since it is $\mathbb{R}^n$ itself. A single chart is enough for the purpose and the homeomorphism is the identity map. \\[0.3cm]
@@ -187,12 +190,24 @@ Next to come to another \textit{-morphism} related to the differentiable manifol
 \end{definition}
 Well, we had earlier seen that homeomorphisms characterise spaces which can be `continuously' deformed into each other. Diffeomorphism does one thing extra, it characterises spaces which are transformed `smoothly' into each other. Evidently, a diffeomorphism is also a homeomorphism. If two spaces a diffeomorphic, then their dimensions are same, that is $\dim \mathcal{M} = \dim \mathcal{N}$\\[0.3cm]
 The set of diffeomorphisms $f:\mathcal{M}\rightarrow\mathcal{M}$ is a group and is denoted by $\mathrm{Diff}(\mathcal{M})$. 
+\subsubsection{Pullback of a function}
+\begin{figure}[H]
+  \centering
+  \input{plot&diagrams/pullback.tex}
+\end{figure}
+Given a smooth map $\psi:\SM \rightarrow \SN$ and $f\in C^\infty(\SN)$, the pullback of $f$ along $\psi$ is defined to be:
+$$\psi^*f\equiv f\circ \psi : \SM\rightarrow \re$$
+Since $f$ and $\psi$ both are smooth maps, their composition (which is a real-valued function) is too! Thus, $\psi^*$ can be thought of as a map from $C^\infty(\SN) \rightarrow C^\infty(\SM)$. Thus, it sort of `pulls back' to the original manifold from which $\psi$ was defined. \footnote{This has something to do dual space and one-forms also, apparently, which maybe seen later.} Also, note the following properties of the pullback for two functions $f,g \in C^\infty(\SN)$:
+\begin{itemize}
+  \item $\psi^*(f+g)(p) \equiv (f+g)\circ \psi(p) = f(\psi(p))+g(\psi(p)) = \psi^*f(p)+\psi^*g(p)$
+  \item $\psi^*(fg)(p) = (fg)\circ \psi(p) = f(\psi(p))g(\psi(p)) = (\psi^*f(p))(\psi^*g(p))$
+\end{itemize}
 \subsubsection{Curves}
 \begin{definition}[Curve]
-  An open curve in an $m$-dimensional manifold $\mathcal{M}$ is a map $c:(a,b)\rightarrow \mathcal{M}$ such that $a<0<b$ ($a$ and $b$ can be $\pm \infty$ also). A closed curve is a map $c:\mathbb{S}^1\rightarrow \mathcal{M}$
+  An open curve in an $m$-dimensional manifold $\mathcal{M}$ is a map $\sigma:(a,b)\rightarrow \mathcal{M}$ such that $a<0<b$ ($a$ and $b$ can be $\pm \infty$ also). A closed curve is a map $\sigma:\mathbb{S}^1\rightarrow \mathcal{M}$
 
 \end{definition}
-We had included zero in the interval for convenience. 
+What this means is that suppose we take $t\in (a,b)$, then $\sigma(t)$ is a point on the manifold. As $t$ is varied in the interval, the points $\sigma(t)$ kinda resembles a trajectory (which we intuitively had called a `curve' so far). We had included zero in the interval for convenience. 
 \subsubsection{Vectors}
 In our usual sense, we imagine vectors as straight arrows drawn from the origin but in manifolds, which is `curved', firstly, straight arrows cannot be drawn in general and secondly, there is no origin from which the arrow can be drawn. If the arrow is `small' enough we can locally obtain something like a ``vector space''. Suppose the tail of the arrow is at a point $p\in \mathcal{M}$ and the tip is at a point $p'$ which is `close' to $p$, then the vector space can be approximated by the \textit{tangent space} at the point $p$. 
 \subsection{Tangent Space}
@@ -217,7 +232,7 @@ However, note that, as in the above picture, many different curves can be drawn 
   \begin{itemize}
     \item $\sigma_1(0) = \sigma_2(0) = p$
     \item In some `local coordinate system' $(x^i)$ around $p$, the two curves are tangent in the normal way, that is, 
-    $$\dv{x^i}{t}(\sigma_1(t))\Big|_{t=0} =\dv{x^i}{t}(\sigma_2(t))\Big|_{t=0}  \ \forall \ i = 1,2,\ldots,m$$
+    $$\dv{x^i}{t}(\sigma_1(t))\Bigg|_{t=0} =\dv{x^i}{t}(\sigma_2(t))\Bigg|_{t=0}  \ \forall \ i = 1,2,\ldots,m$$
   \end{itemize}
   
 \end{definition}
@@ -233,6 +248,11 @@ $$TU =  \bigcup\limits_{p\in {U}}T_p{U}= \bigcup\limits_{p\in \mathcal{U}}T_p\ma
 The last two things can be shown to be equal. Since the set of derivations form a basis for the tangent space at $p$, we can write the tangent vector uniquely as a linear combination:
 $$T_p\mathcal{M}\ni v = \sum\limits_{i}^n c^i \pdv{x^i}\Bigg|$$
 Here $c^i$ are functions on $TU$. Then tangent bundle can also be shown to be \textit{Hausdorff}. Well, tangent bundles are a special case of something called a fibre bundle. 
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/bundle.tex}
+  \caption{Diagram showing the base space, total space and the fibre of a point $p$}
+\end{figure}
 \begin{definition}[Bundle]
   Given a map $\pi: \mathcal{E}\rightarrow M$, the inverse image $pi^{-1}(p)$ to be the \textit{fibre} at $p\in \mathcal{M}$, denoted as $E_p$. For two maps $\pi: \mathcal{E}\rightarrow M$ and $\pi: \mathcal{E}'\rightarrow M$, a map $\phi$ is said to be fibre-preserving if $\phi(E_p)\subset E_p'$.\\[0.2cm]
   A bundle is a triple $(\mathcal{E},\mathcal{M},\pi)$ consisting of manifolds $\mathcal{M}$ which is called the \textit{base space} and the manifold $\mathcal{E}$, called the \textit{total space} and $\pi$ is a continuous, surjective map from the total space to the base space.  
@@ -271,40 +291,86 @@ which is a curve back on the manifold and passes through $p$ when $t=0$. We then
 It can then be shown that these definitions are independent of the charts and the representative curves, and using these, the tangent space can be shown to be a vector space.
 \subsubsection{Tangents as derivatives}
 We saw a geometric way of defining tangents using the tangent space approach. Now, we will define it algebraically. The directional derivative of a function $f$ along a tangent  vector $v$ is defined as:
-$$v(f) := \dv{t}f(\sigma(t))\Big|_{t=0}$$
+$$v(f) := \dv{t}f(\sigma(t))\Bigg|_{t=0}$$
 where $v = [\sigma]$. This definition helps us to view $v$ as a differential operator on the space $C^\infty(\mathcal{M})$ of real-valued functions on the manifold. 
 \begin{definition}[Derivations]
-  A derivation at a point $p\in\mathcal{M}$ is a map $v:C^\infty(\mathcal{M})\rightarrow \mathbb{R}$ such that:
+  A derivation at a point $p\in\mathcal{M}$ is a map $v_p:C^\infty(\mathcal{M})\rightarrow \mathbb{R}$ such that:
   \begin{itemize}
     \item 
     \begin{align*}
-      v(f+g) &= v(f) + v(g) \ \forall \ f,g\in C^\infty(\mathcal{M})\\
-      v(rf) &= r v(f) \ \forall \ f \in C^\infty(\mathcal{M}), r \in \mathbb{R}
+      v_p(f+g) &= v_p(f) + v_p(g) \ \forall \ f,g\in C^\infty(\mathcal{M})\\
+      v_p(rf) &= r v_p(f) \ \forall \ f \in C^\infty(\mathcal{M}), r \in \mathbb{R}
     \end{align*}
-    \item $v(fg) = f(p)v(g)+ g(p)v(f)\ \forall \ f,g\in C^\infty(\mathcal{M})$
+    \item $v_p(fg) = f(p)v_p(g)+ g(p)v_p(f)\ \forall \ f,g\in C^\infty(\mathcal{M})$
   \end{itemize}
   The set of all derivations at $p$ is denoted as $D_p\mathcal{M}$
 \end{definition}
-The first condition tells us that $v$ should be a linear map and the second condition (kind of like the product rule) is the actual thing for which we call it \textit{derivation}. We can define
+The first condition tells us that $v$ should be a linear map and the second condition (kind of like the product rule) is the actual thing for which we call it \textit{derivation}. We can define:
 \begin{align*}
-  (v_1+v_2)(f) &:=v_1(f)+v_2(f)\\
+  (v_1+v_2)(f) &:=v_1(f)+v_2(f) \ \forall v_1,v_2\in D_p\SM\\
 (rv)(f) &:= rv(f)
 \end{align*}
-This gives a natural vector space structure to the space of derivations. We can also show that $T_p\mathcal{M}$ and $D_p\mathcal{M}$ are actually isomorphic and thus, both approaches can be taken to describe the tangent-space structure (However, the algebraic approach is a bit problematic for infinite-dimensional space). 
+Also, note that:
+\begin{align*}
+  (v_1+v_2)(fg) &= v_1(fg) + v_2(fg) \\
+  &= fv_1(g) + gv_1(f) + fv_2(g) + gv_2(f)\\
+  &=f(v_1+v_2)(g) + g(v_1+v_2)(f)
+\end{align*}
+This gives a natural vector space structure to the space of derivations $D_p\SM$. Note that if we try to do the same analysis for $v_p\in D_p\SM$ and $w_q\in D_q\SM$, these $v_p+w_q$ will not satisfy the product rule and then will not be a valid vector. So, vectors at different point on a manifold cannot be added \emoji{face-with-rolling-eyes}\\[0.2cm] 
+We can also show that $T_p\mathcal{M}$ and $D_p\mathcal{M}$ are actually isomorphic and thus, both approaches can be taken to describe the tangent-space structure (However, the algebraic approach is a bit problematic for infinite-dimensional space). 
 We now define a set of derivations of a function $f$ at $p$, with the help of a local chart $(U,\phi)$ where $f\in C^\infty$ and $\phi^\mu$ are the coordinate components.
-$$\brac{\pdv{\phi^\mu}}_p f := \pdv{r^\mu}f\circ \phi^{-1}\Big|_{\phi(p)}\quad \mu = 1,2,\ldots, m$$
+$$\brac{\pdv{\phi^\mu}}_p f := \pdv{r^\mu}f\circ \phi^{-1}\Bigg|_{\phi(p)}\quad \mu = 1,2,\ldots, m$$
 Note that in the right hand side, the partial derivative with respect to the coordinate is well defined, but in the left hand side, even though the notation is of partial derivative, the action is not well defined since the function is defined on the manifold which doesn't have the vector space structure required for definition of partial derivatives. Sometimes we use the notation $\pdv{f}{\phi^\mu}$ directly. Then, using this notation and also the fact that $\phi^{-1}\circ \phi(p) = p$, we can write:
 
 $$\brac{\pdv{f}{\phi^\mu}} \brac{p} = \brac{\pdv{f}{\phi^\mu}}\brac{\phi^{-1}\circ \phi(p)} = \pdv{r^\mu}\brac{f\circ \phi^{-1}}{\phi(p)}$$
 Then we can write 
 $$\brac{\pdv{f}{\phi^\mu}}\circ \phi^{-1} \equiv   \pdv{r^\mu}\brac{f\circ \phi^{-1}}$$
-These quantitites form a basis set for the vector space $D_p\mathcal{M}$
+\begin{ffact}
+  Tangent vector acting on a constant function is zero, that is, $v_p(c) = 0$
+\end{ffact}
+\textit{Proof. } Suppose we have a constant real valued function $f\equiv c\in \re$. First, note that $v_p(1) = v_p(1\cdot 1) = 1v_p(1) + 1v_p(1) = 2v_p(1)\implies v_p(1)=0$. Then we will have $v_p(c) = v_p(c\cdot 1) = c v_p(1) = 0 $
 \begin{proposition}
   Suppose $(U,\phi)$ is a chart with coordinates $\phi^i$. Then $\pdv{\phi^i}{\phi^j} = \tensor{\delta}{^i _j}$
 \end{proposition}
 \textit{Proof.} From the previous result, we have:
 $$\pdv{\phi^i}{\phi^j}\brac{\phi(p)} = \pdv{\phi^i \circ \phi^{-1}}{r^j}\brac{\phi(p)} = \pdv{r^i\circ \phi \circ \phi^{-1}}{r^j}\brac{\phi(p)} =\pdv{r^i}{r^j}\brac{\phi(p)} = \tensor{\delta}{^i _j}$$
 We just used the coordinate definition using the projection maps. \\[0.3cm]
+These quantitites form a basis set for the vector space $T_p\mathcal{M}$. For that we have to check for linear independence and span of these quantitites. 
+\begin{proposition}
+ The set $\left\{\brac{\pdv{\phi^i}}_p \right\}$ is linearly independent.
+\end{proposition}
+\textit{Proof.}  $a^i \brac{\pdv{\phi^i}}_p = 0\implies  a^i \brac{\pdv{\phi^j}{\phi^i}}_p \implies a^i\tensor{\delta}{^j _i} = 0 \implies a^j = 0$
+\begin{proposition}
+  Every $v_p\in T_p\SM$ can be written as a linear combination of $\brac{\pdv{\phi^i}}_p$
+\end{proposition}
+\textit{Proof.} For the proof, we need to use the \text{Mean-Value Theorem}. For a continuously differentiable function $f:[a,b]\rightarrow \re$, $\exists \ c\in(a,b)$ such that $f'(c) = \frac{f(b)-f(a)}{b-a}\implies f(b) = f(a)+ f'(c)(b-a)$.\\[0.2cm] For a multi-variable function, let $U\subset \re^n$ be an open set and $H:U\rightarrow \re$ be a continuously differentiable function. Let $\veb{a},\veb{b}\in U$ and $l(\veb{a},\veb{b})\equiv \{(1-t)\veb{a}+t\veb{b}|t\in [0,1]\}\subset U$.\\[0.2cm] Then define $h:[0,1]\rightarrow \re$ such that $t\mapsto H((1-t)\veb{a}+t\veb{b}) = H(\veb{a}+t(\veb{b}-a))$.\\[0.2cm]
+Note that $h(0) = H(\veb{a}), h(1) = H(\veb{b})$ and $h$ is continuously differentiable. Also,
+$$h'(t) = \dv{t} H(\veb{a}+t(\veb{b}-\veb{a})) = (b^i - a^i)\pdv{H}{r^i}\Bigg|_{a+t(b-a)}$$
+Now, we can apply the MVT for $\re$ on $h$ and we have for some $t_0\in (0,1)$:
+\begin{align*}
+  h(1) &= h(0) + (1-0)h'(t_0)\\
+\implies H(b) &= H(a) +  (b^i - a^i)\pdv{H}{r^i}\Bigg|_{a+t_0(b-a)}
+\end{align*}
+Now, let us begin the actual proof. So let us take a chart $(U,\phi) on \SM$ and $f\in C^\infty(\SM)$. Then $f\circ\phi^{-1}: \phi(U)\rightarrow \re$ is a smooth map.\\[0.2cm]
+Let $p\in U\implies \phi(p)\in \phi(U)$. As $\phi(U)$ is open subset of $\re^m$, there exists a $r>0$ such that $\SB(\phi(p), r)\subset \phi(U)$, from the basis definition of an open set. Then, let $q\in \phi^{-1}(\SB(\phi(p), r))$. Then $\phi(p)$ and $\phi(q)$ satisfy the condition $\{(1-t)\phi(p) +t\phi(q)|t\in[0,1]\}\subset \phi(U)$. Then we can apply the mean value theorem as seen before and we have:
+\begin{align*}
+  f(q)-f(p) &= f\circ\phi^{-1} \circ \phi(q) - f\circ\phi^{-1} \circ \phi(p)\\
+&=f\circ\phi^{-1}(\phi^1(q), \phi^2(q),\ldots,\phi^m(q)) - f\circ\phi^{-1}(\phi^1(p), \phi^2(p),\ldots,\phi^m(p))\\
+&=(\phi^i(q)-\phi^i(p))\pdv{f\circ\phi^{-1}}{r^i}\Bigg|_{\phi(p) +t(\phi(q)-\phi(p))}
+\end{align*}
+Now, if we fix $p$, then $$\pdv{f\circ\phi^{-1}}{r^i}\Bigg|_{\phi(p) +t(\phi(q)-\phi(p))}$$ depends only on $q$ and we denote it by $g_i(q)$. This implies that $g_i(p) = \pdv{f\circ\phi^{-1}}{r^i}\Bigg|_{\phi(p)} \equiv \brac{\pdv{\phi^i}}_p f$. We finally have:
+$$f(q)=f(p)+(x^i(q)-x^i(p))g_i(q)\implies f\equiv f(p)+(x^i-x^i(p))g_i$$
+Now let us apply some tangent vector $v_p$ to $f$. We have:
+\begin{align*}
+  v_p(f) &= v_p(f(p)+(x^i-x^i(p))g_i)\\
+  &=\cancelto{0}{v_p(f(p))}+v_p((x^i-x^i(p))g_i) \quad (\because p \text{ fixed, $f(p)$ constant})\\
+  &=v_p(g_i)\cancelto{0}{(x^i-x^i(p))_p} + v_p(x^i - x^i(p))g_i(p)\\
+  &=(v_p(x^i) - v_p(x^i(p)))g_i(p)\\
+  &=v_p(x^i)g_i(p) \\
+  &= v_p(x^i)\brac{\pdv{\phi^i}}_p f
+\end{align*}
+Thus, we see that every tangent vector can be written as a combination of the set of derivations.\\[0.2cm]
+So from the above two propositions, we proved that these quantities are indeed a basis for the tangent space. So any vector $v_p$ can be written as: $$v_p = c^i \brac{\pdv{\phi^i}}_p \implies v_p(\phi^j) = c^i \brac{\pdv{\phi^j}{\phi^i}}_p = c^i \tensor{\delta}{^j _i} = c^j \implies v_p = v_p(\phi^i) \brac{\pdv{\phi^i}}_p$$
 We now define something which we had already seen earlier, the Jacobian. For that, let $\mathcal{M}$ and $\mathcal{N}$ be two manifolds and $(U,\phi)$ and $(V,\psi)$ be two charts on these manifolds respectively and $F: \mathcal{M}\rightarrow N$ be a smooth map between the manifolds such that $F(U) \subset V$. Let $F^i$ denote the $i^{\text{th}}$ component of $F$ in chart $(V,\psi)$. Then we have:
 $$F^i := \psi^i \circ F = r^i \circ \psi \circ F$$
 We call the matrix $[\pdv{F^i}{\phi^j}]$ to be the Jacobian matrix of $F$ relative to these charts and if the two manifolds have same dimension, we can also calculate the determinant of this matrix. If the manifolds are same and we have two overlapping charts, then the transition map $\gamma = \psi \circ \phi^{-1}$ is from $\mathbb{R}^m$ to $\mathbb{R}^m$. Previously, in the definition, we had $F:\mathcal{M}\rightarrow \mathcal{N}$. If we take $F= \gamma$, then $\mathcal{N},\mathcal{M} = \mathbb{R}^m$ whose coordinates are $r^\mu$. Then
@@ -321,11 +387,16 @@ This is a local result and hence, directly translated to manifolds too from $\ma
 \begin{definition}[Vector Field]
   A vector field $X$ on a smooth manifold assigns a tangent vector $X_p\in T_p\mathcal{M}$ at each point $p\in \mathcal{M}$.
 \end{definition}
-As a vector field assigns a tangent vector to each point of its domain and the tangent vector (from algebraic approach) maps differentiable functions to real numbers, we can define function: 
+As specified earlier, a vector field is a section of the tangent bundle. A vector field is smooth if the map $X: \mathcal{M}\rightarrow T\mathcal{M}$ is a smooth section of the tangent bundle. Since a vector field assigns a tangent vector to each point of its domain and the tangent vector (from algebraic approach) maps differentiable functions to real numbers, we can define a map $\veb{X}f$ from $\mathcal{M}$ to $\mathbb{R}$ as: 
 $$(\veb{X}f)(p) \equiv\veb{X}_p[f]$$
+From this, we can define the map $X: C^\infty(\SM) \rightarrow C^\infty(\SM)$ such that $f\mapsto Xf$. The image $Xf$ is often called the \textit{Lie derivative} of $f$ along the vector field $X$, denoted by $\SL$. 
 Then, from the definition of derivations, we have the following:
 $$\veb{X}(af+bg)=a\veb{X}f + b\veb{X}g \quad \quad \veb{X}(fg) = f\veb{X}g + g\veb{X}f\quad \forall \ f,g \in C^\infty(\mathcal{M}) \ \ \text{and}\ \ a,b\in\mathbb{R}$$
-We also have stated that $\brac{\pdv{x^i}}$ form a basis for the tangent space (or space of derivation which is isomorphic to he tangent space, so we)
+We also have stated that $\brac{\pdv{x^i}}$ form a basis for the tangent space (or space of derivation which is isomorphic to he tangent space, so we)\\[0.3cm]
+The set of all vector fields $\mathfrak{X}(\SM)$ on a manifold carries a structure of a real vector space, that is:
+$$(aX+bY)f := aXf + bYf \ \forall \ f \in C^\infty(\SM)$$
+This definition can be extended to give $\mathfrak{X}(\SM)$ a \textit{module} structure over the ring $C^\infty(\SM)$. Thus, if $g,h \in C^infty(\SM)$ and $X,Y\in \mathfrak{X}(\SM)$, then:
+$$(gX+hY)_p f:= g(p)X_pf + h(p)Y_pf\ \forall p\in\SM, f \in C^\infty(\SM)$$
 \subsubsection{Lie stuffs (it's pronounced lee)}
 We will now see when `multiplying' two vector fields will yield another field. For this, note:
 \begin{minipage}{0.48\textwidth}

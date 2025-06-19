@@ -67,7 +67,7 @@
 \definecolor{darkpastelpurple}{rgb}{0.59, 0.44, 0.84}
 \definecolor{springgreen}{rgb}{0.0, 1.0, 0.5}
 \definecolor{lemon}{rgb}{1.0, 0.97, 0.0}
-
+\definecolor{electricpurple}{rgb}{0.75, 0.0, 1.0}
 
 
 \def\maincolor{DarkTurquoise} %width=6cm
@@ -86,11 +86,34 @@
 \newcommand{\SA}{\mathcal A}
 \newcommand{\SH}{\mathcal H}
 \newcommand{\SN}{\mathcal N}
+\newcommand{\SF}{\mathcal F}
+\newcommand{\SG}{\mathcal G}
+\newcommand{\SD}{\mathcal D}
 \newcommand{\SC}{\mathcal C}
 \newcommand{\SR}{\mathcal R}
 \newcommand{\SB}{\mathcal B}
 \newcommand{\Ss}{\mathcal S}
+\newcommand{\SM}{\mathcal M}
+\newcommand{\SE}{\mathcal E}
+\newcommand{\SP}{\mathcal P}
+\newcommand{\SQ}{\mathcal Q}
+\newcommand{\SK}{\mathcal K}
+\newcommand{\SL}{\mathcal L}
+\newcommand{\SO}{\mathcal O}
+\newcommand{\Si}{\mathcal I}
+\newcommand{\ST}{\mathcal T}
+\newcommand{\SU}{\mathcal U}
+\newcommand{\SV}{\mathcal V}
+\newcommand{\SW}{\mathcal W}
+\newcommand{\SX}{\mathcal X}
+\newcommand{\SY}{\mathcal Y}
+\newcommand{\SZ}{\mathcal Z}
 
+\newcommand{\re}{\mathbb{R}}
+\newcommand{\ce}{\mathbb{C}}
+\newcommand{\inte}{\mathbb{Z}}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\rat}{\mathbb{Q}}
 
 \newcommand{\veb}[1]{\boldsymbol{\mathbf{#1}}}
 
@@ -255,4 +278,39 @@
 
 \declaretheorem[style=propo, name=Proposition]{proposition}
 
+
+
+
+
+
+
+
+
+\mdfdefinestyle{factbox}{
+    backgroundcolor=electricpurple!12!white,
+    nobreak=true,
+    innertopmargin=7pt,
+    innerleftmargin=7pt,
+    innerrightmargin=7pt,
+    linecolor=electricpurple,
+    linewidth=3pt,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    leftline=true
+}
+
+\declaretheoremstyle[
+    mdframed={style=factbox},
+    spaceabove={0pt},
+    spacebelow={2pt},
+    bodyfont={\normalfont},
+    headindent={0pt},
+    notefont={\sffamily\bfseries},
+    headfont={\color{electricpurple}\sffamily\bfseries},
+    headpunct={:\\},
+    postheadspace={0.5pt},
+]{fact}
+
+\declaretheorem[style=fact, name=Fun Fact, unnumbered]{ffact}
 
