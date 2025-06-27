@@ -231,21 +231,23 @@ However, note that, as in the above picture, many different curves can be drawn 
   Let $\mathcal{M}$ be a manifold and $p\in \mathcal{M}$. Then two curves $\sigma_1$ and $\sigma_2$ are tangent to the manifold at $p$ if:
   \begin{itemize}
     \item $\sigma_1(0) = \sigma_2(0) = p$
-    \item In some `local coordinate system' $(x^i)$ around $p$, the two curves are tangent in the normal way, that is, 
-    $$\dv{x^i}{t}(\sigma_1(t))\Bigg|_{t=0} =\dv{x^i}{t}(\sigma_2(t))\Bigg|_{t=0}  \ \forall \ i = 1,2,\ldots,m$$
+    \item Given a chart $(U,\phi)$, the two curves are tangent in the usual way, that is, 
+    {\small
+$$\dv{t}\brac{\phi\circ\sigma_1(t)}\Bigg|_{t=0} =\dv{t}\brac{\phi\circ\sigma_2(t)}\Bigg|_{t=0} \implies \dv{t}\brac{\phi^i\circ\sigma_1(t)}\Bigg|_{t=0} =\dv{t}\brac{\phi^i\circ\sigma_2(t)}\Bigg|_{t=0}  \ \forall i = 1,\ldots, m$$
+}
   \end{itemize}
   
 \end{definition}
-If $\sigma_1$ and $sigma_2$ are `tangent' in one system, then they are tanget in any other coordinate system local around $p$, and hence this definition is independent of any coordinates. We define the tangent vector at $p \in \mathcal{M}$ as the euivalence class of curves, that is:
+If $\sigma_1$ and $\sigma_2$ are `tangent' in one system, then they are tanget in any other coordinate system local around $p$, and hence this definition is independent of any coordinates. We define the tangent vector at $p \in \mathcal{M}$ as the euivalence class of curves, that is:
 $$[\sigma_i] = \{\sigma | \sigma \sim_t \sigma_i \}$$
-where $\sim_t$ is the equivalence relation\footnote{It can easily be shown to be reflexive, symmetric and transitive} satisfying that two curves are tangent to the manifold. The tangent space $T_p\mathcal{M}$ to manifold $\mathcal{M}$ at point $p$, is the set of all tangent vectors at the point $p$. 
+where $\sim_t$ is the equivalence relation\footnote{It can easily be shown to be reflexive, symmetric and transitive} satisfying that two curves are tangent to the manifold. Given $\sigma_1, \sigma_2$, either $[\sigma_1]=[\sigma_2]$ or $[\sigma_1]\bigcap [\sigma_2] = \emptyset$ (either same or disjoint). Thus, the equivalence classes form a `partition' of the set of all curves. The tangent space $T_p\mathcal{M}$ to manifold $\mathcal{M}$ at point $p$, is the set of all tangent vectors at the point $p$. 
 \subsubsection{Tangent Bundles}
 The tangent bundle of a manifold $\mathcal{M}$ is the union of all the tangent spaces, hence: 
 $$T\mathcal{M} = \bigcup\limits_{p\in \mathcal{M}}T_p\mathcal{M}$$
 We can define a `natural' (coordinate or chart independent) map $\pi$ from the tangent bundle to the manifold given by $\pi(v) = p, \ \ v \in T_p\mathcal{M}$
 Notice that the tangent bundle is just a set, with no structure or anything else. Let us modify this a bit. Suppose we have a chart $(U,\phi)$, then we will have:
 $$TU =  \bigcup\limits_{p\in {U}}T_p{U}= \bigcup\limits_{p\in \mathcal{U}}T_p\mathcal{M}$$ 
-The last two things can be shown to be equal. Since the set of derivations form a basis for the tangent space at $p$, we can write the tangent vector uniquely as a linear combination:
+The last two things can be shown to be equal. Since the set of derivations form a basis for the space at $p$, we can write the tangent vector uniquely as a linear combination:
 $$T_p\mathcal{M}\ni v = \sum\limits_{i}^n c^i \pdv{x^i}\Bigg|$$
 Here $c^i$ are functions on $TU$. Then tangent bundle can also be shown to be \textit{Hausdorff}. Well, tangent bundles are a special case of something called a fibre bundle. 
 \begin{figure}[H]
@@ -317,7 +319,7 @@ Also, note that:
   &=f(v_1+v_2)(g) + g(v_1+v_2)(f)
 \end{align*}
 This gives a natural vector space structure to the space of derivations $D_p\SM$. Note that if we try to do the same analysis for $v_p\in D_p\SM$ and $w_q\in D_q\SM$, these $v_p+w_q$ will not satisfy the product rule and then will not be a valid vector. So, vectors at different point on a manifold cannot be added \emoji{face-with-rolling-eyes}\\[0.2cm] 
-We can also show that $T_p\mathcal{M}$ and $D_p\mathcal{M}$ are actually isomorphic and thus, both approaches can be taken to describe the tangent-space structure (However, the algebraic approach is a bit problematic for infinite-dimensional space). 
+We can also show that $T_p\mathcal{M}$ and $D_p\mathcal{M}$ are actually \textit{isomorphic} and thus, both approaches can be taken to describe the tangent-space structure (However, the algebraic approach is a bit problematic for infinite-dimensional space). We shall further use $T_p\SM$ and $D_p\SM$ as the same space.
 We now define a set of derivations of a function $f$ at $p$, with the help of a local chart $(U,\phi)$ where $f\in C^\infty$ and $\phi^\mu$ are the coordinate components.
 $$\brac{\pdv{\phi^\mu}}_p f := \pdv{r^\mu}f\circ \phi^{-1}\Bigg|_{\phi(p)}\quad \mu = 1,2,\ldots, m$$
 Note that in the right hand side, the partial derivative with respect to the coordinate is well defined, but in the left hand side, even though the notation is of partial derivative, the action is not well defined since the function is defined on the manifold which doesn't have the vector space structure required for definition of partial derivatives. Sometimes we use the notation $\pdv{f}{\phi^\mu}$ directly. Then, using this notation and also the fact that $\phi^{-1}\circ \phi(p) = p$, we can write:
@@ -335,7 +337,7 @@ $$\brac{\pdv{f}{\phi^\mu}}\circ \phi^{-1} \equiv   \pdv{r^\mu}\brac{f\circ \phi^
 \textit{Proof.} From the previous result, we have:
 $$\pdv{\phi^i}{\phi^j}\brac{\phi(p)} = \pdv{\phi^i \circ \phi^{-1}}{r^j}\brac{\phi(p)} = \pdv{r^i\circ \phi \circ \phi^{-1}}{r^j}\brac{\phi(p)} =\pdv{r^i}{r^j}\brac{\phi(p)} = \tensor{\delta}{^i _j}$$
 We just used the coordinate definition using the projection maps. \\[0.3cm]
-These quantitites form a basis set for the vector space $T_p\mathcal{M}$. For that we have to check for linear independence and span of these quantitites. 
+These quantitites form a basis set for the vector space $D_p\mathcal{M}$. For that we have to check for linear independence and span of these quantitites. 
 \begin{proposition}
  The set $\left\{\brac{\pdv{\phi^i}}_p \right\}$ is linearly independent.
 \end{proposition}
@@ -382,6 +384,24 @@ What this tells us is that the Jacobian matrix of the transition map is the matr
   \textbf{For manifolds}: Let $F:\mathcal{M}\rightarrow \mathcal{N}$ be a smooth map between two manifolds and $p\in \mathcal{M}$. Let $(U,\phi)$ and $(V,\psi)$ be two charts about $p$ and $F(p)$ respectively and $F(U)\subset V$. Let $F^i = \psi^i \circ F$. Then $F$ is locally invertible at $p$ iff Jacobian determinant is non-zero.
 \end{theorem}
 This is a local result and hence, directly translated to manifolds too from $\mathbb{R}^n$.
+\subsubsection{Push-forward (differential)}
+Remember the pull-back? Huh, now this is its counterpart.\\[0.2cm]
+Let $\SM$ and $\SN$ be two differentiable manifolds and $\psi: \SM\rightarrow \SN$ be a smooth map. The map $\psi$ induces a map between $T_p\SM$ and $T_{\psi(p)}\SN$ denoted by $\psi_{*p}$ or $d\psi_p$ which is called the differential of $\psi$ (basically, $p \mapsto \psi(p)$ under $\psi$ and the tangent plane at $p$ is mapped to tangent plane at $\psi(p)$) using this \textit{differential}. If $v_p\in T_p\SM$, then $\psi_{*p}(v_p)\in T_{\psi(p)}\SN$ and is defined by:
+$$\psi_{*p}(v_p)(f) \equiv v_p(\psi^* f)\ \forall \ f\in \cty{\SN}$$
+Let us now check that $\psi_{*p}(v_p)$ is indeed a member of the tangent plane at $\psi(p)$ in $N$. 
+\begin{align*}
+  \psi_{*p}(v_p)(c_1f_1 + c_2f_2) &= v_p(\psi^*(c_1f_1+c_2f_2))\\
+  &=vp(c_1(\psi^*f_1) + c2(\psi^*f_2)) \qquad\quad \text{($\psi^*$ is a linear map)}\\
+  &=c_1vp(\psi^*f_1) + c_2 v_p(\psi^*f_2) \qquad\quad \text{($v_p$ is a linear map)}\\
+  &=c_1 \psi_{*p}(v_p)(f_1)+c_2 \psi_{*p}(v_p)(f_2)
+\end{align*}
+\begin{align*}
+  \psi_{*p}(v_p)(fg) &= v_p(\psi^*(fg))\\
+  &=v_p((\psi^*f)(\psi^*g))\\
+  &=(\psi^*f)v_p(\psi^*g) +(\psi^*g)v_p(\psi^*f) \qquad\qquad \text{(Liebniz rule)}\\
+  &= (\psi^*f)\psi_{*p}(v_p)(g) + (\psi^*g)\psi_{*p}(v_p)(f)
+\end{align*}
+Now, let us check that $\psi_{*p}$ is a linear map. For that, consider: 
 \subsection{Differential Forms}
 \subsubsection{Vector Fields}
 \begin{definition}[Vector Field]
