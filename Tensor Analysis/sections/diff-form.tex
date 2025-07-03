@@ -244,7 +244,7 @@ where $\sim_t$ is the equivalence relation\footnote{It can easily be shown to be
 \subsubsection{Tangent Bundles}
 The tangent bundle of a manifold $\mathcal{M}$ is the union of all the tangent spaces, hence: 
 $$T\mathcal{M} = \bigcup\limits_{p\in \mathcal{M}}T_p\mathcal{M}$$
-We can define a `natural' (coordinate or chart independent) map $\pi$ from the tangent bundle to the manifold given by $\pi(v) = p, \ \ v \in T_p\mathcal{M}$
+We can define a `natural' (coordinate or chart independent) map $\pi$ from the tangent bundle to the manifold given by $\pi(v) = p, \ \ v \in T_p\mathcal{M}$. The map $\pi$ is sometimes called the \textit{canonical projection}.
 Notice that the tangent bundle is just a set, with no structure or anything else. Let us modify this a bit. Suppose we have a chart $(U,\phi)$, then we will have:
 $$TU =  \bigcup\limits_{p\in {U}}T_p{U}= \bigcup\limits_{p\in \mathcal{U}}T_p\mathcal{M}$$ 
 The last two things can be shown to be equal. Since the set of derivations form a basis for the space at $p$, we can write the tangent vector uniquely as a linear combination:
@@ -391,17 +391,42 @@ $$\psi_{*p}(v_p)(f) \equiv v_p(\psi^* f)\ \forall \ f\in \cty{\SN}$$
 Let us now check that $\psi_{*p}(v_p)$ is indeed a member of the tangent plane at $\psi(p)$ in $N$. 
 \begin{align*}
   \psi_{*p}(v_p)(c_1f_1 + c_2f_2) &= v_p(\psi^*(c_1f_1+c_2f_2))\\
-  &=vp(c_1(\psi^*f_1) + c2(\psi^*f_2)) \qquad\quad \text{($\psi^*$ is a linear map)}\\
-  &=c_1vp(\psi^*f_1) + c_2 v_p(\psi^*f_2) \qquad\quad \text{($v_p$ is a linear map)}\\
+  &=v_p(c_1(\psi^*f_1) + c_2(\psi^*f_2)) \qquad\quad \text{($\psi^*$ is a linear map)}\\
+  &=c_1v_p(\psi^*f_1) + c_2 v_p(\psi^*f_2) \qquad\quad \text{($v_p$ is a linear map)}\\
   &=c_1 \psi_{*p}(v_p)(f_1)+c_2 \psi_{*p}(v_p)(f_2)
-\end{align*}
+\end{align*}%
 \begin{align*}
   \psi_{*p}(v_p)(fg) &= v_p(\psi^*(fg))\\
   &=v_p((\psi^*f)(\psi^*g))\\
   &=(\psi^*f)v_p(\psi^*g) +(\psi^*g)v_p(\psi^*f) \qquad\qquad \text{(Liebniz rule)}\\
   &= (\psi^*f)\psi_{*p}(v_p)(g) + (\psi^*g)\psi_{*p}(v_p)(f)
 \end{align*}
-Now, let us check that $\psi_{*p}$ is a linear map. For that, consider: 
+Now, let us check that $\psi_{*p}$ is a linear map from $T_p\SM \rightarrow T_{\psi(p)}\SN$. For that, consider a linear combination of vectors from the tangent space of $\SM$. 
+\begin{align*}
+  \psi_{*p}(c_1 v_{p}+c_2 w_p)(f) &=(c_1 v_{p}+c_2 w_p)(\psi^* f)\\
+&=c_1v_p(\psi^*f) + c_2w_p(\psi^*f)\\
+&=c_1 \psi_{*p}(v_p)(f)+c_2 \psi_{*p}(w_p)(f)
+\end{align*}
+Thus, we proved the linearity of the push-forward. Now using this differential, we will obtain an expression which is analogous to the Jacobian seen earlier. For that, take charts $(U,\phi)$ and $(V,\chi)$ on $\SM$ and $\SN$ respectively, with coordinate functions $(x^1, x^2,\ldots, x^m)$ and $(y^1, y^2,\ldots, y^n)$ and $\psi: \SM\rightarrow \SN$ and consider $\psi_{*p}\brac{\pdv{x^i}}_p \in T_{\psi(p)}\SN$. 
+\begin{align*}
+  \psi_{*p}\brac{\pdv{x^i}}_p &=  \psi_{*p}\brac{\pdv{x^i}}_p\brac{y^j}\brac{\pdv{y^j}}_{\psi(p)}\quad\quad \text{(expanding with basis elements)}\\
+  &=\brac{\pdv{x^i}}_p(\psi^* y^j)\brac{\pdv{y^j}}_{\psi(p)}\\
+  &=\brac{\pdv{x^i}}_p(y^j\circ \psi)\brac{\pdv{y^j}}_{\psi(p)}\\
+  &=\brac{\pdv{(y^j\circ \psi)}{x^i}}_p\brac{\pdv{y^j}}_{\psi(p)}
+\end{align*}  
+This looks very similar to the Jacobian thingy that we saw earlier and thus, push-forward is also kind of like the Jacobian matrix.\\[0.3cm]
+\textbf{Pushing tangents to curves:}\\[0.2cm]
+Let $\psi: \SM\rightarrow \SN$ and $\sigma: (a,b)\rightarrow \SM$ be a curve on $\SM$. Then $\psi\circ \sigma: (a,b)\rightarrow \SN$ is a curve on $\SN$. Then tangent vector $v$ to this curve at $(\psi\circ \sigma)(0)$ satisfies for any $f\in \cty{\SN}$: 
+$$v(f) = \dv{t}f\circ (\psi\circ \sigma)\Bigg|_{t=0}$$
+Now, these can be alternatively written as: 
+$$v(f) = \dv{t} (\psi\circ \sigma)^* f\Bigg|_{t=0} = \dv{t}\sigma^*(f\circ \psi)\Bigg|_{t=0} =\dv{t}(f\circ \psi)\circ \sigma\Bigg|_{t=0} = w(f\circ\psi)$$
+where $w$ is the tangent vector to the curve at $\sigma(0)$, acting on the function $f\circ\psi$ which can also be written as $w(\psi^*f)$. Using the definition of push-forward, this is nothing but $\psi_{*\sigma(0)}(w)(f)$\\
+Now, since this is true for any smooth function $f$, we can write $v\equiv \psi_{*\sigma(0)}(w)$. In other words, the Jacobian of $\psi$ pushes the tangent vectors of $\sigma$ to tangent vectors of the image of $\sigma$ under $\psi$. 
+\begin{figure}[H]
+  \centering
+  \input{plot&diagrams/push_curve.tex}
+  \caption{Diagram showing the pushing-forward of tangent to curves in different manifolds.}
+\end{figure}
 \subsection{Differential Forms}
 \subsubsection{Vector Fields}
 \begin{definition}[Vector Field]

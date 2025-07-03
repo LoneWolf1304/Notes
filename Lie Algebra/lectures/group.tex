@@ -1,0 +1,230 @@
+\section{Grouping things together...}
+\textit{Symmetry} is one of the many things which both mathematicians and physicists crave to understand. And \textit{Group Theory} is a mathematically formal way of learning about these symmetries. The basic idea is to `cluster' the symmetries into some `groups' and then do all kind of nasty things to them. For that, first let us define the main hero of this act: a group.
+\begin{definition}[Group]
+    A group $g$ is a ordered pair $(G,*)$ where $G$ is a set and $*:G\times G\rightarrow G$ is a binary operation satisfying:
+    \begin{itemize}
+        \item \textbf{Associativity:} $g_1*(g_2*g_3) = (g_1*g_2)*g_3 \ \forall \ g_1,g_2,g_3\in G$
+        \item \textbf{Identity:} There exists a unique $ e\in G$ such that $\forall \ g \in G, e*g = g*e = g$
+        \item \textbf{Existence of Inverse:} For every $g\in G$, there exists $g^{-1}$ such that $g*g^{-1} = g^{-1}*g = e$
+        \item \textbf{Closure:} $g*h\in G \ \forall \ g,h\in G$
+    \end{itemize}
+\end{definition}
+A few points to note:
+\begin{itemize}
+    \item We sometimes (almost everytime) omit $*$ when the context is clear and just write $gh$ for $g*h$ where $g,h\in G$.
+    \item Technically $(G,*)$ is called a group but when context is clear, the just simply refer to $G$ as the group.
+    \item A group  $G$ is called \textit{Abelian} if the elements comute, that is, $\forall \ g_1,g_2 \in G \ g_1g_2 = g_2g_1$
+\end{itemize}
+Let us see some examples of groups, all of which can be checked to satisfy the properties specified in the definition:
+\begin{enumerate}
+    \item $(\re\backslash \{0\}, \times),(\re, +)$: the real numbers under multiplication\footnote{Note that under multiplication, no inverse exist for zero, so we exclude 0} and addition form a group. 
+    \item $\mathrm{GL}(n,\re), \mathrm{GL}(n,\ce)$: the set of all invertible $n\times n$ matrices over $\re$ or $\ce$ field, form a \underline{g}eneral \underline{l}inear group under matrix multiplication. 
+    \item $\mathrm{SL}(n,\re),\mathrm{SL}(n,\ce)$: the set of all invertible $n\times n$ matrices with determinant 1, over $\re$ or $\ce$ field, form a \underline{s}pecial \underline{l}inear group under matrix multiplication. 
+    \item $\mathrm{O}(n),\mathrm{SO}(n)$: set of all orthogonal $n\times n$ matrices and orthogonal matrices with determinant 1 form \underline{o}rthogonal and \underline{s}pecial \underline{o}rthogonal group.
+    \item $S_n$: the set of all permutations of $n$ objects form a group.  
+    Permutation means arranging the same objects in some way, so basically it can be thought of as a bijection of a set onto itself. We represent these maps by $\pi$ such that $\pi : \{1,2,\ldots,n\}\rightarrow \{1,2,\ldots,n\}$ and 
+$$   \pi \equiv 
+\begin{pmatrix}
+  1         & 2         & \cdots & n \\
+  \pi(1) & \pi(2) & \cdots & \pi(n)
+\end{pmatrix}$$
+The above representation means that the first row, after the arrangement (acting on by map $pi$), changes to the second row. As an example, let us consider: 
+$$\begin{pmatrix}
+    \mathcolor{red}{1&2&3&4&5&6&7}\\
+    \mathcolor{blue}{7&2&5&6&1&4&3}
+\end{pmatrix}$$
+The red elements are how the objects are initially there, blue are how the objects change place after permutation. Note that, under the map $\pi$, $1\rightarrow 7, 7\rightarrow 3, 3 \rightarrow 5, 5 \rightarrow 1$ and also $4\rightarrow 6, 6\rightarrow 4$ while 2 is mapped to 2 itself. This hints writing the thing in a cyclic structure, like $(1\ 7\ 3\ 5)(2)(4\ 6)$. We say $1,7,3,5$ form a \textit{4-cycle} while $4,6$ form a \textit{2-cycle}. 
+
+\end{enumerate}
+\subsection{Symmetries of the Equilateral Triangle}
+This is one of the typical examples which is always mentioned in any group theory introduction, so as a reverence to the old-age custom, we include it too. To describe this, we will consider three actions on the triangle:
+\begin{itemize}
+    \item Leave it alone
+    \item Rotate it by some angle
+    \item Flip (reflect) it about some axis.
+\end{itemize}
+\begin{figure}[H]
+    \centering 
+    \input{plot&diagrams/eqtri.tex}
+    \caption{Diagram showing the different actions of reflection and rotations to the equilateral triangle.}
+\end{figure}
+Okay, so these six actions form a group for the symmetries of an equilateral triangle. To check that, we can try to form the multiplication table for these operations, which is a table demonstrating the result of the composition of the elements with each other. The table looks like something like this:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.0} % optional: adds vertical spacing
+\begin{tabular}{|
+    >{\centering\arraybackslash}p{0.03\textwidth}|
+    >{\centering\arraybackslash}p{0.03\textwidth}|
+    >{\centering\arraybackslash}p{0.03\textwidth}|
+    >{\centering\arraybackslash}p{0.03\textwidth}|
+    >{\centering\arraybackslash}p{0.03\textwidth}|
+    >{\centering\arraybackslash}p{0.03\textwidth}|
+    >{\centering\arraybackslash}p{0.03\textwidth}|
+    }
+\hline
+\text{\Large $*$} & $e$ & $\rho_1$ & $\rho_2$ & $\mu_1$ & $\mu_2$ & $\mu_3$ \\
+\hline
+$e $     &   &   &   &   &   &   \\
+\hline
+$\rho_1$ &   &   &   &   &   &   \\
+\hline
+$\rho_2$ &   &   &   &   &   &   \\
+\hline
+$\mu_1$  &   &   &   &   &   &   \\
+\hline
+$\mu_2$  &   &   &   &   &   &   \\
+\hline
+$\mu_3$  &   &   &   &   &   &   \\
+\hline
+\end{tabular}
+\end{table}
+\noindent
+Now, note the following things: First, the first row and first column will be filled as it is, since acting with identity does not change anything. Second, $\rho_1^2 \equiv \rho_2$ (since it is how we defined it).\\[0.2cm] Also, note that rotations will commute with themselves and one anti-clockwise rotation is rotation by $120^\circ$, so accordingly $\rho_1 \equiv 120^\circ$, $\rho_2\equiv 240^\circ$ and hence $\rho_2\rho_1 = \rho_1\rho_2 \equiv 360^\circ \equiv e, \rho_2^2 \equiv 480^\circ \equiv 120^\circ \equiv \rho_1$.\\[0.2cm]
+Also, reflecting along the same line twice will result in the initial configuration, so $\mu_i^2 \equiv e \ \forall \ i $ Let us now fill the table with these information:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.6} % optional: adds vertical spacing
+\begin{tabular}{|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    }
+\hline
+\text{\Large $*$} & $e$ & $\rho_1$ & $\rho_2$ & $\mu_1$ & $\mu_2$ & $\mu_3$ \\
+\hline
+$e $   &  $e$ & $\rho_1$ & $\rho_2$ & $\mu_1$ & $\mu_2$ & $\mu_3$   \\
+\hline
+$\rho_1$ & $\rho_1$   &  $\rho_2$  &  $e$ &   &   &   \\
+\hline
+$\rho_2$ &  $\rho_2$  & $e$  &   $\rho_1$ &   &   &   \\
+\hline
+$\mu_1$  & $\mu_1$   &   &   &$e$   &   &   \\
+\hline
+$\mu_2$  & $\mu_2$  &   &   &   & $e$  &   \\
+\hline
+$\mu_3$  &  $\mu_3$ &   &   &   &   &  $e$ \\
+\hline
+\end{tabular}
+\end{table}
+\noindent
+Now there are the non-intuitive actions left, combining rotation with reflections and reflections with reflections. Let us see these actions. We have to be careful with the following :
+\begin{itemize}
+    \item $ab$ means $b$ is acted first and then $a$. 
+    \item When taking reflections, we should take them along the axes specified initially, not based on the current position of the index. So, $\mu_2$ does not mean taking reflection along the axis passing through the vertex with `2' on it. $\mu_2$ is taking reflection from the bottom-right vertex of the triangle, irrespective of what index is there on the vertex. 
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \input{plot&diagrams/symtri.tex}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \input{plot&diagrams/symtri1.tex}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \input{plot&diagrams/symtri2.tex}
+\end{figure}
+\noindent
+So, from the above diagrams, we can fill in the rest of the table. The final multiplication table thus becomes:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.6} % optional: adds vertical spacing
+\begin{tabular}{|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    >{\centering\arraybackslash}p{0.06\textwidth}|
+    }
+\hline
+\text{\Large $*$} & $e$ & $\rho_1$ & $\rho_2$ & $\mu_1$ & $\mu_2$ & $\mu_3$ \\
+\hline
+$e $   &  $e$ & $\rho_1$ & $\rho_2$ & $\mu_1$ & $\mu_2$ & $\mu_3$   \\
+\hline
+$\rho_1$ & $\rho_1$   &  $\rho_2$  &  $e$ &  $\mu_3$ & $\mu_1$  & $\mu_2$  \\
+\hline
+$\rho_2$ &  $\rho_2$  & $e$  &   $\rho_1$ & $\mu_2$  &  $\mu_3$ & $\mu_1$  \\
+\hline
+$\mu_1$  & $\mu_1$   &   $\mu_2$ &  $\mu_3$  &$e$   &  $\rho_1$ &   $\rho_2$\\
+\hline
+$\mu_2$  & $\mu_2$  &   $\mu_3$ &  $\mu_1$  & $\rho_2$  & $e$  &  $\rho_1$ \\
+\hline
+$\mu_3$  &  $\mu_3$ &  $\mu_1$  &  $\mu_2$  &  $\rho_1$ & $\rho_2$  &  $e$ \\
+\hline
+\end{tabular}
+\caption{Final multiplication table for the symmetries of an equilateral triangle}
+\end{table}
+\noindent
+We can now check the group properties from this table. By the way, the group of symmetries of the equilateral triangle is denoted by $D_3$\footnote{The symmetries of a regular polygon are known as dihedral groups. This group is usually denoted $D_n$ for the symmetries of a regular n-gon. It so happens that the dihedral group of degree 3 (the group of symmetries of an equilateral triangle) is `isomorphic' to the symmetric group, denoted by, $D_3 \cong S_3$}.\\[0.3cm]We will come back to this table again and again! Well, notice one thing, all elements of the group occur exactly once in each row or column of the multiplication table. This leads to a pretty nice observation that each row and column of the multiplication table is a permutation of the group elements. 
+\begin{ffact}
+Consider a finite group G with $h$ elements. For any $g_k\in G$ the sequence $\{g_ig_k\}_{i=1}^h$ contains each group element exactly once. 
+\end{ffact}
+\textit{Proof.} For any $g_i$, there exists an element $g_r = g_ig_k^{-1}$ since $g_k^{-1}\in G$ and elements of $G$ satisfy closure property. Then we have $g_i = g_r g_k$ and then $g_i$ must appear in the sequence atleast once, since $r\leq h$. Now, this happens for all $i=1,\ldots,h$ and there are only $h$ terms in the sequence. Thus, each element can occur atmost once.
+\subsection{Subgroup}
+So we saw what a group is. Now, let us see what a subgroup is \footnote{Think about it, it is natural that smaller groups are always formed within a bigger group}. A subset $H\subset G$ is called a \textit{subgroup} if it is a group in its own right, where the binary operation is the same operation as in $G$ but restricted to $H\times H$, that is, $*\Big|_{H\times H}$
+\begin{lemma}\label{lem:subgroup}
+    If $H\subset G, H \neq \emptyset$ and if $h_1h_2^{-1}\in H\ \forall \ h_1,h_2\in H$, then $H$ is a subgroup of $G$
+\end{lemma}
+\textit{Proof.} Note that the restricted binary operation is still associative. Now, $h_1 = h_2 \implies h_1 h_1^{-1} = e$ and hence $e\in H$ (existence of identity). Then take $h_1 =e, h_2 = h \in H \implies eh^{-1} = h^{-1}\in H$ (existence of inverse). Now, take $h_1 = h', h_2 = h^{-1}$ for $h', h\in H$, then $h'\brac{h^{-1}}^{-1}=h'h\in H$ (closure property). Thus, $H$ follows all properties of a group and hence is a subgroup of $G$.\\[0.3cm]
+Using the lemma above, we can say that the special linear group is a subgroup of the general linear group. Obviously, $\mathrm{SL}(n,\re)\subset \mathrm{GL}(n,\re)$.  For the other part, note that,  $A,B\in \mathrm{SL}(n,\re)\implies \det(A) = \det(B)=1$. Now, $\det(AB^{-1}) = \det{A}\det{B^{-1}} = \det{A}\frac{1}{\det{B}} = 1 \implies AB^{-1}\in \mathrm{SL}(n,\re)$, hence proved.
+\subsubsection{Cyclic Subgroups}
+Consider a group $G$ and let $g\in G$. Then the \textit{cyclic subgroup} of $G$ generated by $g$, is given by the set $\avg{g} = \{g^k|k\in \inte \}\subset G$\footnote{We can check that this set is indeed a subgroup.}. Note that the cyclic subgroup is element-specific. Let us see an example using the symmetry group of the equilateral triangle.\\[0.2cm]
+So, $G\equiv \{e,\rho_1, \rho_2, \mu_1, \mu_2, \mu_3\}$ is the group of symmetries of the equilateral triangle. Now,
+\begin{itemize}
+    \item $\avg{e} = \{e\}$ (since powers of identity is always identity)
+    \item $\avg{\rho_1} = \{\rho_1, \rho_1^2 = \rho_2, \rho_1^3 = e, \ldots \text{repetitions}\}\equiv \{\rho_1,\rho_2,e\}$ 
+    \item Similarly, $\avg{\mu_1} = \{\mu_1, e\}$
+    \item and so on...
+\end{itemize}
+For a finite group, the cyclic subgroup must have some repitition and hence there exists $m,n\in \nat$ such that $g^m \equiv g^{m+n}$ and hence $g^n = e$. If there always exist this kind of $n$, then the set $\{n\in \nat|g^n=e\}\neq \emptyset$ has a minimum element and this is called the \textit{order} of g. \\[0.2cm]
+For finite groups, we have $g^m g^n = g^{(m+n) \mathrm{mod} \ r}$ where $r$ is the order of $g$. This mimics the group of $r$ integers under addition modulo $r$, denoted by $\sfrac{\inte}{r\inte}$
+\subsubsection{Centre of a Group}
+\begin{definition}[Centre]
+    If $G$ is a group, then the centre of the group denoted by $Z(G)$ is given by:
+    $$Z(G) = \{a\in G| ab=ba \ \forall \ b\in G\}$$
+\end{definition}
+Basically, we are looking for the set of all elements which commute with every other element in the group. Let us see an example for $\inte_4$, the group of integers under addition modulo 4. The multiplication table is given by:
+\[
+\begin{array}{c|cccc}
+  + & 0 & 1 & 2 & 3 \\
+  \hline
+  0 & 0 & 1 & 2 & 3 \\
+  1 & 1 & 2 & 3 & 0 \\
+  2 & 2 & 3 & 0 & 1 \\
+  3 & 3 & 0 & 1 & 2 \\
+\end{array}
+\]
+Then we can check that $Z(\inte_4) = \{0,1,2,3\}=\inte_4$. Note that $G$ itself was abelian and hence the centre of the group is the entire group itself. We can also check that $Z(D_3) = \{e\}$. So we saw the centre of a group being the entire set as well as just the identity. Can we have something in between? \\[0.3cm]
+It turns out that $Z(D_4) = \{e,\rho_2\}$ where $D_4$ is the group of symmetries of the square and $\rho_2$ being the action of rotation by $180^\circ$ anti-clockwise.
+\begin{lemma}
+    The centre of a group $Z(G)$ is a subgroup of the group $G$. 
+\end{lemma}
+\textit{Proof.} We will use lemma~\ref{lem:subgroup} for this. Let us take $a,b\in Z(G)$ and let $k\in G$ be any arbitrary element. Then, from the definition of centre of group, 
+$$ak = ka\implies a = kak^{-1} \qquad \qquad bk = kb\implies b = kbk^{-1}\implies b^{-1} = kb^{-1}k^{-1}$$
+Then we have:
+$$(ab^{-1})k = (kak^{-1})(kb^{-1}k^{-1})k = kak^{-1}k b^{-1}k^{-1}k = kaeb^{-1}e = k (ab^{-1})\implies ab^{-1}\in Z(G)$$
+\subsection{Cyclic Group}
+\begin{definition}[Cyclic Group]
+    A group $G$ is called \textit{cyclic} if there exists $g\in G$ such that $\avg{g} = G$. The element $g$ is called the generator of the group.
+\end{definition}
+For example, if we consider $\inte_6$ (integers under addition modulo 6), then:
+\begin{align*}
+    1^1 \equiv 1 &= 1\\
+    1^2 \equiv 1+1 &=2\\ 
+   1^3 \equiv 1+1+1 &=3\\  
+   1^4 \equiv 1+1+1+1 &=4\\
+   1^5 \equiv 1+1+1+1+1 &=5\\
+ 1^6 \equiv  1+1+1+1+1+1 &=6 \equiv 0
+\end{align*}
+    After that repititions start occurring, however, note that, we have obtained all the elements of the group. Hence we can say $\avg{1} = \inte_6$ and hence $1$ is a generator of the cyclic group $\inte_6$. Similarly, we can check that $\avg{5}=\inte_6$\footnote{A group can have multiple generators.}
+    \begin{ffact}
+    For any integer $n>1$, $\inte_n = \avg{1} = \avg{n-1}$
+    \end{ffact}
+\subsection{Coset}

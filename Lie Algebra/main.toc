@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Grouping things together...}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Symmetries of the Equilateral Triangle}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Subgroup}{9}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Cyclic Subgroups}{10}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Centre of a Group}{10}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Cyclic Group}{11}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Coset}{11}{subsection.1.4}%
+\contentsline {section}{\numberline {2}When Groups said, "represent us!"}{11}{section.2}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
