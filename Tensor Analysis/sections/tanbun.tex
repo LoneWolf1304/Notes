@@ -1,0 +1,41 @@
+\subsubsection{Tangent Bundles}
+The tangent bundle of a manifold $\mathcal{M}$ is the union of all the tangent spaces, hence: 
+$$T\mathcal{M} = \bigcup\limits_{p\in \mathcal{M}}T_p\mathcal{M}$$
+We can define a `natural' (coordinate or chart independent) map $\pi$ from the tangent bundle to the manifold given by $\pi(v) = p, \ \ v \in T_p\mathcal{M}$ (since tangent bundle is the union of tangent spaces, it indeed consists of elements from $\{T_p\SM\}$). The map $\pi$ is sometimes called the \textit{canonical projection}.
+Notice that the tangent bundle is just a set, with no structure or anything else. Let us modify this a bit. Suppose we have a chart $(U,\phi)$, then we will have:
+$$TU =  \bigcup\limits_{p\in {U}}T_p{U}= \bigcup\limits_{p\in \mathcal{U}}T_p\mathcal{M}$$ 
+The last two things can be shown to be equal. Since the set of derivations form a basis for the tangent space at $p$, we can write the tangent vector uniquely as a linear combination:
+$$T_p\mathcal{M}\ni v_p = \sum\limits_{i}^n \dot{q}^i(v_p) \pdv{x^i}\Bigg|_p$$
+Here, $\dot{q}^i: \pi^{-1}(U)\rightarrow \mathbb{R}$ are $n$ real-valued functions \footnote{The notation is borrowed from Lagrangian formulation of classical mechanics, where the manifold becomes the configuration space of the mechanical system}. Let us also define $q^i:\pi^{-1}(U)\rightarrow \re, {q}^i\equiv x^i\circ \pi = \pi^*x^i$ and 
+$$\bar{\phi}(v_p)\equiv \brac{q^1(v_p), q^2(v_p),\ldots,q^n(v_p),\dot{q}^1(v_p), \dot{q}^2(v_p),\ldots,\dot{q}^n(v_p)}$$ 
+Note that $\bar{\phi}$ has an inverse such that $\brac{q^1(v_p), q^2(v_p),\ldots,q^n(v_p),\dot{q}^1(v_p), \dot{q}^2(v_p),\ldots,\dot{q}^n(v_p)} \mapsto \sum\limits_{i}^n \dot{q}^i(v_p) \pdv{x^i}\Bigg|_p$ and is thus a bijection. 
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/tbun.tex}
+  \caption{Diagram showing the chart $\brac{\pi^{-1}(U),\bar{\phi}}$. The red lines represent the tangent space at each point of the manifold. Solid lines represent the tangent spaces for points belonging in $U$}
+\end{figure}
+\begin{lemma}
+  The pair $\brac{\pi^{-1}(U),\bar{\phi}}$ is a chart on $T\SM$
+\end{lemma}
+% \textit{Proof.} To prove that it is indeed a chart, we need to check if there exists a homeomorphism between the open sets $\pi^{-1}(U)$ and $\bar{\phi}(\pi^{-1}(U))$.\\[0.2cm] Firstly, note that $\bar{\phi}(\pi^{-1}(U)) = \phi(U)\times \re^n$. To understand this, observe that $\bar{\phi}$ acts on a tangent vector $v_p$, giving a $2n$ component vector, whose first $n$ components $\{q^i(v_p)\}$ are simply the coordinates of point $p$ (since $\pi$ takes $v_p$ to $p$) and hence these belong to $\phi(U)$. The last $n$ components can be arbitrary real numbers and hence belong to $\re^n$. Now, since $\re^n$ and $\phi(U)$ both are open sets, $\phi(U)\times \re^n$ is also open.  \\[0.2cm]
+% Now, let us check if $\bar{\phi}$ is a homeomorphism. The components of $\bar{\phi}$ are smooth maps and hence $\bar{\phi}$ is smooth, hence continuous. \textcolor{red}{PROOF LEFT!}
+The tangent bundle can also be shown to be \textit{Hausdorff} and \textit{second countable}. Well, tangent bundles are a special case of something called a fibre bundle. 
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/bundle.tex}
+  \caption{Diagram showing the base space, total space and the fibre of a point $p$}
+\end{figure}
+\begin{definition}[Bundle]
+  Given a map $\pi: \mathcal{E}\rightarrow M$, the inverse image $pi^{-1}(p)$ to be the \textit{fibre} at $p\in \mathcal{M}$, denoted as $E_p$. For two maps $\pi: \mathcal{E}\rightarrow M$ and $\pi: \mathcal{E}'\rightarrow M$, a map $\phi$ is said to be fibre-preserving if $\phi(E_p)\subset E_p'$.\\[0.2cm]
+  A bundle is a triple $(\mathcal{E},\mathcal{M},\pi)$ consisting of manifolds $\mathcal{M}$ which is called the \textit{base space} and the manifold $\mathcal{E}$, called the \textit{total space} and $\pi$ is a continuous, surjective map from the total space to the base space.  
+\end{definition}
+
+\begin{figure}[H]
+  \centering 
+  \input{plot&diagrams/vec_bun.tex}
+  \caption{Commutative diagram for a bundle, showing the fibre preserving map $\phi$}
+\end{figure}
+\noindent
+Fibres can be thought of as points in $\mathcal{E}$ which `strings' together with $p$ in $\mathcal{M}$ (hence the name bundle, like a bundle of strings perhaps...) In a bundle, different points of the base manifold may have (topologically) different fibres. If all points have a fibre, which is togologically equivalent to a single space, say $F$, then we call that bundle a \textit{fibre bundle}. In other words, fibre bundles have a single fibre. \\[0.3cm]
+We now define a section of a bundle. Given a bundle $(\mathcal{E}, \mathcal{M}, \pi)$, the section is a map $\sigma: \mathcal{M}\rightarrow \mathcal{E}$ such that $\pi \circ \sigma = \mathds{1}_\mathcal{M}$, the identity map of the base space. What it means that, this map $\sigma$ takes $p$ to some point in the fibre $F_p$ such that when $\pi$ is acted on $\sigma(p)$, we obtain the same point $p$.\\[0.2cm]
+Okay, so what was this thing really needed for? Well, we had earlier seen the tangent bundle, which we had written as $T\mathcal{M}$. More appropriately, we should have written it as $(T\mathcal{M}, \mathcal{M}, \pi)$. Then a vector field is nothing but a section of the tangent bundle which assigns a tangent vector (belonging to the tangent space) to each point $p$ in the manifold.
