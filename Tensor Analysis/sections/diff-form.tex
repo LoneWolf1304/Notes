@@ -409,7 +409,7 @@ Now, since this is true for any smooth function $f$, we can write $v\equiv \psi_
 $X$ takes a point $p$ from $\SM$ and assigns a tangent vector $X_p$ to the point. Now, if we apply the canonical projection $\pi$, then we obtain $p$ back.\\[0.2cm]
 As specified earlier, a vector field is a section of the tangent bundle. A vector field is smooth if the map $X: \mathcal{M}\rightarrow T\mathcal{M}$ is a smooth section of the tangent bundle. We will focus mostly on smooth vector fields only. Since a vector field assigns a tangent vector to each point of its domain and the tangent vector (from algebraic approach) maps differentiable functions to real numbers, we can define a map $\veb{X}f$ from $\mathcal{M}$ to $\mathbb{R}$ as: 
 $$(\veb{X}f)(p) \equiv\veb{X}_p[f]$$
-From this, we can define the map $X: C^\infty(\SM) \rightarrow C^\infty(\SM)$ such that $f\mapsto Xf$. The image $Xf$ is often called the \textit{Lie derivative} of $f$ along the vector field $X$, denoted by $\SL$. 
+From this, we can define the map $X: C^\infty(\SM) \rightarrow C^\infty(\SM)$ such that $f\mapsto Xf$. This gives us another interpretation of a vector field as a \textit{``map from smooth functions to smooth functions''}. The image $Xf$ is often called the \textit{Lie derivative} of $f$ along the vector field $X$, denoted by $\SL$. 
 Then, from the definition of derivations, we have the following:
 $$\veb{X}(af+bg)=a\veb{X}f + b\veb{X}g \quad \quad \veb{X}(fg) = f\veb{X}g + g\veb{X}f\quad \forall \ f,g \in C^\infty(\mathcal{M}) \ \ \text{and}\ \ a,b\in\mathbb{R}$$
 We also have stated that $\brac{\pdv{x^i}}$ form a basis for the tangent space (or space of derivation which is isomorphic to the tangent space, so we treat them as the 'same')\\[0.3cm]
@@ -419,10 +419,51 @@ This definition can be extended to give $\mathfrak{X}(\SM)$ a \textit{module} st
 $$(gX+hY)_p f:= g(p)X_pf + h(p)Y_pf\ \forall p\in\SM, f \in C^\infty(\SM)$$
 \subsubsection{Coordinate Basis Vector Field}
 If $(U,\phi)$ is a chart on the manifold $\SM$ with coordinate functions $(x^1,\ldotp,x^n)$, then we can naturally define $n$ vector fields $\qty(\pdv{x^i})$ defined by:
-$$\qty(\pdv{x^i})(p) = \qty(\pdv{x^i})_p$$
-The RHS is just the tangent vectors to the $i^{\text{th}}$ coordinate cuve passing through $p$.
+$$\qty(\pdv{x^i})(p) := \qty(\pdv{x^i})_p$$
+The RHS is just the tangent vector to the $i^{\text{th}}$ coordinate cuve passing through $p$. Now, using the previous definitions, for any function $f\in \cty{\SM}$,
+\begin{align*}
+  \qty(\pdv{x^i}f)(p) = \pdv{x^i}_p [f] = \pdv{r^i}(f\circ \phi^{-1})(\phi(p)) = \qty( \pdv{r^i}(f\circ \phi^{-1})\circ \phi)(p)
+\end{align*}
+Thus from here we obtain:
+$$ \pdv{x^i}f = \pdv{r^i}(f\circ \phi^{-1})\circ \phi$$
+This is something which is good tbh, this tell us that the ``partial derivative'' of a function defined on the manifold is just the partial derivative of the ``proxy function'' $f\circ \phi^{-1}$ composed with $\phi$.\\[0.2cm]
+Now, since $\qty(\pdv{x^i})_p$ form a basis of the tangent space, for any vector field $X$, we can write:
+\begin{align*}
+  X(p) \equiv X_p = X^i(p)\qty(\pdv{x^i})(p) = \qty(X^i \pdv{x^i})(p)
+\end{align*} 
+Since $p$ is any arbitrary point on the manifold, we have:
+$$X  = \qty(X^i \pdv{x^i})$$
+Note that the vector field $X$ has an expansion which is very similar to a tangent vector but there, the coefficients were real numbers while here, the coefficients are functions and the basis vectors here are vector fields and not tangent vectors. To find the expression of the function $X^i$ note that,
+$$(Xx^i)(p) = X_p[x^i] = X^j(p)\qty(\pdv{x^j})(p)[x^i] = X^j(p)\tensor{\delta}{^i_j} = X^i(p)$$
+Now, from here we have the nice expression that $X^i = Xx^i$. Let us see the nicest thing to ever come, which provides some kind of redemption to all these ``mind-hurting'' mathematical juggleries:\\[0.2cm]
+If $(U,\phi)$ and $(V,\chi)$ be two chart of manifold $\SM$ and if the coordinate functions are $\qty(x^1, x^2,\ldots,x^n)$ and $\qty(x'^1, x'^2,\ldots,x'^n)$ respectively, then for $X\in \mathfrak{X}$:
+$$X'^i = Xx'^i = X^j \qty(\pdv{x^j})x'^i = X^j \qty(\pdv{x'^i}{x^j})$$
+Damn, the sanctimonious transformation rule is obtained as a result of these intricate definitons!! Idk, but this really made my day...\\[0.3cm]
+\textbf{Example:} Let $\SM = \re^2$ and consider two charts:
+\begin{itemize}
+\item $(U,\phi) = (\SM, \mathrm{id})$ with coordinate function $x,y$
+\item $(V,\chi)$  where $V = \re^2 \backslash \{(x,y)| x\leq 0, y=0\}$ and $\chi$ is such that $p \mapsto (r,\theta)$.The origin had to be taken out anyways since at zero, the value of $\theta$ is not well-defined. The transformations are:
+$$x=r\cos\theta \qquad\qquad y = r\sin\theta$$
+$$r= \sqrt{x^2+y^2}\qquad\qquad \theta(p) = \int\limits_{\SC} \frac{xdy-ydx}{x^2+y^2}$$
+Here, $\SC$ is a curve joining $(1,0)$ to point $p$. We took this form of $\theta$ instead of the usual $\tan^{-1}\qty(\frac{y}{x})$ since it is not really well-defined at $x=0$.
+\end{itemize} 
+Now, if ${X}$ has components $2xy$ and $(1-x^2+y^2)$ in the basis $\qty{\pdv{x},\pdv{y}}$, then what are components in the basis $\qty{\pdv{r},\pdv{\theta}}$\\[0.2cm]
+Note that $\qty{\pdv{x},\pdv{y}}$ is not the partial derivative. These are vector fields. We can write $$X = 2xy\pdv{x} + (1-x^2+y^2)\pdv{y}$$. Now, we have:
+$$Xr =2xy\pdv{r}{x} + (1-x^2+y^2)\pdv{r}{y} $$
+\begin{figure}[H]
+  \centering
+  \input{plot&diagrams/coordtrans_diag.tex}
+  \caption{How we defined $\theta$. Note that a small change in the integrand is exactly equal to $d\theta$ and then when we integrate, we get our value of $\theta_p$. }
+\end{figure}
+Calculating the above expression, we will obtain $Xr = (1+r^2)\sin\theta$. Similarly, we have $$X\theta =2xy\pdv{\theta}{x} + (1-x^2+y^2)\pdv{\theta}{y} $$
+Now, from the integral definition of $\theta$, we have $\pdv{\theta}{x} = -\frac{y}{x^2+y^2}, \pdv{\theta}{y} = \frac{x}{x^2+y^2}$. Then, evaluating the expression would give $X\theta = \frac{1-r^2}{r}\cos\theta$. Then,
+$$X = X^r \pdv{r} + X^\theta \pdv{\theta} = Xr \pdv{r} + X\theta \pdv{\theta} = \mathcolor{blue}{(1+r^2)\sin\theta} \pdv{r}+\mathcolor{blue}{\qty(\frac{1-r^2}{r})\cos\theta}\pdv{\theta}$$
+\begin{ffact}
+$$\hat{r} = \pdv{r}  \quad\quad\quad \hat{\theta} = \frac{1}{r}\pdv{\theta}$$ 
+\end{ffact}
+
 \subsubsection{Lie stuffs (it's pronounced lee)}
-We will now see when `multiplying' two vector fields will yield another field. For this, note:
+We will now see when `multiplying' two vector fields will yield another field (The multiplication of two fields is intuitively defined as their composition, that is, $(X\circ Y)f = X(Yf)$). For this, note that the linearity property of vector field is easily satisfied by $X\circ Y$ but the main problem is the \textit{product rule}:
 \begin{minipage}{0.48\textwidth}
 \begin{align*}
   X \circ Y (fg) &= X(fYg + gYf) \\
@@ -443,14 +484,97 @@ Note that on its own these two quantities are not vector fields, since these do 
     (X\circ Y - Y\circ X)(fg) &=\cancel{XgYf} + gXYf + \cancel{XfYg} + fXYg - (\cancel{YgXf} + gYXf + \cancel{YfXg} + fYXg)\\
     &= f(X\circ Y - Y\circ X)g +g(X\circ Y - Y\circ X)f
   \end{align*}
-  This difference satisfies the product rule and is a vector field.
+  This difference satisfies the product rule and is a vector field. So we define a new operation on $\mathfrak{X}(\SM)$.
 \begin{definition}[Lie Bracket]
   The Lie Bracket of two vector fields $X,Y$ on $\mathcal{M}$ is defined by:
   $$[X,Y]f = X(Yf) - Y(Xf) \quad \forall f\in C^\infty(\mathcal{M})$$
 \end{definition}
-\begin{definition}[Lie Group]
-A Lie group $(G, *)$ is a $C^\infty$ manifold having a group structure such that the multiplication map $* : G \times G\rightarrow  G$ and the inverse map $\iota: G\rightarrow G \ \text{and} \ \iota(x) = x^{-1}$ are both $C^\infty$
-\end{definition}
+The Lie Bracket trivially satisifes lineartiy, that is,
+$$\comtr{X}{Y}(af+bg) = a \comtr{X}{Y}f + b \comtr{X}{Y}g$$
+And as seen above, it also satisfies the product rule, that is,
+$$\comtr{X}{Y}(fg) = f\comtr{X}{Y}g + g\comtr{X}{Y}f$$
+Thus, using this definition of Lie Bracket, we can say that if $X,Y\in \mathfrak{X}(\SM)$ and $f\in \cty{\SM}$ then $\comtr{X}{Y}\in \mathfrak{X}(\SM)$. Note that, then $\comtr{\cdot\ }{\cdot }:\mathfrak{X}(\SM)\times \mathfrak{X}(\SM)\rightarrow \mathfrak{X}(\SM)$ is a binary operation. Hence, using the Lie Bracket, we can define an \textit{algebra} \footnote{It is a non-associative algebra} satisfying the bilinear property:
+\begin{align*}
+ \comtr{aX+bY}{Z}f &= (aX+bY)(Zf) - Z(aX+bY)f\\
+ &=aX(Zf)+bY(Zf) - aZ(Xf)-bZ(Yf)\\
+ &=a(XZ-ZX)(f) + b (YZ-ZY)(f)\\
+ &=(a\comtr{X,Z} + b\comtr{YZ})(f)
+\end{align*}
+As $f$ is arbitrary, we get $\comtr{aX+bY}{Z} = a\comtr{X}{Z}+b\comtr{Y}{Z}$. The linearity of the second factor can be similarly shown. Thus it is a valid algebra, called the \textit{Lie Algebra}. We can also check that $\comtr{X}{Y}f = -\comtr{Y}{X}f \implies \comtr{X}{Y} = -\comtr{Y}{X} $, hence it is an \textit{anti-commutative} algebra.\\[0.2cm]
+While associativity of the Lie Bracket does not hold, we have another property, where given three vectors fields $X,Y,Z$, if we perform the Lie Bracket using a cyclic permutation, we get:
+\begin{align*}
+  &(\comtr{X}{\comtr{Y}{Z}}+ \comtr{Z}{\comtr{X}{Y}}+ \comtr{Y}{\comtr{Z}{X}})(f)\\
+&= X\comtr{Y}{Z}f -\comtr{Y}{Z}Xf + Z\comtr{X}{Y}f - \comtr{X}{Y}Zf + Y\comtr{Z}{X}f-\comtr{Z}{X}Yf\\
+&=\mathcolor{red}{(XYZ)f}-\mathcolor{blue}{(XZY)f}-\mathcolor{OliveGreen}{(YZX)f}+\mathcolor{cyan}{(ZYX)f} + \mathcolor{magenta}{(ZXY)f}-\mathcolor{cyan}{(ZYX)f} - \mathcolor{red}{(XYZ)f}\\ &\quad \quad +\mathcolor{brown}{(YXZ)f} + \mathcolor{OliveGreen}{(YZX)f} - \mathcolor{brown}{(YXZ)f}-\mathcolor{magenta}{(ZXY)f}+\mathcolor{blue}{(XZY)f }\\
+&=0
+\end{align*} 
+Thus, we have an important property, $(\comtr{X}{\comtr{Y}{Z}}+ \comtr{Z}{\comtr{X}{Y}}+ \comtr{Y}{\comtr{Z}{X}})=0$, which is often termed as the \textit{Jacobi property}.
+\begin{lemma}\label{lemma:lie}
+  Let $X,Y\in \mathfrak{\SM}$ be two vector fields and $f,g$\in $\cty{\SM}$ be two smooth functions. Then we have,
+  $$\comtr{fX}{gY} = fg\comtr{X}{Y} +f(Xg)Y- g(Yf)X$$
+\end{lemma}
+\textit{Proof.} Let us take $h\in \cty{\SM}$. Then, 
+\begin{align*}
+  \comtr{fX}{gY}h &=fX(gYh) - gY(fXh)\\
+  &=f((Xg)(Yh) + gX(Yh)) - g ((Yf)(Xh) + fY(Xh))\\
+  &=fg (XYh -YXh) + f(Xg)Yh -g(Yf)Xh \\
+  &=(fg \comtr{X}{Y} + f(Xg)Y -g(Yf)X)h
+\end{align*}
+Since $h$ is any arbitrary smooth function, we proved the lemma.\\[0.2cm]
+We now that any vector field can be expanded in terms of $\pdv{x^i}$ and thus, it becomes kinda imperative to calculated the Lie Bracket of these quantitites. Note:
+$$\comtr{\pdv{x^i}}{\pdv{x^j}}f =\pdv{x^i}\qty(\pdv{x^j})f - \pdv{x^j}\qty(\pdv{x^i})f $$ 
+At the first glance, this seems to be zero (and it actually is). However, we have to be careful that these quantities are not the partial derivatives of $f$ since $f$ is a function on the manifold where partial derivatives are not defined. Instead we had earlier seen:
+$$\pdv{f}{x^i} = \pdv{r^i}\qty(f\circ \phi^{-1})\circ \phi$$
+Using this notation, we have:
+\begin{align*}
+  \pdv{x^i}\pdv{f}{x^j} = \pdv{x^i}\qty(\pdv{r^j}\qty(f\circ \phi^{-1})\circ \phi)
+\end{align*}
+Now, let us take $T_j = {\qty(\pdv{r^j}\qty(f\circ \phi^{-1})\circ \phi)}$, then we have:
+\begin{align*}
+  \pdv{T_j}{x^i} &= \pdv{r^i}\qty({T_j}\circ \phi^{-1})\circ \phi\\
+  &= \pdv{r^i}\qty(\pdv{r^j}\qty(f\circ \phi^{-1})\circ \mathcolor{blue}{\phi\circ \phi^{-1}})\circ\phi\\
+  &= \pdv{r^i}\pdv{r^j}\qty(f\circ \phi^{-1})\circ\phi
+\end{align*}
+Note that in the above, it is indeed the partial derivative since $f\circ \phi^{-1}$ is a function on $\re^n$.
+\begin{align*}
+  \comtr{\pdv{x^i}}{\pdv{x^j}}f  &= \pdv{x^i}\pdv{r^j}\qty(f\circ \phi^{-1})\circ \phi - \pdv{x^j}\pdv{r^i}\qty(f\circ \phi^{-1}\circ \phi)\\
+  &=\qty(\pdv{x^i}\pdv{r^j}\qty(f\circ \phi^{-1})-\pdv{x^j}\pdv{r^i}\qty(f\circ \phi^{-1}))\circ \phi
+\end{align*}
+Now, since partial derivatives commute, we can safely say that the Lie Bracket is zero \emoji{smile}. Now, using Lemma \ref{lemma:lie}, taking $f=X^i$ and $g = Y^j$, we can write:
+\begin{align*}
+  \comtr{X}{Y} &= \comtr{X^i \pdv{x^i}}{ Y^j \pdv{x^j}}\\
+&=X^i Y^j \cancelto{0}{\comtr{\pdv{x^i}}{\pdv{x^j}}}+X^i\pdv{Y^j}{x^i}\pdv{x^j} - Y^j\pdv{X^i}{x^j}\pdv{x^i}\\
+&=\qty(\mathcolor{red}{X^j}\frac{\mathcolor{red}{\partial} Y^i}{\mathcolor{red}{\partial x^j}}- \mathcolor{blue}{Y^j}\frac{\mathcolor{blue}{\partial} X^i}{\mathcolor{blue}{\partial x^j}})\mathcolor{OliveGreen}{\pdv{x^i}}\\
+&=\qty(XY^i - YX^i)\pdv{x^i}
+\end{align*}
+Here comes an example,  let us take the following vector fields: 
+\begin{align*}
+  X &= (1+r^2)\sin\theta\pdv{r} + \qty(\frac{1-r^2}{r})\cos\theta\pdv{\theta}\\
+Y&=-(1+r^2)\cos\theta\pdv{r} +\qty(\frac{1-r^2}{r})\sin\theta\pdv{\theta}\\
+Z&=\pdv{\theta}
+\end{align*}
+
+While we can calculate the components of the Lie Bracket using the above equation, but that would be too much to handle, since we have to calculate the coefficient and then act the vector field on it for each component. Instead, we will use the fact that the component of any vector field is simply given by the vector field acting on the coordinate. Thus, we will have,
+\begin{align*}
+  \text{r component: }\quad  \comtr{X}{Y}r &=  X(Yr) - Y(Xr) = X\qty(-(1+r^2)\cos\theta- 0 )- Y\qty((1+r^2)\sin\theta+0)\\
+  &=-\qty((1+r^2)\sin\theta\pdv{r} + \qty(\frac{1-r^2}{r})\cos\theta\pdv{\theta})(1+r^2)\cos\theta \\&\quad -\qty(-(1+r^2)\cos\theta\pdv{r} +\qty(\frac{1-r^2}{r})\sin\theta\pdv{\theta})(1+r^2)\sin\theta\\
+  &=-2r(1+r^2)\sin\theta \cos\theta+\frac{1-r^4}{r}\cos\theta\sin\theta\\&\qquad+ 2r(1+r^2)\sin\theta\cos\theta - \frac{1-r^4}{r}\sin\theta\cos\theta\\
+  &=0 \\
+  \text{$\theta$ component: } \quad  \comtr{X}{Y}\theta &=  X(Y\theta) - Y(X\theta) = X\qty(\frac{1-r^2}{r})\sin\theta - Y\qty(\frac{1-r^2}{r})\cos\theta\\
+  &=\qty((1+r^2)\sin\theta\pdv{r} + \qty(\frac{1-r^2}{r})\cos\theta\pdv{\theta})\qty(\frac{1-r^2}{r})\sin\theta\\
+  &\qquad - \qty(-(1+r^2)\cos\theta\pdv{r} +\qty(\frac{1-r^2}{r})\sin\theta\pdv{\theta})\qty(\frac{1-r^2}{r})\cos\theta\\
+  &=2(\sin^2\theta+\cos^2\theta)\qty[(1+r^2) \pdv{r}\qty(\frac{1-r^2}{r}) - \qty(\frac{1-r^2}{r})^2]\\
+  &=2(1+r^2)\qty(-\frac{1}{r^2}-1) - \qty(\frac{1-r^2}{r})^2\\
+  &= -2\qty(\frac{1-r^4 - (1-r^2)^2}{r^2})\\
+  &=-4
+\end{align*}
+Since we obtained the components, we can finally write:
+$$\comtr{X}{Y} = 0 \times \pdv{r} -4 \times \pdv{\theta} = -4\times\pdv{\theta} = -4Z$$
+Similarly if calculated, we will see:
+$$\comtr{Y}{Z} = -X \qquad\qquad \comtr{Z}{Y}=-Y$$
+% \begin{definition}[Lie Group]
+% A Lie group $(G, *)$ is a $C^\infty$ manifold having a group structure such that the multiplication map $* : G \times G\rightarrow  G$ and the inverse map $\iota: G\rightarrow G \ \text{and} \ \iota(x) = x^{-1}$ are both $C^\infty$
+% \end{definition}
 \subsection{Differential Forms}
 \subsection{Riemannian Geometry}
 Okay, so whatever BS we had been seeing earlier (I admit, I got a bit carried away with diff geo part since it was so interesting), we will now use that to see our previous discussions on tensors in a more stronger form. We will re-discuss metrics, connections, covariant derivatives, etc. but now in a more sophisticated language (which goes against my initial intentions). 

@@ -24,8 +24,13 @@ The elements of the ring are sometimes called as \textit{scalars}. Since the sca
 An algebra over a field $K$ is a vector space $A$ with a multiplication map $\mu : A\times A \rightarrow A$ denoted by $\mu(a,b) = a\cdot b$, such that for all $a,b,c\in A$ and $r\in K$ we have: 
 \begin{itemize}
     \item Associativity: $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ 
-    \item Distributivity: $a\cdot (b+c) = a\cdot b + a \cdot c$ and $(a+b)\cdot (c) = a\cdot c + b \cdot c$
+    \item Right and Left Distributivity: $a\cdot (b+c) = a\cdot b + a \cdot c$ and $(a+b)\cdot c = a\cdot c + b \cdot c$
     \item Homogenity: $r(a\cdot b) = (ra)\cdot b = a\cdot (rb)$
 \end{itemize}
+The associativity property is not always required, though. If the binary operation is associative too, then we call it an \textit{associative algebra}, otherwise \textit{non-associative}.\\[0.2cm] The above conditions, apart from associativity, is equivalent of saying that the algebra satisfies the \textit{bilinearity property}, that is, for $m,n \in K$ and $a,b\in A$:
+\begin{align*}
+    \text{Linearity in first factor:} \qquad (m\ a+n\ b)\cdot c &= m\ a\cdot c +n\ b\cdot c \\
+    \text{Linearity in second factor:}\qquad  c \cdot (m\ a+n\ b)  &= m \ c\cdot a +n \ c\cdot b
+\end{align*}
 If $A,A'$ are algebras over field $K$, then an algebra homeomorphism is a linear map $\mathcal{L}: A\rightarrow A'$ such that multiplication is preserved, that is, $\mathcal{L}(ab) = \mathcal{L}(a)\mathcal{L}(b) \ \forall \ a,b \in A$. 
 \end{appendices}
