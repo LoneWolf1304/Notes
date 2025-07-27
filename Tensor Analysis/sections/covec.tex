@@ -1,4 +1,4 @@
-\subsection{Covectors and differential forms}
+\subsection{Covectors and one-forms}
 We will begin to learn some things about dual spaces, dual vectors, 1-forms and other high-sounding mathemaitcal names. Remember that the dual space was the set of all linear functionals, that is, a dual vector acts on the vector and produces a real number\footnote{For now let's keep it real, without increasing the `complex'ity.}. Now, we had also seen that a tangent vector acting on a function produced a real number, that is, $v_p[f]\in \re$. It would be nice to somehow connect these things which brings us to the following definition. 
 \begin{definition}
     Let $\SM$ be a manifold and $f\in \cty{\SM}$.  Then the differential of $f$ at a point $p\in\SM$, denoted by $df_p$, is a map that acts on $T_p\SM$ to produce a real-number:
@@ -22,4 +22,53 @@ A co-vector field $\alpha$ is smooth if $\forall \ X \in \mathfrak{X}(\SM),\ \ \
 $$(\alpha + \beta)_p\equiv \alpha_p+\beta_p \qquad\qquad (f\alpha)_p \equiv f(p)\alpha_p \alpha,\beta \in \Lambda^1(\SM)$$
 From our previous discussion on the differential of a function at a point on the manifold, we can define a covector field $df$ (differential of a function) such that $df(p) = df_p$. Now for $X\in \mathfrak{X}(\SM)$,
 $$(df(X))(p) = df_p(X_p) = X_p[f] = (Xf)(p)$$
-We obtain $df(X)\equiv Xf \in \cty{\SM}$ and hence $df$ is a smooth vector field (1-form). We can say that the operator $d$ changes the function $f$ to 1-form. 
+We obtain $df(X)\equiv Xf \in \cty{\SM}$ and hence $df$ is a smooth vector field (1-form). We can say that the operator $d$ changes the function $f$ to a 1-form, that is,
+$$d:\cty{\SM}\rightarrow \Lambda^1(\SM), \qquad\qquad f\mapsto df$$
+Let $X\in\mathfrak{X}(\SM)$ and $f,g\in \cty{\SM}, a,b\in \re$. Then we have:
+\begin{align*}
+    (d(af+bg))(X) = X(af+&bg) = a\ Xf+b\ Xg = a\ df(X) + b\ dg(X) = (a\ df + b \ dg)(X)\\
+&\implies d((af+bg))\equiv (a\ df + b \ dg)
+\end{align*}
+Thus, $d$ is a linear operator. Also, note that:
+\begin{align*}
+    d(fg)(X) = X(fg) = f\ Xg + &g \ Xf = f\ dg(X)+g\ df(X) = (f\ dg + g \ df)(X)\\
+    &\implies d(fg) = f\ dg+g \  df
+\end{align*}
+We had earlier mentioned of the dual basis $\{\phi^i\}$ such that, if ${v^i}$ is a basis for V, then:
+$$\phi^i(v_j) = \tensor{\delta}{^i_j}$$
+If $(U,\phi)$ is a chart on $\SM$ with coordinate functions $x^i$, then according to the differential of functions, taking $f=x^i$, we have:
+$$\qty(dx^i\qty(\pdv{x^j}))\Bigg|_p =\qty(\pdv{x^j})_p[x^i] = \tensor{\delta}{^i_j}$$
+We can see the similarity very clearly between the two facts. Thus, $\{dx^i_p\}$ provides a basis for the cotangent plane. Now, let us take $\alpha_p\in T_p^*\SM$. Then we have:
+\begin{align*}
+    \alpha_p (v_p) &= \alpha_p\qty(v_p[x^i]\qty(\pdv{x^i})_p) \\
+    &=v_p[x^i] \alpha_p\qty(\qty(\pdv{x^i})_p)\qquad\text{$\because \ v_p[x^i]$ is a number }\\
+    &=\alpha_p\qty(\qty(\pdv{x^i})_p) dx^i_p(v_p) \qquad \text{$\because \ dx^i_p(v_p) = v_p[x^i]$  }\\
+    &=\qty(\alpha_p\qty(\qty(\pdv{x^i})_p) dx^i_p(v_p) )
+\end{align*}
+From here we obtain an expansion of the covector:
+$$\alpha_p = \alpha_p\qty(\qty(\pdv{x^i})_p) dx^i_p$$
+Then in a similar way as expansion of vector field, we obtain:
+$$\alpha = \alpha\qty(\pdv{x^i})dx^i \equiv \alpha_i dx^i$$
+Let us take the case of the differential of function. Then according to this, 
+$$df = df\qty(\pdv{x^i})dx^i = \qty(x^i)f = \pdv{f}{x^i}dx^i$$
+Damn, this is like EPIC!! \emoji{fire} Looks exactly like the `total derivative' thing on $\re^n$ that we are used to see. Well, half of the credit goes to the carefully selected notations which make this analogy successful!\\[0.2cm]
+\textbf{Change of coordinate:}\\[0.2cm]
+Let $\alpha$ be a covector field and let us denote a coordinate transformation $\qty(x^1,\ldots,x^n)\rightarrow \qty(x'^1,\ldots,x'^n)$. We shall now see how $\alpha'_j$ will be in terms of $\alpha_j$
+$$\alpha_j' = \alpha\qty(\pdv{x'^j}) =( \alpha_i dx^i)\qty(\pdv{x'^j}) = \alpha_i \qty(\pdv{x'^j})(x^i) = \alpha_i \qty(\pdv{x^i}{x'^j}) $$
+Another \emoji{fire}! We recover the transformation rule of covariant vectors, though, using a more sophisticated and elegant formalism. 
+\subsubsection{Keep Integrating!!}
+Given a curve $\sigma: [a,b]\rightarrow\SM$, the integral of a 1-form $\alpha$ over $\sigma$ is defined by:
+$$\int\limits_{\sigma}\alpha = \int\limits_a^b \alpha_{\sigma(t)}(\sigma_t')dt$$
+So, for a particular $t\in [a,b]$ mapped to a point $\sigma(t)$ on the manifold, $\alpha$ assigns the covector $\alpha_{\sigma(t)}$ which acts on the tangent vector at $\sigma(t)$, denoted by $\sigma_t'$, giving a number and then we integrate it. It so happens that $\int\limits_\sigma \alpha$ depends only on the image of $\sigma$ and the direction of traversal. \\[0.2cm]
+If $\alpha= df$ is a differential of a function $f$, then:
+$$\int\limits_\sigma df = \int\limits_a^b df_{\sigma(t)}(\sigma_t') = \int\limits_a^b \sigma_t'[f]dt = \int\limits_a^b \dv{(\sigma^*f)}{t}dt = (\sigma^*f)(b)-(\sigma^*f)(a) = f(\sigma(b))-f(\sigma(a))$$
+If $\sigma$ is a closed curve, then $\sigma(b)=\sigma(a)\implies \int\limits_\sigma df = 0$, often denoted by $\oint\limits_\sigma df=0$\\[0.2cm]
+\textbf{Example:}\\[0.2cm]
+Let $\SM=\re\backslash \{(0,0)\}$ and $\alpha = \frac{xdy-ydx}{x^2+y^2}$. Let a curve $\SC: [0,2\pi]\rightarrow \SM, \SC(t) = \qty(\cos t, \sin t)$. Then,
+$$\int\limits_\SC \alpha = \int\limits_0^{2\pi} \frac{\cos t \cdot \cos t dt - \sin t \cdot(-\sin t dt)}{\cos^2t +\sin^2 t}=\int\limits_0^{2\pi}dt = 2\pi\neq 0$$
+From this, we can conclude that the given 1-form is not the differential of any function. However, note that, we had been studying the an expression of the form $M\ dx + N\ dy$ is exact if $\pdv{M}{y} = \pdv{N}{x}$. Here we have: $$M=\frac{-y}{x^2+y^2}\qquad\qquad N=\frac{x}{x^2+y^2}$$
+\begin{align*}
+    \pdv{M}{y} &= -\qty(\frac{1}{x^2+y^2} -\frac{2y^2}{(x^2+y^2)^2}) = \frac{y^2-x^2}{(x^2+y^2)^2}\\
+    \pdv{N}{x} &= \qty(\frac{1}{x^2+y^2} -\frac{2x^2}{(x^2+y^2)^2}) = \frac{y^2-x^2}{(x^2+y^2)^2}
+\end{align*}
+We see that in this case, the partial derivatives are indeed equal but it is not an exact differential. In fact, the equality of the partial derivatives is a necessary condition but not sufficient for differential to be exact. If the manifold is in form of $\re^n$, then only it becomes exact, but for any other type of manifold, equality of partial derivatives is, in general, not sufficient. 
