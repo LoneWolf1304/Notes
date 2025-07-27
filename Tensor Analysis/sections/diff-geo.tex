@@ -575,11 +575,74 @@ $$\comtr{Y}{Z} = -X \qquad\qquad \comtr{Z}{Y}=-Y$$
 % \begin{definition}[Lie Group]
 % A Lie group $(G, *)$ is a $C^\infty$ manifold having a group structure such that the multiplication map $* : G \times G\rightarrow  G$ and the inverse map $\iota: G\rightarrow G \ \text{and} \ \iota(x) = x^{-1}$ are both $C^\infty$
 % \end{definition}
-\subsection{Differential Forms}
+\subsubsection{Giving vector fields a push!}
+We had earlier seen the push-forward of a tangent vector. Now, the question remains is whether vector fields can be pushed too in a similar way, that is, if we start with a vector field $X$ on $\SM$, do we get a vector field on $\SN$ using $\{\psi_{*p}Y_p\}_{p\in \SM}$. There lies a problem here.\emoji{cry} \\[0.2cm] Remember that the push-forward basically mapped the tangent vector at one point to the tangent vector at another point of the other manifold. So, suppose our function $\psi:\SM\rightarrow\SN$ is not injective, hence $\exists \ p\neq q \in \SM$ such that $\psi(p)=\psi(q)$ (both mapped to same point in $\SN$).\\[0.2cm] If $X$ is a vector field on $\SM$, then it is possible that the tangent vector $X_p$ and $X_q$ might not be mapped to the same tangent vector using the push-forward, that is, $\psi_{*p} X_p \neq \psi_{*q}X_q$. Since vector field at point $\psi(p)$ assigns only one tangent vector to the point, there is an ambiguity to which of the tangent vector be assigned to $\psi(p)$.\\[0.2cm]
+\begin{definition}
+  Let $\psi:\SM\rightarrow\SN$ be a differentiable map and $X\in\mathfrak{X}(\SM),Y\in\mathfrak{X}(\SN)$. We say that $X$ and $Y$ are \textit{$\psi$-related} if,
+  $$Y_{\psi(p)} = \psi_{*p}X_p\qquad \forall\ p\in\SM$$
+\end{definition}
+So, the previous problem is circumvented since $\psi(p)=\psi(q)$ and hence $Y$ assigns the same vector to the point. 
+\begin{proposition}\label{proposition:psirel}
+  $X$ and $Y$ are $\psi$-related iff $\psi^*(Y(f)) = X(\psi^*f)$ for all $f\in\cty{\SN}$ 
+\end{proposition}
+\textit{Proof.}Let $p\in \SM$. Then, $$(Yf)(\psi(p)) = Y_{\psi(p)}[f] = \psi_{*p}X_p[f] = X_p[\psi^*f] = X(\psi^*f)(p)$$
+\begin{theorem}
+  If $\psi:\SM\rightarrow \SN$ is a diffeomorphism, then for any $X\in \mathfrak{X}(\SM)$, there exists a unique $Y\in \SN$ such that $X$ and $Y$ are $\psi$-related. We denote this smooth vector field as $\psi_*X$ and call it the \textit{push-forward } of $X$ by $\psi$.
+\end{theorem}
+\textit{Proof.} Let $q\in \SN$. As $\psi$ is a diffeomorphism, it is invertible and thus there exists a unique $p\in \SM$ such that $\psi(p) = q$. Then define,
+$$Y_q :=\psi_{*p}X_p$$
+Then $Y$ is a well-defined vector field since $\psi$ is both injective and surjective. To check smoothness of $Y$, consider a chart $(U,\phi)$ on $\SM$ with coordinate functions $(x^1,\ldots,x^n)$. As $\psi$ is a diffeomorphism, then $(F(U), \phi\circ\psi^{-1})$ is a valid chart on $\SN$, with coordinate functions say, $(y^1,\ldots,y^n)$ (since it is diffeomorphism, the dimensions of both the manifold are same).\\[0.2cm]
+Then we can expand the tangent vector at $p$ using the basis and then apply the push-forward:
+$$X_p = X_p(x^i)\pdv{x^i}\Bigg|_p \implies \psi_{*p}X_p =  X_p(x^i)\psi_{*p}\qty(\pdv{x^i}\Bigg|_p)=Y_q$$
+Now, the push-forward is a tangent vector at $q$ and hence can be expanded using the basis in the following way:
+$$\psi_{*p}\qty(\pdv{x^i}\Bigg|_p) = b^j \pdv{y^j}\Bigg|_q$$
+where the coeffients are $b^j := \psi_{*p}\qty(\pdv{x^i}\Big|_p)(y^j) = \pdv{x^i}\Big|_p (\psi^*y^j) =\qty(\pdv{x^i} (\psi^*y^j))(p)$
+Then, using this we can write the final expression for $Y_q$ to be:
+$$Y_q = \qty[X_p(x^i)\qty(\pdv{x^i} (\psi^*y^j))(p)]\pdv{y^j}\Bigg|_q$$
+The coefficient is a smooth map since $X_p(x^i)$ is smooth, as $X$ is smooth and $\pdv{x^i} (\psi^*y^j)$ is smooth since $\psi^*y^j = y^j\circ \psi$, that is, the `proxy' function, is a smooth map and hence proved.\\[0.2cm]
+\textbf{Example:}\\[0.2cm]
+% Let $\mathbb{D} \equiv \{(x,y)\in \re^2|x^2+y^2<1\}$ (this is an open disc) and $\psi:\mathbb{D}\rightarrow \re^3$ be the differentiable map given by:
+% $$\psi^*_x = \frac{2x}{1-x^2-y^2}\qquad \psi^*_y = \frac{2y}{1-x^2-y^2}\qquad \psi^*_z = \frac{1+x^2+y^2}{1-x^2-y^2}$$
+% These are the coordinates of $\psi^*$ when it acts on a point $(x,y)\in \mathbb{D}$. Now, consider a vector field on $\mathbb{D}$:
+% $$V = \frac{1}{2}(1-x^2+y^2)\pdv{x} -xy\pdv{y}$$ \textcolor{red}{finish finding the push-fowards, very bad algebra...to be done later (lec 16)}
+Let $p\in \SM$ and $v_p$ be the tangent vector at $p$. We will consider the bundle chart where the homeomorphism was defined by:
+$$\bar{\phi}(v_p)\equiv \brac{x^1(p), x^2(p),\ldots,x^n(p),v_p[x^1], v_p[x^2],\ldots,v_p[x^n]}$$ 
+Then for $f\in \cty{\SM}$, we have:
+\begin{align*}
+  \pi_{*v}\qty(\pdv{x^i})_v[f] = \qty(\pdv{x^i})_v[\pi^*f] = \qty(\pdv{x^i})_v[f\circ\pi]
+\end{align*}
+Now, $f\circ\pi$ is a function on the manifold and then we define the partial derivative:
+\begin{align*}
+   \pi_{*v}\qty(\pdv{x^i})_v[f] &= \lim\limits_{t\rightarrow 0} \frac{1}{t}\Big[(f\circ \pi)\circ\bar{\phi}^{-1}\brac{x^1(p),\ldots, x^i(p)+t,\ldots,x^n(p),v_p[x^1], v_p[x^2],\ldots,v_p[x^n]}\\&\qquad\qquad-(f\circ \pi)\circ\bar{\phi}^{-1}\brac{x^1(p),\ldots, x^i(p),\ldots,x^n(p),v_p[x^1], v_p[x^2],\ldots,v_p[x^n]} \Big]
+\end{align*}
+Now, note that,
+$$(f\circ \pi)\circ\bar{\phi}^{-1} = (f\circ \phi^{-1})(\phi \circ \pi\circ\bar{\phi}^{-1})$$
+Let us decode this step by step: as seen earlier, $\bar{\phi}^{-1}$ takes the $2n$-dimensional vector and returns the original tangent vector. Then $\pi$ will act on the tangent vector and then map it back to the point on the manifold. Then $\phi$ will map it to a vector in $\re^n$ with coordinate functions as the component. So essentially, the above line means that $f\circ \phi^{-1}$ acts on the vector in $\re^n$. Thus,
+\begin{align*}
+   \pi_{*v}\qty(\pdv{x^i})_v[f] &= \lim\limits_{t\rightarrow 0} \frac{1}{t}\Big[(f\circ \phi)\brac{x^1(p),\ldots, x^i(p)+t,\ldots,x^n(p)}\\&\quad\qquad-(f\circ \phi)\brac{x^1(p),\ldots, x^i(p),\ldots,x^n(p)} \Big]\\
+   &=\qty(\pdv{x^i})_p[f]
+\end{align*}
+Thus, from here we obtain that $\pdv{q^i}$ and $\pdv{x^i}$ are $\pi-$related, that is,
+$$ \pi_{*v}\qty(\pdv{x^i})_v = \qty(\pdv{x^i})_p$$
+\subsubsection{Connection with Lie Brackets}
+Let $\psi:\SM\rightarrow\SN$ and let $X_1,X_2\in \mathfrak{X}(\SM)$ and $Y_1,Y_2\in \mathfrak{X}(\SN)$ be $\psi$-related respectively. Then using the previous proposition, we have, for any $f\in \cty{\SN}$
+\begin{align*}
+  (Y_1f)\circ \psi = X_1(f\circ\psi)\\
+  (Y_2f)\circ \psi = X_2(f\circ\psi)
+\end{align*}
+Let us calculate what happens with the Lie Bracket:
+\begin{align*}
+  \qty(\comtr{Y_1}{Y_2}f)\circ\psi &= \qty(Y_1(Y_2f)-Y_2(Y_1f))\circ\psi\\
+&=(Y_1(Y_2f))\circ\psi - (Y_2(Y_1f))\circ\psi\\
+&=X_1(Y_2f \circ \psi) - X_2(Y_1f\circ\psi)\quad\text{\because $Y_2f, Y_1f\in \cty{\SN}$ }\\
+&=X_1(X_2(f\circ \psi)) - X_2(X_1(f\circ \psi))\\
+&=\comtr{X_1}{X_2}(f\circ\psi)
+\end{align*}
+Thus we see that $\comtr{X_1}{X_2}$ and $\comtr{Y_1}{Y_2}$ are $\psi$ related. 
+\input{sections/covec.tex}
 \subsection{Riemannian Geometry}
 Okay, so whatever BS we had been seeing earlier (I admit, I got a bit carried away with diff geo part since it was so interesting), we will now use that to see our previous discussions on tensors in a more stronger form. We will re-discuss metrics, connections, covariant derivatives, etc. but now in a more sophisticated language (which goes against my initial intentions). 
-
-% \begin{figure}
+ % \begin{figure}
 %   \centering
 % \includesvg{plot&diagrams/vect_sphere.svg}
 % \end{figure}

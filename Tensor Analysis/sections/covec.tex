@@ -1,0 +1,25 @@
+\subsection{Covectors and differential forms}
+We will begin to learn some things about dual spaces, dual vectors, 1-forms and other high-sounding mathemaitcal names. Remember that the dual space was the set of all linear functionals, that is, a dual vector acts on the vector and produces a real number\footnote{For now let's keep it real, without increasing the `complex'ity.}. Now, we had also seen that a tangent vector acting on a function produced a real number, that is, $v_p[f]\in \re$. It would be nice to somehow connect these things which brings us to the following definition. 
+\begin{definition}
+    Let $\SM$ be a manifold and $f\in \cty{\SM}$.  Then the differential of $f$ at a point $p\in\SM$, denoted by $df_p$, is a map that acts on $T_p\SM$ to produce a real-number:
+    $$df_p:T_p\SM\rightarrow \re\quad\quad\quad df_p(v_p) \equiv v_p[f]$$
+\end{definition}
+Also, note that $df_p$ is a linear map (due to linearity of tangent vectors) and hence is a linear functional. Thus, $df_p\in T_p^*\SM$. The elements of $T_p^*\SM$ are called \textit{co-vectors} \footnote{This is basically the covariant vectors from earlier. We will call contravariant vectors to be just 'vectors' and covariant vectors to be the 'covectors' to 'vectors'} and $T_p^*\SM$ is itself called, without any surprise, the \textit{co-tangent plane} at $p$. Since dual spaces have same dimension as the original space and the tangent space was a vector space of dimension $n$ (same as the manifold), the cotangent plane is also an $n$ dimensional vector space.\\[0.2cm]
+We can similarly define the cotangent bundle as 
+$$T*\SM = \bigcup\limits_p T^*_p\SM$$
+\begin{ffact}
+This is extremely useful in classical mechanics, where $\SM$ represents the \textit{configuration space}, that is, space of all possible configurations of the system and $T^*\SM$ is, in most cases, what we know to be the \textit{phase space}.
+\end{ffact}
+We can also define the covector field exactly in same way as the vector field, that is:
+\begin{definition}[Co-vector Field]
+    A co-vector field $\alpha$ on $\SM$ is a map from $\SM \rightarrow T^*\SM$, which assigns at each point $p\in\SM$, a covector, that is,
+    $$\alpha(p) = \alpha_p\in T_p^*\SM$$
+\end{definition}
+A co-vector field $\alpha$ acts on a vector field $X$, to produce a function $\alpha(X)$ which, acting on a point $p$ on the manifold gives:
+$$(\alpha(X))(p)  \equiv \alpha_p(X_p) \in \re$$
+The action $\alpha(X)$ is called \textit{contraction} or \textit{interior product} and is sometimes denoted by $X{\lrcorner \alpha}$ or $\iota_X \alpha$\\[0.2cm]
+A co-vector field $\alpha$ is smooth if $\forall \ X \in \mathfrak{X}(\SM),\ \ \alpha(X) \in \cty{\SM}$. These smooth co-vector fields are called \textit{differential forms} or $1-forms$. The set of all 1-forms is denoted by $\Lambda^1(\SM)$ which is actually a module under the ring $\cty{\SM}$ such that:
+$$(\alpha + \beta)_p\equiv \alpha_p+\beta_p \qquad\qquad (f\alpha)_p \equiv f(p)\alpha_p \alpha,\beta \in \Lambda^1(\SM)$$
+From our previous discussion on the differential of a function at a point on the manifold, we can define a covector field $df$ (differential of a function) such that $df(p) = df_p$. Now for $X\in \mathfrak{X}(\SM)$,
+$$(df(X))(p) = df_p(X_p) = X_p[f] = (Xf)(p)$$
+We obtain $df(X)\equiv Xf \in \cty{\SM}$ and hence $df$ is a smooth vector field (1-form). We can say that the operator $d$ changes the function $f$ to 1-form. 
