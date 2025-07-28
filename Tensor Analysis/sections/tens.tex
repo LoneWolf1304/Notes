@@ -1,0 +1,101 @@
+\subsection{Tensors}
+We had earlier defined to be a multi-linear map, blah blah. We will now focus on tensors of type $(0,k)$ which is also called a covariant tensor of rank $k$. Thus,
+$$t_p = \bigotimes_{i=1}^k T_p\SM\rightarrow \re$$
+So, it will take $k$ tangent vectors and map it to a real number. It must also satisfy multilinearity, that is, linearity in each argument:
+$$t_p(\ldots, a\ v_p + b\ w_p,\ldots ) = a \ t_p(\ldots,v_p,\ldots ) + b\ t_p(\ldots,w_p,\ldots ) $$
+The set of all $(0,k)$ tensors denoted by $T_p^{(0,k)}\SM$ forms a real vector space. Let $a,b\in \re$ and $t_p, s_p\in T_p^{(0,k)}\SM$, then for all $v_{ip}\in T_p\SM, \ i=1,2,\ldots,k$, we have:
+$$(a\ t_p+b\ s_p)(v_{1p}, \ldots, v_{kp})\equiv a\ t_p(v_{1p}, \ldots, v_{kp})+b\ s_p(v_{1p}, \ldots, v_{kp})$$ 
+To check that this is indeed another tensor, we need to check for multilinearity. For that,
+\begin{itemize}
+    \item Let $v_p, w_p\in T_p\SM$ be two vectors. Then,
+    \begin{align*}
+        (a t_p+b s_p)(v_{1p} \ldots, v_{ip} + w_{ip}\ldots v_{kp})&\equiv a\ t_p(v_{1p}\ldots, v_{ip} + w_{ip} \ldots v_{kp})+b\ s_p(v_{1p} \ldots v_{ip} + w_{ip} \ldots v_{kp})\\
+        &=a\ (t_p(v_{1p}\ldots v_{ip} \ldots v_{kp})+t_p(v_{1p}\ldots, w_{ip} \ldots v_{kp}))\\&\qquad \qquad+b\ (s_p(v_{1p} \ldots v_{ip} \ldots v_{kp})+s_p(v_{1p} \ldots w_{ip} \ldots v_{kp}))\\
+        &=(a t_p + b s_p) (v_{1p}\ldots v_{ip} \ldots v_{kp}) + (a t_p + b s_p) (v_{1p}\ldots, w_{ip} \ldots v_{kp})
+    \end{align*}
+\item Let $c\in \re, v_{ip}\in T_p\SM$. Then,
+\begin{align*}
+    (a t_p+b s_p)(v_{1p} \ldots, cv_{ip}\ldots v_{kp})&\equiv a\ t_p(v_{1p}\ldots, c v_{ip} \ldots v_{kp})+b\ s_p(v_{1p}\ldots, c v_{ip} \ldots v_{kp})\\ &= c(a\ t_p(v_{1p}\ldots,v_{ip} \ldots v_{kp})+b\ s_p(v_{1p}\ldots,v_{ip} \ldots v_{kp}))\\
+    &=c (at_p+bs_p)(v_{1p}\ldots,v_{ip} \ldots v_{kp})
+\end{align*}
+\end{itemize}
+Thus, from these two conditions, we can conclude the condition for multi-linearity. 
+\subsubsection{Tensor Product}
+We can form a product of two tensors, not neccessarily of the same rank. For that, let $t_p\in T_p^{(0,k)}\SM, s_p\in T_p^{(0,l)}\SM$. Then the tensor product is defined as:
+$$(t_p\otimes s_p)(v_{1p},\ldots, v_{k+l,p})\equiv t_p(v_{1p},\ldots,v_{kp})s_p(v_{k+1,p},\ldots,v_{k+l,p})$$ 
+Using this, we can say that \[t_p\otimes s_p: \bigotimes_{i=1}^{k+l}T_p\SM\rightarrow \re\] And checking for multilinearity will be easy (as well as boring). Hence we directly declare that it is a $(k+l)$ rank covariant tensor. \\[0.2cm]
+\textbf{Properties of Tensor Product:} 
+\begin{itemize}
+    \item \textcolor{blue}{Tensor product is distributive}.\\[0.2cm]
+    \textit{Proof.} Let us take three covariant tensors $t_1, t_2$ of rank $k$ and $s$ of rank l at point $p$ and let $(v_1,\ldots,v_{k+1})$ be a vector. Then,
+    \begin{align*}
+        &((at_1+bt_2)\otimes s) (v_1,\ldots,v_{k+1})\\
+        &=(at_1+bt_2)(v_1,\ldots,v_k)s(v_{k+1},\ldots,v_{k+l})\\
+        &=(at_1(v_1,\ldots,v_k)+bt_2(v_1,\ldots,v_k))s(v_{k+1},\ldots,v_{k+l})\\
+        &=at_1(v_1,\ldots,v_k)s(v_{k+1},\ldots,v_{k+l})+bt_2(v_1,\ldots,v_k)s(v_{k+1},\ldots,v_{k+l})\\
+        &=(a(t_1\otimes s) + b(t_2\otimes s))(v_1,\ldots,v_{k+1})
+    \end{align*}
+    Similarly, we can prove that if it had been a linear combination in the right tensor $\sim s_1+s_2$ and hence we conclude the distributive property.
+    \item \textcolor{blue}{Tensor product is associative}.\\[0.2cm]
+    \textit{Proof.} Let $r\in T^{(0,k)}_p\SM,s\in T^{(0,l)}_p\SM,t\in T^{(0,m)}_p\SM$. Then r\otimes (s\otimes t) and (r\otimes s)\otimes t are both $(k+l+m)$ rank tensor. Now, we have:
+    \begin{align*}
+        (r\otimes(s\otimes t))(v_1, \ldots, v_{k+l+m}) &= r(v_1,\ldots,v_k) (s\otimes t)(v_{k+1},\ldots,v_{k+l+m})\\
+        &=r(v_1,\ldots,v_k) s(v_{k+1},\ldots,v_{k+l})t(v_{k+l+1},\ldots,v_{k+l+m})\\[0.2cm]
+        ((r\otimes s)\otimes t)(v_1, \ldots, v_{k+l+m}) &= (r\otimes s)(v_1,\ldots,v_{k+l}) t(v_{k+l+1},\ldots,v_{k+l+m})\\
+        &=r(v_1,\ldots,v_k) s(v_{k+1},\ldots,v_{k+l})t(v_{k+l+1},\ldots,v_{k+l+m})
+    \end{align*}
+    Since both these expressions are equal, we proved the associativity.
+\end{itemize}
+\subsubsection{Sometimes all that we need is a coordinate...}
+Remember that any tangent vector can be written as:
+$$v_p = v_p[x^i]\qty(\pdv{x^i})_p = dx_p^i(v_p)\qty(\pdv{x^i})_p$$
+Then we can write the action of the tensor in the following way:
+\begin{align*}
+    t_p\qty(v_1,\ldots v_j \ldots ,v_k) &= t_p\qty( dx^{i_1}_p(v_1)\qty(\pdv{x^{i_1}})_p, \ldots dx^{i_j}_p(v_j)\qty(\pdv{x^{i_j}})_p)\ldots dx^{i_k}_p(v_k)\qty(\pdv{x^{i_k}})_p\\
+    &=t_p\qty(\qty(\pdv{x^{i_1}})_p, \ldots \qty(\pdv{x^{i_j}})_p \ldots \qty(\pdv{x^{i_k}})_p) \prod\limits_{m=1}^k dx^{i_m}_p(v_m)
+\end{align*}
+The second line follows from the multilinearity of tensors. Also, note that $\prod\limits_{m=1}^k dx^{i_m}_p(v_m)$ can be written as $ \displaystyle \qty(\bigotimes_{m=1}^k dx^{i_m}_p)(v_1,\ldots,v_k)$ (basically, each $dx^{i_m}_p$ acts on the corresponding $v_m$ and we get the product thingy). Thus, we obtain:
+\begin{align*}
+    t_p\qty(v_1,\ldots v_j \ldots ,v_k) &= \qty(\mathcolor{OliveGreen}{t_{p,i_1i_2\ldots i_k}}\ \bigotimes_{m=1}^k dx^{i_m}_p)(v_1,\ldots,v_k)
+\end{align*}
+where, $$\mathcolor{OliveGreen}{t_{p,i_1i_2\ldots i_k}} = t_p\qty(\qty(\pdv{x^{i_1}})_p, \ldots \qty(\pdv{x^{i_j}})_p \ldots \qty(\pdv{x^{i_k}})_p)$$ Note that this is not a single quantity. Owing to Einstein's convention, the sum over all the indices has been nicely hidden from the above expression (and even then it looks so ghastly! \emoji{skull}). However, there are indeed $n^k$ sums and hence these are $n^k$ numbers, which are the coordinates of the tensor $t_p$ in the coordinate system. \footnote{Physicists do all sort of weird stuffs with these components only. For them, tensor means these components.}\\[0.2cm]
+From this, we finally have:
+$$t_p = t_{p,i_1i_2\ldots i_k} \ \bigotimes_{m=1}^k dx^{i_m}_p$$
+Now, suppose we have two set of coordinate functions (that is, we have two charts $(U,\phi)$ and $(U',\phi')$ and we consider $p\in U\bigcup U'$) given by $(x^1,\ldots, x^n)$ and $(x'^1,\ldots, x'^n)$. Then we can write:
+$$t_p = t_{p,i_1i_2\ldots i_k} \ \bigotimes_{m=1}^k dx^{i_m}_p = t'_{p,i_1i_2\ldots i_k} \ \bigotimes_{m=1}^k dx'^{i_m}_p$$
+Now, 
+\begin{align*}
+     t'_{p,i_1i_2\ldots i_k} &=  t_p\qty(\qty(\pdv{x'^{i_1}})_p, \ldots \qty(\pdv{x'^{i_j}})_p \ldots \qty(\pdv{x'^{i_k}})_p)\\
+&=\qty(t_{p,j_1j_2\ldots j_k} \ \bigotimes_{m=1}^k dx^{j_m}_p)\qty(\qty(\pdv{x'^{i_1}})_p, \ldots \qty(\pdv{x'^{i_j}})_p \ldots \qty(\pdv{x'^{i_k}})_p)\\
+&=t_{p,j_1j_2\ldots j_k} \prod\limits_{m=1}^k dx_p^{j_m}\qty(\qty(\pdv{x'^{i_{m}}})_p)
+\end{align*}
+Now, note the following notational jugglery: $dx_p^{j_q}\qty(\qty(\pdv{x'^{i_q}})_p)\equiv \qty(\pdv{x'^{i_q}})_p[x^{j_q}] \equiv \qty(\pdv{x^{j_q}}{x'^{i_q }})_p$
+Using this we again have something nice:
+$$t'_{p,i_1i_2\ldots i_k} =t_{p,j_1j_2\ldots j_k} \ \prod\limits_{m=1}^k \qty(\pdv{x^{j_m}}{x'^{i_m }})_p$$
+We obtain the transformation rule for covariant tensors (yes, the rule that was apparently a definition of tensors, has now been derived explicitly, just from a simple definition of tensor as a multi-linear map!). 
+\subsubsection{Tensor Field}
+A $\mqty(0\\k)$ tensor field $t$, like vector field, assigns a tensor to each point $p\in \SM$. If $t$ is a tensor field and $X_1, \ldots, X_k$ are vector fields, then $t(X_1, \ldots, X_k)$ is a function whose value at $p\in \SM$ is:
+$$t(X_1,\ldots,X_k)(p) = t_p(X_{1p}, \ldots, X_{kp})$$
+If $X_i \in \mathfrak{X}(\SM) \implies t(X_1, \ldots, X_k)\in \cty{M}$, then it is called a differentiable tensor field.\\[0.2cm]
+Now, we define the components of a tensor field as the $n^k$ functions:
+$$t_{i_1 \ldots i_k}\equiv t\qty(\qty(\pdv{x^{i_1}}),\ldots,\qty(\pdv{x^{i_k}}))$$
+Then using this definition we can write:
+\begin{align*}
+    t(X_1,\ldots,X_k) &= t\qty(X_1^{i_1}\qty(\pdv{x^{i_1}}),\ldots, X_k^{i_k}\qty(\pdv{x^{i_k}}))\\
+    &=t\qty(\qty(\pdv{x^{i_1}}),\ldots,\qty(\pdv{x^{i_k}})) X_1^{i_1}\ldots X_k^{i_k}\\
+    &=t_{i_1 \ldots i_k} \ X^{i_1}_1\ldots X^{i_k}_k
+\end{align*}
+We can now say that the tensor field is differentiable iff the component functions are smooth. \\[0.2cm]
+\textbf{Some definitions...}\\[0.2cm]
+If $s,t$ are $\mqty(0\\k)$ tensor fields, $a,b\in\re$ and $f$ is a function on $\SM$, we define, $$(at+bs)_p := at_p + bs_p \qquad (ft)_p = f(p) t_p$$
+If $m$ is a $\mqty(0\\k)$ tensor field and $r$ is a $\mqty(0\\l)$ tensor field, then $(m\otimes r)_p\equiv m_p\otimes r_p$ is a $\mqty(0\\k+l)$ tensor field. \\
+\begin{align*}
+    t(p) = t_p &= t_p\qty(\qty(\pdv{x^{i_1}})_p, \ldots,\qty(\pdv{x^{i_k}})_p) \ dx_p^{i_1}\otimes \ldots \otimes dx_p^{i_k}\\
+    &=t\qty(\qty(\pdv{x^{i_1}}), \ldots,\qty(\pdv{x^{i_k}}))(p) \ dx^{i_1}(p)\otimes \ldots \otimes dx^{i_k}(p)\\
+    &=\qty(t\qty(\qty(\pdv{x^{i_1}}), \ldots,\qty(\pdv{x^{i_k}})) \ dx^{i_1}\otimes \ldots \otimes dx^{i_k})(p)
+\end{align*}
+Thus, we obtain: 
+$$t \equiv t\qty(\qty(\pdv{x^{i_1}}), \ldots,\qty(\pdv{x^{i_k}})) \ dx^{i_1}\otimes \ldots \otimes dx^{i_k}$$
+ We can show that the tensor field is a $\SC^\infty$ multi-linear map, that is, $f,g: \SM\rightarrow \re$ and $\{X_i\}_{i=1}^k, Y_i$ are vector fields, then:
+ $$t(X_1,\ldots fX_i+gY_i, \ldots X_k) = ft(X_1,\ldots X_i, \ldots X_k) + gt(X_1,\ldots  Y_i, \ldots X_k)$$
+ The converse of this statement is also true, that is, any map $t$ following this property, is a $\mqty(0\\k)$ tensor field. 
