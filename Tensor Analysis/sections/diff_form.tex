@@ -1,0 +1,90 @@
+\subsection{Differential Forms}
+We had earlier seen 1-forms when dealing with covectors. We will now discuss about their generalisations
+\begin{definition}[Differential Form]
+    A differential $k$-form  $\omega$ on a manifold $\SM$ is an antisymmetric differentiable $\mqty(0\\k)$ tensor field on $\SM$
+\end{definition}
+Antisymmetric property simply means that if two inputs are exchanged, the outputs become negative of one another, that is,
+$$\omega(X_1,\ldots X_i\ldots X_j \ldots X_k)= -\omega(X_1,\ldots X_j\ldots X_i \ldots X_k) \ \ X_i\in\mathfrak{X}(\SM)$$
+An immediate consequence is that if $\omega$ has two identical arguments, then the result is zero. \\[0.2cm]
+A $0$-form is just a function in $\cty{\SM}$ where anytisymmetry is trivial (since no argument is there to input)\\[0.2cm]
+If $t$ is a smooth $\mqty(0\\k)$ tensor field, we define $\SA t$ by:
+$$\SA t(X_1,\ldots,X_k) = \frac{1}{k!}\sum\limits_{\sigma \in S_k}\mathrm{sgn}(\sigma)t(X_{\sigma(1)},\ldots,X_{\sigma(k)})$$
+Note that if we exchange any $X_i$ and $X_j$, then $\mathrm{sgn}(\sigma)$ changes to $-\mathrm{sgn}(\sigma)$ and we obtain a minus sign. Hence, by construction, $\SA t$ is completely anti-symmetric and hence a $k$-form. The operator $\SA$ is called the \textit{alternating operator}. \\[0.2cm]
+\textbf{Properties:}
+\begin{itemize}
+    \item If $t$ and $s$ are both $\mqty(0\\k)$ tensor fields, then $\SA ( t+s) = \SA t + \SA s$
+    \item If $t$ is a $\mqty(0\\k)$ tensor field and $f:\SM\rightarrow \re$, then $\SA (ft) = f\SA t$
+    \item If $t$ is antisymmetric itself, then $\SA t= t \implies \SA^2 = \SA$
+\end{itemize}
+The set of all $k$-forms on $\SM$, $\Lambda^k(\SM)$, is a submodule of $T_k^0\SM$. Note that a tensor product of a $k$-form and a $l-$form is not any form in general (since, of the $k+l$ vectors, first $k$ are antisymmetric among themselves and so are the last $l$ but antisymmetricity is not guaranteed among these two sectors). To compnensate for this, we define some other kind of product instead of leaving the fact alone. 
+\begin{definition}
+    If $\omega$ is a $k$-form and $\eta$ is a $l$-form on $\SM$, then we define the \textit{wedge} or the \textit{exterior} product by:
+    $$\ext{\omega}{\eta} = \SA(\omega \otimes \eta)$$
+\end{definition}
+So basically, we product a $\mqty(0\\k+l)$ tensor field and then antisymmetrise it using the alternating operator to obtain a $(k+l)$  form.\footnote{An alternate definition of the wedge product uses $\ext{\omega}{\eta} =\frac{(k+l)!}{k!l!} \SA(\omega \otimes \eta)$}\\[0.2cm]
+\begin{itemize}
+    \item \textcolor{blue}{Commutativity}: Note that if $f\in\cty{\SM}$, it is a $\mqty(0\\0)$ tensor field and then for a $k$-form $\omega$, $$\ext{f}{\omega} = \SA(d\otimes \omega) = \SA(f\omega)=f\SA \omega = f\omega = \ext{\omega}{f}$$
+    In this case, this is commutative but is not in general always the case. For example, take two $1$-forms $\alpha,\beta$. Then, note that by definition:
+    \begin{align*}
+        \ext{\alpha}{\beta}(X_1,X_2) &= \SA(\alpha\otimes \beta)(X_1,X_2)\\
+        &=\frac{1}{2!}\qty((\alpha\otimes \beta)(X_1,X_2)-(\alpha\otimes \beta)(X_2,X_1))\\
+        &=\frac{1}{2}\qty((\alpha\otimes \beta)(X_1,X_2)-(\beta\otimes \alpha)(X_1,X_2))\\
+        &=\frac{1}{2}(\alpha\otimes \beta - \beta\otimes \alpha) (X_1,X_2)
+    \end{align*}
+    This implies $ \ext{\alpha}{\beta} = \frac{1}{2}(\alpha\otimes \beta - \beta\otimes \alpha) = \ext{\beta}{\alpha}$. The third line comes because:
+    $$\alpha\otimes \beta (X_2,X_1) = \alpha(X_2)\beta(X_1) = \beta(X_1)\alpha(X_2)=(\beta\otimes \alpha)(X_1,X_2)$$
+    The general result is:\begin{lemma}
+        If $\alpha\in \Lambda^k\SM$ and $\beta\in \Lambda^l\SM$ then,
+    $$\ext{\alpha}{\beta} = (-1)^{kl}\ \ext{\beta}{\alpha}$$
+    \end{lemma}
+    \textit{Proof.} This is going to be a long (and perhaps inelegant) proof!\\[0.2cm]
+    Consider a chart $(U,\phi)$ with coordinate $(x^1,\ldots,x^n)$. Then, since the $k$-form is a $\mqty(0\\k)$ tensor field, we can write it as:
+    $$\omega  = \omega_{i_1\ldots i_k}dx^{i_1}\otimes\ldots\otimes dx^{i_k}\qquad \omega_{i_1\ldots i_k} \equiv \omega\qty(\pdv{x^{i_1}},\ldots,\pdv{x^{i_k}})$$
+    Since $\omega$ is $k$-form, it will be antisymmetric in all its indices, which implies that $\omega = \SA \omega$, which gives:
+    \begin{align*}
+          \omega &= \SA(\omega_{i_1\ldots i_k}dx^{i_1}\otimes\ldots\otimes dx^{i_k}) \\
+          &=\omega_{i_1\ldots i_k} \SA(dx^{i_1}\otimes\ldots\otimes dx^{i_k})\\
+          &=\omega_{i_1\ldots i_k} \ext{dx^{i_1}}{\ext{\ldots}{dx^{i_k}} }
+    \end{align*}
+
+    Now consider $\eta = \eta_{j_1\ldots j_k}\ext{dx^{j_1}}{\ext{\ldots}{dx^{j_l}}}$. We will analyse the exterior product of $\eta$ and $\omega$. We also note one fact, that the exterior product is anticommutative in each index, so interchanging one index with introduce an overall minus sign. 
+    \begin{align*}
+        \ext{\omega}{\eta} &= \ext{ (\omega_{i_1\ldots i_k} \ext{dx^{i_1}}{\ext{\ldots}{dx^{i_k}} }) }{(\eta_{j_1\ldots j_l} \ext{dx^{j_1}}{\ext{\ldots}{dx^{j_l}} })}\\
+        &=\omega_{i_1\ldots i_k}  \eta_{j_1\ldots j_l}\ext{ (\ext{dx^{i_1}}{\ext{\ldots}{dx^{i_k}} }) }{( \ext{dx^{j_1}}{\ext{\ldots}{dx^{j_l}} })} \\
+        &=\omega_{i_1\ldots i_k}  \eta_{j_1\ldots j_l} (-1)^{kl}\ext{( \ext{dx^{j_1}}{\ext{\ldots}{dx^{j_l}} })} { (\ext{dx^{i_1}}{\ext{\ldots}{dx^{i_k}} }) }\\
+        &=(-1)^{kl}\ext{\eta}{\omega}
+    \end{align*}
+    In the second last line, since there are $l$ terms in the second bracket and to find $\ext{\eta}{\omega}$, we had to move these $l$ terms forward by $k$ places, thus, we get an overall factor of $(-1)^{kl}$
+    \item \textcolor{blue}{Linearity}: If $a,b\in \re$ and $\omega_1, \omega_2 \in \Lambda^k\SM, \eta \in \Lambda^l\SM, f\in \cty{\SM}$, then
+    $$\ext{(a\omega_1 + b\omega_2)}{\eta} = a\ext{\omega_1}{\eta}+b\ext{\omega_2}{\eta}$$ 
+    $$\ext{(f\omega_1)}{\eta} = \ext{\omega_1}{(f\eta)}=f(\ext{\omega}{\eta})$$
+    \item \textcolor{blue}{Associativity:} If $\alpha,\beta,\gamma$ are three forms, then:
+    $$\ext{\alpha}{(\ext{\beta}{\gamma})} = \ext{(\ext{\alpha}{\beta})}{\gamma}= \ext{\alpha}{\ext{\beta}{\gamma}} = \SA(\alpha\otimes\beta\otimes\gamma)$$
+\end{itemize}
+\textbf{Example:}\\[0.2cm]
+Let $\SM = \re^3$ and the chart $(\SM,\mathrm{id})$. Then we can have maximum upto $3$-form. The basis for each is:
+\begin{itemize}
+    \item $\Lambda^1\SM\rightarrow dx,dy,dz$,  so any $1$-form $\alpha $ is written as $\alpha = pdx+qdy+rdz$
+    \item  $\Lambda^2\SM\rightarrow \ext{dx}{dy},\ext{dy}{dz},\ext{dz}{dx}$ \footnote{Note that any other combination of the wedge product can be written in terms of these}, so any $2$-form $\alpha $ is written as $\alpha = p( \ext{dx}{dy})+q(\ext{dy}{dz})+r(\ext{dz}{dx})$
+    \item $\Lambda^2\SM\rightarrow \ext{dx}{\ext{dy}{dz}}$, so any $3$-form $\alpha $ is written as $\alpha =p (\ext{dx}{\ext{dy}{dz}})$
+\end{itemize}
+Let us now calculate the exterior product of two one forms which can be written as:
+\begin{align*}
+    p &= p_x dx + p_y dy+p_zdz\\
+    q &= q_x dx + q_y dy+q_zdz
+\end{align*}
+Then we will have:
+\begin{align*}
+    \ext{p}{q} &= \ext{( p_x dx + p_y dy+p_zdz)}{(q_x dx + q_y dy+q_zdz)}\\
+    &=\mathcolor{blue}{p_xq_y \ext{dx}{dy} + p_yq_x \ext{dy}{dx}} + \mathcolor{red}{p_xq_z\ext{dx}{dz} + p_zq_x\ext{dz}{dx}}+\mathcolor{OliveGreen}{p_yq_z\ext{dy}{dz} + p_z q_y\ext{dz}{dy}}\\
+    &=(p_xq_y - p_yq_x)\ext{dx}{dy} + (p_xq_z-p_zq_x)\ext{dx}{dz}+ (p_yq_z - p_zq_y)\ext{dy}{dz}\\
+    &=(p_xq_y - p_yq_x)\ext{dx}{dy} + (p_zq_x-p_xq_z)\ext{dz}{dx} + (p_yq_z - p_zq_y)\ext{dy}{dz}
+\end{align*}
+The last term is obtained by interchanging the wedge product in the second term of each coloured term. Notice the familiarity of the components with that of the components of the \textit{cross product} that we all know. So, we see that the wedge product between two one forms generalises the cross product in some sense. \\[0.2cm]
+Let $p = p_x dx + p_y dy+p_zdz$ be a $1$-form and $q = q_x(\ext{dy}{dz})+q_y(\ext{dz}{dx})+q_z( \ext{dx}{dy}) $ be a $2$-form.
+\begin{align*}
+    \ext{p}{q} &= \ext{(p_x dx + p_y dy+p_zdz)}{(q_x(\ext{dy}{dz})+q_y(\ext{dz}{dx})+q_z( \ext{dx}{dy}))}\\
+    &= p_xq_x\ext{dx}{\ext{dy}{dz}}+ p_yq_y \ext{dy}{\ext{dz}{dx}}+p_zq_z\ext{dz}{\ext{dx}{dy}}\\
+    &=(p_xq_x+p_yq_y+p_zq_z)\ext{dx}{\ext{dy}{dz}}
+\end{align*}
+The component is exactly the dot product as we know, and hence the exterior product of a one-form and a two-form generalises the dot product. 

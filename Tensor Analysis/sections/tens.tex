@@ -1,4 +1,5 @@
 \subsection{Tensors}
+\subsubsection{Covariant Tensors}
 We had earlier defined to be a multi-linear map, blah blah. We will now focus on tensors of type $(0,k)$ which is also called a covariant tensor of rank $k$. Thus,
 $$t_p = \bigotimes_{i=1}^k T_p\SM\rightarrow \re$$
 So, it will take $k$ tangent vectors and map it to a real number. It must also satisfy multilinearity, that is, linearity in each argument:
@@ -99,3 +100,40 @@ $$t \equiv t\qty(\qty(\pdv{x^{i_1}}), \ldots,\qty(\pdv{x^{i_k}})) \ dx^{i_1}\oti
  We can show that the tensor field is a $\SC^\infty$ multi-linear map, that is, $f,g: \SM\rightarrow \re$ and $\{X_i\}_{i=1}^k, Y_i$ are vector fields, then:
  $$t(X_1,\ldots fX_i+gY_i, \ldots X_k) = ft(X_1,\ldots X_i, \ldots X_k) + gt(X_1,\ldots  Y_i, \ldots X_k)$$
  The converse of this statement is also true, that is, any map $t$ following this property, is a $\mqty(0\\k)$ tensor field. 
+
+
+\subsubsection{Contravariant Tensors} 
+This thing is very, very, very similar to the covariant tensors. A contravariant tensor of type $\mqty(k\\0)$ (rank $k$) at a point $p\in \SM$ is a multi-linear map taking $k$ covectors as input and returning a real number, that is,
+$$\prod_{i=1}^{k}T_p^*\SM \rightarrow \re$$
+Since any covector can be expanded as $\alpha = \alpha\qty(\qty(\pdv{x^i})_p)dx^i_p$, we can then write:
+\begin{align*}
+    t_p(\alpha_1,\ldots,\alpha_k) &= t_p\qty(\alpha_1\qty(\qty(\pdv{x^{i_1}})_p)dx^{i_1}_p,\ldots, \alpha_k\qty(\qty(\pdv{x^{i_k}})_p)dx^{i_k}_p)\\
+    &=t_p(dx^{i_1}_p,\ldots, dx^{i_k}_p) \alpha_1\qty(\qty(\pdv{x^{i_1}})_p)\ldots \alpha_k\qty(\qty(\pdv{x^{i_k}})_p)\\
+    &=t_p^{i_1,\ldots,i_k}\qty(\pdv{x^{i_1}})_p(\alpha_1)\ldots \qty(\pdv{x^{i_k}})_p(\alpha_k)\\
+    &=\qty(t_p^{i_1,\ldots,i_k} \qty(\pdv{x^{i_1}})_p \otimes \ldots \otimes\qty(\pdv{x^{i_k}})_p)(\alpha_1,\ldots,\alpha_k)
+\end{align*}
+Thus, we obtain:
+$$t_p \equiv t_p^{i_1,\ldots,i_k} \qty(\pdv{x^{i_1}})_p \otimes \ldots \otimes\qty(\pdv{x^{i_k}})_p$$
+The set of all $\mqty(k\\0)$ tensors at $p\in \SM$, denoted by $T_p^{(k,0)}\SM$ is a vector space, as before.
+
+\subsubsection{Mixed Tensors}
+This is a general tensor of type $\mqty(k\\l)$, multi-linearly mapping $k$ covectors and $l$ vectors at point $p\in\SM$ to a real number. Thus, 
+$$t_p: \prod_{i=1}^{k}T_p^*\SM\prod_{i=1}^{l}T_p^\SM \rightarrow \re$$
+This is what we had earlier defined, before being engulfed by differential geometry, however, we did not have the slightest indication of the beauty of this definition, since we were not familiar with the formalism. \\[0.2cm]
+The set of $\mqty(k\\l)$ tensor forms a vector space $T_p^{(k,l)}\SM$ and we can also similarly define the tensor product between a $\mqty(k\\l)$ and a $\mqty(k'\\l')$ tensor, resulting in a $\mqty(k+k'\\l+l')$ tensor. A basis for the space $T_p^{(k,l)}\SM$ is given by:
+$$\bigotimes_{d=1}^k \qty(\pdv{x^{i_d}})_p\ \otimes \ \bigotimes_{d=1}^l dx_p^{j_d}$$
+As $i_d$ and $j_d$ can take n values, the space is $n^{k+l}$ dimensional. \footnote{Note that if $k=l=0$, we will have a $\mqty(0\\0)$ tensor which is actually a function on $\SM$}
+\subsubsection{General Tensor Fields}
+Similarly to covariant tensor field, we can define the contravariant tensor field. In terms of the coordinates, we can write a $\mqty(k\\0)$ tensor field $t$ in the form,
+$$t = t(dx^{i_1},\ldots,dx^{i_k})\qty(\pdv{x^{i_1}})\otimes\ldots\otimes\qty(\pdv{x^{i_k}})$$
+The tensor field is smooth if $t(\alpha_1, \ldots, \alpha_k)\in \cty{\SM}$ whenever $\alpha_i\in \Lambda^1\SM$ which happens iff the $n^k$ functions $t(dx^{i_1},\ldots,dx^{i_k})$ are smooth.\\[0.2cm]
+Mixed tensor fields can be similarly defined. The set of all smooth $\mqty(k\\l)$ tensor fields $T^k_l(\SM)$ is a module over the ring $\cty{\SM}$
+A tensor field is completely characterised by the $n^{k+l}$ component functions, 
+$$\tensor{t}{_{i_1,\ldots,i_k}^{j_1,\ldots,j_l}} = t\qty(\qty(\pdv{x^{i_1}}),\ldots,\qty(\pdv{x^{i_k}}), dx^{j_1},\ldots,dx^{j_l})$$
+Now, \begin{align*}
+    t(X_1,\ldots,X_k, \omega_1,\ldots,\omega_l) &= \tensor{t}{_{i_1,\ldots,i_k}^{j_1,\ldots,j_l}} dx^{i_1}(X_1)\ldots dx^{i_k}(X_k)\pdv{x^{j_1}} (\omega_1)\ldots {x^{j_l}} (\omega_l)\\
+    &=\tensor{t}{_{i_1,\ldots,i_k}^{j_1,\ldots,j_l}}  dx^{i_1}\otimes dx^{i_k}\otimes \pdv{x^{j_1}}\otimes\ldots\otimes \pdv{x^{j_l}}(X_1, \ldots,X_k,\omega_1,\ldots, \omega_l)
+\end{align*}
+Thus we obtain:$$t=\tensor{t}{_{i_1,\ldots,i_k}^{j_1,\ldots,j_l}}  \qty(dx^{i_1}\otimes dx^{i_k}\otimes \pdv{x^{j_1}}\otimes\ldots\otimes \pdv{x^{j_l}})$$
+Using this, we can then obtain the transformation rule for the tensor:
+$$\tensor{{t'}}{_{a_1\ldots a_k}^{b_1\ldots b_k}} = \pdv{x^{i_1}}{x'^{a_1}}\ldots  \pdv{x^{i_k}}{x'^{a_k}} \pdv{x^{b_1}}{x'^{j_1}}\ldots  \pdv{x^{b_l}}{x'^{j_l}}\tensor{{t}}{_{i_1\ldots i_k}^{j_1\ldots j_l}} $$
