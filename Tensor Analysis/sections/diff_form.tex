@@ -80,7 +80,7 @@ Then we will have:
     &=(p_xq_y - p_yq_x)\ext{dx}{dy} + (p_xq_z-p_zq_x)\ext{dx}{dz}+ (p_yq_z - p_zq_y)\ext{dy}{dz}\\
     &=(p_xq_y - p_yq_x)\ext{dx}{dy} + (p_zq_x-p_xq_z)\ext{dz}{dx} + (p_yq_z - p_zq_y)\ext{dy}{dz}
 \end{align*}
-The last term is obtained by interchanging the wedge product in the second term of each coloured term. Notice the familiarity of the components with that of the components of the \textit{cross product} that we all know. So, we see that the wedge product between two one forms generalises the cross product in some sense. \\[0.2cm]
+The last term is obtained by interchanging the wedge product in the second term of each coloured term. Notice the familiarity of the components with that of the components of the \textit{cross product}\footnote{We arranged the indices to follow a cyclic pattern like $x\rightarrow y \rightarrow z \rightarrow x$} that we all know. So, we see that the wedge product between two one forms generalises the cross product in some sense. \\[0.2cm]
 Let $p = p_x dx + p_y dy+p_zdz$ be a $1$-form and $q = q_x(\ext{dy}{dz})+q_y(\ext{dz}{dx})+q_z( \ext{dx}{dy}) $ be a $2$-form.
 \begin{align*}
     \ext{p}{q} &= \ext{(p_x dx + p_y dy+p_zdz)}{(q_x(\ext{dy}{dz})+q_y(\ext{dz}{dx})+q_z( \ext{dx}{dy}))}\\
@@ -88,3 +88,115 @@ Let $p = p_x dx + p_y dy+p_zdz$ be a $1$-form and $q = q_x(\ext{dy}{dz})+q_y(\ex
     &=(p_xq_x+p_yq_y+p_zq_z)\ext{dx}{\ext{dy}{dz}}
 \end{align*}
 The component is exactly the dot product as we know, and hence the exterior product of a one-form and a two-form generalises the dot product. 
+\subsubsection{Exterior Derivative}
+\begin{definition}[Exterior Derivative]
+    If $\omega$ is a $k$-form, then the exterior derivative of $\omega$, denoted by $d\omega$, is a $(k+1)$-form and is given by:
+    \begin{align*}
+        d\omega (X_1,\ldots, X_{k+1})&:=\frac{1}{k+1}\Bigg[\sum\limits_{i=1}^{k+1} (-1)^{i+1}X_i \omega(X_1,\ldots \hat{X}_i\ldots,X_{k+1})\\&\qquad\qquad+\sum\limits_{i<j}(-1)^{i+j}\omega(\comtr{X_i}{X_j},X_1,\ldots \hat{X}_i\ldots \hat{X}_j \ldots X_{k+1})\Bigg]
+    \end{align*}
+\end{definition}
+The hat $\hat{X}_i$ means that, that term is missing from the argument (since $\omega$ is a $k$-form, it can only take $k$ vector fields as arguments, so we omit one of them and denote it by hat). In any case, this expression looks extremely ghastly \emoji{skull}\\[0.2cm]
+\textbf{Example:}\\[0.2cm]
+\begin{itemize}
+    \item $\omega \in \Lambda^0\SM = \cty{\SM}$. Then, the second term cannot happen as $\omega$ does not take any argument. We get:
+    $$d\omega = 1\times (-1)^{2}X\omega = X\omega$$
+    This resembles the differential of a function and hence for a $0$-form, the exterior derivative simply gives the differential of the function $\omega$.
+    \item $\omega \in \Lambda^1\SM$. Then we get:
+    $$d\omega(X_1, X_2) = \frac{1}{2}\qty[X_1\omega(X_2) - X_2\omega(X_1) -\omega(\comtr{X_1}{X_2})]$$
+\item $\omega \in \Lambda^2\SM$. Then we get:
+\begin{align*}
+    d\omega(X_1, X_2,X_3) &= \frac{1}{3}\Bigg[X_1\omega(X_2,X_3) -X_2\omega(X_1,X_3)+X_3\omega(X_1,X_2)\\&\qquad\quad -\omega(\comtr{X_1}{X_2}, X_3)-\omega(\comtr{X_2}{X_3}, X_1) + \omega(\comtr{X_1}{X_3}, X_2)\Bigg]\\
+    &= \frac{1}{3}\Bigg[X_1\omega(X_2,X_3) +X_2\omega(X_3,X_1)+X_3\omega(X_1,X_2)\\&\qquad\quad -\omega(\comtr{X_1}{X_2}, X_3)-\omega(\comtr{X_2}{X_3}, X_1) - \omega(\comtr{X_3}{X_1}, X_2)\Bigg]
+\end{align*}
+\end{itemize}
+\begin{lemma}
+   If $\omega\in\Lambda^k\SM$ and $f\in \Lambda^0\SM$, 
+   $$d(f\omega) = fd\omega + d\ext{f}{\omega}$$
+\end{lemma}
+\textit{Proof.} From the definition of the exterior derivative, we will have:
+\begin{align*}
+    (k+1)d(f\omega) (X_1,\ldots,X_{k+1})&= \sum\limits_{i=1}^{k+1} (-1)^{k+1}X_i (f\omega)(X_1,\ldots \widehat{X}_i\ldots, X_{k+1})\\
+    &+\qquad \sum\limits_{i<j} (-1)^{i+j}(f\omega)(\comtr{X_i}{X_j}, X_1,\ldots \widehat{X}_i\ldots \widehat{X}_j\ldots X_{k+1})\\
+    &=\sum\limits_{i=1}^{k+1} (-1)^{k+1} (fX_i\omega(X_1,\ldots \widehat{X}_i\ldots, X_{k+1}) + (X_if)\omega(X_1,\ldots \widehat{X}_i\ldots, X_{k+1}))\\
+    &\qquad +\sum\limits_{i<j} (-1)^{i+j}(f\omega)(\comtr{X_i}{X_j}, X_1,\ldots \widehat{X}_i\ldots \widehat{X}_j\ldots X_{k+1})\\
+    &=(k+1)fd\omega(X_1,\ldots, X_{k+1}) +\sum\limits_{i=1}^{k+1}(-1)^{i+1}(X_if)\omega(X_1,\ldots \widehat{X}_i\ldots, X_{k+1})\\
+    &=(k+1)fd\omega(X_1,\ldots, X_{k+1}) +\sum\limits_{i=1}^{k+1}(-1)^{i+1}df(X_i)\omega(X_1,\ldots \widehat{X}_i\ldots, X_{k+1})\\
+    &=(k+1)fd\omega(X_1,\ldots, X_{k+1}) +\sum\limits_{i=1}^{k+1}(-1)^{i+1}(df\otimes\omega)(X_i,X_1,\ldots \widehat{X}_i\ldots, X_{k+1})\\
+    &=(k+1)(fd\omega + \ext{df}{\omega})(X_1,\ldots, X_{k+1}) 
+\end{align*}
+We obtained the last line from the second last line using the following:
+\begin{itemize}
+    \item Note that the LHS is anti-symmetric in all its arguments since exterior derivative is a $k+1$ form. 
+    \item The first term on the RHS is also anti-symmetric in its arguments. 
+    \item Thus, remaining term is antisymmetric too. Then if we denote the term by $\kappa$, then due to property of being anti-symmetric, $\SA\kappa = \kappa$ but if we do $\SA\kappa$, by linearity of $\SA$, we will get the term $\SA(df\otimes\omega) = df\wedge \omega$
+\end{itemize}
+Thus, from this, we obtained that kind of the Liebniz rule for the exterior derivative:
+$$d(f\omega) = fd\omega + df\wedge \omega$$\\
+\textbf{Coordinate Representation:}\\[0.2cm]
+Working in a coordinate system greatly simplifies things in this case. For that, consider $\omega = \omega_{i_1\ldots i_k}dx^{i_1}\wedge\ldots\wedge x^{i_k}$ in some coordinate system $(x^1,\ldots,x^n)$.\\[0.2cm]
+Then, using the above ``product rule'', we get:
+\begin{align*}
+    d\omega = d(\omega_{i_1,\ldots,i_{k}})\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k} + \omega_{i_1,\ldots,i_{k}} d(dx^{i_1}\wedge\ldots\wedge dx^{i_k})
+\end{align*}
+The second term can be shown to be zero because:
+\begin{align*}
+    &(k+1)d(dx^{i_1}\wedge \ldots \wedge dx^{i_k}) \qty(\pdv{x^{i_1}},\ldots,\pdv{x^{i_{k+1}}})\\&= \sum\limits_{n=1}^{k+1}(-1)^{n+1}\pdv{x^{j_n}}\qty(dx^{i_1}\wedge \ldots \wedge dx^{i_k}\qty(\pdv{x^{j_1}}, \ldots\widehat{\pdv{x^{j_n}}}\ldots \pdv{x^{j_{k+1}}}))+\\
+    &\quad\ \sum\limits_{m<n} \ldots \qty(\comtr{\pdv{x^{j_m}}}{\pdv{x^{j_n}}})\ldots
+\end{align*}
+The second term becomes zero since Lie Bracket of the coordinate differentials is zero. In the first term, when $dx^{i_n}$ acts on some $\pdv{x^{j_n}}$, it will produce either zero or one, which is constant, so will give 0 with $\pdv{x^{j_m}}$. Hence, the first term also evaluates to zero. Thus, from the above fact, we obtain:
+$$d\omega = d\omega_{i_1,\ldots,i_{k}}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}$$
+% Now, note that the Lie Bracket of coordinate differentials is always zero, that is, $\comtr{\pdv{x^i}}{\pdv{x^j}}=0$ (proved earlier). Then for the $i<j$ sum, we will get some terms of the form $\omega(0,\ldots)$ which, by the liearity of $\omega$, is always zero. Hence, in the definition of the exterior derivative if we take $X_i = \pdv{x^i}$, only the first term survives. Thus we obtain:
+% \begin{align*}
+%     (d\omega)_{i_1\ldots i_{k+1}} &=d\omega\qty(\pdv{x^{i_1}},\ldots,\pdv{x^{i_{k+1}}})\\
+%     &=\frac{1}{k+1}\sum\limits_{a=1}^{k+1} (-1)^{a+1} \pdv{x^{i_a}}\omega_{i_1,\ldots\hat{i}_a\ldots i_{k+1}}
+% \end{align*}
+% In the coordinate representation, we have:
+% \begin{align*}
+%     d\omega &= (d\omega)_{i_1,\ldots,i_{k+1}} dx^{i_1}\wedge\ldots\wedge dx^{i_{k+1}}\\
+%    &= \frac{1}{k+1}\sum\limits_{a=1}^{k+1} (-1)^{a+1} \pdv{x^{i_a}}\omega_{i_1,\ldots\hat{i}_a\ldots i_{k+1}} dx^{i_1}\wedge\ldots\wedge dx^{i_{k+1}}\\
+%    &=\frac{1}{k+1}\sum\limits_{a=1}^{k+1} \cancel{(-1)^{a+1} }\pdv{x^{i_a}}\omega_{i_1,\ldots\hat{i}_a\ldots i_{k+1}} \ \cancel{(-1)^{a-1}}dx^{i_a}\wedge dx^{i_1}\wedge\ldots \widehat{dx^{i_a}}\ldots\wedge dx^{i_{k+1}}\\
+%    &=\frac{1}{k+1}\sum\limits_{a=1}^{k+1} \qty(\pdv{x^{i_a}}\omega_{i_1,\ldots\hat{i}_a\ldots i_{k+1}} dx^{i_a})\wedge dx^{i_1}\wedge\ldots \widehat{dx^{i_a}}\ldots\wedge dx^{i_{k+1}}\\
+%    &=\frac{1}{k+1}\sum\limits_{a=1}^{k+1} (d\omega)_{i_1\ldots \ldots\hat{i}_a i_{k}}
+% \end{align*}
+% \textbf{\textcolor{red}{Proof left, continue later!}}
+\begin{lemma}[Graded Liebniz Rule]
+    If $\omega \in \Lambda^k\SM$ and $\eta\in \Lambda^l\SM$, we have:
+    $$d(\omega \wedge \eta) = d\omega\wedge\eta + (-1)^k\omega\wedge d\eta$$
+\end{lemma}
+\textit{Proof.} Let us use the coordinate version to express $\eta$ and $\omega$. Then we have:
+\begin{align*}
+    \omega &= \omega_{i_1\ldots i_k} dx^{i_1}\wedge\ldots\wedge dx^{i_k}\\
+     \eta &= \eta_{i_1\ldots i_l} dx^{i_1}\wedge\ldots\wedge dx^{i_l}
+\end{align*}
+Then using the product rule, we have:
+\begin{align*}
+    d(\omega\wedge \eta) &= d(\omega_{i_1\ldots i_k}\eta_{i_1\ldots i_l} dx^{i_1}\wedge\ldots\wedge dx^{i_k}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_l})\\
+    &=d(\omega_{i_1\ldots i_k}\eta_{i_1\ldots i_l})\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_l}\\
+    &=d(\omega_{i_1\ldots i_k})\eta_{i_1\ldots i_l}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_l}+\\
+    &\quad \omega_{i_1\ldots i_k}d(\eta_{i_1\ldots i_l})\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_l}\\
+    &=d(\omega_{i_1\ldots i_k})\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}\wedge \eta_{i_1\ldots i_l}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_l}\\
+    &\quad (-1)^k \omega_{i_1\ldots i_k}\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k} d(\eta_{i_1\ldots i_l})\wedge dx^{i_1}\wedge\ldots\wedge dx^{i_l}\\
+    &=d\omega\wedge \eta + (-1)^k \omega\wedge d\eta
+\end{align*}
+Note that in the second last step, we had to introduct $(-1)^k$ since $d(\eta_{i_1\ldots i_l})$ is a one-form and we had to shift it over $k$ indices. \\[0.2cm]
+If $d(\omega\wedge \eta) =0$ then $\omega\wedge \eta$ is called a \textit{closed form}. 
+\begin{lemma}
+   $$ d^2\omega = 0 \ \ \forall \ \omega \in \Lambda^k\SM$$
+\end{lemma}
+\textit{Proof.} Given $\omega =\omega_{i_1\ldots i_k}x^{i_1}\wedge \ldots \wedge x^{i_k}$, we have:
+\begin{align*}
+    d\omega &= d(\omega_{i_1\ldots i_k}) x^{i_1}\wedge \ldots \wedge x^{i_k}\\
+    &=\qty(\pdv{\omega_{i_1\ldots i_k}}{x^k})dx^k\wedge x^{i_1}\wedge \ldots \wedge x^{i_k}
+\end{align*}
+Now, applying the exterior derivative once again, we get:
+\begin{align*}
+    d^2\omega &= d\qty(\qty(\pdv{\omega_{i_1\ldots i_k}}{x^k})dx^k\wedge x^{i_1}\wedge \ldots \wedge x^{i_k})\\
+    &=\qty(\pdv{\omega_{i_1\ldots i_k}}{x^l}{x^k})dx^l\wedge dx^k\wedge x^{i_1}\wedge \ldots \wedge x^{i_k}\\
+    &=\sum\limits_{k=l}\qty(\pdv{\omega_{i_1\ldots i_k}}{x^k}{x^k})\cancelto{0}{dx^k\wedge dx^k\wedge} \ldots \\
+    &\qquad +\sum\limits_{k<l} \qty(\pdv{\omega_{i_1\ldots i_k}}{x^l}{x^k})dx^l\wedge dx^k \ldots + \sum\limits_{k>l} \qty(\pdv{\omega_{i_1\ldots i_k}}{x^l}{x^k})dx^l\wedge dx^k\ldots \\
+    &=\sum\limits_{k<l} \qty(\pdv{\omega_{i_1\ldots i_k}}{x^l}{x^k})dx^l\wedge dx^k \ldots - \sum\limits_{k>l} \qty(\pdv{\omega_{i_1\ldots i_k}}{x^l}{x^k})dx^k\wedge dx^l\ldots\\
+    &=\sum\limits_{k<l} \qty(\pdv{\omega_{i_1\ldots i_k}}{x^l}{x^k} - \pdv{\omega_{i_1\ldots i_k}}{x^k}{x^l})dx^l\wedge dx^k \ldots
+\end{align*}
+Thus, we see the $d\omega = 0\ \forall \ \omega\  \implies d^2 \equiv 0$\\[0.2cm]
+\textbf{Some potential use cases...}\\[0.2cm]
+We can check (using some boring algebra) that if we take $\re^3$ and calculate the exterior derivative of a one-form, we will obtain the components of the curl. Thus, we can say that the exterior derivative of a one-form generalises the notion of a curl. Also, if we take the exterior derivative of a two-form, we will obtain the components of the gradient. 

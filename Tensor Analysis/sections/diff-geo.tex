@@ -540,7 +540,8 @@ Note that in the above, it is indeed the partial derivative since $f\circ \phi^{
   \comtr{\pdv{x^i}}{\pdv{x^j}}f  &= \pdv{x^i}\pdv{r^j}\qty(f\circ \phi^{-1})\circ \phi - \pdv{x^j}\pdv{r^i}\qty(f\circ \phi^{-1}\circ \phi)\\
   &=\qty(\pdv{x^i}\pdv{r^j}\qty(f\circ \phi^{-1})-\pdv{x^j}\pdv{r^i}\qty(f\circ \phi^{-1}))\circ \phi
 \end{align*}
-Now, since partial derivatives commute, we can safely say that the Lie Bracket is zero \emoji{smile}. Now, using Lemma \ref{lemma:lie}, taking $f=X^i$ and $g = Y^j$, we can write:
+Now, since partial derivatives commute, we can safely say that the Lie Bracket is zero \emoji{smile}, that is,
+$$\comtr{\pdv{x^i}}{\pdv{x^j}} = 0$$ Now, using Lemma \ref{lemma:lie}, taking $f=X^i$ and $g = Y^j$, we can write:
 \begin{align*}
   \comtr{X}{Y} &= \comtr{X^i \pdv{x^i}}{ Y^j \pdv{x^j}}\\
 &=X^i Y^j \cancelto{0}{\comtr{\pdv{x^i}}{\pdv{x^j}}}+X^i\pdv{Y^j}{x^i}\pdv{x^j} - Y^j\pdv{X^i}{x^j}\pdv{x^i}\\
