@@ -1,0 +1,42 @@
+\section*{Lecture 01: Quantum SHO}
+\addcontentsline{toc}{section}{Lecture 01: Quantum SHO}
+\begin{center}
+    \textit{People do `weird' stuffs for earning,\\
+    You can do the same for learning!}
+\end{center}
+Since the foundational aspect of QFT (and many other topics in Physics) is the Harmonic Oscillator, let us discuss the quantum Harmonic oscillator for introduction. For that, note that the classical Hamiltonian for the harmonic oscillator is given by:
+$$H = \frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2 $$
+We do not like the things like $m$ and $\omega$ which prevent us from seeing things clearly \emoji{sweat-smile}. Hence, we invoke the holy action of making things dimensionless. For that, we define:
+\begin{align*}
+    X &= \frac{m\omega}{\hbar}x \qquad \longrightarrow\qquad x^2 = \frac{\hbar}{m\omega}X^2  \\
+    P &=\frac{1}{\sqrt{m\omega\hbar}}p \qquad \longrightarrow\qquad p^2 = m\omega \hbar P^2
+\end{align*}
+Substituting these in the Hamiltonian, we have: 
+$$H = \frac{\hbar\omega}{2}(X^2+P^2)$$
+Note that, we are still within the classical domain. Now, let us elevate $x$ and $p$ to operators and we define:
+$$\comtr{x}{p}=i\hbar\ \mathds{1} \implies \comtr{X}{P} =\sqrt{ \frac{\cancel{m\omega}}{{\hbar}}}\frac{i\hbar \ \mathds{1}}{\sqrt{\cancel{m\omega\hbar}}} = i$$
+Introducing the commutator bracket brings us to the quantum world. Now, we invoke our very own ladder operators:
+\begin{align*}
+    \hat{a} &= \frac{1}{\sqrt{2}}(\hat{X}+ i\hat{P})\qquad \quad \text{: annihilation operator}\\
+    \hat{a}^{\dagger} &= \frac{1}{\sqrt{2}}(\hat{X}- i\hat{P})\qquad \quad \text{: creation operator}
+\end{align*}
+Then we will have \footnote{henceforth, forsaking the hat symbol and identity operator $\mathds{1}$, since they cause nothing but trouble, when the context is clear}:
+$$\comtr{a}{a^\dagger} = \frac{1}{2}\comtr{X +iP}{X-iP} = \frac{-i}{2}\qty(\comtr{X}{P}-\comtr{P}{X}) = -i\times i = 1$$
+Also, note that:
+$$a^\dagger a = \frac{1}{2}(X^2+P^2+i\underbrace{(XP-PX)}_{i})= \frac{1}{2}(X^2+P^2)-\frac{1}{2}\implies H = \frac{\hbar\omega}{2}(a^\dagger a +\frac{1}{2})$$
+Let us consider the \textit{complete set of commuting observables} (CSCO) for this problem. Evidently, the set $\{H\}$ itself satisfies the condition since the eigenvalues are all non-degenerate (hence, we can label each state with only one index ). To understand why, let us consider the action of the the annihilation operator on a (normalised) state $\ket{\psi}$. For that we note the following:
+\begin{align*}
+    \comtr{a^\dagger a}{a} &= -a \implies \comtr{H}{a} = -\hbar\omega \ a\\
+\comtr{a^\dagger a}{a} &= a^\dagger \implies \comtr{H}{a^\dagger} = \hbar\omega \ a^\dagger
+\end{align*}
+
+Now, we have:
+$$Ha\ket{\psi} - aH\ket{\psi} = \comtr{H}{a}\ket{\psi} = -\hbar\omega a \ket{\psi} \implies H(a\ket{\psi})= (E-\hbar\omega)(a\ket{\psi})$$
+Thus, if $\ket{\psi}$ has an energy eigenvalue $E$, then $a\ket{\psi}$ will have an energy eigenvalue $E-\hbar\omega$. Thus, starting from any eenrgy state, we can change to another state with energy reduced by one unit of $\hbar\omega$, using the annihilation operator. Similarly, we will have:
+$$H(a^\dagger\ket{\psi})  = (E+\hbar\omega)(a^\dagger\ket{\psi}) $$
+Let us denote the states $a^\dagger\ket{\psi}$ and $a\ket{\psi}$ by $\ket{\psi_+}$ and $\ket{\psi_-}$ respectively. 
+Then, we will have $$\ip{\psi_-}{\psi_-} = \bra{\psi} a^\dagger a \ket{\psi} = \bra{{\psi}}\qty(\frac{H}{\hbar\omega}-\frac{1}{2})\ket{\psi}$$
+Now, since $\ket{\psi_-}$ is a valid vector of the Hilbert space, its norm must be non-negative and finite. Hence, we obtain the condition:
+$$0\leq \frac{E}{\hbar\omega}-\frac{1}{2}<\infty\implies \frac{\hbar\omega}{2}\leq E$$
+Hence, we get a lower bound on the energy eigenvalue, that is, there exists a state $\ket{\psi_{\mathrm{min}}}$ such that $H\ket{\psi_{\mathrm{min}}} = E_{min}\ket{\psi_{\mathrm{min}}}$ where $E_{min} = \frac{\hbar\omega}{2}$. Then, starting from this state, if we apply the creation operator, we will get successively increasing energies (and hence the system is non-degenerate). We thus obtain:
+$$E = \qty({n+\frac{1}{2}}){\hbar\omega}$$
