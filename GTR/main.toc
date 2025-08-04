@@ -1,0 +1,5 @@
+\contentsline {section}{Lecture 01: Introduction}{3}{section*.3}%
+\contentsline {section}{Lecture 02: Galilean Stuffs}{4}{section*.7}%
+\contentsline {subsection}{Galilean Transformation}{4}{section*.9}%
+\contentsline {subsection}{A Big Blow to Galileo}{6}{section*.12}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

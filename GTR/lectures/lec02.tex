@@ -1,0 +1,87 @@
+\section*{Lecture 02: Galilean Stuffs}
+\addcontentsline{toc}{section}{Lecture 02: Galilean Stuffs}
+In the previous lecture, we saw how Newton's laws define an inertial frame and how we can rephrase the second and third law in terms of intertial frames, to avoid confusion. It happens that, there are reference frames where the first law doesn't hold true. \\[0.2cm]
+Imagine a person inside a darkened car, isolated from the outside world, with a ball hanging from the roof of the car. The car suddenly starts accelerating and (as intuition speaks) the ball starts moving. The person claims "The ball has moved!" \emoji{skull}.\\[0.2cm] Note that from the perspective of the person, no force has been applied to the ball, yet it moved, which is a direct violation of the second law. Thus, we can call this frame \textit{non-inertial}. \\[0.2cm]
+Now, consider a person inside an ill-fated lift, tragically falling \emoji{smiling-face-with-tear}.  Everything in the lift frame is accelerating together under gravity and hence `weightlessness' (free-fall) occurs. If somehow a coin is also there in the lift, it simply floats. And if the person pushes the coin, it moves with an almost constant velocity. Thus, it is a very good approximation to an \textit{intertial frame} (although, extremely tragic for the person!).
+\begin{figure}[H]
+    \centering 
+    \input{pics/lift.tex}
+    \caption{A sad guy floating with a coin in a falling lift }
+\end{figure}
+\noindent
+We had always wanted the physical laws to stay the same. This is actually the statement of Galilean relativity:
+\begin{center}
+    \itshape
+    ``Laws of physics (nature) must be the same in all intertial frames of reference'' 
+\end{center}
+By physical laws, we imply Newton's laws of mechanics and the law of gravitation. To have a more mathematical (and less philosophical) aspect to the above statement, we define the \textit{Galilean transformation}.
+\subsection*{Galilean Transformation}
+\addcontentsline{toc}{subsection}{Galilean Transformation}
+Let an onject be at point $P$ and consider two reference frames $O$ and $O'$, which coincided at $t=0$ but have moved apart since, along the common x-axis. (Henceforth, reference frames will simply be termed \textit{observers} ).
+\begin{figure}[H]
+    \centering 
+    \input{pics/gal_rel.tex}
+    \caption{Observing same point from two different frames}
+    \label{fig:gal_rel}
+\end{figure}
+\noindent
+Now, the distance between the origins of two frames, at time $t$, will be $R = vt$. Then accordingly, we can write the relation between the coordinates of the two observers as follows:
+   \begin{center}
+     \begin{minipage}{0.5\textwidth}
+    \begin{align*}
+        x' &= x-vt\\
+        y'&=y\\
+        z' &=z \\
+        t'&=t
+    \end{align*}
+\end{minipage}\hfill
+\begin{minipage}{0.5\textwidth}
+    
+    
+    $\begin{pmatrix}
+        t'\\x'\\y'\\z'
+    \end{pmatrix} = \begin{pmatrix}
+        1&0&0&0 \\
+        -v&1&0&0 \\
+        0&0&1&0 \\
+        0&0&0&1 \\
+    \end{pmatrix}    \begin{pmatrix}
+        t\\x\\y\\z
+    \end{pmatrix}$
+\end{minipage}
+   \end{center}
+\textcolor{red}{\textbf{An important assumption:}} The Galilean transformation assumes a \textit{universal time}, that is, time elapsed on clocks in both frames are the same \footnote{This was perhaps a fair assumption since time, atleast in the philosophical aspect, has always seemed to be \textit{superior}. }.\\[0.2cm]
+Now, it is not necessary for the observers to move along the $x$ axis only. Hence, generalising the transformation to arbitrary direction, we obtain:
+$$t'=t\qquad \vb{r'} = \vb{r} - \vb{v}t$$
+Now, let us look how the physical laws react under the Galilean transformation. 
+\begin{itemize}
+    \item \textbf{Law of Gravitation:}\\[0.2cm] 
+    Consider the situation in the diagram below:
+    \begin{figure}[H]
+        \centering 
+        \input{pics/grav_gal.tex}
+        \caption{Gravitational law from two different frames}
+    \end{figure}
+    According to Galilean transformation, we have:
+    \begin{align*}
+        \brcurs &= \vb{r}_2 - \vb{r}_1\\
+&=(\vb{r}_2'+\vb{v}t) - (\vb{r}_1'+\vb{v}t)\\
+&=\vb{r}_2' - \vb{r}_1' \\ &=\brcurs'
+    \end{align*}
+    Thus, we see that the vector \brcurs \ is unchanged and since this is the only vector appearing in Newton's law of gravitation, we have:
+    $$\vb{F}_{12} =G \frac{m_1 m_2}{\rcurs^2}\ \hat{\rcurs} =G \frac{m_1 m_2}{\rcurs'^2}\ \hat{\rcurs}' = \vb{F}'_{12}$$
+   We see that the expression of the force does not change between frames, thus indicating a \textit{universality}.
+    \item \textbf{Second Law:}\\[0.2cm]
+    Using the second law, we can write $$\vb{F} = m\dv[2]{\vb{r}}{t}$$
+    Now, using Galilean transformation, we obtain:
+    $$\vb{r}(t) = \vb{r}'(t')+\vb{v}t\implies \dv{\vb{r}}{t}=\dv{\vb{r'}}{t}\times\dv{t'}{t} + \vb{v}\implies  m\dv[2]{\vb{r}}{t} =  m\dv[2]{\vb{r}'}{t}$$
+    Thus, we see that in general, force will be the same for observers in different inertial frames. Note that we assumed the \textit{time universality}, that is, $\dv{t'}{t}=1$ 
+    \item \textbf{Third Law:}\\[0.2cm] Note that since the force expression for gravity is symmetric in $m_1$ and $m_2$, the law of gravitation automatically incorporates the third law. Newton knew only about gravity and perhaps, third law would not have been necessary if he had relied only on gravity, however, he postulated that for all other forces, third law holds.
+\end{itemize}
+
+\subsection*{A Big Blow to Galileo }
+\addcontentsline{toc}{subsection}{A Big Blow to Galileo}
+Let us consider that in Fig. \ref{fig:gal_rel}, point $P$ is also moving with some velocity $\vb{u}'$ and $\vb{u}$ in primed and unprimed frame respectively. Then, we can write:
+$$\dv{\vb{u}}{t} = \dv{t} (\vb{r}' + \vb{v}t) = \dv{\vb{r}'}{t} + \vb{v} = \vb{u}'+\vb{v}\implies \vb{u} = \vb{u}'+\vb{v} \qquad \text{: velocity addition formula}$$
+However, observations, specially the Michelson-Morley experiment, were made in different frames but found the speed of light (henceforth denoted as $c$) to be a constant, which contradicted the velocity addition formula when applied to speed of light. \\[0.2cm]
+Since the velocity addition formula depended entirely on the Galilean transformation, to resolve this conflict, we have to change the transformation rule in its entirety.
