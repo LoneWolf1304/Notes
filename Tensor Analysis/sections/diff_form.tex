@@ -199,4 +199,28 @@ Now, applying the exterior derivative once again, we get:
 \end{align*}
 Thus, we see the $d\omega = 0\ \forall \ \omega\  \implies d^2 \equiv 0$\\[0.2cm]
 \textbf{Some potential use cases...}\\[0.2cm]
-We can check (using some boring algebra) that if we take $\re^3$ and calculate the exterior derivative of a one-form, we will obtain the components of the curl. Thus, we can say that the exterior derivative of a one-form generalises the notion of a curl. Also, if we take the exterior derivative of a two-form, we will obtain the components of the gradient. 
+We can check (using some boring algebra) that if we take $\re^3$ and calculate the exterior derivative of a one-form, we will obtain the components of the curl. Thus, we can say that the exterior derivative of a one-form generalises the notion of a curl. Also, if we take the exterior derivative of a two-form, we will obtain the components of the gradient. \\[0.2cm]
+\textbf{Interesting example: Electromagnetic Tensor}\\[0.2cm]
+Modern formalism of electromagnetism treats electric field as a one-form and magnetic field as a two form. Hence, we can write:
+\begin{align*}
+    E&:= E_x dx + E_y dy + E_z dz\\
+B&:= B_x dy\wedge dz + B_y dz\wedge dx + Bz dx\wedge dy
+\end{align*}
+Then we can define the electromagnetic tensor as the following two-form:
+$$F:= B + E\wedge dt$$
+Then we will have:
+\begin{align*}
+    F &= (B_x dy\wedge dz + B_y dz\wedge dx + Bz dx\wedge dy) + (E_x dx + E_y dy + E_z dz)\wedge dt\\
+    &=(B_x dy\wedge dz + B_y dz\wedge dx + Bz dx\wedge dy) + E_x dx\wedge dt +E_y dy\wedge dt+E_z dz\wedge dt\\
+    &=B_x dy\wedge dz + B_y dz\wedge dx+Bz dx\wedge dy - E_x dt\wedge dx -E_y dt\wedge dy -E_z dt\wedge dz
+\end{align*}
+From this expression and writing $F = F_{\mu\nu}dx^\mu\wedge dx^\nu$, we can easily obtain the electromagnetic tensor components:
+\[
+[F]_{\mu\nu} =
+\begin{pmatrix}
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & B_z & -B_y \\
+E_y & -B_z & 0 & B_x \\
+E_z & B_y & -B_x & 0
+\end{pmatrix}
+\]

@@ -8,7 +8,7 @@ Since the foundational aspect of QFT (and many other topics in Physics) is the H
 $$H = \frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2 $$
 We do not like the things like $m$ and $\omega$ which prevent us from seeing things clearly \emoji{sweat-smile}. Hence, we invoke the holy action of making things dimensionless. For that, we define:
 \begin{align*}
-    X &= \frac{m\omega}{\hbar}x \qquad \longrightarrow\qquad x^2 = \frac{\hbar}{m\omega}X^2  \\
+    X &= \sqrt{\frac{m\omega}{\hbar}}x \qquad \longrightarrow\qquad x^2 = \frac{\hbar}{m\omega}X^2  \\
     P &=\frac{1}{\sqrt{m\omega\hbar}}p \qquad \longrightarrow\qquad p^2 = m\omega \hbar P^2
 \end{align*}
 Substituting these in the Hamiltonian, we have: 
@@ -39,4 +39,4 @@ Then, we will have $$\ip{\psi_-}{\psi_-} = \bra{\psi} a^\dagger a \ket{\psi} = \
 Now, since $\ket{\psi_-}$ is a valid vector of the Hilbert space, its norm must be non-negative and finite. Hence, we obtain the condition:
 $$0\leq \frac{E}{\hbar\omega}-\frac{1}{2}<\infty\implies \frac{\hbar\omega}{2}\leq E$$
 Hence, we get a lower bound on the energy eigenvalue, that is, there exists a state $\ket{\psi_{\mathrm{min}}}$ such that $H\ket{\psi_{\mathrm{min}}} = E_{min}\ket{\psi_{\mathrm{min}}}$ where $E_{min} = \frac{\hbar\omega}{2}$. Then, starting from this state, if we apply the creation operator, we will get successively increasing energies (and hence the system is non-degenerate). We thus obtain:
-$$E = \qty({n+\frac{1}{2}}){\hbar\omega}$$
+$$E_n = \qty({n+\frac{1}{2}}){\hbar\omega}\qquad n = 0,1,\ldots$$

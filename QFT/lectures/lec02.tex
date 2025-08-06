@@ -1,0 +1,93 @@
+\section*{Lecture 02: Dimensional Deep Dive}
+\addcontentsline{toc}{section}{Lecture 02: Dimensional Deep Dive}
+For the quantum harmonic oscillator, we had seen that how making things dimensionless eases calculations a bit. We consider three fundamental constants, each occupying their own special place in their field of action.
+\begin{alignat*}{3}
+    c &\equiv [LT^{-1}] &&\qquad \text{ : relativity}\\
+    \hbar &\equiv [L^2MT^{-1}] &&\qquad \text{ : quantum}\\
+    G &\equiv [L^3M^{-1}T^{-2}] &&\qquad \text{ : gravity}\\
+\end{alignat*}
+Lengths are tractable for us, since we can see the `length', same goes for mass, atleast we can `feel' it. However, time is an \textit{enigma}. \textit{We can't hold two ends of time at the same time} unlike holding two ends of a rod to measure its length. The absolute truth is: \textit{Time passes!}\\[0.2cm]
+Note that, in physics, we are mostly concerned with equations like $E=mc^2$ and $E=\hbar\omega$. To that extend, we define the natural units: 
+\begin{align*}
+    c &= 1 \\
+    \hbar &=1 
+\end{align*}
+We want these quantitites to be numerically equal to 1 and dimensionless. Note that, we had also done this kind of things before. When writing Newton's law, we had said that $$F\propto m, F\propto a \implies F \propto ma \implies F=kma \qquad \text{for some } k$$
+Now, we chose unit and dimension of force in a way such that $k=1$ (dimensionless and unit value) which gave us the celebrated law. \\[0.2cm]
+Note that: 
+\begin{itemize}
+    \item Making $c$ dimensionless: 
+    $$[LT^{-1}] \equiv 0 \implies [L] = [T]$$
+    \item Making $\hbar$ dimensionless:
+    $$[L^2 MT^{-1}] = [L^2M L^{-1}] = [LM] \equiv 0 \implies [L] = [M^{-1}]$$
+\end{itemize}
+Hence, we see that length and time are equivalent while mass and length have inverse relation. In this natural units, we have that energy is equivalent to mass and any other unit can be represented in terms of mass. Thus, by our convention, we choose mass or energy as the only important dimension.  \\[0.2cm]
+Note that $$\hbar c \equiv Jm = 1 \qquad \text{(in natural units)}$$
+From this, we can say heuristically that increasing length scale is decreases the energy (mass) scale. We mainly use the length scale in context of \textit{de Broglie wavelength}. \\[0.2cm]
+This is perhaps not the only way to define natural units. In cosmology, $G$ plays a more important role and hence it is better to set $G=1$, leaving aside $\hbar$. Using this \textit{natural units}, we find:
+\begin{align*}
+    [L] &=[M]\\
+    [L] &=[T]
+\end{align*}
+Here, we see that length and mass scale are directly related. Well, in this regard, we treat the length scale to be that of the Schwarzschild radius of a blackhole \footnote{This crap is the radius of an object such that if the body is squeezed to a radius lesser than the Schwarzschild radius, the gravitational attraction between the constituents of the body causes its irreversible collapse, turning it to a black hole \emoji{black-circle} } which intuitively grows with mass. Since the above two natural units are widely distinct, there is as such no problem, however, in the unfortunate case where we have to consider both de Broglie wavelength and the Schwarzschild radius (that is, in the infamous domain of quantum gravity \emoji{fearful-face}), one needs to be very careful. \\[0.2cm]
+\begin{theorem}[$\pi-$Theorem]
+    Let $q_1,\ldots, q_n$ be $n$ variables which are physically relevant to a problem and which are related by an expression, that is, 
+    $$F(q_1,\ldots,q_n) = 0 \iff q_i = \widetilde{F}(q_1,\ldots\hat{q}_i ,\ldots q_{n})$$
+    If $k$ is the number of fundamental dimensions required to describe the $n$ variables, then we can group these in $(n-k)$ groups of dimensionless variables $\Pi_1,\ldots, \Pi_{n-k}$ such that for some $f$, we have:
+    $$f(\Pi_1, \ldots, \Pi_{n-k})=0 \iff \Pi_i = \widetilde{f}(\Pi_1,\ldots\hat{\Pi}_i ,\ldots \Pi_{n-k})$$. 
+\end{theorem}
+The theorem seems a bit vague (and pointless too). Let us take a physical example. Consider a spherical ball in a viscous fluid. The variable in the problem are: 
+\begin{alignat*}{3}
+    \text{Drag force: }\quad &q_1 \rightarrow \quad&& F  \quad [MLT^{-2}]\\
+\text{Sphere diameter:}\quad &q_2\rightarrow\quad&& d \quad [L]\\
+\text{Fluid density:}\quad &q_3 \rightarrow\quad&& \rho\quad [ML^{-3}]\\
+\text{Fluid velocity:}\quad &q_4 \rightarrow\quad&& v\quad [LT^{-1}]\\
+\text{Fluid viscosity:}\quad &q_5 \rightarrow\quad&& \eta\quad [ML^{-1}T^{-1}]
+\end{alignat*}
+So, there are $5$ such parameters and only three units viz. $M,L,T$ are needed to describe them. Hence we will have two $\Pi$ groups. It is a good thing to choose the repeating variables (variables which will be in both groups) that relate to mass, geometry and the kinematics of the problem. Also, note that since the $\Pi$ groups are dimensionless, we can take the non-repeating variable's power to be 1. Hence, in this problem we choose them to be $\rho, d, v$. Thus, we will have:
+\begin{align*}
+    \Pi_1 &= \rho^{a_1}d^{a_2}v^{a_3}F^\equiv [ML^{-3}]^{a_1}[L]^{a_2}[LT^{-1}]^{a_3}[MLT^{-2}] =[M^{a_1+1}L^{-3a_1+a_2+a_3+1}T^{-a_3 -2}]\\
+    \Pi_2 &= \rho^{b_1}d^{b_2}v^{b_3}\eta\equiv [ML^{-3}]^{b_1}[L]^{b_2}[LT^{-1}]^{b_3} [ML^{-1}T^{-1}]=[M^{b_1+1}L^{-3b_1 + b_2+b_3-1}T^{-b_3-1}]
+\end{align*}
+Hence we obtain two sets of equations: 
+\begin{align*}
+    a_1 +1 &=0 \implies a_1 = -1\\
+-a_3-2 &=0 \implies a_3 = -2\\
+-3a_1+a_2+a_3 +1 &=0\implies  3 +a_2 -2+1 =0 \implies a_2 = -2\\
+    b_1 &=-1\\
+    b_3 &= -1\\
+    -3b_1 + b_2+b_3-1 &=0\implies  3 + b_2 -2 = 0\implies b_2 = -1
+\end{align*}
+Then we obtain the $\Pi$ groups as: 
+$$\Pi_1 = \frac{F}{\rho d^2v^2}\qquad\qquad \Pi_2 = \frac{\eta}{\rho d v} = \frac{1}{\frac{\rho d v}{\eta}}$$
+We identity $\frac{\rho d v}{\eta}$ to be the \textit{Reynold's numer} $\SR$. Then we can say, for some $\phi$, $$\frac{F}{\rho d^2v^2} = \phi(\SR)$$ 
+To some extraterrestrial being, the physical laws will (hopefully) be valid, however, they might not understand the human-made units (like metres and seconds) in which we measure these quantitites.\\[0.2cm] We need something natural, based on Nature and hence we used the natural units. For this purpose, we will use things like $c,\hbar,G,k_b\ldots$ and we set all of them to 1. Doing this will lead to change in all scales. For that, we define the Planck units, made of fundamental constants of Nature:
+\begin{itemize}
+    \item \textbf{Planck mass}: $E_p = \sqrt{\frac{\hbar c}{G}}$
+     \item \textbf{Planck length}: $l_p = \sqrt{\frac{\hbar G}{c^3}}$
+     \item \textbf{Planck time}: $l_p = \sqrt{\frac{\hbar c}{G^5}}$
+\end{itemize}
+Let us now analyse the physical regimes in which the fundamental constants become important. For that, we will use a tuple $(G,\frac{1}{c}, \hbar)$ (note that all the elements of the tuple are written in terms of very small quantitites of the SI scale).
+
+% \begin{itemize}
+%     \item $(0,0,0)\rightarrow$ : Classical mechanics
+%     \item $(G,0,0)\rightarrow$ : Newtonian gravity
+%     \item $(0,\frac{1}{c},0)\rightarrow$ : Special relativity
+%     \item $(0,0,\hbar)\rightarrow$ : Basic quantum mechanics
+%     \item $(G,\frac{1}{c},0)\rightarrow$ : General relativity
+%     \item $(0,\frac{1}{c},\hbar)\rightarrow$ : QFT and relativistic QM
+%     \item $(G,0,\hbar)\rightarrow$ : Non-relativistic gravity
+%     \item $(G,\frac{1}{c},\hbar)\rightarrow$ : Quantum gravity
+% \end{itemize}
+\[
+\begin{array}{rl}
+(0,0,0)\rightarrow & \text{Classical mechanics} \\[0.15cm]
+(G,0,0)\rightarrow & \text{Newtonian gravity} \\[0.15cm]
+\left(0,\frac{1}{c},0\right)\rightarrow & \text{Special relativity} \\[0.15cm]
+(0,0,\hbar)\rightarrow & \text{Basic quantum mechanics} \\[0.15cm]
+\left(G,\frac{1}{c},0\right)\rightarrow & \text{General relativity} \\[0.15cm]
+\left(0,\frac{1}{c},\hbar\right)\rightarrow & \text{QFT and relativistic QM} \\[0.15cm]
+(G,0,\hbar)\rightarrow & \text{Non-relativistic gravity} \\[0.15cm]
+\left(G,\frac{1}{c},\hbar\right)\rightarrow & \text{Quantum gravity}
+\end{array}
+\]
