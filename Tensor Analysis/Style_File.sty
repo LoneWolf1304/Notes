@@ -1,9 +1,12 @@
 \ProvidesPackage{mystyle1}
 \usepackage{pst-solides3d}
+\RequirePackage{zref-abspage}
 \usepackage{yhmath}
 \usepackage[toc,page]{appendix}
 \usepackage{ upgreek, ulem, xfrac}
 \usetikzlibrary{patterns}
+\RequirePackage{xcolor}
+\RequirePackage[most]{tcolorbox}
 \tikzset{
   pics/torus/.style n args={3}{
     code = {
@@ -59,8 +62,6 @@
 \RequirePackage{braket}
 \RequirePackage{relsize}
 \RequirePackage{multirow, multicol, bm,subcaption,booktabs}
-\RequirePackage[usenames, svgnames, dvipsnames]{xcolor}
-\RequirePackage[most]{tcolorbox}
 \definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
 \definecolor{mycolor1}{rgb}{1 ,2.5 ,0 } 
 \definecolor{brickred}{rgb}{0.59, 0.44, 0.84}

@@ -1,0 +1,83 @@
+\refstepcounter{section}
+\section*{Lecture 04: Vectors and Stuffs}
+\addcontentsline{toc}{section}{Lecture 04: Vectors and Stuffs}
+Let us consider rotation about the z-axis by an angle $\theta$, in which case, the $x$ and $y$ components transform as: 
+\begin{align*}
+    x' &= x\cos\theta + y\sin\theta \\
+    y' &= -x\sin\theta + y\cos\theta
+\end{align*}
+Then, we can write the infinitesimal change in the components in the following form:
+$$\begin{pmatrix}
+    dx'\\dy' 
+\end{pmatrix} = \begin{pmatrix}
+    \cos\theta & \sin\theta\\
+    -\sin\theta & \cos\theta
+\end{pmatrix}\begin{pmatrix}
+    dx\\dy
+\end{pmatrix}$$
+Note that, this can also be written as:
+$$\begin{pmatrix}
+    dx'\\dy' 
+\end{pmatrix} = \begin{pmatrix}
+    \pdv{x'}{x} & \pdv{x'}{y}\\
+    \pdv{y'}{x} & \pdv{y'}{y}
+\end{pmatrix}\begin{pmatrix}
+    dx\\dy
+\end{pmatrix}$$
+The matrix in this case is the \textit{Jacobian matrix} and this is a more general structure of coordinate transformations and hence any transformation can be written like this, even the Galilean or the Lorentz transformations. \\[0.2cm]
+This shows that transformations are just multiplication of a matrix with a vector. To this extent, we define a \textit{vector} \footnote{This is often called a \textit{four} vector}$\bar{x}$ with the following components:
+$$\bar{\vb{x}} =(x^0, x^1,x^2,x^3)^T$$
+Here $x^0 = ct$ and $x^1=x, x^2=y, x^3=z$. Note that since $t$ and $x$ are not dimensionally same, we took $x^0=ct$ to make it in terms of ditance. We multiplied by $c$ (and not any other velocity) because $c$ is a universal constant. \\[0.2cm]
+We can express any infinitesimal transformation as:
+$$ \begin{pmatrix}
+    dx'^0\\
+    dx'^1\\
+    dx'^2\\
+    dx'^3
+\end{pmatrix} = \begin{pmatrix}
+    \pdv{x'^0}{x^0} & \ldots &   \pdv{x'^0}{x^3}\\
+    \vdots & \ddots & \vdots \\
+    \pdv{x'^3}{x^0} & \ldots &\pdv{x'^3}{x^3}
+\end{pmatrix}\begin{pmatrix}
+    dx^0\\
+    dx^1\\
+    dx^2\\
+    dx^3
+\end{pmatrix}$$
+In a more compact way, we can write in the vector-matrix form or in the component form using Einstein's summation convention: $$\vb{d\bar{x}}' = \Lambda \vb{d\bar{x}} \iff dx'^\mu = \tensor{\Lambda}{^\mu _\nu}dx^\nu$$
+where $\tensor{\Lambda}{^\mu _\nu} = \pdv{x'^\mu}{x^\nu}$ is an element of the \textit{matrix} $\Lambda$.\\[0.2cm]
+\textbf{Summation convention:} We drop the summation sign if twice repeated indices are there on the same side of the equation.\\[0.2cm]
+Now, let us define what a vector is:
+\begin{definition}[Vector]
+    If a mathematical object transforms under a coordinate transformation like a differential $\vb{d\bar{x}}$, that is, $\vb{d\bar{x}} \rightarrow \vb{d\bar{x}'} = \Lambda \ \vb{d\bar{x}}$, then it is called a \textit{contravariant vector } or a \textit{contravector} or a \textit{tensor of rank $(1,0)$}
+\end{definition}
+Let us show that under the Galilean transformation, velocity, as defined by $\vb{u} = \dv{\vb{r}}{t}$ is a vector. We will define everything in contravariant and four-vector notation. For this, we consider the vector defined as before: $$\vb{d \bar{x}} = (ct,x,y,z)^T\equiv (x^0, x^1,x^2,x^3)^T$$ The Galilean transformation is defined by:
+\[
+\lambda \equiv
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+-\sfrac{v^1}{c} & 1 & 0 & 0 \\
+-\sfrac{v^2}{c} & 0 & 1 & 0 \\
+-\sfrac{v^3}{c} & 0 & 0 & 1
+\end{pmatrix}
+\qquad\Longleftrightarrow\qquad
+\begin{aligned}
+   x'^0 &= x^0 \\
+   x'^1 &= x^1 - (\sfrac{v^1}{c})x^0 \\
+   x'^2 &= x^2 - (\sfrac{v^2}{c})x^0 \\
+   x'^3 &= x^3 - (\sfrac{v^3}{c})x^0
+\end{aligned}
+\]
+We can then define the four velocity as\footnote{Note that four velocity is defined as derivative with respect to something called as \textit{proper time}, however, for Galilean transformations, proper time coincides with the coordinate time and hence this definition is okay.}:
+\begin{alignat*}{3}
+    u^\mu &\equiv \dv{x^\mu}{t}  &&= (c,u^1,u^2,u^3)^T
+\end{alignat*}
+Now, we have:
+\begin{alignat*}{3}
+   & dx'^\mu &&= \pdv{x'^\mu}{x^\nu}dx^\nu\\
+    \implies \quad & u'^\mu \cancel{dt'} &&= \pdv{x'^\mu}{x^\nu}u^i \cancel{dt}\qquad \text{(as $dt = dt'$)}\\
+    \implies \quad & u'^\mu  &&= \pdv{x'^\mu}{x^\nu}u^\nu
+\end{alignat*}
+Thus, we see that the components of the velocity vector transform similar to the differential displacement and hence, velocity is indeed a vector under Galilean transformation. In a similar way, we can show that acceleration $\vb{a} = \dv{\vb{v}}{t}$ is also a vector under Galilean transformation.\\[0.2cm] Now, let us turn to Lorentz transformation. Things become bad here! For example, consider the same definition of velocity $\vb{u} = \dv{\vb{\bar{x}}}{t}$. However, here $t$ does not remain invariant under coordinate transformation. Then we will have:
+$$u'^\mu = \dv{x'^\mu}{t'} = \frac{\tensor{\Lambda}{^\mu _\nu}x^\nu}{\tensor{\Lambda}{^0 _\alpha}dx^\alpha}\neq \dv{x^\mu}{t}$$
+Thus, this definition fails to transform similar to a differential displacement and hence, the way it is defined presently, velocity is not a vector \emoji{loudly-crying-face}.

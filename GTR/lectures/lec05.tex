@@ -1,0 +1,61 @@
+\refstepcounter{section}
+\refstepcounter{section}
+\section*{Lecture 05: Some more Vectors and Stuffs}
+\addcontentsline{toc}{section}{Lecture 05: Some more Vectors and Stuffs}
+Previously, we saw how a vector was defined in terms of the transformation of the differential displacements. In here, we will consider another situation.\\[0.2cm] 
+First, note that, using a given transformation,
+$$dx'^\mu = \tensor{\Lambda}{^\mu _\nu} dx^\nu$$
+we can define the inverse transformation,
+$$dx^\nu = \tensor{{(\Lambda^{-1})}}{^\nu _\mu} dx'^\mu$$
+The above statement is valid only if the transformation matrix is invertible (in most case, transformations like translations, rotations, etc. are invertible). \\ Let us now see what the inverse transformation matrix looks like. For that, consider:
+\begin{alignat*}{3}
+&\qquad dx'^\mu &&= \pdv{x'^\mu}{x^\nu} dx^\nu\\
+\implies & \pdv{x^\beta}{x'^\mu}dx'^\mu &&= \underbrace{\pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu}}_{\tensor{\delta}{^\beta _\nu}} dx^\nu\\
+\implies & \qquad dx^\beta &&= \pdv{x^\beta}{x'^\mu}dx'^\mu
+\end{alignat*}
+Thus we see that:
+$$\tensor{{(\Lambda^{-1})}}{^\nu _\mu} \equiv \pdv{x^\nu}{x'^\mu}$$
+\subsection{Gradient Vector}
+In the Cartesian coordinates, we all know:
+$$\grad = \vb{\hat{i}}\pdv{x}+\vb{\hat{j}}\pdv{y}+\vb{\hat{k}}\pdv{z} $$
+In line with this, we will define another quantity (often called \textit{four gradient}) such that:
+$$\nabla_\mu := \pdv{x^\mu}$$
+A few points on this:
+\begin{enumerate}
+    \item Note that we wrote the index in the down position for $\nabla_\mu$. This is done since we will see that the four gradient does not follow the transformation rule of a vector, hence it is a different entity. Since in vectors we put the indices upwards, to differentiate it from a vector, we put it down. 
+    \item In spherical or cylindrical or any other coordinates, the \textit{ordinary} gradient is not just the partial derivatives of the coordinates. There are some obnoxious prefactors involved also. Irrespective of that, we define the four gradient as just the derivative of the coordinates ('coz later we will see that those prefactors are just some jugglery with the \textit{metric}). 
+\end{enumerate}
+The four gradient is better denoted by $\partial_\mu$ and thus, we have:
+$$\boldsymbol{\bar{\partial}} \equiv \begin{pmatrix}
+    \partial_0 & \partial_1 & \partial_2 & \partial_3 
+\end{pmatrix} = \begin{pmatrix}
+    \frac{1}{c}\pdv{t} & \pdv{x} & \pdv{y} & \pdv{z}
+\end{pmatrix}$$
+Under a coordinate transformation $x^\mu \rightarrow x'^\mu = \tensor{\Lambda}{^\mu _\nu}x^\nu$, we have using chain rule:
+$$\partial'_\mu = \pdv{x^\nu}{x'^\mu}\pdv{x^\nu} \implies \partial'_\mu= \tensor{{(\Lambda^{-1})}}{^\nu _\mu}\pdv{x^\nu}$$
+The four gradient apparently transform accordingly as $\boldsymbol{\bar{\partial}}' = \Lambda^{-1}\boldsymbol{\partial}$ which is contrary to that of the vector. 
+\begin{definition}{Covector}
+    If a mathematical object transforms under a coordinate transformation like the derivative $\boldsymbol{\bar{\partial}}$, then we call it a \textit{covariant vector} or \textit{covector} or a \textit{tensor of rank (0,1)}
+\end{definition}
+Actually vectors and covectors are defined based how the basis vectors of the space transform. Vectors transform in a way \textit{contrary} to the basis vectors and hence are called \textit{contravariant} while covectors transform in a way similar to how the basis transforms and hence called \textit{covariant}.\footnote{In the elegant language of differential geometry, vectors are actually the \textit{tangent vectors} belonging to the \textit{tangent space} of the space (\textit{manifold}) while covectors belong to the \textit{dual space} of the \textit{tangent space}.}
+\subsection{Tensors}
+Consider the product,
+$$\boldsymbol{\omega} = \vb{\bar{x}} \vb{\bar{x}}^T \equiv \begin{pmatrix}
+    dx^0\\dx^1\\dx^2\\dx^3
+\end{pmatrix} \begin{pmatrix}
+    dx^0&dx^1&dx^2&dx^3
+\end{pmatrix}= \begin{pmatrix}
+    dx^0dx^0& \ldots &dx^0dx^3\\
+    \vdots& \ddots &\vdots\\
+     dx^3dx^0& \ldots &dx^3dx^3
+\end{pmatrix}$$
+Note that, defined like this, $\boldsymbol{\omega}$ represents a square matrix and thus, has two indices. This operation is often called \textit{outer product} and is denoted as $$\boldsymbol{\omega} = \vb{\bar{x}}\otimes \vb{\bar{x}}\qquad \omega^{\mu\nu} = dx^i dx^j$$ Now, let us see how it transforms:
+\begin{align*}
+    \omega^{\mu\nu} &= dx'^\mu dx'^\nu \\
+&= \qty(\pdv{x'^\mu}{x^\alpha}dx^\alpha)\qty(\pdv{x'^\nu}{x^\beta}dx^\beta)\\
+&=\qty(\pdv{x'^\mu}{x^\alpha})\qty(\pdv{x'^\nu}{x^\beta})dx^\alpha dx^\beta
+\end{align*}
+This is yet another kind of transformation, different from either vector and covector. 
+\begin{definition}{Tensor}
+    If a mathematical object transforms, under a coordinate transformaliton, like $\underbrace{\vb{d\bar{x}}\otimes \ldots \otimes \vb{d\bar{x}}}_m$ and like $\underbrace{\boldsymbol{\bar{\partial}}\otimes \ldots \otimes \boldsymbol{\bar{\partial}}}_n$, then it is called a \textit{tensor of rank (m,n)}
+\end{definition}
