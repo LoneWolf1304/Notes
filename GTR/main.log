@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.9)  19 AUG 2025 09:45
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2025.8.9)  19 AUG 2025 10:53
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2225,7 +2225,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (./pics/newt_grav.tex
 warning  (file pics/ScriptR.pdf) (pdf inclusion): PDF inclusion: found PDF versi
 on '1.7', but at most version '1.5' allowed
-<pics/ScriptR.pdf, id=88, 224.79985pt x 201.75375pt>
+<pics/ScriptR.pdf, id=92, 224.79985pt x 201.75375pt>
 File: pics/ScriptR.pdf Graphic file (type pdf)
 <use pics/ScriptR.pdf>
 Package luatex.def Info: pics/ScriptR.pdf  used on input line 29.
@@ -2247,11 +2247,11 @@ File: pics/ScriptR.pdf Graphic file (type pdf)
 <use pics/ScriptR.pdf>
 Package luatex.def Info: pics/ScriptR.pdf  used on input line 34.
 (luatex.def)             Requested size: 224.7993pt x 201.75325pt.
- [3</tmp/lua_pBlM4I><./pics/ScriptR.pdf>]) (./lectures/lec02.tex
+ [3</tmp/lua_ZTTIVw><./pics/ScriptR.pdf>]) (./lectures/lec02.tex
 (./pics/lift.tex)
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
 (Font)              Font shape `T1/lmss/bx/n' tried instead on input line 19.
- (./pics/gal_rel.tex) [4</tmp/lua_xTOX3y></tmp/lua_RsOo71>]
+ (./pics/gal_rel.tex) [4</tmp/lua_NMW7I3></tmp/lua_agEpi6>]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 53.
 
@@ -2263,7 +2263,7 @@ Package luatex.def Info: pics/ScriptR.pdf  used on input line 66.
 )
 warning  (file pics/BoldR.pdf) (pdf inclusion): PDF inclusion: found PDF version
  '1.7', but at most version '1.5' allowed
-<pics/BoldR.pdf, id=135, 242.83723pt x 200.75pt>
+<pics/BoldR.pdf, id=139, 242.83723pt x 200.75pt>
 File: pics/BoldR.pdf Graphic file (type pdf)
 <use pics/BoldR.pdf>
 Package luatex.def Info: pics/BoldR.pdf  used on input line 70.
@@ -2342,7 +2342,7 @@ LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <3.83249> not available
 LaTeX Font Warning: Font shape `U/stmry/b/n' in size <3.83249> not available
 (Font)              size <5> substituted on input line 59.
 
-[7]) (./lectures/lec05.tex [8</tmp/lua_mrI6m2>]
+[7]) (./lectures/lec05.tex [8</tmp/lua_272xzg>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 37.
@@ -2366,8 +2366,16 @@ LaTeX Font Info:    Trying to load font information for U+dsrom on input line 2
 5.
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [11]) [12]
-(./main.aux)
+) [11])
+(./lectures/lec07.tex
+\matrixtoks=\toks78
+\matrixtoks=\toks79
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
+
+ []
+
+[13]) [14] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
@@ -2380,16 +2388,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 68367 strings out of 478285
+ 68398 strings out of 478285
  100000,2373549 words of node,token memory allocated
- 1870 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 7 glue, 4 kern, 12 sub_mlist, 1 glyph, 130 attrib
-ute, 115 glue_spec, 130 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
+ 1967 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 7 glue, 4 kern, 19 sub_mlist, 1 glyph, 149 attrib
+ute, 115 glue_spec, 149 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
 ck nodes
-   avail lists: 1:5,2:2532,3:1303,4:133,5:499,6:51,7:6280,8:115,9:1447,10:15,11:
+   avail lists: 1:5,2:2494,3:1296,4:153,5:520,6:57,7:6281,8:214,9:1447,10:15,11:
 365
- 85872 multiletter control sequences out of 65536+600000
- 256 fonts using 20824991 bytes
+ 85886 multiletter control sequences out of 65536+600000
+ 266 fonts using 21289055 bytes
  108i,19n,141p,10616b,1234s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texl
 ive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texlive/texmf-dist/fonts
@@ -2423,10 +2431,10 @@ mf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy
 9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (12 pages, 707170 bytes).
+Output written on main.pdf (14 pages, 719164 bytes).
 
-PDF statistics: 405 PDF objects out of 1000 (max. 8388607)
- 301 compressed objects within 4 object streams
- 54 named destinations out of 1000 (max. 131072)
- 352 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 427 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 62 named destinations out of 1000 (max. 131072)
+ 368 words of extra memory for PDF output out of 10000 (max. 100000000)
 

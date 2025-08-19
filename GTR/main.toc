@@ -10,4 +10,6 @@
 \contentsline {section}{Lecture 06: Metric is also a Matrix}{11}{section*.13}%
 \contentsline {subsection}{\numberline {6.1}Transformation of the metric}{11}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Metric is a map!}{12}{subsection.6.2}%
+\contentsline {section}{Lecture 07: Metric and STR}{12}{section*.14}%
+\contentsline {subsection}{\numberline {7.1}Proper Time}{13}{subsection.7.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

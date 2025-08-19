@@ -1,0 +1,71 @@
+\refstepcounter{section}
+\section*{Lecture 07: Metric and STR}
+\addcontentsline{toc}{section}{Lecture 07: Metric and STR}
+Consider the following transformation:
+$$(r,\theta) \mapsto (x,y) \qquad x = r\cos\theta \quad y = r\sin\theta$$
+Let us calculate the transformation matrix for this transformation. Note that, here we have $\vb{x} \equiv (r,\theta)$ and $\vb{x}' \equiv (x,y)$. We calculate $\Lambda$  from its definition as:
+\[
+\begin{gathered}
+\begin{matrix}
+    x = r\cos\theta\\
+    y=r\sin\theta
+\end{matrix}\qquad
+\Lambda \equiv
+\begingroup
+\setlength{\arraycolsep}{12pt}   % wider columns
+\renewcommand{\arraystretch}{1.35}% taller rows
+\begin{pmatrix}
+  \pdv{x}{r}      & \pdv{x}{\theta}\\
+  \pdv{y}{r}      & \pdv{y}{\theta}
+\end{pmatrix}
+\endgroup
+=
+\begin{pmatrix}
+  \cos\theta & -r\sin\theta\\
+  \sin\theta &  r\cos\theta
+\end{pmatrix}
+\end{gathered}
+\]
+Once we have obtained the transformation matrix, we now move on to calculate the metrix tensor in polar coordinates. For that, note, for Cartesian coordinate, 
+$$ds^2 = dx^2 + dy^2 \implies g\equiv \mqty(\dmat{1,1})$$
+Then, according to this question, we already have the knowledge of $g'_{\mu\nu}$ and we have to transform it to $g{\alpha\beta}$ and we already know the transformation rule. Also, since $g'$ is diagonal, we need to only consider the diagonal components. Thus, all of our work is already done!
+\begin{align*}
+    g_{\alpha\beta} = \tensor{\Lambda}{^\mu _\alpha}\tensor{\Lambda}{^\nu _\beta}g'_{\mu\nu}
+\end{align*}
+\begin{itemize}
+    \item $g_{rr} = \tensor{\Lambda}{^x _r}\tensor{\Lambda}{^x _r}g'_{xx}+\tensor{\Lambda}{^y _r}\tensor{\Lambda}{^y _r}g'_{yy} = \cos^2\theta+\sin^2\theta=1$
+    \item $g_{\theta\theta} = \tensor{\Lambda}{^x _\theta}\tensor{\Lambda}{^x _\theta}g'_{xx}+\tensor{\Lambda}{^y _\theta}\tensor{\Lambda}{^y _\theta}g'_{yy} = r^2(\sin^2\theta+\cos^2\theta)=r^2$
+    \item $g_{r\theta} = \tensor{\Lambda}{^x _r}\tensor{\Lambda}{^x _\theta}g'_{xx}+\tensor{\Lambda}{^y _r}\tensor{\Lambda}{^y _\theta}g'_{yy} = -r\cos\theta\sin\theta + r \sin\theta\cos\theta = 0 $ (hence this metric is diagonal too!)
+\end{itemize}
+Thus, from this, we obtain 
+$$g \equiv \mqty(\dmat{1,r^2})$$
+From this, the invariant distance becomes our know result:
+$$ds^2 = g_{ij}x^i x^j = dr^2 + r^2 (d\theta)^2$$
+This is a weirdly powerful technique to find the metric in any coordinate system. And once we have found the metric, then calculations of stuff like gradient and Laplacians become very easy. \\[0.2cm]
+\subsection{Proper Time}
+Time no longer remains a scalar in special theory of relativity. However, we do need some notion of invariant time which can be useful to define some quantities. At present, we only know two scalars in STR, that is, $c$ and $ds^2$. Note that, dimensionally, there is only one way to construct some `time' using these two:
+$$d\tau^2 := -\frac{ds^2}{c^2}$$
+We dfine $d\tau$ to be the \textit{proper time} which is a scalar, since it is constructed out of two scalars. The minus sign in the defnition results from the convention of the $(-,+,+,+)$ metric that we had chosen. \\[0.2cm]
+Consider two events $\epsilon_1 = (ct_1, x,y,z)$ and $\epsilon_2 = (ct_2, x,y,z)$, which are happening at the same spatial location. Then, since $dr^2=0$, for these two events, $$ds^2 = -c^2dt^2 \implies dt =d\tau$$
+Hence the time interval between two events happening at the same spatial location is the proper time. Note that, using this notion of time (which is a scalar) we can define velocities and momentum. \\[0.5cm]
+Let us now define some quantitites:
+\begin{itemize}
+    \item \textbf{four-position:} denoting the position of an object in space-time $$\vb{\bar{x}}=(x^0,x^1,x^2,x^3)^\mathrm{T}$$
+    \item \textbf{four-velocity:} denoting a velocity of the object in space-time $$\vb{\bar{u}} = \dv{\bar{x}}{\tau} = \setlength{\arraycolsep}{12pt}   % wider columns
+\renewcommand{\arraystretch}{1.35}%
+\begin{pmatrix}
+        \dv{(ct)}{\tau}\\ \dv{\vb{\bar{x}}}{\tau}
+    \end{pmatrix}$$
+    Note that, under this defintion, $\vb{\bar{u}}$ becomes a tensor of rank $(1,0)$. Also note that,
+    \begin{align}
+        d\tau^2 &= -\frac{ds^2}{c^2}\\
+        &=-\frac{1}{c^2}\qty(-c^2dt^2+dr^2)\\
+        &=dt^2\qty[1- \frac{1}{c^2}\qty(\dv{r}{t})^2]
+    \end{align}
+    Fro this we obtain that $d\tau = \sfrac{dt}{\gamma}$ where $\gamma :=\frac{1}{\sqrt{1- \qty(\sfrac{v^2}{c^2})}}$
+    Substituting this in the above expression for four-velocity, we obtain:
+    $$u^\mu \equiv \gamma\mqty(c& \sfrac{d\vb{x}}{dt})^\mathrm{T} = \gamma (c,\vb{v})$$
+    \item \textbf{four-momentum:} momemntum of an object in space-time 
+    $$\vb{\bar{p}} = m_o \vb{\bar{u}} = m_o\gamma(c,\vb{\bar{v}})= \gamma(m_oc, \vb{p})$$ 
+    Note that $m_o$ as here is simply the \textit{mass}. The term rest-mass is often used, however, it often confuses us since this implies the existence of some \textit{relativisitc mass}.\\[0.2cm] Earlier, we used to define the relativistic mass as $\gamma m_o$ which kept the expression for spatial components of four-momentum and three momentum similar (that is, mass times velocity). \\[0.2cm] However, in recent times, the concept of relativistic mass is being done away with and we instead now change the expression of momentum when considering STR. 
+\end{itemize}

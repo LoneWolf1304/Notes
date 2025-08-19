@@ -57,7 +57,7 @@ Note that, defined like this, $\boldsymbol{\omega}$ represents a square matrix a
 \end{align*}
 This is yet another kind of transformation, different from either vector and covector. 
 \begin{definition}[{Tensor}]
-    If a mathematical object transforms, under a coordinate transformaliton, like $\underbrace{\vb{d\bar{x}}\otimes \ldots \otimes \vb{d\bar{x}}}_{m\ \mathrm{ times}}$ and like $\underbrace{\boldsymbol{\bar{\partial}}\otimes \ldots \otimes \boldsymbol{\bar{\partial}}}_{n\ \mathrm{ times}}$, then it is called a \textit{tensor of rank (m,n)}
+    If a mathematical object transforms, under a coordinate transformation, like $\underbrace{\vb{d\bar{x}}\otimes \ldots \otimes \vb{d\bar{x}}}_{m\ \mathrm{ times}}$ and like $\underbrace{\boldsymbol{\bar{\partial}}\otimes \ldots \otimes \boldsymbol{\bar{\partial}}}_{n\ \mathrm{ times}}$, then it is called a \textit{tensor of rank (m,n)}
 \end{definition}
 A prime example would be the \textit{moment of inertia tensor} $\tensor{I}{^{ij}}$ or the \textit{electromagnetic tensor} $F_{\mu\nu}$. \\
 We note that tensors have upstairs indices for each contravariant components and downstairs indices for each covariant component. \footnote{We can easily change upstairs to downstairs indices by the \textit{metric} and hence it is better to write tensors as $\tensor{T}{^\mu _\nu }$ and not $T^\mu_\nu$ so as to keep a vacant place for the indices to move up/down.}.
@@ -65,7 +65,7 @@ We note that tensors have upstairs indices for each contravariant components and
 \begin{definition}[Scalar]
     If a mathematical object does not transform under a coordinate transformation, then it is called a \textit{scalar} or a \textit{tensor of rank (0,0)}.
 \end{definition}
-Few example of scalars would be the invariant displacement $dr^2 = dx^2+dy^2+dz^2$ under Galilean transformation and the invariant spacetime interval $ds^2 = -c^2dt^2+dr^2$ under Lorentz transformaliton.
+Few example of scalars would be the invariant displacement $dr^2 = dx^2+dy^2+dz^2$ under Galilean transformation and the invariant spacetime interval $ds^2 = -c^2dt^2+dr^2$ under Lorentz transformation.
 \subsection{Inner Product}
 Previously we saw the \textit{outer product} and we expect an \textit{inner product} too. Multiplying a vector with the transpose changed it to a square matrix. Here, we do the opposite. Consider the scalar $dr^2$ under Galilean transformation, which is written as:
 $$dr^2 = \vb{dr}\cdot\vb{dr}= \vb{dr}^{\mathrm{T}}\vb{dr} = \begin{pmatrix}
@@ -83,5 +83,5 @@ Using this, we can check that:
 $$ds^2 = \mqty(dx^0 & dx^1 & dx^2 & dx^3)\mqty(\dmat{-1,1,1,1})\mqty(dx^0 \\ dx^1 \\ dx^2 \\ dx^3) = \vb{d\bar{x}}^\mathrm{T}\ g\ \vb{d\bar{x}}$$
 This \textit{g} is called the \textit{metric tensor} and in component form, the above can be written as:
 $$ds^2 = g_{\mu\nu}dx^\mu dx^\nu$$
-Note that, for Galilean transformaliton, the metric tensor is just the \textit{identity} matrix, 
+Note that, for Galilean transformation, the metric tensor is just the \textit{identity} matrix, 
 $$[g]_{\mathrm{GT}} = \mqty(\dmat{1,1,1})$$
