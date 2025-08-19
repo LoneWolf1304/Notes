@@ -47,8 +47,9 @@ Time no longer remains a scalar in special theory of relativity. However, we do 
 $$d\tau^2 := -\frac{ds^2}{c^2}$$
 We dfine $d\tau$ to be the \textit{proper time} which is a scalar, since it is constructed out of two scalars. The minus sign in the defnition results from the convention of the $(-,+,+,+)$ metric that we had chosen. \\[0.2cm]
 Consider two events $\epsilon_1 = (ct_1, x,y,z)$ and $\epsilon_2 = (ct_2, x,y,z)$, which are happening at the same spatial location. Then, since $dr^2=0$, for these two events, $$ds^2 = -c^2dt^2 \implies dt =d\tau$$
-Hence the time interval between two events happening at the same spatial location is the proper time. Note that, using this notion of time (which is a scalar) we can define velocities and momentum. \\[0.5cm]
-Let us now define some quantitites:
+Hence the time interval between two events happening at the same spatial location is the proper time. Note that, using this notion of time (which is a scalar) we can define velocities and momentum. 
+\section{Looking back at STR }
+Let us now define some quantities:
 \begin{itemize}
     \item \textbf{four-position:} denoting the position of an object in space-time $$\vb{\bar{x}}=(x^0,x^1,x^2,x^3)^\mathrm{T}$$
     \item \textbf{four-velocity:} denoting a velocity of the object in space-time $$\vb{\bar{u}} = \dv{\bar{x}}{\tau} = \setlength{\arraycolsep}{12pt}   % wider columns
@@ -56,16 +57,24 @@ Let us now define some quantitites:
 \begin{pmatrix}
         \dv{(ct)}{\tau}\\ \dv{\vb{\bar{x}}}{\tau}
     \end{pmatrix}$$
-    Note that, under this defintion, $\vb{\bar{u}}$ becomes a tensor of rank $(1,0)$. Also note that,
-    \begin{align}
+    Note that, under this defintion, $\vb{\bar{u}}$ becomes a tensor of rank $(1,0)$. \\[0.2cm] Now, consider two reference frames; the moving frame moves with a velocity $\vb{v}$ with respect to the lab frame. Consider an observer at rest in the moving frame. Then, in the observer's frame, since spatial coordinates remain same, we have $ds'^2 = -c^2d\tau^2$ while for the lab frame, we have $ds^2 = -cdt^2+dx^2+dy^2+dz^2 = -c^2dt^2 +dr^2$. Now, since the observer is at rest, they move with the same velocity $\vb{v}$ with respect to the lab frame and hence $\dv{\vb{r}}{t}=\vb{v}$. Hence, by the requirement that $ds'^2=ds$ we have:
+    \begin{align*}
         d\tau^2 &= -\frac{ds^2}{c^2}\\
         &=-\frac{1}{c^2}\qty(-c^2dt^2+dr^2)\\
-        &=dt^2\qty[1- \frac{1}{c^2}\qty(\dv{r}{t})^2]
-    \end{align}
-    Fro this we obtain that $d\tau = \sfrac{dt}{\gamma}$ where $\gamma :=\frac{1}{\sqrt{1- \qty(\sfrac{v^2}{c^2})}}$
+        &=dt^2\qty[1- \frac{1}{c^2}\qty(\dv{\vb{r}}{t})^2]
+    \end{align*}
+    From this we obtain that $d\tau = \sfrac{dt}{\gamma}$ where $\gamma :=\frac{1}{\sqrt{1- \qty(\sfrac{v^2}{c^2})}}$.
     Substituting this in the above expression for four-velocity, we obtain:
-    $$u^\mu \equiv \gamma\mqty(c& \sfrac{d\vb{x}}{dt})^\mathrm{T} = \gamma (c,\vb{v})$$
-    \item \textbf{four-momentum:} momemntum of an object in space-time 
+    $$u^\mu \equiv \gamma\qty(c , \sfrac{d\vb{x}}{dt})^\mathrm{T} = \gamma (c,\vb{v})$$
+    \item \textbf{four-momentum:} momentum of an object in space-time 
     $$\vb{\bar{p}} = m_o \vb{\bar{u}} = m_o\gamma(c,\vb{\bar{v}})= \gamma(m_oc, \vb{p})$$ 
     Note that $m_o$ as here is simply the \textit{mass}. The term rest-mass is often used, however, it often confuses us since this implies the existence of some \textit{relativisitc mass}.\\[0.2cm] Earlier, we used to define the relativistic mass as $\gamma m_o$ which kept the expression for spatial components of four-momentum and three momentum similar (that is, mass times velocity). \\[0.2cm] However, in recent times, the concept of relativistic mass is being done away with and we instead now change the expression of momentum when considering STR. 
 \end{itemize}
+
+\subsubsection{Metric in STR}
+We have the invariant displacement as:
+$$ds^2 = -c^2dt^2+dr^2$$
+From this, we infer that the metric $g = \mathrm{diag}(-1,1,1,1)$. This metric is also termed as the \textit{Minkowski metric}. Using this metric, we have:
+$$\norm{\vb{\bar{u}}}^2 = g_{\mu\nu}u^\mu u^\nu = -\gamma^2c^2 + \gamma^2 \norm{\vb{v}}^2 = \gamma^2c^2\qty(\frac{\norm{v}^2}{c}-1) = \cancel{\gamma^2} c^2\times \frac{-1}{\cancel{\gamma^2}}=-c^2$$
+Thus, we obtain that the squared-norm of the four-velocity is always $-c^2$ \emoji{exploding-head}, which is kinda cool since even without doing anything, we technically \textit{move} at the speed of light!!\\[0.2cm]
+In a similar way, we obtain $\norm{\vb{\bar{p}}}^2 = m_o^2 \norm{\bar{u}}^2 = -m_o^2c^2 $
