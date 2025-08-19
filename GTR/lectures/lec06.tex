@@ -1,3 +1,38 @@
 \refstepcounter{section}
 \section*{Lecture 06: Metric is also a Matrix}
 \addcontentsline{toc}{section}{Lecture 06: Metric is also a Matrix}
+Previously, we saw that to get a scalar from a contra-vector, we had to use an additional matrix which led to the notion of the \textit{metric tensor}. Let us analyse this object further...\\[0.2cm]
+\subsection{Transformation of the metric}
+For this, we will consider the \textit{sacred} rule that space-time interval should remain invariant under coordinate change. Thus, we have:
+\begin{alignat*}{3}
+&\qquad\qquad\qquad\qquad \qquad \qquad ds^2 &&= ds'^2\\
+\implies & \qquad\qquad\qquad g_{\mu\nu} dx^\mu dx^\nu &&= g'_{\alpha\beta} dx'^\alpha dx'^\beta\\
+\implies & g_{\mu\nu} \qty(\pdv{x^\mu}{x'^\alpha}dx'^\alpha) \qty(\pdv{x^\nu}{x'^\beta}dx'^\beta) &&=g'_{\alpha\beta} dx'^\alpha dx'^\beta\\
+\implies &g_{\mu\nu} \qty(\pdv{x^\mu}{x'^\alpha}) \qty(\pdv{x^\nu}{x'^\beta})dx'^\alpha dx'^\beta&&=g'_{\alpha\beta} dx'^\alpha dx'^\beta
+\end{alignat*}
+And now by the eternal rule for arbitrariness (of the different displacements), we conclude that:
+$$\boxed{g'_{\alpha\beta} = g_{\mu\nu} \qty(\pdv{x^\mu}{x'^\alpha}) \qty(\pdv{x^\nu}{x'^\beta})}$$
+Thus, we see that the metric tensor transforms as a rank (0,2) tensor and hence, we were not wrong about calling this a \textit{tensor}!\\[0.2cm]
+\textbf{Few Properties of the metric:}
+\begin{itemize}
+    \item Note the following :
+    $$ds^2 = g_{\mu\nu}dx^\mu dx^\nu =g_{\nu\mu}dx^\nu dx^\mu =g_{\nu\mu}dx^\mu dx^\nu$$
+    In the first step, we interchanged $\mu \leftrightarrow \nu$ since these are dummy indices and then we interchanged the placement of $dx^\mu \leftrightarrow dx^\nu$ since these are just components and hence commutes. Then, from this, we have $g_{\mu\nu} = g_{\nu\mu}$ which leads us to the fact that:
+    \begin{center}
+        \textit{Metric tensor is symmetric}
+    \end{center}
+    \item If we have $g$ to be non-singular, that is, $\det(g)\neq 0$, then we can define an inverse metric such that:
+    $$g g^{-1} = g^{-1} g = \mathds{1}$$
+    In the component form, we can write $$g_{\mu\nu}(g^{-1})^{\nu\alpha} = \tensor{\delta}{^\alpha _\mu}$$
+We will henceforth use $g^{\nu\alpha}$ instead of $(g^{-1})^{\nu\alpha}$ for the inverse metric, since this is more sleek visually and also, it does not confuse us. 
+\end{itemize}
+Note that, by the same logic as we showed that metric is a tensor, we can also show that inverse metric is a rank (2,0) tensor. 
+\subsection{Metric is a map!}
+The metric (and its inverse too) is a map which takes a vector (covector) and changes it to a covector (vector) according as:
+\begin{alignat*}{3}
+    A_\mu & \xmapsto{g} A^\nu \qquad A_\mu &&= g_{\mu\nu} A^\nu \\
+     A^\mu & \xmapsto{g^{-1}} A_\nu \qquad A^\mu &&= g^{\mu\nu} A_\nu \\
+\end{alignat*}
+Using this, the norm of a vector can be written as:
+$$\norm{\vb{\bar{A}}} = \vb{\bar{A}}\cdot \vb{\bar{A}} = A_\mu A^\mu = A^\mu A_\mu$$
+ 
