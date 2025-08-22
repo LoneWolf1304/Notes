@@ -1,0 +1,73 @@
+\refstepcounter{section}
+\section*{Lecture 03: Lorentz Transformation}
+\addcontentsline{toc}{section}{Lecture 03: Lorentz Transformation }
+We saw previously that Galilean relativity failed terribly when speed of light was considered. This needed a change in the transformation rule. The new transformation rule is called the \textit{Lorentz transformation} and is given by (for two frames relatively moving along the common $x$ axis ):
+\begin{center}
+     \begin{minipage}{0.5\textwidth}
+    \begin{align*}
+        x' &= \gamma \qty(x-vt)\\
+        y'&=y\\
+        z' &=z \\
+        t'&=\gamma\qty(t-\frac{vx}{c^2})
+    \end{align*}
+\end{minipage}\hfill
+\begin{minipage}{0.5\textwidth}
+    
+    
+    $\begin{pmatrix}
+        ct'\\x'\\y'\\z'
+    \end{pmatrix} = \begin{pmatrix}
+        \gamma & -\gamma \frac{v}{c}&0&0 \\
+        -\gamma \frac{v}{c}& \gamma &0&0 \\
+        0&0&1&0 \\
+        0&0&0&1 \\
+    \end{pmatrix}    \begin{pmatrix}
+        ct\\x\\y\\z
+    \end{pmatrix}$
+\end{minipage}
+   \end{center}
+   where $\gamma := \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}$ is called the \textit{Lorentz factor}. Using this transformation, we can derive a new rule for vector addition:
+   \begin{align*}
+    u' &= \frac{dx'}{dt'} = \frac{\sfrac{dx'}{dt}}{\sfrac{dt'}{dt}}=\frac{\gamma\qty(\sfrac{dx}{dt}-v)}{\gamma\qty(1- \frac{v}{c^2}\sfrac{dx}{dt})} = \frac{u-v}{1 - u \frac{v}{c^2}}
+   \end{align*}
+   If we use the inverse Lorentz transformation, we will obtain:
+   $$u = \frac{u'+v}{1 + u \frac{v}{c^2}}$$
+   Now, if we put $u'=c$, then we have $$u = \frac{c+v}{1+\frac{cv}{c^2}} = c = u'$$ 
+   Hence the conflict is successfully resolved. However, in changing the rule of transformation, we had put a great risk to the already established laws, since their invariance is now not guaranted.
+   \subsection{What happens to physical laws?}
+   \begin{itemize}
+    \item Since there is mixing between $x$ and $t$ in the transformation, it is clear that: 
+    $$\dv[2]{\vb{r}}{t}\neq \dv[2]{{\vb{r}'}}{{t'}}$$
+    Thus, the second law is out of the picture! \emoji{skull}
+    \item Imagine two balls falling, however the distance between them does not remain same. Then, at some instant, one of the ball conveys its position to the other ball and since the information takes a finite amount of time to reach the other balls, by that time, the first ball has fallen by by some distance and hence the forces $\vb{F}_{12}$ and $\vb{F}_{21}$ are not equal and opposite.
+     Thus, the third law is out of the picture too! \emoji{dizzy-face}
+     \item Since in general, $r'^2 = (x_2'-x_1')^2+(y_2'-y_1')^2+(z_2'-z_1')^2 \neq r^2$, the law of gravitation also falls apart \emoji{exploding-head}!
+   \end{itemize}
+   Hence, all the established laws were destroyed by the mere change of a transformation. We desperately needed another theory to reconcile with the physical laws. This lead to the formulation of special and general relativity. \\[0.2cm]
+   It is convenient to consider \textit{infinitesimal transformation}, like:
+   $$\vb{r}_2 = \vb{r}_1 + d\vb{r}\implies (\vb{r}_2-\vb{r}_1)^2 = d\vb{r}\cdot d\vb{r} = dr^2$$
+   Note that under Galilean transformation, $dr^2$ remain unchanged (invariant), however, under Lorentz transformation, it no longer remains constant. So, what is the invariant quantity under Lorentz transformation? \\[0.2cm]
+   It turns out that if we define something like: 
+   $$ds^2 = -c^2dt^2 +dx^2+dy^2+dz^2 = -c^2dt^2 +dr^2$$
+   then, $ds^2$ is invariant under Lorentz transformation. 
+   \begin{lemma}[Invariance of $ds$]
+    $$ds'^2 = ds^2$$
+   \end{lemma}
+   \textit{Proof.} We use brute force to calculate the quantitites:
+   \begin{align*}
+    ds'^2 &= -c^2dt'^2 + dx'^2 +dy'^2 +dz'^2\\
+    &=-c^2 \gamma^2\qty(dt-\frac{vdx}{c^2})^2 + \gamma^2(dx-vdt)^2 + dy^2+dz^2\\
+    &=-\gamma^2c^2\qty(dt^2 + \frac{v^2dx^2}{c^4} -\cancel{ 2\frac{dxdtv}{c^2}}) + \gamma^2(dx^2+v^2dt^2-\cancel{2vdxdt})+dy^2+dz^2\\
+    &= -\gamma^2c^2 dt^2  -\gamma^2v^2\frac{dx^2}{c^2}+\gamma^2dx^2+\gamma^2v^2dt^2+dy^2+dz^2\\
+    &=-c^2\cancel{\gamma^2} dt^2\cancel{(1-\sfrac{v^2}{c^2})}+\cancel{\gamma^2}dx^2\cancel{(1-\sfrac{v^2}{c^2})}+dy^2+dz^2\\
+    &=-c^2dt^2+dx^2+dy^2+dz^2\\
+    &=ds
+   \end{align*}
+   \subsection{Classification of Intervals}
+   Unlike Galilean transformation where $dr^2>0$ always, $ds^2$ need not be positive. In fact, it can take any value and accordingly we define the intervals. If the interval between two spacetime events is such that:
+   \begin{itemize}
+    \item $c^2dt^2>dr^2 \implies ds^2<0$ : time-like interval
+    \item $c^2dt^2<dr^2 \implies ds^2>0$ : space-like interval
+    \item $c^2dt^2=dr^2 \implies ds^2=0$ : light-like/null interval
+   \end{itemize}
+   Note that for light, $\dv{r}{t} = \pm c\implies dr^2 = c^2dt^2 \implies ds^2 =0$. Hence, we call the interval light-like. Trajector of light is a null trajectory. However, all massive objects move along a time-like trajectory.
