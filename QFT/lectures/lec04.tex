@@ -1,0 +1,77 @@
+\refstepcounter{section}
+\section*{Lecture 04: Classical Fields}
+\addcontentsline{toc}{section}{Lecture 04: Classical Fields}
+Let us start with a familiar setting, the spring-mass system in one-dimensions. So, each mass is connected with isotropic springs of natural length $a$ and spring constant $k$, and at some instance, $i^{th}$ spring is displaced from its equilibrium position by an amount $\eta_i$ as shown below:
+\begin{figure}[H]
+    \centering
+    \input{pics/spring.tex}
+    \caption{A spring-mass system; each mass is displaced by some amount from its equilibrium position}
+\end{figure}
+Then the kinetic and potential energies can be written as:
+$$T = \frac{1}{2}\sum\limits_i\dot{\eta}_i^2 \qquad \quad V = \frac{1}{2}\sum\limits_{i}k \qty(\eta_{i+}-\eta_i)^2 $$
+From this, the Langrangian of the system is obtained as:
+$$L = T-V = \frac{1}{2}\sum \limits_i a \qty[\qty(\sfrac{m}{a}) \dot{\eta}_i^2 - ka \qty(\frac{\eta_{i+1}-\eta_i}{a})^2] = a\sum\limits_i L_i $$
+The resulting ELEOM are:
+$$\dv{t}\qty(\pdv{L}{\dot{\eta}_i}) = \pdv{L}{\eta}\implies \qty(\sfrac{m}{a})\ddot{\eta}_i - ka \qty(\frac{\eta_{i+1}-\eta_i}{a^2}) + ka\qty(\frac{\eta_i - \eta_{i-1}}{a^2})=0$$
+In the \textit{continuum} limit, that is, $a\rightarrow 0$ (so, the system kind of becomes like a rod), we have:
+\begin{align*}
+    \frac{m}{a} &\;\longrightarrow\; \mu 
+        && :\text{mass per unit length of the rod} \\[6pt]
+    ka &\;\longrightarrow\; Y 
+        && :\text{Young's modulus of the rod} \\[6pt]
+    i &\;\longrightarrow\; x 
+        && :\text{position label} \\[6pt]
+    \eta_i &\;\longrightarrow\; \eta(x) 
+        && :\text{field} \\[6pt]
+    \frac{\eta_{i+1}-\eta_{i}}{a} &\;\longrightarrow\; \frac{d\eta}{dx} 
+        && :\text{derivative} \\[6pt]
+    \sum_{i} &\;\longrightarrow\; \int dx 
+        && :\text{integral}
+\end{align*}
+Hence in the continuum limits, the ELEOM becomes:
+\begin{align*}
+    \lim\limits_{a\rightarrow 0} \qty(\mu \dv[2]{\eta}{t} - \frac{Y}{a} \dv{\eta}{x}\Bigg|_{x} + \frac{Y}{a}\dv{\eta}{x}\Bigg|_{x-a}) = 0 \implies \mu \dv[2]{\eta}{t}  - Y \dv[2]{\eta}{x} = 0
+\end{align*}
+Defining the velocity as $v:= \sqrt{\frac{Y}{\mu}}$, we obtain the wave-equation:
+$$\frac{1}{v^2}\dv[2]{\eta}{t} -\dv[2]{\eta}{x} = 0 $$
+Note that, in this case, position becomes a mere label like in the discrete case, $i$ just labelled the index of the $i^{\mathrm{th}}$ mass. Also, technically, $\eta$ can also depend on time, so it is better to write it as $\eta(x,t)$. \\[0.2cm]
+Position and time, both are kind of labels and thus are independent. Hence, total and partial derivatives coincide in this case. Note that in continuum, the Langrangian itself becomes an integral of the form:
+$$L = \frac{1}{2}\int \qty[\mu \dot{\eta}^2 - Y \qty(\dv{\eta}{x})^2] dx$$
+The bracketted term is the Lagrangian density, denoted by $\SL$ and hence, the Lagrangian is the space integral of the Langrangian density: $$L = \int \SL \ dx$$
+Henceforth, we allow ourselves to be \textit{sloppy} enough and refer to Lagrangian density as simply the Langrangian when context is clear.
+\subsection{Action tells a lot!}
+Let us now consider a general setting. So, the Lagrangian density can be a function of the field, the spatial and temporal derivatives and space and time themselves. In compact notation, we write:
+$$\SL \equiv \SL(\phi, \partial_\mu \phi, x^\mu)$$
+Remember, that we define the classical action $S$ as:
+$$S = \int\limits_{t_1}^{t_2} dt \ L = \int\limits_{t_1}^{t_2} dt \int d^3\vb{x}\ \SL(\phi, \partial_\mu \phi, x^\mu) = \int d^4\vb{x} \ \SL(\phi, \partial_\mu \phi, x^\mu)$$
+The integration is now over space-time. We now want to use Hamilton's principle, which states that, under fixed boundary conditions, the system takes a path in configuration space for which the action is stationary, that is, 
+$$\delta S =0$$
+Note that action is a linear-functional which takes a field $\phi$ as input and returns a real number\footnote{For functionals, a common notation for the input is to use square brackets, that is, if $A$ is a linear functional taking function $f$ as input, $A[f]\in \re$}. Let us consider a variation in the field itself: $\phi \longrightarrow \ \phi' = \phi + \delta \phi$ such that $\delta\phi$ vanishes at the boundary of the integration domain.
+Then we have the following:
+$$\delta S = S[\phi'] - S[\phi] = \int d^4\vb{x}\ \qty(\SL(\phi', \partial_\mu \phi', x^\mu) -\SL(\phi, \partial_\mu \phi, x^\mu) )$$
+Now, we try to find what the above quantity is:
+\begin{align*}
+    \SL(\phi', \partial_\mu \phi', x^\mu) &= \SL(\phi+\delta\phi, \partial_\mu (\phi+\delta \phi), x^\mu)\\
+&=L(\phi, \partial_\mu \phi, x^\mu) + \pdv{\SL}{\phi}\delta\phi + \pdv{\SL}{(\partial_\mu\phi)}\delta(\partial_\mu\phi)
+\end{align*}
+Also note that $\delta(\partial_\mu\phi) = \partial_\mu(\delta\phi)$. Hence, from the above expression, we obtain that:
+$$\delta S = \int d^4\vb{x}\ \qty(\pdv{\SL}{\phi}\delta\phi + \pdv{\SL}{(\partial_\mu\phi)}\partial_\mu(\delta\phi))$$
+Using \textit{integration by parts} on the second term, we obtain:
+$$\int d^4\vb{x}\ \pdv{\SL}{(\partial_\mu\phi)}\partial_\mu(\delta\phi) = -\int d^4\vb{x}\ \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)})\delta\phi + \qty(\pdv{\SL}{(\partial_\mu\phi)}\delta\phi)\Biggr|_{\mathrm{boundary}}$$
+The variation in the field vanishes at the boundary by our assumption. Then we obtain, for the variation of the action:
+$$\delta S =\int d^4\vb{x}\ \qty(\pdv{\SL}{\phi} - \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)}))\delta\phi=0 $$
+Since the variation in the field was arbitrary, we obtain the Lagrange's equations for the field as:
+$$\pdv{\SL}{\phi} - \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)})=0$$
+In general, we want the action to be \textit{Lorentz} invariant, in order to maintain the universality of physical laws. Since the volume element of Minkowski space $d^4\vb{x}$ is invariant under Lorentz transformations, this imply that $\SL$ should also be constructed of Lorentz-invariant quantities.\\[0.2cm] The field $\phi$ (and all its powers) is a Lorentz \textit{scalar} and is hence invariant. The derivative $\partial_\mu \phi$ is not invariant, however, $\partial^\mu\partial_\mu \phi$ is. Bilinears like $(\partial^\mu\phi)(\partial_\mu\phi)$ are also invariant. Hence, a simple Lagrangian should be constructed of these quantities. Let us consider the Lagrangian:
+$$\SL = \frac{1}{2}(\partial^\mu\phi)(\partial_\mu\phi) - \frac{1}{2}m^2\phi^2 = \frac{1}{2}\eta^{\mu\nu}(\partial_\nu \phi) (\partial_\mu\phi)-\frac{1}{2}m^2\phi^2$$
+Then, from the Lagrange's equations,
+\begin{align*}
+    \pdv{\SL}{\phi} &= -m^2\phi \\
+    \pdv{\SL}{(\partial_\mu \phi)} &= \frac{1}{2} \eta^{\mu\nu} \qty(\partial_\nu \phi +\partial_\mu\phi \tensor{\delta}{^\mu _\nu})\\
+    &=\frac{1}{2} \eta^{\mu\nu} (2\times \partial_\nu \phi)\\
+    &=\eta^{\mu\nu}\partial_\nu \phi\\
+    &=\partial^\mu\phi
+\end{align*}
+Then we finally obtain:
+$$-m^2\phi - \partial_\mu\partial^\mu\phi=0 \implies (\partial_\mu\partial^\mu+m^2)\phi = 0$$
+This is the KG equation that we had seen earlier. Thus, the above Lagrangian models the KG equation.

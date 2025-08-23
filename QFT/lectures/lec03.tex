@@ -2,8 +2,8 @@
 \section*{Lecture 03: From Classical to Quantum}
 \addcontentsline{toc}{section}{Lecture 03: From Classical to Quantum }
 Inspecting the transition from a classical to quantum description is necessary for understanding QFT, which is just a \textit{sophisticated mechanics}. \\[0.2cm]
-We know that the position $q$ and momentum $p$ uniquely define the state of a \textit{classical} particle. $$(q,p)\in \Pi \ \text{(phase space) }\qquad q,p\in \re$$
-The Hamiltonian is just a way of doing time evolution. Using the Hamiltonian, we can `fibrate' the phase space, that is, starting from one point, we can go to some other point. Also, note that changing the parameters in the Hamiltonian (eg. $\omega$ in SHO Hamiltonian), we change the fibration patterns. 
+We know that the position $\vb{q}\equiv \{q_1,\ldots, q_n\}$ and momentum $\vb{p}\equiv \{p_1,\ldots,p_n\}$ uniquely define the state of a \textit{classical} particle. $$(\vb{q},\vb{p})\in \Pi \ \text{($2n$ dimensional phase space) }\qquad q_i,p_i\in \re$$
+The Hamiltonian $H(\vb{q}, \vb{p})$ is just a way of performing time evolution on the system. Using the Hamiltonian, we can `fibrate' the phase space, that is, starting from one point, we can go to some other point. Also, note that, changing the parameters in the Hamiltonian (eg. $\omega$ in SHO Hamiltonian), we change the fibration patterns(eg. \textit{Lissajou's} figures). 
 
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -41,43 +41,48 @@ Also, these real variables become Hermitian (self-adjoint) operators \footnote{A
 % \addcontentsline{toc}{subsection}{Time Evolution}
 From classical Hamilton's equations of motion, we have:
 \begin{alignat*}{3}
-    \dot{q} &= \{q,H\} &&= \pdv{H}{p}  \\
-    \dot{p} &= \{p,H\} &&= -\pdv{H}{q}
+    \dot{q}_i &= \{q_i,H\} &&= \pdv{H}{p_i}  \\
+    \dot{p}_i &= \{p_i,H\} &&= -\pdv{H}{q_i}
 \end{alignat*}
-If $z = \mqty(p\\q)$ is a $2n$ dimensional vector, then $\dot{z} = \{z,H\}$. Now, in quantum we know:
-$$i\hbar \pdv{\ket{\psi}}{dt} = H\ket{\psi}$$
-In both classical and quantum case, the time derivative of a quantity is equal to some action of the Hamiltonian on that quantity (classical \rightarrow \ Poisson bracket, quantum \rightarrow \ Multiplication with Hamiltonian)\footnote{A better analogy would be to use density matrices which gives the von Neumann equation which uses commutator bracket}. \\[0.2cm]
-The Hamiltonian in position basis becomes: $$H = \frac{-\hbar^2}{2m}\grad^2 + V$$
-And the energy and momentum operators become $E\rightarrow i\hbar \pdv{t}$ and $p\rightarrow -i\hbar \grad$.
+If $\vb{z} = \mqty(\vb{p}\\\vb{q})$ is a $2n$ dimensional vector, then $\dot{\vb{z}} = \{\vb{z},H\}$. Now, moving to quantum mechanics, we know the celebrated Schr\"odinger equation, which specifies the time evolution of a state vector $\ket{\psi(t)}\in \SH$:
+$$i \pdv{\ket{\psi(t)}}{t} = H\ket{\psi(t)}$$
+Thus, in both classical and quantum case, the time derivative of a quantity is equal to some action of the Hamiltonian on that quantity (classical \rightarrow \ Poisson bracket, quantum \rightarrow \ Multiplication with Hamiltonian)\footnote{A better analogy would be to use density matrices which gives the von Neumann equation which uses commutator bracket}. \\[0.2cm]
+The Hamiltonian in the position basis becomes: $$H = \frac{-\hbar^2}{2m}\grad^2 + V(\vb{x})$$
+Thus, the Schr\"odinger equation now acts on the wavefunction $\psi(\vb{x},t) = \braket{\vb{x}|\psi}$:
+$$i \pdv{\psi(\vb{x},t)}{t} = -\frac{1}{2m}\grad^2 \psi(\vb{x},t) + V(\vb{x})\psi(x,t)$$
+And the energy and momentum operators become $E\rightarrow i \pdv{t}$ and $p\rightarrow -i \grad$.
 \subsubsection{Free Particle}
 % \addcontentsline{toc}{subsubsection}{Free Particle}
 The dispersion relation for a non-relativistic free particle is:
-$$E = \frac{p^2}{2m}$$
-The typical solution can be written as $e^{i(\vb{k}\cdot\vb{x}-\omega t)} = e^{\frac{i}{\hbar}(\vb{p}\cdot\vb{x} - Et)} \equiv \exp(-\frac{i}{\hbar}p^\mu x_\mu)$ where we have used the index repeated summation notation and taken the $(+,-,-,-)$ convention.\\[0.2cm]
+$$E = \frac{\vb{p}^2}{2m}$$
+The typical solution can be written as plane-waves, $e^{i(\vb{k}\cdot\vb{x}-\omega t)} = e^{i(\vb{p}\cdot\vb{x} - Et)} \equiv \exp(-ip^\mu x_\mu)$ where we have used the repeated summation notation and taken the metric $\eta_{\mu\nu} = (+,-,-,-)$.\\[0.2cm]
 For a relativistic free particle, the dispersion relation becomes:
-$$E^2 = mc^4 + p^2c^2$$
-Substituting the energy and momentum operators here, we get:
+$$E^2 = m^2 + p^2$$
+Instead of the wavefunction $\psi(\vb{x},t)$, we will use $\phi(\vb{x},t)$, since the resulting equation actually acts on a scalar-field and $\phi$ is common notation for a scalar-field. Substituting the energy and momentum operators here, we get:
 \begin{alignat*}{3}
-    &\qquad\qquad(i\hbar)^2 \pdv[2]{\psi}{t} &&= (-i\hbar)^2c^2 \grad^2\psi + m^2c^4\psi\\
-  \implies  & \hbar^2 \pdv[2]{\psi}{t} - \hbar^2c^2\grad^2\psi &&= -m^2c^4\psi\\
-  \implies & \quad \frac{1}{c^2} \pdv[2]{\psi}{t} -\grad^2\psi &&= \frac{-m^2c^2}{\hbar^2}\psi
+    &\qquad\qquad \qquad i^2 \pdv[2]{\phi(\vb{x},t)}{t} &&= (-i)^2 \grad^2\phi(\vb{x},t) + m^2\phi(\vb{x},t)\\
+  \implies  &  \pdv[2]{\phi(\vb{x},t)}{t} - \grad^2\phi(\vb{x},t) &&= -m^2 \phi(\vb{x},t)\\
+  \implies & \qty(\quad  \pdv[2]{t} -\grad^2 +m^2)\phi(\vb{x},t) &&= 0
 \end{alignat*}
 The above equation is called the \textit{Klein-Gordon equation}. In covariant notation, we can compactly write it as:
-$$\qty(\partial_\mu \partial^\mu +\qty(\frac{mc}{h})^2)\psi = 0$$
+$$\qty(\partial_\mu \partial^\mu +m^2)\phi(x^\nu) = 0 $$
+The KG equation is Lorentz invariant, that is, under a Lorentz transformation, $x^\mu \rightarrow x'^\nu$, $\phi'(x'^\nu) = \phi(x^\mu)$
 \subsubsection{Continuity Equation}
 % \addcontentsline{toc}{subsubsection}{Continuity Equation}
 Taking the complex cojungate of the Schr\"odinger's equation and then after some algebraic manipulation, we obtain:
 \begin{align*}
-     \pdv{(\psi^*\psi)}{t} = \frac{i\hbar}{2m} \grad \cdot \qty[\psi^*(\grad\psi) - \psi (\grad \psi^*)]
+     \pdv{(\psi^*\psi)}{t} = \frac{i}{2m} \grad \cdot \qty[\psi^*(\grad\psi) - \psi (\grad \psi^*)]
 \end{align*}
 Here, we identify:
-$$\rho := \psi^*\psi\qquad\qquad \vb{J} = \frac{-i\hbar}{2m}\qty[\psi^*(\grad\psi) - \psi (\grad \psi^*)]$$ which yields the well-known form of the \textit{continuity equation}:
-$$\pdv{\rho}{t} + \grad\cdot\vb{J} = 0$$
+$$\rho := \psi^*\psi\qquad\qquad \vb{J} = \frac{-i}{2m}\qty[\psi^*(\grad\psi) - \psi (\grad \psi^*)]$$ which yields the well-known form of the \textit{continuity equation}:
+$$\pdv{\rho}{t} + \grad\cdot\vb{J} = 0\qquad \longrightarrow \qquad\partial_\mu J^\mu = 0$$
+where $J^\mu = (\rho, \vb{J})$ is the four-current.
 Note that in this case, $\rho$ is a positive-definite quantity and can indeed have the interpretation of probability. Also, note that if $\psi$ somehow becomes real-valued, then $\vb{J}=0$ which implies that $\rho$ is constant in time (though it can change in space). \\[0.2cm]
 Doing the same thing to Klein-Gordon equation yields:
-$$\frac{1}{c^2}\pdv{t}\qty(\psi^*\pdv{\psi}{t}-\psi\pdv{\psi^*}{t})-\grad\cdot\qty(\psi^*\grad{\psi}-\psi\grad{\psi^*})=0$$
+$$\pdv{t}\qty(\phi^*\pdv{\phi}{t}-\phi\pdv{\phi^*}{t})-\grad\cdot\qty(\phi^*\grad{\phi}-\phi\grad{\phi^*})=0$$
 From this equation, we can identify:
-$$\rho :=  \qty(\psi^*\pdv{\psi}{t}-\psi\pdv{\psi^*}{t}) \qquad\qquad \vb{J} := - c^2\qty(\psi^*\grad{\psi}-\psi\grad{\psi^*})$$
+$$\rho :=  \qty(\phi^*\pdv{\phi}{t}-\phi\pdv{\phi^*}{t}) \qquad\qquad \vb{J} := - \qty(\phi^*\grad{\phi}-\phi\grad{\phi^*})$$
+Thus here, the 4-current becomes $J^\mu = \qty(\phi^* \partial^\mu \phi - \phi \partial^\mu \phi^*)$
 Note the apparent problems with this identification:
 \begin{itemize}
     \item It is not apriori obvious that $\rho$ is positive-definite and hence has problem with probability interpretation.
