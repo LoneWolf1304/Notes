@@ -1,3 +1,64 @@
 \refstepcounter{section}
 \section*{Lecture 09: Einstein's thoughts}
 \addcontentsline{toc}{section}{Lecture 09: Einstein's thoughts}
+Consider a planet with inertial mass $m^I$ and gravitational mass $m^G$, rotating around a star with gravitational mass $M^G$.
+\begin{figure}[H]
+    \centering 
+    \input{pics/planet.tex}
+\end{figure} Then, by the force balance condition and using $v=r\omega$, we can write the equation of motion as: 
+$$\frac{m^I v^2}{r} = G \frac{m^GM^G}{r^2}\implies \omega^2 = \qty(\frac{m^G}{m^I})\qty(\frac{GM^G}{r^3})$$
+What this tells us is that, if indeed the ratio between inertial and gravitational mass is not constant, $\omega$ will be different for different objects and hence, two objects launched from the same point, will have their trajectories diverge at some point, which did not comply with the experimental fact.
+\begin{principle}[Weak Equivalence]
+The ratio between gravitational and inertial mass is unity, that is,
+$$\frac{m^I}{m^G} = 1$$
+\end{principle}
+In other words, the principle states that the trajectory of a freely falling object is not affected by its mass. Let us see why!
+$$\cancel{m^I} \vb{a} = -G \frac{\cancel{m^G} M^G}{\rcurs^2}\hat{\brcurs}\implies \vb{a} = -\frac{GM^G}{\rcurs^2}{\hat{{\brcurs}}}$$
+Thus, we see that the acceleration of an object under the gravitational force is independent of its \textit{mass}. In other words, the trajectory is independent on its mass. 
+\subsection{How's gravity different?}
+Consider the following two cases: 
+\begin{figure}[H]
+    \centering
+    \input{pics/traj.tex}
+\end{figure}
+\noindent
+In case (a), we see two charges $q$ being thrown with same horizontal velocity $\vb{v}$, from a building, under an electric field $\vb{E}$. We previously saw that the acceleration depends on the charge-mass ratio and hence, depending on the mass of the charges, the trajectories will be different.\\[0.2cm]
+In case (b) however, if two masses $m_1$ and $m_2$ are thrown from building with same horizontal velocity $\vb{v}$, both of them follow the same tracjectory since acceleration under the force of gravity is independent of masses.\\[0.2cm] Thus we see an apparent disparity between gravity and other kind of forces (viz. \textit{electromagnetic, strong nuclear, weak nuclear}). 
+\subsection{Gedankenexperiment}
+We will now analyse a series of experiments in our minds and see what conclusions we can draw from each of them. All of them will consist of a blackened lift with an observer inside it and an `all-knowing' outside observer who knows everything what is going on inside and outside the lift. 
+\subsubsection{Lift in free space:}
+\begin{figure}[H]
+    \centering
+    \input{pics/lift1.tex}
+\end{figure}
+Consider, there is a lift in free space (frame $O'$). The lift contains an observer with a ball and is shielded from outside, that is, that observer cannot see what is happening outside the lift. There is another observer outside on the ground (frame $O$), who has, by some divine grace, information both inside and outside the lift. Let the position of the ball from ground be $y$ and the position of the lift from the ground be $y_0$ and the position of the ball from the lift be $y'$. Then, the constraint equation gives:
+$$y=y'+y_0$$
+\textbf{Case 1:} The lift is stationary and hence frame $O'$ is inertial. As the lift is stationary, after the ball is released, no force acts on it and we have:
+$$m\ddot{y}' = 0 \qquad \qquad m\ddot{y}=0$$
+This is the trivial case as nothing as such occurs here. The observer in the lift, after releasing the ball, finds it a rest too and infers that the frame is inertial. \\[0.2cm]
+\textbf{Case 2:} Suppose now that the lift is attached to a rocket which is producing a constant acceleration $a$ upwards. Then we have $y_0 = a$. Note that, $O'$ no longer an inertial frame. The observer inside the lift, after releasing the ball, will find it moving. Hence they will infer that their frame is non-inertial and cannot apply NLM \emoji{crying-face}.\\[0.2cm]
+The outside observer can still apply NLM and since no force acts on the ball inside the lift (force acts only on the lift by the rocket), we have:
+$$m\ddot{y} = 0 \implies m\ddot{y}' = 0-a = -a$$
+Hence we see that, from the outside frame, the ball will seem to move downwards with an acceleration $a$. This is what we call the \textit{pseudo-force}. Note that, no force actually acts on the ball. 
+\subsection{Lift under Gravity}
+\textbf{Case 1:} Now, consider that we turn on a gravitational field $\vb{g} = -g \hat{\vb{y}}$ and let the lift be hanging from some support. $O'$ is non-inertial (as inside observer, after dropping the ball, will see it move without any force applied) and hence only $O$ frame observer can use NLM. Since from frame $O$, a force $-mg$ acts on the ball, we have:
+$$m \ddot{y} = - mg \implies \ddot{y} = -g$$
+The lift is not moving so $\ddot{y}_0 = 0$. Thus, from this, we get $\ddot{y}' = -g$
+\begin{figure}[H]
+    \centering
+    \input{pics/lift2.tex}
+\end{figure}
+\noindent
+\textbf{Case 2:} Consider that the thread holding the lift is cut and the lift tragically falls. Then, we have from frame $O$:
+\begin{align*}
+    m\ddot{y} &= -mg\\
+    m_l \ddot{y}_0 &= -m_l g
+\end{align*}
+Then, from the above two and the constraint equation,  we get $\ddot{y}' = -g - (-g) = 0$.
+The inside observer will then see that the acceleration of the ball with respect to them is zero. When released, the ball remains where it was. The observer then infers that they are in a `free space'.\\[0.2cm]
+\textbf{Conclusions:}
+For an observer inside the lift,
+\begin{enumerate}
+    \item A lift in \textit{constant gravity} is same as an \textit{accelerating lift}.
+    \item A \textit{freely-falling} lift is the same as an \textit{inertial lift}.
+\end{enumerate}
