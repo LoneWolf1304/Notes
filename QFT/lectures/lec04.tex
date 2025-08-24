@@ -28,7 +28,7 @@ In the \textit{continuum} limit, that is, $a\rightarrow 0$ (so, the system kind 
     \sum_{i} &\;\longrightarrow\; \int dx 
         && :\text{integral}
 \end{align*}
-Hence in the continuum limits, the ELEOM becomes:
+Hence in the continuum limit, the ELEOM becomes:
 \begin{align*}
     \lim\limits_{a\rightarrow 0} \qty(\mu \dv[2]{\eta}{t} - \frac{Y}{a} \dv{\eta}{x}\Bigg|_{x} + \frac{Y}{a}\dv{\eta}{x}\Bigg|_{x-a}) = 0 \implies \mu \dv[2]{\eta}{t}  - Y \dv[2]{\eta}{x} = 0
 \end{align*}
@@ -43,16 +43,17 @@ Henceforth, we allow ourselves to be \textit{sloppy} enough and refer to Lagrang
 Let us now consider a general setting. So, the Lagrangian density can be a function of the field, the spatial and temporal derivatives and space and time themselves. In compact notation, we write:
 $$\SL \equiv \SL(\phi, \partial_\mu \phi, x^\mu)$$
 Remember, that we define the classical action $S$ as:
-$$S = \int\limits_{t_1}^{t_2} dt \ L = \int\limits_{t_1}^{t_2} dt \int d^3\vb{x}\ \SL(\phi, \partial_\mu \phi, x^\mu) = \int d^4\vb{x} \ \SL(\phi, \partial_\mu \phi, x^\mu)$$
-The integration is now over space-time. We now want to use Hamilton's principle, which states that, under fixed boundary conditions, the system takes a path in configuration space for which the action is stationary, that is, 
+$$S = \int\limits_{t_1}^{t_2} dt \ L = \int\limits_{t_1}^{t_2} dt \int d^3\vb{x}\ \SL(\phi, \partial_\mu \phi, x^\mu) = \int\limits_{\SR\subset \re^4} d^4\vb{x} \ \SL(\phi, \partial_\mu \phi, x^\mu)$$
+The integration can indeed be over a region $\SR$ which is a subset of $\re^4$ in general. Mostly, we take $\SR = [t_1,t_2]\times \re^3$.\\[0.2cm]
+ We now want to use Hamilton's principle, which states that, under fixed boundary conditions, the system takes a path in configuration space for which the action is stationary, that is, 
 $$\delta S =0$$
-Note that action is a linear-functional which takes a field $\phi$ as input and returns a real number\footnote{For functionals, a common notation for the input is to use square brackets, that is, if $A$ is a linear functional taking function $f$ as input, $A[f]\in \re$}. Let us consider a variation in the field itself: $\phi \longrightarrow \ \phi' = \phi + \delta \phi$ such that $\delta\phi$ vanishes at the boundary of the integration domain.
+Note that the action is a functional which takes a field $\phi$ as input and returns a real number\footnote{For functionals, a common notation for the input is to use square brackets, that is, if $A$ is a linear functional taking function $f$ as input, $A[f]\in \re$}. Let us consider a variation in the field itself: $\phi \longrightarrow \ \phi' = \phi + \delta \phi$ such that $\delta\phi$ vanishes at the boundary of the integration domain.
 Then we have the following:
 $$\delta S = S[\phi'] - S[\phi] = \int d^4\vb{x}\ \qty(\SL(\phi', \partial_\mu \phi', x^\mu) -\SL(\phi, \partial_\mu \phi, x^\mu) )$$
 Now, we try to find what the above quantity is:
 \begin{align*}
     \SL(\phi', \partial_\mu \phi', x^\mu) &= \SL(\phi+\delta\phi, \partial_\mu (\phi+\delta \phi), x^\mu)\\
-&=L(\phi, \partial_\mu \phi, x^\mu) + \pdv{\SL}{\phi}\delta\phi + \pdv{\SL}{(\partial_\mu\phi)}\delta(\partial_\mu\phi)
+&=\SL(\phi, \partial_\mu \phi, x^\mu) + \pdv{\SL}{\phi}\delta\phi + \pdv{\SL}{(\partial_\mu\phi)}\delta(\partial_\mu\phi)
 \end{align*}
 Also note that $\delta(\partial_\mu\phi) = \partial_\mu(\delta\phi)$. Hence, from the above expression, we obtain that:
 $$\delta S = \int d^4\vb{x}\ \qty(\pdv{\SL}{\phi}\delta\phi + \pdv{\SL}{(\partial_\mu\phi)}\partial_\mu(\delta\phi))$$
@@ -60,7 +61,7 @@ Using \textit{integration by parts} on the second term, we obtain:
 $$\int d^4\vb{x}\ \pdv{\SL}{(\partial_\mu\phi)}\partial_\mu(\delta\phi) = -\int d^4\vb{x}\ \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)})\delta\phi + \qty(\pdv{\SL}{(\partial_\mu\phi)}\delta\phi)\Biggr|_{\mathrm{boundary}}$$
 The variation in the field vanishes at the boundary by our assumption. Then we obtain, for the variation of the action:
 $$\delta S =\int d^4\vb{x}\ \qty(\pdv{\SL}{\phi} - \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)}))\delta\phi=0 $$
-Since the variation in the field was arbitrary, we obtain the Lagrange's equations for the field as:
+Since the variation in the field was arbitrary, we obtain the Euler-Lagrange's equations for the field as:
 $$\pdv{\SL}{\phi} - \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)})=0$$
 In general, we want the action to be \textit{Lorentz} invariant, in order to maintain the universality of physical laws. Since the volume element of Minkowski space $d^4\vb{x}$ is invariant under Lorentz transformations, this imply that $\SL$ should also be constructed of Lorentz-invariant quantities.\\[0.2cm] The field $\phi$ (and all its powers) is a Lorentz \textit{scalar} and is hence invariant. The derivative $\partial_\mu \phi$ is not invariant, however, $\partial^\mu\partial_\mu \phi$ is. Bilinears like $(\partial^\mu\phi)(\partial_\mu\phi)$ are also invariant. Hence, a simple Lagrangian should be constructed of these quantities. Let us consider the Lagrangian:
 $$\SL = \frac{1}{2}(\partial^\mu\phi)(\partial_\mu\phi) - \frac{1}{2}m^2\phi^2 = \frac{1}{2}\eta^{\mu\nu}(\partial_\nu \phi) (\partial_\mu\phi)-\frac{1}{2}m^2\phi^2$$
@@ -74,4 +75,23 @@ Then, from the Lagrange's equations,
 \end{align*}
 Then we finally obtain:
 $$-m^2\phi - \partial_\mu\partial^\mu\phi=0 \implies (\partial_\mu\partial^\mu+m^2)\phi = 0$$
-This is the KG equation that we had seen earlier. Thus, the above Lagrangian models the KG equation.
+This is the KG equation that we had seen earlier. Thus, the above Lagrangian models the KG equation.\\[0.2cm]
+When we have multiple fields $\{\phi_i\}$, then for each field, we will obtain:
+$$\pdv{\SL}{\phi_i} - \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi_i)})=0$$
+% \subsection{Stress-Energy Tensor}
+% The Lagrangian is of the form: 
+% $$\SL(\phi_i, \partial_\mu \phi_i, x^\mu)$$
+% Let us consider the derivative of the Lagrangian with respect to the coordinate $x^\mu$. We have then,
+% \begin{align*}
+%     \dv{x^\mu}\SL &= \pdv{\SL}{\phi_i}\pdv{\phi_i}{x^\mu} +  \pdv{\SL}{(\partial_\nu\phi_i)}\pdv{(\partial_\nu\phi_i)}{x^\mu} +\pdv{\SL}{x^\nu}\underbrace{\pdv{x^\nu}{x^\mu}}_{\tensor{\delta}{^\nu _\mu}}\\
+%     &=\partial_\nu\qty(\pdv{\SL}{(\partial_\nu\phi_i)})\pdv{\phi_i}{x^\mu} + \pdv{\SL}{(\partial_\nu\phi_i)}\pdv{(\partial_\nu\phi_i)}{x^\mu}+\pdv{\SL}{x^\nu}\tensor{\delta}{^\nu _\mu}\\
+%     &=\partial_{\nu}\qty(\pdv{\SL}{(\partial_\nu\phi_i)}\pdv{\phi_i}{x^\mu}) +\partial_\nu\SL\tensor{\delta}{^\nu _\mu}
+% \end{align*}
+% Let us define the quantity:
+% $$\tensor{T}{^\mu _\nu} := \pdv{\SL}{(\partial_\mu \phi)}\partial_{\nu}\phi - \SL \tensor{\delta}{^\mu _\nu}$$
+% This is a mixed \textit{tensor} of rank $(1,1)$. Note the following:
+% \begin{align*}
+%     \tensor{T}{^0_0} = \pdv{\SL}{(\partial_t \phi)}\partial_{t}\phi - \SL 
+% \end{align*}
+NOTE: In terms of the total Lagrangian, the ELEOM for the field is:
+$$\fdv{L}{\phi} - \partial_t \qty(\fdv{L}{\dot{\phi}})=0$$

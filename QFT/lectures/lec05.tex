@@ -1,0 +1,82 @@
+\refstepcounter{section}
+\section*{Lecture 05 \& 06: Looking into Hamiltonians}
+\addcontentsline{toc}{section}{Lecture 05 \& 06: Looking into Hamiltonians}
+Previously, we saw a ton of crap about the Lagrangians and how the equations of motions are obtained from the action being stationary. Now, we will look into the \textit{Hamiltonian} formalism which will allow us to quantise the field. \\[0.2cm]
+In basic classical mechanics, we had seen that given a Lagrangian $L(q_i,\dot{q}_i,t)$, we obtained the Hamiltonian by the Legendre transformation as:
+$$H(q_i, p_i,t) = p_i \dot{q}_i - L(q_i, \dot{q}_i,t)$$
+where $p_i := \pdv{L}{\dot{q}_i}$ was defined to be the generalised momenta, conjugate to the generalised coordinate $q_i$. Similarly, for classical fields, we can define:
+$$\pi^i(x^\mu) := \pdv{\SL}{(\partial_0 \phi_i)} = \pdv{\SL}{\dot{\phi_i}}$$
+This is the \textit{canonical momentum} corresponding to the field. From the ELEOM, we obtain $\dot{\pi}^i = \fdv{L}{\phi}$
+Using this, the \textit{Hamiltonian density} can be defined as:
+$$\SH(\phi^a, \pi_a, \partial_i \phi_a,x^\mu) := \pi^a \dot{\phi}_a - \SL(\phi_a, \partial_\mu\phi_a, x^\mu)$$
+In the final expression on the LHS, we have to replace $\dot{\phi}_a$ in terms of $\pi^a$ to get the Hamiltonian density (Replacing this will get rid of all the time derivative and hence, in the Hamiltonian, we used $\partial_i$, the spatial derivatives only). Using this then, we get the total Hamiltonian as:
+$$H[\pi^a, \phi_a] = \int d^3\vb{x}\ \SH(\phi_a, \pi_a, \partial_i \phi_a,x^\mu)$$
+\subsection{Functional Derivatives}
+Since action, Lagrangian, etc. are functionals, an apt way to describe their variation is through the \textit{functional derivative}. These come under the domain of functional analysis (which is Math \emoji{skull-and-crossbones}), however, a short introduction might be necessary. \\[0.2cm]
+Let us take a functional $\SF[f]$ and consider its variation $\delta \SF$ when $f\rightarrow f+\delta f$, where $\delta f = \epsilon \eta$. Here $\epsilon$ is a small parameter and $\eta$ is a generic function, often called the \textit{test function}. Now,
+\begin{align*}
+    \SF[f+\epsilon \eta] = \SF[f] + \dv{\SF[f+\epsilon\eta ]}{\epsilon}\Bigg|_{\epsilon=0}\epsilon + \SO(\epsilon^2)
+\end{align*}
+We define the functional derivative as the first-order coefficient of the expansion, that is,
+$$\frac{\delta\SF}{\delta f} = \lim\limits_{\epsilon\rightarrow 0} \frac{\SF[f+\epsilon \eta] - \SF[f]}{\epsilon}$$
+Functional derivatives seem to follow similar rules as in ordinary differential calculus (viz. linearity, Liebnitz rule, chain rule) and hence, can be treated to be operationally same as the ordinary derivative. However, exceptions are always there.\\[0.2cm]
+The differential (variation) of a functional is given as:
+$$\delta \SF[\phi] := \int \frac{\delta\SF[\phi]}{\delta \phi}\delta\phi$$
+Now let us try to relate functional derivative with normal derivative. For that, let us suppose that the space is discretised into cells, each of volume $\Delta V^i$ and each cell is assigned the \textit{average value} of $\phi$ within the volume, that is,
+$$\phi_i(t) = \frac{1}{\Delta V^i} \int\limits_{\Delta V^i} \ d^3 \vb{x}\ \phi(\vb{x},t)$$
+Then, $L$ now depends on the discrete components, $\phi_i$ and $\dot{\phi}_i$ and the variation can be written as in terms of partial derivatives (since $\phi_i$ are now discrete):
+$$\delta L = \sum\limits_i\qty(\pdv{L}{\phi_i}\delta \phi_i+\pdv{L}{\dot{\phi}_i}\delta \dot{\phi}_i) = \sum\limits_i\frac{1}{\Delta V^i}\qty(\pdv{L}{\phi_i}\delta \phi_i+\pdv{L}{\dot{\phi}_i}\delta \dot{\phi}_i)\Delta V^i$$
+Now, consider the Lagrangian variation using the definition of functional derivative:
+$$\delta L = \int \ d^3\vb{x} \qty(\fdv{L}{\phi}\delta\phi + \fdv{L}{\dot{\phi}}\delta\dot{\phi})$$
+From the two above equations, we can make the following identifications:
+\begin{align*}
+    \fdv{L}{\phi}&=\lim\limits_{\Delta V^i \rightarrow 0}\frac{1}{\Delta V^i}\pdv{L}{\phi_i}\\
+    \fdv{L}{\dot{\phi}}&=\lim\limits_{\Delta V^i \rightarrow 0}\frac{1}{\Delta V^i}\pdv{L}{\dot{\phi}_i}
+\end{align*}
+In the LHS, while taking functional derivative, $\vb{x}$ belongs to the $i^{\mathrm{th}}$ cell. Thus, we see that the functional derivative is proportional to the partial derivative. Now, given a Lagrangian, we can write the variation under $\phi\rightarrow \phi+\delta \phi$ using the Lagrangian density:
+\begin{align*}
+    \delta L = \int d^3\vb{x}\ \pdv{\SL}{\phi}\delta\phi + \pdv{\SL}{(\partial_i \phi)}\delta(\partial_i \phi) +\pdv{\SL}{\dot{\phi}}\delta \dot{\phi} 
+\end{align*}
+Integration by parts and ignoring boundaries on the second term, we obtain:
+\begin{align*}
+    \delta L = \int d^3\vb{x}\ \qty(\pdv{\SL}{\phi} - \partial_i \qty(\pdv{\SL}{(\partial_i \phi)}))\delta\phi +\pdv{\SL}{\dot{\phi}}\delta \dot{\phi} 
+\end{align*}
+Comparing this with the definition of functional derivative, we obtain:
+$$\fdv{L}{\phi} = \pdv{\SL}{\phi} - \partial_i \qty(\pdv{\SL}{(\partial_i \phi)})\qquad\quad \fdv{L}{\dot{\phi}}=\pdv{\SL}{\dot{\phi}}$$
+\subsection{Hamilton's Equations of Motion}
+To obtain HEOM, we start with the variation of the total Hamiltonian,
+$$\delta H = \int d^3\vb{x} \ \delta\qty(\pi^\alpha\dot{\phi}_\alpha - \SL) =\int d^3\vb{x} \ \qty(\pi^\alpha \delta\dot{\phi}_\alpha +\dot{\phi}_\alpha\delta\pi^\alpha)-\delta L $$
+Now, from ELEOM:
+$$\delta L = \int \fdv{L}{\phi_\alpha}\delta\phi_\alpha + \fdv{L}{\dot{\phi_\alpha}}\delta\dot{\phi_\alpha} = \int \partial_t\qty(\fdv{L}{\dot{\phi_\alpha}})\delta\phi_\alpha + \pi^\alpha \delta\dot{\phi_\alpha}= \int \dot{\pi}^\alpha\delta\phi_\alpha + \pi^\alpha \delta\dot{\phi_\alpha}$$
+Using this, the variation in Hamiltonian becomes:
+$$\delta H = \int d^3\vb{x}\ (\dot{\phi}_\alpha\delta\pi^\alpha - \dot{\pi}^\alpha\delta\phi_\alpha)$$
+Thus, from above, we can identity:
+$$\fdv{H}{\phi_\alpha} = -\dot{\pi}^\alpha \qquad\qquad \fdv{H}{\pi^\alpha} = \dot{\phi}_\alpha$$
+Also, previously we saw the relation between functional derivative of the Lagrangian and partial derivative of the Lagrangian density. That could well be extended to the Hamiltonian and we obtain:
+$$\dot{\pi}^\alpha = -\fdv{H}{\phi_\alpha} = -\pdv{\SH}{\phi_\alpha} + \partial_i \qty(\pdv{\SH}{(\partial_i \phi_\alpha)})\qquad\qquad \dot{\phi}_\alpha = \fdv{H}{\pi^\alpha} =\pdv{\SH}{\pi^\alpha} -\partial_i \qty(\pdv{\SH}{(\partial_i {\pi}^\alpha)})$$
+In general, the Hamiltonian density does not depend on $\partial_i {\pi}^\alpha$, so we have $\dot{\phi}_\alpha=\pdv{\SH}{\pi^\alpha}$
+\subsection{Poisson Bracket}
+In the Hamiltonian formulation of classical mechanics, we defined the Poisson bracket of two quantities $A,B$ by:
+$$\{A,B\} = \pdv{A}{q_i}\pdv{B}{p_i} -  \pdv{A}{p_i}\pdv{B}{q_i}$$
+Similarly, for fields also, given two functionals $\SF[\phi,\pi]$ and $\SG[\phi,\pi]$, we define the Poisson bracket by:
+$$\{\SF,\SG\}:= \int d^3\vb{x}\ \pdv{\SF}{\phi_\alpha}\pdv{\SG}{\pi^\alpha} -  \pdv{\SF}{\pi^\alpha}\pdv{\SG}{\phi_\alpha}$$
+Given a function $\SF[\phi^\alpha, \pi^\alpha,t]$, note:
+\begin{align*}
+    \dot{\SF} &= \partial_t\SF + \int d^3\vb{x}\ \qty(\fdv{\SF}{\phi_\alpha}\pdv{\phi_{\alpha}}{t} +\fdv{\SF}{\pi_\alpha}\pdv{\pi_{\alpha}}{t})\\
+    &= \partial_t\SF + \int d^3\vb{x}\ \qty(\fdv{\SF}{\phi_\alpha}\fdv{H}{\pi^\alpha}-\fdv{\SF}{\pi_\alpha}\fdv{H}{\phi_\alpha})\qquad (\text{from HEOM})\\
+    &=\partial_t\SF+\{\SF,H\}
+\end{align*}
+This specifies the \textit{time-evolution} of the functionals using the Poisson bracket. Now, let us consider the Poisson bracket of the fields $\phi_\alpha$ and $\pi^\alpha$. However, since the Poisson bracket was defined for functionals only, there is some problem. This can be resolved by noting that any function can be written as a functional depending on itself as:
+$$\phi_\alpha(\vb{x},t) = \int d^3 \ \vb{x}' \phi_\alpha(\vb{x}',t)\delta^3(\vb{x}-\vb{x}')$$
+From the definition of the functional derivative, it is easy to note that:
+$$\fdv{\phi_\alpha(\vb{x},t)}{\phi_\beta(\vb{x}',t)}=\delta_{\alpha\beta}\delta^3(\vb{x}-\vb{x}')$$
+Also, $\phi$ and $\pi$ are \textit{independent functionals} and hence,
+$$\fdv{\pi (\vb{x},t)}{\phi(\vb{x}',t)} = 0 \qquad \fdv{\phi(\vb{x},t)}{\pi(\vb{x}',t)}=0 \ \forall \ \vb{x},\vb{x}', t$$
+Now, we can compute the Poisson bracket of the fields themselves and we obtain:
+\begin{align*}
+    \{\phi_\alpha(\vb{x},t), \pi^\beta(\vb{x}',t)\} &= \int d^3 \qty(\vb{x}'' \fdv{\phi_\alpha(\vb{x},t)}{\phi_\mu(\vb{x}'',t)} \  \fdv{\pi^\beta(\vb{x}',t)}{\pi^\mu(\vb{x}'',t)}-0)\\
+    &=\int d^3 \qty(\vb{x}'' \delta_{\alpha\mu}\delta_{\beta \mu}\delta^3(\vb{x}-\vb{x}'')\delta^3(\vb{x}'-\vb{x}''))\\
+    &=\delta_{\alpha\beta}\delta^3(\vb{x}-\vb{x}')
+\end{align*}
+We also have the other two Poisson brackets which are trivial:
+$$\{\phi_\alpha, \phi_\beta\}= 0 \qquad  \{\pi^\alpha, \pi_\beta\}= 0 $$
