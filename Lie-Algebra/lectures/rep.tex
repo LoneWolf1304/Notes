@@ -1,1 +1,35 @@
 \section{When Groups said, "represent us!"}
+Well, most often we do not see the group itself, but rather, its maniffestion. Like, say an element of the rotation group causes rotation of some object, due to which we are able to see its effects. To this extent, we define a group action.
+\begin{definition}[Group Action]
+    A group $(G,*)$ is said to act on some set $X$ if there exists a map $\phi: G\times X\rightarrow X$ such that:
+    \begin{enumerate}
+        \item $\phi(e,x) = x$, that is, action of identity element of group is to map the element of $X$ to itself.
+        \item $\phi(g, \phi(h,x))= \phi(g*h, x)$, that is, action of a group element on another action is combination of the two actions.
+    \end{enumerate}
+\end{definition}
+Group actions just cause permutations to the elements of $X$. Consider the example of $\re^3$, where the inner-product preserving group actions are just \textit{translations} and \textit{rotations}. \\[0.2cm]
+
+Let $f$ be a function on $X$. Then the group action on the function is defined by:
+$$(g\cdot f)(x) = f(g^{-1}x)$$
+It is trivial that $e\cdot f (x) = f(x)$. Also, 
+\begin{align*}
+    g_1 \cdot (g_2 \cdot f)(x) &= g_2\cdot f(g_1^{-1}x)\\
+    &=f(g_2^{-1}* g_1^{-1} x)\\
+    &=f((g_1*g_2)^{-1}x)\\
+    &=(g_1*g_2)f(x)
+\end{align*}
+Hence, using the definition as above, it is indeed a group action on the functions on $X$.
+\begin{definition}[Representation]
+    A \textit{representation} $(\pi,V)$ of a group $G$ is a group homomorphism defined as,
+    $$\pi: G\rightarrow GL(V)$$
+    where $GL(V)$ is the set of invertible linear maps $V\rightarrow V$ and $V$ is a vector space.
+\end{definition}
+Note that, if $V$ is finite-dimensional and a basis of $V$ is chosen, then the set of invertible linear maps can be seen in terms of matrices, which provide an isomorphism:
+$$GL(V) \cong GL(n,\re)$$
+where $GL(n,\re)$ is the group of $n\times n$ invertible, real matrices. In most cases, $G$ will be a Lie group and the representation $\pi$ will be a smooth map. \\[0.2cm]
+There can be different representations of the group. The \textit{trivial} representation is such that $g\xmapsto{\pi}\mathrm{id}$, where $\mathrm{id}$ is the identity map. Given two representations $\pi_1$ and $\pi_2$ of dimensions $n_1$ and $n_2$ respectively, we can define the \textit{direct-sum} representation which is of dimension $n_1+n_2$ by the homomorphism:
+$$(\pi_1\oplus \pi_2): G\rightarrow GL(V_{\pi_1}\oplus V_{\pi_2}) \quad \mathrm{s.t}\quad g\mapsto \mqty(\pi_1(g)& 0\\ 0&\pi_2(g))$$
+This can be thought of as the representation matrix being a block diagonal matrix, with each sub-representation matrix occupying the diagonal blocks.
+\begin{definition}[Irreducible Representation]
+    An \textit{irreducible representation} (or irr rep.) $\pi$ is one which has no sub-representations, that is, $\nexists\ W\subset V$ such that the restriced function $\pi|_{W}$ is a representation.
+\end{definition}

@@ -309,3 +309,18 @@ Similarly, for $\sim_R$, we will have $[b] = \{hb \ |\ h\in H\}$. This will lead
     Let $G$ be a group and $H$ be a subgroup of $G$. Let $a\in G$, then the \textit{left coset} of $G$ is given by $aH = \{ah \ | \ h\in H\}$ and the \textit{right coset} of $G$ is given by $Ha = \{ha \ | \ h\in H\}$
     
 \end{definition}
+
+\subsection{Homomorphism}
+\begin{definition}
+    Let $(G,*)$ and $(H,\cdot)$ be two groups. Then, a map $f: G\rightarrow H$ is called a \textit{group homomorphism} if $f(a*b) = f(a)\cdot f(b) \ \forall \ a,b\in G$
+\end{definition}
+The set of all homomorphisms between two algebraic structures (like a group) $A$ and $B$ is denoted by $Hom(A,B)$ while the set of all bijective homomorphisms is called an \textit{isomorphism} and denoted by $Iso(A,B)$. If the homomorphism is on the same space, we call it an \textit{endomorphism} and the set is denoted by $End(A,B)$. Bijective endomorphisms are called \textit{automorphisms} and the set is denoted by $Aut(A)$.
+\subsection{Lie Groups}
+\begin{definition}[Lie Group]
+    A \textit{Lie Group} is a group $(G,*)$ where $G$ is a differentiable manifold and the maps $\mu:G\times G\rightarrow G, (g,h)\mapsto g*h$ and $\iota:G\rightarrow G, g\mapsto g^{-1}$ are both smooth.
+\end{definition}
+Hence, for a Lie group, multiplication and inverse maps are smooth. Examples of Lie groups include ${GL}(n,\re)$ or $SL(n,\re)$ and many more. In general, study of Lie groups becomes important (atleast in the physical sense) since these provide a way to express the concept of a continuous family of symmetries for geometric objects.\\[0.2cm]
+\begin{definition}[Lie Algebra]
+    Let $G$ be a Lie group. Since $G$ is also a manifold, then the tangent space at identity $e\in G$ is defined to be the \textit{Lie Algebra} of $G$ and is denoted by:
+    $$\mathfrak{g}:= T_eG$$
+\end{definition}
