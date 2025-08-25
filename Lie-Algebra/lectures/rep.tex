@@ -33,3 +33,29 @@ This can be thought of as the representation matrix being a block diagonal matri
 \begin{definition}[Irreducible Representation]
     An \textit{irreducible representation} (or irr rep.) $\pi$ is one which has no sub-representations, that is, $\nexists\ W\subset V$ such that the restriced function $\pi|_{W}$ is a representation.
 \end{definition}
+It turns out that if $\pi$ is an irreducible representation, it cannot be written as a direct-sum of two other representations. It makes sense, since direct-sum representation does not convey any new message and is not that interesting. Hence, looking at irreducible representations makes more sense.
+
+
+\begin{lemma}[Schur's First Lemma]
+        Let $\pi: G\rightarrow GL(V)$ and $\phi: G\rightarrow GL(U)$ be two irreducible representations of a finite group G. Then, if a matrix $A$ is such that:$$A\pi(g) = \phi(g)A \ \forall \ g\in G$$ then, either $A=0$ or $A$ is invertible (and hence two representations are equivalent).
+\end{lemma}
+
+\begin{lemma}[Schur's Second Lemma]
+    Let $\pi$ be an irreducible, complex, representation of a group $G$ and $M$ is a linear map over the complex field, that commutes with $\pi(g)$ for all $g\in G$. Then, $M$ can atmost be a scalar multiplication with the identity, that is, $$M=\lambda \mathds{1},\ \lambda\in \ce$$
+\end{lemma}
+\textit{Proof.} Since $M$ is over the field of complex numbers, it must have atleast one eigenvalue which we call $\alpha$. Then $\det(M-\lambda\mathds{1}) = 0$ and hence $M-\lambda\mathds{1}$ is not invertible. \\[0.2cm]
+Since $M\pi(g) = \pi(g)A$ for all $g$, we also have $(M-\lambda\mathds{1})\pi(g) = \pi(g)(M-\lambda\mathds{1})$ for all $g$. Then from Schur's first lemma, we have $M-\lambda\mathds{1} = 0$ since it is not invertible. Thus, $M=\lambda\mathds{1}$ for some $\lambda\in \ce$\\[0.2cm]
+A corollolary of the above lemma says that if $G$ is a commutative group, then all of its irreducible representations will be one-dimensional.\\[0.2cm]
+\textit{Proof.} Let $G$ be a commutative group and $\pi$ be its irreducible representation. Then, since group representation is a homomorphism, we have:
+$$\pi(gh) = \pi(g)\pi(h) = \pi(hg) = \pi(h)\pi(g)\ \forall \ g,h\in G$$
+The third step comes from the commutativity of the group elements. Now, fix $h$ and hence, for all $g$, we have the commutation relation holding true. This implies that $\pi(h) = \lambda_h \mathds{1}$ from second lemma. Since $h$ was arbitrary, all irreducible representations are one-dimensional $\pi(h) = \lambda_h \in \ce$.\\[0.2cm]
+NOTE: The proof depends on existence of eigenvalues which will only be true for complex fields. For real vector spaces, this will in general not be true!
+
+\subsection{Representations of $\boldsymbol{U(1)}$}
+Consider rotations in 2D plane by some angle $\theta$. The most common entity we are reminded of is $e^{i\theta}$. It turns out that the group of rotations is a Lie group, denoted by $U(1)$, since those can be thought of as elements of a $1\times 1$ matrices.\\[0.2cm]
+The elements of the group $U(1)$ are points on the unit-circle, labelled as $e^{i\theta}$ where $\theta$ can be any real number but $\theta$ and $\theta+2n\pi$ denote the same element, where $n\in \inte$. \\[0.2cm]
+Since $U(1)$ is a commutative group, all its representations will be one-dimensional as seen before and is given by:
+$$\pi: U(1)\rightarrow GL(1,\ce)$$
+where $GL(1,\ce)$ is the group of all invertible complex numbers, that is, non-zero complex numbers. All the irreducible representations of $U(1)$ is unitary, that is, $\pi_k(\theta) = e^{ik\theta}, k\in \inte$
+\subsubsection{Charge Operator and Symmetry}
+
