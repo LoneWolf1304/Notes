@@ -61,7 +61,7 @@ Since these are true for any indices, we obtain two more equations by the exchan
     \partial_\mu g_{\rho\nu} &= \chris{\sigma}{\mu}{\rho}g_{\sigma\nu} + \chris{\sigma}{\mu}{\nu}g_{\rho\sigma}\label{eqn:chris2}\\
     \partial_\nu g_{\mu\rho} &= \chris{\sigma}{\nu}{\mu}g_{\sigma\rho} + \chris{\sigma}{\nu}{\rho}g_{\mu\sigma}\label{eqn:chris3}
 \end{align}
-Adding Eq. \ref{eqn:chris2} and Eq. \ref{eqn:chris2} and then subtracting Eq. \ref{eqn:chris3}, we obtain:
+Adding Eq. \ref{eqn:chris2} and Eq. \ref{eqn:chris3} and then subtracting Eq. \ref{eqn:chris1}, we obtain:
 \begin{alignat*}{3}
     &\partial_\mu g_{\rho\nu}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu} &&=\mathcolor{red}{\chris{\sigma}{\mu}{\rho}g_{\sigma\nu}} + \mathcolor{blue}{\chris{\sigma}{\mu}{\nu}g_{\rho\sigma}} +\mathcolor{blue}{\chris{\sigma}{\nu}{\mu}g_{\sigma\rho}} + \mathcolor{OliveGreen}{\chris{\sigma}{\nu}{\rho}g_{\mu\sigma}}-\mathcolor{red}{\chris{\sigma}{\rho}{\mu}g_{\sigma\nu}}- \mathcolor{OliveGreen}{\chris{\sigma}{\rho}{\nu}g_{\mu\sigma}}\\
     &\implies\qquad\qquad\quad \chris{\sigma}{\mu}{\nu}g_{\rho\sigma} &&= \frac{1}{2} \qty(\partial_\mu g_{\rho\nu}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu})\\
@@ -77,5 +77,44 @@ $$\left\{ \begin{matrix} \lambda \\ \mu  \nu \end{matrix}\right\}$$
 NOTE: We can remember the equation like this: In the left hand side, the upper index is $\lambda$ which comes only in the metric in the right side. The derivatives with $+$ sign are with respect to the lower indices $\mu$ and $\nu$ and the index of the metric in the derivative is a dummy index $\rho$ and the other lower index not appearing in the derivative. Finally, the derivative with $-$ sign is with respect to the dummy index and the metric contains both the lower indices of the left.\\[0.2cm]
 Hence, we see that the equation of motions are known provided the Christoffel symbols are known, which are known if metric is known! 
 \subsection{Action tells a lot!}
+We will now consider one of the most fundamental quantitites in physics, the \textit{action}, albeit in the \textit{relativistic} sense.
+$$\Ss = \int \dd t\ L = \int \dd t \ (T-V)$$ Note that, action must be invariant under $\mathfrak{3}-$rotation in Newtonian mechanics. Since relativisitc case should also converge to the classical action in the Newtonian limit, we want the action to be also invariant. \\[0.2cm]
+Till now, we know three invariant (scalar) quantitites: $m, c, d\tau (\mathrm{or\ } ds)$. Let us construct a quantity with same dimension as of Lagrangian. We then define:
+$$\Ss_{\mathrm{rel}} = \int \dd\tau\  L := \SA\int \dd\tau \ mc^2$$
+where we replaced the Lagrangian by $\SA mc^2$, $\SA$ is just some constant. This is just our guess but let us see what happens in the Newtonian limit! Note that, using Eq. \ref{eqn:prop}, we can write the action as:
+\begin{align*}
+    \Ss_{\mathrm{rel}} &= \SA mc^2 \int \dd t \ \sqrt{1- \sfrac{v^2}{c^2}}\\
+    &=\SA mc^2\int \dd t \ \qty(1 - \sfrac{v^2}{2c^2}+\SO(\sfrac{v^4}{c^4}))\\
+    &=-\SA \int \dd t\ \qty(\frac{1}{2}mv^2 - mc^2)
+\end{align*}
+Well, this looks like kind of $T-V$ if we identity the rest energy as some `potential' energy, provided $\SA=-1$. Thus, in the Newtonian limit atleast, this defnition of \textit{relativistic action} makes sense kinda. Hence we have:
+\begin{equation}\label{eqn:action}
+    \Ss_{\mathrm{rel}} := \int \dd \tau \ (-mc^2)
+\end{equation}
+Note that, we had previously seen that, $\norm{\fvec{u}}^2 = -c^2$ and hence we can replace $-c$ with this quantity in the action expression. Using this we obtain:
 
+$$\Ss_{\mathrm{rel}} = \int \dd \tau \ m \norm{\fvec{u}}^2 = \int \dd \tau \ m\ g_{\mu\nu}u^\mu u^\nu$$
+Now, we know that we can derive the ELEOM from the least action principle ($\delta \Ss =0$). We have:
+$$\pdv{L}{x^\lambda} =m \partial_\lambda g_{\mu\nu}\ u^\mu u^\nu \qquad \qquad \pdv{L}{u^\lambda} = 2mg_{\lambda\nu}u^\nu$$
 
+Now, the metric could be a function of the coordinates and hence we have:
+$$\dv{\tau}\qty(\pdv{L}{u^\lambda}) = 2m\times \qty(g_{\lambda\nu}\dv{u^\nu}{\tau}+\partial_\sigma g_{\lambda\nu}u^\sigma u^\nu)$$
+Plugging this into the ELEOM, we obtain:
+\begin{align*}
+    2m\times \qty(g_{\lambda\nu}\dv{u^\nu}{\tau}+\partial_\sigma g_{\lambda\nu}u^\sigma u^\nu) &=m \partial_\lambda g_{\mu\nu}\ u^\mu u^\nu\implies g_{\lambda\nu}\dv{u^\nu}{\tau} &= \frac{1}{2}\qty(\partial_\lambda g_{\mu\nu}\ u^\mu u^\nu) -\partial_\sigma g_{\lambda\nu}u^\sigma u^\nu
+\end{align*}
+Then, contracting the metric on the left side with $g^{\rho\lambda}$, we get:
+$$\dv{u^\rho}{\tau} = g^{\lambda \rho}\times \qty(\frac{1}{2}\partial_{\lambda}g_{\sigma\nu}-\partial_{\sigma}g_{\lambda\nu})u^{\sigma}u^\nu$$
+Let us manipulate the term in the bracket:
+\begin{align*}
+    &\quad \qty(\frac{1}{2}\partial_{\lambda}g_{\sigma\nu}-\partial_{\sigma}g_{\lambda\nu})u^{\sigma}u^\nu\\
+    &=\frac{1}{2}\partial_{\lambda}g_{\sigma\nu}u^{\sigma}u^\nu - \frac{1}{2}\qty(\partial_{\sigma}g_{\lambda\nu}+\partial_{\sigma}g_{\nu\lambda})u^{\sigma}u^\nu\\
+    &=\frac{1}{2}\partial_{\lambda}g_{\sigma\nu}u^{\sigma}u^\nu - \frac{1}{2}\partial_{\sigma}g_{\lambda\nu}u^{\sigma}u^\nu-\frac{1}{2}\partial_{\sigma}g_{\nu\lambda}u^{\sigma}u^\nu \\
+    &=\frac{1}{2}\partial_{\lambda}g_{\sigma\nu}u^{\sigma}u^\nu - \frac{1}{2}\partial_{\sigma}g_{\lambda\nu}u^{\sigma}u^\nu-\frac{1}{2}\partial_{\nu}g_{\sigma\lambda}u^{\nu}u^\sigma\\
+    &=\frac{1}{2}\qty(\partial_{\lambda}g_{\sigma\nu} - \partial_{\sigma}g_{\lambda\nu}-\partial_{\nu}g_{\sigma\lambda})u^{\sigma}u^\nu
+\end{align*}
+Above, we had used the symmetry of the metric tensor and then we renamed the dummy indices in the sum. We substitute this in the previous equation and obtain:
+\begin{align*}
+    \dv{u^\rho}{\tau} +\frac{1}{2}g^{\lambda \rho}\qty( \partial_{\sigma}g_{\lambda\nu}+\partial_{\nu}g_{\sigma\lambda} -\partial_{\lambda}g_{\sigma\nu})u^{\sigma}u^\nu=0\implies \dv{u^\rho}{\tau} + \chris{\rho}{\sigma}{\nu}u^\sigma u^\nu = 0
+\end{align*}
+This is exactly the \textit{geodesic} equation that we had obtained earlier. Hence, using this definition of the action, we can recover the geodesic equation. Thus, \textbf{geodesics are paths of extreme action!}
