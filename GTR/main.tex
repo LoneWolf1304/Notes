@@ -49,8 +49,13 @@ bottom = 1in,
 top = 1in,
 a4paper]{geometry}
 \newcommand{\fvec}[1]{\vb{\bar{#1}}}
+\newcommand{\chris}[3]{\tensor{\Gamma}{^#1 _#2 _#3}}
+\newcommand{\tsrud}[3]{\tensor{{#1}}{^#2 _#3}}
+\newcommand{\mtr}[2]{\tensor{{g}}{_#1 _#2}}
 \newcommand{\tvec}[1]{\vb{{#1}}}
 \newcommand{\trans}{^\mathrm{T}}
+\newcommand{\trmat}[2]{\tensor{\Lambda}{^#1 _#2}}
+\newcommand{\itrmat}[2]{\tensor{{\qty(\Lambda^{-1})}}{^#1 _#2}}
 \newcommand{\gmn}{g_{\mu\nu}}
 \fancyhead[L,C]{}
 \fancyhead[R]{Lecture Notes}
@@ -128,5 +133,7 @@ a4paper]{geometry}
 \input{lectures/lec07.tex}
 \input{lectures/lec08.tex}
 \input{lectures/lec09.tex}
+\input{lectures/lec10.tex}
+
 % \input{lectures/lec08.tex}
 \end{document}

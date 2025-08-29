@@ -1,3 +1,37 @@
 \refstepcounter{section}
 \section*{Lecture 09: Noether's Theorem}
 \addcontentsline{toc}{section}{Lecture 09: Noether's Theorem}
+To understand Noether's Theorem, let us first understand what symmetry actually is. Symmetry of a system can be thought of as some transformation under which the properties of the system remain invariant. 
+\begin{figure}[H]
+    \centering 
+    \input{pics/symm.tex}
+\end{figure}
+\noindent
+Discrete symmetries describes non-continuous changes in the system, like \textit{parity}  (kind of spatial reflection) and \textit{time-reversal}. \textit{Internal} symmetries include cases where the fields themselves vary while \textit{space-time} symmetry describes the system when the space-time points vary. \textit{Local} symmetries are transformations allowing us to change the system differently at different spacetime points while \textit{global} symmetries act in the same way at every point.
+\begin{theorem}[Noether's Theorem]
+    For every continuous global symmetry there exists a conserved current $J^\mu$, that is,
+    $$\partial_\mu J^\mu = 0$$
+\end{theorem}
+\textit{Proof.}
+Note that, under any symmetry transformation, we required our equations of motion to be invariant and hence require our action $\Ss$ to be `invariant' since action is a fundamental quantity to our system from which we derived our EOM. Note that while deriving the equations of motions, we ignored the boundary term of the action. Thus, the action can vary by some arbitrary boundary term and hence, for any global symmetry and some $K^\mu$,
+$$\delta\Ss = \int\limits_{\partial\SR} d^4\vb{x} \ \partial_\mu  K^\mu$$Let us consider the case of \textit{internal symmetries} first.\\[0.2cm]
+Consider a variation in the field $\phi = \phi_0+\delta \phi$. Then, 
+$$\delta\SL = \pdv{\SL}{\phi}\Bigg|_{\phi_0}\delta\phi+\pdv{\SL}{(\partial_\mu\phi)}\Bigg|_{\phi_0}\delta(\partial_\mu\phi) =\pdv{\SL}{\phi}\Bigg|_{\phi_0}\delta\phi+\pdv{\SL}{(\partial_\mu\phi)}\Bigg|_{\phi_0}\partial_\mu(\delta\phi)$$
+Now, suppose there exists a solution $\widetilde{\phi}$ to the equation of motion of the system. Since the above equation is valid for any $\phi_0$, it is also valid for $\widetilde{\phi}$ and hence, we get:
+\begin{alignat*}{2}
+    \delta \SL &= \pdv{\SL}{\phi}\Bigg|_{\widetilde{\phi}} \, \delta \phi
+    + \pdv{\SL}{(\partial_\mu \phi)}\Bigg|_{\widetilde{\phi}} \, \partial_\mu (\delta \phi) 
+    & \quad & \\[6pt]
+    &= \partial_\mu \qty( \pdv{\SL}{(\partial_\mu \phi)} )\Bigg|_{\widetilde{\phi}} \, \delta \phi
+    + \pdv{\SL}{(\partial_\mu \phi)}\Bigg|_{\widetilde{\phi}} \, \partial_\mu (\delta \phi) 
+    & \quad & \text{(using ELEOM)} \\[6pt]
+    &= \partial_\mu \qty( \pdv{\SL}{(\partial_\mu \phi)}\Bigg|_{\widetilde{\phi}} \, \delta \phi )
+    & \quad & \text{(using product rule)}
+\end{alignat*}
+Let the variation of the Lagrangian be a global symmetry, denoted by, $\delta_\alpha \phi$. Under this symmetry, we want our action $\Ss$ to change atmost by a boundary term and hence we have,
+$$\partial_\mu\qty(\pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi}) = \partial_\mu K^\mu\quad\implies\quad \partial_\mu\qty(\pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi} - K^\mu)=0$$
+Let us define the quantity in the bracket by $J^\mu$ which is called the \textit{Noether current}. Thus, $$J^\mu := \pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi} - K^\mu$$ from where we get $\partial_\mu J^\mu =0\implies \mathrm{\ Noether\ current \ is \ conserved}$.\\[0.2cm]
+The above proof worked for internal symmetries where the field itself was varied. Now, let us look into the \textit{spacetime} symmetries, where the spacetime points are varied. For simplicity, we will deal with scalar fields only. Let us consider an infinitesimal coordinate transformation,
+$$x'^\mu = x^\mu + \delta x^\mu$$
+Under this transformation, the field will change as.
+$$\phi(x)\rightarrow \phi'(\vb{x}') = \phi(x^\mu) + \delta\phi(x)+ $$

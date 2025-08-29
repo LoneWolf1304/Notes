@@ -1,0 +1,81 @@
+\refstepcounter{section}
+\section*{Lecture 10: Connections are important}
+\addcontentsline{toc}{section}{Lecture 10: Connections are important}
+In the previous section, we had seen that the concept of being \textit{local} was introduced in order to approximate a frame where the effect of gravity is eliminated. Using such a motivation, we have:
+\begin{principle}[Einstein's Equivalence Principle]
+All freely falling frames under the influence of \textit{gravity} are \textit{locally inertial}, that is, Lorentz frames where special relativity is valid and there is absence of gravity
+\end{principle}
+Consider the case of the falling lift as before. Then, if we write the equation of the ball from the $O$ frame, we have:
+$$\dv{\vb{r}}{t} = -\vb{g} \implies \vb{r} = \vb{r}_i - \frac{1}{2}\vb{g}t^2$$
+where $\vb{r}_i$ is the initial position of the ball. Now, from the $O'$ frame, as no force acts on the ball (note that the observer sees the ball floating in front of them) we have:
+$$\dv[2]{{\vb{r}'}}{{t'}} = 0\implies \vb{r}' = \vb{r}_i'$$
+From the above equations we have:
+$$\vb{r}' = \vb{r}_i'= (\vb{r}_i -\vb{r}_0) = \qty(\vb{r}+ \frac{1}{2}\vb{g}t^2) - \vb{r}_0 $$
+This essentially describes a \textit{coordinate transformation} where $\vb{r}\rightarrow \vb{r}' $ and $t\rightarrow t'$. However, note that a term $t^2$ appears in the expression and hence, the coordinate transformations are \textit{non-linear}. In general, we can have the coordinate transformation matrices themselves to be dependent on the coordinates, that is, $\trmat{\mu}{\nu} \equiv \trmat{\mu}{\nu}(x^\alpha)$\\[0.2cm]
+If we allow non-linear coordinate transformations, we can go to a frame where \textit{gravity is absent!}\\[0.2cm]
+Thus, we essentially have a recipe to tackle gravity. We first go to a frame where gravity is absent (the equivalence principle guarantees the existence of such a frame), do our calculations in that frame, then transform back to our original coordinate system. \\[0.2cm]
+Consider a particle moving freely under a purely gravitational force. Now, suppose $O'$ is such a frame where gravity is absent. Then we have:
+$$\dv[2]{x'^\mu}{\tau}=0$$
+How do we obtain the equation of motion in frame $O$? Well, we will just transform to that frame. Since $x'^\mu$ is dependent on the coordinates of the other frame $x^\nu$, we can write,
+\begin{align*}
+    0 &=\dv{\tau}\qty(\dv{x'^\mu}{\tau})\\
+    &=\dv{\tau}\qty({\pdv{x'^\mu}{x^\nu}\dv{x^\nu}{\tau}} )\\
+    &=\pdv{x'^\mu}{x^\nu} \dv[2]{x^\nu}{\tau}+ \dv{x^\nu}{\tau}\dv{\tau}\qty(\pdv{x'^\mu}{x^\nu})\\
+    &=\pdv{x'^\mu}{x^\nu} \dv[2]{x^\nu}{\tau} + \pdv{x'^\mu}{x^\nu}{x^\alpha}\dv{x^\alpha}{\tau}\dv{x^\nu}{\tau}
+\end{align*}
+The first term seems to contain the acceleration in the $O$ frame and it would be nice to isolate this term. For that, let us multiply both sides by $\pdv{x^\beta}{x'^\mu}$ and contract using the fact that $\pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu}=\tsrud{\delta}{\beta}{\nu}$
+\begin{align*}
+   0&= \pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu} \dv[2]{x^\nu}{\tau} +  \pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu}{x^\alpha}\dv{x^\alpha}{\tau}\dv{x^\nu}{\tau}\\
+&=\tsrud{\delta}{\beta}{\nu}\dv[2]{x^\nu}{\tau}+ \pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu}{x^\alpha}\dv{x^\alpha}{\tau}\dv{x^\nu}{\tau}\\
+&=\dv[2]{x^\beta}{\tau}+ \pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu}{x^\alpha}\dv{x^\alpha}{\tau}\dv{x^\nu}{\tau}\\
+&=\dv[2]{x^\beta}{\tau} + \chris{\beta}{\nu}{\alpha} u^\alpha u^\nu
+\end{align*}
+Here we have defined the following:
+$$\chris{\beta}{\nu}{\alpha} := \pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu}{x^\alpha} = \itrmat{\beta}{\mu}\ \pdv{x^\nu} \qty(\trmat{\mu}{\alpha})$$
+The above entity is termed as \textit{connection coefficients}. The name connection coefficients comes from the fact that they connect neighboring points and tell us how to calculate the rate of change of a vector field from one point to another nearby, even though the coordinate system may itself be changing. The equation of motion thus obtained is:
+\begin{equation}\label{eqn:geod}
+    \dv[2]{x^\beta}{\tau} = -\chris{\beta}{\nu}{\alpha} u^\alpha u^\nu
+\end{equation}
+The above equation is called the \textit{geodesic equation} and resembles some kind of \textit{pseudo-force} or \textit{non-inertial force}. Note that the connection coefficients in its present form, depends on both $\fvec{x}$ and $\fvec{x}'$ which is kind of problematic since we might not always have knowledge of both the frames. \\[0.2cm]
+Since the primed frame is locally inertial, the metric is \textit{Minkowski}, that is,$$g'_{{\mu}{\nu}} = \pdv{x^\alpha}{x'^\mu}\pdv{x^\beta}{x'^\nu}g_{{\alpha}{\beta}}$$
+Inverting the relation, we have:
+$$g_{{\mu}{\nu}} = \pdv{x'^\alpha}{x^\mu}\pdv{x'^\beta}{x^\nu}\eta_{{\alpha}{\beta}}$$
+From the definition of the affine connection, we can see that, since partial derivatives commute, the affine connections are \textit{symmetric} in the lower indices. Thus, 
+$$\chris{\alpha}{\mu}{\nu} =\chris{\alpha}{\nu}{\mu}$$
+Now, let us contract the upper index of the affine connection definition which will be used later:
+\begin{align*}
+    \pdv{x'^\lambda}{x^\beta}\chris{\beta}{\nu}{\alpha} = \pdv{x'^\lambda}{x^\beta}\pdv{x^\beta}{x'^\mu}\pdv{x'^\mu}{x^\nu}{x^\alpha} = \tsrud{\delta}{\lambda}{\mu}\pdv{x'^\mu}{x^\nu}{x^\alpha}=\pdv{x'^\lambda}{x^\nu}{x^\alpha} = \partial_\nu\qty(\pdv{x'^\lambda}{x^\alpha})
+\end{align*}
+Then, let us differentiate both sides with $x^\rho$ and using the above found relation, we obtain:
+\begin{align*}
+    \partial_\rho g_{\mu\nu} &= \partial_\rho \qty(\pdv{x'^\alpha}{x^\mu})\times \pdv{x'^\beta}{x^\nu}\eta_{{\alpha}{\beta}} + \partial_\rho \qty(\pdv{x'^\beta}{x^\nu})\times \pdv{x'^\alpha}{x^\mu}\eta_{{\alpha}{\beta}}\\
+    &=\chris{\sigma}{\rho}{\mu}\pdv{x'^\alpha}{x^\sigma} \pdv{x'^\beta}{x^\nu}\eta_{{\alpha}{\beta}} +\chris{\sigma}{\rho}{\nu}\pdv{x'^\beta}{x^\sigma}\pdv{x'^\alpha}{x^\mu}\eta_{{\alpha}{\beta}}\\
+    &=\chris{\sigma}{\rho}{\mu}g_{\sigma\nu} + \chris{\sigma}{\rho}{\nu}g_{\mu\sigma}
+\end{align*}
+We thus obtain:
+\begin{equation}\label{eqn:chris1}
+    {\partial_\rho g_{\mu\nu} = \chris{\sigma}{\rho}{\mu}g_{\sigma\nu} + \chris{\sigma}{\rho}{\nu}g_{\mu\sigma}}
+\end{equation}
+Since these are true for any indices, we obtain two more equations by the exchange $\rho \leftrightarrow \mu$ and $\rho \leftrightarrow \nu$:
+\begin{align}
+    \partial_\mu g_{\rho\nu} &= \chris{\sigma}{\mu}{\rho}g_{\sigma\nu} + \chris{\sigma}{\mu}{\nu}g_{\rho\sigma}\label{eqn:chris2}\\
+    \partial_\nu g_{\mu\rho} &= \chris{\sigma}{\nu}{\mu}g_{\sigma\rho} + \chris{\sigma}{\nu}{\rho}g_{\mu\sigma}\label{eqn:chris3}
+\end{align}
+Adding Eq. \ref{eqn:chris2} and Eq. \ref{eqn:chris2} and then subtracting Eq. \ref{eqn:chris3}, we obtain:
+\begin{alignat*}{3}
+    &\partial_\mu g_{\rho\nu}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu} &&=\mathcolor{red}{\chris{\sigma}{\mu}{\rho}g_{\sigma\nu}} + \mathcolor{blue}{\chris{\sigma}{\mu}{\nu}g_{\rho\sigma}} +\mathcolor{blue}{\chris{\sigma}{\nu}{\mu}g_{\sigma\rho}} + \mathcolor{OliveGreen}{\chris{\sigma}{\nu}{\rho}g_{\mu\sigma}}-\mathcolor{red}{\chris{\sigma}{\rho}{\mu}g_{\sigma\nu}}- \mathcolor{OliveGreen}{\chris{\sigma}{\rho}{\nu}g_{\mu\sigma}}\\
+    &\implies\qquad\qquad\quad \chris{\sigma}{\mu}{\nu}g_{\rho\sigma} &&= \frac{1}{2} \qty(\partial_\mu g_{\rho\nu}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu})\\
+    &\implies\qquad\quad g^{\rho\lambda} \chris{\sigma}{\mu}{\nu}g_{\rho\sigma} &&=\frac{1}{2}g^{\rho\lambda} \qty(\partial_\mu g_{\rho\nu}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu})\\
+    &\implies \qquad\qquad\quad\tsrud{\delta}{\lambda}{\sigma} \chris{\sigma}{\mu}{\nu} &&=\frac{1}{2}g^{\rho\lambda} \qty(\partial_\mu g_{\rho\nu}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu})
+\end{alignat*}
+The red and the green terms cancel first and then we contract the metric on the left to obtain an extremely important identity for the affine connection: 
+\begin{equation}
+    \chris{\lambda}{\mu}{\nu} =\frac{1}{2}g^{\rho\lambda} \qty(\partial_\mu g_{\rho\nu}+\partial_\nu g_{\mu\rho}-\partial_\rho g_{\mu\nu})
+\end{equation}
+We obtained an expression for the affine connection in terms of the metric for the space. In this form, these are called the \textit{Christoffel symbols} and denoted by: 
+$$\left\{ \begin{matrix} \lambda \\ \mu  \nu \end{matrix}\right\}$$
+NOTE: We can remember the equation like this: In the left hand side, the upper index is $\lambda$ which comes only in the metric in the right side. The derivatives with $+$ sign are with respect to the lower indices $\mu$ and $\nu$ and the index of the metric in the derivative is a dummy index $\rho$ and the other lower index not appearing in the derivative. Finally, the derivative with $-$ sign is with respect to the dummy index and the metric contains both the lower indices of the left.\\[0.2cm]
+Hence, we see that the equation of motions are known provided the Christoffel symbols are known, which are known if metric is known! 
+\subsection{Action tells a lot!}
+
+
