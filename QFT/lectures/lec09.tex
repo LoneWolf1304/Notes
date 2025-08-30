@@ -36,12 +36,12 @@ $$x'^\mu = x^\mu + \delta x^\mu$$
 % Under this transformation, the field will transform as:
 % $$\phi(x)\rightarrow \phi'(\vb{x}') = \phi(x^\mu) + \partial_\mu\phi \delta x^\mu\implies \delta\delta_0\phi =\partial_\mu\phi \delta x^\mu $$
 The variation in the field can be given by:
-$$\delta\phi =\phi'(\vb{x}')- \phi(\vb{x}) = \phi'(x'^\mu)- \phi'(x^\mu)+ \phi'(x^\mu) -\phi(x^\mu)=\delta_0(x^\mu)+\phi'({x}'^\mu)-\phi'(x^\mu) $$
-where we have defined $\delta_0(x^\mu):=\phi'(x^\mu)-\phi(x^\mu)$. We did this to distinguish between variation of the dependent and independent quantitites. 
+$$\delta\phi =\phi'(\vb{x}')- \phi(\vb{x}) = \phi'(x'^\mu)- \phi'(x^\mu)+ \phi'(x^\mu) -\phi(x^\mu)=\delta_0\phi(x^\mu)+\phi'({x}'^\mu)-\phi'(x^\mu) $$
+where we have defined $\delta_0\phi(x^\mu):=\phi'(x^\mu)-\phi(x^\mu)$. We did this to distinguish between variation of the dependent and independent quantitites. 
 Using Taylor expansion, we have:
 $$\phi'(x'^\mu ) = \phi'(x^\mu +\delta x^\mu) = \phi'(x^\mu) + \pdv{\phi'}{x^\mu}\delta x^\mu\implies \phi'(x'^\mu )-\phi'(x^\mu) = \partial_\mu\phi'\delta x^\mu$$
-Now, $\partial_\mu\phi'\delta x^\mu \approx \partial_\mu\phi\delta x^\mu$, since if we do the Taylor expansion of $\delta_0(x'^\mu)$, we would obtain a term $\partial_nu\delta_0$ which is a variation of second order and hence, can be neglected. Thus, we obtain:
-$$\phi'(x'^\mu )-\phi'(x^\mu) = \partial_\mu\phi\delta x^\mu\implies \delta\phi = \delta_0\phi + \partial_\mu\phi\delta x^\mu$$
+Now, $\partial_\mu\phi'\delta x^\mu \approx \partial_\mu\phi\delta x^\mu$, since if we do the Taylor expansion of $\delta_0\phi(x'^\mu)$, we would obtain a term $\partial_\nu\delta_0$ which is a variation of second order and hence, can be neglected. Thus, we obtain:
+$$\phi'(x'^\mu )-\phi'(x^\mu) = \partial_\mu\phi\delta x^\mu\implies \delta\phi = \delta_0\phi(x^\mu) + \partial_\mu\phi\delta x^\mu$$
 The action is not in general invariant under both changes in coordinates and fields. Indeed, the volume element (integral measure) $\dd^4 \vb{x}$ transforms as:
 $$\dd^4\vb{x}' = J\  \dd^4\vb{x}$$
 where $J$ is the determinant of the Jacobian matrix. Now, we find some expression for the Jacobian: 
@@ -69,10 +69,45 @@ For our field satisfying the equation of motion, the last term drops and we have
 In the case for multiple fields, the \textit{Noether current} turns out to be:
 $$J^\mu :=\pdv{\SL}{(\partial_\mu\phi_i)}\delta_0\phi_i +\delta x^\mu \SL  -  K^\mu\qquad\quad \partial_\mu J^\mu =0\qed$$
 The above condition is called \textit{current conservation} which we had also seen earlier for internal symmetries. However, the second term, which is purely an artifact of the spacetime symmetry, did not occur there in the conserved current for internal symmetries.  Associated with each current, we can define the charge enclosed in a volume $V$ as:
-$$Q_{V} := \int\limits_{V} \dd^3\vb{x} \ J^0(\vb{x},t) $$
-In most cases, we would have $K^\mu$ to be zero. Let us see some examples for Noether's theorem:
+$$Q_{V} := \int\limits_{V} \dd^3\vb{x} \ J^0(\vb{x},t)  = \int\limits_{V} \dd^3\vb{x} \ \rho$$
+Then, we can write the conservation equation as:
+$$\dv{\rho}{t} + \div \vb{J} =0\implies \dv{Q}{t} = -\int\limits_{V} \dd^3\vb{x} \ \div \vb{J} = -\int\limits_{\partial V} \vb{J}\cdot \dd\vb{S}$$
+The last equality comes from Gauss' law and $\partial V$ is the boundary of the region. If we extend the volume $V$ to cover the entire space and assume that at spatial infinities, current is zero, then we have $\dv{Q}{t}=0$ and hence, current is conserved.  
+In most cases, we would have $K^\mu$ to be zero (and thus, let us take it to be zero). Let us see some examples for Noether's theorem:
 \subsection{Examples: Spacetime Symmetries}
+Let us start with some examples of Noether's theorem where spactime symmetry is explicitly there. We will consider translations and rotations. 
 \subsubsection{Translational Invariance}
+Classically, we know that translational invariance leads to \textit{energy conservation}. Let us see what happens in case of fields. We thus consider an infinitesimal global translation:
+$$x^\mu\rightarrow x'^\mu = x^\mu+\epsilon a^\mu$$
+Then $\delta x^\mu = \epsilon a^\mu$. As calculated before, the variation in the Lagrangian is given by:
+$$\delta\SL = \partial_\mu\qty(\delta x^\mu \SL + \delta_0\phi_i \pdv{\SL}{(\partial_\mu\phi_i)})$$
+Note that $\delta x^\mu = \epsilon a^\mu$ and $\delta_0\phi_i = \phi'_i(x^\mu) - \phi_i(x^\mu)$. Note that the new field at $x^\mu$ is just the previous field at $x^\mu - \epsilon a^\mu$ and hence we have from a first-order expansion that $\delta_0\phi_i = -\epsilon a^\nu \partial_\nu\phi$. Substituting this above, we obtain:
+\begin{align*}
+    \partial_\mu \qty(
+        \delta x^\mu \SL 
+        + \delta_0 \phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+    )
+    &= \partial_\mu \qty(
+        \epsilon a^\mu \SL 
+        - \epsilon a^\nu \partial_\nu \phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+   ) \\[0.5em]
+    &= \partial_\mu \qty(
+        \epsilon a^\nu \tsr{\delta}{\mu}{\nu} \SL 
+        - \epsilon a^\nu \partial_\nu \phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+   ) \\[0.5em]
+    &= -\epsilon a^\nu \partial_\mu\qty(\partial_\nu \phi_i \pdv{\SL}{(\partial_\mu \phi_i)}-\tsr{\delta}{\mu}{\nu}\SL)
+\end{align*}
+From the above, we can thus define the conserved current as:
+$$\tsr{T}{\mu}{\nu} := \pdv{\SL}{(\partial_\mu \phi_i)}\partial_\nu \phi_i-\tsr{\delta}{\mu}{\nu}\SL$$
+Now, note the following:
+$$T^{\mu\nu} = g^{\alpha\nu}\tsr{T}{\mu}{\alpha} = \pdv{\SL}{(\partial_\mu \phi_i)}g^{\alpha\nu}\partial_\alpha \phi_i-g^{\alpha\nu}\tsr{\delta}{\mu}{\alpha}\SL = \pdv{\SL}{(\partial_\mu \phi_i)}\partial^\nu\phi_i-g^{\mu\nu}\SL$$
+The above quantity can be shown to be a tensor and is called the \textit{energy-momentum stress tensor}. Why?\\[0.2cm]
+Note that for each value of $\nu$ we have a current four vector. Let us calculate the charge for the time-translation invariance part, that is, $\nu=0$. From this, we have:
+$$P^0 = \int \dd^3 \vb{x} \ T^{00} = \int \dd^3 \vb{x} \ \qty( \pdv{\SL}{(\partial_0 \phi_i)}\partial^0\phi_i-g^{00}\SL) = \int \dd^3 \vb{x} \ \qty(\pi^i \dot{\phi}_i - \SL) = \int \dd^3 \vb{x} \ \SH = H$$
+We see that corresponding to the converved current from time translation invariance, we have a conserved charge $P^0 = H$. Thus, the total Hamiltonian is conserved under time translation and hence our classical intuition worked here as well!\\[0.2cm]
+Now, let us see what happens for space translations, for which we consider $\nu\equiv j = 1,2,3$. Then we have:
+$$P^j = \int \dd^3 \vb{x} \ T^{0j} = \int \dd^3 \vb{x} \ \qty( \pdv{\SL}{(\partial_0 \phi_i)}\partial^j\phi_i-\cancelto{0}{g^{0j}}\SL) = \int \dd^3 \vb{x}\ \qty(\pi^i \partial^j\phi_i)$$
+The last thing is the $j^{\mathrm{th}}$ component of the total momentum which is conserved in this case. Thus, we see that for spatial translation invariance, the total momentum is conserved, which once again matches with the classical analog.
 \subsubsection{Rotational Invariance}
 
 \subsection{Examples: Internal Symmetries}
