@@ -13,8 +13,8 @@ Discrete symmetries describes non-continuous changes in the system, like \textit
     $$\partial_\mu J^\mu = 0$$
 \end{theorem}
 \textit{Proof.}
-Note that, under any symmetry transformation, we required our equations of motion to be invariant and hence require our action $\Ss$ to be `invariant' since action is a fundamental quantity to our system from which we derived our EOM. Note that while deriving the equations of motions, we ignored the boundary term of the action. Thus, the action can vary by some arbitrary boundary term and hence, for any global symmetry and some $K^\mu$,
-$$\delta\Ss = \int\limits_{\partial\SR} d^4\vb{x} \ \partial_\mu  K^\mu$$Let us consider the case of \textit{internal symmetries} first.\\[0.2cm]
+Note that, under any symmetry transformation, we required our equations of motion to be invariant and hence require our action $\Ss$ to be `invariant' since action is a fundamental quantity to our system from which we derived our EOM. Note that while deriving the equations of motions, we ignored the boundary term of the action. Thus, the action can vary by some arbitrary boundary term. Using this, we define a \textit{Noether symmetry} to be a transformation which keeps the action invariant upto an integral of a total divergence, that is,
+$$\delta\Ss = \int\limits_{\partial\SR} d^4\vb{x} \ \partial_\mu  K^\mu\implies \delta\SL \equiv \epsilon\  \partial_\mu K^\mu$$ The implication comes from the fact that divergence should be in first order with respect to some infinitesimal variation $\epsilon$. Let us consider the case of \textit{internal symmetries} first.\\[0.2cm]
 Consider a variation in the field $\phi = \phi_0+\delta \phi$. Then, 
 $$\delta\SL = \pdv{\SL}{\phi}\Bigg|_{\phi_0}\delta\phi+\pdv{\SL}{(\partial_\mu\phi)}\Bigg|_{\phi_0}\delta(\partial_\mu\phi) =\pdv{\SL}{\phi}\Bigg|_{\phi_0}\delta\phi+\pdv{\SL}{(\partial_\mu\phi)}\Bigg|_{\phi_0}\partial_\mu(\delta\phi)$$
 Now, suppose there exists a solution $\widetilde{\phi}$ to the equation of motion of the system. Since the above equation is valid for any $\phi_0$, it is also valid for $\widetilde{\phi}$ and hence, we get:
@@ -31,7 +31,63 @@ Now, suppose there exists a solution $\widetilde{\phi}$ to the equation of motio
 Let the variation of the Lagrangian be a global symmetry, denoted by, $\delta_\alpha \phi$. Under this symmetry, we want our action $\Ss$ to change atmost by a boundary term and hence we have,
 $$\partial_\mu\qty(\pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi}) = \partial_\mu K^\mu\quad\implies\quad \partial_\mu\qty(\pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi} - K^\mu)=0$$
 Let us define the quantity in the bracket by $J^\mu$ which is called the \textit{Noether current}. Thus, $$J^\mu := \pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi} - K^\mu$$ from where we get $\partial_\mu J^\mu =0\implies \mathrm{\ Noether\ current \ is \ conserved}$.\\[0.2cm]
-The above proof worked for internal symmetries where the field itself was varied. Now, let us look into the \textit{spacetime} symmetries, where the spacetime points are varied. For simplicity, we will deal with scalar fields only. Let us consider an infinitesimal coordinate transformation,
+The above proof worked for internal symmetries where the field itself was varied. Now, let us look into the \textit{spacetime} symmetry, where the spacetime points are varied. For simplicity, we will deal with scalar fields only. Let us consider an infinitesimal coordinate transformation,
 $$x'^\mu = x^\mu + \delta x^\mu$$
-Under this transformation, the field will change as.
-$$\phi(x)\rightarrow \phi'(\vb{x}') = \phi(x^\mu) + \delta\phi(x)+ $$
+% Under this transformation, the field will transform as:
+% $$\phi(x)\rightarrow \phi'(\vb{x}') = \phi(x^\mu) + \partial_\mu\phi \delta x^\mu\implies \delta\delta_0\phi =\partial_\mu\phi \delta x^\mu $$
+The variation in the field can be given by:
+$$\delta\phi =\phi'(\vb{x}')- \phi(\vb{x}) = \phi'(x'^\mu)- \phi'(x^\mu)+ \phi'(x^\mu) -\phi(x^\mu)=\delta_0(x^\mu)+\phi'({x}'^\mu)-\phi'(x^\mu) $$
+where we have defined $\delta_0(x^\mu):=\phi'(x^\mu)-\phi(x^\mu)$. We did this to distinguish between variation of the dependent and independent quantitites. 
+Using Taylor expansion, we have:
+$$\phi'(x'^\mu ) = \phi'(x^\mu +\delta x^\mu) = \phi'(x^\mu) + \pdv{\phi'}{x^\mu}\delta x^\mu\implies \phi'(x'^\mu )-\phi'(x^\mu) = \partial_\mu\phi'\delta x^\mu$$
+Now, $\partial_\mu\phi'\delta x^\mu \approx \partial_\mu\phi\delta x^\mu$, since if we do the Taylor expansion of $\delta_0(x'^\mu)$, we would obtain a term $\partial_nu\delta_0$ which is a variation of second order and hence, can be neglected. Thus, we obtain:
+$$\phi'(x'^\mu )-\phi'(x^\mu) = \partial_\mu\phi\delta x^\mu\implies \delta\phi = \delta_0\phi + \partial_\mu\phi\delta x^\mu$$
+The action is not in general invariant under both changes in coordinates and fields. Indeed, the volume element (integral measure) $\dd^4 \vb{x}$ transforms as:
+$$\dd^4\vb{x}' = J\  \dd^4\vb{x}$$
+where $J$ is the determinant of the Jacobian matrix. Now, we find some expression for the Jacobian: 
+$$x'^\mu = x^\mu + \delta x^\mu\implies \partial_\nu x'^\mu = \tsr{\delta}{\mu}{\nu}+\partial_\nu(\delta x^\mu)$$
+Now, we use an identity $\det(\mathds{1}+ \epsilon A) = 1 + \epsilon \Tr A+\SO(\epsilon^2)$ on the above equation to get an approximation for the Jacobian as:
+$$J= \det(\pdv{x'^\mu}{x^\nu}) = \det(\tsr{\delta}{\mu}{\nu}+\partial_\nu(\delta x^\mu))\approx (1+\partial_\nu(\delta x^\mu)) \implies \delta J =\partial_\mu(\delta x^\mu) $$
+% The general variation in the Lagrangian is given by $$\delta\SL = \partial_\mu\SL \delta x^\mu +\pdv{\SL}{\phi}\var{\delta_0\phi} + \pdv{\SL}{(\partial_\nu\phi)}\delta(\partial_\nu\delta_0\phi)$$ If the equation of motion is further satisfied, we would obtain the variation in Lagrangian as:
+% $$\delta\SL = \partial_\mu\SL \delta x^\mu +\partial_\mu \qty(\pdv{\SL}{(\partial_\mu\phi)}\delta\delta_0\phi)$$
+Now, we consider the variation of the action itself and we see:
+\begin{align*}
+    \delta \Ss &= \int \delta (\dd^4\vb{x} )\  \SL + \int \dd^4\vb{x} \ \delta \SL\\
+    &=\int\dd^4\vb{x}\ \partial_\mu\delta x^\mu\SL + \int \dd^4\vb{x}\ \delta\SL\\
+    &=\int \dd^4\vb{x}\ \qty(\partial_\mu\delta x^\mu\SL+ \pdv{\SL}{\phi}\delta_0\phi + \pdv{\SL}{(\partial_\mu\phi)}\delta_0(\partial_\mu\phi)+\pdv{\SL}{x^\mu}\delta x^\mu)
+\end{align*}
+We had written the variation of the Lagrangian with respect to both dependent and independent variables. Now the first and last term can be written together using product rule and hence we have:
+\begin{align*}
+    \delta \Ss &= \int \dd^4\vb{x}\ \qty(\partial_\mu(\delta x^\mu \SL)+ \pdv{\SL}{\phi}\delta_0\phi + \pdv{\SL}{(\partial_\mu\phi)}\partial_\mu\delta_0\phi)\\
+    &=\int \dd^4\vb{x}\ \qty(\partial_\mu(\delta x^\mu \SL)+ \pdv{\SL}{\phi}\delta_0\phi + \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)}\delta_0\phi) - \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)})\delta_0\phi)\\
+    &=\int \dd^4\vb{x}\  \partial_\mu\qty(\delta x^\mu \SL +\qty(\pdv{\SL}{(\partial_\mu\phi)}\delta_0\phi))+\delta_0\phi\qty(\pdv{\SL}{\phi} - \partial_\mu\qty(\pdv{\SL}{(\partial_\mu\phi)}))
+\end{align*}
+For our field satisfying the equation of motion, the last term drops and we have our variation of the action and this should be equal to the boundary term, hence we have:
+\begin{align*}
+     \partial_\mu\qty(\delta x^\mu \SL +\qty(\pdv{\SL}{(\partial_\mu\phi)}\delta_0\phi)) =  \partial_\mu K^\mu
+\end{align*}
+In the case for multiple fields, the \textit{Noether current} turns out to be:
+$$J^\mu :=\pdv{\SL}{(\partial_\mu\phi_i)}\delta_0\phi_i +\delta x^\mu \SL  -  K^\mu\qquad\quad \partial_\mu J^\mu =0\qed$$
+The above condition is called \textit{current conservation} which we had also seen earlier for internal symmetries. However, the second term, which is purely an artifact of the spacetime symmetry, did not occur there in the conserved current for internal symmetries.  Associated with each current, we can define the charge enclosed in a volume $V$ as:
+$$Q_{V} := \int\limits_{V} \dd^3\vb{x} \ J^0(\vb{x},t) $$
+In most cases, we would have $K^\mu$ to be zero. Let us see some examples for Noether's theorem:
+\subsection{Examples: Spacetime Symmetries}
+\subsubsection{Translational Invariance}
+\subsubsection{Rotational Invariance}
+
+\subsection{Examples: Internal Symmetries}
+\subsubsection{Global $\mathbf{U(1)}$ Symmetry of Complex Scalar Field}
+Consider a complex scalar field $\phi$ with the following Lagrangian:
+$$\SL = (\partial_\mu \phi)(\partial^\mu \phi^*) - m^2\phi\phi^*$$
+Let us consider a $U(1)$ transformation \footnote{This is an \textit{internal} symmetry as spacetime points are not varied.}. Note that elements of the group $U(1)$ are represented by $e^{i\alpha}$, that is, they lie on the unit circle. Then, for an infinitesimal change $\psi\rightarrow e^{i\alpha}\psi$, $e^{i\alpha}=1 + i\alpha +\SO(\alpha^2)$\footnote{This is a \textit{global} symmetry as $\alpha$ does not depend on the spacetime coordinates} and we have:
+\begin{align*}
+    \phi' &= (1+i\alpha)\phi \implies \delta_\alpha\phi = i\alpha\\
+    {\phi^*}' &= (1-i\alpha)\phi^* \implies \delta_\alpha\phi^* = -i\alpha
+\end{align*}
+Under this transformation, we see that the Lagrangian is invariant, that is,
+$$\SL' = (\partial_\mu \phi')(\partial^\mu \phi'^*) - m^2\phi'\phi'^* = e^{i\alpha}e^{-i\alpha} (\partial_\mu \phi)(\partial^\mu \phi'^*) - e^{i\alpha}e^{-i\alpha}m^2\phi'\phi'^*= \SL$$
+From this, we can take $K^\mu = 0$. Using the formula for the conserved current, we have:
+$$J^\mu = i\alpha\phi(\partial^\mu \phi^*) -i\alpha\phi^* (\partial^\mu \phi) \sim i(\partial^\mu \phi^*\phi -\partial^\mu \phi\phi^* )$$
+The converved charge is then given by the volume integral:
+$$Q = \int \dd^3\vb{x}\ J^0 = -i\int \dd^3\vb{x}\ (\phi\dot{\phi}^* - \dot{\phi}\phi^*)$$
+\subsubsection{Global $\mathbf{SO(N)}$ symmetry of $\mathbf{N}$-real scalars}
