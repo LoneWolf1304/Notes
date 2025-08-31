@@ -108,9 +108,58 @@ We see that corresponding to the converved current from time translation invaria
 Now, let us see what happens for space translations, for which we consider $\nu\equiv j = 1,2,3$. Then we have:
 $$P^j = \int \dd^3 \vb{x} \ T^{0j} = \int \dd^3 \vb{x} \ \qty( \pdv{\SL}{(\partial_0 \phi_i)}\partial^j\phi_i-\cancelto{0}{g^{0j}}\SL) = \int \dd^3 \vb{x}\ \qty(\pi^i \partial^j\phi_i)$$
 The last thing is the $j^{\mathrm{th}}$ component of the total momentum which is conserved in this case. Thus, we see that for spatial translation invariance, the total momentum is conserved, which once again matches with the classical analog.
-\subsubsection{Rotational Invariance}
-
+\subsubsection{Lorentz Invariance}
+An infinitesimal Lorentz transformation (which covers both \textit{boosts} and \textit{rotations}) can be written as:
+$$\tsr{\Lambda}{\mu}{\nu} =\tsr{\delta}{\mu}{\nu}+\tsr{\omega}{\mu}{\nu} $$
+where $\tsr{\omega}{\mu}{\nu}$ is an infinitesimal deviation from the identity. Now, we know for any Lorentz transformation, $$\tsr{\Lambda}{\mu}{\tau}\eta^{\tau\sigma}\tsr{\Lambda}{\nu}{\sigma} = \eta^{\mu\nu} \iff \Lambda^{\mathrm{T}} \eta \Lambda = \eta$$
+If we put the infinitesimal transformation in the above equation and retain only terms upto first order in $\omega$, we would have $\omega^{\mu\nu} = \omega^{\nu\mu}$, that is, the infinitesimal deviation is an anti-symmetric matrix. The spacetime coordinates transforms as:
+$$x^\mu \rightarrow x'^\mu = \tsr{\Lambda}{\mu}{\nu} x^\nu = \tsr{\delta}{\mu}{\nu}x^\nu + \tsr{\omega}{\mu}{\nu} x^\nu = x^\mu + \tsr{\omega}{\mu}{\nu} x^\nu \implies \delta x^\mu = \tsr{\omega}{\mu}{\nu} x^\nu$$
+And the variation in $\phi$ is given as:
+\begin{align*}
+    \delta_0\phi_i = \phi'(x^\mu) - \phi(x^\mu)=\phi(x^\mu - \tsr{\omega}{\mu}{\nu} x^\nu) - \phi(x^\mu) = -\tsr{\omega}{\mu}{\nu} x^\nu\partial_\mu\phi_i
+\end{align*} 
+Now, we are ready to put in the variation of the Lagrangian:
+\begin{align*}
+    \partial_\mu \qty(
+        \delta x^\mu \SL 
+        + \delta_0 \phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+    )
+    &= \partial_\mu \qty(
+        \tsr{\omega}{\mu}{\nu} x^\nu \SL 
+        -\tsr{\omega}{\sigma}{\nu} x^\nu\partial_\sigma\phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+   ) \\[0.5em]
+    &= \partial_\mu \qty(\eta^{\mu\rho}\omega_{\rho\nu} x^\nu \SL 
+        -\eta^{\sigma\lambda}\omega_{\lambda\nu}  x^\nu\partial_\sigma\phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+           ) \\[0.5em]
+    &= \partial_\mu \qty(\eta^{\mu\rho}\omega_{\rho\nu} x^\nu \SL 
+        -\omega_{\lambda\nu}  x^\nu\partial^\lambda\phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+           ) \\[0.5em]
+    &= \partial_\mu \qty(\eta^{\mu\rho}\omega_{\rho\nu} x^\nu \SL 
+        -\omega_{\rho\nu}  x^\nu\partial^\rho\phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+           ) \\[0.5em]
+    &= \partial_\mu \qty(-\omega_{\rho\nu} x^\nu \times \qty(-\eta^{\mu\rho} \SL 
+        +\partial^\rho\phi_i \pdv{\SL}{(\partial_\mu \phi_i)}
+           )) \\[0.5em]
+    &= \partial_\mu \qty(-\omega_{\rho\nu} x^\nu T^{\rho\mu}) \\[0.5em]
+    &=\partial_\mu \qty(\omega_{\nu\rho} x^\nu T^{\rho\mu})
+\end{align*}
+Since the current must be conserved for all the six elements of the anti-symmetric matrix (since anti-symmetric so there are total $\frac{4\times (4-1)}{2} = 6$ independent entries), the part of $x^\nu T^{\rho\mu}$ which is anti-symmetric in $\rho$ and $\mu$ must be conserved. After antisymmetrising and considering current for each component, we have:
+$$M^{\nu\mu\rho} := x^\nu T^{\mu\rho} - x^\rho T^{\mu\nu} \qquad \partial_\mu M^{\nu\mu\rho} =0 $$
+Let us now see the conserved charges for this case. Corresponding to spatial rotations, we have:
+\begin{align*}
+    \SJ^{ij} =\int \dd^3\vb{x} \ M^{i0j} = \int \dd^3\vb{x}\ (x^i T^{0j} - x^j T^{0i})
+\end{align*}
+This can be related to the angular-momentum since $T^{0i}$ was related to $P^i$, the $i^{\mathrm{th}}$ component of the momentum. Hence, rotational invariance leads to the \textit{conservation of angular momentum}. Let us see what happens when we give \textit{boosts}. 
+$$\SJ^{0j} =\int \dd^3\vb{x} \ M^{00j} = \int \dd^3\vb{x}\ (x^0 T^{0j} - x^j T^{00})$$
+As $t=x^0$ and we know that the current $\SJ^{0j}$ must be conserved, we have:
+$$\dv{\SJ^{0j}}{t} = \dv{t}\int \dd^3\vb{x}\ (x^0 T^{0j} - x^j T^{00})= \int \dd^3\vb{x}\ T^{0j} + \int \dd^3\vb{x}\ t \ \partial_t T^{0j} - \dv{t}\int \dd^3\vb{x}\ x^j T^{00}=0$$
+In terms of $P^j$, the above equation can be written as:
+$$P^j + t\dv{P^j}{t} -\dv{t}\int \dd^3\vb{x}\ x^j T^{00} = 0$$
+Previously we had seen that $P^j$ was the conserved charge corresponding to spatial translation and hence $P^j$ is a constant, which gives us:
+$$\dv{t}\int \dd^3\vb{x}\ x^j T^{00} = \SC \ \mathrm(const.)$$
+The above relation can be seen as the centre of energy (or mass) of the field travels with constant velocity as $T^{00}$ can be treated as the Hamiltonian ($\approx$ energy) density. 
 \subsection{Examples: Internal Symmetries}
+Let us now look at internal symmetries, where the spacetime coordinates themselves do not change but the fields change due to some global transformations. 
 \subsubsection{Global $\mathbf{U(1)}$ Symmetry of Complex Scalar Field}
 Consider a complex scalar field $\phi$ with the following Lagrangian:
 $$\SL = (\partial_\mu \phi)(\partial^\mu \phi^*) - m^2\phi\phi^*$$
