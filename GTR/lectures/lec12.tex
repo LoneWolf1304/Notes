@@ -31,13 +31,13 @@ The above mentioned form has many subtleties, let us look at them one by one. Fi
     \input{pics/jacob.tex}
 \end{figure}
 \noindent
-In Cartesian coordinates, the volume element is $\dd V = \dd x \ \dd y$ while in the polar coordinates, the volume elements is $\dd V' = \dd r \ (r\ \dd \theta) = r \ \dd \theta \ \dd r$
+In Cartesian coordinates, the volume element (actually the area element since it is 2D) is $\dd V = \dd x \ \dd y$ while in the polar coordinates, the volume elements is $\dd V' = \dd r \ (r\ \dd \theta) = r \ \dd \theta \ \dd r$
 There is an extra factor $r$ apart from the coordinate differential. We denote it by $J(r,\theta)$ which is the \textit{Jacobian} of the transformation. Thus, to keep the volume element invariant, we need to add the effect of the Jacobian too!
 \subsection{Metric, Transformations and Jacobian}
 Consider the Leibniz formula for the determinant of a square $n\times n$ matrix. The formula says that for any matrix A, we have \footnote{You may also look into Sec 6.5.3 \href{https://raw.githubusercontent.com/LoneWolf1304/Notes/main/Tensor Analysis/main.pdf}{here}!}:
 $$\det(A) = \sum_{\tau \in S_n} \operatorname{sgn}(\tau) \prod_{i=1}^{n} a^{i}_{\tau(i)} 
 = \sum_{\sigma \in S_n} \operatorname{sgn}(\sigma) \prod_{i=1}^{n} a_{\sigma(i)}^{i}$$ 
-From this, we can derive another formula for the determinant using the Lev-Civita symbol:
+From this, we can derive another formula for the determinant using the Levi-Civita symbol:
 \begin{identity}
 $$\det(M)= \widetilde{\upepsilon}^{\mu_1'\ldots \mu_n'} \widetilde{\upepsilon}_{\mu_1\ldots \mu_n} \tensor{A}{^{\mu_1} _{\mu_1'}}\tensor{A}{^{\mu_2} _{\mu_2'}}\ldots\tensor{A}{^{\mu_n} _{\mu_n'}}$$
 \end{identity}
@@ -47,8 +47,8 @@ Let us keep this aside and calculate the volume element for a two-dimensional co
 \end{align*}
 What just happened here! \emoji{woozy-face}. First note that $p$ here is the sign of the permutation, that is, if the permutation $\alpha,\beta$ is odd then $p=-1$, else $p=0$. This is done to ensure that the quantity is positive. Also note that, $J$ as defined here should always be taken to be positive, to make $\dd V$ non-negative. Subtleties aside, if we expand the first expression, we would get:
 $$\dd V = J(\fvec{x}) \frac{1}{2}\qty(\upepsilon_{12} (-1)^0 \dd x^1 \dd x^2 + \upepsilon_{21}(-1)^{1} \dd x^2 \dd x^{1})= J(\fvec{x})\dd x^1 \dd x^2 $$
-This is indeed the expression for the volume element. The above formula is related to differential forms and wedge products which are defined in terms of \textit{alternating-operator} and gives a generalisation of the volume element $\dd V = dx^1\wedge dx^2 \wedge \ldots$.\\[0.2cm]
-Anyway, let us now calculate something. Since we want $\dd V = \dd V'$, then we demand that:
+This is indeed the expression for the volume element in the unprimed frame. The above formula is related to differential forms and wedge products which are defined in terms of \textit{alternating-operator} and gives a generalisation of the volume element $\dd V = dx^1\wedge dx^2 \wedge \ldots$ which we will not explore.\\[0.2cm]
+Anyways, let us now calculate something. Since we want $\dd V = \dd V'$, then we demand that:
 \begin{align*}
     J(\fvec{x})\frac{1}{2!} \upepsilon_{\alpha\beta}(-1)^p \dd x^\alpha \dd x^\beta &= J(\fvec{x}') \frac{1}{2!} \upepsilon_{\mu\nu}(-1)^p \dd x'^\mu \dd x'^\nu
 \end{align*}

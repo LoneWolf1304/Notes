@@ -1,7 +1,7 @@
 \refstepcounter{section}
 \section*{Lecture 11: Finding Geodesics}
 \addcontentsline{toc}{section}{Lecture 11: Finding Geodesics}
-Since a particle following the geodesics have no \textit{proper acceleration}, the geodesics generally represent the `straightest' path between two points in a space. Let us take the example for the shortest distance between two cities $A$ and $B$ on the Earth. Since the Earth can be assumed to be a sphere, we just need to find the geodesic equation on $\mathbb{S}^2$ and then solve it.
+Since a particle following the geodesics have no \textit{proper acceleration} in a local inertial frame, the geodesics generally represent the `straightest' path between two points in a space. Let us take the example for the shortest distance between two cities $A$ and $B$ on the Earth. Since the Earth can be assumed to be a sphere, we just need to find the geodesic equation on $\mathbb{S}^2$ and then solve it.
 \begin{figure}[H]
     \centering 
     \input{pics/geod.tex}
@@ -80,7 +80,7 @@ Note that we had obtained the equations for $\theta$ and $\phi$ in terms of $\ta
     \dot{\theta} &= \dv{\theta}{\phi}\dv{\phi}{\tau} = \dv{\theta}{\phi} \times \frac{\SA}{\sin^2\theta}\\
     \ddot{\theta}&= \dv{\phi}{\tau}\dv{\phi}\qty(\dv{\theta}{\phi}\frac{\SA}{\sin^2\theta}) = \frac{\SA}{\sin^2\theta}\dv{\phi}\qty(\dv{\theta}{\phi}\frac{\SA}{\sin^2\theta})
 \end{align*}
-Using this in Eq. \ref{eqn:geod1} we have:
+Using this in Eq. \ref{eqn:gd1} we have:
 \begin{alignat*}{3}
     &\frac{\SA}{\sin^2\theta} \dv{\phi}\qty(\frac{\SA}{\sin^2\theta}\dv{\theta}{\phi} )- \frac{\SA^2}{\sin^2\theta} \frac{\sin\theta\cos\theta}{\sin^2\theta} &&=0\\
  &\implies \dv{\phi}\qty(\frac{\SA}{\sin^2\theta}\dv{\theta}{\phi} )- \SA\cot\theta &&=0\\
@@ -89,7 +89,7 @@ Using this in Eq. \ref{eqn:geod1} we have:
 Now note that $\dv{\phi}(\cot\theta) = -\frac{1}{\sin^2\theta}\dv{\theta}{\phi}$ and using this, our equation becomes:
 $$ -\dv{\phi}\qty(\dv{\phi}(\cot\theta) )- \cot\theta =0\implies \dv[2]{\cot\theta}{\phi} = -\cot\theta$$
 The solution of the above can be written as:
-$$\cot\theta = c_1 \cos\phi+c_2\sin\phi \qquad \text{for some $c_1, c_2$}\label{eqn:gc}$$ 
+\begin{equation}\cot\theta = c_1 \cos\phi+c_2\sin\phi \qquad \text{for some $c_1, c_2$}\label{eqn:gc}\end{equation}
 So, what does this equation represent? For that, let us consider a plane passing through the origin whose equation is given by:
 $$ax + b y + c z = 0$$
 Now consider any sphere of radius $r_0$ and centred at origin. Any point on the sphere is parameterised by:
@@ -105,7 +105,7 @@ which is the same form as Eq. \ref{eqn:gc}. Thus, we conclude that the geodesics
     \caption{Moving along the great circle is shorter than moving along the latitude.}
 \end{figure}
 \noindent
-Note however that, if we travel on the opposite arc of the great circle, it will be the longest route. This is because, geodesics are paths of \textit{extreme} action, not only minimum. In general, thus, we should never fly along the latitude (except if it is the equation, since equator is itself a great circle). Now, let us consider a cylinder.
+Note however that, if we travel on the opposite arc of the great circle, it will be the longest route. This is because, geodesics are paths of \textit{extreme} action, not only minimum. In general, we should thus never fly along the latitude (except if it is the equator, since equator is itself a great circle). Now, let us consider a cylinder.
 \begin{figure}[H]
   \centering
 %   \includesvg[scale=1.4]{pics/helix.svg} 

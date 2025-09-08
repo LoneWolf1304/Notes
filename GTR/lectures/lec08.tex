@@ -9,7 +9,7 @@ This follows the rule of vector transformation and is thus a 4-vector. Moreover,
 \subsection{Emergence of Energy}
 Note that when defining the 4-momentum, we obtained:
 $$\fvec{p} = \gamma \qty(m_o c, m_o \tvec{v})$$
-While the spatial components do have a clear Newtonian limit in case of $v<< c (\gamma\rightarrow 1)$, it is not apriori clear what $p^0 = \gamma m_o c$ represent. Let us try to find out in the limit $v<<c$!
+While the spatial components do have a clear Newtonian limit in case of $v<< c \ (\gamma\rightarrow 1)$, it is not apriori clear what $p^0 = \gamma m_o c$ represent. Let us try to find out this quantity in the limit $v<<c$ !
 \begin{align*}
     p^0 &= \frac{m_o c}{\sqrt{1-\sfrac{v^2}{c^2}}}\\
     &= m_oc \qty(1- \sfrac{v^2}{c^2})^{-\sfrac{1}{2}}\\
@@ -17,7 +17,7 @@ While the spatial components do have a clear Newtonian limit in case of $v<< c (
 \end{align*}
 From the above thing, we obtain:
 $$p^0 c = m_o c + \frac{1}{2}m_ov^2 + \SO\qty(\sfrac{v^4}{c^4})$$
-The second term clearly resembles our familiar kinetic energy while we do not have a clear idea about the first term and the higher order terms. However, this quantity $p^0 c$ seems to be a right fit to be called the \textit{energy} (since it \textit{does}) contain one of the familiar energies. Let us then define the total energy of a relativistic particle as:
+The second term clearly resembles our familiar kinetic energy while we do not have a clear idea about the first term and the higher order terms. However, this quantity $p^0 c$ seems to be a right fit to be called the \textit{energy} (since it \textit{does} contain one of the familiar energies). Let us then define the total energy of a relativistic particle as:
 $$E:= p^0c$$
 Earlier we had seen that the norm $\norm{\fvec{p}} = - m_o^2 c^2$. Using this we have:
 \begin{alignat*}{3}
@@ -32,18 +32,17 @@ In the rest frame of the particle, the 3-momentum vanish, and hence we get the c
 $$E = m_oc^2$$
 Since the total energy of the particle $E = \sqrt{m_o^2c^4 + \norm{ \tvec{p}}^2 c^2}$, the kinetic energy can be obtained by subtracting the \textit{rest energy term}, that is, $\mathrm{K.E} = E-m_o c^2$
 \subsection{The many faces of Mass}
-Let us go back to the second law. Suppose there is a \textit{heavy} ball and a \textit{light} ball \footnote{Consider that heaviness or lightness is being subjectively determined by the observer's opinion}. Then we subject them to the same force. Acceleration of both bodies happend, however, we ofcourse expect the heavy ball to accelerate less than the light ball. 
+Let us go back to the second law. Suppose there is a \textit{heavy} ball and a \textit{light} ball \footnote{Consider that heaviness or lightness is being subjectively determined by the observer's opinion}. Then we subject them to the same force. Acceleration of both bodies happend, however, we of course expect the heavy ball to accelerate less than the light ball. 
 \begin{figure}[H]
     \centering 
     \input{pics/ball.tex}
 \end{figure}
 \noindent
-From this, we can say that there exist some innate property of an object which controls the amount of acceleration, even when same force is applied to different objects. This property is the proportionality constant between force and acceleration.\\ We can relate this to some kind of \textit{inertia} (a fashionable way of saying lethargy). We define the \textit{inertial mass} $m^I$ as:
+From this, we can say that there exists some innate property of an object which controls the amount of acceleration, even when same force is applied to different objects. This property is the proportionality constant between force and acceleration.\\ We can relate this to some kind of \textit{inertia} (a fashionable way of saying lethargy). We define the \textit{inertial mass} $m^I$ as:
 $$m^I := \frac{|\tvec{F}|}{|\tvec{a}|}$$
-The inertial mass is a measure of `heaviness to move'.\\[0.2cm]
-Now, let us consider the Coulomb's law and Newton's Gravitational Law parallely:
+The inertial mass is a measure of `heaviness to move'. Now, let us consider the Coulomb's law and Newton's Gravitational Law parallely:
 $$\tvec{F}_e = \frac{1}{4\pi \epsilon_0} \frac{q_1 q_2}{\rcurs^2}\hat{\brcurs} \qquad \tvec{F}_g = G  \frac{m_1 m_2}{\rcurs^2}\hat{\brcurs}$$
-Similar to $\tvec{F}_e : \mathrm{\ electrical force}$, we have $\tvec{F}_g :\mathrm{\ gravitaional \ force}$ while $\frac{1}{4\pi\epsilon_0} : \mathrm{\ electrostatic \ coupling \ constant}$ is analogous to $G  : \mathrm{\ gravitational \ coupling \ constant}$.\\[0.2cm]
+Similar to $\tvec{F}_e : \mathrm{\ electrical \ force}$, we have $\tvec{F}_g :\mathrm{\ gravitaional \ force}$ while $\frac{1}{4\pi\epsilon_0} : \mathrm{\ electrostatic \ coupling}$ $ \mathrm{constant}$ is analogous to $G  : \mathrm{\ gravitational \ coupling \ constant}$.\\[0.2cm]
 Then indeed the electrical charge $q_i$ must have the analogous gravitational charge $m_i$. Now, note that the gravitational charge, henceforth denoted by $m^G$ has no apriori relation to the previous inertial mass $m^I$ which came from the second law and was a property of the object itself. \\[0.2cm]
 We found an electrostatic analog of the gravitational law. It would have been nice to find some \textit{magnetic analog} too, so that, we can also find a combined `force' thing, similar to the Lorentz force $F = q\qty(\tvec{E}+ \vb{v}\times \vb{B})$\\[0.2cm]
 Consider the electric due to a charge $Q$ at a point. Then, the force on a charge $q$ kept at the point is given by:

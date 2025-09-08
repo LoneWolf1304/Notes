@@ -36,7 +36,7 @@ The four gradient apparently transform accordingly as $\boldsymbol{\bar{\partial
 \begin{definition}{Covector}
     If a mathematical object transforms under a coordinate transformation like the derivative $\boldsymbol{\bar{\partial}}$, then we call it a \textit{covariant vector} or \textit{covector} or a \textit{tensor of rank (0,1)}
 \end{definition}
-Actually vectors and covectors are defined based how the basis vectors of the space transform. Vectors transform in a way \textit{contrary} to the basis vectors and hence are called \textit{contravariant} while covectors transform in a way similar to how the basis transforms and hence called \textit{covariant}.\footnote{In the elegant language of differential geometry, vectors are actually the \textit{tangent vectors} belonging to the \textit{tangent space} of the space (\textit{manifold}) while covectors belong to the \textit{dual space} of the \textit{tangent space}.}
+Actually vectors and covectors are defined based on how the basis vectors of the space transform. Vectors transform in a way \textit{contrary} to the basis vectors and hence are called \textit{contravariant} while covectors transform in a way similar to how the basis transforms and hence called \textit{covariant}.\footnote{In the elegant language of differential geometry, vectors are actually the \textit{tangent vectors} belonging to the \textit{tangent space} of the space (\textit{manifold}) while covectors belong to the \textit{dual space} of the \textit{tangent space}.}
 \subsection{Tensors}
 Consider the product,
 $$\boldsymbol{\omega} = \vb{\bar{x}} \vb{\bar{x}}^T \equiv \begin{pmatrix}
@@ -59,7 +59,7 @@ This is yet another kind of transformation, different from either vector and cov
     If a mathematical object transforms, under a coordinate transformation, like $\underbrace{\vb{d\bar{x}}\otimes \ldots \otimes \vb{d\bar{x}}}_{m\ \mathrm{ times}}$ and like $\underbrace{\boldsymbol{\bar{\partial}}\otimes \ldots \otimes \boldsymbol{\bar{\partial}}}_{n\ \mathrm{ times}}$, then it is called a \textit{tensor of rank (m,n)}
 \end{definition}
 A prime example would be the \textit{moment of inertia tensor} $\tensor{I}{^{ij}}$ or the \textit{electromagnetic tensor} $F_{\mu\nu}$. \\
-We note that tensors have upstairs indices for each contravariant components and downstairs indices for each covariant component. \footnote{We can easily change upstairs to downstairs indices by the \textit{metric} and hence it is better to write tensors as $\tensor{T}{^\mu _\nu }$ and not $T^\mu_\nu$ so as to keep a vacant place for the indices to move up/down.}.
+We note that tensors have upstairs indices for each contravariant components and downstairs indices for each covariant component \footnote{We can easily change upstairs to downstairs indices by the \textit{metric} and hence it is better to write tensors as $\tensor{T}{^\mu _\nu }$ and not $T^\mu_\nu$ so as to keep a vacant place for the indices to move up/down.}.
 
 \begin{definition}[Scalar]
     If a mathematical object does not transform under a coordinate transformation, then it is called a \textit{scalar} or a \textit{tensor of rank (0,0)}.
@@ -74,8 +74,8 @@ $$dr^2 = \vb{dr}\cdot\vb{dr}= \vb{dr}^{\mathrm{T}}\vb{dr} = \begin{pmatrix}
 \end{pmatrix}$$
 However, notice the apparent problem if we generalise this to Lorentz transformation too. We have:
 $$ds^2 = -c^2dt^2 + dr^2$$
-This cannot be simply written as $\vb{d\bar{x}}^{\mathrm{T}}\vb{d\bar{x}}$, all due to that \textit{innocent} minus sign in front of $c^2dt^2 \equiv (dx^0)^2$. \\[0.2cm]
-\textbf{How do we generalise this notion of scalar as some matric product?}\\[0.2cm]
+This cannot be simply written as $\vb{d\bar{x}}^{\mathrm{T}}\vb{d\bar{x}}$, all due to that \textit{innocent} minus sign in front of $c^2dt^2 \equiv (dx^0)^2$ which was necessary to distinguish spatial and temporal components. \\[0.2cm]
+\textbf{How do we generalise this notion of scalar as some matrix product?}\\[0.2cm]
 For that, let us define another matrix which will take care of the minus sign:
 $$[g] \equiv \mqty(\dmat{-1,1,1,1})$$
 Using this, we can check that:

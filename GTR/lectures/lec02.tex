@@ -1,9 +1,9 @@
 \refstepcounter{section}
 \section*{Lecture 02: Galilean Stuffs}
 \addcontentsline{toc}{section}{Lecture 02: Galilean Stuffs}
-In the previous lecture, we saw how Newton's laws define an inertial frame and how we can rephrase the second and third law in terms of intertial frames, to avoid confusion. It happens that, there are reference frames where the first law doesn't hold true. \\[0.2cm]
+In the previous lecture, we saw how Newton's laws define an inertial frame and how we can rephrase the second and third law in terms of inertial frames, to avoid confusion. It happens that, there are reference frames where the first law doesn't hold true. \\[0.2cm]
 Imagine a person inside a darkened car, isolated from the outside world, with a ball hanging from the roof of the car. The car suddenly starts accelerating and (as intuition speaks) the ball starts moving. The person claims "The ball has moved!" \emoji{skull}.\\[0.2cm] Note that from the perspective of the person, no force has been applied to the ball, yet it moved, which is a direct violation of the second law. Thus, we can call this frame \textit{non-inertial}. \\[0.2cm]
-Now, consider a person inside an ill-fated lift, tragically falling \emoji{smiling-face-with-tear}.  Everything in the lift frame is accelerating together under gravity and hence `weightlessness' (free-fall) occurs. If somehow a coin is also there in the lift, it simply floats. And if the person pushes the coin, it moves with an almost constant velocity. Thus, it is a very good approximation to an \textit{intertial frame} (although, extremely tragic for the person!).
+Now, consider a person inside an ill-fated lift, tragically falling \emoji{smiling-face-with-tear}.  Everything in the lift frame is accelerating together under gravity and hence `weightlessness' (free-fall) occurs. If somehow a coin is also there in the lift, it simply floats. And if the person pushes the coin, it moves with an almost constant velocity. Thus, it is a very good approximation to an \textit{inertial frame} (although, extremely tragic for the person!).
 \begin{figure}[H]
     \centering 
     \input{pics/lift.tex}
@@ -13,7 +13,7 @@ Now, consider a person inside an ill-fated lift, tragically falling \emoji{smili
 We had always wanted the physical laws to stay the same. This is actually the statement of Galilean relativity:
 \begin{center}
     \itshape
-    ``Laws of physics (nature) must be the same in all intertial frames of reference'' 
+    ``Laws of physics (nature) must be the same in all inertial frames of reference'' 
 \end{center}
 By physical laws, we imply Newton's laws of mechanics and the law of gravitation. To have a more mathematical (and less philosophical) aspect to the above statement, we define the \textit{Galilean transformation}.
 \subsection{Galilean Transformation}
@@ -50,7 +50,7 @@ Now, the distance between the origins of two frames, at time $t$, will be $R = v
     \end{pmatrix}$
 \end{minipage}
    \end{center}
-\textcolor{red}{\textbf{An important assumption:}} The Galilean transformation assumes a \textit{universal time}, that is, time elapsed on clocks in both frames are the same \footnote{This was perhaps a fair assumption since time, atleast in the philosophical aspect, has always seemed to be \textit{superior}. }.\\[0.2cm]
+\textcolor{red}{\textbf{An important assumption:}} The Galilean transformation assumes a \textit{universal time}, that is, time elapsed on clocks in both frames are the same \footnote{This was perhaps a fair assumption since time, atleast in the philosophical aspect, has always seemed to be \textit{superior} and all-encompassing, second to none. }.\\[0.2cm]
 Now, it is not necessary for the observers to move along the $x$ axis only. Hence, generalising the transformation to arbitrary direction, we obtain:
 $$t'=t\qquad \vb{r'} = \vb{r} - \vb{v}t$$
 Now, let us look how the physical laws react under the Galilean transformation. 
@@ -69,7 +69,7 @@ Now, let us look how the physical laws react under the Galilean transformation.
 &=\vb{r}_2' - \vb{r}_1' \\ &=\brcurs'
     \end{align*}
     Thus, we see that the vector \brcurs \ is unchanged and since this is the only vector appearing in Newton's law of gravitation, we have:
-    $$\vb{F}_{12} =G \frac{m_1 m_2}{\rcurs^2}\ \hat{\rcurs} =G \frac{m_1 m_2}{\rcurs'^2}\ \hat{\rcurs}' = \vb{F}'_{12}$$
+    $$\vb{F}_{12} =G \frac{m_1 m_2}{\rcurs^2}\ \hat{\brcurs} =G \frac{m_1 m_2}{\rcurs'^2}\ \hat{\brcurs}' = \vb{F}'_{12}$$
    We see that the expression of the force does not change between frames, thus indicating a \textit{universality}.
     \item \textbf{Second Law:}\\[0.2cm]
     Using the second law, we can write $$\vb{F} = m\dv[2]{\vb{r}}{t}$$
@@ -82,5 +82,5 @@ Now, let us look how the physical laws react under the Galilean transformation.
 \subsection{A Big Blow to Galileo }
 Let us consider that in Fig. \ref{fig:gal_rel}, point $P$ is also moving with some velocity $\vb{u}'$ and $\vb{u}$ in primed and unprimed frame respectively. Then, we can write:
 $$\dv{\vb{u}}{t} = \dv{t} (\vb{r}' + \vb{v}t) = \dv{\vb{r}'}{t} + \vb{v} = \vb{u}'+\vb{v}\implies \vb{u} = \vb{u}'+\vb{v} \qquad \text{: velocity addition formula}$$
-However, observations, specially the Michelson-Morley experiment, were made in different frames but found the speed of light (henceforth denoted as $c$) to be a constant, which contradicted the velocity addition formula when applied to speed of light. \\[0.2cm]
+However, observations, specially the Michelson-Morley experiment, were made in different frames but found the speed of light (henceforth denoted as $c$) to be a constant frame-independent quantity, which contradicted the velocity addition formula when applied to speed of light. \\[0.2cm]
 Since the velocity addition formula depended entirely on the Galilean transformation, to resolve this conflict, we have to change the transformation rule in its entirety.
