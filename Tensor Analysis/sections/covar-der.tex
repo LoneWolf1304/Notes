@@ -392,7 +392,7 @@ Well, note that $\partial^\mu \upphi = g^{\mu \nu}\partial_\nu$ and since the me
     &=\frac{1}{r^2} \pdv{}{r} \left( r^2  \pdv{\upphi}{r} \right) + \frac{1}{r^2\sin\theta}\pdv{}{\theta} \left(  \sin\theta \pdv{\upphi}{\theta} \right) + \frac{1}{r^2\sin^2\theta}\pdv[2]{\upphi}{\phi}
 \end{align*}
 Wasn't this nice and simple, to derive the form of the Laplacian which has scared us for so long because it just looked ghastly and seemingly popped out of nowhere? 
-\subsubsection{A Thing or Two about Levi-Civita}
+\subsubsection{A Thing or Two about Levi-Civita}\label{sec:levi}
 Curls and cross-products cannot be done without the mention of Levi-Civita symbol. So, let us see a few things about that thing first. 
 We all know the famous $\upepsilon_{ijk}$, let us generalise this to higher number of indices and write it with a tilde. So, what we have is:
 $$\widetilde{\upepsilon}_{\mu_1\mu_2\ldots\mu_n} = \begin{cases}
@@ -444,7 +444,7 @@ $$\epsilon^{ijk}\epsilon_{ilm} = (-1)^s \times 1! \times \det\begin{pmatrix}
 \end{pmatrix} = (-1)^s \brac{\delta^j_l \delta^k_m - \delta^j_m \delta^k_l}$$
 Isn't this fun to finally see how this expression comes? Well, for me, yes but it is just an amusement for me, 'coz ultimately, to use it, we have to kinda remember it. Deriving things from scratch is a painful patch, with time to lose and little to match. 
 \subsubsection{Covariant Curl}
-In our normal vector calculus, we had often written the curl to be $\brac{\nabla\times A}^i = \epsilon_{ijk}\partial_i A^j$ (Note that I am not caring about any index position here, just placing them randomly). The natural generalisation is to replace the normal derivative with covariant derivative and the epsilon with the Levi-Civita tensor and proceed. Let us compute the $i^{\text{th}}$ component of the curl, that is, $C^i \equiv \epsilon^{ijk}D_j A_k =\frac{1}{\sqrt{|g|}}\widetilde{epsilon}^{ijk}D_j A_k $. Note that in the right side only two terms will contribute for which $j,k \neq i$. Consider $j\rightarrow k$ is symmetric while $k\rightarrow j$ is anti-symmetric. 
+In our normal vector calculus, we had often written the curl to be $\brac{\nabla\times A}^i = \epsilon_{ijk}\partial_i A^j$ (Note that I am not caring about any index position here, just placing them randomly). The natural generalisation is to replace the normal derivative with covariant derivative and the epsilon with the Levi-Civita tensor and proceed. Let us compute the $i^{\text{th}}$ component of the curl, that is, $C^i \equiv \epsilon^{ijk}D_j A_k =\frac{1}{\sqrt{|g|}}\widetilde{\epsilon}^{ijk}D_j A_k $. Note that in the right side only two terms will contribute for which $j,k \neq i$. Consider $j\rightarrow k$ is symmetric while $k\rightarrow j$ is anti-symmetric. 
 \begin{align*}
     C^i &= \frac{1}{\sqrt{|g|}}\brac{\widetilde{\epsilon}^{ijk}D_j A_k+\widetilde{\epsilon}^{ikj}D_k A_j }\\
     &=\frac{1}{\sqrt{|g|}}\brac{D_j A_k-D_k A_j }\\

@@ -350,3 +350,34 @@
 ]{lem}
 
 \declaretheorem[style=lem, name=Lemma]{lemma}
+
+
+
+
+\mdfdefinestyle{idbox}{
+    backgroundcolor=springgreen!10!white,
+    nobreak=true,
+    innertopmargin=7pt,
+    innerleftmargin=7pt,
+    innerrightmargin=7pt,
+    linecolor=springgreen,
+    linewidth=3pt,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    leftline=true
+}
+
+\declaretheoremstyle[
+    mdframed={style=idbox},
+    spaceabove={0pt},
+    spacebelow={2pt},
+    bodyfont={\normalfont},
+    headindent={0pt},
+    notefont={\sffamily\bfseries},
+    headfont={\color{OliveGreen}\sffamily\bfseries},
+    headpunct={:\\},
+    postheadspace={1pt},
+]{idty}
+ 
+\declaretheorem[style=idty, name=Identity]{identity}
