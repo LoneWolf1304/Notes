@@ -1,3 +1,125 @@
 \refstepcounter{section}
 \section*{Lecture 10 \& 11: Field Quantisation}
 \addcontentsline{toc}{section}{Lecture 10 \& 11: Field Quantisation}
+
+So far we had worked with classical fields. In the introduction, we saw that, quantum theories due to decoherence, transforms to classical theories, with an inevitable loss of information. Thus, finding the quantum theory leading to the classical model (working backwards) is not \textit{unique}. More than one quantum field theory might have the same classical limit. Thus, while doing the quantisation process, we always have to make an \textit{educated guess}!\\[0.2cm]
+ Now, let us make the KG field \textit{quantum} by quantising the canonical coordinates, similar to as we did for the harmonic oscillator.\\[0.2cm]
+We have our classical field $\phi(\tvec{x}, t)$ and its canonical conjugate momentum $\pi(\tvec{x},t)$ which become operators $\hat{\phi}(x)$ and $\hat{\pi}(x)$\footnote{Note that we will write four vectors with non-bold letter, as $x$ will denote the four components of the four-vector. To denote the three vectors, we will write in bold-face, that is, $\tvec{x}$ }. The classical Poisson bracket changes to the commutator, that is, $\{\cdot, \cdot\}\rightarrow i[\cdot,\cdot]$. \\[0.2cm]
+A quantum treatment of a classical Hamiltonian is sometimes messy since we have to maintain the Hermiticity condition and there can be multiple ways to do that. However, almost always, we just put the hats on appropriate places and wish we are correct! \\[0.2cm]
+Classically, we had $\{\phi(\tvec{x}), \pi(\tvec{y})\} = \delt{3}{\tvec{x}-\tvec{y}}$ and by the same logic:
+\[ [\hat{\phi}(\tvec{x}), \hat{\pi}(\tvec{y})] = i\delt{3}{\tvec{x}-\tvec{y} }\]Let us take their Fourier transforms,
+\begin{align*}
+    \widetilde{\phi}(\tvec{k},t) &= \int \dd^3\tvec{x} e^{-i \tvec{k}\cdot \tvec{x}} \phi(\tvec{x},t)\\
+    \widetilde{\pi}(\tvec{k},t) &= \int \dd^3\tvec{x} e^{-i \tvec{k}\cdot \tvec{x}} \pi(\tvec{x},t)
+\end{align*}
+Let us now consider the Klein-Gordon equation,
+$$\SL = \frac{1}{2}(\partial_\mu \phi) (\partial^\mu \phi )- \frac{1}{2}m^2\phi^2 \iff (\partial_\mu \partial^\mu + m^2)\phi = 0$$
+Expanding the field in Fourier space, we would obtain the following:
+$$\left(\pdv[2]{t} + (|\tvec{p}|^2+m^2)\right)\tilde{\phi}(\tvec{p},t)=0$$
+Note that this is the equation for a classical harmonic oscillator with frequency $\omega_{\tvec{p}} = \sqrt{|\tvec{p}|^2+m^2}$ and the general solution $\widetilde{\phi}(\tvec{x},t)$ will be a linear combination of 
+$e^{i\omega_{\tvec{p}}}$ and $e^{-i\omega_{\tvec{p}}}$. Thus we have,
+$$\widetilde{\phi}(\tvec{p},t) = A(\tvec{p}) e^{i\omega_{\tvec{p}}t} + B(\tvec{p})e^{-i\omega_{\tvec{p}}t} \qquad \omega_{\tvec p} = \sqrt{|\tvec p|^2 + m^2}$$
+Now, in the quantum domain, $A(\tvec{p})$ and $B(\tvec{p})$ will become the creation and annihilation operators $\aa{\tvec{p}}$ and $\ad{\tvec{p}}$ and in that spirit, let us define the field operators in terms of the annihilation and creation operators for each Fourier mode. Note that, for simplicity we define the field operators at $t=0$. 
+\begin{align*}
+    \hat{\phi}(\tvec{x})&:= \int \frac{\dd^3\tvec{p}}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\tvec{p}}}}\qty(\hat{a}_{\tvec{p}} e^{i \tvec{p}\cdot \tvec{x}} + \hat{a}_{\tvec{p}}^\dagger e^{-i \tvec{p}\cdot \tvec{x}})\\
+    \hat{\pi}(\tvec{x})&:= \int \frac{\dd^3\tvec{p}}{(2\pi)^3}(-i)\sqrt{\frac{\omega_{\tvec{p}}}{2}}\qty(\hat{a}_{\tvec{p}} e^{i \tvec{p}\cdot \tvec{x}} - \hat{a}_{\tvec{p}}^\dagger e^{-i \tvec{p}\cdot \tvec{x}})
+\end{align*}
+where $\omega_{\tvec{p}} = \sqrt{|{\tvec{p}}|^2+m^2}$ is the frequency of the mode with momentum $\tvec{p}$. Replacing $\tvec{p}$ with $-\tvec{p}$ in the second term, the above can also be written in a more compact way as:
+\begin{align*}
+    \hat{\phi}(\tvec{x})&:= \int \frac{\dd^3\tvec{p}}{(2\pi)^3}\frac{1}{\sqrt{2\omega_{\tvec{p}}}}\qty(\hat{a}_{\tvec{p}}+ \hat{a}_{-\tvec{p}}^\dagger)e^{i \tvec{p}\cdot \tvec{x}}\\
+    \hat{\pi}(\tvec{x})&:= \int \frac{\dd^3\tvec{p}}{(2\pi)^3}(-i)\sqrt{\frac{\omega_{\tvec{p}}}{2}}\qty(\hat{a}_{\tvec{p}} -\hat{a}_{-\tvec{p}}^\dagger )e^{i \tvec{p}\cdot \tvec{x}}
+\end{align*}
+Let us check the commutation relation:
+\begin{align*}
+    \comtr{\hat{\phi}(\tvec{x})}{\hat{\pi}(\tvec{y})}&=\int\meas{\tvec{p}}\meas{\tvec{p}'}\frac{(-i)}{2}\sqrt{\frac{\omp}{\ompd}}\qty(\comtr{\hat{a}_{\tvec{p}}+ \hat{a}_{-\tvec{p}}^\dagger}{\hat{a}_{\tvec{p}'} -\hat{a}_{-\tvec{p}'}^\dagger})e^{i(\vb{p}\cdot \vb{x} + \vb{p}'\cdot \vb{y})} = i\delt{3}{\tvec{x}-\vb{y}}
+\end{align*}
+Note that the above relation can be satisfied if we take:
+$$\comtr{\ann{\vb{p}}}{\cre{\vb{p}'}}= (2\pi)^3\delt{3}{\vb{p}-\vb{p}'}\mathds{1}$$
+Now, let us do a horrenduous calculation, which will then lead to a horrenduous result and after some reasoning based on physical grounds, we will obtain a cute result. From the Hamiltonian density, we have the total Hamiltonian as:
+$$\hat{H} = \int\dd^3\vb{x} \ \SH = \int \dd^3\vb{x} \ \qty(\frac{1}{2}\hat{\pi}^2 + \frac{1}{2}(\nabla \hat{\phi})^2 + \frac{1}{2}m^2\hat{\phi}^2)$$
+Let us calculate this term by term. The first term gives us:
+\begin{align*}
+    \int \dd^3\vb{x} \ \pi^2(\vb{x}) &=  \int \dd^3\vb{x}\meas{\vb{\vb{p}}}\meas{\vb{p}'}\frac{\sqrt{\omp \ompd}}{-2} (\ann{\tvec{p}}-\cre{\tvec{-p}})(\ann{\tvec{p}'}-\cre{\tvec{-p}'}) e^{i(\vb{p}+\vb{p}')\cdot \vb{x}}\\
+    &= \int \meas{\vb{\vb{p}}}\dd^3\vb{p}'\frac{\sqrt{\omp \ompd}}{-2} (\ann{\tvec{p}}-\cre{\tvec{-p}})(\ann{\tvec{p}'}-\cre{\tvec{-p}'}) \delt{3}{\vb{p}+\vb{p}'}\\
+    &=\int \meas{\vb{\vb{p}}}\qty[-\frac{\omp}{2}] (\ann{\tvec{p}}-\cre{\tvec{-p}})(\ann{\tvec{-p}}-\cre{\tvec{p}}) \\
+    &=\int \meas{\vb{\vb{p}}}\qty[-\frac{\omp}{2}] (\annp\annmp -\annp\crep-\cremp\annmp+\cremp\crep)
+\end{align*}
+From the last term, we have:
+\begin{align*}
+    \int \dd^3\vb{x} \ \phi^2(\vb{x}) &=  \int \dd^3\vb{x}\meas{\vb{\vb{p}}}\meas{\vb{p}'}\frac{1}{2\sqrt{\omp \ompd}} (\ann{\tvec{p}}+\cre{\tvec{-p}})(\ann{\tvec{p}'}+\cre{\tvec{-p}'}) e^{i(\vb{p}+\vb{p}')\cdot \vb{x}}\\
+    &= \int \meas{\vb{\vb{p}}}\dd^3\vb{p}'\frac{1}{2\sqrt{\omp \ompd}} (\ann{\tvec{p}}+\cre{\tvec{-p}})(\ann{\tvec{p}'}+\cre{\tvec{-p}'}) \delt{3}{\vb{p}+\vb{p}'}\\
+    &=\int \meas{\vb{\vb{p}}}\qty[\frac{1}{2\omp}] (\ann{\tvec{p}}+\cre{\tvec{-p}})(\ann{\tvec{-p}}+\cre{\tvec{p}}) \\
+    &=\int \meas{\vb{\vb{p}}}\qty[\frac{1}{2\omp}] (\annp\annmp +\annp\crep+\cremp\annmp+\cremp\crep)
+\end{align*}
+Now comes the second term. For this, note that we have $\nabla (e^{i \vb{k}\cdot \vb{x}}) = i\vb{k} (e^{i \vb{k}\cdot \vb{x}})$. Using this, we obtain:
+\begin{align*}
+    \int \dd^3\vb{x}\ (\nabla \phi)\cdot (\nabla\phi) &= \int \dd^3\vb{x}  \meas{\vb{\vb{p}}}\meas{\vb{\vb{p'}}} \frac{1}{2\sqrt{\omp\ompd}}\qty[i\vb{p} (\annp+\cremp)e^{i \vb{p}\cdot \vb{x}}]\cdot \qty[i\vb{p}' (\annpd+\crempd)e^{i \vb{p}'\cdot \vb{x}}]\\
+    &= -\int \dd^3\vb{x}  \meas{\vb{\vb{p}}}\meas{\vb{\vb{p'}}} \frac{1}{2\sqrt{\omp\ompd}}\qty[(\vb{p}\cdot \vb{p}') (\annp+\cremp)(\annpd+\crempd)] e^{i (\vb{p}+\vb{p}')\cdot \vb{x}}\\
+    &=-\int  \meas{\vb{\vb{p}}}\dd^3\vb{p}' \frac{1}{2\sqrt{\omp\ompd}}\qty[(\vb{p}\cdot \vb{p}') (\annp+\cremp)(\annpd+\crempd)] \delt{3}{\vb{p}+\vb{p}'}\\
+    &=\int  \meas{\vb{\vb{p}}} \frac{1}{2\omp}\qty[(\vb{p}^2) (\annp+\cremp)(\annmp+\crep)] \\
+    &=\int  \meas{\vb{\vb{p}}} \frac{\vb{p}^2}{2\omp}\qty(\annp\annmp+\annp\crep+\cremp\annmp+\cremp\crep)
+\end{align*}
+Adding all the terms with correct pre-factors, we obtain the following:
+\begin{align*}
+    \hat{H} &= \int  \meas{\vb{\vb{p}}}\qty{\qty[-\frac{\omp}{4}] (\annp\annmp -\annp\crep-\cremp\annmp+\cremp\crep)}+\qty{\qty[\frac{m^2}{4\omp}] (\annp\annmp +\annp\crep+\cremp\annmp+\cremp\crep)}\\
+    & \qquad\qquad\qquad\qquad +\qty{\frac{\omp^2-m^2}{4\omp}\qty(\annp\annmp+\annp\crep+\cremp\annmp+\cremp\crep)}\\
+    &=\int  \meas{\vb{\vb{p}}} \frac{\omp}{4}\qty(\cancel{\annp\annmp}+\annp\crep+\cremp\annmp+\cancel{\cremp\crep} -\cancel{\annp\annmp} +\annp\crep+\cremp\annmp-\cancel{\cremp\crep})\\
+    &\qquad\qquad\qquad\qquad + \frac{m^2}{4\omp}\qty(\cancel{\annp\annmp} +\cancel{\annp\crep}+\cancel{\cremp\annmp}+\cancel{\cremp\crep} - \cancel{\annp\annmp}-\cancel{\annp\crep}-\cancel{\cremp\annmp}-\cancel{\cremp\crep}) \\
+    &=\int  \meas{\vb{\vb{p}}} \frac{\omp}{2}\qty(\annp\crep+\cremp\annmp) = \int  \meas{\vb{\vb{p}}} \frac{\omp}{2}\qty(\annp\crep+\crep\annp)
+\end{align*}
+Now, using the commutator as obtained before, we get:
+$$\hat{H} = \int  \meas{\vb{\vb{p}}} \frac{\omp}{2}\qty((2\pi)^3\delt{3}{0}+2\crep\annp) = \int  \meas{\vb{\vb{p}}} \omp \crep\annp +\int \meas{\vb{\vb{p}}} \frac{\omp}{2}\delt{3}{0}$$
+This is the end of the horrenduous calculation and now we discuss the horrenduous term (the second term) which was obtained as a result of applying the commutator. Since this contains a delta-function (distribution?) and the integral is over all momentum, this definitely cannot be a finite quantity, hence it diverges. This term basically represents the zero-point energies of the harmonic oscillators (since there are infinite number of harmonic oscillators, we have a divergent zero-point energy). The fortunate thing is that this is a constant. \\[0.2cm]
+When physically measuring energies, only differences can be calculated and hence this term gets cancelled and thus, no divergence actually happens.\footnote{This infinite term is sometimes attributed to the \textit{cosmological constant}. It also has some role in the \textit{Casimir effect}.}\\[0.2cm]
+Thus, in all practicality, we can rescale our energy and we obtain the Hamiltonian as: 
+$$\hat{H} = \int  \meas{\vb{\vb{p}}} \omp \crep\annp$$
+Now, let us see the commutator of the ladder operators with the Hamiltonian. We have:
+\begin{align*}
+    \comtr{\hat{H}}{\crep} &= \int \meas{\vb{\vb{p}'}} \ompd \comtr{\crepd\annpd}{\crep} = \int \meas{\vb{\vb{p}'}} \ompd \crepd \comtr{\annpd}{\crep} = \int \meas{\vb{\vb{p}'}}\ompd \crepd (2\pi)^3 \delt{3}{\vb{p}-\vb{p}'} = \omp \crep\\
+    \comtr{\hat{H}}{\annp} &= \int \meas{\vb{\vb{p}'}} \ompd \comtr{\crepd\annpd}{\annp} = \int \meas{\vb{\vb{p}'}} \ompd  \comtr{\crepd}{\annp}\annpd = -\int \meas{\vb{\vb{p}'}}\ompd \annpd (2\pi)^3 \delt{3}{\vb{p}-\vb{p}'} = -\omp \annp
+\end{align*}
+\subsection{Conserved Charges}
+Note that we already found the Hamiltonian which is one of the conserved charges corresponding to $T^{00}$. Let us now focus on the momentum, that is, $\hat{P}^j$ corresponding to $T^{0j}$
+$$\hat{P}^j = \int \dd^3\vb{x} \ \hat{T}^{0j} = -\int \dd^3\vb{x}\ \hat{\pi} \partial_j \hat{\phi}$$
+Note that, while changing from the classical expression to quantum by `putting hats', we had several choices for the ordering of $\hat{\pi}$ and $\hat{\phi}$ but here, we specify the one which works!\\[0.2cm]
+We now have two options, either to do the calculation again or just specify the result of this calculation since this had already been done by stalwarts before. We choose the former and thus, we have:
+\begin{align*}
+   \int \dd^3\vb{x}\ \hat{\pi} \partial_j \hat{\phi} &=  \int \dd^3\vb{x}\  \meas{\vb{\vb{p}}}\meas{\vb{\vb{p}'}} (-i)\sqrt{\frac{\omp}{2}}\frac{1}{\sqrt{2\ompd}} \qty(\annp-\cremp) ip'_j  \qty(\annpd+\crempd) e^{i (\vb{p}+\vb{p}')\cdot\vb{x}}\\
+   &=\int \meas{\vb{\vb{p}}} \sqrt{\frac{\omp}{2}}\frac{1}{\sqrt{2\omp}} \qty(\annp-\cremp) p'_j  \qty(\annmp+\crep)\\
+   &= \frac{1}{2}\int \meas{\vb{\vb{p}}} p_j (\annp\annmp +\annp\crep - \cremp\annmp-\cremp\crep)
+\end{align*}
+Now, note the following:
+\begin{align*}
+  \mathcal{I} =  \frac{1}{2}\int \meas{\vb{\vb{p}}} p_j  (\annp\annmp -\cremp\crep) \qquad\myeq{$\vb{p}\rightarrow -\vb{p}$} \qquad \frac{1}{2}\int \meas{\vb{\vb{p}}} (-p_j)  (\annmp\annp -\crep\cremp) = - \mathcal{I}
+\end{align*}
+The last equality comes since the creation and annihilation operators commute for different values of the momentum. Thus, this integral is zero and the expression for the total momentum becomes:
+\begin{align*}
+    \hat{P}^j &=\frac{1}{2}\int \meas{\vb{\vb{p}}} p_j \qty(\annp\crep -\cremp\annmp) = \frac{1}{2}\int \meas{\vb{\vb{p}}} p_j \qty(\annp\crep +\crep\annp) = \frac{1}{2}\int \meas{\vb{\vb{p}}} p_j \crep\annp
+\end{align*}
+In the last term, we introduced the commutator and removed the constant infinity term. 
+\subsection{Normal Ordering}
+The way we are doing, like removing the infinities, is a common thing in QFT. This purely results from the fact the things commute in the classical case and hence there is always an order ambiguity when we move to quantum.\\[0.2cm]
+For example, if in classical scenario, we have some term like $xp$, when elevating (idk if its really elevating) these things to operators, we can have multiple possibilities, viz. $\hat{x}\hat{p}$, $\hat{p}\hat{x}$ or even $\frac{1}{2}\qty(\hat{x}\hat{p} + \hat{p}\hat{x})$ (placing things symmetrically). Each one would present some additional constant on the final result, since the commutator of $\hat{p}$ and $\hat{x}$ is just a constant. \\[0.2cm]
+To be consistent, we generally use \textit{normal ordering}, that is, keeping all the creation operators to the left. For that we define the \textit{normal ordering operator}, $\widehat{\SN}$. For example,
+$$\widehat{\SN}[\crep\annp] = \crep\annp\qquad \widehat{\SN}[\annp\crep] = \crep\annp \qquad \widehat{\SN}[\crep\annp\annp\crep]=\crep\crep\annp\annp \quad \ldots$$
+The $\widehat{\SN}$ is not an operator in the sense that is doesn’t act on a state to provide some new information. Instead, normal ordering is an interpretation that we use to eliminate the meaningless infinities that occur in field theories. So the rule goes that `if you want to tell someone about
+a string of operators in quantum field theory, you have to normal order them first'. Thus, in operators like $\hat{P}$ and $\hat{H}$, in the final expression, we don't use the commutator but the normal operator operator, which will then completely subdue the issue of the appearance of Dirac-delta.
+\subsection{Constructing the Hilbert Space}
+The entire basis for this is the harmonic oscillator. In quantum SHO, we started with the vacuum and then acted creation operator successively on the vacuum to create excited states. Here, we will also do the same. Let us define the vacuum state $\ket{\Omega}$ such that,
+$$\annp\vac = 0\ \forall \ \vb{p}$$
+With such a definition, on physical grounds also, we obtain,
+$$\hat{H}\vac = 0\implies \ \text{Ground state has zero energy}$$
+The vacuum can be written explicitly as:
+$$\vac = \bigotimes\limits_{\vb{p}} \ket{\Omega}_{\vb{p}} \qquad  \ket{\Omega}_{\vb{p}} \rightarrow \text{vac. of SHO with mom. $\vb{p}$}$$
+The Hilbert space is then built as the space generated by all finite linear combinations of vectors of the form: 
+$$\ket{\vb{p}_1, \vb{p}_2,\ldots \vb{p}_n} \equiv \cre{\vb{p}_1}\cre{\vb{p}_2}\ldots\cre{\vb{p}_n}\vac $$
+Till now, this is not exactly the Hilbert space, since we did not account for the norm of the vectors, where a huge subtlely lies. \\[0.2cm]
+Note that $\ket{\vb{p}_1, \vb{p}_2,\ldots \vb{p}_n}$ is an eigenstate of both $\hat{H}$ and $\hat{P}$ since,
+\begin{align*}
+    \hat{H}\ket{\vb{p}_1, \vb{p}_2,\ldots \vb{p}_n} &= (\omega_{\vb{p}_1} +\ldots+\omega_{\vb{p}_n})\ket{\vb{p}_1, \vb{p}_2,\ldots \vb{p}_n}\\
+    \hat{P}\ket{\vb{p}_1, \vb{p}_2,\ldots \vb{p}_n} &= (\vb{p}_1+\ldots+\vb{p}_n)\ket{\vb{p}_1, \vb{p}_2,\ldots \vb{p}_n}
+\end{align*}
+Since the creation operators commute, the multi-particle states are symmetric under exchange of
+particles, that is, the particles follow \textit{Bose-Einstein} statistics.\\[0.2cm] For a general many-particle system, this `pre'-Hilbert space is termed as \textit{Fock space} $\mathfrak{F}$ and is formally defined with respect to direct-sums,
+$$\mathfrak{F} = \bigoplus\limits_{n=0}^\infty \mathscr{H}^{\otimes n}$$
+where $\mathscr{H}^{\otimes n}$ is the n-times tensor product of the Hilbert space. In simple terms, $\mathscr{H}^{\otimes 0}$ is the space spanned by the vacuum state, $\mathscr{H}^{\otimes 1}$ is the space spanned by $\ket{\vb{p}}$. For $n\geq 2$, we have to consider the fermionic and bosonic properties too, that is, in our case, since these are bosons,  $\mathscr{H}^{\otimes 2} = \mathrm{Sym.} (\mathscr{H}\otimes \mathscr{H})$ is the space spanned by $\ket{\vb{p}_1, \vb{p}_2}$ such that Bose statisitcs is followed  and so on... 

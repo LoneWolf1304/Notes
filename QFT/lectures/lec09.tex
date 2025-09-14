@@ -2,6 +2,7 @@
 \section*{Lecture 09: Noether's Theorem}
 \addcontentsline{toc}{section}{Lecture 09: Noether's Theorem}
 To understand Noether's Theorem, let us first understand what symmetry actually is. Symmetry of a system can be thought of as some transformation under which the properties of the system remain invariant. 
+\noindent
 \begin{figure}[H]
     \centering 
     \input{pics/symm.tex}
@@ -117,7 +118,7 @@ $$x^\mu \rightarrow x'^\mu = \tsr{\Lambda}{\mu}{\nu} x^\nu = \tsr{\delta}{\mu}{\
 And the variation in $\phi$ is given as:
 \begin{align*}
     \delta_0\phi_i = \phi'(x^\mu) - \phi(x^\mu)=\phi(x^\mu - \tsr{\omega}{\mu}{\nu} x^\nu) - \phi(x^\mu) = -\tsr{\omega}{\mu}{\nu} x^\nu\partial_\mu\phi_i
-\end{align*} 
+\end{align*}
 Now, we are ready to put in the variation of the Lagrangian:
 \begin{align*}
     \partial_\mu \qty(
@@ -174,4 +175,4 @@ From this, we can take $K^\mu = 0$. Using the formula for the conserved current,
 $$J^\mu = i\alpha\phi(\partial^\mu \phi^*) -i\alpha\phi^* (\partial^\mu \phi) \sim i(\partial^\mu \phi^*\phi -\partial^\mu \phi\phi^* )$$
 The converved charge is then given by the volume integral:
 $$Q = \int \dd^3\vb{x}\ J^0 = -i\int \dd^3\vb{x}\ (\phi\dot{\phi}^* - \dot{\phi}\phi^*)$$
-\subsubsection{Global $\mathbf{SO(N)}$ symmetry of $\mathbf{N}$-real scalars}
+% \subsubsection{Global $\mathbf{SO(N)}$ symmetry of $\mathbf{N}$-real scalars}

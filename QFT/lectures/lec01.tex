@@ -1,10 +1,78 @@
 \refstepcounter{section}
-\section*{Lecture 01: Quantum SHO}
-\addcontentsline{toc}{section}{Lecture 01: Quantum SHO}
+\section*{Lecture 01: Intro and Quantum SHO}
+\addcontentsline{toc}{section}{Lecture 01: Intro and Quantum SHO}
 \begin{center}
     \textit{People do `weird' stuffs for earning,\\
     You can do the same for learning!}
 \end{center}
+Many physical theories have been proposed and it is imperative to see how each theory is linked with the previous in some way. 
+
+\begin{figure}[H]
+    \centering 
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,231); %set diagram left start at 0, and has height of 231
+
+%Rounded Rect [id:dp04045161721062518] 
+\draw  [fill={rgb, 255:red, 80; green, 227; blue, 194 }  ,fill opacity=0.16 ] (88,65.96) .. controls (88,60.46) and (92.46,56) .. (97.96,56) -- (164.72,56) .. controls (170.22,56) and (174.68,60.46) .. (174.68,65.96) -- (174.68,95.84) .. controls (174.68,101.34) and (170.22,105.8) .. (164.72,105.8) -- (97.96,105.8) .. controls (92.46,105.8) and (88,101.34) .. (88,95.84) -- cycle ;
+%Straight Lines [id:da9238779095802152] 
+\draw    (188,80) -- (226.68,79.81) ;
+\draw [shift={(228.68,79.8)}, rotate = 179.72] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp976885832929825] 
+\draw  [fill={rgb, 255:red, 80; green, 227; blue, 194 }  ,fill opacity=0.16 ] (241,65.76) .. controls (241,60.37) and (245.37,56) .. (250.76,56) -- (319.92,56) .. controls (325.31,56) and (329.68,60.37) .. (329.68,65.76) -- (329.68,95.04) .. controls (329.68,100.43) and (325.31,104.8) .. (319.92,104.8) -- (250.76,104.8) .. controls (245.37,104.8) and (241,100.43) .. (241,95.04) -- cycle ;
+%Straight Lines [id:da4598982283998513] 
+\draw    (341,80) -- (379.68,79.81) ;
+\draw [shift={(381.68,79.8)}, rotate = 179.72] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp7151627684271243] 
+\draw  [fill={rgb, 255:red, 80; green, 227; blue, 194 }  ,fill opacity=0.16 ] (393,65.56) .. controls (393,60.28) and (397.28,56) .. (402.56,56) -- (470.12,56) .. controls (475.4,56) and (479.68,60.28) .. (479.68,65.56) -- (479.68,94.24) .. controls (479.68,99.52) and (475.4,103.8) .. (470.12,103.8) -- (402.56,103.8) .. controls (397.28,103.8) and (393,99.52) .. (393,94.24) -- cycle ;
+%Straight Lines [id:da9609044385183259] 
+\draw    (288,116) -- (326.27,154.38) ;
+\draw [shift={(327.68,155.8)}, rotate = 225.08] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4283292725093375] 
+\draw    (438,116) -- (400.09,154.38) ;
+\draw [shift={(398.68,155.8)}, rotate = 314.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Rounded Rect [id:dp17131681227623108] 
+\draw  [fill={rgb, 255:red, 80; green, 227; blue, 194 }  ,fill opacity=0.16 ] (320,170.56) .. controls (320,165.28) and (324.28,161) .. (329.56,161) -- (397.12,161) .. controls (402.4,161) and (406.68,165.28) .. (406.68,170.56) -- (406.68,199.24) .. controls (406.68,204.52) and (402.4,208.8) .. (397.12,208.8) -- (329.56,208.8) .. controls (324.28,208.8) and (320,204.52) .. (320,199.24) -- cycle ;
+
+% Text Node
+\draw (104.06,60) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {Theory of\\Everything\\(if it exists!)};
+% Text Node
+\draw (258.76,60.56) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {\begin{minipage}[lt]{38.82pt}\setlength\topsep{0pt}
+\begin{center}
+Relativistic \\QM
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (397,60.56) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {\begin{minipage}[lt]{54.29pt}\setlength\topsep{0pt}
+\begin{center}
+Non-Relativistic \\QM
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (329,168.56) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {\begin{minipage}[lt]{48.73pt}\setlength\topsep{0pt}
+\begin{center}
+Classical Field\\Theory
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (184,57) node [anchor=north west][inner sep=0.75pt]  [font=\tiny,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ] [align=center] {lower \\energy\\[0.2cm] larger\\ length};
+% Text Node
+\draw (337,57) node [anchor=north west][inner sep=0.75pt]  [font=\tiny,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ] [align=left] {lower \\energy\\[0.2cm] larger\\ length};
+% Text Node
+\draw (340,146) node [anchor=north west][inner sep=0.75pt]  [font=\tiny,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ] [align=center] {decoherence};
+
+
+\end{tikzpicture}
+
+\end{figure}
+\noindent
+From the proposed theory of everything, we can transform to a \textit{relativisitc } quantum field theory which will be the topic of discussion for most part. When subjected to \textit{decoherence}, a relativistic QFT collapse to a classical QFT as noise hides the `quantumness' from consideration. Hence we will start our discussion from classical fields and then move to quantum fields.\\[0.2cm]
 Since the foundational aspect of QFT (and many other topics in Physics) is the Harmonic Oscillator, let us discuss the quantum Harmonic oscillator for introduction. For that, note that the classical Hamiltonian for the harmonic oscillator is given by:
 $$H = \frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2 $$
 We do not like the things like $m$ and $\omega$ which prevent us from seeing things clearly \emoji{sweat-smile}. Hence, we invoke the holy action of making things dimensionless. For that, we define:
