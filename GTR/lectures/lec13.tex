@@ -1,0 +1,66 @@
+\refstepcounter{section}
+\section*{Lecture 13: Towards the action for Gravity: Covariant Derivatives}
+\addcontentsline{toc}{section}{Lecture 13: Towards the action for Gravity: Covariant Derivatives}
+Previously, we focussed on making the integral measure invariant in the action expression. Now, we focus on the function $f(g_{\mu\nu}, \partial_\alpha\partial_\beta g_{\mu\nu})$. Since this contains derivatives, let us first see what happens to derivatives of tensors!\\[0.2cm]
+Consider a scalar field $\phi$\footnote{ It gives us a single value of some variable for every point in
+spacetime}. Then, under a coordinate transformation $\fvec{x}\rightarrow \fvec{x}'$, we have $\phi(\fvec{x})\rightarrow \phi'(\fvec{x}')$. Since this is a scalar field, we expect $\phi'(\fvec{x}') = \phi(\fvec{x})$. An example of such a field can be the temperature at each point in space and at each time. \\[0.2cm]
+Let us see how the derivative of this scalar field changes under a general coordinate transformation. 
+$$\partial'_\mu \phi'(\fvec{x}') = \itrmat{\alpha}{\mu} \partial_\alpha (\phi(\fvec{x}))$$
+This transforms as a tensor of rank $(0,1)$ and is thus a valid tensor. Now, if we take a vector instead, let us see what changes.
+\begin{align*}
+    \partial'_\mu V'^\rho &= \itrmat{\alpha}{\mu} \partial_\alpha \qty(\trmat{\rho}{\beta}V^\beta)\\
+    &=\itrmat{\alpha}{\mu} \trmat{\rho}{\beta} \qty(\partial_\alpha V^\beta) + \mathcolor{blue}{\itrmat{\alpha}{\mu}V^\beta\partial_\alpha\qty(\trmat{\rho}{\beta})}
+\end{align*}
+If the second term had not been there, the quantity would have transformed as a rank $(1,1)$ tensor but since under a general coordinate transformation, $\Lambda$ is itself a function of the coordinates, the second term is non-zero in general, which spoils the transformation property.\\[0.2cm]
+Since this causes a problem, a potential solution could be to define a new kind of derivative operator, say $\covd{\mu}$, such that $\covd{\mu}V^\rho$ becomes a tensor of rank $(1,1)$. Thus, we demand that,
+$$\covd{\mu}'V'^\nu = \itrmat{\alpha}{\mu}\trmat{\nu}{\rho}\qty(\covd{\alpha}V^\rho)$$
+Inverting this expression, we obtain:
+\begin{align}\label{eqn:coder}
+    \covd{\alpha}V^\rho = \itrmat{\rho}{\nu}\trmat{\mu}{\alpha} \qty(\covd{\mu}'V'^\nu)
+\end{align}
+Moving forward with this would be difficult and hence we make a comment on physical grounds, that, in a \textit{local inertial frame}, where spacetime is flat, the new derivative is equivalent to the normal derivative $\partial_\mu$. Hence, if the coordinate system $\{\vec{x}'\}$ is locally inertial, then $$\covd{\mu}' = \partial_\mu'$$
+
+Using this in Eq. \ref{eqn:coder}, we have:
+\begin{align*}
+    \covd{\alpha}V^\rho &= \itrmat{\rho}{\nu} \mathcolor{blue}{\trmat{\mu}{\alpha}}\qty[\mathcolor{blue}{\partial_\mu'}\qty(\trmat{\nu}{\beta}V^\beta)]\\
+    &=\itrmat{\rho}{\nu} \partial_\alpha\qty[\qty(\trmat{\nu}{\beta}V^\beta)]\\
+    &=\mathcolor{red}{\itrmat{\rho}{\nu}\trmat{\nu}{\beta}} \partial_\alpha V^\beta+\itrmat{\rho}{\nu} V^\beta\partial_\alpha\qty(\trmat{\nu}{\beta})\\
+    &=\tensor{\delta}{^\rho _\beta}\partial_\alpha V^\beta + \chris{\rho}{\alpha}{\beta}V^\beta\\
+    &=\partial_\alpha V^\rho + \chris{\rho}{\alpha}{\beta}V^\beta
+\end{align*}
+Thus, on physical grounds we obtained:
+\begin{equation}\label{eqn:covar}
+    \covd{\alpha}V^\rho = \partial_\alpha V^\rho + \chris{\rho}{\alpha}{\beta}V^\beta
+\end{equation}
+The above defines a new derivative, called the \textit{covariant derivative}. If we use this definition, then we can obtain the correct transformation. Note that the extra term that spoiled the transformation, is already incorporated into the covariant derivative definition through the affine connection. Thus, \textit{covariant derivatives behave nicely}!\\[0.2cm]
+NOTE: An easy way to remember this is that two of the indices of the affine connection are placed exactly similar as in the LHS while the other index is summed over. And we have a normal derivative on the RHS too. \\[0.2cm]
+If we instead start with a covariant vector, then:
+\begin{align*}
+    \covd{\alpha}V_\beta &=\trmat{\nu}{\beta}\trmat{\mu}{\alpha}\covd{\mu}'V'_{\mu}\\
+    &=\trmat{\nu}{\beta}\trmat{\mu}{\alpha}\partial_\mu'V'_{\mu}\\
+    &=\trmat{\nu}{\beta}\trmat{\mu}{\alpha}\qty[\partial_\mu'\qty(\itrmat{\rho}{\nu}V_\rho)]\\
+    &=\trmat{\nu}{\beta}\partial_\alpha\qty[\itrmat{\rho}{\nu}V_\rho]\\
+    &=\underbrace{\trmat{\nu}{\beta}\itrmat{\rho}{\nu}}_{\tensor{\delta}{^\rho _\beta}}\partial_\alpha V_\rho+\trmat{\nu}{\beta}V_\rho\partial_\alpha\itrmat{\rho}{\nu}\\
+    &=\partial_\alpha V_\beta + \trmat{\nu}{\beta}V_\rho\partial_\alpha\itrmat{\rho}{\nu}
+\end{align*}
+Now note the following:
+
+\begin{alignat*}{2}
+    &\qquad\qquad\ \ \ \itrmat{\rho}{\nu}\trmat{\nu}{\theta} &&= \tensor{\delta}{^\rho _\theta} \\
+    \implies\ &\qquad\quad\qty(\partial_\alpha \itrmat{\rho}{\nu}) \trmat{\nu}{\theta} &&= -\qty(\partial_\alpha \trmat{\nu}{\theta})\itrmat{\rho}{\nu} \qquad\quad  (\text{Liebniz rule})\\
+    \implies\ &\qty(\partial_\alpha \itrmat{\rho}{\nu}) \trmat{\nu}{\theta} \itrmat{\theta}{\gamma} &&= -\qty(\partial_\alpha \trmat{\nu}{\theta})\itrmat{\rho}{\nu}\itrmat{\theta}{\gamma} \\
+    \implies\ &\qquad\qquad\ \ \ \partial_\alpha \itrmat{\rho}{\gamma} &&= - \qty(\partial_\alpha \trmat{\nu}{\theta})\itrmat{\rho}{\nu}\itrmat{\theta}{\gamma}
+\end{alignat*}
+Substituting this in the above equation, we obtain:
+\begin{align*}
+    \covd{\alpha}   V_\beta &= \partial_\alpha V_\beta -\trmat{\nu}{\beta}\partial_\alpha \itrmat{\rho}{\nu}V_\rho\\
+&=\partial_\alpha V_\beta -\trmat{\nu}{\beta}V_\rho (\partial_\alpha \trmat{\gamma}{\theta})\itrmat{\rho}{\gamma}\itrmat{\theta}{\nu}\\
+&=\partial_\alpha V_\beta -V_\rho (\partial_\alpha \trmat{\gamma}{\theta})\itrmat{\rho}{\gamma}\tensor{\delta}{^\theta _\beta}\\
+&=\partial_\alpha V_\beta -V_\rho (\partial_\alpha \trmat{\gamma}{\beta})\itrmat{\rho}{\gamma}\\
+&=\partial_\alpha V_\beta -\chris{\rho}{\alpha}{\beta} V_\rho
+\end{align*}
+Thus, we obtain:
+$$\covd{\alpha}   V_\beta =\partial_\alpha V_\beta -\chris{\rho}{\alpha}{\beta} V_\rho $$
+For any general mixed tensor, for each contravariant index, we have $`+'$ and for every covariant index, we have $`-'$ in the expression for the covariant derivative, for example,
+$$\covd{\mu}\tensor{T}{^\alpha _\beta} = \partial_\mu \tensor{T}{^\alpha _\beta} + \chris{\alpha}{\mu}{\rho}\tensor{T}{^\rho _\beta} - \chris{\rho}{\mu}{\beta}\tensor{T}{^\alpha _\rho}$$
+This new definition of derivative gave us a way to compute quantities nicely, so that the transformation rule remains valid. Later, we would also see physical interpretation this quantity.
