@@ -1,0 +1,21 @@
+\refstepcounter{section}
+\section*{Lecture 13: Heisenberg Picture}
+\addcontentsline{toc}{section}{Lecture 13: Heisenberg Picture}
+Till now, we saw that the operator $\hat{\phi}(\vb{x})$ has no time dependence (we defined it at $t=0$). However, space and time should be on equal footing. Hence, it is better to define these in the Heisenberg picture, where the operators evolve in time while the states don't. Recall that a Heisenberg operator is defined from the Sch\"odinger operator via,
+$$\mathcal{O}_H = e^{+iHt}\mathcal{O}_s e^{-iHt} \ \implies \ \dv{\mathcal{O}_H}{t} = i \comtr{H}{\mathcal{O}_H} + \pdv{\mathcal{O}_H}{t}$$
+We consider here only free fields, that is, there is no interactions. However, in general, the Hamiltonian can be decomposed as $$\hat{H} = \hat{H}_0+ \hat{H}_{\mathrm{int.}}$$
+where $\hat{H}_0$ is the \textit{free field}. In that case, it would be better to work in the interaction picture. However, for now we assume  $\hat{H}_{\mathrm{int.}} =0$. 
+Note that from Eq. \ref{eqn:ladcom1} and Eq. \ref{eqn:ladcom2}, we can obtain the time evolution of the ladder operators as: 
+\begin{align*}
+   \dv{\crep}{t} &= i\omp \crep \implies \crep(t) = \crep(0)e^{i\omp t}\implies e^{iH_0t}\crep e^{-iH_0t} = \crep e^{i\omp t}\\
+   \dv{\annp}{t} &= -i\omp \annp \implies \annp(t) = \annp(0)e^{-i\omp t}\implies e^{iH_0t}\annp e^{-iH_0t} = \annp e^{-i\omp t}
+\end{align*}
+Now, we calculate the field operator in the Heisenberg picture which gives:
+\begin{align*}
+    \hat{\phi}(\vb{x},t) &= e^{iH_0t} \int \meas{\vb{p}}\frac{1}{\sqrt{2\omp}}\qty(\crep e^{-i \vb{p}\cdot \vb{x}}+\annp e^{i \vb{p}\cdot \vb{x}}) e^{-iH_0t}\\
+    &= \int \meas{\vb{p}}\frac{1}{\sqrt{2\omp}}\qty(e^{iH_0t}\crep e^{-iH_0t} e^{-i \vb{p}\cdot \vb{x}}+e^{iH_0t}\annp e^{-iH_0t} e^{i \vb{p}\cdot \vb{x}}) \\
+    &=\int \meas{\vb{p}}\frac{1}{\sqrt{2\omp}}\qty(\crep e^{i\omp t} e^{-i \vb{p}\cdot \vb{x}}+\annp e^{-i\omp t} e^{i \vb{p}\cdot \vb{x}})\\
+    &=\int \meas{\vb{p}}\frac{1}{\sqrt{2\omp}}\qty(\crep e^{i p\cdot x}+\annp e^{-i p\cdot x})
+\end{align*}
+where $p\cdot x = p^\mu x_\mu = \omp t - \vb{p}\cdot \vb{x}$ is the inner product of four momentum and four position in Minkowski space. Similarly, the conjugate momentum operator will be obtained as:
+$$ \hat{\pi}(\vb{x},t) = \int \meas{\vb{p}}(-i)\sqrt{\frac{\omp}{2}}\qty(\annp e^{-i p\cdot x}-\crep e^{i p\cdot x})$$

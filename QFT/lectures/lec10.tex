@@ -1,4 +1,6 @@
 \refstepcounter{section}
+
+\refstepcounter{section}
 \section*{Lecture 10 \& 11: Field Quantisation}
 \addcontentsline{toc}{section}{Lecture 10 \& 11: Field Quantisation}
 
@@ -74,10 +76,10 @@ When physically measuring energies, only differences can be calculated and hence
 Thus, in all practicality, we can rescale our energy and we obtain the Hamiltonian as: 
 $$\hat{H} = \int  \meas{\vb{\vb{p}}} \omp \crep\annp$$
 Now, let us see the commutator of the ladder operators with the Hamiltonian. We have:
-\begin{align*}
-    \comtr{\hat{H}}{\crep} &= \int \meas{\vb{\vb{p}'}} \ompd \comtr{\crepd\annpd}{\crep} = \int \meas{\vb{\vb{p}'}} \ompd \crepd \comtr{\annpd}{\crep} = \int \meas{\vb{\vb{p}'}}\ompd \crepd (2\pi)^3 \delt{3}{\vb{p}-\vb{p}'} = \omp \crep\\
-    \comtr{\hat{H}}{\annp} &= \int \meas{\vb{\vb{p}'}} \ompd \comtr{\crepd\annpd}{\annp} = \int \meas{\vb{\vb{p}'}} \ompd  \comtr{\crepd}{\annp}\annpd = -\int \meas{\vb{\vb{p}'}}\ompd \annpd (2\pi)^3 \delt{3}{\vb{p}-\vb{p}'} = -\omp \annp
-\end{align*}
+\begin{align}
+    \comtr{\hat{H}}{\crep} &= \int \meas{\vb{\vb{p}'}} \ompd \comtr{\crepd\annpd}{\crep} = \int \meas{\vb{\vb{p}'}} \ompd \crepd \comtr{\annpd}{\crep} = \int \meas{\vb{\vb{p}'}}\ompd \crepd (2\pi)^3 \delt{3}{\vb{p}-\vb{p}'} = \omp \crep\label{eqn:ladcom1}\\
+    \comtr{\hat{H}}{\annp} &= \int \meas{\vb{\vb{p}'}} \ompd \comtr{\crepd\annpd}{\annp} = \int \meas{\vb{\vb{p}'}} \ompd  \comtr{\crepd}{\annp}\annpd = -\int \meas{\vb{\vb{p}'}}\ompd \annpd (2\pi)^3 \delt{3}{\vb{p}-\vb{p}'} = -\omp \annp\label{eqn:ladcom2}
+\end{align}
 \subsection{Conserved Charges}
 Note that we already found the Hamiltonian which is one of the conserved charges corresponding to $T^{00}$. Let us now focus on the momentum, that is, $\hat{P}^j$ corresponding to $T^{0j}$
 $$\hat{P}^j = \int \dd^3\vb{x} \ \hat{T}^{0j} = -\int \dd^3\vb{x}\ \hat{\pi} \partial_j \hat{\phi}$$

@@ -29,6 +29,39 @@ Thus, we obtain the transformation of the delta function as:
 $$   \delt{3}{\vb{p}-\vb{k}}= \frac{E'}{E}   \delt{3}{\vb{p}'-\vb{k}'}\implies E \delt{3}{\vb{p}-\vb{k}} \text{ is invariant under L.T} $$
 Then, we can now define the Lorentz-invariant inner product such that:
 $$\braket{\vb{p}|\vb{k}} =(2E_{\vb{p}}) (2\pi)^3 \delt{3}{\vb{p}-\vb{k}}\equiv (2\omp) (2\pi)^3 \delt{3}{\vb{p}-\vb{k}}$$
-In line with this, we can therefore define single-particle state as:
+In line with this, we can therefore define a single-particle state as:
 $$\ket{\vb{p}} = \sqrt{2\omp} \crep \vac$$
+Technically, we should have made some distinct notation to differentiate between the states with and without proper normalisation, however, henceforth we will always use normalised states, so confusion might not be there. 
 \subsection{Invariant Measure}
+Define the \textit{projector} onto the single-particle state,
+$$\mathds{1} := \int \meas{\vb{p}} \ket{\vb{p}}\bra{\vb{p}}$$
+Here we have used the states with proper normalisation, obeying Lorentz invariance. The LHS is Lorentz invariant, since the operator essentially checks whether we have single particle or not, which is a frame independent fact. Thus, the only thing to change is the \textit{integral measure}!\\[0.2cm]
+Consider the following integral,
+$$\int \dd^4 p \ \delta((p^0)^2 -\tvec{p}^2- m^2) \Theta(p^0)$$
+Note that, $\dd^4p$ is Lorentz invariant. Also, from the dispersion relation, we have:
+$$p^\mu p_\mu = (p^0)^2 - \tvec{p}^2 = m^2$$
+The dispersion relation is also Lorentz invariant, since it contains scalars $p^\mu p_\mu$ and $m^2$. Solving for $p^0$, we have $p^0 = \pm\sqrt{\tvec{p}^2 + m^2}$. Now, the choice of which branch to choose (poisitive or negative) is also Lorentz invariant, since here we are considering only \textit{orthochronous transformations}, which does not change the time component of the momentum. Thus, overall the integral is Lorentz-invariant.
+\begin{align*}
+   \int \dd^4 p \ \delta((p^0)^2 -\tvec{p}^2- m^2) \Theta(p^0)&=  \int \dd^4 p \ \delta((p^0)^2 -E_{\tvec{p}}^2)\Theta(p^0)\\
+   &=\int d^3\vb{p} \int\limits_{-\infty}^\infty\dd p^0 \ \delta((p^0)^2 -E_{\tvec{p}}^2)\Theta(p^0) \\
+   &=\int d^3\vb{p} \int\limits_{-\infty}^\infty \dd p^0 \ \frac{1}{2E_{\vb{p}}}\qty[\delta(p^0 +E_{\tvec{p}}) + \delta(p^0 -E_{\tvec{p}})]\Theta(p^0)\\
+   &=\int\frac{ \dd^3\vb{p}}{2E_{\vb{p}}}
+\end{align*}
+Hence, whatever measure we were taking earlier, that is, $\meas{\vb{p}}$ was not Lorentz-invariant, however, as seen above,  $$\frac{ \dd^3\vb{p}}{(2\pi)^3}\frac{1}{2E_{\vb{p}}}\ \text{is manifestly Lorentz invariant}$$
+Nice! So, henceforth we will always try to write the integrals in manifestly Lorentz invariant form, for example, the field expression becomes:
+$$\hat{\phi}(x) = \int \meas{\vb{p}}\frac{1}{2\omp}\qty(\sqrt{2\omp} \annp e^{i \vb{p}\cdot \vb{x}} + \sqrt{2\omp}\crep e^{-i \vb{p}\cdot \vb{x}})$$
+We could technically absorb the $\sqrt{2\omp}$ in the definition of the creation and annihilation operators which would make the new field expressions similar to the old ones, but it is not really needed!\\[0.2cm]
+Finally, we can rewrite the identity operator on one-particle states as,
+$$\mathds{1} := \int \meas{\vb{p}}\frac{1}{2\omp} \ket{\vb{p}}\bra{\vb{p}}$$
+\subsection{Position states?}
+Consider the field operator acting on the vacuum. Since annihilation operators kill the vacuum, we only have:
+$$\hat{\phi}(x)\vac = \int \meas{\vb{p}}\frac{1}{2\omp} e^{-i \vb{p}\cdot \vb{x}}\ket{p}$$
+Apart from the factor $\frac{1}{2\omp}$, this looks more or less like some position state since it is linear superposition of all well-defined momentum states. Also, note that:
+\begin{align*}
+   \bra{\Omega}\hat{\phi}(\vb{x})\ket{\vb{p}'} &= \bra{\Omega} \int \meas{\vb{p}} \frac{1}{2\omp} \qty(\sqrt{2\omp}\annp e^{i \vb{p}\cdot \vb{x}} + \sqrt{2\omp}\crep e^{-i \vb{p}\cdot \vb{x}} ) \sqrt{2\omp} \crepd \vac \\
+   &=  \int \meas{\vb{p}} \qty( e^{i \vb{p}\cdot \vb{x}} )  \bra{\Omega} \annp\crepd \vac\\
+   &=\int \meas{\vb{p}} \qty( e^{i \vb{p}\cdot \vb{x}} )  \bra{\Omega} (2\pi)^3\delt{3}{\vb{p}-\vb{p}'} + \crepd \annp \vac\\
+   &=e^{i \vb{p}'\cdot \vb{x}}
+\end{align*}
+We can interpret this as the position-space representation of the single-particle state $\ket{\vb{p}}$, exactly as in non-relativistic quantum mechanics. Thus, we have:
+$$\bra{\Omega}\hat{\phi}(\vb{x})\ket{\vb{p}} = \braket{x|p} = e^{i \vb{p}\cdot \vb{x}}$$
