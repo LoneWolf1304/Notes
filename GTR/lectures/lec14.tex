@@ -1,0 +1,151 @@
+\refstepcounter{section}
+\section*{Lecture 14: Towards the action for Gravity: Riemann Tensor}
+\addcontentsline{toc}{section}{Lecture 14: Towards the action for Gravity: Riemann Tensor}
+Covariant derivatives transform a tensor of rank $(p,q)$ to a tensor of rank $(p,q+1)$ as seen before. Since in our proposed form of the action for gravity, there exists two derivatives of the metric, let us calculate and see what the covariant derivative of the metric is. We have,
+\begin{align*}
+    \covd{\mu}(g_{\alpha\beta}) = \partial_\mu g_{\ga\gb} - \chris{\gr}{\gm}{\ga}g_{\gr\gb} - \chris{\gs}{\gm}{\gb}g_{\ga\gs}
+\end{align*}
+Now using Eqn. \ref{eqn:chris_met} and contracting metric on the right hand side, we get:
+\begin{align*}
+    g_{\gr\gb}\chris{\gr}{\gm}{\ga} = \frac{1}{2}\qty(\partial_\mu g_{\ga\gb} +\partial_\ga g_{\mu\gb} - \partial_\gb g_{\ga\mu}  )
+\end{align*}
+Using this in the equation above, we get:
+\begin{align*}
+    \covd{\mu}(g_{\alpha\beta}) =  \partial_\mu g_{\ga\gb} -\frac{1}{2}\qty(\partial_\mu g_{\ga\gb} +\partial_\ga g_{\mu\gb} - \partial_\gb g_{\ga\mu}  ) - \frac{1}{2}\qty(\partial_\mu g_{\gb\ga} +\partial_\gb g_{\mu\ga} - \partial_\ga g_{\gb\mu}  )=0
+\end{align*}
+We see that the covariant derivative of the metric is zero, hence the metric tensor is said to be \textit{covariantly conserved}.\\[0.2cm]
+% \limbox{Show the following things: 
+
+% \begin{itemize} 
+%     \item $\chris{\alpha}{\mu}{\alpha} = \frac{1}{\sqrt{-g}}\partial_\mu (\sqrt{-g})$
+%     \item $\covd{\mu}V^\mu = \frac{1}{\detm}\partial_\mu(\detmV^\mu)$
+%     \item Liebnitz rule is satisfied by covariant derivatives, that is, $$\covd{\nu}(\phi V^\mu) = (\covd{\nu}\phi)V^\mu+\phi(\covd{\nu}V^\mu)$$
+% \end{itemize} }
+
+\begin{tcolorbox}[colframe=black, colback=lime!20!white, boxrule=1.5pt, arc=4pt]
+Show the following things:
+\begin{itemize} 
+    \item $\chris{\alpha}{\mu}{\alpha} = \frac{1}{\sqrt{-g}}\partial_\mu (\sqrt{-g})$
+    \item $\covd{\mu}V^\mu = \frac{1}{\detm}\partial_\mu(\detm V^\mu)$
+    \item Leibniz rule is satisfied by covariant derivatives, that is, 
+    $$\covd{\nu}(\phi V^\mu) = (\covd{\nu}\phi)V^\mu+\phi(\covd{\nu}V^\mu) \qquad \covd{\nu}(W_\lambda V^\mu) = (\covd{\nu}W_\lambda)V^\mu+W_\lambda(\covd{\nu}V^\mu)$$
+\end{itemize}
+\end{tcolorbox}
+\noindent
+
+$\vartriangleright$ For this we will prove the following identity first:
+\begin{identity}
+For any diagonalizable matrix $M$, 
+\[
+\mathrm{Tr}(M^{-1} \dd M) = \dd(\ln \det M),
+\]
+where $\dd M$ is the differential of the matrix. 
+\end{identity}
+We first calculate the variation of the RHS:
+\begin{align*}
+    \dd \ln(\det M) &= \ln \det(M+\dd M) - \ln \det(M)\\
+&= \ln \left( \frac{\det(M+\dd M)}{\det M} \right)\\
+&= \ln \qty(\det(M^{-1})\det(M+\dd M))\\
+&= \ln \det\bigl(\mathds{1} + M^{-1} \dd M \bigr).
+\end{align*}
+Now suppose that $M$ is diagonalizable, hence, $M$ can be written as, $M = P D P^{-1}$, with $D$ being the diagonal matrix of eigenvalues $\{\lambda_i\}$. Then we have:  
+\begin{align*}
+    \det M = \prod_{i=1}^N \lambda_i \implies  \ln \det M = \sum_i \ln \lambda_i &= \Tr[ \mathds{1}\times \mathrm{diag} (\ln \lambda_1,\ln \lambda_2,\ldots)]\\ &=\Tr[P ^{-1}P \mathrm{diag}  (\ln \lambda_1,\ln \lambda_2,\ldots)]\\ &=\Tr [ P \mathrm{diag}(\ln \lambda_1,\ln \lambda_2,\ldots)P ^{-1}] \\ &= \Tr \ln M   .
+\end{align*}
+Using the above two facts, we obtain:
+\begin{align*}
+     \dd \ln(\det M) =  \ln \det\bigl(\mathds{1} + M^{-1} \dd M \bigr) &= \Tr \ln (\mathds{1} + M^{-1} \dd M)\\
+     &=\Tr[M^{-1} \dd M +\mathcal{O}(M^{-1} \dd M M^{-1} \dd M) ]
+\end{align*}
+Now, take the case when $M = g^{\mu\nu}\equiv g$ and $\det(g) = \mathfrak{g}$. Applying the above formula, we obtain:
+\begin{align}\label{eqn:chrishw}
+    \partial_\mu \ln (-\detg)  = \Tr (g \partial_\mu g) = (g \partial_\mu g)^{\rho _\rho} = g^{\rho\sigma} \partial_\mu g_{\rho\sigma}
+\end{align}
+Now, from the definition of Christoffel symbol:
+\[
+\chris{\alpha}{\mu}{\alpha} = \frac{1}{2}g^{\alpha\sigma}\qty(\partial_\mu g_{\alpha\sigma} +\partial_\alpha g_{\mu\sigma} -\partial_\sigma g_{\mu\alpha})  = \frac{1}{2}g^{\alpha\sigma}\partial_\mu g_{\alpha\sigma} 
+\]
+Note that, if we rename $\sigma \to \alpha$, the last term cancels with the first term above and hence we get the simplified result. Substituting this expression in Eqn. \ref{eqn:chrishw}, we get:
+\begin{align*}
+      \chris{\alpha}{\mu}{\alpha} &=\partial_\mu \ln (-\detg) \\
+      &=\frac{1}{2} \frac{1}{-\detg} \partial_\mu(-\detg)\\
+      &=\frac{1}{2\sqrt{-\detg}\sqrt{-\detg}}\partial_\mu(-\detg)\\
+      &=\frac{1}{\sqrt{-\detg}}\partial_\mu(\sqrt{-\detg})
+\end{align*}
+Therefore we finally proved the identity,
+\[
+\chris{\alpha}{\mu}{\alpha} = \frac{1}{\sqrt{-\detg}} \partial_\mu \sqrt{-\detg}.
+\]
+$\vartriangleright$ For the second part, we use the first identity. 
+\begin{align*}
+    \covd{\alpha}V^\alpha &= \partial_\alpha V^\alpha + \chris{\alpha}{\mu}{\alpha}\ V^\mu\\
+&= \partial_\alpha V^\alpha + \frac{1}{\sqrt{-\detg}} \partial_\mu \sqrt{-\detg}\ V^\mu\\
+&= \partial_\alpha V^\alpha + \frac{1}{\sqrt{-\detg}} \qty(\partial_\mu (\sqrt{-\detg}V^\mu) -\sqrt{-\detg} \partial_\mu V^\mu)\\
+&=\cancel{\partial_\alpha V^\alpha} - \cancel{\partial_\mu V^\mu} + \frac{1}{\sqrt{-\detg}}\partial_\mu (\sqrt{-\detg}V^\mu)
+\end{align*}
+Changing $\mu \to \alpha$, we have proved the identity. \\
+$\vartriangleright$ For the third part, we just try to match the LHS and RHS. First we do it for the scalar and vector.
+\begin{align*}
+    \covd{\nu}(\phi V^\mu) &= \partial_\nu (\phi V^\mu) + \chris{\mu}{\nu}{\sigma}(\phi V^\sigma)\\
+    &=(\partial_\nu \phi)V^\mu +\phi \partial_\nu V^\mu + \phi  \chris{\mu}{\nu}{\sigma} V^\sigma\\
+    &=(\covd{\nu}\phi)V^\mu + \phi\covd{\nu}V^\mu
+\end{align*}
+For scalars, partial and covariant derivatives are the same and hence we obtained the first term like that. Now, let us show for the two contravectors and covectors. 
+\begin{align*}
+    \covd{\mu}( V^\alpha W_\beta) &= \partial_\mu ( V^\alpha W_\beta) + \qty(\chris{\alpha}{\mu}{\sigma}V^\sigma) W_\beta -\qty(\chris{\rho}{\beta}{\mu} V^\alpha) W_{\rho}\\
+    &=\partial_\mu ( V^\alpha )W_\beta+V^\alpha\partial_\mu ( W_\beta) + \qty(\chris{\alpha}{\mu}{\sigma}V^\sigma) W_\beta -\qty(\chris{\rho}{\beta}{\mu} V^\alpha) W_{\rho}\\
+    &=W_\beta\qty{\partial_\mu  V^\alpha +  \chris{\alpha}{\mu}{\sigma}V^\sigma } + V^\alpha \qty{\partial_\mu  W_\beta -\qty(\chris{\rho}{\beta}{\mu} W_{\rho}) }\\
+    &=W_\beta (\covd{\mu}V^\alpha) + V^\alpha (\covd{\mu} W_\beta)
+\end{align*}
+Now, let us delve into an involved calculation. The covariant derivative of the metric is already zero, so in the expression for the action, we cannot put any covariant derivatives of the metric. However, we need to somehow obtain an expression with two normal derivatives of the metric. For that, let us just see what happens when we take two covariant derivatives of a contravector. \footnote{Note that the quantity in the bracket below, on the LHS, is a $(1,1)$ tensor.}
+\begin{align*}
+    \covd{\mu}(\covd{\nu}V^\rho) &= \partial_\mu (\covd{\nu}V^\rho) + \chris{\rho}{\mu}{\sigma}(\covd{\nu}V^\sigma) -\chris{\sigma}{\mu}{\nu}(\covd{\sigma}V^\rho)\\
+    &=\partial_\mu (\partial_{\nu}V^\rho + \chris{\rho}{\nu}{\lambda}V^\lambda) + \chris{\rho}{\mu}{\sigma}(\partial_{\nu}V^\sigma + \chris{\sigma}{\nu}{\lambda}V^\lambda) -\chris{\sigma}{\mu}{\nu}(\covd{\sigma}V^\rho)
+\end{align*}
+Let us now calculate the commutator of this, that is, $\comtr{\covd{\mu}}{\covd{\nu}}V^\rho$. To write in short, we will denote the other symmetric term with $\mu \leftrightarrow \nu$. 
+\begin{align*}
+    \comtr{\covd{\mu}}{\covd{\nu}}V^\rho &= \mathcolor{blue}{\partial_\mu} (\mathcolor{blue}{\partial_{\nu}V^\rho} + \chris{\rho}{\nu}{\lambda}V^\lambda) + \chris{\rho}{\mu}{\sigma}(\partial_{\nu}V^\sigma + \chris{\sigma}{\nu}{\lambda}V^\lambda) -\mathcolor{red}{\chris{\sigma}{\mu}{\nu}(\covd{\sigma}V^\rho)} - (\mu \leftrightarrow \nu)
+\end{align*}
+Note that the red term is itself symmetric in $\mu$ and $\nu$ and hence will be cancelled at once from the above expression. Same goes with the blue term. Thus, we are left with:
+\begin{align*}
+    \comtr{\covd{\mu}}{\covd{\nu}}V^\rho &= {\partial_\mu}\qty(\chris{\rho}{\nu}{\lambda}V^\lambda )+ \chris{\rho}{\mu}{\sigma}\partial_{\nu}V^\sigma  + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda}V^\lambda - (\mu \leftrightarrow \nu)\\
+    &=\partial_\mu(\chris{\rho}{\nu}{\lambda})V^\lambda +\qty{\chris{\rho}{\nu}{\lambda}\partial_\mu(V^\lambda)+  \chris{\rho}{\mu}{\sigma}\partial_{\nu}V^\sigma}  + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda}V^\lambda - (\mu \leftrightarrow \nu)
+\end{align*}
+Note the term in the bracket. This term, as a whole, is symmetric under the exchange of $\mu$ and $\nu$ and hence will be cancelled from the commutator. This significantly reduces the number of terms and we obtain,
+\begin{align*}
+     \comtr{\covd{\mu}}{\covd{\nu}}V^\rho &=\partial_\mu(\chris{\rho}{\nu}{\lambda})V^\lambda + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda}V^\lambda - \partial_\nu(\chris{\rho}{\mu}{\lambda})V^\lambda - \chris{\rho}{\nu}{\sigma}\chris{\sigma}{\mu}{\lambda}V^\lambda\\
+     &=\qty{\partial_\mu(\chris{\rho}{\nu}{\lambda}) + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda} - \partial_\nu(\chris{\rho}{\mu}{\lambda}) - \chris{\rho}{\nu}{\sigma}\chris{\sigma}{\mu}{\lambda}}V^\lambda
+\end{align*}
+The commutator is a proper tensor since this is difference of two tensors and thus, the right hand side must also be a tensor which we define as:
+$$\tensor{R}{^\rho _{\lambda\mu\nu}} :=\partial_\mu\chris{\rho}{\nu}{\lambda} + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda} - \partial_\nu\chris{\rho}{\mu}{\lambda} - \chris{\rho}{\nu}{\sigma}\chris{\sigma}{\mu}{\lambda}$$
+The above object is a tensor of rank $(1,3)$ and is called the \textit{Riemann tensor}. The tensor represents the curvature of the space, which we will discuss later. We can lower all the indices to obtain a $(0,4)$ tensor as,
+$$R_{\rho\lambda\mu\nu} =g_{\rho \sigma} \tensor{R}{^\sigma _{\lambda\mu\nu}}$$
+\textbf{Some fun facts...}
+\begin{itemize}
+    \item The Riemann tensor has two normal derivatives of the metric (as the Christoffel symbol contains one derivative and we are taking derivative of the symbols).
+    \item For Minkowski space, all Christoffel symbols vanish and thus $\tensor{R}{^\rho _{\lambda\mu\nu}} $ is identically zero. This gives a hint of the tensor's connection with curvatures, since Minkowski space is `flat' with no curvature. 
+    \item If we start with a covariant vector, we have:
+    \begin{align*}
+        \comtr{\covd{\mu}}{\covd{\nu}}V_\rho =\comtr{\covd{\mu}}{\covd{\nu}}( g_{\rho\lambda}V^{\lambda} )= g_{\rho\lambda}\comtr{\covd{\mu}}{\covd{\nu}}V^\lambda &= g_{\rho\lambda}  \tensor{R}{^\lambda _\sigma _\mu _\nu} V^\sigma \\ &= \tensor{R}{_\rho _\sigma _\mu _\nu} V^\sigma \\ &=\tensor{R}{_\rho _\sigma _\mu _\nu} g^{\sigma \theta} V_\theta \\ &=\tensor{R}{_\rho ^\theta _\mu _\nu}  V_\theta
+    \end{align*}
+    \item Since the commutator is anti-symmetric with respect to $\mu$ and $\nu$, the Riemann tensor is also anti-symmetric with respect to the last two indices by construction, that is,
+    $$R_{\rho\sigma\mu\nu} = -R_{\rho\sigma\nu\mu}$$
+    \item $R$ is also anti-symmetric with respect to the first two indices (which is not too obvious). For that, we use the commutator on the metric and use the property of commutator for covariant vectors:
+    $$0 = \comtr{\covd{\mu}}{\covd{\nu}} g_{\alpha \beta} = \tensor{R}{_\alpha ^\sigma _\mu _\nu}g_{\sigma\beta}  +\tensor{R}{_\beta ^\sigma _\mu _\nu}g_{\alpha\sigma} = \tensor{R}{_\alpha _\beta _\mu _\nu} + \tensor{R}{_\beta _\alpha _\mu _\nu}\implies \tensor{R}{_\alpha _\beta _\mu _\nu} = - \tensor{R}{_\beta _\alpha _\mu _\nu} $$
+    \item $R_{\rho\sigma\mu\nu}$ is perhaps a very big ranked tensor with four indices. We can try to contract it perhaps. Note that, if we contract with the first two or last two, it will give zero, since metric is \textit{symmetric} and Riemann tensor is \textit{anti-symmetric} with respect to the first or last two indices. Thus, let us contract with the first and third index. We obtain a tensor called the \textit{Ricci tensor}, that is,
+    $$\tensor{R}{_\mu_\nu} = g^{\alpha\beta}R_{\alpha\mu\beta\nu}$$
+    \item We can contract the Ricci tensor further to get a \textit{Ricci scalar}:
+    $$R =g^{\mu\nu} R_{\mu\nu}$$ 
+    Note that the Ricci scalar has two derivatives of the metric and is also a scalar, thus satisfying the condition to be a part of the action. 
+\end{itemize}
+Thus, we are finally in a position to sew together all the components of the action. The function $f$ can be a function of the Ricci scalar, that is, $f\equiv f(R)$. We take the simplest possible case where $f$ is linear in $R$, that is, 
+$$f \equiv \alpha (R-2\Lambda)$$
+Here $\alpha$ and $\Lambda$\footnote{$\Lambda$ is called the \textit{cosmological constant}. While deriving the equation, Einstein added this since addition of this constant led to a solution which conveyed that the Universe was \textit{static}. However, after Hubble's discovery that the Universe is expanding, this constant was dropped. Then again, the constant was brought back since it was discovered that the Universe was apparently accelerating. } are some constants. With this, the action becomes:
+$$S_{\mathrm{G}} = \alpha \int \dd x^4 \sqrt{-\detg}[R- 2\Lambda]$$
+This is almost fine, we just need to find something more about $\alpha$.  Note that action has dimensions of the angular momentum and the metric is dimensionless. Thus, $R$ will have dimensions $L^{-2}$ since it has two derivatives of a dimensionless quantity (metric). Thus, 
+\begin{align*}
+    \dim{\alpha} &= \frac{\dim{S_{\mathrm{G}}}}{[L^4] \dim{R}}=\frac{ML^2T^{-1}}{L^4 L^{-2}}=\frac{(LT^{-1})^3}{\dim{G}}=\frac{c^3}{G}
+\end{align*}
+So, upto some numerical factor, $\alpha\sim \frac{c^3}{G}$. The final action, which we refer to as the \textit{Einstein-Hilbert action}, is given by:
+$$S_{\mathrm{EH}} = \frac{c^3}{16\pi G}\int \dd x^4 \sqrt{-\detg}[R- 2\Lambda] =\frac{c^4}{16\pi G}\int \dd t \ \dd^3 x \sqrt{-\detg}[R- 2\Lambda] $$
+
