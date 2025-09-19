@@ -1,0 +1,70 @@
+\refstepcounter{section}
+\section*{Lecture 15: Curvatures}
+\addcontentsline{toc}{section}{Lecture 15: Curvatures}
+We try to develop a physical interpretation of the Ricci tensor. Note that this contains a \textit{double derivative} of the metric, that is $\partial_\alpha\partial_\beta g_{\mu\nu}$. 
+\begin{figure}[H]
+    \centering 
+    \input{pics/circ_roc.tex}
+\end{figure}
+\noindent
+Suppose we have some arbitrary smooth curve. Then, at each point of the curve, we can associate a circle whose first and second derivatives match with that of the curve. And there is always a radius associated with such a circle. Thus, to each point on the curve, we can associate a radius $r$, referred to as the \textit{radius of curvature} of the curve at that point. \\[0.2cm]
+Now, for simplicity, let us assume that at a point $P$ on the curve, we have drawn the circle and we shifted our origin to $P$. Thus, the equation of the circle becomes: 
+$$x^2+y^2=r^2$$
+From the equation of the circle, we obtain,
+$$y\dv{y}{x} + x = 0 \implies y \dv[2]{y}{x} + \qty(\dv{y}{x})+1 = 0 \implies y = \frac{1+\qty(\dv{y}{x})^2}{-\dv[2]{y}{x}}$$
+Also, from above, we have $$\dv{y}{x} = -\frac{x}{y}$$
+Then we obtain an expression for the radius of the circle:
+\begin{align*}
+    r = \Big|\sqrt{x^2+y^2}\big| &=\Bigg|y\sqrt{1+\qty(\frac{x}{y})^2}\Bigg|\\
+    &=\Bigg| \frac{1+\qty(\dv{y}{x})^2}{-\dv[2]{y}{x}} \times \sqrt{1+\qty(\frac{x}{y})^2}\Bigg|\\
+    &=\Biggr|\frac{\qty[1+\qty(\dv{y}{x})^2]^{\sfrac{3}{2}}}{\dv[2]{y}{x}} \Biggr|
+\end{align*}
+By choosing an appropriate coordinate system, we can always set the first derivative to zero \footnote{Note that since first derivative roughly gives us the maxima or the minima, with proper rotation and shifting of the coordinates, we can indeed make those points to be zero.} and we have a result that,
+$$r = \Bigg|\dv[2]{y}{x}\Bigg|^{-1}$$
+Thus, the second derivative represents the curvature of the curve, since it is intrinsically related to the radius of curvature. And since the Ricci/Riemann tensor contains double derivative of the metric, it somehow represents the curvature of the space. Hence, it is sometimes also called \textit{Riemann curvature tensor}!\\[0.2cm]
+Now, for the sake of getting our hands dirty, let us calculate the Ricci scalar of $\mathbb{S}^2$ (sphere), of radius $r_0$. 
+\begin{figure}[H]
+    \centering 
+    \input{pics/2sphere.tex}
+\end{figure}
+\noindent
+For this, we first need to calculate the Riemann tensor, then contract it to get Ricci tensor and then again contract it to get Ricci scalar. Thus, this seems a very involved task and we have to do that carefully!\\[0.2cm]
+As calculate before, the metric for the sphere is written as:
+$$ds^2 = r_0^2\dd\theta^2 + r_0^2\sin^2\theta\dd\phi^2 $$
+From there we get the metric tensor and inverse metric tensor as:
+$$g_{\mu\nu} = \mathrm{diag}(r_0^2, r_0^2\sin^2\theta)\qquad g^{\mu\nu} = \mathrm{diag}(\sfrac{1}{r_0^2}, \sfrac{1}{r_0^2\sin^2\theta})$$
+Also, we had earlier found that only two of the Christoffel symbols are non-zero, namely,
+$$\chris{\theta}{\phi}{\phi}=-\sin\theta \cos\theta \qquad \chris{\phi}{\theta}{\phi} = \cot\theta$$
+\underline{Calculating the Riemann Tensor}
+$$\rie{\rho}{\sigma}{\mu}{\nu} = \partial_\mu \chris{\rho}{\nu}{\sigma} + \chris{\rho}{\mu}{\lambda}\chris{\lambda}{\nu}{\sigma} -\partial_\nu \chris{\rho}{\mu}{\sigma} - \chris{\rho}{\nu}{\lambda}\chris{\lambda}{\mu}{\sigma}  $$
+Let us take $\rho =\theta, \sigma = \phi, \mu=\theta, \nu = \phi$ first. Then we have:
+\begin{align*}
+    \rie{\theta}{\phi}{\theta}{\phi} &= \partial_\theta \chris{\theta}{\phi}{\phi} + \chris{\theta}{\theta}{\lambda}\chris{\lambda}{\phi}{\phi} -\partial_\phi \chris{\theta}{\theta}{\phi} - \chris{\theta}{\phi}{\lambda}\chris{\lambda}{\theta}{\phi} \\
+    &=-\partial_\theta \qty(\frac{1}{2}\sin 2\theta) + \sin\theta\cos\theta \times \cos\theta\\
+    &=-\frac{1}{2}\cos 2\theta +\cancel{ \sin\theta}\cos\theta \times \frac{\cos\theta}{\cancel{ \sin\theta}}\\
+    &=\sin^2\theta-\cos^2\theta +\cos^2\theta\\
+    &=\sin^2\theta
+\end{align*}
+In fact, this is the only non-zero Riemann tensor component. Other components will be zero owing to the anti-symmetric and other nice properties of the Riemann tensor. \\[0.2cm]
+\underline{Calculating the Ricci Tensor}
+$$R_{\mu}{\nu} = \rie{\lambda}{\mu}{\lambda}{\nu}$$
+We calculate the components one by one.
+\begin{align*}
+    R_{\theta\theta} & = \rie{\lambda}{\theta}{\lambda}{\theta}
+\end{align*}
+Note that we only found out one component of the Riemann tensor. We have to transform all quantitites to that form only. Here, the only non-zero index will be $\lambda=\phi$, thus we get,
+\begin{align*}
+    R_{\theta\theta} &= \rie{\phi}{\theta}{\phi}{\theta}\\
+    &=g^{\phi\alpha}R_{\alpha \theta \phi \theta}\\
+    &=g^{\phi\alpha} (-1)(-1)R_{\theta \alpha \theta \phi }\\
+    &=g^{\phi\phi} R_{\theta \phi \theta \phi } \qquad \text{($\because g$ diagonal, so $\alpha = \phi$)}\\
+    &=\frac{1}{r_0^2\sin^2\theta} g_{\theta\sigma}\rie{\sigma}{\phi}{\theta}{\phi }\\
+    &=\frac{1}{r_0^2\sin^2\theta} r_0^2\rie{\theta}{\phi}{\theta}{\phi }\qquad \text{($\because g$ diagonal, so $\sigma = \theta$)}\\
+    &=1
+\end{align*}
+$R_{\theta\phi} = 0$ due to the anti-symmetric property and $R_{\phi\phi} = \rie{\lambda}{\phi}{\lambda}{\phi} =\rie{\theta}{\phi}{\theta}{\phi} =\sin^2\theta$. Now, we have obtained all the components of the Ricci tensor and hence, let us move on to the Ricci scalar. 
+\begin{align*}
+    R = \tensor{R}{^\mu _\mu} = g^{\mu\nu}R_{\mu\nu} = \frac{1}{r_0^2}\times 1 + \frac{1}{r_0^2\sin^2\theta}\times \sin^2\theta = \frac{2}{r_0^2}
+\end{align*}
+Thus we obtain that the Ricci scalar for the sphere is $\frac{2}{r_0^2}$. Thus, the Ricci scalar indeed refers to the usual curvature and its inverse represents the radius of curvature!
+$$R^{-1}\sim r_0^2$$

@@ -120,6 +120,8 @@ The commutator is a proper tensor since this is difference of two tensors and th
 $$\tensor{R}{^\rho _{\lambda\mu\nu}} :=\partial_\mu\chris{\rho}{\nu}{\lambda} + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda} - \partial_\nu\chris{\rho}{\mu}{\lambda} - \chris{\rho}{\nu}{\sigma}\chris{\sigma}{\mu}{\lambda}$$
 The above object is a tensor of rank $(1,3)$ and is called the \textit{Riemann tensor}. The tensor represents the curvature of the space, which we will discuss later. We can lower all the indices to obtain a $(0,4)$ tensor as,
 $$R_{\rho\lambda\mu\nu} =g_{\rho \sigma} \tensor{R}{^\sigma _{\lambda\mu\nu}}$$
+NOTE: How to remember this horrenduous term? Well, what works for me is, note that the first lower index always goes as the last lower index in the RHS. There are two terms, one containing a derivative and another one containing the product of the Christoffel symbols. \\[0.2cm]
+Start putting all the indices on the RHS in the same order as in LHS (and in the same way, upwards or downwards). Then, $\partial$ will get second lower index, $\mu$  Christoffel gets the other two indices. In product of Christoffels, the first Christoffel gets $\rho$ and $\mu$ and then all the up indices gets exhausted, so put the other index down in the next Christoffel. Fill the remaining terms with some dummy index (indicating summing over). And in the next other terms, interchange $\mu\leftrightarrow \nu$. As simple as that...\\[0.2cm]
 \textbf{Some fun facts...}
 \begin{itemize}
     \item The Riemann tensor has two normal derivatives of the metric (as the Christoffel symbol contains one derivative and we are taking derivative of the symbols).
@@ -148,4 +150,5 @@ This is almost fine, we just need to find something more about $\alpha$.  Note t
 \end{align*}
 So, upto some numerical factor, $\alpha\sim \frac{c^3}{G}$. The final action, which we refer to as the \textit{Einstein-Hilbert action}, is given by:
 $$S_{\mathrm{EH}} = \frac{c^3}{16\pi G}\int \dd x^4 \sqrt{-\detg}[R- 2\Lambda] =\frac{c^4}{16\pi G}\int \dd t \ \dd^3 x \sqrt{-\detg}[R- 2\Lambda] $$
+
 
