@@ -2,3 +2,186 @@
 \refstepcounter{section}
 \section*{Lecture 14 \& 15: Propagators and Causality}
 \addcontentsline{toc}{section}{Lecture 14 \& 15: Propagators and Causality}
+In the previous section, we saw the time-evolution of the field operator in the Heisenberg pictre, essentially calculating an expression for $\hat{\phi}(\vb{x},t)$. We will denote it simply as $\hat{\phi}(x)$ where $x$ is the position four-vector while 3-vectors will be bold-faced. \\[0.2cm]
+Given a particle with momentum $\ket{\vb{p}}$, the transition to some other momentum state $\ket{\vb{k}}$, where $\vb{k}\neq \vb{p}$, is given by:
+$$\braket{\vb{k}|\vb{p}} = (2\pi)^3 \delt{3}{\vb{k}-\vb{p}}= 0$$
+Since the momentum states are eigenstates of the Hamiltonian, transition is not possible. However, same cannot be said for position states. To understand if transition to another state is possible, we need something measurable. The obvious choice $\braket{{x}|{y}} = \vacb\fo({x})\fo({y})\vac$ is not always physical, since the field operators are not Hermitian in general (eg. complex scalar field). Nevertheless, let us see what happens when we calculate this quantity. \\[0.2cm]
+Formally, the inner product is called the \textit{Wightman function} and in terms of the operators, it is defined as:
+$$D(x-y) := \braket{{x}|{y}} = \vacb\fo({x})\fo({y})\vac $$
+where $x$ and $y$ are four-positions and $\fo$ is the field operator in the Heisenberg picture. The Wightman function is simply the 2-point correlation function. Let us calculate an explicit expression for this:
+\begin{align*}
+    D(x-y)  &= \int \meas{\vb{p}}\meas{\vb{p}'} \frac{1}{\sqrt{2\omp}}\frac{1}{\sqrt{2\ompd}}\vacb \qty{\annp e^{-ip\cdot x}+\crep e^{ip\cdot x}}\qty{\annpd e^{-ip'\cdot y}+\crepd e^{ip'\cdot y}}\vac\\
+    &=\int \meas{\vb{p}}\meas{\vb{p}'} \frac{1}{\sqrt{2\omp}}\frac{1}{\sqrt{2\ompd}}e^{-ip\cdot x} e^{ip'\cdot y}\vacb \annp \crepd \vac\\
+    &=\int \meas{\vb{p}}\meas{\vb{p}'} \frac{1}{\sqrt{2\omp}}\frac{1}{\sqrt{2\ompd}}e^{-ip\cdot x} e^{ip'\cdot y}(2\pi)^3\delt{3}{\vb{p}-\vb{p}'}\\
+    &=\int \meas{\vb{p}} \frac{1}{2\omp}e^{-ip\cdot (x-y)} 
+\end{align*}
+From the above expression, it is evident that $D(x-y)$ is Lorentz invariant since the measure and integrand both are invariant. Let us consider the case for different intervals. \\[0.2cm]
+\textbf{Case 1: } (x-y) is a \textit{time-like} interval, that is, $(x-y)^2>0$ under Minkowski metric $(+,-,-,-)$\\[0.2cm]
+We can find a frame where the spatial interval is zero, that is, $\vb{x}'-\vb{y}' = 0$. Now, since $x^0>y^0$ in our original frame and we are considering \textit{orthochronous} Lorentz transformation, $(x')^0>(y')^0$ too, since orthochronous transformations cannot flip the sign of the time-component. Defining $t = (x')^0-(y')^0$, we have:
+\begin{align*}
+    D(x-y) = D(x'-y') &= \int \meas{\vb{p}}\frac{1}{2\omp} e^{-i p^0t}\\
+    &=\int\limits_{0}^\infty \frac{4\pi p^2 dp}{(2\pi)^3}\frac{1}{2\sqrt{p^2+m^2}} e^{-i\sqrt{p^2+m^2}t}\\
+    &=\frac{1}{(2\pi)^2}\int\limits_{0}^\infty dp \frac{p^2}{\sqrt{p^2+m^2}} e^{-i\sqrt{p^2+m^2}t}
+\end{align*}
+Let us take $\epsilon = \sqrt{p^2+m^2} \implies \epsilon^2 = p^2+m^2 \implies \epsilon \dd\epsilon =p\dd p$. Substituting this in the integral, we obtain:
+\begin{align*}
+    D(x-y) &= \frac{1}{(2\pi)^2}\int\limits_{0}^\infty dp \frac{p^2}{\sqrt{p^2+m^2}} e^{-i\sqrt{p^2+m^2}t}\\
+    &= \frac{1}{(2\pi)^2}\int\limits_m^\infty \frac{1}{\cancel{\epsilon}}e^{-i\epsilon t} (\epsilon^2-m^2)\frac{\cancel{\epsilon}\dd\epsilon}{\sqrt{\epsilon^2-m^2}}\\
+    &= \frac{1}{(2\pi)^2}\int\limits_m^\infty e^{-i\epsilon t} \sqrt{\epsilon^2-m^2}{\dd\epsilon}
+\end{align*}
+Now, let us take $\epsilon = m\cosh\theta\implies \dd\epsilon = m \sinh\theta \dd\theta$. Substituting this in the integral above, we obtain:
+\begin{align*}
+    D(x-y) &= \frac{1}{(2\pi)^2}\int\limits_0^\infty e^{-im\cosh\theta t} \sinh^2\theta\dd\theta \\
+    &=\frac{1}{2(2\pi)^2}\int\limits_0^\infty e^{-im\cosh\theta t} \qty(\cosh 2\theta -1)\dd\theta\\
+    &=\frac{1}{2(2\pi)^2}\qty(\int\limits_0^\infty e^{-im\cosh\theta t} \cosh 2\theta \dd\theta -\int\limits_0^\infty e^{-im\cosh\theta t} \dd\theta ) \\
+    &=\frac{1}{2(2\pi)^2} \qty(K_2(imt) - K_0(imt))
+\end{align*}
+where $K_\alpha(x) = \int\limits_0^\infty e^{-x\cosh\theta}\cosh\alpha \theta\ \dd\theta$ is the integral representation of the \textit{modified Bessel function of the second kind}. The integral can also be solved in the asymptotic limit, when $t>>\frac{1}{m}$. Note that for large $t$ and large $\epsilon$, the phase in the exponent is large and there is rapid oscillations, leading to the overall integral being zero. Hence, the contribution to the integral will only come from around $\epsilon \approx m $. \\[0.2cm]
+Thus, taking $\epsilon = m+\xi, \xi<<m$, we have:
+$$D(x-y) = \frac{e^{-imt}}{(2\pi)^2} \int\limits_0^\infty e^{-i\xi t}\sqrt{(2m+\xcancel{\ \xi\ })\xi}\dd\xi =  \frac{e^{-imt}\sqrt{2m}}{(2\pi)^2}\int\limits_0^\infty \sqrt{\xi}e^{-i\xi t}\dd\xi =  e^{-imt} \frac{\sqrt{2m}}{(2\pi)^2 t^{3/2}}\int\limits_0^\infty \sqrt{z}e^{-iz}\dd z$$
+The integral is found out to be $\frac{\Gamma(\sfrac{3}{2})}{i^{3/2}} = \frac{\sqrt{\pi}}{2}e^{-\sfrac{3\pi i}{4}}$, by the analytic continuation of the Gamma function. Anyways, what we found is that, upto some factor, $$D(x-y) \sim e^{-imt}$$
+\textbf{Case 2: } (x-y) is a \textit{space-like} interval, that is, $(x-y)^2<0$ under the Minkowski metric $(+,-,-,-)$\\[0.2cm]
+We can find a frame where the temporal interval is zero, that is, $({x}')^0-({y}')^0 = 0$. Let us define $\vb{r} = \vb{x} - \vb{y}$. Then we have:
+\begin{align*}
+    D(x-y) = D(x'-y') &= \int \meas{\vb{p}}\frac{1}{2\omp} e^{i \vb{p}\cdot \vb{r}}
+\end{align*}
+Consider $\vb{r}$ along the polar axis (if not, the rotate the polar axis), then we have:
+\begin{align*}
+    D(x-y) &= \frac{1}{2(2\pi)^2}\int\limits_0^\infty \dd p\int\limits_{-1}^1 \dd(\cos\theta)\frac{p^2}{\sqrt{p^2+m^2}} e^{i pr\cos\theta}\\ &= \frac{1}{2(2\pi)^2} \frac{1}{ir}\int\limits_0^\infty \dd p \frac{p}{\sqrt{p^2+m^2}}(e^{ipr}-e^{-ipr}) \\ &=\frac{1}{2ir(2\pi)^2 } \int\limits_{-\infty}^\infty \dd p \frac{pe^{ipr}}{\sqrt{p^2+m^2}}\\
+    &=\frac{\mathcal{I}}{2ir(2\pi)^2 } 
+\end{align*}
+Since square root is a multi-valued function, the integrand has branch points at $p = \pm im$ and we choose the branch cuts to be emanating from the poles and going to infinity. Let $r>0$, so we chose the contour to close in the upper-half plane, as per Jordan's lemma. The contour, which avoids the branch cut, is shown below.
+\begin{figure}[H]
+    \centering 
+    \input{pics/prop1.tex}
+    \caption{Contour for the integral (r>0). The blue dots represent the branch points while red kinked line denotes the branch cut. }
+\end{figure}
+\noindent
+The integrals along the arcs vanish for $R\rightarrow \infty$ and $\tilde{r}\to 0$. The only contribution to the integral comes because of the discontinuity across the branch cut. Since the contour encloses no poles, then by the Residue Theorem, we have:
+$$\mathcal{I} + \int\limits_{\Gamma_1} + \int\limits_{\Gamma_2} = 0 $$
+Let us now see what these two integrals along both side of the branch cut evaluates to. For that, consider the diagram below:
+\begin{figure}[H]
+    \centering
+    \input{pics/prop1new.tex}
+\end{figure}
+\noindent
+Note that, on the left-side of the cut, $\theta_1$ and $\theta_2$ both are $\pi/2$. On the right side, since $p+im$ does not encircle the branch cut, $\theta_2$ remain $\pi/2$ however, $\theta_1$ becomes $\pi/2 - 2\pi = -3\pi/2$, since it encircles the branch cut. We write it as following:
+$$\sqrt{p^2+m^2} = \sqrt{|p+im||p-im|} \exp\qty(i\frac{\theta_1+\theta_2}{2})=\begin{cases}
+   \sqrt{|p+im||p-im|} i & \mathrm{right}\\
+    -\sqrt{|p+im||p-im|}i &\mathrm{left}
+\end{cases}$$
+
+Then, the square root becomes negative of each other on either side of the branch cut (on right, side,). Replacing $p=i\rho$, we have:
+\begin{align*}
+   0&= \mathcal{I}+\int\limits_\infty^m \frac{i\rho e^{-\rho r}}{\sqrt{\rho^2-m^2}} + \int\limits_{m}^\infty \frac{-i\rho e^{-\rho r}}{\sqrt{\rho^2-m^2}}  \\
+\implies \ \mathcal{I} &= 2i\int\limits^\infty_m \frac{\rho e^{-\rho r}}{\sqrt{\rho^2-m^2}}
+\end{align*}
+Substituting $\rho = m\cosh \lambda $, we have the expression:
+\begin{align*}
+    \mathcal{I} &= 2im\int\limits^\infty_0 \cosh\lambda e^{-mr\cosh\lambda} = 2im K_1(mr) 
+\end{align*}
+Therefore, the final value of the correlation function becomes:
+$$D(x-y) = \frac{m}{4\pi^2 r}K_1(mr)\xrightarrow{r\to \infty} \frac{m}{4\pi^2 r}\sqrt{ \frac{\pi}{2mr}}e^{-mr}\sim e^{-mr}$$
+% Let us denote the phase by $\delta$, that is, $\delta = {{\qty(\theta -\  \frac{\theta_1 + \theta_2}{2})}}$.
+% Now note that, as the contour is brought closer to the branch cut, that is, as $\tilde{r}\rightarrow 0$, 
+% \begin{align*}
+%     \theta \rightarrow \frac{\pi}{2}\qquad  \theta_1 \rightarrow \frac{3\pi}{2}\qquad  \theta_2 \rightarrow \frac{\pi}{2} \quad &: \Gamma_1 \rightarrow \delta = -\frac{\pi}{2}\\
+%     \theta \rightarrow \frac{\pi}{2}\qquad  \theta_1 \rightarrow -\frac{\pi}{2}\qquad  \theta_2 \rightarrow \frac{\pi}{2}\quad &: \Gamma_2\rightarrow \delta = \frac{\pi}{2}
+% \end{align*}
+% Here $\theta, \theta_1$ and $\theta_2$ are the arguments of $p,p-im,p+im$ respectively. Let us consider $p_1$ and $p_2$ to be very slightly displaced, that is,
+% $$p_1 = im + it -\epsilon\qquad p_2 = im + it +\epsilon \qquad \epsilon, t>0$$ 
+% Then, on the left, since $p_1$ is in the second quadrant, $\arg(p_1) = \pi - \tan^{-1}\qty(\frac{\epsilon}{m+t})$ and as $p_2$ is in the first quadrant, $\arg(p_2) = \tan^{-1}\qty(\frac{\epsilon}{m+t})$
+% For the points $p_1$ and $p_2$ in Fig. (a) and (b), we have:
+% $$p_i - im = |p_i-im|e^{i\theta_1} \qquad p_i + im = |p_i+im|e^{i\theta_2} \qquad p_i = |p_i|e^{i\theta}$$
+% Then we have the following, 
+% $$\frac{p}{\sqrt{p^2+m^2}} = \frac{|p|e^{i\theta}}{\sqrt{|p+im||p-im|} e^{i(\frac{\theta_1 + \theta_2}{2})}} =  \frac{|p|}{\sqrt{|p+im||p-im|}} e^{{\mathcolor{OliveGreen}{i\qty(\theta -\  \frac{\theta_1 + \theta_2}{2})}}}\equiv \mathcal{W}e^{{{i\qty(\theta -\  \frac{\theta_1 + \theta_2}{2})}}}$$
+% Then for $p_2$, we have the following,
+% \begin{align*}
+%     \theta - \qty(\frac{\theta_1 + \theta_2}{2}) &=\tan^{-1}{ \frac{\epsilon}{m+t}} - \frac{1}{2}\qty(\tan^{-1}\frac{\epsilon}{t}+\tan^{-1}\frac{\epsilon}{2m+t})  = \mathcal{X}_1
+% \end{align*}
+% And for $p_2$, we have the following,
+% \begin{align*}
+%     \theta - \qty(\frac{\theta_1 + \theta_2}{2}) &=\pi -\tan^{-1}{ \frac{\epsilon}{m+t}} - \pi + \frac{1}{2}\qty(\tan^{-1}\frac{\epsilon}{t}+\tan^{-1}\frac{\epsilon}{2m+t})  \\
+%     &=  -\qty[ \tan^{-1}{ \frac{\epsilon}{m+t}}  - \frac{1}{2}\qty(\tan^{-1}\frac{\epsilon}{t}+\tan^{-1}\frac{\epsilon}{2m+t})]
+% \end{align*}
+% Note that, as we move from $\Gamma_1$ to $\Gamma_2$, we introduce a phase of $2\pi$ to $p^2+m^2$ and thus, $$p^2+m^2 = \begin{cases}
+%     \sqrt{|p^2+m^2|}\exp\qty(i \frac{\arg(p^2+m^2)}{2}) & \mathrm{right}\\  -\sqrt{|p^2+m^2|}\exp\qty(i \pi + i\frac{\arg(p^2+m^2)}{2}) & \mathrm{left}
+% \end{cases}$$
+% Then, we have the total integral as:
+% $$D(x-y) + \int\limits_{\Gamma_1} + \int\limits_{\Gamma_2} = D(x-y) + \qty( e^{-\frac{3\pi i}{2}} -e^{\frac{\pi i}{2}} )I =0 \implies D(x-y) = 2i I$$
+% \textcolor{red}{to be sorted out later!}
+We see that for spacelike separations, the amplitude falls off as $e^{-mr}\neq 0$. This shows that there is a non-zero probability amplitude for a particle to propagate over a spacelike interval, which violates causality (as it implies faster than light travel). As we had said earlier, this quantity is not very physical. A more appropriate quantity to analyse will be the commutator of the fields, that is,
+\begin{align*}
+    \comtr{\fo(x)}{\fo(y)} &= \int \meas{\vb{p}}\meas{\vb{p}'} \frac{1}{2\sqrt{\omp\ompd}} \qty{\comtr{\annp}{ \crepd} e^{-i p\cdot x}e^{i p'\cdot y} + \comtr{\crepd}{ \annpd}e^{ip\cdot x}e^{-ip'\cdot y}}\\
+    &=\int\meas{\vb{p}}\frac{1}{2\omp} \qty(e^{-i p \cdot (x-y)} - e^{ip\cdot (x-y)})\\
+    &=D(x-y) - D(y-x)
+\end{align*} 
+Thus, we define the propagator as: 
+$$\triangle(x-y) = D(x-y) - D(y-x)$$
+In this case, for a space-like interval, we can find a transformation which will take $(x-y) \mapsto (y-x)$, that is, If a particle can travel in a spacelike
+direction from $x\rightarrow y$ , it can just as easily travel from $y\rightarrow x$ (since there is not Lorentz invariant way to order events), as a result of which, $\triangle(x-y) = 0$, no longer causing any violation of causality. For time-like separation, we cannot find such a transformation and as a result, the commutator is non-zero. 
+\subsection{Propagators}
+Note that the commutator is basically a number (with an implicit identity operator sitting quietly) and thus, 
+\begin{align*}
+    \vacb \comtr{\fo(x)}{ \fo(y)}\vac = D(x-y) - D(y-x) = \int\meas{\vb{p}}\frac{1}{2\omp} \qty(e^{-i p \cdot (x-y)} - e^{ip\cdot (x-y)})
+\end{align*}
+Let us now calculate a 4-D integral of the following form, taking suppose $x_0>y_0$:
+\begin{align*}
+    \mathcal{I} &= \int\meas{\vb{p}} \frac{\dd p^0}{2\pi i} \frac{-e^{-i p\cdot (x-y)}}{p^2-m^2}\\
+    &= \int\meas{\vb{p}} \int\frac{\dd p^0}{2\pi i} \frac{-e^{-i p^0(x^0-y^0) + i \vb{p}\cdot( \vb{x}- \vb{y})}}{(p^0)^2-|\vb{p}|^2-m^2}\\
+     &= \int\meas{\vb{p}} \int\frac{\dd p^0}{2\pi i} \frac{-e^{-i p^0(x^0-y^0) + i \vb{p}\cdot( \vb{x}- \vb{y})}}{(p^0)^2-\omp^2}\\
+     &= \int\meas{\vb{p}}e^{i \vb{p}\cdot( \vb{x}- \vb{y})}\int \frac{\dd p^0}{2\pi i}  \frac{-e^{-i p^0(x^0-y^0) }}{[(p^0)-\omp][(p^0)+\omp]}
+\end{align*}
+Note that the integral has two poles at $p^0 = \pm\omp$, which lies on the real line. Since we are having $x^0>y^0$, to apply Jordan's lemma, we need to close the contour in the lower half-plane. For this case, we choose to include both the poles into the contour, hence, applying the Residue Theorem, we have:
+\begin{align*}
+    \int {\dd p^0} \frac{e^{-i p^0(x^0-y^0) }}{[(p^0)-\omp][(p^0)+\omp]} = -2\pi i \qty(\frac{e^{-i\omp (x^0-y^0)}}{2\omp} + \frac{e^{i\omp (x^0-y^0)}}{-2\omp})
+\end{align*}
+$-2\pi i$ comes since the contour is taken clockwise. Substituting this value in the above integral, we obtain:
+\begin{align*}
+     \mathcal{I} &= \int\meas{\vb{p}}e^{i \vb{p}\cdot( \vb{x}- \vb{y})} \qty(\frac{e^{-i\omp (x^0-y^0)}}{2\omp} + \frac{e^{i\omp (x^0-y^0)}}{-2\omp}) \\
+     &=\int\meas{\vb{p}} \qty(\frac{e^{-i\omp (x^0-y^0) +i \vb{p}\cdot( \vb{x}- \vb{y})}}{2\omp} + \frac{e^{i\omp (x^0-y^0) +i \vb{p}\cdot( \vb{x}- \vb{y})}}{-2\omp})\\
+     &=\int\meas{\vb{p}}\frac{1}{2\omp} \qty(e^{-i p \cdot (x-y)} - e^{ip\cdot (x-y)})
+\end{align*}
+In the second term, we had taken $\vb{p}\to -\vb{p}$. Since $\omp = \omega_{-\vb{p}}$ and the volume element remains invariant, we obtained the second term in the final expression. 
+\begin{figure}[H]
+    \centering 
+\input{pics/retprop.tex}
+
+\caption{The contour choice for the \textit{retarded propagator}. The green contour gives non-zero value while the blue contour gives zero since no pole is inside the contour. The read curve is common to both the contours }
+\end{figure}
+\noindent
+Thus, we see from the final expression that,
+$$ \vacb \comtr{\fo(x)}{ \fo(y)}\vac = \int\meas{\vb{p}} \int\frac{\dd p^0}{-2\pi i} \frac{e^{-i p\cdot (x-y)}}{(p^0)^2 - |\vb{p}|^2-m^2}$$
+Note that, instead of deforming the contour, we could have just shifted the poles downwards (by some amount $i\epsilon$ where $\epsilon>0$) from the real axis, so that they fall into the contour which belongs completely to the lower half-plane. Thus, we can write the expression equivalently as:
+$$ \vacb \comtr{\fo(x)}{ \fo(y)}\vac = \int\meas{\vb{p}} \int\frac{\dd p^0}{-2\pi i} \frac{e^{-i p\cdot (x-y)}}{(p^0 + i\epsilon)^2 - |\vb{p}|^2-m^2} = \int\meas{\vb{p}} \int\frac{\dd p^0}{-2\pi i} \frac{e^{-i p\cdot (x-y)}}{(p^0 + i\epsilon)^2 - \omp^2} $$
+Note that, if we had taken $x^0<y^0$, we would have closed the contour in the upper half-plane for Jordan's lemma to be valid and we would have got the integral as zero, since the contour did not enclose any of the poles. This is called the \textit{Retarded Propagator} and is written compactly as,
+$$D_R(x-y) = \Theta(x^0-y^0)\vacb \comtr{\fo(x)}{ \fo(y)}\vac$$
+where $\Theta(\cdot)$ represents the Heaviside-theta function. Similar to the above, we can define the \textit{Advanced Propagator} which vanishes for $x^0>y^0$. In this case, the poles are shifted upwards by $i\epsilon$. We can define this as:
+$$D_A(x-y) = \Theta(y^0-x^0)\vacb \comtr{\fo(x)}{ \fo(y)}\vac$$
+
+\begin{figure}[H]
+    \centering 
+\input{pics/advprop.tex}
+\caption{Contour choice for the advanced propagator. }
+\end{figure}
+\noindent
+There exists another pole prescription which gives rise to the celebrated \textit{Feynman Propagator} which we investigate now. 
+\begin{figure}[H]
+    \centering 
+\input{pics/feynprop.tex}
+\caption{Pole choice for the Feynman propagator. We choose one pole to be inside and one pole to be outside the contour.}
+\end{figure}
+\noindent
+The Feynman propagator is defined as:
+$$D_F(x-y) =  \int\meas{\vb{p}} \int\frac{\dd p^0}{-2\pi i} \frac{e^{-i p\cdot (x-y)}}{(p^0)^2 - \omp^2 + i\epsilon}$$
+In this case, the contour is chosen such that one pole is shifted up and one pole is shifted down. Let the poles be,
+$$p^0 = -\omp +i\epsilon' \qquad p^0 = \omp -i\epsilon' $$
+Then we have the following,
+$$(p^0+\omp-i\epsilon')(p^0-\omp+i\epsilon') = (p^0)^2 - (\omp  -i\epsilon')^2=(p^0)^2 - \omp^2 +\epsilon'^2 + 2i\omp \epsilon'$$
+We can neglect the $\epsilon'^2$ term compared to the other term since it's a infinitesimal quantity. Also, for the same reason, we can define $\epsilon \equiv 2\omp \epsilon'$ in the integral. The Feynman propagator can then be written as,
+\begin{align*}
+    D_F(x-y) &=  \Theta(x^0-y^0)\vacb {\fo(x)}{ \fo(y)}\vac + \Theta(y^0-x^0)\vacb {\fo(y)}{ \fo(x)}\vac\\
+    &=\vacb \mathcal{T}\fo{(x)}\fo{(y)}\vac
+\end{align*}
+where $\mathcal{T}$ is the \textit{time-ordering} operator, which brings the operator to the left with the `greater' time, similar to the normal ordering operator encounteres previously. \\[0.2cm]
+Feynman propagator is very important and has many applications as will be discussed later. 

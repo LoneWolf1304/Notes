@@ -1,6 +1,7 @@
 \documentclass[usenames, svgnames, dvipsnames]{scrartcl}
 \usepackage{pgfplots}
-\usepackage{emoji, cancel}
+\usepackage{emoji}
+\usepackage[makeroom]{cancel}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{booktabs} % For better table formatting
@@ -19,10 +20,11 @@
 
 \newcommand{\crep}{\hat{a}_{\vb{p}}^\dagger}
 \newcommand{\annp}{\hat{a}_{\vb{p}}}
-
+\newcommand{\fo}{\hat{\phi}}
 \newcommand{\crepd}{\hat{a}_{\vb{p}'}^\dagger}
 \newcommand{\annpd}{\hat{a}_{\vb{p}'}}
 \newcommand{\vac}{\ket{\Omega}}
+\newcommand{\vacb}{\bra{\Omega}}
 \newcommand{\cremp}{\hat{a}_{\vb{-p}}^\dagger}
 \newcommand{\annmp}{\hat{a}_{\vb{-p}}}
 
@@ -158,5 +160,6 @@ a4paper]{geometry}
 \input{lectures/lec12.tex}
 \input{lectures/lec13.tex}
 \input{lectures/lec14.tex}
+\input{lectures/lec15.tex}
 
 \end{document}
