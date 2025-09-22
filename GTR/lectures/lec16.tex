@@ -1,0 +1,78 @@
+\refstepcounter{section}
+\section*{Lecture 16: Bianchi Identitites}
+\addcontentsline{toc}{section}{Lecture 16: Bianchi Identitites}
+\subsection{Natural Units}
+Instead of human-defined units, like \textit{metre} and \textit{seconds} are somewhat problematic due since these are not fundamental. We could have easily defined `1 m' to be something else and worked with that. It is better to use some fundamental quantitites, appearing in Nature, to define a system of measurement. In the \textit{natural units}, we use the speed of light and the Planck's constant and put them to be dimensionless and numerically equal to 1, that is,
+\begin{align*}
+    c &= 1 \implies 1 \mathrm{sec} = 3\times 10^8\ \mathrm{m}\\
+    \hbar&=1 \implies \frac{6.626\times 10^-34 \ \mathrm{kg-m}^2 }{3\times 10^8\ \mathrm{ m}} = 1 \implies 1\ \mathrm{ m } \approx 2\times 10^{42} \ \mathrm{ kg}^{-1}
+\end{align*}
+Note that, since action has the same dimension as $\hbar$, action is actually dimensionless in natural units (which is cool!)\\[0.2cm]
+We will see two identitites which will be very useful while deriving the Einstein tensor for the field equations. The starting of the derivations of both is the Jacobi identity, which is a general property satisfied by an \textit{binary operation}. 
+\begin{identity}[Jacobi Identity]
+    Let $\times$ be a binary operation and $x,y,z$ be arbitrary three elements of a particular mathematical structure. Then the binary operation satisfies the Jacobi Identity if,
+    $$x\times (y\times z) + z\times (x\times y) + y\times (z\times x) = 0 \iff x\times (y\times z) + \mathrm{cyc}. (x,y,z)$$
+\end{identity}
+The Jacobi identity is satisfied by many binary operations, like the cross-product, the commutator brack, the Poisson bracket, etc\footnote{All these are particular cases of a broaded thing called \textit{Lie Bracket}}. We will consider the Jacobi identity for the commutator of the covariant derivatives here!
+\subsection{First Bianchi Identity}
+Let us apply the Jacobi identity on a scalar function $\phi$. 
+$$\comtr{\covd{\rho}}{\comtr{\covd{\mu}}{\covd{\nu}}}\phi + \mathrm{cyc}. (\rho, \mu,\nu)= 0$$
+Now note the following,
+$$\comtr{\covd{\mu}}{\covd{\nu}}\phi = \covd{\mu}(\covd{\nu}\phi) - \mu \leftrightarrow \nu = \qty[\partial_\mu \partial_\nu\phi - \chris{\lambda}{\mu}{\nu}\partial_{\lambda}\phi] - \mu \leftrightarrow \nu$$
+Since the term in the bracket is symmetric in $\mu$ and $\nu$, it cancels with the second term \footnote{Note that in spaces where torsion is there, partial derivatives do not commute and we do not get this result!} and hence the commutator acting on a scalar field is zero. With this, the initial equation simplies as,
+\begin{align*}
+    0 &= -\comtr{\covd{\mu}}{\covd{\nu}}(\covd{\rho}\phi) +\mathrm{cyc}. (\rho, \mu,\nu)\\
+    &=-R_{\rho\sigma\mu\nu}\partial^\sigma\phi + \mathrm{cyc}. (\rho, \mu,\nu)\\
+    &=(R_{\sigma\rho\mu\nu}+ \mathrm{cyc}. (\rho, \mu,\nu))\partial^\sigma \phi 
+\end{align*}
+Since the scalar field is arbitrary, we have the first identity as:
+$$R_{\sigma\rho\mu\nu} + R_{\sigma\nu\rho\mu}+R_{\sigma\mu\nu\rho}=0$$
+Contracting the above with $g^{\lambda\sigma}$, we have:
+$$\rie{\lambda}{\rho}{\mu}{\nu} + \rie{\lambda}{\nu}{\rho}{\mu}+\rie{\lambda}{\mu}{\nu}{\rho}=0$$
+With the first Bianchi identity, we can derive a nice property of the Riemann tensor. From the identity, we have:
+\begin{align*}
+    R_{\rho\sigma\mu\nu} &= -R_{\rho\nu\sigma\mu}-R_{\rho\mu\nu\sigma} \\
+    &=R_{\nu\rho\sigma\mu}+R_{\mu\rho\nu\sigma}\\
+    &=-R_{\nu\mu\rho\sigma}-R_{\nu\sigma\mu\rho}-R_{\mu\sigma\rho\nu}-R_{\mu\nu\sigma\rho}\qquad (\text{using Bianchi identity})\\
+    &=2R_{\mu\nu\rho\sigma} +(R_{\sigma\nu\mu\rho} +R_{\sigma\mu\rho\nu})\\
+    &=2R_{\mu\nu\rho\sigma} +(R_{\sigma\nu\mu\rho} +R_{\sigma\mu\rho\nu} + R_{\sigma\rho\nu\mu}) -R_{\sigma\rho\nu\mu}\\
+    &=2R_{\mu\nu\rho\sigma} +  0 - R_{\rho\sigma\mu\nu}
+\end{align*}
+From this, we obtain that the Riemann tensor is also symmetric under exchange of two pair of indices, that is,
+$$R_{(\rho\sigma)(\mu\nu)} = R_{(\mu\nu)(\rho\sigma)}$$
+Recall that the Ricci tensor was defined as the contraction of first and third index of the Riemann tensor.
+\begin{align*}
+    R_{\mu\nu} = g^{\alpha\beta}R_{\alpha \mu \beta \nu}=g^{\beta\alpha}R_{ \beta \nu\alpha \mu}=R_{\nu\mu}
+\end{align*}
+Hence we obtain that the Ricci tensor is a symmetric tensor.
+\subsection{Second Bianchi Identity}
+For this, we apply the Jacobi identity on a vector field $V^\rho$. 
+\begin{align*}
+    0 &= \covd{\sigma}\qty(\comtr{\covd{\mu}}{\covd{\nu}}V^\rho) -\comtr{\covd{\mu}}{\covd{\nu}}(\covd{\sigma}V^\rho) + \mathrm{cyc}. (\sigma, \mu, \nu)\\
+    &=\covd{\sigma}(\rie{\rho}{\lambda}{\mu}{\nu}V^\lambda) - \tensor{R}{^\rho _\lambda  _\mu _\nu} \covd{\sigma}V^\lambda - \tensor{R}{_\sigma ^\lambda _{\mu \nu}}\covd{\lambda}V^\rho + \mathrm{cyc}. (\sigma, \mu, \nu) \qquad (\text{applying commutator on $(1,1)$ tensor})\\
+    &=\qty[\covd{\sigma}(\rie{\rho}{\lambda}{\mu}{\nu})V^\lambda+\cancel{\rie{\rho}{\lambda}{\mu}{\nu}\covd{\sigma}(V^\lambda)}] - \cancel{\tensor{R}{^\rho _\lambda  _\mu _\nu} \covd{\sigma}V^\lambda} - g^{\beta \lambda}\tensor{R}{_\sigma _\beta _{\mu \nu}}\covd{\lambda}V^\rho + \mathrm{cyc}. (\sigma, \mu, \nu)\qquad(\because  \text{Liebniz rule})\\
+    &=\covd{\sigma}(\rie{\rho}{\lambda}{\mu}{\nu})V^\lambda +  g^{\beta \lambda}\tensor{R}{ _\beta _\sigma _{\mu \nu}}\covd{\lambda}V^\rho + \mathrm{cyc}. (\sigma, \mu, \nu)\\
+    &=\qty[\covd{\sigma}(\rie{\rho}{\lambda}{\mu}{\nu})+\mathrm{cyc}. (\sigma, \mu, \nu)]V^\lambda + \qty[\cancelto{0}{\tensor{R}{^\lambda _\sigma  _{\mu \nu}} + \mathrm{cyc}. (\sigma, \mu, \nu)}]\covd{\lambda}V^\rho \qquad \text{(first Bianchi identity)}\\
+    &=(\covd{\sigma}(R_{{\rho}{\lambda}{\mu}{\nu}}) + \covd{\nu}(R_{{\rho}{\lambda}{\sigma}{\mu}})+\covd{\mu}(R_{{\rho}{\lambda}{\nu}{\sigma}}))V^\lambda
+\end{align*}
+Thus, we obtain the second Bianchi identity,
+$$\covd{\sigma}(R_{{\rho}{\lambda}{\mu}{\nu}}) + \covd{\nu}(R_{{\rho}{\lambda}{\sigma}{\mu}})+\covd{\mu}(R_{{\rho}{\lambda}{\nu}{\sigma}}) = 0$$
+If we contract the equation with $g^{\rho \mu}$, 
+\begin{align*}
+    0&=g^{\rho \mu}(\covd{\sigma}(R_{{\rho}{\lambda}{\mu}{\nu}}) + \covd{\nu}(R_{{\rho}{\lambda}{\sigma}{\mu}})+\covd{\mu}(R_{{\rho}{\lambda}{\nu}{\sigma}}))\\
+    &=\covd{\sigma}(\rie{\mu}{\lambda}{\mu}{\nu}) + \covd{\nu}(\rie{\mu}{\lambda}{\sigma}{\mu})+\nabla^\rho(R_{{\rho}{\lambda}{\nu}{\sigma}})\\
+    &=\covd{\sigma}(R_{\lambda\nu}) - \covd{\nu}(R_{\lambda \sigma})+\nabla^\rho(R_{{\rho}{\lambda}{\nu}{\sigma}})
+\end{align*}
+Contracting again with $g^{\lambda\sigma}$, we obtain:
+\begin{align*}
+    0&=g^{\lambda\sigma}(\covd{\sigma}(R_{\lambda\nu}) - \covd{\nu}(R_{\lambda \sigma})+\nabla^\rho(R_{{\rho}{\lambda}{\nu}{\sigma}}))\\
+    &= \nabla^\lambda R_{\lambda\nu} -\covd{\nu} R + \nabla^\rho R_{\rho\nu}\\
+    &=\nabla^\lambda R_{\lambda\nu} -\covd{\nu} R + \nabla^\lambda R_{\lambda\nu}\\
+    &=2\nabla^\lambda R_{\lambda\nu}  - g_{\lambda \nu}\nabla^{\lambda}R\\
+    &=\nabla^\lambda \qty( R_{\lambda\nu}  - \frac{1}{2} g_{\lambda \nu}R)
+\end{align*}
+If we define a new tensor as follows, 
+$$G_{\lambda\nu}:= R_{\lambda\nu}  - \frac{1}{2} g_{\lambda \nu}R$$
+then, we get the fact that:
+$$\nabla^\lambda G_{\lambda\nu} =0$$
+Thus, the tensor $G_{\lambda\nu}$ is covariantly conserved, similar to the metric, as seen before. The tensor is called the \textit{Einstein tensor} and will appear in the field equations to be seen later. 
