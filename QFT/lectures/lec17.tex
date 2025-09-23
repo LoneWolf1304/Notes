@@ -1,0 +1,118 @@
+\refstepcounter{section}
+\section*{Lecture 17: Dirac in Fourier Mode}
+\addcontentsline{toc}{section}{Lecture 17: Dirac in Fourier Mode}
+We saw that in the previous section that the Dirac equation is essentially:
+$$i \partial_t \psi = \qty(-i \alpha \cdot \nabla + \beta m)\psi\qquad \psi = \begin{pmatrix}
+    \psi_1\\ \psi_2 \\ \psi_3 \\ \psi_4
+\end{pmatrix}$$
+Let the proposed solution be a plane-wave solution, since there is no interaction, and we decompose it into its Fourier modes,that is,
+$$\psi(x) = e^{-iEt}\psi(\vb{x}) = e^{-iEt}\int \meas{\vb{p}}\psi_{\vb{p}}e^{-i \vb{p}\cdot \vb{x}}$$
+Substituting this in the equation above, we have:
+\begin{itemize}
+    \item LHS: $$i\partial_t\psi = i (-iE) \psi(x) = E\psi(x)$$
+    \item RHS: $$e^{-iEt}\int \meas{\vb{p}} ( -i \alpha \cdot (i \vb{p}) + \beta m )\psi_{\vb{p}}e^{i\vb{p}\cdot \vb{x}} =e^{-iEt}\int \meas{\vb{p}} (  \alpha \cdot  \vb{p} + \beta m )\psi_{\vb{p}}e^{i\vb{p}\cdot \vb{x}} $$
+\end{itemize}
+Equating both LHS and RHS we get an equation in $\psi_{\vb{p}}$, 
+\begin{align*}
+    0 &= \qty(\alpha\cdot \vb{p} + \beta m -E)\psi_{\vb{p}}\\
+    &=\qty(\begin{pmatrix}
+        0&\sigma_i p_i\\
+        \sigma_i p_i&0
+    \end{pmatrix} + \begin{pmatrix}
+        (m-E)\mathds{1}& 0\\
+        0 &-(E+m)\mathds{1}
+    \end{pmatrix})\psi_{\vb{p}}\\
+    &= \begin{pmatrix}
+        (m-E)\mathds{1} & \sigma\cdot \vb{p} \\
+        \sigma\cdot \vb{p} & -(m+E)\mathds{1}
+    \end{pmatrix}\psi_{\vb{p}}
+\end{align*}
+Now, for a solution to exist, the matrix should be \textit{singular}, that is,
+$$\det\qty(\begin{pmatrix}
+        (m-E)\mathds{1} & \sigma\cdot \vb{p} \\
+        \sigma\cdot \vb{p} & -(m+E)\mathds{1}
+    \end{pmatrix}) = 0$$
+    Note that, we can calculate the determinant in the ``usual'' sense for block-matrices also, if the elements in the first column commute. Since first element is the identity matrix, it commutes with $\sigma\cdot \vb{p}$ and hence, we can write:
+    \begin{align*}
+        0&= \det\qty((E^2 - m^2)\mathds{1} - (\sigma\cdot\vb{p})(\sigma\cdot\vb{p})) \\
+&=\det\qty((E^2 - m^2)\mathds{1} - (\sigma_i p_i)(\sigma_jp_j))\\
+&=\det\qty((E^2 - m^2)\mathds{1} - (\sigma_i \sigma_j)p_ip_j)\\
+&=\det\qty((E^2 - m^2)\mathds{1} - |\vb{p}|^2 +\sum\limits_{i<j} (\sigma_i\sigma_j + \sigma_j \sigma_i)p_i p_j)\\
+&=\det\qty((E^2 - m^2 - |\vb{p}|^2)\mathds{1})
+    \end{align*}
+From this, we finally obtain that $E^2 - m^2 - |\vb{p}|^2 = 0\implies E = \pm \sqrt{m^2 +|\vb{p}|^2}$. We can see that, the equation says that for each momentum $\vb{p}$, we have two positive-energy solutions and two negative-energy solutions. Now let us find the eigenvectors. Assume it to be of the form, 
+$$\psi_{\vb{p}} =\begin{pmatrix}
+    \phi\\
+    \xi
+\end{pmatrix} $$
+Then, substituting this in the eigenvalue equation we obtain two equations:
+\begin{align*}
+    0 &= (m-E)\phi + (\sigma\cdot \vb{p})\xi \\
+    0 &= (\sigma\cdot \vb{p})\phi -(m+E)\xi
+\end{align*}
+Solving for $\phi$ and $\xi$, we get $\xi = \frac{(\sigma\cdot \vb{p})\phi}{m+E}$ and $\phi = \frac{(\sigma\cdot \vb{p})\xi}{E-m}$. Now, note that the other equations gives a trivial result and thus, $\phi$ can be any arbitrary vector. Now, let us first take the particle at rest, that is, $\vb{p}=0$. Then the eigenvalues are just $\pm m$ and the equation reduces to:
+$$\begin{pmatrix}
+    m & 0\\
+    0 & -m
+\end{pmatrix} \begin{pmatrix}
+    \phi\\
+    \xi
+\end{pmatrix} = \pm m \begin{pmatrix}
+    \phi\\
+    \xi
+\end{pmatrix}$$
+Since the matrix is diagonal, the eigenvectors are trivially,
+$$(\psi_{\vb{p}})_1 = \mqty(1\\ 0\\0\\0)\quad (\psi_{\vb{p}})_2 = \mqty(0\\ 1\\0\\0) \quad (\psi_{\vb{p}})_3 = \mqty(0\\ 0\\1\\0) \quad (\psi_{\vb{p}})_4= \mqty(0\\ 0\\0\\1)$$
+We can check that, the first two correspond to the positive energy solutions and the other two correspond to the negative energy solutions. Now, let us come back to $\vb{p}\neq 0$.The matrix $\sigma\cdot \vb{p}$ comes in the expression quite often and calculating that, we find that:
+$$\sigma\cdot \vb{p} \equiv \left(
+\begin{array}{cc}
+ p_3 & p_1-i p_2 \\
+ p_1+i p_2 & -p_3 \\
+\end{array}
+\right)$$
+Now, let us take a vector $v_m$ whose $m^{\mathrm{th}}$ position has 1 and all other elements are zero. 
+\begin{align*}
+    (Mv_m)_i = M_{ij}(v_m)j = M_{ij}\delta_{mj} = M_{im}
+\end{align*}
+\begin{itemize}
+    \item CASE 1: $\phi = \mqty(1\\0)\implies \xi = \frac{1}{E+m}\mqty(p_3\\ p_1+ip_2)$
+    \item CASE 2: $\phi = \mqty(0\\1)\implies \xi = \frac{1}{E+m}\mqty(p_1 - i p_2\\ -p_3)$
+    \item CASE 3: $\xi = \mqty(1\\0)\implies \phi= \frac{1}{E-m}\mqty(p_3\\ p_1+ip_2)$
+    \item CASE 4: $\xi = \mqty(0\\1)\implies \phi= \frac{1}{E-m}\mqty(p_1 - i p_2\\ -p_3)$
+\end{itemize}
+Thus, the final solutions for non-zero momentum are:
+\[
+(\psi_{\vb{p}})_1 =
+\SN_1 \mqty(
+  1 \\[6pt]
+  0 \\[6pt]
+  \dfrac{p_3}{E+m} \\[6pt]
+  \dfrac{p_1 + i p_2}{E+m}
+)
+\quad
+(\psi_{\vb{p}})_2 =
+\SN_2 \mqty(
+  0 \\[6pt]
+  1 \\[6pt]
+  \dfrac{p_1 - i p_2}{E+m} \\[6pt]
+  \dfrac{-p_3}{E+m}
+)
+\quad
+(\psi_{\vb{p}})_3 =
+\SN_3 \mqty(
+  \dfrac{p_3}{E-m} \\[6pt]
+  \dfrac{p_1 + i p_2}{E+m} \\[6pt]
+  1 \\[6pt]
+  0
+)
+\quad
+(\psi_{\vb{p}})_4 =
+\SN_4 \mqty(
+  \dfrac{p_1 - i p_2}{E-m} \\[6pt]
+  \dfrac{-p_3}{E+m} \\[6pt]
+  0 \\[6pt]
+  1
+)
+\]
+where $\SN_i$ are some normalisation constants. Note that, if $\vb{p}=0$ then the first two solutions correspond to the positive energy while the other two correspond to the negative energy. And thus, we define these solutions corresponding the $E=\sqrt{m^2+|\vb{p}|^2}$ and $E=-\sqrt{m^2+|\vb{p}|^2}$ respectively. \\[0.2cm]
+The initial interpretation of the negative energy solutions were that the ground state (vacuum) was such that all the negative energy states were filled. Excitations happened such that a particle with negative energy occupied a positive energy state, leaving a `hole' in the negative energy domain, which represented an \textit{anti-particle}.

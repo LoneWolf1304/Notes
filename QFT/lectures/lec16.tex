@@ -1,0 +1,53 @@
+\refstepcounter{section}
+\section*{Lecture 16: Introducing the Dirac Equation}
+\addcontentsline{toc}{section}{Lecture 16: Introducing the Dirac Equation}
+We saw that, when quantised, the Klein-Gordon equation provided a negative probability density, which was problematic since it had no obvious interpretation. Hence we said that, the KG equation cannot describe a single-particle system, instead,it describes a spin-0 particle \textit{field}. All the problems arose since, from the relativistic dispersion relation, \begin{equation}\label{reldisp}
+    E^2=p^2+m^2 = p_x^2+p_y^2+p_z^2+m^2
+\end{equation} we obtain a differential equation which is second order in both space and time. \\[0.2cm]
+Let us now look for something which we force to be first order in space and time from the beginning. The most sane choice is to just take the square-root of the dispersion relation, however, square-root of an operator is ill-defined and has many other subtleties. We want everything to be as simple as possible. Hence, we try to \textit{linearise} the square-root. We thus write,
+$$E = \sqrt{p^2+m^2} = \alpha_1 p_1 + \alpha_2 p_2+\alpha_3 p_3 + \beta m$$
+We first promote the momentum and energy to operators, that is, $p\to -i \nabla$ and $E\to i \partial_t $. Then the Schr\"odinger equation becomes, 
+$$i \partial_t \psi = \qty(-i\alpha_i  \pdv{x^i} + \beta m)\psi \qquad \iff \qquad H\psi = E\psi$$ Since we want this to match with the actual dispersion relation Eq. \ref{reldisp}, let us see what happens when we apply the Hamiltonian twice on the time-independent equation  (which would give us an $E^2$ ).\\[0.2cm]
+Note that, since the \textit{linearisation} of the square-root is extremely non-trivial, $\alpha_i$ and $\beta$ might not be just numbers, they could be literally anything. Thus, we do not make any apriori assumptions!\footnote{Well, we do assume that $\alpha_i$ and $\pdv{x^i}$ commute in some sense}
+\begin{align*}
+    H^2 \equiv &= \qty(-\alpha_i^2 \pdv[2]{{x^i}}+\beta m^2 - (\alpha_i \alpha_j + \alpha_j \alpha_i)\frac{\partial^2}{\partial {x^i} \partial {x^j}} - im (\beta a_i + \alpha_i \beta)\pdv{x^i})
+\end{align*}
+If the relativistic dispersion relation has to be satisfied, we find some constraints on $\alpha_i$ and $\beta$:
+\begin{alignat*}{3}
+\alpha_i^2 &= \mathds{1}\qquad  \alpha_i \alpha_j + \alpha_j \alpha_i &&= 2\delta_{ij}\mathds{1}\\
+\beta^2 &=\mathds{1} \qquad \beta \alpha_i + \alpha_i \beta &&= 0
+\end{alignat*}
+where $\mathds{1}$ represents the identity operator in appropriate space. Having $\alpha_i$ and $\beta$ to be just simple scalar numbers clearly do not satisfy the equations, hence let us assume for now, that these are matrices. We then additionally impose the contraint that $\alpha_i^\dagger = \alpha_i$ and $\beta^\dagger = \beta$ since energy and momentum operator (and hence the Hamiltonian) are Hermitian. . With this assumption, let us note some nice properties of these matrices. 
+\begin{itemize}
+    \item Let $v$ be an eigenvector of $\alpha_i$ $\implies \alpha_i v = \lambda v\implies \underbrace{\alpha_i^2}_{\mathds{1}} v = \lambda^2 v \implies \lambda = \pm 1$ . Similar argument goes for $\beta$. Thus, these matrices have eigenvalues either +1 or -1. 
+    \item $\alpha_i\beta = -\beta \alpha_i \implies \alpha_i\beta^2 = -\beta\alpha_i\beta \implies \alpha_i = \beta\alpha_i\beta\implies \Tr \alpha_i = -\Tr \alpha_i \implies \Tr \alpha_i=0 $,
+    where we have used the cyclic property of trace. Similar argument goes for $\beta$. Hence we obtain that these matrices are also traceless.
+    \item Since thre trace, that is, the sum of the eigenvalues, should equal zero, we should definitely have half of the eigenvalues as +1 and the other half to be -1. Thus, these matrices are guaranteed to be \textit{even} dimensional. 
+    \item The relations between $\alpha_i$  looks suspiciously similar to the Pauli matrices and we can choose $\alpha_i$ to be $\sigma_i$. Alas, we run into a dangerous problem. We note that $\beta$ cannot be the a two-dimensional matrix, since then it would not be consistent with the anticommutation relation with $\alpha_i\equiv \sigma_i$. Thus, the next option is to try for \textit{four dimensional} matrices.
+\end{itemize}
+\pagebreak
+Let us define the following, 
+
+$$\alpha_i := 
+\begin{bNiceArray}{c:c}[margin,columns-width=auto]
+  0 & \Block{1-1}{\sigma_i}\\
+\hdashline
+  \sigma_i & \Block{1-1}{0}\\
+\end{bNiceArray} \qquad \beta := 
+\begin{bNiceArray}{c:c}[margin,columns-width=auto]
+  \mathds{1} & \Block{1-1}{0}\\
+\hdashline
+  0 & \Block{1-1}{-\mathds{1}}\\
+\end{bNiceArray} $$
+With this definition, we can indeed verify that all the conditions hold \footnote{Note that these matrices are $4\times 4$ matrices. Each element in the matrix are indeed $2\times 2$ matrices. } and we obtain a way to proceed further. We have an expression for the equation as,
+$$i \pdv{\psi}{t} = -i \alpha\cdot \nabla + \beta m \implies i \beta\pdv{\psi}{t} = -i\beta \alpha\cdot \nabla + \underbrace{\beta^2}_{\mathds{1}} m$$
+Let us define the following matrices:
+\begin{align*}
+  \gamma^0 &:= \beta\\
+\gamma^i &:=\beta\alpha_i
+\end{align*}
+Then, using this definition in the above expression, we have:
+\begin{align*}
+  i \gamma^0 \partial_0\psi  +i \gamma^i \partial_i\psi - m\psi =0 \implies (i \gamma^\mu \partial_\mu - m)\psi =0
+\end{align*}
+Note that, we had introduced the 4-vector concept in an ad-hoc manner. However, doing this, we finally derive the well-known form of the \textit{Dirac equation}!
