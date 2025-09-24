@@ -22,7 +22,7 @@ where $\mathds{1}$ represents the identity operator in appropriate space. Having
     \item Let $v$ be an eigenvector of $\alpha_i$ $\implies \alpha_i v = \lambda v\implies \underbrace{\alpha_i^2}_{\mathds{1}} v = \lambda^2 v \implies \lambda = \pm 1$ . Similar argument goes for $\beta$. Thus, these matrices have eigenvalues either +1 or -1. 
     \item $\alpha_i\beta = -\beta \alpha_i \implies \alpha_i\beta^2 = -\beta\alpha_i\beta \implies \alpha_i = \beta\alpha_i\beta\implies \Tr \alpha_i = -\Tr \alpha_i \implies \Tr \alpha_i=0 $,
     where we have used the cyclic property of trace. Similar argument goes for $\beta$. Hence we obtain that these matrices are also traceless.
-    \item Since thre trace, that is, the sum of the eigenvalues, should equal zero, we should definitely have half of the eigenvalues as +1 and the other half to be -1. Thus, these matrices are guaranteed to be \textit{even} dimensional. 
+    \item Since the trace, that is, the sum of the eigenvalues, should equal zero, we should definitely have half of the eigenvalues as +1 and the other half to be -1. Thus, these matrices are guaranteed to be \textit{even} dimensional. 
     \item The relations between $\alpha_i$  looks suspiciously similar to the Pauli matrices and we can choose $\alpha_i$ to be $\sigma_i$. Alas, we run into a dangerous problem. We note that $\beta$ cannot be the a two-dimensional matrix, since then it would not be consistent with the anticommutation relation with $\alpha_i\equiv \sigma_i$. Thus, the next option is to try for \textit{four dimensional} matrices.
 \end{itemize}
 \pagebreak
@@ -51,3 +51,8 @@ These matrices are called \textit{Dirac matrices}. Then, using this definition i
   i \gamma^0 \partial_0\psi  +i \gamma^i \partial_i\psi - m\psi =0 \implies (i \gamma^\mu \partial_\mu - m)\psi =0
 \end{align*}
 Note that, we had introduced the 4-vector concept in an ad-hoc manner. However, doing this, we finally derive the well-known covariant form of the \textit{Dirac equation}!
+\subsection{Form of Dirac Matrices}
+The Dirac matrices that we had defined have the following form:
+\begin{align}\label{gammat}
+  \gamma^i = \mqty(\mathds{1}&0\\ 0& -\mathds{1}) \mqty(0&\sigma_i\\ \sigma_i& 0)  = \mqty(0&\sigma_i\\ -\sigma_i& 0)
+\end{align}

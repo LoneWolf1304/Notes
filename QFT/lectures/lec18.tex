@@ -2,7 +2,7 @@
 \section*{Lecture 18: Few Properties of Dirac Equation}
 \addcontentsline{toc}{section}{Lecture 18: Few Properties of Dirac Equation}
 We will now look at some properties of the Dirac equation and also of the Dirac matrices. The first to check is the Lorentz covariance, (that is, under a Lorentz transformation, the equation transforms in a similar way), since we started with the relativistic dispersion relation. 
-\subsection{Loentz Covariance}
+\subsection{Lorentz Covariance}
 Let us consider a Lorentz transformation,
 $$x^\mu \rightarrow x'^\mu = \trmat{\mu}{\nu}x^\nu$$
 % If the Dirac equation was Lorentz invariant, under this transformation, takes the form:
@@ -21,4 +21,80 @@ $$\psi(x) = S^{-1}(\Lambda)\psi'(x')$$
 Note that we had used that the matrix $S$ is spacetime independent and thus, commutes with $\partial_\mu$ operator. The above equation is Lorentz covariant if we can find an $S$ such that,
 $$[S(\Lambda)\gamma^\mu S^{-1}(\Lambda)]  \trmat{\nu}{\mu} = \gamma^\nu \implies S^{-1}(\Lambda)S(\Lambda)\gamma^\mu S^{-1}(\Lambda)  \trmat{\nu}{\mu}S(\Lambda) = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)\implies \trmat{\nu}{\mu}\gamma^\mu = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)$$
 Thus, if we define $\gamma'^\mu \equiv \trmat{\nu}{\mu}\gamma^\mu = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)$, then we can say that the Dirac matrices transform with one copy of $\Lambda$ and hence, the vector index on $\gamma$, which was introduced in an ad-hoc manner, can actually be taken seriously. 
+\subsection{Helicity}
+Let us define the following matrices:
+$$\Sigma^{\mu\nu} =\frac{i}{2} \comtr{\gamma^\mu}{\gamma^\nu}\qquad \Sigma^i = \frac{1}{2}\epsilon^{ijk}\Sigma^{jk}$$
+Then, we can calculate the form of the matrix given by $\Sigma^i$ since,
+\begin{align*}
+    -2i\Sigma^{jk} &= \gamma^j \gamma^k - \gamma^k\gamma^j\\
+    &=\gami{j}\gami{k}-\gami{k}\gami{j} \\
+    &=- \mqty(\sigma_j\sigma_k & 0\\ 0 & \sigma_j\sigma_k) +\mqty(\sigma_k\sigma_j & 0\\ 0 & \sigma_k\sigma_j)\\
+    &= -\mqty(\comtr{\sigma_j}{\sigma_k}& 0\\0 &\comtr{\sigma_j}{\sigma_k})\\
+    &= -2i\epsilon^{jkl}\mqty(\sigma_l & 0\\0 & \sigma_l)
+\end{align*}
+From this, we obtain a neat expression that:
+$$\Sigma^{jk} = \epsilon^{jkl}\mqty(\sigma_l & 0\\0 & \sigma_l)$$
+Next we use the expression given above:
+\begin{align*}
+    \Sigma^i = \frac{1}{2}\epsilon^{ijk} \epsilon^{jkl}\mqty(\sigma_l & 0\\0 & \sigma_l) = \delta_{il}\mqty(\sigma_l & 0\\0 & \sigma_l) = \mqty(\sigma_i & 0\\0 & \sigma_i)
+\end{align*}
+Let us calculate the commutator between the Hamiltonian and the quantity $\vb{\Sigma}\cdot \vb{p}$
+\begin{align*}
+    \comtr{H}{\vb{\Sigma}\cdot \vb{p}} &\sim \comtr{\alpha\cdot\vb{p} + \beta m}{\vb{\Sigma}\cdot \vb{p}}\\
+    &=\comtr{\alpha\cdot\vb{p}}{\vb{\Sigma}\cdot \vb{p}} + m\comtr{\beta }{\vb{\Sigma}\cdot \vb{p}}\\
+    &=\mqty(0&\vb{\sigma}\cdot \vb{p}\\ \vb{\sigma}\cdot \vb{p}& 0)\mqty(\vb{\sigma}\cdot\vb{p}& 0\\ 0&\vb{\sigma}\cdot\vb{p}) -\mqty(\vb{\sigma}\cdot\vb{p}& 0\\ 0&\vb{\sigma}\cdot\vb{p})\mqty(0&\vb{\sigma}\cdot \vb{p}\\ \vb{\sigma}\cdot \vb{p}& 0) + 0\\
+    &=0
+\end{align*}
+We thus see that this quantity indeed commutes with the Hamiltonian and hence we can measure the value of this operator simultaneously with the Hamiltonian. To provide a more physical measure, we define the \textit{chirality } operator as:
+$$\hat{h} :=\frac{\hbar}{2} \frac{\vb{\Sigma}\cdot \vb{p}}{|\vb{p}|}$$
+Supose our momentum is along the z-direction, then $$\hat{h} = \frac{\hbar}{2}\Sigma^3 = \frac{\hbar}{2}\mqty(1& & & \\ &-1 & & \\ & & 1 & \\ & & & -1)$$
+which has eigenvalues $\pm 1$. Then, applying this operator on each of the four solutions, we will get eigenvalues $\pm 1$ for positive and $\pm 1$ for the negative solutions and thus the degeneracy is lifted. 
+\begin{figure}[H]
+    \centering 
+    
+
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,268); %set diagram left start at 0, and has height of 268
+
+%Curve Right Arrow [id:dp2437106371307597] 
+\draw  [fill={rgb, 255:red, 225; green, 246; blue, 241 }  ,fill opacity=1 ] (166.01,166.67) .. controls (166.01,158.2) and (188.7,151.34) .. (216.68,151.34) -- (216.68,136.14) .. controls (188.7,136.14) and (166.01,143) .. (166.01,151.47) ;\draw  [fill={rgb, 255:red, 225; green, 246; blue, 241 }  ,fill opacity=1 ] (166.01,151.47) .. controls (166.01,157.75) and (178.52,163.16) .. (196.41,165.52) -- (196.41,160.45) -- (216.68,174.4) -- (196.41,185.79) -- (196.41,180.72) .. controls (178.52,178.36) and (166.01,172.96) .. (166.01,166.67)(166.01,151.47) -- (166.01,166.67) ;
+%Curve Right Arrow [id:dp9643489208430278] 
+\draw  [fill={rgb, 255:red, 225; green, 246; blue, 241 }  ,fill opacity=1 ] (312.68,166.67) .. controls (312.68,158.2) and (290,151.34) .. (262.01,151.34) -- (262.01,136.14) .. controls (290,136.14) and (312.68,143) .. (312.68,151.47) ;\draw  [fill={rgb, 255:red, 225; green, 246; blue, 241 }  ,fill opacity=1 ] (312.68,151.47) .. controls (312.68,157.75) and (300.18,163.16) .. (282.28,165.52) -- (282.28,160.45) -- (262.01,174.4) -- (282.28,185.79) -- (282.28,180.72) .. controls (300.18,178.36) and (312.68,172.96) .. (312.68,166.67)(312.68,151.47) -- (312.68,166.67) ;
+%Straight Lines [id:da36702989789468743] 
+\draw    (199.68,139.18) -- (199.68,49.83) ;
+\draw [shift={(199.68,47.83)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5783101661399397] 
+\draw    (288.68,139.18) -- (288.68,49.83) ;
+\draw [shift={(288.68,47.83)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9273855365156831] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (199.68,160.18) -- (199.68,111.18) ;
+\draw [shift={(199.68,108.18)}, rotate = 90] [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da18136447633419028] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (288.68,157.18) -- (288.68,109.18) ;
+\draw [shift={(288.68,160.18)}, rotate = 270] [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+
+% Text Node
+\draw (197,29.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p$};
+% Text Node
+\draw (286,30.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p$};
+% Text Node
+\draw (179.68,114.58) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\hat{h}$};
+% Text Node
+\draw (294.68,114.58) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\hat{h}$};
+% Text Node
+\draw (194,196) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {(a)};
+% Text Node
+\draw (279,196) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {(b)};
+
+
+\end{tikzpicture}
+
+\caption{Fig (a) describes when $\hat{h}$ is along the momentum direction, giving postive helicity or right-handedness while Fig (b) describes when $\hat{h}$ is anti-parallel to the momenutm direction, giving negative helicity or left-handedness.}
+\end{figure} 
+\noindent
+It can be shown that helicity is not Lorentz invariant and this is problematic. Only for massless particles, helicity becomes Lorentz invariant.
 \subsection{Properties of Dirac Matrices}
