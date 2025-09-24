@@ -2,9 +2,10 @@
 \section*{Lecture 17: Dirac in Fourier Mode}
 \addcontentsline{toc}{section}{Lecture 17: Dirac in Fourier Mode}
 We saw that in the previous section that the Dirac equation is essentially:
-$$i \partial_t \psi = \qty(-i \alpha \cdot \nabla + \beta m)\psi\qquad \psi = \begin{pmatrix}
-    \psi_1\\ \psi_2 \\ \psi_3 \\ \psi_4
+$$i \partial_t \psi = \qty(-i \alpha \cdot \nabla + \beta m)\psi\qquad \psi(x) = \begin{pmatrix}
+    \psi_1(x)\\ \psi_2(x) \\ \psi_3(x) \\ \psi_4(x)
 \end{pmatrix}$$
+The solution is a four-component vector since the matrices are $4\times 4$ dimensional. \footnote{In non-relativistic QM, during angular momentum, we saw that multi-component wavefunctions imply a non-trivial spin angular momentum, so we expect Dirac equation to describe spinful particles.}
 Let the proposed solution be a plane-wave solution, since there is no interaction, and we decompose it into its Fourier modes,that is,
 $$\psi(x) = e^{-iEt}\psi(\vb{x}) = e^{-iEt}\int \meas{\vb{p}}\psi_{\vb{p}}e^{-i \vb{p}\cdot \vb{x}}$$
 Substituting this in the equation above, we have:
@@ -40,7 +41,7 @@ $$\det\qty(\begin{pmatrix}
 &=\det\qty((E^2 - m^2)\mathds{1} - |\vb{p}|^2 +\sum\limits_{i<j} (\sigma_i\sigma_j + \sigma_j \sigma_i)p_i p_j)\\
 &=\det\qty((E^2 - m^2 - |\vb{p}|^2)\mathds{1})
     \end{align*}
-From this, we finally obtain that $E^2 - m^2 - |\vb{p}|^2 = 0\implies E = \pm \sqrt{m^2 +|\vb{p}|^2}$. We can see that, the equation says that for each momentum $\vb{p}$, we have two positive-energy solutions and two negative-energy solutions. Now let us find the eigenvectors. Assume it to be of the form, 
+From this, we finally obtain that $E^2 - m^2 - |\vb{p}|^2 = 0\implies E = \pm \sqrt{m^2 +|\vb{p}|^2}$. We can see that, the equation says that for each momentum $\vb{p}$, we have two positive-energy solutions and two negative-energy solutions (each energy is \textit{doubly degenerate}). Now let us find the eigenvectors. Assume it to be of the form, 
 $$\psi_{\vb{p}} =\begin{pmatrix}
     \phi\\
     \xi
@@ -114,5 +115,77 @@ Thus, the final solutions for non-zero momentum are:
   1
 )
 \]
-where $\SN_i$ are some normalisation constants. Note that, if $\vb{p}=0$ then the first two solutions correspond to the positive energy while the other two correspond to the negative energy. And thus, we define these solutions corresponding the $E=\sqrt{m^2+|\vb{p}|^2}$ and $E=-\sqrt{m^2+|\vb{p}|^2}$ respectively. \\[0.2cm]
-The initial interpretation of the negative energy solutions were that the ground state (vacuum) was such that all the negative energy states were filled. Excitations happened such that a particle with negative energy occupied a positive energy state, leaving a `hole' in the negative energy domain, which represented an \textit{anti-particle}.
+where $\SN_i$ are some normalisation constants. The four components wavefunctions are called \textit{spinors}. Note that, if $\vb{p}=0$ then the first two solutions correspond to the positive energy while the other two correspond to the negative energy. And thus, we define these solutions corresponding the $E=\sqrt{m^2+|\vb{p}|^2}$ and $E=-\sqrt{m^2+|\vb{p}|^2}$ respectively. \\[0.2cm]
+Note that the positive and negative energy solutions are separated by a gap of $2m$ as $E_+ = \sqrt{|\vb{p}|^2 + m^2}> m $ and $E_- =-\sqrt{|\vb{p}|^2 + m^2}< -m$. Also, the energy spectrum is \textit{unbounded} from below. \\[0.2cm]
+It is an evident difficulty since any particle satisfying Dirac equation, will inevitably fall down to the lower, negative energy states, causing \textit{destabilisation}. 
+\begin{figure}[H]
+    \centering 
+    
+
+% Gradient Info
+  
+\tikzset {_8pc7l7yd5/.code = {\pgfsetadditionalshadetransform{ \pgftransformshift{\pgfpoint{0 bp } { 0 bp }  }  \pgftransformrotate{0 }  \pgftransformscale{2 }  }}}
+\pgfdeclarehorizontalshading{_6qrwt9798}{150bp}{rgb(0bp)=(0.95,0.98,1);
+rgb(37.5bp)=(0.95,0.98,1);
+rgb(47.33184814453125bp)=(0.84,0.94,0.99);
+rgb(100bp)=(0.84,0.94,0.99)}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da979995148343419] 
+\draw    (262.4,256) -- (262.4,37.3) ;
+\draw [shift={(262.4,35.3)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da04446864969143882] 
+\draw    (262.4,164.41) -- (466.11,163.13) ;
+\draw [shift={(468.11,163.12)}, rotate = 179.64] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da666233736595041] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,132.6) -- (463.83,132) ;
+%Straight Lines [id:da9398249211384702] 
+\draw    (262.4,190.83) -- (463.83,190.22) ;
+%Shape: Rectangle [id:dp09742023967023994] 
+\path  [shading=_6qrwt9798,_8pc7l7yd5] (262.4,190.83) -- (463.83,190.83) -- (463.83,256.82) -- (262.4,256.82) -- cycle ; % for fading 
+ \draw   (262.4,190.83) -- (463.83,190.83) -- (463.83,256.82) -- (262.4,256.82) -- cycle ; % for border 
+
+%Straight Lines [id:da8204279488554741] 
+\draw [color={rgb, 255:red, 255; green, 255; blue, 255 }  ,draw opacity=1 ][line width=1.5]    (260.98,256.82) -- (476.68,257.4) ;
+%Straight Lines [id:da17959047139297257] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,132.6) -- (463.83,132) ;
+%Straight Lines [id:da5742845161305669] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,126.13) -- (463.83,125.53) ;
+%Straight Lines [id:da8405351242139766] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,119.66) -- (463.83,119.06) ;
+%Straight Lines [id:da6928157674018026] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,113.19) -- (463.83,112.59) ;
+%Straight Lines [id:da9962811753052057] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,106.72) -- (463.83,106.12) ;
+%Straight Lines [id:da41061632839981965] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,100.25) -- (463.83,99.65) ;
+%Straight Lines [id:da6443547527439755] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=0.83 ]   (262.4,93.78) -- (463.83,93.18) ;
+%Shape: Ellipse [id:dp32130364392635047] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 236; green, 219; blue, 43 }  ,fill opacity=0.72 ] (344.73,119.36) .. controls (344.73,116.91) and (346.93,114.92) .. (349.64,114.92) .. controls (352.35,114.92) and (354.54,116.91) .. (354.54,119.36) .. controls (354.54,121.81) and (352.35,123.8) .. (349.64,123.8) .. controls (346.93,123.8) and (344.73,121.81) .. (344.73,119.36) -- cycle ;
+%Curve Lines [id:da7544895099985383] 
+\draw    (347.95,219.21) .. controls (295.79,205.67) and (286.86,147.24) .. (336.59,124.08) ;
+\draw [shift={(338.12,123.39)}, rotate = 156.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Ellipse [id:dp997866694516088] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (343.04,219.21) .. controls (343.04,216.75) and (345.24,214.77) .. (347.95,214.77) .. controls (350.66,214.77) and (352.85,216.75) .. (352.85,219.21) .. controls (352.85,221.66) and (350.66,223.65) .. (347.95,223.65) .. controls (345.24,223.65) and (343.04,221.66) .. (343.04,219.21) -- cycle ;
+
+% Text Node
+\draw (236.93,124.91) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$+m$};
+% Text Node
+\draw (356.5,64.98) node [anchor=north west][inner sep=0.75pt]    {$\vdots $};
+% Text Node
+\draw (236.5,184.14) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$-m$};
+% Text Node
+\draw (358.38,215.97) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {hole};
+
+
+\end{tikzpicture}
+
+\end{figure}
+\noindent
+To sort out this problem, the initial interpretation of the negative energy solutions were that the ground state (vacuum) was such that all the negative energy states were fully filled (if it were not, then transition to lower energy would always have been a possibility!). Thus, the \textit{ground state} contains an infinite number of particles in the negative energy states. \\[0.2cm]
+The Dirac equation describes particles with spin-$\frac{1}{2}$ and hence a positive energy particle cannot transit to negative energy state due to the exclusion principle.\\[0.2cm]
+ Excitations can happen such that a particle with negative energy occupy a positive energy state, leaving a `hole' in the negative energy domain, which represented an \textit{anti-particle}, having the same mass and \textit{internal quantum numbers}.

@@ -1,0 +1,24 @@
+\refstepcounter{section}
+\section*{Lecture 18: Few Properties of Dirac Equation}
+\addcontentsline{toc}{section}{Lecture 18: Few Properties of Dirac Equation}
+We will now look at some properties of the Dirac equation and also of the Dirac matrices. The first to check is the Lorentz covariance, (that is, under a Lorentz transformation, the equation transforms in a similar way), since we started with the relativistic dispersion relation. 
+\subsection{Loentz Covariance}
+Let us consider a Lorentz transformation,
+$$x^\mu \rightarrow x'^\mu = \trmat{\mu}{\nu}x^\nu$$
+% If the Dirac equation was Lorentz invariant, under this transformation, takes the form:
+% $$(i\gamma^\mu \partial'_{\mu} - m)\psi'(x')=0$$
+% Technically we should have written $\gamma'$ but it can be shown \footnote{See \url{https://doi.org/10.1103/RevModPhys.27.187}} that $\gamma'$ and $\gamma$ are related by just an unitary transformation, so we could simply use $\gamma^\mu$. Now, 
+Let us assume that under the transformation, the wavefunction changes as,
+$$\psi'(x') = \psi'(\Lambda x) = S(\Lambda)\psi(x)$$
+$S(\Lambda)$ is a \textit{spinor} representation of the Lorentz transformation. What we assume here is that the Lorentz transformation on the wavefunction can be faithfully represented by the matrix $S$ which depends only on the parameter of the transformation $\Lambda$ and not on the spacetime. Also, since the transformation matrices are \textit{invertible}, we have:
+$$\psi(x) = S^{-1}(\Lambda)\psi'(x')$$
+\begin{align*}
+    0&= (i\gamma^\mu \partial_\mu - m)\psi(x)\\
+    &= (i\gamma^\mu \trmat{\nu}{\mu}\partial'_\mu - m) S^{-1}(\Lambda)\psi'(x')\\
+    &=(iS(\Lambda)\gamma^\mu  S^{-1}(\Lambda) \trmat{\nu}{\mu}\partial'_\mu  - mS(\Lambda)S^{-1}(\Lambda))\psi'(x')\\
+    &=(iS(\Lambda)\gamma^\mu S^{-1}(\Lambda)  \trmat{\nu}{\mu}\partial'_\mu- m)\psi'(x')
+\end{align*}
+Note that we had used that the matrix $S$ is spacetime independent and thus, commutes with $\partial_\mu$ operator. The above equation is Lorentz covariant if we can find an $S$ such that,
+$$[S(\Lambda)\gamma^\mu S^{-1}(\Lambda)]  \trmat{\nu}{\mu} = \gamma^\nu \implies S^{-1}(\Lambda)S(\Lambda)\gamma^\mu S^{-1}(\Lambda)  \trmat{\nu}{\mu}S(\Lambda) = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)\implies \trmat{\nu}{\mu}\gamma^\mu = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)$$
+Thus, if we define $\gamma'^\mu \equiv \trmat{\nu}{\mu}\gamma^\mu = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)$, then we can say that the Dirac matrices transform with one copy of $\Lambda$ and hence, the vector index on $\gamma$, which was introduced in an ad-hoc manner, can actually be taken seriously. 
+\subsection{Properties of Dirac Matrices}

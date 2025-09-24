@@ -1,7 +1,7 @@
 \refstepcounter{section}
 \section*{Lecture 16: Introducing the Dirac Equation}
 \addcontentsline{toc}{section}{Lecture 16: Introducing the Dirac Equation}
-We saw that, when quantised, the Klein-Gordon equation provided a negative probability density, which was problematic since it had no obvious interpretation. Hence we said that, the KG equation cannot describe a single-particle system, instead,it describes a spin-0 particle \textit{field}. All the problems arose since, from the relativistic dispersion relation, \begin{equation}\label{reldisp}
+We saw that, when quantised, the Klein-Gordon equation provided a negative probability density, which was problematic since it had no obvious interpretation. Hence we said that, the KG equation cannot describe a single-particle system, instead, it describes a spin-0 particle \textit{field}. All the problems arose since, from the relativistic dispersion relation, \begin{equation}\label{reldisp}
     E^2=p^2+m^2 = p_x^2+p_y^2+p_z^2+m^2
 \end{equation} we obtain a differential equation which is second order in both space and time. \\[0.2cm]
 Let us now look for something which we force to be first order in space and time from the beginning. The most sane choice is to just take the square-root of the dispersion relation, however, square-root of an operator is ill-defined and has many other subtleties. We want everything to be as simple as possible. Hence, we try to \textit{linearise} the square-root. We thus write,
@@ -17,7 +17,7 @@ If the relativistic dispersion relation has to be satisfied, we find some constr
 \alpha_i^2 &= \mathds{1}\qquad  \alpha_i \alpha_j + \alpha_j \alpha_i &&= 2\delta_{ij}\mathds{1}\\
 \beta^2 &=\mathds{1} \qquad \beta \alpha_i + \alpha_i \beta &&= 0
 \end{alignat*}
-where $\mathds{1}$ represents the identity operator in appropriate space. Having $\alpha_i$ and $\beta$ to be just simple scalar numbers clearly do not satisfy the equations, hence let us assume for now, that these are matrices. We then additionally impose the contraint that $\alpha_i^\dagger = \alpha_i$ and $\beta^\dagger = \beta$ since energy and momentum operator (and hence the Hamiltonian) are Hermitian. . With this assumption, let us note some nice properties of these matrices. 
+where $\mathds{1}$ represents the identity operator in appropriate space. Having $\alpha_i$ and $\beta$ to be just simple scalar numbers clearly do not satisfy the equations, hence let us assume for now, that these are matrices. We then additionally impose the contraint that $\alpha_i^\dagger = \alpha_i$ and $\beta^\dagger = \beta$ since energy and momentum operator (and hence the Hamiltonian) are Hermitian. With this assumption, let us note some nice properties of these matrices. 
 \begin{itemize}
     \item Let $v$ be an eigenvector of $\alpha_i$ $\implies \alpha_i v = \lambda v\implies \underbrace{\alpha_i^2}_{\mathds{1}} v = \lambda^2 v \implies \lambda = \pm 1$ . Similar argument goes for $\beta$. Thus, these matrices have eigenvalues either +1 or -1. 
     \item $\alpha_i\beta = -\beta \alpha_i \implies \alpha_i\beta^2 = -\beta\alpha_i\beta \implies \alpha_i = \beta\alpha_i\beta\implies \Tr \alpha_i = -\Tr \alpha_i \implies \Tr \alpha_i=0 $,
@@ -41,13 +41,13 @@ $$\alpha_i :=
 \end{bNiceArray} $$
 With this definition, we can indeed verify that all the conditions hold \footnote{Note that these matrices are $4\times 4$ matrices. Each element in the matrix are indeed $2\times 2$ matrices. } and we obtain a way to proceed further. We have an expression for the equation as,
 $$i \pdv{\psi}{t} = -i \alpha\cdot \nabla + \beta m \implies i \beta\pdv{\psi}{t} = -i\beta \alpha\cdot \nabla + \underbrace{\beta^2}_{\mathds{1}} m$$
-Let us define the following matrices:
+We would like to write the Dirac equation in covariant notation. To do so, let us introduce the following matrices:
 \begin{align*}
   \gamma^0 &:= \beta\\
-\gamma^i &:=\beta\alpha_i
+\gamma^i &:=\gamma^0\alpha_i
 \end{align*}
-Then, using this definition in the above expression, we have:
+These matrices are called \textit{Dirac matrices}. Then, using this definition in the above expression, we have:
 \begin{align*}
   i \gamma^0 \partial_0\psi  +i \gamma^i \partial_i\psi - m\psi =0 \implies (i \gamma^\mu \partial_\mu - m)\psi =0
 \end{align*}
-Note that, we had introduced the 4-vector concept in an ad-hoc manner. However, doing this, we finally derive the well-known form of the \textit{Dirac equation}!
+Note that, we had introduced the 4-vector concept in an ad-hoc manner. However, doing this, we finally derive the well-known covariant form of the \textit{Dirac equation}!
