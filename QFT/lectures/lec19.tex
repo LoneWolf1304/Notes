@@ -1,0 +1,61 @@
+\refstepcounter{section}
+\section*{Lecture 19: Trace and Contraction Identities}
+
+\addcontentsline{toc}{section}{Lecture 19: Trace and Contraction Identities}
+In the previous section, we saw that calculating the trace of the Dirac matrices become really important since these define the inner products. Let us look at some of the trace identities followed by the Dirac matrices.
+\begin{itemize}
+    \item $\Tr(\gamma^\mu)=0$\\[0.2cm]
+    \textit{Proof.} We defined $\gamma^0=\beta$ which was already traceless. From the anti-commutation relation, we know that $\beta \alpha_i = -\alpha_i \beta$ and taking trace on both sides, we get $\Tr \gamma^i = 0$
+    \item $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}$\\[0.2cm]
+    \textit{Proof.} Let us take the spatial indices first. From the definition of $\alpha_i$ and $\beta$, we have the following:
+    \begin{align*}
+        \gamma^i\gamma^j+\gamma^j\gamma^i = \beta (\alpha_i \beta) \alpha_j + i\leftrightarrow j=-\beta  (\beta \alpha_i)\alpha_j+ i\leftrightarrow j=-(\alpha_i\alpha_j +\alpha_j\alpha_i ) =-2\delta_{ij}\mathds{1}=2\eta^{ij}\mathds{1}
+    \end{align*}
+    Now, consider one temporal index, that is,
+    \begin{align*}
+        \{\gamma^0, \gamma^i\}= \beta^2 \alpha_i +\beta \alpha_i\beta =\alpha_i -\alpha_i\beta^2 =0
+    \end{align*}
+    Finally, we have $\{\gamma^0, \gamma^0\} = 2\beta^2 = 2\mathds{1}=2\eta^{00}\mathds{1}$. Combining the above, we have the identity.
+    \item $\Tr(\gamma^\mu\gamma^\nu)=4\eta^{\mu\nu}$\\[0.2cm]
+    \textit{Proof.} From the anti-commutation relation of the Dirac matrices, we have:
+    \begin{align*}
+      2\Tr(\gamma^\mu\gamma^\nu) =  \Tr\{\gamma^\mu,\gamma^\nu\} = \Tr (2\eta^{\mu\nu}\mathds{1}) =2\eta^{\mu\nu} \times 4 \implies \Tr(\gamma^\mu\gamma^\nu) = 4 \eta^{\mu\nu}
+    \end{align*}
+    \item $(\gamma^5)^2 = \mathds{1}$\\[0.2cm]
+    \textit{Proof.} From the definition of $\gamma^5$ and the anti-commutation between the gamma matrices, we have,
+    \begin{align*}
+        \gamma^5 \gamma^5 &= - (\gamma^0 \gamma^1 \gamma^2 \gamma^3 )(\gamma^0 \gamma^1 \gamma^2 \gamma^3 )\\
+        &=\gamma^1\gamma^2\gamma^3(\gamma^0)^2 \gamma^1 \gamma^2\gamma^3\\ 
+        &=\gamma^1\gamma^2\gamma^3\gamma^1 \gamma^2\gamma^3\\
+        &=\gamma^2\gamma^3 (\gamma^1)^2\gamma^2\gamma^3\\
+        &=-\gamma^2\gamma^3 \gamma^2 \gamma^3 \\
+        &= \gamma^3( \gamma^2)^2 \gamma^3 \\
+        &= -(\gamma^3)^2\\
+        &= \mathds{1}
+    \end{align*}
+    \item $\{\gamma^5, \gamma^\mu\} = 0 $\\[0.25cm]
+    \textit{Proof.} Note that, in $\gamma^5\gamma^\mu = i \gamma^0 \gamma^1 \gamma^2 \gamma^3 \gamma^\mu$, for exchanging each $\mu\neq \nu$, we introduce a $-1$. Now, since there are $4$ indices, $\mu$ must be one of these four indices and hence, we have the same index together, we do not need the $-1$. Thus, we introduce exactly $(-1)^3 = -1$ while transporting $\gamma^\mu$ to the front. Then we have $\gamma^5\gamma^\mu = -\gamma^\mu\gamma^5$, thus proving the identity. 
+    \item $\Tr (\gamma^{\mu_1 }\gamma^{\mu_2 }\ldots \gamma^{\mu_{2n+1} })=0$ \\[0.25cm]
+    \textit{Proof.} As $(\gamma^5)^2 = \mathds{1}$, let us multiply $\gamma^5$ to the above expression,
+    \begin{align*}
+        \gamma^{\mu_1 }\gamma^{\mu_2 }\ldots \gamma^{\mu_{2n+1} } &= \gamma^5\gamma^5\gamma^{\mu_1 }\gamma^{\mu_2 }\ldots \gamma^{\mu_{2n+1} }\\
+    \end{align*}
+    Shifting one of the $\gamma^5$ to the far right across the $2n+1$ indices will introduce $(-1)^{2n+1}$ and thus, we get:
+    $$\gamma^{\mu_1 }\gamma^{\mu_2 }\ldots \gamma^{\mu_{2n+1} } = (-1)^{2n+1}\gamma^5\gamma^{\mu_1 }\gamma^{\mu_2 }\ldots \gamma^{\mu_{2n+1} }\gamma^5$$
+    Taking trace both sides and taking the cyclic property of the trace, we obtain the following. Thus, the product of odd number of gamma matrices is zero. 
+    \item $\Tr(\gamma^\kappa \gamma^\lambda \gamma^\mu \gamma^\nu) = 4\eta^{\kappa\lambda}\eta^{\mu\nu}-4\eta^{\kappa\mu}\eta^{\lambda\nu}+4\eta^{\kappa\nu}\eta^{\lambda\mu}$\\[0.25cm]
+    \textit{Proof.} Using the anti-commutation relation, we note the following: 
+    \begin{align*}
+        \{\gamma^\kappa, \gamma^\lambda\gamma^\mu\gamma^\nu\} &= \gamma^\kappa\gamma^\lambda\gamma^\mu\gamma^\nu +\gamma^\lambda\gamma^\mu\gamma^\nu\gamma^\kappa \\
+        &=\gamma^\kappa\gamma^\lambda\gamma^\mu\gamma^\nu  + \mathcolor{red}{\gamma^{\lambda}\gamma^{\kappa}\gamma^{\mu}\gamma^{\nu}}-\mathcolor{red}{\gamma^{\lambda}\gamma^{\kappa}\gamma^{\mu}\gamma^{\nu}}+ \gamma^\lambda\gamma^\mu\gamma^\nu\gamma^\kappa \\
+        &=\{\gamma^\kappa, \gamma^\lambda\}\gamma^\mu\gamma^\nu - \gamma^{\lambda}\gamma^{\kappa}\gamma^{\mu}\gamma^{\nu} -\mathcolor{blue}{\gamma^{\lambda}\gamma^{\mu}\gamma^{\kappa}\gamma^{\nu}} +\mathcolor{blue}{\gamma^{\lambda}\gamma^{\mu}\gamma^{\kappa}\gamma^{\nu}} + \gamma^\lambda\gamma^\mu\gamma^\nu\gamma^\kappa \\
+        &=\{\gamma^\kappa, \gamma^\lambda\}\gamma^\mu\gamma^\nu - \gamma^\lambda\{\gamma^\kappa, \gamma^\mu\}\gamma^\nu +\gamma^\lambda\gamma^\mu\{\gamma^\kappa,\gamma^\nu\}\\
+        &=2\eta^{\kappa\lambda}\gamma^\mu\gamma^\nu - 2\eta^{\kappa\mu}\gamma^\lambda\gamma^\nu +2\eta^{\kappa\nu}\gamma^\lambda\gamma^\mu
+    \end{align*}
+    Now, note that the required quantity is basically half the trace of the above anti-commutator.
+    \begin{align*}
+     \Tr(\gamma^\kappa \gamma^\lambda \gamma^\mu \gamma^\nu) =  \frac{1}{2} \Tr \{\gamma^\kappa, \gamma^\lambda\gamma^\mu\gamma^\nu\}&=\Tr \qty(\eta^{\kappa\lambda}\gamma^\mu\gamma^\nu - \eta^{\kappa\mu}\gamma^\lambda\gamma^\nu +\eta^{\kappa\nu}\gamma^\lambda\gamma^\mu)\\
+&=\eta^{\kappa\lambda}\Tr \gamma^\mu\gamma^\nu -\eta^{\kappa\mu} \Tr \gamma^\lambda\gamma^\nu +\eta^{\kappa\nu}\Tr \gamma^\lambda\gamma^\mu\\
+&= 4 \eta^{\kappa\lambda}\eta^{\mu\nu}  -4\eta^{\kappa\mu}\eta^{\lambda\nu} + 4\eta^{\kappa\nu}\eta^{\lambda\mu}
+    \end{align*} 
+\end{itemize}

@@ -93,8 +93,25 @@ which has eigenvalues $\pm 1$. Then, applying this operator on each of the four 
 
 \end{tikzpicture}
 
-\caption{Fig (a) describes when $\hat{h}$ is along the momentum direction, giving postive helicity or right-handedness while Fig (b) describes when $\hat{h}$ is anti-parallel to the momenutm direction, giving negative helicity or left-handedness.}
+\caption{Fig (a) describes when $\hat{h}$ is along the momentum direction, giving positive helicity or right-handedness while Fig (b) describes when $\hat{h}$ is anti-parallel to the momenutm direction, giving negative helicity or left-handedness.}
 \end{figure} 
 \noindent
 It can be shown that helicity is not Lorentz invariant and this is problematic. Only for massless particles, helicity becomes Lorentz invariant.
 \subsection{Properties of Dirac Matrices}
+We first note that, 
+$$(\gamma^0)^2 =\mathds{1}\qquad (\gamma^i)^2 =-\mathds{1}$$
+\textit{Proof.} We have $\gamma^0\gamma^0 = \beta^2 = \mathds{1}$ and $(\gamma^i)^2  = \beta \alpha_i \beta \alpha_i = - \alpha_i \beta^2 \alpha_i = -\alpha_i^2 = -\mathds{1}$\\[0.2cm]
+This is a nice property with which we can differentiate between the spatial and temporal indices. Indeed, the Dirac matrices are somewhat used in relativity too, to describe spacetime.\\[0.2cm]
+It turns out that any $4\times 4$ matrix can be written in terms of some combinations of Dirac matrices. In other words, the Dirac matrices form a basis of four dimensional square matrices. Note that, the obvious choice $\mathds{1}$ and $\gamma^\mu$ cannot generate all the $4\times 4$ matrices since we need 16 elements in the basis. The other elements in the basis are formed by multiplying the Dirac matrices:
+\begin{itemize}
+    \item Two at a time, $\gamma^{\mu}\gamma^{\nu}\qquad\qquad\hfill \ldots\ldots\ \mqty(4\\2) = 6 \ \mathrm{matrices}$ 
+    \item Three at a time, $\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}\qquad\qquad\hfill\ldots\ldots\ \mqty(4\\3) = 4 \ \mathrm{matrices}$
+    \item Four at a time, $\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}\gamma^{\beta}\qquad\qquad\hfill\ldots\ldots\ \mqty(4\\4) = 1 \ \mathrm{matrix}$
+\end{itemize}
+Thus, we have a total of $1+4+6+4+1=16$ elements for the basis and we are happy! If we define,
+$$\gamma^5 = i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$$
+Then the basis set can be written in terms of the `fifth' Dirac matrix:
+$$\Gamma = \{\mathds{1}, \gamma^\mu, \Sigma^{\mu\nu},\gamma^5, \gamma^5\gamma^\mu\}$$
+Well, these matrices form what is called the \textit{Clifford Algebra}, a fairly complicated mathematical concept. However, the crux of that is the \textit{anti-commutation} relations satisfied by the Dirac matrices. Like, $\gamma^\mu$'s form the Clifford algebra in four dimensions while $\gamma^\mu$ along with $\gamma^5$ forms the Clifford algebra in five dimensions. There are higher-dimensional generalisations of the gamma matrices for this purpose. \\[0.2cm]
+Having claimed that the Dirac matrices form a basis of $4\times 4$ matrices, have to prove that it is indeed a basis. For this, we need to show the linear independence of each basis element. Also, it would be nice if these basis elements somehow turn out to be `orthogonal', since it is always convenient to work with orthonormal basis.\\[0.2cm]
+For the space of matrices, the most obvious choice to define orthognality is through the trace. That is, matrices $A$ and $B$ are orthogonal if $\Tr(AB) = 0$ \footnote{More specifically, we should have used $\Tr(A^\dagger B)$}. Thus, it becomes necessary to work out the traces of the Dirac matrices.
