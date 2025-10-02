@@ -3,10 +3,11 @@
 
 \addcontentsline{toc}{section}{Lecture 19: Trace and Contraction Identities}
 In the previous section, we saw that calculating the trace of the Dirac matrices become really important since these define the inner products. Let us look at some of the trace identities followed by the Dirac matrices.
+\subsection{Trace Identitites}
 \begin{itemize}
     \item $\Tr(\gamma^\mu)=0$\\[0.2cm]
     \textit{Proof.} We defined $\gamma^0=\beta$ which was already traceless. From the anti-commutation relation, we know that $\beta \alpha_i = -\alpha_i \beta$ and taking trace on both sides, we get $\Tr \gamma^i = 0$
-    \item $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}$\\[0.2cm]
+    \item $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}\mathds{1}$\\[0.2cm]
     \textit{Proof.} Let us take the spatial indices first. From the definition of $\alpha_i$ and $\beta$, we have the following:
     \begin{align*}
         \gamma^i\gamma^j+\gamma^j\gamma^i = \beta (\alpha_i \beta) \alpha_j + i\leftrightarrow j=-\beta  (\beta \alpha_i)\alpha_j+ i\leftrightarrow j=-(\alpha_i\alpha_j +\alpha_j\alpha_i ) =-2\delta_{ij}\mathds{1}=2\eta^{ij}\mathds{1}
@@ -15,7 +16,9 @@ In the previous section, we saw that calculating the trace of the Dirac matrices
     \begin{align*}
         \{\gamma^0, \gamma^i\}= \beta^2 \alpha_i +\beta \alpha_i\beta =\alpha_i -\alpha_i\beta^2 =0
     \end{align*}
-    Finally, we have $\{\gamma^0, \gamma^0\} = 2\beta^2 = 2\mathds{1}=2\eta^{00}\mathds{1}$. Combining the above, we have the identity.
+    Finally, we have $\{\gamma^0, \gamma^0\} = 2\beta^2 = 2\mathds{1}=2\eta^{00}\mathds{1}$. Combining the above, we have the identity. \\[0.2cm]
+    If we instead take the anti-commutation of the covariant indices, then also the identity remains similar, that is,
+    $$\{\gamma_{\mu}, \gamma_{\nu}\} = 2\eta_{\mu\nu}\mathds{1}$$
     \item $\Tr(\gamma^\mu\gamma^\nu)=4\eta^{\mu\nu}$\\[0.2cm]
     \textit{Proof.} From the anti-commutation relation of the Dirac matrices, we have:
     \begin{align*}
@@ -59,3 +62,48 @@ In the previous section, we saw that calculating the trace of the Dirac matrices
 &= 4 \eta^{\kappa\lambda}\eta^{\mu\nu}  -4\eta^{\kappa\mu}\eta^{\lambda\nu} + 4\eta^{\kappa\nu}\eta^{\lambda\mu}
     \end{align*} 
 \end{itemize}
+\subsection{Contraction Identities}
+Let us now look at some contraction identities where the Dirac matrices will be contracted. Unlike the trace identitities which gave a number as a final answer, these will give us some matrices. 
+\begin{itemize}
+    \item $\gamma^\mu \gamma_\mu = 4\mathds{1}$\\[0.25cm]
+    \textit{Proof.} Since Dirac matrices can be treated as four vectors, we can lower and raise their indices with the metric $\eta$. Then, 
+    \begin{align*}
+        \gamma^\mu \gamma_\mu &= \eta_{\mu\nu}\gamma^{\nu}\gamma^{\mu}\\
+        &=\frac{1}{2}\qty(\eta_{\mu\nu} + \eta_{\nu\mu})\gamma^{\nu}\gamma^{\mu} \qquad (\text{as metric is symmetric})\\
+        &=\frac{1}{2}\qty(\eta_{\mu\nu}\gamma^{\nu}\gamma^{\mu}  + \eta_{\nu\mu}\gamma^{\nu}\gamma^{\mu} )\\
+        &=\frac{1}{2}\qty(\eta_{\mu\nu}\gamma^{\nu}\gamma^{\mu}  + \eta_{\mu\nu}\gamma^{\mu}\gamma^{\nu} )\qquad (\text{relabelling dummy indices})\\ 
+        &=\frac{1}{2}\eta_{\mu\nu} \qty(\gamma^{\nu}\gamma^{\mu}  + \gamma^{\mu}\gamma^{\nu} )\\
+        &=\frac{1}{2}\eta_{\mu\nu}  \times 2\eta^{\mu\nu}\mathds{1}\qquad (\text{from anti-commutation of gamma matrices})\\
+        &=\tensor{\delta}{^\mu _\mu}\mathds{1}\\
+        &=4\mathds{1}
+    \end{align*}
+    \item $\gamma^\mu \gamma^\nu \gamma_\mu = -2\gamma^\nu$\\[0.25cm]
+    \textit{Proof.} Using the anti-commutation relation and the previous identity, we will derive this.
+    \begin{align*}
+        \gamma^\mu \gamma^\nu \gamma_\mu &=\gamma^\mu \gamma^\nu \eta_{\mu\beta}\gamma^\beta\\
+        &=\gamma^\mu \eta_{\mu\beta}\qty(2\eta^{\nu\beta}-\gamma^\beta \gamma^\nu)\\
+        &= 2\gamma^\mu \eta_{\mu\beta}\eta^{\nu\beta} - \gamma^\mu \gamma^\beta \eta_{\mu\beta}\gamma^\nu\\
+        &=2\gamma^\mu\tensor{\delta}{^\nu _\mu} - \underbrace{\gamma^\mu \gamma_\mu}_{4\mathds{1}} \gamma^\nu\\
+        &=2\gamma^\nu - 4\gamma^\nu\\
+        &=-2\gamma^\nu
+    \end{align*}
+    \item $\gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu = 4\eta_{\lambda \nu}\mathds{1}$\\[0.25cm]
+    \textit{Proof.} We will use the anti-commutation relation and the previous identity together to reduce the expression. 
+    \begin{align*}
+        \gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu &= \gamma^\mu \gamma_\nu \qty(2\eta_{\lambda\mu} - \gamma_\mu \gamma_\lambda)\\
+        &=2\eta_{\lambda\mu}\gamma^{\mu}\gamma_{\nu} - \gamma^\mu \gamma_\nu \gamma_\mu \gamma_\lambda\\
+        &=2\gamma_\lambda \gamma_\nu - \eta_{\alpha\nu}\underbrace{\gamma^{\mu}\gamma^{\alpha}\gamma_\mu}_{-2\gamma^\alpha} \gamma_\lambda\\
+        &=2\qty(\gamma_\lambda \gamma_\nu + \gamma_\nu\gamma_\lambda)\\
+        &=4\eta_{\lambda\nu}\mathds{1}
+    \end{align*}
+    \item $\gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\rho \gamma_\mu = -2 \gamma_\rho \gamma_\lambda \gamma_\nu$\\[0.25cm]
+    \textit{Proof.} We will again use the anti-commutation relation and the previous identity for this. 
+    \begin{align*}
+        \gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\rho \gamma_\mu &= \gamma^\mu \gamma_\nu \gamma_\lambda \qty(2\eta_{\rho\mu}-\gamma_\mu \gamma_\rho) \\
+        &= 2 \gamma_\rho \gamma_\nu \gamma_\lambda - \underbrace{\gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu}_{4\eta_{\lambda\nu}\mathds{1}} \gamma_\rho\\ 
+        &=2\gamma_\rho\qty(\gamma_\nu \gamma_\lambda - 2\eta_{\lambda\nu})\\
+        &= -2\gamma_\rho \times ( 2\eta_{\lambda\nu} -\gamma_\nu \gamma_\lambda) \\
+        &= -2\gamma_\rho \gamma_\lambda \gamma_\nu
+    \end{align*}
+\end{itemize}
+These are few of the contraction and trace identities that we checked. There exists many such other identities and we can just play with the Dirac matrices to find them \emoji{wink}!
