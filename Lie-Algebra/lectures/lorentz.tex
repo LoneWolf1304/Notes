@@ -1,0 +1,22 @@
+\section{Few things about Lorentz Group}
+We will discuss about Lorentz group here. The Lorentz group, denoted by $O(1,3)$, is defined to be the group of all transformations (Lorentz transformation or LT) that preserves the Minkowski metric, that is,
+\begin{equation}\label{eqn:lgrp}
+    \Lambda^\mathrm{T} \eta \Lambda = \eta\ \iff \ \eta_{\mu\nu}\trmat{\mu}{\alpha}\trmat{\nu}{\beta}=\eta_{\alpha\beta}
+\end{equation}
+From the above definition, we can instantly see that for any $\Lambda \in O(1,3)$, $\det\Lambda = \pm 1$. For $\det \Lambda =+1$, we refer to them as \textit{proper LT} (denoted by $L_{+}$) and for $\det \Lambda =-1$ (denote by $L_-$), we refer to them as \textit{improper LT}.\\
+In Eqn. \ref{eqn:lgrp}, if we take $\alpha=\beta=0$, we get:
+\begin{align*}
+   1 =  \eta_{\mu\nu}\trmat{\mu}{0}\trmat{\nu}{0} =\qty( \trmat{0}{0})^2 - \sum\limits_{i=1}^3 \qty( \trmat{i}{0})^2 \implies \qty( \trmat{0}{0})^2 \geq 1
+\end{align*}
+Thus, we can have $\trmat{0}{0}\geq 1$ which we refer to as \textit{orthochronous} (denoted by $L^{\uparrow}$) or $\trmat{0}{0}\leq -1$ which we call \textit{antichronous} (denoted by $L^{\downarrow}$). \\[0.2cm]
+From the above two classifications using the signs of the determinant and $\trmat{0}{0}$, we can thus have four disconnected components of the Lorentz group:
+\begin{itemize}
+    \item $L^{\uparrow}_{+}$: These are the proper orthochronous LT. The identity $\mathds{1}$ is contained in this subgroup. It is denoted by by $\mathrm{SO}^+(1,3)$ and is continuously connected to the identity, that is, we can build up any
+finite Lorentz transformation by making many consecutive small Lorentz transformations. Sometimes, as an abuse of terminology, this subgroup is itself called the \textit{Lorentz group}, since this contains the only physical transformations. 
+      \item $L^{\uparrow}_{-}$: These are written as a product of the \textit{parity} and $L^{\uparrow}_{+}$ transformations.
+    \item $L^{\downarrow}_{+}$: These contain both time and space inversion and hence are written as a product of $PT$ and $L^{\uparrow}_{+}$ transformation.
+    \item $L^{\downarrow}_{-}$: These contain only time inversion and hence are written as a product of \textit{time reversal } and $L^{\uparrow}_{+}$ transformation. 
+\end{itemize} 
+Thus, the entire Lorentz group can be written symbolically:
+$$L = L^{\uparrow}_{+} \bigcup PL^{\uparrow}_{+} \bigcup PT L^{\uparrow}_{+} \bigcup TL^{\uparrow}_{+}$$
+Note that except the proper orthochronous LT, none of the other component can form subgroups since these do not contain the identity element. 
