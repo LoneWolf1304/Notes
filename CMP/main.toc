@@ -1,0 +1,8 @@
+\contentsline {section}{Introduction}{3}{section*.3}%
+\contentsline {section}{Forming Bonds}{3}{section*.4}%
+\contentsline {section}{Einstein Solid}{3}{section*.5}%
+\contentsline {section}{Debye Model}{3}{section*.6}%
+\contentsline {section}{Electron Gas}{3}{section*.7}%
+\contentsline {section}{Paramagnetism}{3}{section*.8}%
+\contentsline {section}{Transport Properties}{3}{section*.9}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

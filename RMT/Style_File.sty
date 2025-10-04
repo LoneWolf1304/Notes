@@ -84,7 +84,7 @@
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand\HUGE{\@setfontsize\Huge{30}{30}}
 
-\newcommand{\detg}{\mathfrak{g}}
+
 \newcommand{\SA}{\mathcal A}
 \newcommand{\SH}{\mathcal H}
 \newcommand{\SN}{\mathcal N}
@@ -110,8 +110,6 @@
 \newcommand{\SX}{\mathcal X}
 \newcommand{\SY}{\mathcal Y}
 \newcommand{\SZ}{\mathcal Z}
-\newcommand{\trmat}[2]{\tensor{\Lambda}{^#1 _#2}}
-\newcommand{\itrmat}[2]{\tensor{{\qty(\Lambda^{-1})}}{^#1 _#2}}
 
 \newcommand{\re}{\mathbb{R}}
 \newcommand{\ce}{\mathbb{C}}
@@ -119,23 +117,6 @@
 \newcommand{\nat}{\mathbb{N}}
 \newcommand{\rat}{\mathbb{Q}}
 
-\newcommand{\rie}[4]{\tensor{R}{^#1 _#2 _#3 _#4}}
-\newcommand{\detm}{\sqrt{-g}}
-\newcommand{\ga}{\alpha}
-\newcommand{\gb}{\beta}
-\newcommand{\gs}{\sigma}
-\newcommand{\gr}{\rho}
-\newcommand{\gl}{\lambda}
-\newcommand{\ggam}{\gamma}
-\newcommand{\gep}{\epsilon}
-\newcommand{\gd}{\delta} 
-\newcommand{\gt}{\theta}
-\newcommand{\gk}{\kappa}
-\newcommand{\go}{\omega}
-\newcommand{\gp}{\phi}
-\newcommand{\gps}{\psi} 
-\newcommand{\gm}{\mu}
-\newcommand{\gn}{\nu}
 \newcommand{\veb}[1]{\boldsymbol{\mathbf{#1}}}
 \newcommand{\cty}[1]{C^{\infty}\left(#1\right)}
 \newcommand{\ext}[2]{#1 \wedge #2}
@@ -369,34 +350,3 @@
 ]{lem}
 
 \declaretheorem[style=lem, name=Lemma]{lemma}
-
-
-
-
-\mdfdefinestyle{idbox}{
-    backgroundcolor=springgreen!10!white,
-    nobreak=true,
-    innertopmargin=7pt,
-    innerleftmargin=7pt,
-    innerrightmargin=7pt,
-    linecolor=springgreen,
-    linewidth=3pt,
-    topline=false,
-    bottomline=false,
-    rightline=false,
-    leftline=true
-}
-
-\declaretheoremstyle[
-    mdframed={style=idbox},
-    spaceabove={0pt},
-    spacebelow={2pt},
-    bodyfont={\normalfont},
-    headindent={0pt},
-    notefont={\sffamily\bfseries},
-    headfont={\color{OliveGreen}\sffamily\bfseries},
-    headpunct={:\\},
-    postheadspace={1pt},
-]{idty}
- 
-\declaretheorem[style=idty, name=Identity]{identity}

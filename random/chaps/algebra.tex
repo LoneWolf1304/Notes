@@ -1,0 +1,17 @@
+\section{Algebra}
+My introduction to Clifford Algebra was through a very confusing class on Dirac equation in Quantum Field Theory. I wanted to understand exactly all the fuss about spinors and Clifford Algebra were and for that I found that I had to learn a hell lot of rigorous math. It might take me decades to understand this fully, however, I thought to atleast start and see where it goes. The obvious starting point is to define what an \textit{algebra} is and I too shall try to start at that. \\[0.3cm]
+Many times, we have seen that a particular vector space is occupied with some `multiplication' operations, say like, the space of matrices is endowed with matrix multiplication. Here we will try to characterise such spaces with a `product' and see what properties these spaces have. 
+\begin{definition}[Algebra]
+    An \textit{algebra} $\SA$ over a field $\mathbb{F}$ is a vector space with a bilinear binary operation $\cdot:\SA\times \SA\rightarrow \SA$. Thus for all $\vb{a}, \vb{b}, \vb{c}\in \SA$ and $\beta,\gamma\in \mathbb{F}$ we have,
+    \begin{align*}
+        \vb{a}\cdot (\beta \vb{b} + \gamma \vb{c}) &= \beta \vb{a}\cdot \vb{b} + \gamma \vb{a}\cdot \vb{c}\\
+  (\beta \vb{b} + \gamma \vb{c})\cdot\vb{a} &= \beta \vb{b}\cdot \vb{a} + \gamma \vb{c}\cdot \vb{a}
+    \end{align*}
+\end{definition}
+Thus, from the definition atleast, we see that an algebra need not be associative. We call an algebra \textit{associative} if $\vb{a}\cdot (\vb{b}\cdot \vb{c}) = (\vb{a}\cdot \vb{b})\cdot \vb{c}$.\\[0.2cm]
+If there exists an element $\vb{e}$ such that $\vb{a}\cdot \vb{e} = \vb{e}\cdot \vb{a} = \vb{a}\ \forall \ \vb{a}$, then $\vb{e}$ is called the \textit{identity element} or \textit{unit} and the algebra is called a \textit{unital algebra}.\\[0.2cm] Note that the identity of an algebra is unique. To see that, let us assume $\exists\ \vb{e}, \vb{e}'$. Since $\vb{e}$ and $\vb{e}'$ both are identities, this would imply that
+$$\vb{e}\cdot\vb{e}' = \vb{e}\qquad \vb{e}\cdot\vb{e}' = \vb{e}'$$
+from which we can conclude that $\vb{e}=\vb{e}'$, hence the identity of an algebra is unique. 
+\begin{definition}[Sub-Algebra]
+    Let $\SA$ be an algebra and $\SA'$ be a subspace of $\SA$ which is closed under multiplication, that is, $\forall \ \vb{a}, \vb{b}\in \SA', \vb{a}\cdot\vb{a}\in \SA'$. Then $\SA'$ is called a \textit{subalgebra} of $\SA$.
+\end{definition}

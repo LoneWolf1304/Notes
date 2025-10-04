@@ -1,22 +1,44 @@
 \documentclass[usenames, svgnames, dvipsnames]{scrartcl}
-\usepackage{xfrac}
 \usepackage{pgfplots}
+\usepackage{emoji}
+\usepackage[makeroom]{cancel}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
 \usepackage{booktabs} % For better table formatting
 \usepackage{calc}
-\usepackage{centernot}
-\usepackage{mathtools}
-\usepackage{ stmaryrd }
-\usepackage{emoji}
 \usepackage{Style_File}
 \newcommand{\ad}[1]{a_{#1}^\dagger}
 \usepackage{fancyhdr}
+\usepackage{tikz-feynman}
+
+\newenvironment{bMatrix}[1]{%
+\bmatrix\array{#1}\hspace*{-0.5\arraycolsep}}%
+{\endarray\endbmatrix}
+
+
 \usepackage{tensor}
 \usepackage{array}
 \usepackage{lmodern}
-\newcommand\myeq[1]{\stackrel{\mathclap{\tiny\mbox{#1}}}{=}}
 \definecolor{violet}{rgb}{0.5,0.27,0.45}
-\def\rcurs{{\mbox{$\resizebox{.11in}{.07in}{\includegraphics{pics/ScriptR}}$}}}
-\def\brcurs{{\mbox{$\resizebox{.11in}{.07in}{\includegraphics{pics/BoldR}}$}}}
+\newcommand{\fvec}[1]{\vb{#1}}
+\newcommand{\cre}[1]{\hat{a}_{#1}^\dagger}
+\newcommand{\ann}[1]{\hat{a}_{#1}}
+
+\newcommand{\crep}{\hat{a}_{\vb{p}}^\dagger}
+\newcommand{\annp}{\hat{a}_{\vb{p}}}
+\newcommand{\fo}{\hat{\phi}}
+\newcommand{\crepd}{\hat{a}_{\vb{p}'}^\dagger}
+\newcommand{\annpd}{\hat{a}_{\vb{p}'}}
+\newcommand{\vac}{\ket{\Omega}}
+\newcommand{\vacb}{\bra{\Omega}}
+\newcommand{\cremp}{\hat{a}_{\vb{-p}}^\dagger}
+\newcommand{\annmp}{\hat{a}_{\vb{-p}}}
+
+\newcommand{\crempd}{\hat{a}_{\vb{-p}'}^\dagger}
+\newcommand{\annmpd}{\hat{a}_{\vb{-p}'}}
+
+\newcommand{\tvec}[1]{\vb{{#1}}}
+\renewcommand{\aa}[1]{a_{#1}}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 % Recommended preamble:
 \usetikzlibrary{arrows.meta}
@@ -46,33 +68,33 @@
 }
 \usepackage[left = 0.8in,
 right = 0.6in,
-bottom = 1.3in,
+bottom = 0.8in,
 top = 0.8in,
 a4paper]{geometry}
-\newcommand{\fvec}[1]{\vb{\bar{#1}}}
-\newcommand{\chris}[3]{\tensor{\Gamma}{^#1 _#2 _#3}}
-\newcommand{\tsrud}[3]{\tensor{{#1}}{^#2 _#3}}
-\newcommand{\mtr}[2]{\tensor{{g}}{_#1 _#2}}
-\newcommand{\tvec}[1]{\vb{{#1}}}
-\newcommand{\trans}{^\mathrm{T}}
-\newcommand{\gmn}{g_{\mu\nu}}
-\newcommand{\covd}[1]{\nabla_{#1}}
+
+
 \fancyhead[L,C]{}
 \fancyhead[R]{Lecture Notes}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{colorlinks=true,linkcolor=cyan!80!black, citecolor=YellowOrange,urlcolor=cyan!80!black}
-\fancyhead[L]{ PH4113}
-\fancyhead[C]{ General Relativity}
+\fancyhead[L]{ PH4106}
+\fancyhead[C]{ Quantum Field Theory}
 \fancyfoot[C]{\thepage}
 \fancyfoot[R,L]{}
 \usetikzlibrary{calc}
 \pagestyle{fancy}
+\newcommand{\delt}[2]{\delta^{(#1)}(#2)}
+\newcommand{\meas}[1]{\frac{\dd^3\tvec{#1}}{(2\pi)^3}}
+\newcommand{\tvp}{\tvec{p}}
+\newcommand{\tvpd}{\tvec{p}'}
+\newcommand{\myeq}[1]{\stackrel{\mathclap{\tiny\mbox{#1}}}{=}}
+\newcommand{\omp}{\omega_{\tvp}}
+\newcommand{\ompd}{\omega_{\tvpd}}
 \renewcommand{\headrulewidth}{0.4pt}
-\newcommand{\dvol}{\dd^4\fvec{x}}
 \definecolor{titleblue}{RGB}{0, 80, 120}
 \usepackage{longtable} 
 
-
+\renewcommand{\fdv}[2]{\frac{\delta #1}{\delta #2}}
 \begin{document}
 \makeatletter
 \begin{titlepage}
@@ -86,8 +108,7 @@ a4paper]{geometry}
         \begin{center}
             {\rmfamily
                 \Huge{\textcolor{blue!30!black}{%
-                    \textmd{{\HUGE{{G}}}}eneral {\HUGE T}heory {\HUGE O}f\\
-                     {\HUGE R}elativity and {\HUGE C}osmology%
+                    \textmd{{\HUGE{{C}}}}ondensed {\HUGE M}atter  \textmd{{\HUGE{{P}}}}hysics
                 }}\\[0.7cm]
                 
                 % \LARGE \textcolor{black!50!cyan}{%
@@ -95,14 +116,21 @@ a4paper]{geometry}
                 % }\\[1.0cm]
                 
                 \Large \textsc{Lecture Notes} \\[0.3cm]
-               \Large \textit{Instructor: Prof. Golam Mortuza Hossain }\\[1.5cm]
+               %\Large \textit{Instructor: Prof. Subhasis Sinha }\\[0.7cm]
 
+%                  $\begin{pmatrix}
+% 0 & 1 &  &  & \\
+% 1 & 0 & 2 &  & \\
+%  & 2 & 0 & 3 & \\
+%  &  & 3 & 0 & \ddots \\
+%  &  &  & \ddots  & \ddots 
+% \end{pmatrix}$
             }
             \end{center}
        
         \begin{figure}[H]
             \centering
-            \includesvg[scale=0.4]{pics/Jyh2x.svg}
+           \input{pics/title.tex}
         \end{figure}
         \vspace{1cm}
         \begin{center}
@@ -124,21 +152,21 @@ a4paper]{geometry}
        
 \tableofcontents
 \newpage
-\input{lectures/lec01.tex}
-\input{lectures/lec02.tex}
-\input{lectures/lec03.tex}
+\input{lecs/lec01.tex}
+\input{lecs/lec02.tex}
+\input{lecs/lec03.tex}
+\input{lecs/lec04.tex}
+\input{lecs/lec05.tex}
+\input{lecs/lec06.tex}
+\input{lecs/lec07.tex}
+% \input{lectures/lec09.tex}
 
-\input{lectures/lec04.tex}
-\input{lectures/lec05.tex}
-\input{lectures/lec06.tex}
-\input{lectures/lec07.tex}
-\input{lectures/lec08.tex}
-\input{lectures/lec09.tex}
-\input{lectures/lec10.tex}
-\input{lectures/lec11.tex}
-\input{lectures/lec12.tex}
-\input{lectures/lec13.tex}
-\input{lectures/lec14.tex}
-\input{lectures/lec15.tex}
-\input{lectures/lec16.tex}
+% \input{lectures/lec10.tex}
+
+% \input{lectures/lec12.tex}
+% \input{lectures/lec13.tex}
+% \input{lectures/lec14.tex}
+% \input{lectures/lec16.tex}
+% \input{lectures/lec17.tex}
+% \input{lectures/lec18.tex}
 \end{document}

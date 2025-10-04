@@ -1,12 +1,16 @@
 \ProvidesPackage{mystyle1}
 \usepackage{pst-solides3d}
-\RequirePackage{zref-abspage}
 \usepackage{yhmath}
+\usepackage{nicematrix}
+\RequirePackage{zref-abspage}
+
+\usepackage{arydshln}
+\setlength\dashlinedash{2pt}
+\setlength\dashlinegap{1.2pt}
+
 \usepackage[toc,page]{appendix}
 \usepackage{ upgreek, ulem, xfrac}
 \usetikzlibrary{patterns}
-\RequirePackage{xcolor}
-\RequirePackage[most]{tcolorbox}
 \tikzset{
   pics/torus/.style n args={3}{
     code = {
@@ -29,6 +33,8 @@
 \usepackage{perpage}
 \MakePerPage{footnote}
 \RequirePackage{enumitem}
+
+\newcommand{\tsr}[3]{\tensor{{#1}}{^#2 _#3}}
 \usepackage{emoji}
 \usepackage{cancel}
 % \renewcommand{\familydefault}{\QTAncientOlive}
@@ -48,7 +54,7 @@
 
 \usepackage[T1]{fontenc}
 % \usepackage[sfdefault]{AlegreyaSans} 
-\renewcommand{\familydefault}{\sfdefault}%% Option 'black' gives heavier bold face
+%\renewcommand{\familydefault}{\sfdefault}%% Option 'black' gives heavier bold face
 %% The 'sfdefault' option to make the base font sans serif
 
 \DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
@@ -62,6 +68,8 @@
 \RequirePackage{braket}
 \RequirePackage{relsize}
 \RequirePackage{multirow, multicol, bm,subcaption,booktabs}
+\RequirePackage{xcolor}
+\RequirePackage[most]{tcolorbox}
 \definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
 \definecolor{mycolor1}{rgb}{1 ,2.5 ,0 } 
 \definecolor{brickred}{rgb}{0.59, 0.44, 0.84}
@@ -84,7 +92,7 @@
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand\HUGE{\@setfontsize\Huge{30}{30}}
 
-\newcommand{\detg}{\mathfrak{g}}
+
 \newcommand{\SA}{\mathcal A}
 \newcommand{\SH}{\mathcal H}
 \newcommand{\SN}{\mathcal N}
@@ -97,6 +105,7 @@
 \newcommand{\Ss}{\mathcal S}
 \newcommand{\SM}{\mathcal M}
 \newcommand{\SE}{\mathcal E}
+\newcommand{\SJ}{\mathcal J}
 \newcommand{\SP}{\mathcal P}
 \newcommand{\SQ}{\mathcal Q}
 \newcommand{\SK}{\mathcal K}
@@ -112,30 +121,12 @@
 \newcommand{\SZ}{\mathcal Z}
 \newcommand{\trmat}[2]{\tensor{\Lambda}{^#1 _#2}}
 \newcommand{\itrmat}[2]{\tensor{{\qty(\Lambda^{-1})}}{^#1 _#2}}
-
 \newcommand{\re}{\mathbb{R}}
 \newcommand{\ce}{\mathbb{C}}
 \newcommand{\inte}{\mathbb{Z}}
 \newcommand{\nat}{\mathbb{N}}
 \newcommand{\rat}{\mathbb{Q}}
-
-\newcommand{\rie}[4]{\tensor{R}{^#1 _#2 _#3 _#4}}
-\newcommand{\detm}{\sqrt{-g}}
-\newcommand{\ga}{\alpha}
-\newcommand{\gb}{\beta}
-\newcommand{\gs}{\sigma}
-\newcommand{\gr}{\rho}
-\newcommand{\gl}{\lambda}
-\newcommand{\ggam}{\gamma}
-\newcommand{\gep}{\epsilon}
-\newcommand{\gd}{\delta} 
-\newcommand{\gt}{\theta}
-\newcommand{\gk}{\kappa}
-\newcommand{\go}{\omega}
-\newcommand{\gp}{\phi}
-\newcommand{\gps}{\psi} 
-\newcommand{\gm}{\mu}
-\newcommand{\gn}{\nu}
+\newcommand{\gami}[1]{\mqty(0 & \sigma_{#1} \\ -\sigma_{#1} & 0)}
 \newcommand{\veb}[1]{\boldsymbol{\mathbf{#1}}}
 \newcommand{\cty}[1]{C^{\infty}\left(#1\right)}
 \newcommand{\ext}[2]{#1 \wedge #2}
@@ -147,9 +138,7 @@
 	colframe=black,colback= white,
 	boxrule=1.5pt,arc=4pt,boxsep=0pt,left=6pt,right=6pt,top=6pt,bottom=6pt}
 
-\newtcbox{\limbox}{on line,
-	colframe=black,colback=lime!20!white,
-	boxrule=1.5pt,arc=4pt,boxsep=0pt,left=6pt,right=6pt,top=6pt,bottom=6pt}
+
 
 
 \DeclareCaptionStyle{modify_cap}[justification=centering,indention=0pt]{font={small},labelfont={sf,bf},width=0.9\textwidth}
@@ -263,14 +252,24 @@
     postheadspace={1pt},
 ]{idty}
  
-\declaretheorem[style=idty, name=Principle]{principle}
+\declaretheorem[style=idty, name=Identity]{identity}
+
+\usepackage{xparse}
+
+\NewDocumentCommand{\gamprod}{O{1}m m m m m}{%
+  \gamma^{#2}%
+  \IfNoValueF{#3}{\gamma^{#3}}%
+  \IfNoValueF{#4}{\gamma^{#4}}%
+  \IfNoValueF{#5}{\gamma^{#5}}%
+  \IfNoValueF{#6}{\gamma^{#6}}%
+}
 
 
 
 
-
-
-
+\newtcbox{\limbox}{on line,
+	colframe=black,colback=lime!20!white,
+	boxrule=1.5pt,arc=4pt,boxsep=0pt,left=6pt,right=6pt,top=6pt,bottom=6pt}
 
 
 \mdfdefinestyle{propbox}{
@@ -369,34 +368,3 @@
 ]{lem}
 
 \declaretheorem[style=lem, name=Lemma]{lemma}
-
-
-
-
-\mdfdefinestyle{idbox}{
-    backgroundcolor=springgreen!10!white,
-    nobreak=true,
-    innertopmargin=7pt,
-    innerleftmargin=7pt,
-    innerrightmargin=7pt,
-    linecolor=springgreen,
-    linewidth=3pt,
-    topline=false,
-    bottomline=false,
-    rightline=false,
-    leftline=true
-}
-
-\declaretheoremstyle[
-    mdframed={style=idbox},
-    spaceabove={0pt},
-    spacebelow={2pt},
-    bodyfont={\normalfont},
-    headindent={0pt},
-    notefont={\sffamily\bfseries},
-    headfont={\color{OliveGreen}\sffamily\bfseries},
-    headpunct={:\\},
-    postheadspace={1pt},
-]{idty}
- 
-\declaretheorem[style=idty, name=Identity]{identity}
