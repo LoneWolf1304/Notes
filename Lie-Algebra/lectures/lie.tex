@@ -1,0 +1,30 @@
+\section{Lie Algebra and their representations}
+We had earlier defined Lie Groups and Lie algebras using a differential geometric viewpoint. Here, we will consider some matrix groups $G$, where the elements considered will be invertible matrices defined over some field, that is, 
+$G \subseteq \GL(n,K)$, is a closed subgroup of $\GL(n,K)$. Actually definition comes from the \href{https://en.wikipedia.org/wiki/Closed-subgroup_theorem}{Closed Subgroup Theorem} which states that a closed subgroup of a Lie group is also a Lie group. Since $\GL(n,\ce \ \text{or}\ \re)$ is a Lie group, the definition follows. We will consider the complex field only for the definitions. Then we have the definition of the Lie algebra as:
+\begin{definition}[Lie Algebra]
+    Let $G\subseteq \GL(n,\mathrm{C})$ be a Lie group, then its corresponding Lie algebra is defined as:
+    $$\mathfrak{g} := \{X\in \Mn(\ce) | \ e^{tX}\in G\ \forall\ t \in \re\}$$
+\end{definition}
+where the map $e^{A}$ for any matrix $A$ is defined in the following way:
+$$e^A = \sum\limits_{n=0}^\infty \frac{A^n}{n!}$$
+NOTE: The Lie Algebra of a group $A$ is represented by the fraktur symbol of the same letter as that of the group, that is, $\mathfrak{a}$.\\[0.2cm]
+Now let us try to reconcile with the manifold definition a bit. For that, using the definition of the exponential map, we can obtain, 
+$$\dv{t} e^{tX}\Bigg|_{t=0} = X$$
+Thus, if we define the curve $\gamma_X: \re\to G$ such that $t\mapsto e^{tX}$, then we have that $\dv{t} \gamma_X(t)=X$. Thus, if we think of $G$ as a surface, then the tangent direction at identity $\mathds{1}\in G$ (note that for $t=0, t\mapsto e^0 = \mathds{1}$) is given by its Lie algebra $X$. 
+
+\begin{definition}[Adjoint Representation]
+    
+\end{definition}
+
+
+
+
+\subsection{Examples of Lie algebras}
+\begin{itemize}
+    \item Let us consider $G = \GL(n,\ce)$ and take any $X\in \Mn(\ce)$. It can be shown that for any such $X$, $\exp(X)$ is invertible and hence belongs to $ \GL(n,\ce)$. Thus, the Lie algebra of $ \GL(n,\ce)$ is given by $\lGL(n,\ce) := \Mn(\ce)$
+    \item Let us consider the orthogonal group $G = \mathrm{O}(n)$ which consists of matrices $\Omega$ such that $$\Omega^{\mathrm{T}}\Omega=\iden$$
+    From this we can have $\det \Omega = \pm 1$. Suppose $X\in \mathfrak{o}(n)\implies e^{tX}\in \mathrm{O}(n)$ from the definition of Lie algebra. From this, we have the following: 
+    $$\qty(e^{tX})^{\mathrm{T}} \qty(e^{tX})=\iden \implies \qty(e^{tX^{\mathrm{T}} })\qty(e^{tX}) = \iden \implies \dv{t}\qty(\qty(e^{tX^{\mathrm{T}} })\qty(e^{tX}))  = 0\implies A^{\mathrm{T}} e^{tA^{\mathrm{T}}}e^{tA}+e^{tA^{\mathrm{T}}}A e^{tA}=0$$
+    Taking $t=0$, we see that the Lie algebra then consists of real anti-symmetric matrices. $$\mathfrak{o}(n):=\{X\in \Mn(\re)| X^{\mathrm{T}} = -X\}$$
+    \item For $\So(n)$ also, the Lie algebra is the same as that of $\mathrm{O}(n)$. Note that $\So(n)$ is the component of $\mathrm{O}(n)$ containing the identity and since Lie algebras are concerned with what happens close to the identity, intuitively we can see that the Lie algebras for both the groups are the same. 
+\end{itemize}

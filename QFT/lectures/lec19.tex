@@ -27,14 +27,8 @@ In the previous section, we saw that calculating the trace of the Dirac matrices
     \item $(\gamma^5)^2 = \mathds{1}$\\[0.2cm]
     \textit{Proof.} From the definition of $\gamma^5$ and the anti-commutation between the gamma matrices, we have,
     \begin{align*}
-        \gamma^5 \gamma^5 &= - (\gamma^0 \gamma^1 \gamma^2 \gamma^3 )(\gamma^0 \gamma^1 \gamma^2 \gamma^3 )\\
-        &=\gamma^1\gamma^2\gamma^3(\gamma^0)^2 \gamma^1 \gamma^2\gamma^3\\ 
-        &=\gamma^1\gamma^2\gamma^3\gamma^1 \gamma^2\gamma^3\\
-        &=\gamma^2\gamma^3 (\gamma^1)^2\gamma^2\gamma^3\\
-        &=-\gamma^2\gamma^3 \gamma^2 \gamma^3 \\
-        &= \gamma^3( \gamma^2)^2 \gamma^3 \\
-        &= -(\gamma^3)^2\\
-        &= \mathds{1}
+        &\gamma^5 \gamma^5 = - (\gamma^0 \gamma^1 \gamma^2 \gamma^3 )(\gamma^0 \gamma^1 \gamma^2 \gamma^3 ) =\gamma^1\gamma^2\gamma^3(\gamma^0)^2 \gamma^1 \gamma^2\gamma^3 =\gamma^1\gamma^2\gamma^3\gamma^1 \gamma^2\gamma^3=\gamma^2\gamma^3 (\gamma^1)^2\gamma^2\gamma^3\\
+        \implies &\gamma^5 \gamma^5=-\gamma^2\gamma^3 \gamma^2 \gamma^3 = \gamma^3( \gamma^2)^2 \gamma^3 = -(\gamma^3)^2 = \mathds{1}
     \end{align*}
     \item $\gamma^5$ is Hermitian. \\[0.25cm]
     \textit{Proof.} We will use the fact that $\qty(\gamma^i)^\dagger = -\gamma^i$ for $i=1,2,3$ and $\qty(\gamma^0)^\dagger = \gamma^0$ along with the anti-commutation relation. \begin{align*}
@@ -106,30 +100,17 @@ Let us now look at some contraction identities where the Dirac matrices will be 
     \item $\gamma^\mu \gamma^\nu \gamma_\mu = -2\gamma^\nu$\\[0.25cm]
     \textit{Proof.} Using the anti-commutation relation and the previous identity, we will derive this.
     \begin{align*}
-        \gamma^\mu \gamma^\nu \gamma_\mu &=\gamma^\mu \gamma^\nu \eta_{\mu\beta}\gamma^\beta\\
-        &=\gamma^\mu \eta_{\mu\beta}\qty(2\eta^{\nu\beta}-\gamma^\beta \gamma^\nu)\\
-        &= 2\gamma^\mu \eta_{\mu\beta}\eta^{\nu\beta} - \gamma^\mu \gamma^\beta \eta_{\mu\beta}\gamma^\nu\\
-        &=2\gamma^\mu\tensor{\delta}{^\nu _\mu} - \underbrace{\gamma^\mu \gamma_\mu}_{4\mathds{1}} \gamma^\nu\\
-        &=2\gamma^\nu - 4\gamma^\nu\\
-        &=-2\gamma^\nu
+        \gamma^\mu \gamma^\nu \gamma_\mu =\gamma^\mu \gamma^\nu \eta_{\mu\beta}\gamma^\beta =\gamma^\mu \eta_{\mu\beta}\qty(2\eta^{\nu\beta}-\gamma^\beta \gamma^\nu) = 2\gamma^\mu \eta_{\mu\beta}\eta^{\nu\beta} - \gamma^\mu \gamma^\beta \eta_{\mu\beta}\gamma^\nu =2\gamma^\mu\tensor{\delta}{^\nu _\mu} - \underbrace{\gamma^\mu \gamma_\mu}_{4\mathds{1}} \gamma^\nu=-2\gamma^\nu
     \end{align*}
     \item $\gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu = 4\eta_{\lambda \nu}\mathds{1}$\\[0.25cm]
     \textit{Proof.} We will use the anti-commutation relation and the previous identity together to reduce the expression. 
     \begin{align*}
-        \gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu &= \gamma^\mu \gamma_\nu \qty(2\eta_{\lambda\mu} - \gamma_\mu \gamma_\lambda)\\
-        &=2\eta_{\lambda\mu}\gamma^{\mu}\gamma_{\nu} - \gamma^\mu \gamma_\nu \gamma_\mu \gamma_\lambda\\
-        &=2\gamma_\lambda \gamma_\nu - \eta_{\alpha\nu}\underbrace{\gamma^{\mu}\gamma^{\alpha}\gamma_\mu}_{-2\gamma^\alpha} \gamma_\lambda\\
-        &=2\qty(\gamma_\lambda \gamma_\nu + \gamma_\nu\gamma_\lambda)\\
-        &=4\eta_{\lambda\nu}\mathds{1}
+        \gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu = \gamma^\mu \gamma_\nu \qty(2\eta_{\lambda\mu} - \gamma_\mu \gamma_\lambda)=2\eta_{\lambda\mu}\gamma^{\mu}\gamma_{\nu} - \gamma^\mu \gamma_\nu \gamma_\mu \gamma_\lambda=2\gamma_\lambda \gamma_\nu - \eta_{\alpha\nu}\underbrace{\gamma^{\mu}\gamma^{\alpha}\gamma_\mu}_{-2\gamma^\alpha} \gamma_\lambda&=2\qty(\gamma_\lambda \gamma_\nu + \gamma_\nu\gamma_\lambda)\\ &=4\eta_{\lambda\nu}\mathds{1}
     \end{align*}
     \item $\gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\rho \gamma_\mu = -2 \gamma_\rho \gamma_\lambda \gamma_\nu$\\[0.25cm]
     \textit{Proof.} We will again use the anti-commutation relation and the previous identity for this. 
     \begin{align*}
-        \gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\rho \gamma_\mu &= \gamma^\mu \gamma_\nu \gamma_\lambda \qty(2\eta_{\rho\mu}-\gamma_\mu \gamma_\rho) \\
-        &= 2 \gamma_\rho \gamma_\nu \gamma_\lambda - \underbrace{\gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu}_{4\eta_{\lambda\nu}\mathds{1}} \gamma_\rho\\ 
-        &=2\gamma_\rho\qty(\gamma_\nu \gamma_\lambda - 2\eta_{\lambda\nu})\\
-        &= -2\gamma_\rho \times ( 2\eta_{\lambda\nu} -\gamma_\nu \gamma_\lambda) \\
-        &= -2\gamma_\rho \gamma_\lambda \gamma_\nu
+        \gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\rho \gamma_\mu = \gamma^\mu \gamma_\nu \gamma_\lambda \qty(2\eta_{\rho\mu}-\gamma_\mu \gamma_\rho) = 2 \gamma_\rho \gamma_\nu \gamma_\lambda - \underbrace{\gamma^\mu \gamma_\nu \gamma_\lambda \gamma_\mu}_{4\eta_{\lambda\nu}\mathds{1}} \gamma_\rho =2\gamma_\rho\qty(\gamma_\nu \gamma_\lambda - 2\eta_{\lambda\nu}) &= -2\gamma_\rho \times ( \underbrace{2\eta_{\lambda\nu} -\gamma_\nu \gamma_\lambda}_{\gamma_{\lambda\nu}})\\  &= -2\gamma_\rho \gamma_\lambda \gamma_\nu
     \end{align*}
 \end{itemize}
 These are few of the contraction and trace identities that we checked. There exists many such other identities and we can just play with the Dirac matrices to find them \emoji{wink}!

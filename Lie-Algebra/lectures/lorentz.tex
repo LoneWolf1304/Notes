@@ -3,7 +3,7 @@ We will discuss about Lorentz group here. The Lorentz group, denoted by $O(1,3)$
 \begin{equation}\label{eqn:lgrp}
     \Lambda^\mathrm{T} \eta \Lambda = \eta\ \iff \ \eta_{\mu\nu}\trmat{\mu}{\alpha}\trmat{\nu}{\beta}=\eta_{\alpha\beta}
 \end{equation}
-From the above definition, we can instantly see that for any $\Lambda \in O(1,3)$, $\det\Lambda = \pm 1$. For $\det \Lambda =+1$, we refer to them as \textit{proper LT} (denoted by $L_{+}$) and for $\det \Lambda =-1$ (denote by $L_-$), we refer to them as \textit{improper LT}.\\
+Note that, as long as we are not using the indices, we are talking about the \textit{abstract} group element. However, when we consider the expression using index notation, we are essentially considering the matrix representation of the group element using the \textit{standard basis} of the Minkowski space\footnote{The Mindkowski space is denoted by $\mathbb{R}^{1,3}$ which is equal to $\mathbb{R}^4$ along with the associated metric $\eta_{\mu\nu}$. $(1,3)$ refers to the metric signature, that is, 1 positive entry and 3 negative entries viz. $\mathrm{diag}(+1,-1,-1,-1)$}.\\[0.2cm] From the above definition, we can instantly see that for any $\Lambda \in O(1,3)$, $\det\Lambda = \pm 1$. For $\det \Lambda =+1$, we refer to them as \textit{proper LT} (denoted by $L_{+}$) and for $\det \Lambda =-1$ (denote by $L_-$), we refer to them as \textit{improper LT}.\\
 In Eqn. \ref{eqn:lgrp}, if we take $\alpha=\beta=0$, we get:
 \begin{align*}
    1 =  \eta_{\mu\nu}\trmat{\mu}{0}\trmat{\nu}{0} =\qty( \trmat{0}{0})^2 - \sum\limits_{i=1}^3 \qty( \trmat{i}{0})^2 \implies \qty( \trmat{0}{0})^2 \geq 1
@@ -19,4 +19,16 @@ finite Lorentz transformation by making many consecutive small Lorentz transform
 \end{itemize} 
 Thus, the entire Lorentz group can be written symbolically:
 $$L = L^{\uparrow}_{+} \bigcup PL^{\uparrow}_{+} \bigcup PT L^{\uparrow}_{+} \bigcup TL^{\uparrow}_{+}$$
-Note that except the proper orthochronous LT, none of the other component can form subgroups since these do not contain the identity element. 
+Note that except the proper orthochronous LT, none of the other component can form subgroups since these do not contain the identity element.
+\subsection{Tensor Representation}
+For the time being, we will consider only the proper, orthochronous Lorentz group, that is, $\mathrm{SO}^+(1,3)$. Since this is continuously connected to the identity, let us consider an infinitesimal transformation from the identity given by,
+$$\trmat{\mu}{\nu} = \delt{\mu}{\nu}+\tensor{\omega}{^\mu _\nu}$$
+Substituting this in Eq. \ref{eqn:lgrp} and retaining terms upto the first oder in $\omega$, we have the following:
+\begin{align*}
+    \eta_{\alpha \beta} &= \eta_{\mu\nu} \qty(\delt{\mu}{\alpha} + \tensor{\omega}{^\mu _\alpha})\qty(\delt{\nu}{\beta} + \tensor{\omega}{^\nu _\beta})\\
+    &=\eta_{\alpha\beta} + \delt{\mu}{\alpha}\eta_{\mu\nu}\tensor{\omega}{^\nu _\beta} + \eta_{\mu\nu}\delt{\nu}{\beta} \tensor{\omega}{^\mu _\alpha}\\
+    &=\eta_{\alpha\beta} + \delt{\mu}{\alpha}\tensor{\omega}{_\mu _\beta} + \delt{\nu}{\beta} \tensor{\omega}{_\nu _\alpha}\\
+    &=\eta_{\alpha\beta} + \tensor{\omega}{_\alpha _\beta} +  \tensor{\omega}{_\beta _\alpha}
+\end{align*}
+From this, we get that infinitesimal displacement $\omega$ must be anti-symmetric, that is, 
+$$\boxed{\omega_{\alpha\beta} = -\omega_{\beta\alpha}}$$

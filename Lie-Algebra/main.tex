@@ -58,8 +58,16 @@ a4paper]{geometry}
 \renewcommand{\headrulewidth}{0.4pt}
 \definecolor{titleblue}{RGB}{0, 80, 120}
 \usepackage{longtable} 
-
-
+\newcommand{\iden}{\mathds{1}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Sl}{\mathrm{SL}}
+\newcommand{\So}{\mathrm{SO}}
+\newcommand{\Su}{\mathrm{SU}}
+\newcommand{\Mn}{\mathrm{M}_n}
+\newcommand{\lGL}{\mathrm{\mathfrak{gl}}}
+\newcommand{\lSL}{\mathrm{\mathfrak{sl}}}
+\newcommand{\lSO}{\mathrm{\mathfrak{so}}}
+\newcommand{\lSU}{\mathrm{\mathfrak{su}}}
 \begin{document}
 \makeatletter
 \begin{titlepage}
@@ -120,5 +128,6 @@ a4paper]{geometry}
 \newpage
 \input{lectures/group.tex}
 \input{lectures/rep.tex}
+\input{lectures/lie.tex}
 \input{lectures/lorentz.tex}
 \end{document}
