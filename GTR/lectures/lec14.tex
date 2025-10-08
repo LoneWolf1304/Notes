@@ -1,5 +1,5 @@
 \refstepcounter{section}
-\section*{Lecture 14: Towards the action for Gravity: Riemann Tensor}
+\section*{Lecture 14: Towards the action for Gravity: Riemann Tensor}\label{lec:14}
 \addcontentsline{toc}{section}{Lecture 14: Towards the action for Gravity: Riemann Tensor}
 Covariant derivatives transform a tensor of rank $(p,q)$ to a tensor of rank $(p,q+1)$ as seen before. Since in our proposed form of the action for gravity, there exists two derivatives of the metric, let us calculate and see what the covariant derivative of the metric is. We have,
 \begin{align*}
@@ -117,7 +117,9 @@ Note the term in the bracket. This term, as a whole, is symmetric under the exch
      &=\qty{\partial_\mu(\chris{\rho}{\nu}{\lambda}) + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda} - \partial_\nu(\chris{\rho}{\mu}{\lambda}) - \chris{\rho}{\nu}{\sigma}\chris{\sigma}{\mu}{\lambda}}V^\lambda
 \end{align*}
 The commutator is a proper tensor since this is difference of two tensors and thus, the right hand side must also be a tensor which we define as:
-$$\tensor{R}{^\rho _{\lambda\mu\nu}} :=\partial_\mu\chris{\rho}{\nu}{\lambda} + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda} - \partial_\nu\chris{\rho}{\mu}{\lambda} - \chris{\rho}{\nu}{\sigma}\chris{\sigma}{\mu}{\lambda}$$
+\begin{equation}\label{eqn:riemann}
+    \tensor{R}{^\rho _{\lambda\mu\nu}} :=\partial_\mu\chris{\rho}{\nu}{\lambda} + \chris{\rho}{\mu}{\sigma}\chris{\sigma}{\nu}{\lambda} - \partial_\nu\chris{\rho}{\mu}{\lambda} - \chris{\rho}{\nu}{\sigma}\chris{\sigma}{\mu}{\lambda}
+\end{equation}
 The above object is a tensor of rank $(1,3)$ and is called the \textit{Riemann tensor}. The tensor represents the curvature of the space, which we will discuss later. We can lower all the indices to obtain a $(0,4)$ tensor as,
 $$R_{\rho\lambda\mu\nu} =g_{\rho \sigma} \tensor{R}{^\sigma _{\lambda\mu\nu}}$$
 NOTE: How to remember this horrenduous term? Well, what works for me is, note that the first lower index always goes as the last lower index in the RHS. There are two terms, one containing a derivative and another one containing the product of the Christoffel symbols. \\[0.2cm]
@@ -149,6 +151,7 @@ This is almost fine, we just need to find something more about $\alpha$.  Note t
     \dim{\alpha} &= \frac{\dim{S_{\mathrm{G}}}}{[L^4] \dim{R}}=\frac{ML^2T^{-1}}{L^4 L^{-2}}=\frac{(LT^{-1})^3}{\dim{G}}=\frac{c^3}{G}
 \end{align*}
 So, upto some numerical factor, $\alpha\sim \frac{c^3}{G}$. The final action, which we refer to as the \textit{Einstein-Hilbert action}, is given by:
-$$S_{\mathrm{EH}} = \frac{c^3}{16\pi G}\int \dd x^4 \sqrt{-\detg}[R- 2\Lambda] =\frac{c^4}{16\pi G}\int \dd t \ \dd^3 x \sqrt{-\detg}[R- 2\Lambda] $$
-
+\begin{equation}\label{eqn:EHact}
+    \Ss_{\mathrm{EH}} = \frac{c^3}{16\pi G}\int \dd x^4 \sqrt{-\detg}[R- 2\Lambda] =\frac{c^4}{16\pi G}\int \dd t \ \dd^3 x \sqrt{-\detg}[R- 2\Lambda]
+\end{equation}
 
