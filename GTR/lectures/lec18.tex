@@ -1,0 +1,44 @@
+\refstepcounter{section}
+\section*{Lecture 18: Some boring calculations}
+In the previous section, we had found a form of the metric in terms of the unknown functions $h(r)$ and $f(r)$. We thus have diagonal metric and inverse metric:
+$$g_{\mu\nu} = \mqty(f& & & \\ & h && \\ & & r^2&\\ & & & r^2\sin^2\theta)\qquad\text{and}\qquad g^{\mu\nu} = \mqty(f^{-1}& & & \\ & h^{-1} && \\ & & r^{-2}&\\ & & & (r^2\sin^2\theta)^{-1})$$
+Since we are interested in finding the \textit{exterior solution}, $T_{\mu\nu} (\tvec{x}) = 0\implies G_{\mu\nu}= R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R = 0$. Let us contract this equation with $g^{\mu\nu}$:
+\begin{align*}
+    \underbrace{g^{\mu\nu}R_{\mu\nu}}_{R} - \frac{1}{2}\underbrace{g^{\mu\nu}g_{\mu\nu}}_{\tensor{\delta}{^\mu _\mu}=4}R = 0 \implies R=0 \implies R_{\mu\nu} = 0
+\end{align*}
+The goal is now to find the solution to $\boxed{R_{\mu\nu}=0}$ and the basic starting point is going to be the Christoffel symbols, since the Riemann tensor is written in terms of them. Recall that the Christoffel symbols in terms of the metric were found out to be:
+$$\chris{\mu}{\alpha}{\beta} = \frac{1}{2}g^{\mu\sigma}\qty[g_{\alpha\sigma,\beta}+g_{\sigma\beta,\alpha}-g_{\alpha\beta,\sigma}]$$
+We now note a few things:
+\begin{enumerate}
+    \item Since metric is diagonal, $\sigma = \mu$ gives the only non-zero value. All since the symbols are symmetric in lower indices, so we will calculate the value for only one such index pair.
+    \item If $\alpha = t$ say, then $\chris{\mu}{t}{\beta} = \frac{1}{2}g^{\mu\mu} \qty[g_{t\mu,\beta}+\cancelto{0}{g_{\mu\beta,t}}-g_{t\beta,\mu}]$\\
+    The second term is zero due to time independence of metric. If none of $\mu$ or $\beta$ is $t$, then the Christoffel symbol vanishes since the metric then becomes off-diagonal. 
+    \item If $\alpha=\mu$ then $\chris{\mu}{\mu}{\beta} = \frac{1}{2}g^{\mu\mu} \qty[g_{\mu\mu,\beta} +\cancel{ g_{\mu\beta,\mu}} - \cancel{g_{\mu\beta,\mu}}] = \frac{1}{2} g^{\mu\mu}g_{\mu\mu,\beta}\longrightarrow 0 $ if $\beta = t,\phi$. If $\mu \neq \phi$ then for $\beta=\theta$ too, it vanishes.
+\end{enumerate}
+Using the above will help us to calculate many terms of the Christoffel symbol. Let us start one by one. \\[0.15cm]
+$\vartriangleright\quad\ \boxed{\mu = t} \longrightarrow \chris{t}{\alpha}{\beta} = \frac{1}{2}g^{tt}\qty[g_{\alpha t,\beta} + g_{t\beta,\alpha} - \cancelto{0}{g_{\alpha\beta,t}}]$ \\[0.2cm]
+Last term disappears due to time independence. If none of $\alpha,\beta $ is $t$, then the terms simply vanish as metric becomes off-diagonal.From this, we can straightaway say, 
+$$\chris{t}{r}{r}=\chris{t}{r}{\theta}= \chris{t}{r}{\phi} =\chris{t}{\theta}{\theta}= \chris{t}{\theta}{\phi}= \chris{t}{\phi}{\phi} =0$$
+From (3) above, $\chris{t}{t}{t} = \chris{t}{t}{\phi}= \chris{t}{t}{\theta}=0$. Only remaining symbol is ${\chris{t}{t}{r} = \frac{1}{2}\times f^{-1} \times \dv{f}{r} = \frac{f'}{2f}} $ \\[0.2cm]
+$\vartriangleright\quad\ \boxed{\mu = r}$\\[0.2cm]
+From (3) we can straightaway say that $\chris{r}{r}{t}=\chris{r}{r}{\phi}=\chris{r}{r}{\theta}=0$. From (2) we can say that $\chris{r}{t}{\theta}=\chris{r}{t}{\phi}=0$. $\chris{r}{\theta}{\phi} = \frac{1}{2}g^{rr}(g_{r\theta,\phi} + g_{r\phi,\theta}-g_{\theta\phi,r})=0$ since off-diagonal. The remaining symbols are:
+\begin{itemize}
+    \item $\chris{r}{r}{r} = \frac{1}{2}\times h^{-1} (h' + h' - h') = \frac{h'}{2h}$
+    \item $\chris{r}{\theta}{\theta} = \frac{1}{2h}\times (-2r) = -\frac{r}{h}$
+    \item  $\chris{r}{\phi}{\phi} = \frac{1}{2h} \qty(-2r\sin^2\theta) = -\frac{r}{h}\sin^2\theta$ 
+    \item $\chris{r}{t}{t} = \frac{1}{2h}\times (-f) = -\frac{f'}{2h}$
+\end{itemize}
+$\vartriangleright\quad\ \boxed{\mu = \theta}$\\[0.2cm]
+From (3), we can say straightaway that $\chris{\theta}{\theta}{t} = \chris{\theta}{\theta}{\phi}=\chris{\theta}{\theta}{\theta}=0$. From (2), we can say $\chris{\theta}{t}{r} =\chris{\theta}{t}{\phi}=0 $. $\chris{\theta}{t}{t} = \frac{1}{2}g^{\theta\theta}\qty[g_{t\theta,t}-g_{tt,\theta}] =0 $ because first term is off-diagonal and last term does not depend on \theta. $\chris{\theta}{r}{\phi} =0$ as all terms in the bracket are off-diagonal. $\chris{\theta}{r}{r} = 0$ as first two terms will be off-diagonal and last term does not depend on $\theta$. The remaining terms are:
+\begin{itemize}
+    \item $\chris{\theta}{r}{\theta} = \frac{1}{2}g^{\theta\theta}\times g_{\theta \theta,r} = \frac{1}{2r^2}\times 2r = \frac{1}{r}$
+    \item $\chris{\theta}{\phi}{\phi} = \frac{1}{2r^2}\qty(-2r^2\sin\theta \cos\theta) = -\cos\theta\sin\theta$
+\end{itemize}
+$\vartriangleright\quad\ \boxed{\mu = \phi}\longrightarrow \chris{\phi}{\alpha}{\beta}= \frac{1}{2}g^{\phi\phi}\qty[g_{\alpha\phi,\beta} + g_{\beta\phi,\alpha} +0]$\\[0.2cm]
+If none of $\alpha,\beta$ is $\phi$ then the symbol is zero as element becomes off-diagonal. 
+From (3) we can say $\chris{\phi}{\phi}{t} = \chris{\phi}{\phi}{\phi}=0$. The remaining symbols are:
+\begin{itemize}
+    \item $\chris{\phi}{r}{\phi} = \frac{1}{2r^2\sin^2\theta}\times 2r \sin^2\theta = \frac{1}{r}$
+    \item $\chris{\phi}{\theta}{\phi} = \frac{1}{2r^2\sin^2\theta}\times 2r^2\sin\theta\cos\theta = \cot\theta$
+\end{itemize}
+The above calculations are now complete. So many of the terms were found out to be zero. These calculations are somewhat boring and are better suited for computers perhaps.\\ The appendix \ref{sec:appenA} contains a Mathematica code to print the Christoffel symbols for different coordinates given any metric. The left index of the final table is the upper index of the Christoffel symbol and the upper index of the table is one of the lower symbol. The table can be divided into four blocks, corresponding to each upper index of the symbol. The other lower symbol is the position of the element in that particular block, like if the element is in the third position, the other index is $\theta$ and so on. 

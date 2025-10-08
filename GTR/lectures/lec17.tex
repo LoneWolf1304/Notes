@@ -134,7 +134,7 @@ rgb(100bp)=(0.53,0.74,0.92)}
     \item Since the potential do not depend on $\theta$ and $\phi$ angles, the potential is \underline{spherically-symmetric}.
     \item Since the potential is \underline{time-independent}, there is no dynamics associated with the field and hence the field is \textit{static}. 
 \end{itemize}
-Considering the above properties, we must look for a spherically symmetric, time-independent and stationary vacuum solution to the field equation which also enjoys time reversal symmetry. It is kinda obvious that the appropriate coordinates to work with are $(t,r,\theta,\phi)$. In terms of these coordinates, the most general metric is:
+Considering the above properties, we must look for a spherically symmetric, time-independent and stationary vacuum solution to the field equation which also enjoys time reversal symmetry. It is kinda obvious that the appropriate coordinates to work with are $(t,r,\theta,\phi)$ which are called the \textit{Schwarzschild coordinates}. In terms of these coordinates, the most general metric is:
 \begin{align*}
     ds^2 = g_{\mu\nu} \dd x^\mu \dd x^\nu &= \qty{g_{tt}\ \dd t^2  +2(g_{tr}\ \dd t\ \dd r +g_{t\theta}\ \dd t\ \dd \theta+g_{t\phi}\ \dd t\ \dd \phi ) } \\
     &+\qquad \qty{g_{rr}\ \dd r^2  +2(g_{r\theta}\ \dd r\ \dd \theta+g_{r\phi}\ \dd r\ \dd \phi) } +  \qty{g_{\theta\theta}\ \dd \theta^2 + 2g_{\theta\phi}\ \dd \theta \dd \phi} + g_{\phi\phi}\ \dd \phi^2
@@ -148,3 +148,4 @@ These symmetry considerations significantly reduced the metric. We presently hav
 $$ds^2 = g_{tt}\ \dd t^2 + 2g_{tr}\ \dd t \ \dd r +g_{rr}\ \dd r^2+ r^2\qty(\dd \theta^2 + \sin^2\theta \ \dd \phi^2)$$
 From the time-independent consideration, we can say that none of the metric tensor components must depend on time. They should only depend on $r$ (since spherical symmetry is also there). And under time-reversal, the metric should be invariant under $t\to -t$ from which we have $g_{tr=0}$. Let us denote $g_{tt} = f(r)$ and $g_{rr}=h(r)$. The final expression of the metric, in terms of the two unknowns $f(r)$ and $h(r)$ becomes:
 $$\boxed{ds^2 = f(r)\ \dd t^2 +h(r)\ \dd r^2+ r^2\qty(\dd \theta^2 + \sin^2\theta \ \dd \phi^2)}$$
+The above metric is the only unique spherically symmetric solution to the vacuum Einstein field equation which is stated in \textit{Birkhoff's Theorem}.
