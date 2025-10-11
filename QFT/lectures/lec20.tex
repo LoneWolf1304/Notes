@@ -109,8 +109,37 @@ Hence this \textit{Dirac adjoint} transforms with a copy of $\lrepinv$. Using th
     &=\frac{i}{2}\qty{ \dadj{\Psi}\ \qty(\lrepinv {\gamma^\mu}\lrep)\qty(\lrepinv{\gamma^\nu} \lrep)\Psi - \dadj{\Psi}\ \qty(\lrepinv {\gamma^\nu}\lrep)\qty(\lrepinv{\gamma^\mu} \lrep)\Psi}\\
     &=\frac{i}{2}\qty{\dadj{\Psi} \qty(\trmat{\mu}{\alpha}\gamma^\alpha \trmat{\nu}{\beta}\gamma^\beta -\trmat{\nu}{\beta}\gamma^\beta \trmat{\mu}{\alpha} \gamma^\alpha)\Psi}\\
     &=\trmat{\mu}{\alpha} \trmat{\nu}{\beta} \frac{i}{2}\dadj{\Psi}\comtr{\gamma^\alpha}{\gamma^\beta}\Psi\\
-    &=\trmat{\mu}{\alpha} \trmat{\nu}{\beta} \qty(\dadj{\Psi}\Sigma^{\alpha\beta}\Psi)
+    &=\trmat{\mu}{\alpha} \trmat{\nu}{\beta} \qty(\dadj{\Psi}\ \Sigma^{\alpha\beta}\ \Psi)
   \end{align*}
   This quantity transforms with two copies of $\Lambda$ and hence, acts as a rank-2 contravariant tensor. We denote it by $\ST^{\mu\nu}$
-  \item  \textbf{Basis element}: $\gamma^5$
+  \item  \textbf{Basis element}: $\gamma^5$\\[0.2cm]
+  $\gamma^5$ is defined in the following way using the Levi-Civita tensor:
+  $$\gamma^5 = i \gamma^0\gamma^1\gamma^2\gamma^3 = -\frac{i}{4!}\varepsilon_{\alpha\beta\lambda\delta}\gamma^\alpha\gamma^\beta\gamma^\lambda\gamma^\delta$$
+\begin{align*}
+  \bili{\gamma^5} =  \longrightarrow \dadj{\Psi}'\ \gamma^5 \ \Psi' &= \dadj{\Psi}\ \lrepinv \gamma^5\lrep \ \Psi = -\frac{i}{4!}\varepsilon_{\alpha\beta\lambda\delta}  \dadj{\Psi}\ \lrepinv \ \gamma^\alpha\gamma^\beta\gamma^\lambda\gamma^\delta \lrep\ \Psi
+\end{align*}
+Now, what we did earlier, by introducing $\lrep \lrepinv$ between each Dirac matrices, we can introduce a copy of $\Lambda$. Doing this, we obtain:
+\begin{align*}
+  \dadj{\Psi}'\ \gamma^5 \ \Psi' &=-\frac{i}{4!}\ \dadj{\Psi} \varepsilon_{\alpha\beta\lambda\delta} \trmat{\alpha}{\mu}\trmat{\beta}{\nu}\trmat{\lambda}{\rho}\trmat{\delta}{\theta}\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\theta \ \Psi
+\end{align*}
+\begin{ffact}
+  The determinant of a square $n\times n$ matrix can be written in terms of the Levi-Civita tensor as:
+$$\det (A) = \frac{1}{n!}\varepsilon_{\mu_1 \mu_2\ldots \mu_n}\varepsilon^{\nu_1 \nu_2\ldots \nu_n} \tensor{A}{^\mu_1 _\nu_1}\tensor{A}{^\mu_2 _\nu_2}\ldots \tensor{A}{^\mu_n _\nu_n} $$
+Contracting the above equation by $\varepsilon_{\nu_1 \nu_2\ldots \nu_n} $ we obtain:
+$$\varepsilon_{\nu_1 \nu_2\ldots \nu_n} \det (A) = \varepsilon_{\mu_1 \mu_2\ldots \mu_n}\tensor{A}{^{\mu_1} _{\nu_1}}\tensor{A}{^{\mu_2} _{\nu_2}}\ldots \tensor{A}{^{\mu_n} _{\nu_n}}  $$
+\end{ffact}
+\noindent
+Using the above fact for $\Lambda$, we get:
+\begin{align*}
+   \dadj{\Psi}'\ \gamma^5 \ \Psi' &= -\frac{i}{4!}\dadj{\Psi}\ \varepsilon_{\mu\nu\rho\theta}\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\theta \det(\Lambda)\ \Psi \\
+   &=\det(\Lambda)(\dadj{\Psi}\ \gamma^5 \ \Psi)
+\end{align*}
+This quantity changes almost like a scalar but with the determinant of the transformation. For proper Lorentz element, $\det(\Lambda)=1$ and hence this is invariant, however, a minus sign is introduced for improper Lorentz transformation. Hence this is instead called a \textit{pseudo-scalar} and is denoted by $\SP$
+ \item  \textbf{Basis element}: $\gamma^\mu\gamma^5$
+ \begin{align*}
+  \bili{\gamma^\mu\gamma^5} =  \longrightarrow \dadj{\Psi}'\ \gamma^\mu\gamma^5 \ \Psi' = \dadj{\Psi}\ \lrepinv \gamma^\mu\gamma^5\lrep \ \Psi &=\dadj{\Psi}\ (\lrepinv \gamma^\mu \lrep) (\lrepinv\gamma^5\lrep) \ \Psi \\&= \dadj{\Psi}\ \trmat{\mu}{\nu} \gamma^\nu \times \det(\Lambda) \gamma^5 \ \Psi\\
+  &=\det(\Lambda)\trmat{\mu}{\nu} (\dadj{\Psi}\ \gamma^\nu\gamma^5 \ \Psi)
+ \end{align*}
+ This quantity transforms very close to a rank-2 tensor but with the determinant of the transformation and hence changes sign under improper Lorentz transformation. Hence it is called a \textit{pseudo-vector} or \textit{axial vector} and is denoted by $\SA$
 \end{itemize}
+These five bilinears, corresponding to each element of the basis of $4\times 4$ matrices, is thus useful in constructing general quantities transforming properly under the Lorentz transformation. 
