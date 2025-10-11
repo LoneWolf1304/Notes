@@ -1,8 +1,9 @@
 \refstepcounter{section}
 \section*{Lecture 20: Transformation of Spinors}
 \addcontentsline{toc}{section}{Lecture 20: Transformation of Spinors}
-We know that any representation of the Lorentz group, say $D[\Lambda]$ can be written in terms of the rotation generators $\vb{J}$ and the boost generators $\vb{K}$ (from \ref{sec:appA}):
-$$D[\Lambda] = \exp \qty(-i\ \boldsymbol{\theta}\cdot \vb{J} + i\boldsymbol{\eta}\cdot \vb{K})$$
+\subsection{Spinor Representation of Lorentz group}
+We know that any representation of the Lorentz group, say $\mathrm{S}[\Lambda]$ can be written in terms of the rotation generators $\vb{J}$ and the boost generators $\vb{K}$ (from \ref{sec:appA}):
+$$\mathrm{S}[\Lambda] = \exp \qty(-i\ \boldsymbol{\theta}\cdot \vb{J} + i\boldsymbol{\eta}\cdot \vb{K})$$
 where $\bs{\theta}$ and $\bs{\eta}$ are the rotation and boost parameters. The normal boost and rotation generators are not closed under commutation, however if we define\footnote{This is called \textit{complexification}}:
 $$\vb{J}^{\pm} := \frac{\vb{J}\pm i \vb{K}}{2}$$
 Then, one can check that the Lorentz algebra becomes:
@@ -28,10 +29,10 @@ $\vb{J}^{+} =0$ while $\vb{J}^{-}$ resembles the representation of spin-half par
 \end{align*}
 Note that, the Pauli vector is Hermitian and then so is $\vb{J}$ but  $\vb{K}$ is anti-Hermitian instead, so overall the Weyl representation is not a unitary representation. This is explained by the fact that the Lorentz group is not a \textit{compact} group and by a theorem, any non-trivial finite dimensional irreducible representation cannot be unitary. \\[0.2cm]
 Thus, the representation of the Lorentz group and the transformation of a left-handed Weyl spinor becomes:
-$$\Lambda_L = \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_L \to \Lambda_L\psi_L $$
+$$\mathrm{S}[\Lambda_L] = \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_L \to \Lambda_L\psi_L $$
 Using a similar argument, we can see that the right-handed Weyl spinor is characterised by:
-$$\Lambda_R = \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_R \to \Lambda_R\psi_R $$
-Now, let us come to the Dirac representation which is a reducible representation and can be written as:
+$$\mathrm{S}[\Lambda_R] = \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_R \to \Lambda_R\psi_R $$
+Now, let us come to the Dirac representation which is a reducible representation and can be written as\footnote{We will denote Dirac spinors with capital letters, that is, $\Psi$ while Weyl spinors with small letters, $\psi$ to distinguish between them, since these are inequivalent representations. Of course, it might not always be possible to remember this and the notation might slip sometimes \emoji{crying-face}}:
 $$\Lambda_D \equiv \mqty(\Lambda_L & \\ & \Lambda_R)\qquad \Psi \to \Lambda_D \Psi$$
 Consider an infinitesimal transformation of the Dirac representation, which can be equivalently written as the infinitesimal transformation of the two Weyl representations. 
 \begin{align*}
@@ -57,4 +58,59 @@ where we have used the form of the matrix $\Sigma^{\mu\nu}$ in the chiral basis\
     &=-2 \mqty(\sigma_i & 0\\0 &-\sigma_i)
 \end{align*}
 Thus, we found an expression for the infinitesimal transformation of the spinor generators. Hence, any Dirac spinor representation of the Lorentz group can be found by exponentiating these generators:
-$$\Lambda = \exp \qty(-\frac{i}{4}\Omega_{\rho\sigma}\Sigma^{\rho\sigma})$$
+$$\mathrm{S}[\Lambda ]= \exp \qty(-\frac{i}{4}\Omega_{\rho\sigma}\Sigma^{\rho\sigma})$$
+As specified earlier, $\mathrm{S}[\Lambda]$ cannot be unitary in general, since Lorentz group is not a compact group and as a result of which, the obvious choice for the inner product of a Dirac spinor is not \textit{Lorentz invariance}. We can explicitly see this as,
+\begin{align*}
+  \Psi'^\dagger \Psi' =\Psi^\dagger\ \underbrace{\mathrm{S}[\Lambda]^\dagger   \mathrm{S}[\Lambda] }_{\neq \mathds{1}}\ \Psi \neq \Psi^\dagger \Psi
+\end{align*}
+\subsection{Constructing Bilinears}
+We saw that the obvious notion of an \textit{adjoint} is not Lorentz invariant which is problematic. We will now try to construct some tensorial quantitites out of the spinors in a different way, which will be Lorentz invariant/covariant. For that, we need to look at some properties. \\[0.2cm]
+Firstly note that $\gamma^i$'s are anti-Hermitian while $\gamma^0$ is Hermitian. Then we have:
+$$\gamma^0 \gamma^i \gamma^0 = (-\gamma^0)^2\gamma^i = -\gamma^i = {\gamma^i}^\dagger\qquad\quad \gamma^0 \gamma^0 \gamma^0= \gamma^0={\gamma^0}^\dagger$$
+Hence we have the identity:
+$$\boxed{\gamma^0 \gamma^\mu \gamma^0 = {\gamma^\mu}^\dagger}$$
+Now, we will try to see how the generators transform under the adjoint. For that, note:
+\begin{align*}
+  {\Sigma^{\mu\nu}}^\dagger &= \qty(\frac{i}{2} \comtr{\gamma^\mu}{\gamma^\nu})^\dagger\\
+  &=-\frac{i}{2}\comtr{{\gamma^\nu}^\dagger}{{\gamma^\mu}^\dagger}\\
+  &=-\frac{i}{2}\qty{(\gamma^0 \gamma^\nu \gamma^0)(\gamma^0 \gamma^\mu \gamma^0)-(\gamma^0 \gamma^\mu \gamma^0)(\gamma^0 \gamma^\nu \gamma^0) }\\
+  &=-\frac{i}{2}\gamma^0\qty{\gamma^\nu \gamma^\mu - \gamma^\mu \gamma^\nu  }\gamma^0\\
+  &= -\frac{i}{2}\gamma^0 \comtr{\gamma^\nu}{\gamma^\mu}\gamma^0\\
+  &=-\gamma^0 \Sigma^{\nu\mu}\gamma^0 \\
+  &=\gamma^0 \Sigma^{\mu\nu}\gamma^0
+\end{align*}
+Now note the property of the generators:
+\begin{align*}
+  \gamma^0 \underbrace{\qty(\mathcolor{red}{-}\frac{i}{4}\Omega_{\rho\sigma}\Sigma^{\rho\sigma})}_{\text{generator of $\lrep$}}\gamma^0 = \frac{i}{4}\Omega_{\rho\sigma}\gamma^0 {\Sigma^{\rho\sigma}}^\dagger \gamma^0 =\mathcolor{red}{+} \underbrace{\frac{i}{4}\Omega_{\rho\sigma}\Sigma^{\rho\sigma}}_{\text{generator of $\mathrm{S}^{-1}[\Lambda]$}} \qquad \text{from the previous property}
+\end{align*}
+Translating this to the actual Lorentz representations, we obtain:
+$$\gamma^0\ \mathrm{S}^\dagger[\Lambda] \ \gamma^0 = \mathrm{S}^{-1}[\Lambda]\ \longleftrightarrow  \mathrm{S}^\dagger[\Lambda]  =\gamma^0\ \mathrm{S}^{-1}[\Lambda]\ \gamma^0$$
+From this, we can actually define a new kind of adjoint:
+$$\dadj{\Psi} := \Psi^\dagger \gamma^0$$
+Let us now check how this quantity transforms under a Lorentz transformation 
+$$\dadj{\Psi}(x) \longrightarrow \dadj{\Psi}'(x') = (\lrep \Psi(x))^\dagger \gamma^0 = \Psi^\dagger(x)\lrepd \gamma^0= \Psi^\dagger(x) \gamma^0 \lrepinv =\dadj{\Psi} \ \lrepinv $$
+Hence this \textit{Dirac adjoint} transforms with a copy of $\lrepinv$. Using these transformations, we can construction a few tensorial quantitites. For that, remember the basis $\Gamma$ that we had constructed for $4\times 4$ matrices. Let us construct what we call \textit{bilinears}, as $\dadj{\Psi} \ (\ \cdot\ ) \ \Psi$. These are called so since these are linear in both $\Psi$ and $\dadj{\Psi}$. 
+\begin{itemize}
+  \item \textbf{Basis element}: $\mathds{1}$ 
+  $$\bili{\mathds{1}} = \dadj{\Psi}\Psi \longrightarrow \dadj{\Psi}'\Psi' =\dadj{\Psi}\ \lrepinv \ \lrep \Psi = \dadj{\Psi}\Psi$$
+  Thus, this quantity is a Lorentz \textit{scalar} since it is invariant under transformation. We denote it by $\Ss$.
+  \item \textbf{Basis element}: $\gamma^\mu$ 
+  \begin{align*}
+    \bili{\gamma^\mu} \longrightarrow \dadj{\Psi}'\gamma^\mu\Psi' &= \dadj{\Psi}\ \lrepinv \gamma^\mu \lrep \ \Psi \\
+    &=\dadj{\Psi}\ \trmat{\mu}{\nu} \gamma^\nu \ \Psi \quad \text{(using Eq. \ref{eqn:gamtrans})}\\
+    &=\trmat{\mu}{\nu} \qty(\dadj{\Psi}\ \gamma^\nu \ \Psi)
+  \end{align*} 
+  This quantity transform with one copy of $\trmat{\mu}{\nu}$ and hence is a \textit{contravariant vector}. We denote it by $\SV$
+  \item \textbf{Basis element}: $\Sigma^{\mu\nu}$
+  \begin{align*}
+    \bili{\Sigma^{\mu\nu}} \longrightarrow \dadj{\Psi}'\ \Sigma^{\mu\nu} \ \Psi' &= \dadj{\Psi}\ \lrepinv \Sigma^{\mu\nu}\lrep \ \Psi\\
+    &=\frac{i}{2} \dadj{\Psi}\ \lrepinv \comtr{\gamma^\mu}{\gamma^\nu} \lrep\Psi\\
+    &=\frac{i}{2}\qty{ \dadj{\Psi}\ \lrepinv {\gamma^\mu}{\gamma^\nu} \lrep\Psi - \dadj{\Psi}\ \lrepinv {\gamma^\nu}{\gamma^\mu} \lrep\Psi}\\
+    &=\frac{i}{2}\qty{ \dadj{\Psi}\ \qty(\lrepinv {\gamma^\mu}\lrep)\qty(\lrepinv{\gamma^\nu} \lrep)\Psi - \dadj{\Psi}\ \qty(\lrepinv {\gamma^\nu}\lrep)\qty(\lrepinv{\gamma^\mu} \lrep)\Psi}\\
+    &=\frac{i}{2}\qty{\dadj{\Psi} \qty(\trmat{\mu}{\alpha}\gamma^\alpha \trmat{\nu}{\beta}\gamma^\beta -\trmat{\nu}{\beta}\gamma^\beta \trmat{\mu}{\alpha} \gamma^\alpha)\Psi}\\
+    &=\trmat{\mu}{\alpha} \trmat{\nu}{\beta} \frac{i}{2}\dadj{\Psi}\comtr{\gamma^\alpha}{\gamma^\beta}\Psi\\
+    &=\trmat{\mu}{\alpha} \trmat{\nu}{\beta} \qty(\dadj{\Psi}\Sigma^{\alpha\beta}\Psi)
+  \end{align*}
+  This quantity transforms with two copies of $\Lambda$ and hence, acts as a rank-2 contravariant tensor. We denote it by $\ST^{\mu\nu}$
+  \item  \textbf{Basis element}: $\gamma^5$
+\end{itemize}

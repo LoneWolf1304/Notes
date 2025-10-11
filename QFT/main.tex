@@ -40,6 +40,12 @@
 
 \newcommand{\tvec}[1]{\vb{{#1}}}
 \renewcommand{\aa}[1]{a_{#1}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\dadj}[1]{\overbar{#1}}
+\newcommand{\bili}[1]{\dadj{\Psi}\ #1 \ \Psi}
+\newcommand{\lrep}{\mathrm{S}[\Lambda]}
+\newcommand{\lrepd}{\mathrm{S}^\dagger[\Lambda]}
+\newcommand{\lrepinv}{\mathrm{S}^{-1}[\Lambda]}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 % Recommended preamble:
 \usetikzlibrary{arrows.meta}
