@@ -1,0 +1,67 @@
+\section{Few BS about Lorentz Group}\label{sec:appA}
+We will discuss about Lorentz group here. The Lorentz group, denoted by $O(1,3)$, is defined to be the group of all transformations (Lorentz transformation or LT) that preserves the Minkowski metric, that is,
+\begin{equation}\label{eqn:lgrp}
+    \Lambda^\mathrm{T} \eta \Lambda = \eta\ \iff \ \eta_{\mu\nu}\trmat{\mu}{\alpha}\trmat{\nu}{\beta}=\eta_{\alpha\beta}
+\end{equation}
+Note that, as long as we are not using the indices, we are talking about the \textit{abstract} group element. However, when we consider the expression using index notation, we are essentially considering the matrix representation of the group element using the \textit{standard basis} of the Minkowski space\footnote{The Mindkowski space is denoted by $\mathbb{R}^{1,3}$ which is equal to $\mathbb{R}^4$ along with the associated metric $\eta_{\mu\nu}$. $(1,3)$ refers to the metric signature, that is, 1 positive entry and 3 negative entries viz. $\mathrm{diag}(+1,-1,-1,-1)$}.\\[0.2cm] From the above definition, we can instantly see that for any $\Lambda \in O(1,3)$, $\det\Lambda = \pm 1$. For $\det \Lambda =+1$, we refer to them as \textit{proper LT} (denoted by $L_{+}$) and for $\det \Lambda =-1$ (denote by $L_-$), we refer to them as \textit{improper LT}.\\
+In Eqn. \ref{eqn:lgrp}, if we take $\alpha=\beta=0$, we get:
+\begin{align*}
+   1 =  \eta_{\mu\nu}\trmat{\mu}{0}\trmat{\nu}{0} =\qty( \trmat{0}{0})^2 - \sum\limits_{i=1}^3 \qty( \trmat{i}{0})^2 \implies \qty( \trmat{0}{0})^2 \geq 1
+\end{align*}
+Thus, we can have $\trmat{0}{0}\geq 1$ which we refer to as \textit{orthochronous} (denoted by $L^{\uparrow}$) or $\trmat{0}{0}\leq -1$ which we call \textit{antichronous} (denoted by $L^{\downarrow}$). \\[0.2cm]
+From the above two classifications using the signs of the determinant and $\trmat{0}{0}$, we can thus have four disconnected components of the Lorentz group:
+\begin{itemize}
+    \item $L^{\uparrow}_{+}$: These are the proper orthochronous LT. The identity $\mathds{1}$ is contained in this subgroup. It is denoted by by $\mathrm{SO}^+(1,3)$ and is continuously connected to the identity, that is, we can build up any
+finite Lorentz transformation by making many consecutive small Lorentz transformations. Sometimes, as an abuse of terminology, this subgroup is itself called the \textit{Lorentz group}, since this contains the only physical transformations. 
+      \item $L^{\uparrow}_{-}$: These are written as a product of the \textit{parity} and $L^{\uparrow}_{+}$ transformations.
+    \item $L^{\downarrow}_{+}$: These contain both time and space inversion and hence are written as a product of $PT$ and $L^{\uparrow}_{+}$ transformation.
+    \item $L^{\downarrow}_{-}$: These contain only time inversion and hence are written as a product of \textit{time reversal } and $L^{\uparrow}_{+}$ transformation. 
+\end{itemize} 
+Thus, the entire Lorentz group can be written symbolically:
+$$L = L^{\uparrow}_{+} \bigcup PL^{\uparrow}_{+} \bigcup PT L^{\uparrow}_{+} \bigcup TL^{\uparrow}_{+}$$
+Note that except the proper orthochronous LT, none of the other component can form subgroups since these do not contain the identity element.
+\subsection{Spacetime Representation}
+For the time being, we will consider only the proper, orthochronous Lorentz group, that is, $\mathrm{SO}^+(1,3)$ which is a Lie group. Since this is continuously connected to the identity, let us consider an infinitesimal transformation from the identity given by,
+$$\trmat{\mu}{\nu} = \delt{\mu}{\nu}+\tensor{\omega}{^\mu _\nu}$$
+Substituting this in Eq. \ref{eqn:lgrp} and retaining terms upto the first oder in $\omega$, we have the following:
+\begin{align*}
+    \eta_{\alpha \beta} &= \eta_{\mu\nu} \qty(\delt{\mu}{\alpha} + \tensor{\omega}{^\mu _\alpha})\qty(\delt{\nu}{\beta} + \tensor{\omega}{^\nu _\beta})\\
+    &=\eta_{\alpha\beta} + \delt{\mu}{\alpha}\eta_{\mu\nu}\tensor{\omega}{^\nu _\beta} + \eta_{\mu\nu}\delt{\nu}{\beta} \tensor{\omega}{^\mu _\alpha}\\
+    &=\eta_{\alpha\beta} + \delt{\mu}{\alpha}\tensor{\omega}{_\mu _\beta} + \delt{\nu}{\beta} \tensor{\omega}{_\nu _\alpha}\\
+    &=\eta_{\alpha\beta} + \tensor{\omega}{_\alpha _\beta} +  \tensor{\omega}{_\beta _\alpha}
+\end{align*}
+From this, we get that infinitesimal displacement $\omega$ must be anti-symmetric, that is, 
+$$\boxed{\omega_{\alpha\beta} = -\omega_{\beta\alpha}}$$
+We know that antisymmetric matrices have six independent elements (since diagonals are zero and upper-diagonal has $(16-4)/2 = 6$ elements and lower diagonal are negative of the upper diagonal) and hence the basis of antisymmetric matrices consists six elements. Of these six, three corresponds to \textit{rotations} while the other three corresponds to \textit{boosts}\\[0.2cm] Let us consider this basis of the second rank anti-symmetric tensor $\{\SJ^{\rho\sigma}\}$ which forms the \textit{generators} of the transformation. These are antisymmetric in the indices $\rho, \sigma$ and hence there are six of them. These can be written as:
+$$\tensor{{\qty(\SJ^{\rho\sigma})}}{^\mu _\nu} :=i \qty(\eta^{\mu\rho} \tensor{\delta}{^\sigma _\nu} - \eta^{\mu\sigma} \tensor{\delta}{^\rho _\nu})$$
+As $\omega$ is antisymmetric, we can write it as a linear combination of the basis elements, that is, 
+$$\tensor{\omega}{^\mu _\nu} =-i \Omega_{\rho\sigma}\tensor{{\qty(\SJ^{\rho\sigma})}}{^\mu _\nu}$$
+Then we can write the infinitesimal transformation in the following way:
+$$\Lambda = \mathds{1} -i \Omega_{\rho\sigma}\SJ^{\rho\sigma}$$
+Any finite Lorentz transformation can be generated by exponentiating the generators, that is, 
+$$\Lambda_{\mathrm{finite}} = \exp\qty(-\frac{i}{2}\Omega_{\rho\sigma}\SJ^{\rho\sigma})$$
+Once we found the generators, any element of the Lie algebra of the Lorentz group will be a linear combination of them. It is a good time for us to calculate the Lie bracket since it is an essential characteristic of the Lie algebra. Since any element is a linear combination of the generators, it is sufficient to calculate the Lie bracket for the generators only, which we can do by the explicit form that we wrote earlier. 
+\begin{align*}
+    \tensor{{\comtr{\SJ^{\mu\nu}}{\SJ^{\rho\sigma}}}}{^\alpha _\beta} &=  \tensor{\qty({{\SJ^{\mu\nu}}{\SJ^{\rho\sigma}}})}{^\alpha _\beta} - \tensor{\qty({{\SJ^{\rho\sigma}}{\SJ^{\mu\nu}}})}{^\alpha _\beta}\\
+    &=\tensor{(\SJ^{\mu\nu})}{^\alpha _\theta}\tensor{(\SJ^{\rho\sigma})}{^\theta _\beta} -\tensor{(\SJ^{\rho\sigma})}{^\alpha _\theta}\tensor{(\SJ^{\mu\nu})}{^\theta _\beta}\\
+    &=( \eta^{\mu\alpha} \tensor{\delta}{^\nu _\theta} - \eta^{\nu\alpha} \tensor{\delta}{^\mu _\theta})( \eta^{\rho\theta} \tensor{\delta}{^\sigma _\beta} - \eta^{\sigma\theta} \tensor{\delta}{^\rho _\beta}) -  ( \eta^{\rho\alpha} \tensor{\delta}{^\sigma _\theta} - \eta^{\sigma\alpha} \tensor{\delta}{^\rho _\theta}) ( \eta^{\mu\theta} \tensor{\delta}{^\nu _\beta} - \eta^{\nu\theta} \tensor{\delta}{^\mu _\beta})\\
+    &=\qty{\eta^{\mu\alpha} \tensor{\delta}{^\nu _\theta} \eta^{\rho\theta} \tensor{\delta}{^\sigma _\beta}  - \eta^{\mu\alpha} \tensor{\delta}{^\nu _\theta}\eta^{\sigma\theta} \tensor{\delta}{^\rho _\beta} -\eta^{\nu\alpha} \tensor{\delta}{^\mu _\theta}\eta^{\rho\theta} \tensor{\delta}{^\sigma _\beta} +\eta^{\nu\alpha} \tensor{\delta}{^\mu _\theta}\eta^{\sigma\theta} \tensor{\delta}{^\rho _\beta}} \\
+    & \qquad - \qty{\eta^{\rho\alpha} \tensor{\delta}{^\sigma _\theta}\eta^{\mu\theta} \tensor{\delta}{^\nu _\beta}    -  \eta^{\rho\alpha} \tensor{\delta}{^\sigma _\theta}\eta^{\nu\theta} \tensor{\delta}{^\mu _\beta} -\eta^{\sigma\alpha} \tensor{\delta}{^\rho _\theta}\eta^{\mu\theta} \tensor{\delta}{^\nu _\beta}    + \eta^{\sigma\alpha} \tensor{\delta}{^\rho _\theta}\eta^{\nu\theta} \tensor{\delta}{^\mu _\beta}} \\
+    &=\qty{\eta^{\mu\alpha}  \eta^{\rho\nu} \tensor{\delta}{^\sigma _\beta}  - \eta^{\mu\alpha} \eta^{\sigma\nu} \tensor{\delta}{^\rho _\beta} -\eta^{\nu\alpha} \eta^{\rho\mu} \tensor{\delta}{^\sigma _\beta} +\eta^{\nu\alpha}\eta^{\sigma\mu} \tensor{\delta}{^\rho _\beta}} \\ &\qquad - \qty{\eta^{\rho\alpha} \eta^{\mu\sigma} \tensor{\delta}{^\nu _\beta}    -  \eta^{\rho\alpha} \eta^{\nu\sigma} \tensor{\delta}{^\mu _\beta} -\eta^{\sigma\alpha}\eta^{\mu\rho} \tensor{\delta}{^\nu _\beta}    + \eta^{\sigma\alpha} \eta^{\nu\rho} \tensor{\delta}{^\mu _\beta}} \textcolor{red}{\text{complete proof!}}
+\end{align*}
+From this, we find out the Lie bracket between the generators of the Lie Algebra of $\mathrm{SO}(1,3)$:
+$$\comtr{\SJ^{\mu\nu}}{\SJ^{\rho\sigma}} =i \qty(\eta^{\nu\rho}\SJ^{\mu\sigma}-\eta^{\mu\rho}\SJ^{\nu\sigma}-\eta^{\nu\sigma}\SJ^{\mu\rho}+\eta^{\mu\sigma}\SJ^{\nu\rho})$$
+We had obtained the six generators for the Lie algebra and how let us rearrange these into two separate parts:
+$$J^i = \frac{i}{2}\varepsilon^{ijk}\SJ^{jk}\qquad K^i = i\SJ^{i0}$$
+In terms of these newly defined quantitites, the Lie bracket becomes \textcolor{red}{check!}:
+\begin{align*}
+    \comtr{J^i}{J^j}&=i \vep^{ijk}J^k\\
+    \comtr{K^i}{K^j}&=-i \vep^{ijk}J^k\\
+    \comtr{J^i}{K^j}&=i \vep^{ijk}K^k
+\end{align*}
+This shows that $J^i$ as defined above kinda denotes angular momentum since it satisfies the Lie Algebra of $\mathrm{SU}(2)$ while the other relation shows that $K^i$ is a spatial vector. Now let us define two quantitites:
+$$\theta^i = \frac{1}{2}\vep^{ijk}\Omega_{jk}\qquad \eta^i = \Omega^{i0}$$
+Using this we can write the generators as:
+$$\frac{1}{2}\Omega_{\mu\nu}\SJ^{\mu\nu} = \Omega_{12}\SJ^{12} + \Omega_{13}\SJ^{13}+ \Omega_{23}\SJ^{23} +  \Omega_{i0}\SJ^{i0} = \bs{\theta}\cdot \vb{J} - \bs{\eta}\cdot \vb{K}$$
+Thus any Lorentz transformation can then be written as:
+$$\boxed{\Lambda = \exp\qty(-i\ \bs{\theta}\cdot \vb{J} +i\ \bs{\eta}\cdot \vb{K})}$$

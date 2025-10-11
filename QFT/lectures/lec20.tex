@@ -1,3 +1,60 @@
 \refstepcounter{section}
 \section*{Lecture 20: Transformation of Spinors}
 \addcontentsline{toc}{section}{Lecture 20: Transformation of Spinors}
+We know that any representation of the Lorentz group, say $D[\Lambda]$ can be written in terms of the rotation generators $\vb{J}$ and the boost generators $\vb{K}$ (from \ref{sec:appA}):
+$$D[\Lambda] = \exp \qty(-i\ \boldsymbol{\theta}\cdot \vb{J} + i\boldsymbol{\eta}\cdot \vb{K})$$
+where $\bs{\theta}$ and $\bs{\eta}$ are the rotation and boost parameters. The normal boost and rotation generators are not closed under commutation, however if we define\footnote{This is called \textit{complexification}}:
+$$\vb{J}^{\pm} := \frac{\vb{J}\pm i \vb{K}}{2}$$
+Then, one can check that the Lorentz algebra becomes:
+\begin{align*}
+    \comtr{J^{+,i}}{J^{+,j}}&=i\vep^{ijk}J^{+,k}\\
+    \comtr{J^{-,i}}{J^{-,j}}&=\vep^{ijk}J^{-,k}\\
+      \comtr{J^{+,i}}{J^{-,j}}&=0
+\end{align*}
+Now, this is familiar to the $SU(2)$ algebra that we had seen from, say the \textit{angular momentum}. In fact, from the complexification of the generators we see two copies of the angular momentum algebra (so we can write $\mathfrak{so}(1,3) = \mathfrak{su}(2) \oplus \mathfrak{su}(2) $) and we can thus label the representations by $(j_-, j_+)$ where $j_{\pm}\in \{0,\frac{1}{2}, 1, \frac{3}{2}\ldots\}$. We will briefly focus on the most popular representations, namely:
+\begin{itemize}
+    \item \textit{Scalar representation } $\longrightarrow \qty(0,0)$
+     \item \textit{Left-handed Weyl spinor representation } $\longrightarrow \qty(\sfrac{1}{2},0)$
+  \item \textit{Right-handed Weyl spinor representation } $\longrightarrow \qty(0,\sfrac{1}{2})$
+  \item \textit{Dirac spinor representation } $\longrightarrow \qty(0,\sfrac{1}{2})\oplus \qty(\sfrac{1}{2},0)$
+\end{itemize}
+The scalar representation is the trivial one-dimensional representation where $\vb{J}^{\pm} = 0 \implies \vb{J}=0, \vb{K} = 0$ and hence is of not much interest to us. All but the Dirac representation are irreducible representations. Let us now focus on the Weyl representation. \\[0.2cm]
+\underline{Weyl Representation}\\[0.2cm]
+Let us consider the left handed spinor representation. The left-handed spinor itself can be denoted by $\psi_L$ while any representation of the Lorentz group can be represented by $\Lambda_L$. In this case, 
+$\vb{J}^{+} =0$ while $\vb{J}^{-}$ resembles the representation of spin-half particles and can be taken to be $\vb{J}^{-}\to \frac{\bs{\sigma}}{2}$ where $\bs{\sigma}$ is the Pauli vector. Then from the definition, 
+\begin{align*}
+    \vb{J} = \vb{J}^+ + \vb{J}^{-} = 0 + \frac{\bs{\sigma}}{2} = \frac{\bs{\sigma}}{2}\\
+    \vb{K} = -i ( \vb{J}^+ - \vb{J}^{-}) = i  \frac{\bs{\sigma}}{2}
+\end{align*}
+Note that, the Pauli vector is Hermitian and then so is $\vb{J}$ but  $\vb{K}$ is anti-Hermitian instead, so overall the Weyl representation is not a unitary representation. This is explained by the fact that the Lorentz group is not a \textit{compact} group and by a theorem, any non-trivial finite dimensional irreducible representation cannot be unitary. \\[0.2cm]
+Thus, the representation of the Lorentz group and the transformation of a left-handed Weyl spinor becomes:
+$$\Lambda_L = \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_L \to \Lambda_L\psi_L $$
+Using a similar argument, we can see that the right-handed Weyl spinor is characterised by:
+$$\Lambda_R = \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_R \to \Lambda_R\psi_R $$
+Now, let us come to the Dirac representation which is a reducible representation and can be written as:
+$$\Lambda_D \equiv \mqty(\Lambda_L & \\ & \Lambda_R)\qquad \Psi \to \Lambda_D \Psi$$
+Consider an infinitesimal transformation of the Dirac representation, which can be equivalently written as the infinitesimal transformation of the two Weyl representations. 
+\begin{align*}
+  \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2}) &\approx \mathds{1} + \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2}) = \mathds{1} -\frac{i}{2}\theta^i \sigma^i -\frac{1}{2}\eta^i\sigma^i\\
+   \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2}) &\approx \mathds{1} + \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})=\mathds{1} -\frac{i}{2}\theta^i \sigma^i +\frac{1}{2}\eta^i\sigma^i
+\end{align*}
+
+Substituting this in the Dirac representation, we obtain:
+\begin{align*}
+  \Lambda_D &= \mathds{1} -\frac{i}{2}\theta^i \mqty(\sigma^i & \\ & \sigma^i) -\frac{1}{2}\eta^i\mqty(\sigma^i & \\ & -\sigma^i)\\
+  &=\mathds{1} -\frac{i}{4}\vep^{ijk}\Omega_{jk} \mqty(\sigma^i & \\ & \sigma^i) -\frac{1}{2}\Omega^{i0}\mqty(\sigma^i & \\ & -\sigma^i)\\
+  &=\mathds{1} -\frac{i}{4}\Omega_{jk} \Sigma^{jk}-\frac{i}{2}\Omega^{i0}\Sigma^{0i}\\
+  &=\mathds{1} -\frac{i}{4}\Omega_{jk} \Sigma^{jk}+\frac{i}{2}\Omega_{i0}\Sigma^{0i}\\
+  &=\mathds{1} -\frac{i}{4}\Omega_{jk} \Sigma^{jk}-\frac{i}{2}\Omega_{0i}\Sigma^{0i}\\
+  &=\mathds{1} -\frac{i}{4}\Omega_{jk} \Sigma^{jk}-\frac{i}{4}\Omega_{0i}\Sigma^{0i}-\frac{i}{4}\Omega_{i0}\Sigma^{i0}\\
+  &=\mathds{1} - \frac{i}{4}\Omega_{\rho\sigma}\Sigma^{\rho\sigma}
+\end{align*}
+where we have used the form of the matrix $\Sigma^{\mu\nu}$ in the chiral basis\footnote{Only $\gamma^0$ has a different form in the chiral basis.$$\gamma^0 = \mqty(0 & \mathds{1}\\ \mathds{1} & 0)$$} (since we are working with Weyl representation where the representations $\Lambda$ act on the Weyl spinors, the chiral basis is an appropriate choice). We had previously found the form of $\Sigma^{jk}$ in \ref{sec:heli} which will not change in the chiral basis. We now just find the form of $\Sigma^{0i}$:
+\begin{align*}
+   -2i \Sigma^{0i} &= \beta \gamma^i - \gamma^i \beta\\
+    &=\mqty(0 & \mathds{1}\\ \mathds{1}&0) \gami{i} - \gami{i} \mqty(0 & \mathds{1}\\  \mathds{1} &0)\\
+    &=  \mqty(-\sigma_i & 0\\0 &\sigma_i) - \mqty(\sigma_i & 0\\0 &-\sigma_i)\\
+    &=-2 \mqty(\sigma_i & 0\\0 &-\sigma_i)
+\end{align*}
+Thus, we found an expression for the infinitesimal transformation of the spinor generators. Hence, any Dirac spinor representation of the Lorentz group can be found by exponentiating these generators:
+$$\Lambda = \exp \qty(-\frac{i}{4}\Omega_{\rho\sigma}\Sigma^{\rho\sigma})$$

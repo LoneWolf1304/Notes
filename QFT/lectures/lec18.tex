@@ -21,7 +21,7 @@ $$\psi(x) = S^{-1}(\Lambda)\psi'(x')$$
 Note that we had used that the matrix $S$ is spacetime independent and thus, commutes with $\partial_\mu$ operator. The above equation is Lorentz covariant if we can find an $S$ such that,
 $$[S(\Lambda)\gamma^\mu S^{-1}(\Lambda)]  \trmat{\nu}{\mu} = \gamma^\nu \implies S^{-1}(\Lambda)S(\Lambda)\gamma^\mu S^{-1}(\Lambda)  \trmat{\nu}{\mu}S(\Lambda) = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)\implies \trmat{\nu}{\mu}\gamma^\mu = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)$$
 Thus, if we define $\gamma'^\mu \equiv \trmat{\nu}{\mu}\gamma^\mu = S^{-1}(\Lambda)\gamma^\nu S(\Lambda)$, then we can say that the Dirac matrices transform with one copy of $\Lambda$ and hence, the vector index on $\gamma$, which was introduced in an ad-hoc manner, can actually be taken seriously. 
-\subsection{Helicity}
+\subsection{Helicity}\label{sec:heli}
 Let us define the following matrices:
 $$\Sigma^{\mu\nu} =\frac{i}{2} \comtr{\gamma^\mu}{\gamma^\nu}\qquad \Sigma^i = \frac{1}{2}\epsilon^{ijk}\Sigma^{jk}$$
 Then, we can calculate the form of the matrix given by $\Sigma^i$ since,
@@ -34,6 +34,7 @@ Then, we can calculate the form of the matrix given by $\Sigma^i$ since,
 \end{align*}
 From this, we obtain a neat expression that:
 $$\Sigma^{jk} = \epsilon^{jkl}\mqty(\sigma_l & 0\\0 & \sigma_l)$$
+
 Next we use the expression given above:
 \begin{align*}
     \Sigma^i = \frac{1}{2}\epsilon^{ijk} \epsilon^{jkl}\mqty(\sigma_l & 0\\0 & \sigma_l) = \delta_{il}\mqty(\sigma_l & 0\\0 & \sigma_l) = \mqty(\sigma_i & 0\\0 & \sigma_i)

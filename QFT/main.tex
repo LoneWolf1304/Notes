@@ -84,7 +84,7 @@ a4paper]{geometry}
 \fancyfoot[R,L]{}
 \usetikzlibrary{calc}
 \pagestyle{fancy}
-\newcommand{\delt}[2]{\delta^{(#1)}(#2)}
+\newcommand{\delt}[2]{\tensor{\delta}{^{#1}_{#2}}}
 \newcommand{\meas}[1]{\frac{\dd^3\tvec{#1}}{(2\pi)^3}}
 \newcommand{\tvp}{\tvec{p}}
 \newcommand{\tvpd}{\tvec{p}'}
@@ -172,4 +172,7 @@ a4paper]{geometry}
 \input{lectures/lec18.tex}
 \input{lectures/lec19.tex}
 \input{lectures/lec20.tex}
+\begin{appendices}
+\input{append/lorentz.tex}
+\end{appendices}
 \end{document}
