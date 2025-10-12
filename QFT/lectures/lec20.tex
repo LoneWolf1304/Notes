@@ -1,6 +1,7 @@
 \refstepcounter{section}
 \section*{Lecture 20: Transformation of Spinors}
 \addcontentsline{toc}{section}{Lecture 20: Transformation of Spinors}
+To understand how spinors actually transform under Lorentz transformation, we first need to have an idea about what spinors are. Spinors are basically another kind of representation of the Lorentz group loosely speaking. There are different concepts of group and representation theory involved which lead to many different subtleties, however, we shall not digress much into those subtleties and obtain only those ideas which are absolutely needed.
 \subsection{Spinor Representation of Lorentz group}
 We know that any representation of the Lorentz group, say $\mathrm{S}[\Lambda]$ can be written in terms of the rotation generators $\vb{J}$ and the boost generators $\vb{K}$ (from \ref{sec:appA}):
 $$\mathrm{S}[\Lambda] = \exp \qty(-i\ \boldsymbol{\theta}\cdot \vb{J} + i\boldsymbol{\eta}\cdot \vb{K})$$
@@ -32,6 +33,7 @@ Thus, the representation of the Lorentz group and the transformation of a left-h
 $$\mathrm{S}[\Lambda_L] = \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_L \to \Lambda_L\psi_L $$
 Using a similar argument, we can see that the right-handed Weyl spinor is characterised by:
 $$\mathrm{S}[\Lambda_R] = \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_R \to \Lambda_R\psi_R $$
+\underline{Dirac representation}\\[0.23cm]
 Now, let us come to the Dirac representation which is a reducible representation and can be written as\footnote{We will denote Dirac spinors with capital letters, that is, $\Psi$ while Weyl spinors with small letters, $\psi$ to distinguish between them, since these are inequivalent representations. Of course, it might not always be possible to remember this and the notation might slip sometimes \emoji{crying-face}}:
 $$\Lambda_D \equiv \mqty(\Lambda_L & \\ & \Lambda_R)\qquad \Psi \to \Lambda_D \Psi$$
 Consider an infinitesimal transformation of the Dirac representation, which can be equivalently written as the infinitesimal transformation of the two Weyl representations. 

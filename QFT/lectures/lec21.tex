@@ -1,0 +1,71 @@
+\refstepcounter{section}
+\section*{Lecture 21: Fierz Identities}
+In the previous section we saw how different \textit{bilinears} can be created through the use of the basis elements of the Clifford algebra. We also saw the transformation of these quantities and accordingly specified names to them viz. scalars, pseudoscalars, vector, axial vector and tensor. In this section, we will find an identity that will allow us to rearrange the bilinears of the product of two spinors in a different ordering. These can be useful to write a given interaction in some physically meaningful form.
+\subsection{Outer product of Spinors}
+Let us consider two Dirac spinors $\Psi_1$ and $\Psi_2$. We previously considered terms of type $\dadj{\Psi}_1\Psi_2 = \bilin{1}{2}{\gamma^0}$ which is essentially the product of a row vector and a column vector, producing a number .\\[0.2cm] Let us now consider the \textit{outer product} between them which will result in some matrix. Since the Clifford algebra produces a basis of $4\times 4$ matrices, we can write the outer product as a linear combination of the elements of the basis set $\Gamma$. We thus have:
+\begin{align*}
+    \Psi_2 \dadj{\Psi}_1 = a \mathds{1} + b_\mu \gamma^\mu + c_{\mu\nu} \Sigma^{\mu\nu} + d_{\mu}\gamma^\mu\gamma^5 + f\gamma^5
+\end{align*}
+We just need to find these coefficients. The general technique will be to multiple the above equation with some element $\Gamma^a\in \Gamma$ and then take the trace. Since the basis elements are orthogonal, the trace will give zero for dissimilar elements and only contribution is from the same basis element. Let us start!
+\begin{itemize}
+    \item Multiply by $\iden$ and take the trace: 
+    \begin{align*}
+        \Tr (\iden  \Psi_2 \dadj{\Psi}_1) = a \Tr (\iden) = 4a \implies a = \frac{1}{4}\Tr ( \Psi_2 \dadj{\Psi}_1) = \frac{1}{4}\dadj{\Psi}_1 \Psi_2 \longrightarrow \frac{1}{4}\Ss_{12}
+    \end{align*}
+    where $\Ss_{12}$ is the notation to denote the scalar bilinear with spinors $\Psi_1$ and $\Psi_2$. 
+    \item Multiply by $\gamma^\alpha$ and take the trace:
+    \begin{align*}
+        \Tr (\gamma^\alpha  \Psi_2 \dadj{\Psi}_1) = b_\mu \Tr (\gamma^\alpha \gamma^\mu) = 4\eta^{\alpha\mu}b_{\mu} \implies b^{\alpha} = \frac{1}{4}\Tr (\gamma^\alpha \Psi_2 \dadj{\Psi}_1) =  \frac{1}{4}\bilin{1}{2}{\gamma^\alpha} \longrightarrow  \frac{1}{4}\SV^\alpha_{12}
+    \end{align*}
+    \item Multiply by $\gamma^5$ and take the trace: 
+    \begin{align*}
+        \Tr(\gamma^5  \Psi_2 \dadj{\Psi}_1) = f \Tr((\gamma^5)^2) = 4f \implies f = \frac{1}{4}\Tr(\gamma^5  \Psi_2 \dadj{\Psi}_1) = \frac{1}{4}\bilin{1}{2}{\gamma^5}\longrightarrow \frac{1}{4}\SP_{12}
+    \end{align*}
+    \item Multiply by $\gamma^\alpha\gamma^5$ and take the trace: \begin{align*}
+        \Tr(\gamma^\alpha\gamma^5  \Psi_2 \dadj{\Psi}_1) &= d_\mu \Tr(\gamma^\alpha\gamma^5\gamma^\mu\gamma^5)=-d_\mu \Tr(\gamma^\alpha\gamma^\mu (\gamma^5)^2) =-d_\mu \Tr(\gamma^\alpha\gamma^\mu) = -4\eta^{\alpha\mu}d_\mu\\ &\implies d^\alpha = -\frac{1}{4}\Tr(\gamma^\alpha\gamma^5  \Psi_2 \dadj{\Psi}_1) = -\frac{1}{4}\bilin{1}{2}{\gamma^\alpha\gamma^5}\longrightarrow - \frac{1}{4}\SA^\alpha_{12}
+    \end{align*}
+    \item Multiply by $\Sigma^{\alpha\beta}$ and take the trace: \begin{align*}
+         \Tr(\Sigma^{\alpha\beta}  \Psi_2 \dadj{\Psi}_1) = c_{\mu\nu} \Tr(\Sigma^{\alpha\beta}\Sigma^{\mu\nu})
+    \end{align*}
+    From Lec \ref{sec:19}, we have 
+     $$\Tr \Sigma^{\alpha\beta}\Sigma^{\mu\nu} = 4(\eta^{\alpha\mu}\eta^{\beta\nu}-\eta^{\alpha\nu}\eta^{\beta\mu} )$$
+    Substituting this in the actual term, we obtain:
+    \begin{align*}
+         \Tr(\Sigma^{\alpha\beta}  \Psi_2 \dadj{\Psi}_1) = 4c_{\mu\nu}\qty(\eta^{\alpha\mu}\eta^{\beta\nu}-\eta^{\alpha\nu}\eta^{\beta\mu} ) = 4(c^{\alpha\beta} - c^{\beta\alpha}) = 8 c^{\alpha\beta}\implies  c^{\alpha\beta} = \frac{1}{8}\bilin{1}{2}{\Sigma^{\alpha\beta}}\longrightarrow  \frac{1}{8}\ST^{\alpha\beta}_{12}
+    \end{align*}
+    where we used the fact that $c_{\mu\nu}$ is anti-symmetric since $\Sigma^{\mu\nu}$ are also anti-symmetric. 
+\end{itemize}
+We found all the components and the outer product of two Dirac spinors is represented by:
+$$ \boxed{\Psi_2 \dadj{\Psi}_1 = \frac{1}{4}\qty{\Ss_{12}\iden + (\SV_{12})_{\mu}\gamma^\mu + \frac{1}{2} (\ST_{12})_{\mu\nu}\Sigma^{\mu\nu} - (\SA_{12})_{\mu}\gamma^\mu \gamma^5 + \SP_{12}\gamma^5}}$$
+\subsection{Rearranging Spinors}
+Let $\Psi_1, \Psi_2, \Psi_3, \Psi_4$ be four Dirac spinors given to us and consider $(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b})$ where $a$ and $b$ can taken the values: $\{\Ss, \SV^\mu, \ST^{\mu\nu}, \SP, \SA^\mu \}$ according as the bilinear that we are considering. We are required to find how this quantity can be expressed with the rearrangement, that is, say $(\bilin{1}{4}{\Gamma^a})(\bilin{3}{2}{\Gamma^b})$. For that, let us consider it as a linear combination, that is:
+$$(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b}) = \sum_{c,d} \SC^{ab}_{cd}\ (\bilin{1}{4}{\Gamma^c})(\bilin{3}{2}{\Gamma^d})$$
+Expanding the LHS of the above expression in terms of matrix indices, we get:
+$$\sum\limits_{\substack{i,j\\ p,q}}\qty{(\dadj{\Psi}_1)_i (\Gamma^a)_{ij}(\Psi_2)_j}\qty{(\dadj{\Psi}_3)_p (\Gamma^b)_{pq}(\Psi_4)_q}=\sum\limits_{\substack{i,j\\ p,q}}(\dadj{\Psi}_1)_i (\Gamma^a)_{ij}\qty{(\Psi_2)_j (\dadj{\Psi}_3)_p} (\Gamma^b)_{pq}(\Psi_4)_q$$
+Now note that we can write:
+$$(\Psi_2)_j (\dadj{\Psi}_3)_p = \sum\limits_{m,n}\delta_{jm}\delta_{pn}(\Psi_2)_m (\dadj{\Psi}_3)_n$$
+In Lec. \ref{sec:onb}, we had found a \textit{completeness relation} in Eq. \ref{eqn:complete}, for the elements of the basis and we can use this here. 
+$$(\Psi_2)_j (\dadj{\Psi}_3)_p =\sum\limits_{m,n,c} (\Gamma_c)_{nm} (\Gamma^c)_{jp} (\Psi_2)_m (\dadj{\Psi}_3)_n$$
+Substituting this in the original expression, we have:
+\begin{align*}
+    \mathrm{LHS}:& \sum\limits_{\substack{m,n,c\\ i,j,p,q}}(\dadj{\Psi}_1)_i (\Gamma^a)_{ij} (\Gamma_c)_{nm} (\Gamma^c)_{jp} (\Psi_2)_m (\dadj{\Psi}_3)_n (\Gamma^b)_{pq}(\Psi_4)_q\\ &=\sum\limits_{\substack{m,n,c\\ i,j,p,q}} \qty{(\Gamma_c)_{nm} (\Psi_2)_m (\dadj{\Psi}_3)_n} \ (\dadj{\Psi}_1)_i (\Gamma^a)_{ij}(\Gamma^c)_{jp}(\Gamma^b)_{pq}(\Psi_4)_q
+\end{align*}
+Note that the bracket term can be written as: $\Tr( \Gamma_c \Psi_2 \dadj{\Psi}_3) = \dadj{\Psi}_3 \Gamma_c \Psi_2$ and the remaining term is written as:
+$$\dadj{\Psi}_1(\Gamma^a\Gamma^c\Gamma^b )\Psi_4$$
+Since $\Gamma^a\Gamma^c\Gamma^b$ is a matrix, from Eq. \ref{eqn:expand} it can be expanded in terms of the basis elements accordingly as:
+$$\Gamma^a\Gamma^c\Gamma^b =\sum\limits_d \Tr(\Gamma_d \Gamma^a\Gamma^c\Gamma^b)\Gamma^d$$
+Substituting this in the expression for LHS, we have:
+$$(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b}) = \sum\limits_{c,d} (\dadj{\Psi}_3 \Gamma_c \Psi_2)  \dadj{\Psi}_1 \Tr(\Gamma_d \Gamma^a\Gamma^c\Gamma^b)\Gamma^d \Psi_4 =\sum\limits_{c,d}\Tr(\Gamma_d \Gamma^a\Gamma^c\Gamma^b) (\dadj{\Psi}_3 \Gamma_c \Psi_2)  \dadj{\Psi}_1 \Gamma^d \Psi_4$$
+Changing all the lower indices to the upper and renaming $c \leftrightarrow d$, we obtain:
+$$(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b})  =\sum\limits_{c,d}\frac{\Tr(\Gamma^c \Gamma^a\Gamma^d\Gamma^b)}{\Tr (\Gamma^d \Gamma^d)\Tr (\Gamma^c \Gamma^c)} ( \dadj{\Psi}_1 \Gamma^c \Psi_4) (\dadj{\Psi}_3 \Gamma^d \Psi_2) $$
+Now, comparing the original linear combination, we obtain the form of the coefficients:
+$$\boxed{\SC^{ab}_{cd} = \frac{\Tr(\Gamma^c \Gamma^a\Gamma^d\Gamma^b)}{\Tr (\Gamma^d \Gamma^d)\Tr (\Gamma^c \Gamma^c)} = \frac{1}{16}\Tr(\Gamma^c \Gamma^a\Gamma^d\Gamma^b)}$$
+The last part came because previously we had seen that $\Tr \Gamma^a \Gamma^b \sim 4\delta^{ab}$ upto some positive or negative sign. So, for the same elements, we get $4\times 4=16$ in the denominator and the negative sign, if any, becomes positive since two negatives are there. 
+Let us now see some examples of this technique. 
+\begin{itemize}
+    \item $a=b=\Ss$ and so both are scalar bilinears. 
+    Using the formula we have:
+    $$\SC^{\Ss\Ss}_{cd} = \frac{1}{16}\Tr(\Gamma^c\Gamma^d)$$
+    % Note that we had calculated the trace of product of two matrices of the basis elements and found that $\Tr \Gamma^a \Gamma^b = \pm 4\delta^{ab}$. The negative sign was for the axial vector   
+    \textcolor{red}{to be completed!}
+\end{itemize}

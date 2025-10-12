@@ -1,5 +1,5 @@
 \refstepcounter{section}
-\section*{Lecture 19: Trace and Contraction Identities}
+\section*{Lecture 19: Trace and Contraction Identities}\label{sec:19}
 
 \addcontentsline{toc}{section}{Lecture 19: Trace and Contraction Identities}
 In the previous section, we saw that calculating the trace of the Dirac matrices become really important since these define the inner products. Let us look at some of the trace identities followed by the Dirac matrices.
@@ -114,3 +114,51 @@ Let us now look at some contraction identities where the Dirac matrices will be 
     \end{align*}
 \end{itemize}
 These are few of the contraction and trace identities that we checked. There exists many such other identities and we can just play with the Dirac matrices to find them \emoji{wink}!
+\subsection{Orthonormal Basis}\label{sec:onb}
+In the Lec \ref{sec:18}, we had stated a basis set for the set of $4\times 4$ matrices, however, we have not explicitly shown that it is a basis. Since we are equipped with the traces (which form the inner product for the space) we are now in a position to show that. To show that the set is an orthonormal basis, we need to show two things: 
+\begin{itemize}
+    \item Linear independence of the basis elements.
+    \item orthognality of the basis elements with respect to the inner product.
+\end{itemize}
+Let us start by showing the orthognality. For that, we should painstakingly calculate the traces between the elements in the basis set. However, calculation for only $\mqty(5\\2) + 5= 15$ traces need to be shown as trace is symmetric. 
+\begin{itemize}
+    \item Term $\longrightarrow \Tr (\iden \cdot \Gamma^\alpha)$ where $\Gamma^\alpha \in \Gamma$ \\[0.2cm]
+    We have $\mathcolor{red}{\Tr (\iden \cdot \iden) = 4}$ obviously. From the above derived trace relations, we know $\Tr (\iden \cdot \gamma^5) = 0,\Tr (\iden \cdot \gamma^\mu\gamma^5)=0, \Tr (\iden \cdot \gamma^\mu)=0$ and $$\Tr (\iden \cdot \Sigma^\mu \gamma^\nu) = \frac{i}{2}\qty(4\eta^{\mu\nu} - 4\eta^{\nu\mu}) = 0$$
+\item Term $\longrightarrow \Tr (\gamma^\mu \cdot \Gamma^\alpha)$ where $\Gamma^\alpha \in \Gamma$ \\[0.2cm]
+From the trace identity, we have $\mathcolor{red}{\Tr(\gamma^\mu \gamma^\nu) = 4\eta^{\mu\nu}}$ and $\Tr(\gamma^\mu) = 0$. $\Tr(\gamma^\mu \gamma^5) =0$ as this is a product of five gamma matrices. $\Tr(\gamma^\mu \Sigma^{\nu\alpha}) = 0$ since it contains the product of three gamma matrices. $\Tr(\gamma^\mu \gamma^\nu \gamma^5) =0$ from the trace identity. 
+\item Term $\longrightarrow \Tr (\gamma^5 \cdot \Gamma^\alpha)$ where $\Gamma^\alpha \in \Gamma$ \\[0.2cm]
+We have $\Tr(\gamma^5 \gamma^\mu \gamma^5) = -\Tr((\gamma^5)^2  \gamma^\mu)= 0, \Tr(\gamma^5 \Sigma_{\mu\nu}) = 0$ as $\Tr(\gamma^\mu \gamma^\nu \gamma^5) =0$ and $\mathcolor{red}{\Tr((\gamma^5)^2) = 4}$
+\item Term $\longrightarrow \Tr (\gamma^\mu \gamma^5 \cdot \Gamma^\alpha)$ where $\Gamma^\alpha \in \Gamma$ \\[0.2cm]
+We have $\mathcolor{red}{\Tr(\gamma^\mu \gamma^5 \gamma^\nu\gamma^5)  = - \Tr(\gamma^\mu \gamma^\nu) =-4\eta^{\mu\nu}}$ and $\Tr(\gamma^\mu \gamma^5 \Sigma_{\alpha\rho}) =0$ as product of seven gamma matrices.
+\item Term $\longrightarrow \Tr (\Sigma^{\alpha\beta} \cdot \Gamma^\alpha)$ where $\Gamma^\alpha \in \Gamma$ \\[0.2cm]
+As an exercise, let us calculate this trace explicitly from the definition itself. 
+    \begin{align*}
+        \Tr \Sigma^{\alpha\beta}\Sigma^{\mu\nu} =-\frac{1}{4} \Tr ((\gamma^\alpha\gamma^\beta-\gamma^\beta\gamma^\alpha)(\gamma^\mu\gamma^\nu-\gamma^\beta\gamma^\mu)) &= -\frac{1}{4}\Tr (\gamma^\alpha\gamma^\beta \gamma^\mu \gamma^\nu) +\frac{1}{4}\Tr(\gamma^\alpha\gamma^\beta \gamma^\nu \gamma^\mu)\\ &\qquad +\frac{1}{4}\Tr(\gamma^\beta\gamma^\alpha \gamma^\mu \gamma^\nu) -\frac{1}{4}\Tr(\gamma^\beta\gamma^\alpha \gamma^\nu \gamma^\mu) 
+    \end{align*}
+    Using the trace identities, this elongates to:
+    \begin{align*}
+        - &(\mathcolor{red}{\eta^{\alpha\beta}\eta^{\mu\nu} }- \mathcolor{blue}{\eta^{\alpha\mu}\eta^{\beta\nu}}+\mathcolor{OliveGreen}{ \eta^{\alpha\nu}\eta^{\beta\mu}}) + 
+        ( \mathcolor{red}{\eta^{\alpha\beta}\eta^{\nu\mu}} - \mathcolor{OliveGreen}{\eta^{\alpha\nu}\eta^{\beta\mu}}+ \mathcolor{blue}{\eta^{\alpha\mu}\eta^{\beta\nu}}) \\ &+(\mathcolor{red}{\eta^{\beta\alpha}\eta^{\mu\nu}} - \mathcolor{OliveGreen}{\eta^{\beta\mu}\eta^{\alpha\nu}}+ \mathcolor{blue}{\eta^{\beta\nu}\eta^{\alpha\mu}})-( \mathcolor{red}{\eta^{\beta\alpha}\eta^{\nu\mu}} - \mathcolor{blue}{\eta^{\beta\nu}\eta^{\alpha\mu}}+ \mathcolor{OliveGreen}{\eta^{\beta\mu}\eta^{\alpha\nu}})
+    \end{align*}
+    Note that there are four of each blue and green colored terms while the red terms cancel and hence the trace becomes:
+    $$\mathcolor{red}{\Tr \Sigma^{\alpha\beta}\Sigma^{\mu\nu} = 4(\eta^{\alpha\mu}\eta^{\beta\nu}-\eta^{\alpha\nu}\eta^{\beta\mu} )}$$
+\end{itemize}
+We thus see that for $\Gamma^a, \Gamma^b \in \Gamma$, $\Tr(\Gamma^a \Gamma^b) \neq 0$ only when $\Gamma^a = \Gamma^b$ where the equality means that both are same kind of matrices in the Clifford algebra basis. With this, we define $$\Gamma_{a} = \frac{\Gamma^a}{\Tr(\Gamma^a\Gamma^a)}\qquad \{ \Gamma_{a}\} = \{\iden, \gamma^\mu, -\gamma^\mu\gamma^5, \Sigma^{\mu\nu}, \gamma^5\} $$
+where the index is not summed in the trace. Then we can say:
+$$\Tr(\Gamma_a \Gamma^b) = \delt{b}{a}$$
+Using this definition, the linear independence can be easily shown. Suppose we have:
+$$\sum\limits_{a}C_a \Gamma^a = 0$$
+Multiplying the equation both sides with $\Gamma^b$ and then taking the trace, only the term with $C_b$ will survive on the LHS and will be zero. Thus, $C_a=0\ \forall \ a $ which implies that the elements are linearly independent. \\[0.2cm]
+Since this forms a basis, we can expand any $4\times 4$ matrix in terms of these elements. Thus,
+$$M = \sum\limits_a C_a^M \Gamma^a$$
+Then multiplying by another element and taking trace, we get:
+$$\Tr\Gamma_b M = \sum\limits_a C^M_a \Tr \Gamma_b\Gamma^a = \sum\limits_a C^M_a \delt{a}{b} = C^M_b \implies \boxed{ C^M_b = \Tr\Gamma_b M}$$
+And hence the matrix is expanded as:
+\begin{align}\label{eqn:expand}
+    M = \sum\limits_a \Tr(\Gamma_a M)\ \Gamma^a
+\end{align}
+Now let us explicitly introduce the matrix indices which we have suppressed till now. Note that there are two kind of indices here, one is the $a$ index which tells us what type of the basis element it is and now we introduce the matrix indices, which will run from $1,2,3,4$. So, $\Gamma^{a}_{12}$ actually means the $(1,2)$ index of the matrix of type $\Gamma^a$. Using matrix indices, the above equation becomes:
+\begin{equation}\label{eqn:complete}
+    M_{\alpha\beta} = \sum\limits_{a} (\Gamma_{a})_{\eta \lambda}M_{\lambda \eta} {\Gamma^a}_{\alpha\beta} = \sum\limits_{a} \qty{(\Gamma_{a})_{\eta \lambda} {(\Gamma^a)}_{\alpha\beta}} M_{\lambda \eta}\implies \boxed{\sum\limits_a (\Gamma_{a})_{\eta \lambda} {(\Gamma^a)}_{\alpha\beta} = \delta_{\alpha\lambda}\delta_{\beta\eta}}
+\end{equation}
+This defines a \textit{completeness relation} for these matrices and will be later used to derive some important identitites. 
