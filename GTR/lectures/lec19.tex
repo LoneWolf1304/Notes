@@ -40,7 +40,7 @@ We now write the Christoffel symbols in terms of $r_s$ since we have an expressi
 \chris{r}{t}{t} &= \frac{r_s(r-r_s)}{2r^3} &
 \chris{r}{r}{r} &= \frac{r_s}{2r(r_s-r)} \\[2mm]
 \chris{r}{\theta}{\theta} &= r_s-r &
-\chris{r}{\phi}{\phi} &= \sin^2\theta (r_s-r) &
+\chris{r}{\phi}{\phi} &= (r_s-r)\sin^2\theta  &
 \chris{\theta}{\phi}{\phi} &= -\sin\theta\cos\theta \\[1mm]
 \chris{\phi}{\theta}{\phi} &= \cot\theta &
 \chris{\phi}{\phi}{r} &= \frac{1}{r} &
@@ -53,7 +53,7 @@ $$\dv[2]{{x^\mu}}{{\tau}} + \chris{\mu}{\alpha}{\beta}\dv{{x^\alpha}}{\tau}\dv{{
 $\vartriangleright$ \underline{Equation for Time}
 \begin{alignat*}{3}
     &\dv[2]{{t}}{{\tau}} + \chris{t}{\alpha}{\beta}\dv{{x^\alpha}}{\tau}\dv{{x^\beta}}{\tau}&=0\\
-    \implies\quad &\dv[2]{{t}}{{\tau}} + 2\frac{r_s}{2r(1-r_s)} \dv{{t}}{\tau}\dv{{r}}{\tau}=0\\
-    \implies\quad &\dv[2]{{t}}{{\tau}} + \frac{r_s}{r(1-r_s)}\dv{{t}}{\tau}\dv{{r}}{\tau} = 0
+    \implies\quad &\dv[2]{{t}}{{\tau}} + 2\frac{r_s}{2r(1-r_s)} \dv{{t}}{\tau}\dv{{r}}{\tau}&=0\\
+    \implies\quad &\dv[2]{{t}}{{\tau}} + \frac{r_s}{r(1-r_s)}\dv{{t}}{\tau}\dv{{r}}{\tau}&= 0
 \end{alignat*}
 The above is the equation for time in the given metric. It feels weird since while constructing equation of motions, we had always written quantitites to vary with time but here, time itself varies with proper time. This equation essentially tells us how clock changes with respect to the proper time $\tau$. 
