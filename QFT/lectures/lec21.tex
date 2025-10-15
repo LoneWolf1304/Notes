@@ -39,33 +39,73 @@ We found all the components and the outer product of two Dirac spinors is repres
 $$ \boxed{\Psi_2 \dadj{\Psi}_1 = \frac{1}{4}\qty{\Ss_{12}\iden + (\SV_{12})_{\mu}\gamma^\mu + \frac{1}{2} (\ST_{12})_{\mu\nu}\Sigma^{\mu\nu} - (\SA_{12})_{\mu}\gamma^\mu \gamma^5 + \SP_{12}\gamma^5}}$$
 \subsection{Rearranging Spinors}
 Let $\Psi_1, \Psi_2, \Psi_3, \Psi_4$ be four Dirac spinors given to us and consider $(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b})$ where $a$ and $b$ can taken the values: $\{\Ss, \SV^\mu, \ST^{\mu\nu}, \SP, \SA^\mu \}$ according as the bilinear that we are considering. We are required to find how this quantity can be expressed with the rearrangement, that is, say $(\bilin{1}{4}{\Gamma^a})(\bilin{3}{2}{\Gamma^b})$. For that, let us consider it as a linear combination, that is:
-$$(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b}) = \sum_{c,d} \SC^{ab}_{cd}\ (\bilin{1}{4}{\Gamma^c})(\bilin{3}{2}{\Gamma^d})$$
+$$(\bilin{1}{2}{\Gamma_a})(\bilin{3}{4}{\Gamma^b}) = \sum_{c,d} \SC^{bc}_{ad}\ (\bilin{1}{4}{\Gamma_c})(\bilin{3}{2}{\Gamma^d})$$
 Expanding the LHS of the above expression in terms of matrix indices, we get:
-$$\sum\limits_{\substack{i,j\\ p,q}}\qty{(\dadj{\Psi}_1)_i (\Gamma^a)_{ij}(\Psi_2)_j}\qty{(\dadj{\Psi}_3)_p (\Gamma^b)_{pq}(\Psi_4)_q}=\sum\limits_{\substack{i,j\\ p,q}}(\dadj{\Psi}_1)_i (\Gamma^a)_{ij}\qty{(\Psi_2)_j (\dadj{\Psi}_3)_p} (\Gamma^b)_{pq}(\Psi_4)_q$$
+$$\sum\limits_{\substack{i,j\\ p,q}}\qty{(\dadj{\Psi}_1)_i (\Gamma_a)_{ij}(\Psi_2)_j}\qty{(\dadj{\Psi}_3)_p (\Gamma^b)_{pq}(\Psi_4)_q}=\sum\limits_{\substack{i,j\\ p,q}}(\dadj{\Psi}_1)_i (\Gamma_a)_{ij}\qty{(\Psi_2)_j (\dadj{\Psi}_3)_p} (\Gamma^b)_{pq}(\Psi_4)_q$$
 Now note that we can write:
 $$(\Psi_2)_j (\dadj{\Psi}_3)_p = \sum\limits_{m,n}\delta_{jm}\delta_{pn}(\Psi_2)_m (\dadj{\Psi}_3)_n$$
 In Lec. \ref{sec:onb}, we had found a \textit{completeness relation} in Eq. \ref{eqn:complete}, for the elements of the basis and we can use this here. 
-$$(\Psi_2)_j (\dadj{\Psi}_3)_p =\sum\limits_{m,n,c} (\Gamma_c)_{nm} (\Gamma^c)_{jp} (\Psi_2)_m (\dadj{\Psi}_3)_n$$
+$$(\Psi_2)_j (\dadj{\Psi}_3)_p =\frac{1}{4}\sum\limits_{m,n,c} (\Gamma_c)_{nm} (\Gamma^c)_{jp} (\Psi_2)_m (\dadj{\Psi}_3)_n$$
 Substituting this in the original expression, we have:
 \begin{align*}
-    \mathrm{LHS}:& \sum\limits_{\substack{m,n,c\\ i,j,p,q}}(\dadj{\Psi}_1)_i (\Gamma^a)_{ij} (\Gamma_c)_{nm} (\Gamma^c)_{jp} (\Psi_2)_m (\dadj{\Psi}_3)_n (\Gamma^b)_{pq}(\Psi_4)_q\\ &=\sum\limits_{\substack{m,n,c\\ i,j,p,q}} \qty{(\Gamma_c)_{nm} (\Psi_2)_m (\dadj{\Psi}_3)_n} \ (\dadj{\Psi}_1)_i (\Gamma^a)_{ij}(\Gamma^c)_{jp}(\Gamma^b)_{pq}(\Psi_4)_q
+    \mathrm{LHS}:& \frac{1}{4}\sum\limits_{\substack{m,n,c\\ i,j,p,q}}(\dadj{\Psi}_1)_i (\Gamma_a)_{ij} (\Gamma_c)_{nm} (\Gamma^c)_{jp} (\Psi_2)_m (\dadj{\Psi}_3)_n (\Gamma^b)_{pq}(\Psi_4)_q\\ &=\frac{1}{4}\sum\limits_{\substack{m,n,c\\ i,j,p,q}} \qty{(\Gamma_c)_{nm} (\Psi_2)_m (\dadj{\Psi}_3)_n} \ (\dadj{\Psi}_1)_i (\Gamma_a)_{ij}(\Gamma^c)_{jp}(\Gamma^b)_{pq}(\Psi_4)_q
 \end{align*}
 Note that the bracket term can be written as: $\Tr( \Gamma_c \Psi_2 \dadj{\Psi}_3) = \dadj{\Psi}_3 \Gamma_c \Psi_2$ and the remaining term is written as:
-$$\dadj{\Psi}_1(\Gamma^a\Gamma^c\Gamma^b )\Psi_4$$
-Since $\Gamma^a\Gamma^c\Gamma^b$ is a matrix, from Eq. \ref{eqn:expand} it can be expanded in terms of the basis elements accordingly as:
-$$\Gamma^a\Gamma^c\Gamma^b =\sum\limits_d \Tr(\Gamma_d \Gamma^a\Gamma^c\Gamma^b)\Gamma^d$$
+$$\dadj{\Psi}_1(\Gamma_a\Gamma^c\Gamma^b )\Psi_4$$
+Since $\Gamma_a\Gamma^c\Gamma^b$ is a matrix, from Eq. \ref{eqn:expand} it can be expanded in terms of the basis elements accordingly as:
+$$\Gamma_a\Gamma^c\Gamma^b =\sum\limits_d \frac{1}{4}\Tr(\Gamma_d \Gamma_a\Gamma^c\Gamma^b)\Gamma^d$$
 Substituting this in the expression for LHS, we have:
-$$(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b}) = \sum\limits_{c,d} (\dadj{\Psi}_3 \Gamma_c \Psi_2)  \dadj{\Psi}_1 \Tr(\Gamma_d \Gamma^a\Gamma^c\Gamma^b)\Gamma^d \Psi_4 =\sum\limits_{c,d}\Tr(\Gamma_d \Gamma^a\Gamma^c\Gamma^b) (\dadj{\Psi}_3 \Gamma_c \Psi_2)  \dadj{\Psi}_1 \Gamma^d \Psi_4$$
-Changing all the lower indices to the upper and renaming $c \leftrightarrow d$, we obtain:
-$$(\bilin{1}{2}{\Gamma^a})(\bilin{3}{4}{\Gamma^b})  =\sum\limits_{c,d}\frac{\Tr(\Gamma^c \Gamma^a\Gamma^d\Gamma^b)}{\Tr (\Gamma^d \Gamma^d)\Tr (\Gamma^c \Gamma^c)} ( \dadj{\Psi}_1 \Gamma^c \Psi_4) (\dadj{\Psi}_3 \Gamma^d \Psi_2) $$
+$$(\bilin{1}{2}{\Gamma_a})(\bilin{3}{4}{\Gamma^b}) =\frac{1}{16} \sum\limits_{c,d} (\dadj{\Psi}_3 \Gamma_c \Psi_2)  \dadj{\Psi}_1 \Tr(\Gamma_d \Gamma_a\Gamma^c\Gamma^b)\Gamma^d \Psi_4 =\frac{1}{16}\sum\limits_{c,d}\Tr(\Gamma_d \Gamma_a\Gamma^c\Gamma^b) (\dadj{\Psi}_3 \Gamma_c \Psi_2)  \dadj{\Psi}_1 \Gamma^d \Psi_4$$
+ Renaming the dummy indices $c \leftrightarrow d$ and arranging things accordingly, we obtain:
+$$(\bilin{1}{2}{\Gamma_a})(\bilin{3}{4}{\Gamma^b})  =\frac{1}{16}\sum\limits_{c,d}\Tr(\Gamma^{c}\Gamma_a \Gamma_{d}\Gamma^b) ( \dadj{\Psi}_1 \Gamma_c \Psi_4) (\dadj{\Psi}_3 \Gamma^d \Psi_2) $$
 Now, comparing the original linear combination, we obtain the form of the coefficients:
-$$\boxed{\SC^{ab}_{cd} = \frac{\Tr(\Gamma^c \Gamma^a\Gamma^d\Gamma^b)}{\Tr (\Gamma^d \Gamma^d)\Tr (\Gamma^c \Gamma^c)} = \frac{1}{16}\Tr(\Gamma^c \Gamma^a\Gamma^d\Gamma^b)}$$
-The last part came because previously we had seen that $\Tr \Gamma^a \Gamma^b \sim 4\delta^{ab}$ upto some positive or negative sign. So, for the same elements, we get $4\times 4=16$ in the denominator and the negative sign, if any, becomes positive since two negatives are there. 
+$$\boxed{ \SC^{bc}_{ad} =\frac{1}{16} \Tr(\Gamma_a \Gamma_{d}\Gamma^b\Gamma^{c})}$$
 Let us now see some examples of this technique. 
 \begin{itemize}
-    \item $a=b=\Ss$ and so both are scalar bilinears. 
+    \item $a=b=\Ss$ and so both are scalar bilinears, $\Gamma^a \equiv \mathds{1}$ and $\Gamma_a \equiv \mathds{1}$
     Using the formula we have:
-    $$\SC^{\Ss\Ss}_{cd} = \frac{1}{16}\Tr(\Gamma^c\Gamma^d)$$
-    % Note that we had calculated the trace of product of two matrices of the basis elements and found that $\Tr \Gamma^a \Gamma^b = \pm 4\delta^{ab}$. The negative sign was for the axial vector   
-    \textcolor{red}{to be completed!}
+    $$\SC^{\Ss\Ss}_{cd} =\frac{1}{16} \Tr(\Gamma_c\Gamma^d)=\frac{1}{4}\delt{d}{c}$$
+    Hence in this case, we can write the terms are:
+    \begin{align*}
+        \dadj{\Psi}_1 {\Psi}_2\dadj{\Psi}_3 \Psi_4 &= \frac{1}{4}\{ (\dadj{\Psi}_1 {\Psi}_4)(\dadj{\Psi}_3 \Psi_2) + (\bilin{1}{4}{\gamma_\mu})(\bilin{3}{2}{\gamma^\mu}) +(\bilin{1}{4}{\gamma_5})(\bilin{3}{2}{\gamma^5})\\ &\qquad\qquad (\bilin{1}{4}{i \gamma_\mu\gamma_5})(\bilin{3}{2}{i\gamma^\mu\gamma_5}) + \frac{1}{2} (\bilin{1}{4}{ \Sigma_{\mu\nu}})(\bilin{3}{2}{\Sigma^{\mu\nu}})\}
+    \end{align*}
+    The factor of $\sfrac{1}{2}$ has been introduced to avoid double counting since $\Sigma^{\mu\nu}$ has two indices. Thus, we find the rearranged spinors as:
+    $$\boxed{\Ss_{12}\Ss_{34} = \mathcolor{red}{\frac{1}{4}}\Ss_{14}\Ss_{32} +\mathcolor{red}{\frac{1}{4}}({\SV_{\mu}})_{14}({\SV^{\mu}})_{32}+ \mathcolor{red}{\frac{1}{4}}\SP_{14}\SP_{32}-\mathcolor{red}{\frac{1}{4}}({\SA_{\mu}})_{14}({\SA^{\mu}})_{32}+\mathcolor{red}{\frac{1}{8}}({\ST_{\mu\nu}})_{14}({\ST^{\mu\nu}})_{32} }$$
+    \item $a=b=\SV$ and so both are vector bilinears. $\Gamma^a \equiv \gamma^\mu$ and $\Gamma_a \equiv \gamma_\mu = \eta_{\mu\nu}\gamma^\mu$. So the coefficient that we need to find out becomes: $\Tr(\gamma_\mu \Gamma_d \gamma^\mu \Gamma^c)$ Let us go case by case:\\[0.2cm]
+    \underline{$\Gamma_c = 1$}
+    \begin{align*}
+        \frac{1}{16}\sum\limits_{c} \Tr(\gamma_\mu\Gamma_d \gamma^\mu ) (\dadj{\Psi}_1  \Psi_4)(\dadj{\Psi}_3\Gamma^d \Psi_2) &= \frac{1}{16}\qty[\dadj{\Psi}_3 \sum\limits_c \Tr( \gamma^\mu \gamma_\mu \Gamma_d )\Gamma^d\ \Psi_2](\dadj{\Psi}_1 \Psi_4) \\
+        &=\frac{1}{16}\times  \dadj{\Psi}_3 (4\underbrace{ \gamma^\mu \gamma_\mu}_{4\iden})\Psi_2 (\dadj{\Psi}_1 \Psi_4)\\
+        &=(\dadj{\Psi}_1 \Psi_4)(\dadj{\Psi}_3 \Psi_2) \rightarrow \Ss_{14}\Ss_{32}
+    \end{align*}
+
+
+    \underline{$\Gamma_c = \gamma_\nu$}
+    \begin{align*}
+        \frac{1}{16}\sum\limits_{c} \Tr(\gamma_\mu\Gamma_d \gamma^\mu\gamma^\nu ) (\dadj{\Psi}_1 \gamma_\nu \Psi_4)(\dadj{\Psi}_3\Gamma^d \Psi_2) &= \frac{1}{16}\qty[\dadj{\Psi}_3 \sum\limits_c \Tr( \gamma^\mu \gamma^\nu \gamma_\mu \Gamma_d )\Gamma^d\ \Psi_2](\dadj{\Psi}_1\gamma_\nu \Psi_4) \\
+        &=\frac{1}{16}\times  \dadj{\Psi}_3 (4\underbrace{ \gamma^\mu\gamma^\nu \gamma_\mu}_{-2\gamma^\nu})\Psi_2 (\dadj{\Psi}_1 \gamma_\nu\Psi_4)\\
+        &=-\frac{1}{2}(\dadj{\Psi}_1\gamma_\nu \Psi_4)(\dadj{\Psi}_3\gamma^\nu \Psi_2) \rightarrow -\frac{1}{2}(\SV_\nu)_{14}(\SV^\nu)_{32}
+    \end{align*}
+\underline{$\Gamma_c = \gamma_5$}
+    \begin{align*}
+        \frac{1}{16}\sum\limits_{c} \Tr(\gamma_\mu\Gamma_d \gamma^\mu\gamma^5 ) (\dadj{\Psi}_1 \gamma_5 \Psi_4)(\dadj{\Psi}_3\Gamma^d \Psi_2) &= \frac{1}{16}\qty[\dadj{\Psi}_3 \sum\limits_c \Tr( \gamma^\mu \gamma^5 \gamma_\mu \Gamma_d )\Gamma^d\ \Psi_2](\dadj{\Psi}_1\gamma_5 \Psi_4) \\
+        &=\frac{1}{16}\times  \dadj{\Psi}_3 (4\underbrace{ \gamma^\mu\gamma^5 \gamma_\mu}_{-4\gamma^5})\Psi_2 (\dadj{\Psi}_1\gamma_5 \Psi_4)\\
+        &=-(\dadj{\Psi}_1\gamma_5 \Psi_4)(\dadj{\Psi}_3\gamma^5 \Psi_2) \rightarrow -\SP_{14}\SP_{32}
+    \end{align*}
+    \underline{$\Gamma_c = i\gamma_\nu\gamma_5$}
+    \begin{align*}
+        \frac{1}{16}\sum\limits_{c} \Tr(\gamma_\mu\Gamma_d \gamma^\mu \ i\gamma^\nu\gamma^5 ) (\dadj{\Psi}_1 \ i\gamma_\nu\gamma_5 \Psi_4)(\dadj{\Psi}_3\Gamma^d \Psi_2) &= -\frac{1}{16}\qty[\dadj{\Psi}_3 \sum\limits_c \Tr( \gamma^\mu \gamma^\nu\gamma^5 \gamma_\mu \Gamma_d )\Gamma^d\ \Psi_2](\dadj{\Psi}_1\gamma_\nu\gamma_5 \Psi_4) \\
+        &=-\frac{1}{16}\times  \dadj{\Psi}_3 (4\underbrace{ \gamma^\mu\gamma^\nu\gamma^5 \gamma_\mu}_{+2\gamma^\nu\gamma^5})\Psi_2 (\dadj{\Psi}_1\gamma_\nu\gamma_5 \Psi_4)\\
+        &=-\frac{1}{2}(\dadj{\Psi}_1\gamma_\nu\gamma_5 \Psi_4)(\dadj{\Psi}_3\gamma^\nu\gamma^5 \Psi_2) \rightarrow -\frac{1}{2}(\SA_\nu)_{14}(\SA^\nu)_{32}
+    \end{align*}
+     \underline{$\Gamma_c =\Sigma_{\rho\nu}$}
+
+    \begin{align*}
+        \frac{1}{16}\sum\limits_{c} \Tr(\gamma_\mu\Gamma_d \gamma^\mu\Sigma^{\rho\nu} ) (\dadj{\Psi}_1 \Sigma_{\rho\nu} \Psi_4)(\dadj{\Psi}_3\Gamma^d \Psi_2) &= \frac{1}{16}\qty[\dadj{\Psi}_3 \sum\limits_c \Tr( \gamma^\mu \Sigma^{\rho\nu} \gamma_\mu \Gamma_d )\Gamma^d\ \Psi_2](\dadj{\Psi}_1\Sigma_{\rho\nu} \Psi_4) \\
+        &=\frac{1}{16}\times  \dadj{\Psi}_3 (4\underbrace{ \gamma^\mu\Sigma^{\rho\nu} \gamma_\mu}_{4(\eta^{\rho\nu - \eta^{\nu\rho}})})\Psi_2 (\dadj{\Psi}_1\Sigma_{\rho\nu} \Psi_4)=0
+    \end{align*}
 \end{itemize}
+Thus we have the final form:
+
+$$\boxed{\SV_{12}\SV_{34} = \mathcolor{red}{1}\times \Ss_{14}\Ss_{32} +\mathcolor{red}{-\frac{1}{2}}({\SV_{\mu}})_{14}({\SV^{\mu}})_{32}+ \mathcolor{red}{-1}\times\SP_{14}\SP_{32}\mathcolor{red}{-\frac{1}{2}}({\SA_{\mu}})_{14}({\SA^{\mu}})_{32}+\mathcolor{red}{0 }\times({\ST_{\mu\nu}})_{14}({\ST^{\mu\nu}})_{32} }$$
+We can continue doing these kind of bs calculations and find more and more rearranged bilinears. However it must be noted that this is a very retarded task to do and one should never pursue this if it is not absolutely required!
