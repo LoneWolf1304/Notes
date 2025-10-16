@@ -1,5 +1,6 @@
 \refstepcounter{section}
 \section*{Lecture 21: Fierz Identities}
+\addcontentsline{toc}{section}{Lecture 21: Fierz Identities}
 In the previous section we saw how different \textit{bilinears} can be created through the use of the basis elements of the Clifford algebra. We also saw the transformation of these quantities and accordingly specified names to them viz. scalars, pseudoscalars, vector, axial vector and tensor. In this section, we will find an identity that will allow us to rearrange the bilinears of the product of two spinors in a different ordering. These can be useful to write a given interaction in some physically meaningful form.
 \subsection{Outer product of Spinors}
 Let us consider two Dirac spinors $\Psi_1$ and $\Psi_2$. We previously considered terms of type $\dadj{\Psi}_1\Psi_2 = \bilin{1}{2}{\gamma^0}$ which is essentially the product of a row vector and a column vector, producing a number .\\[0.2cm] Let us now consider the \textit{outer product} between them which will result in some matrix. Since the Clifford algebra produces a basis of $4\times 4$ matrices, we can write the outer product as a linear combination of the elements of the basis set $\Gamma$. We thus have:
@@ -109,3 +110,40 @@ Thus we have the final form:
 
 $$\boxed{\SV_{12}\SV_{34} = \mathcolor{red}{1}\times \Ss_{14}\Ss_{32} +\mathcolor{red}{-\frac{1}{2}}({\SV_{\mu}})_{14}({\SV^{\mu}})_{32}+ \mathcolor{red}{-1}\times\SP_{14}\SP_{32}\mathcolor{red}{-\frac{1}{2}}({\SA_{\mu}})_{14}({\SA^{\mu}})_{32}+\mathcolor{red}{0 }\times({\ST_{\mu\nu}})_{14}({\ST^{\mu\nu}})_{32} }$$
 We can continue doing these kind of bs calculations and find more and more rearranged bilinears. However it must be noted that this is a very retarded task to do and one should never pursue this if it is not absolutely required!
+
+\renewcommand{\arraystretch}{1.5} % increases row height
+
+\begin{table}[!h]
+    \centering
+\begin{tabular}{|
+    >{\centering\arraybackslash}p{0.1\textwidth}|
+    >{\centering\arraybackslash}p{0.13\textwidth}|
+    >{\centering\arraybackslash}p{0.13\textwidth}|
+    >{\centering\arraybackslash}p{0.13\textwidth}|
+    >{\centering\arraybackslash}p{0.13\textwidth}|
+    >{\centering\arraybackslash}p{0.13\textwidth}|
+    }
+\hline 
+  & $\displaystyle \mathcal{S}_{14}\mathcal{S}_{32}$ 
+  & $\displaystyle (\mathcal{V}_{14})_\nu(\mathcal{V}_{32})^\nu$ 
+  & $\displaystyle (\mathcal{T}_{\rho\nu})_{14}(\mathcal{T}^{\rho\nu})_{32}$ 
+  & $\displaystyle (\mathcal{A}_\nu)_{14}(\mathcal{A}^\nu)_{32}$ 
+  & $\displaystyle \mathcal{P}_{14}\mathcal{P}_{32}$ \\
+\hline 
+ $\displaystyle \mathcal{S}_{12}\mathcal{S}_{34}$  
+ & \hspace{4pt}\textcolor{red}{\sfrac{1}{4}}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{\sfrac{1}{4}}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{\sfrac{1}{8}}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{-\sfrac{1}{4}}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{\sfrac{1}{4}}\hspace{4pt} \\
+\hline 
+ $\displaystyle (\mathcal{V}_\mu)_{12}{\mathcal{V}^\mu}_{34}$ 
+ & \hspace{4pt}\textcolor{red}{1}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{-\sfrac{1}{2}}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{0}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{-\sfrac{1}{2}}\hspace{4pt}
+ & \hspace{4pt}\textcolor{red}{-1}\hspace{4pt} \\
+ \hline
+\end{tabular}
+\caption{Table showing the coefficients of the rearranged spinors}
+\end{table}

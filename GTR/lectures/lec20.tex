@@ -35,12 +35,16 @@ Substituting this in Eq. \ref{eqn:rscs} we get:
 $$\dv[2]{r}{\tau}+ \frac{r_s}{2r^2}\qty(1+r^2 \times \frac{l^2}{m^2r^4})-(r-r_s)\frac{l^2}{m^2r^4} =0\implies \boxed{\dv[2]{r}{\tau} = \frac{l^2}{m^2r^3} - \frac{3r_sl^2}{2m^2r^4} - \frac{r_s}{2r^2}}$$
 From this, we can define an effective potential as $\sfrac{\dd^2 r}{\dd \tau^2} = - \sfrac{\partial V^{\mathrm{eff}}_{\textrm{GR}}}{\partial r}$ where, 
 \begin{align}\label{eqn:veffgr}
-    \boxed{\pdv{V^{\mathrm{eff}}_{\textrm{GR}}}{r} = -\frac{r_s}{2r} + \frac{l^2}{2m^2 r^2} \qty(1 - \frac{r_s}{r})}
+    \boxed{{V^{\mathrm{eff}}_{\textrm{GR}}} = -\frac{r_s}{2r} + \frac{l^2}{2m^2 r^2} \qty(1 - \frac{r_s}{r})}
 \end{align}
 We have to somehow reconcile Eq. \ref{eqn:veffgr} and Eq. \ref{eqn:veffn} in an appropriate limit. These look very similar and we can do an identification:
 $$r_s = 2GM$$
 Also note that if, $\sfrac{r_s}{r}\ll 1$ then the second term of \ref{eqn:veffgr} coincides with the second term of Eq. \ref{eqn:veffn}. Hence we conclude that $r\ll r_s$ determines the Newtonian limit. We thus obtain a characteristic length scale $r_s$ which we term as the \textit{Schwarzschild radius}. For a massive object, the solution metric of the Einstein equation becomes:
 $$\boxed{ds^2 = - \qty(1- \frac{2GM}{r})\ \dd t^2 + \qty(1 - \frac{2GM}{r})^{-1}\ \dd r^2 + r^2(\dd \theta^2 + \sin^2\theta \ \dd\phi^2)}$$
+And the radial equation becomes in terms of the Schwarzschild radius as:
+\begin{equation}\label{eqn:radial}
+    \boxed{\dv[2]{r}{\tau} = \frac{l^2}{m^2r^3} - \frac{3GMl^2}{m^2r^4} - \frac{GM}{r^2}}
+\end{equation}
 \subsection{GPS and relativity! }
 GPS (global positioning system) works on the process of \textit{trilateration} where different satellites orbiting the Earth convey their position to the receiver (and thus for each satellite we can draw a sphere of radius equal to the distance between the receiver and the satellite) and based on the intersection of these spheres, we can pinpoint our location. 
 \begin{figure}[H]
