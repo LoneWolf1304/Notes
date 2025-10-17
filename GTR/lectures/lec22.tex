@@ -1,0 +1,54 @@
+\refstepcounter{section}
+\section*{Lecture 22: Interior Solution}
+\addcontentsline{toc}{section}{Lecture 22: Interior Solution}
+We will first see a bit more applications of GR and then move on to the interior Schwarzschild solution, where the stress-energy tensor becomes non-zero. 
+\subsection{Time Dilation}
+Consider two asymptotic observers (that is, farway observers from the star: $r\to \infty$) in two satellites A and B with highly precise and synchronised atomic clocks. Now, let one of them (say B) be fixed and the other observer moves radially towards the mass $M$ and then stops. Then the proper time time for observer A is given as \footnote{Since we are measuring the time with respect to stationary clocks, thus only the time component remains in the metric}:
+\begin{align*}
+    \dd \tau^2_{\text{\tiny A}} = -\qty(1- \frac{2GM}{r_{\text{\tiny A}}})\dd t^2
+\end{align*}
+Note that, since at each point the metric is varying, we cannot equate the proper time at A and B, even though it might be tempting to do so since these are scalars. Also, we have $r\to \infty \implies \dd \tau^2_{\text{\tiny A}} = -\dd t^2 = \dd \tau^2_{\text{\tiny B}}$
+Thus, we get a relation:
+$$\boxed{\frac{\dd \tau_{\text{\tiny A}}}{\dd \tau_{\text{\tiny B}}} = \sqrt{1- \frac{2GM}{r_{\text{\tiny A}}}}<1}$$
+The same argument could be done at some other point C and we can thus compare between proper times at any two points. In general, if $r_1>r_2$ and if a certain proper time interval is measured as $\dd \tau_1$ ($\dd \tau_2$) at height $r_1$ ($r_2$), then  $\dd \tau_2<\dd \tau_1$.\\[0.2cm]
+We thus conclude that \textit{time runs slower near a massive body!} \footnote{Thus, to slow your ageing, make a fat friend!}. Close to a black hole ($r\sim r_s$), then time almost freezes as the factor becomes very close to zero (as if, the time never passes). \textit{Black holes can thus make us immortal, however, we will be shredded to pieces near black holes due to high gravitational field!}
+\subsection{Gravitational redshift}
+As a direct consequence of time dilation, another pronounced effect is seen. From the time dilation we can find the frequency as inverse of time period, that is, $\nu \sim \sfrac{1}{\Delta \tau}$. Suppose a photon is at some distance $r$ and it travels to us at $r\to\infty$. Then,
+\begin{align*}
+    \frac{\nu_{\scalebox{0.7}{\infty}}}{\nu_r} = \frac{\Delta \tau_r}{\Delta\tau_{\scalebox{0.7}{\infty}}} = \sqrt{1-\frac{2GM}{r}}
+\end{align*}
+Since $\frac{\nu_{\scalebox{0.7}{\infty}}}{\nu_r} = \frac{\lambda_r}{\lambda_{\scalebox{0.7}{\infty}}}$ where $\lambda$ denotes the wavelength, we find
+$$\frac{\lambda_r}{\lambda_{\scalebox{0.7}{\infty}}} =\sqrt{1-\frac{2GM}{r}} \implies \frac{\lambda_{\scalebox{0.7}{\infty}}}{\lambda_r} = \frac{1}{\sqrt{1-\frac{2GM}{r}} }>1$$
+Thus, the wavelength observed at infinity is longer than the wavelength at $r$. This is called \textit{red shift} since a the wavelength shifts towards the `red' end of the spectrum. 
+\subsection{Interior Solution}
+We now focus on the interior solutiono of the Schwarzschild metric for a spherically symmetric body. In this case, $\ST_{\mu\nu}\neq 0$. Recall that the general metric had the form 
+$$\dd s^2 = f(t)\dd t^2 + h(r)\dd r^2 + r^2\dd \Omega^2\qquad\text{where} \dd \Omega^2 = \dd\theta^2+ \sin^2\theta\dd \phi^2$$
+We define $f(r) = -e^{2\Phi}$ and $h(r) = e^{2\nu}$ where $\Phi$ and $\nu$ are some unknown functions of $r$. Note that the sign for the functions have been arbitrarily chosen. Opposite signs are chosen since space and time should be distinguished somehow and the time part, we saw was negative atleast for the Minkowski case. Hence this choice!\\[0.2cm]
+Now, we use the numerical computation (see Appendix \ref{sec:appenC}) to find the Christoffel symbols and Einstein tensor. The required non-zero components are:
+$$\chris{r}{t}{t} = e^{2(\Phi-\nu)}\phi'\qquad \begin{matrix}
+    \qquad\qquad G_{tt} = \frac{1}{r^2}e^{2(\Phi-\nu)}(-1 +2r\nu'+e^{2\nu})\\[0.2cm] G_{rr} = \frac{1}{r^2}(1-e^{2\nu}+2r\phi')
+\end{matrix}$$
+Recall that the Einstein field equation is,
+$$G_{\mu\nu} = 8\pi G\ST_{\mu\nu}$$
+Now, we will assume a \textit{perfect fluid idealisation} where matter is modelled as a fluid without viscosity. Using this, we can show a specific form of the stress energy tensor. 
+$$\ST_{\mu\nu} = (\rho+P)u_\mu u_\nu + Pg_{\mu\nu} \qquad \begin{matrix}
+    \qquad\ \ \rho(\tvec{x}): \text{energy density}\\
+    P(\tvec{x}): \text{pressure}\\
+    \qquad\qquad\ \ u^\mu(\tvec{x}): \text{four velocity of fluid}
+\end{matrix}$$
+Now, assume a static spacetime, that is, the fluid on average does not move. Hence the four velocity becomes:
+$$u^\mu = (u^0,0,0,0)$$
+As specified earlier, $g_{\mu\nu}u^\mu u^\nu = -1 $, we then have $$-e^{2\Phi}(u^0)^2 = -1\implies \boxed{u^0= e^{-\Phi}}\implies u_0 = -\sfrac{1}{u^0}= -e^\Phi$$
+Then the components of the stress-energy tensor become:
+$$\vartriangleright \ST_{00} = (\rho+P)e^{2\Phi}-\underbrace{e^{2\Phi}}_{g_00}P = \rho e^{2\Phi} \qquad \vartriangleright \ST_{11}= Pg_{11}= Pe^{2\nu}$$
+Then, using the Einstein equation we get:
+\begin{align*}
+    G_{tt} = 8\pi G\ST_{00}\longrightarrow\qquad &\frac{1}{r^2}e^{2(\Phi-\nu)}(-1 +2r\nu'+e^{2\nu})=8\pi G \rho e^{2\Phi}\\
+    \implies &(1-e^{-2\nu}+2r\nu'e^{-2\nu})=8\pi G\rho r^2\\
+    \implies & \boxed{\dv{r}\qty(r(1-e^{-2\nu})) = 8\pi G\rho r^2}\\
+\end{align*}
+Now suppose we define a new function $\SM(r) :=\frac{r(1-e^{-2\nu})}{2G}$. Substituting this above we get:
+$$\boxed{\dv{\SM}{r} = 4\pi r^2\rho}$$
+This is so much similar like the \textit{mass} of a thin shell. Indeed, if we write 
+$$e^{-2\nu} = \qty[1 - \frac{2G\SM(r)}{r}]$$
+then, at $r\gtrapprox R$, this must be equal to $h(r)$ for the exterior solution case which was equal to $\qty(1-\frac{2GM}{r})^{-1}$. Thus, at $r=R$, $\SM(r)$ is identified with the mass of the object, that is, $\SM(R) = M$. This is okay, since the metric must be continuous at the boundary and the interior and exterior solution must match at $r=R$. Hence, this quantity has some kind of interpretation of mass. 

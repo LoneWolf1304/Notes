@@ -63,7 +63,7 @@ $$ \vartriangleright e=0: \text{circular orbit}\quad \vartriangleright e\in (0,1
 Consider the case of elliptic orbit, with Sun at one of the focus. We consider two special points, called \textit{perihelion} and \textit{aphelion} as the nearest and farthest point to the Sun respectively. Hence to find their position, we need to extremise $u(\phi)$ with respect to $\phi$. Doing this, we obtain:
 $$\dv{u}{\phi} = -\frac{e}{r_0}\sin\phi = 0\implies \phi = 2n\pi\ n = 0,1,2\ldots$$
 We consider only the perihelion position here. Thus, the Newtonian theory says that perihelion occurs at exactly the same position always. So, after one period of revolution, the planet comes back to the original position (since $\phi = 2n\pi$ all correspond to the same point) however, it was observed that the perihelion shifts gradually. \\[0.2cm]
-$\vartriangleright$ \text{GR corrections to the orbit}\\[0.2cm]
+$\vartriangleright$ \textbf{GR corrections to the orbit}\\[0.2cm]
 Substituting $u=u_{\mathrm{N}} + \vep u_{\mathrm{E}}$ as specified earlier, we have:
 \begin{align*}
     \dv[2]{u}{\phi} + u_{\mathrm{N}} + \vep u_{\mathrm{E}} =u_0+ 3GM\vep (u_{\mathrm{N}} + \vep u_{\mathrm{E}})^2   \implies u_0 + \vep \dv[2]{u_{\mathrm{E}}}{\phi} + u_{\mathrm{E}} = u_0 +3GM\vep (u_{\mathrm{N}} + \vep u_{\mathrm{E}})^2 
@@ -125,4 +125,7 @@ The above relation has two roots, however, since we are interested in $r_o<r_s$ 
 \end{align*}
 The red term diverges and as a result, the entire expression of $\Delta t$ is divergent. In other words, light would take an infinite amount of time to read $r_s = 2GM$ starting from any arbitrary $r_o<r_s$. Hence, from inside the Schwarzschild radius, even light cannot escape!\\[0.2cm]
 We conclude that there is a region of radius $r<r_s$ from where even light cannot escape. The surface $r=r_s$ is called the \textit{event horizon} and such an object is called a \textit{black hole}.\\[0.2cm]
+Note that blackhole is possible only if $R<r_s$, that is, there exists a limit for the radius of the object. If $R>r_s$, then the solution no longer remain an `exterior' solution and all the assumptions become invalid since now, $\ST_{\mu\nu}\neq 0$ for $r<r_s<R$. If $M=M_{\odot}$ (where $M_{\odot}$ denotes the \textit{solar mass}), then blackhole is only possible if,
+$$\frac{2GM_\odot}{Rc^2}>1 \implies R<\frac{2GM_\odot}{c^2} = \frac{2\times 6.67\cdot 10^{-11}\times 2\cdot 10^30}{(3\cdot 10^8)^2}\approx 2964\ \text{m}$$
+Thus, if our Sun could be condensed to less than $3 \ \mathrm{km}$, then it would have been a black-hole.
 Every galaxy is known to host a black hole at its centre, around which massive stars are observed to rotate. However, since no light can come out of the black hole, we cannot directly observe it. This calculation, even though seem to be a mathematical artifact, has been confirmed through indirect observation of black hole, by using say interferometry of the surroundings of the event horizon (from where light can escape) or gravitational waves. 
