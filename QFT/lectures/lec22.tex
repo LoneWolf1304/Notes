@@ -1,3 +1,122 @@
 \refstepcounter{section}
-\section*{Lecture 22: Normalisation of Dirac Spinors}
-\addcontentsline{toc}{section}{Lecture 22: Normalisation of Dirac Spinors}
+\section*{Lecture 22: Normalising Spinors}
+\addcontentsline{toc}{section}{Lecture 22: Normalising Spinors}
+Recall our discussion from  Lec \ref{sec:lec17} where we derived the forms of the Dirac spinor for a momentum $p$ (Eq. \ref{eqn:fourier}). This led to positive and negative energy states whose interpretation became problematic. The hole theory itself provided many inconsistencies and now another interpretation is followed. Let the proposed plane-wave solution to the Dirac equation be:
+$$\Psi(x) = u(p) e^{-i px} \qquad \Psi(x) = v(p) e^{+ipx}$$
+where the $\mathcolor{blue}{-}$ is interpreted for \textit{\textcolor{blue}{particles}} and $\mathcolor{red}{+}$ is interpreted for \textit{\textcolor{red}{anti-particles}}. Note that in this case, $E>0$ always. The distinction between particles and anti-particles comes from the sign of the exponential and hence we do not need to worry separately about negative and positive energy solutions. \\[0.2cm]
+We will define the following notation: $\gsl{a} := \gamma^\mu a_{\mu}$ henceforth to denote the contraction with the Dirac matrices. Using this, the Dirac equation is written as: $(i\gsl{\partial}-m)\Psi = 0$. Substituting the above solutions in the Dirac equation, we get: 
+\begin{align*}
+    0&= (i\gsl{\partial} - m)u(p)e^{-ip_\mu x^\mu} = i \gamma^\mu (-ip_\mu)e^{-ip_\mu x^\mu}u(p) - me^{-ip_\mu x^\mu}u(p) = (\gsl{p}-m)u(p)^{-ip_\mu x^\mu}\\
+    0&=(i\gsl{\partial} - m)v(p)e^{+ip_\mu x^\mu} = i \gamma^\mu (ip_\mu)e^{-ip_\mu x^\mu}v(p) - me^{ip_\mu x^\mu}v(p) = -(\gsl{p}+m)v(p)^{+ip_\mu x^\mu}
+\end{align*}
+From this, we get two separate equations that should be satisfied by the proposed solutions:
+\begin{equation}\label{eqn:hehe}
+    (\gsl{p} - m ) u(p) = 0 \qquad (\gsl{p} + m ) v(p) = 0
+\end{equation}
+In the Dirac basis the quantity $\gsl{p}$ becomes:
+$$\gsl{p} = \gamma^\mu p_\mu = \gamma^0p_0 + \gamma^i p_i =\gamma^0{p^0} - \gamma^i p^i  = \mqty({p^0}\mathds{1} & 0 \\ 0 & -{p^0}\mathds{1} ) - \mqty(0 & \sigma_i p^i \\ -\sigma_i p^i& 0) = \mqty({p^0}\mathds{1} & -\bs{\sigma}\cdot \vb{p}\\ \bs{\sigma}\cdot \vb{p} & -{p^0}\mathds{1})$$
+Suppose the solutions be decomposed into a pair of Weyl spinors such that:
+$$u(p) = \mqty(\xi(p) \\ \phi(p))\qquad v(p)=\mqty(\chi(p)\\ \eta(p))$$
+Substituting this in the above Eq. \ref{eqn:hehe}, we get the following:
+\begin{align*}
+    (\bs{\sigma}\cdot \vb{p})\xi(p) -  ({p^0}+m) \phi(p) &= 0\longrightarrow \phi(p) =\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi(p) \\
+    ({p^0}+m)\chi(p) - (\bs{\sigma}\cdot \vb{p})\eta(p)&=0\longrightarrow  \chi(p) = \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta(p)
+\end{align*}
+Thus the general solutions can be expressed in terms of two arbitrary Weyl spinors $\xi$ and $\eta$. For simplicity, let us choose them to be the standard basis vectors of the space, that is, 
+$$\vartriangleright\xi^1 = \mqty(1\\0)\qquad \vartriangleright\xi^2 = \mqty(0\\1)\qquad \vartriangleright\eta^1 = \mqty(1\\0)\qquad \vartriangleright\eta^2 = \mqty(0\\1)$$
+The solutions can then be written as (for $s=1,2$):
+$$u^s(p) = \mqty(\xi^s \\ \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi^s)\qquad v^s(p)=\mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s\\ \eta^s)$$
+\subsection{The correct factor}
+Let us try to find the correct normalisation for the spinors that we have obtained above. 
+\begin{align*}
+    {u^r}^\dagger u^s &=\mqty({\xi^r}^\dagger & {\xi^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m})  \mqty(\xi^s \\ \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi^s) = {\xi^r}^\dagger{\xi^s} + \frac{1}{({p^0}+m)^2}{\xi^r}^\dagger(\bs{\sigma}\cdot \vb{p})^2 {\xi^s} = \delta^{rs} + \frac{|\vb{p}|^2}{({p^0}+m)^2}\delta^{rs}
+\end{align*}
+We have use the following facts:
+\begin{itemize}
+    \item[$\vartriangleright$]  The Pauli matrices are Hermitian, hence $(\bs{\sigma}\cdot \vb{p})^\dagger = (\bs{\sigma}\cdot \vb{p})$.
+    \item[$\vartriangleright$] $(AB)^\dagger = B^\dagger A^\dagger$. 
+     \item[$\vartriangleright$] $(\bs{\sigma}\cdot \vb{p}) = |\vb{p}|^2 \iden$ (calculated in Eq. \ref{eqn:diracalpha})
+     \item[$\vartriangleright$] ${\xi^r}^\dagger \xi^s = \delta^{rs}$ since these are treated as the standard orthonormal basis vectors.  
+\end{itemize}
+We know that $|\vb{p}|^2 = {(p^0)}^2 - m^2$ and substituting this above, we obtain:
+\begin{align}
+    {u^r}^\dagger u^s = \qty(1 + \frac{{(p^0)}^2-m^2}{(p^0 + m)^2}) \delta^{rs} = \frac{2p^0}{p^0+m}\delta^{rs}
+\end{align}
+Exactly same calculations yields for the other solution,
+\begin{align}
+    {v^r}^\dagger v^s = \qty(1 + \frac{{(p^0)}^2-m^2}{(p^0 + m)^2}) \delta^{rs} = \frac{2p^0}{p^0+m}\delta^{rs}
+\end{align}
+These are unfortunately not Lorentz invariant and we need to fix some factors to get a Lorentz invariant inner product between the spinors. Okay, so now let's check the orthogonality of the positive and negative frequency solutions.
+\begin{align*}
+    {u^r}^\dagger v^s = \mqty({\xi^r}^\dagger & {\xi^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}) \mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s\\ \eta^s) = \frac{2}{p^0+m}  {\xi^r}^\dagger\ (\bs{\sigma}\cdot\vb{p})\ \eta^s \neq 0
+\end{align*}
+The positive and negative frequency solutions are not orthogonal which is problematic since we expect the solutions for particles and anti-particles to not have any overlap. \\[0.2cm]
+We need to find some alternate definition of the inner product. Since the answer has already been found by major stalwarts, we just throw it in here. Consider the inner product $\dadj{u}^r v^s = {u^r}^\dagger \gamma^0 v^s$
+\begin{align*}
+    {u^r}^\dagger \gamma^0 v^s =  \mqty({\xi^r}^\dagger & {\xi^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}) \mqty(\iden & \\ & -\iden)\mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s\\ \eta^s) =  \mqty({\xi^r}^\dagger & {\xi^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m})\mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s \\ -\eta^s) =0
+\end{align*}
+This definition of the inner product restores the \textit{orthogonality} that we had desperately wanted! Let us look at the other inner products, that is, between the same sectors: 
+\begin{align*}
+    \dadj{u}^r u^s = {u^r}^\dagger\gamma^0 u^s =\mqty({\xi^r}^\dagger & {\xi^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m})\mqty(\iden & \\ & -\iden)  \mqty(\xi^s \\ \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi^s) &= {\xi^r}^\dagger{\xi^s} - \frac{1}{({p^0}+m)^2}{\xi^r}^\dagger(\bs{\sigma}\cdot \vb{p})^2 {\xi^s}\\ &= \delta^{rs} - \frac{|\vb{p}|^2}{({p^0}+m)^2}\delta^{rs}\\ &= \frac{2m}{p^0+m}\delta^{rs}
+\end{align*}
+Similar calculation yields, for the negative frequency solution,
+$$\dadj{v}^r v^s = -\frac{2m}{p^0+m}\delta^{rs}$$
+All things look good except the factor $p^0+m$ in the denominator which keeps these inner products from being Lorentz invariant. Hence if we impose the normalisation as:
+$$u^s(p) =\sqrt{p^0+m} \mqty(\xi^s \\ \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi^s)\qquad v^s(p)=\sqrt{p^0+m}\mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s\\ \eta^s)$$
+then, we will obtain $\dadj{v}^r v^s = -2m\ \delta^{rs}$ and $\dadj{u}^r u^s = 2m\ \delta^{rs}$ which is perfectly Lorentz invariant since it involved only the mass $m$ which is a scalar. Henceforth, we will use this normalisation everytime we write the Dirac spinors. 
+\subsection{Outer Products}
+We looked at inner products and arrived at a nice definition of inner product for Dirac spinors. We now look at the outer product of these spinors. 
+\begin{align*}
+  u^s  \dadj{u}^r  =u^s {u^r}^\dagger\gamma^0  &=\underbrace{(p^0+m)}_{\text{\tiny from normalisation}}\mqty(\xi^s \\[0.15cm] \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi^s)\mqty({\xi^r}^\dagger & {\xi^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m})\mqty(\iden & \\[0.15cm] & -\iden)  \\[0.12cm]
+  &= \mqty((p^0+m)\xi^s{\xi^r}^\dagger & \xi^s{\xi^r}^\dagger {(\bs{\sigma}\cdot \vb{p})}\\[0.15cm] {(\bs{\sigma}\cdot \vb{p})}\xi^s {\xi^r}^\dagger& {\frac{(\bs{\sigma}\cdot \vb{p})}{p^0+m}}\xi^s {\xi^r}^\dagger{(\bs{\sigma}\cdot \vb{p})}  )\mqty(\iden & \\[0.15cm] & -\iden)\\[0.15cm]
+  &= \mqty((p^0+m)\xi^s{\xi^r}^\dagger & -\xi^s{\xi^r}^\dagger {(\bs{\sigma}\cdot \vb{p})}\\[0.15cm] {(\bs{\sigma}\cdot \vb{p})}\xi^s {\xi^r}^\dagger& -{\frac{(\bs{\sigma}\cdot \vb{p})}{p^0+m}}\xi^s {\xi^r}^\dagger{(\bs{\sigma}\cdot \vb{p})}  )
+\end{align*}
+Similar for the other solution, we obtain the following form:
+\begin{align*}
+  v^s  \dadj{v}^r  =v^s {v^r}^\dagger\gamma^0  &=\underbrace{(p^0+m)}_{\text{\tiny from normalisation}}\mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s \\[0.15cm]\eta^s )\mqty( {\eta^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m} & {\eta^r}^\dagger )\mqty(\iden & \\[0.15cm] & -\iden)  \\[0.12cm]
+  &= \mqty(  {\frac{(\bs{\sigma}\cdot \vb{p})}{p^0+m}}\eta^s {\eta^r}^\dagger{(\bs{\sigma}\cdot \vb{p})}       & {(\bs{\sigma}\cdot \vb{p})} \eta^s{\eta^r}^\dagger \\[0.15cm] \eta^s {\eta^r}^\dagger{(\bs{\sigma}\cdot \vb{p})}&   (p^0+m)\eta^s{\eta^r}^\dagger   )\mqty(\iden & \\[0.15cm] & -\iden)\\[0.15cm]
+  &= \mqty(  {\frac{(\bs{\sigma}\cdot \vb{p})}{p^0+m}}\eta^s {\eta^r}^\dagger{(\bs{\sigma}\cdot \vb{p})}       & -{(\bs{\sigma}\cdot \vb{p})} \eta^s{\eta^r}^\dagger \\[0.15cm] \eta^s {\eta^r}^\dagger{(\bs{\sigma}\cdot \vb{p})}&   -(p^0+m)\eta^s{\eta^r}^\dagger   )
+\end{align*}
+As $\xi$ and $\eta$ are basis vectors, these satisfy the completeness relation:
+$$\sum\limits_{r}  \eta^r {\eta^r}^\dagger= \iden \qquad \sum\limits_{r}  \xi^r {\xi^r}^\dagger= \iden$$
+Using this, we get:
+\begin{align*}
+    \sum\limits_{r}  u^r  \dadj{u}^r &= \mqty((p^0+m)\iden & - {(\bs{\sigma}\cdot \vb{p})}\\ {(\bs{\sigma}\cdot \vb{p})}& -{\frac{(\bs{\sigma}\cdot \vb{p})}{p^0+m}}{(\bs{\sigma}\cdot \vb{p})}  ) =\mqty((p^0+m)\iden & - {(\bs{\sigma}\cdot \vb{p})}\\ {(\bs{\sigma}\cdot \vb{p})}& -\frac{|\vb{p}|^2}{p^0+m}\iden  ) =\mqty((p^0+m)\iden & - {(\bs{\sigma}\cdot \vb{p})}\\ {(\bs{\sigma}\cdot \vb{p})}& -(p^0-m)\iden  ) = \gsl{p}+m\iden\\
+    \sum\limits_{r}  v^r  \dadj{v}^r &= \mqty(  {\frac{(\bs{\sigma}\cdot \vb{p})}{p^0+m}}{(\bs{\sigma}\cdot \vb{p})}       & -{(\bs{\sigma}\cdot \vb{p})}  \\[0.15cm] {(\bs{\sigma}\cdot \vb{p})}&   -(p^0+m)\iden   )=\mqty(  (p^0-m)\iden       & -{(\bs{\sigma}\cdot \vb{p})}  \\[0.15cm] {(\bs{\sigma}\cdot \vb{p})}&   -(p^0+m)\iden   )  = \gsl{p}-m\iden
+\end{align*}
+Thus we have two nice identitites concerning the outer products,
+$$\boxed{ \sum\limits_{r}  u^r  \dadj{u}^r = \gsl{p}+m} \qquad \boxed{ \sum\limits_{r}  v^r  \dadj{v}^r = \gsl{p}-m}$$
+We had used the Dirac representation to find these identitites. We could have also used the representation of Dirac matrices in chiral basis which would have given us the same result, since the final expression is independent of the representation of the Dirac matrix.
+\subsection{Projecting Energy}
+Let us define the following operator:
+$$\Lambda_{\pm} := \frac{\pm \gsl{p} +m}{2m}$$
+Let us see some properties of these operators:\\[0.2cm]
+$\vartriangleright$ \underline{Idempotence}
+\begin{align*}
+    \Lambda_+^2 &= \frac{1}{4m^2} (\gsl{p}+m)(\gsl{p}+m) = \frac{1}{4m^2}(\gsl{p}\gsl{p}+2m\gsl{p} + m^2)  = \frac{1}{4m^2}(2m^2+2m\gsl{p}) = \Lambda_+\\
+ \Lambda_-^2 &= \frac{1}{4m^2} (-\gsl{p}+m)(-\gsl{p}+m) = \frac{1}{4m^2}(\gsl{p}\gsl{p}-2m\gsl{p} + m^2)  = \frac{1}{4m^2}(2m^2-2m\gsl{p}) = \Lambda_-
+\end{align*}
+where we have used the following:
+\begin{align*}
+    \gsl{p}\gsl{p} = \frac{1}{2}\qty(\gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu) p_\mu p_\nu = \eta^{\mu\nu}p_\mu p_\nu = p^2 =m^2
+\end{align*}
+Thus, we find that $\Lambda_{\pm}$ are idempotent operators.\\[0.2cm] 
+$\vartriangleright$ \underline{Orthogonality}
+\begin{align*}
+    \Lambda_{+} \Lambda_{-} &\sim (\gsl{p}+m)(-\gsl{p}+m) = (-m^2 +m^2) =0\\
+    \Lambda_{-} \Lambda_{+} &\sim (-\gsl{p}+m)(\gsl{p}+m) = (-m^2 +m^2) =0
+\end{align*}
+Thus, we see that product of the two operators always give zero. \\[0.2cm]
+$\vartriangleright$ \underline{Completeness}
+\begin{align*}
+    \Lambda_+ + \Lambda_- = \frac{1}{2m}\qty(\gsl{p}+{m} -\gsl{p} +{m}) = \iden
+\end{align*}
+We see that the sum of the operators equal to the identity operator of the space. \\[0.2cm]
+The above properties indicate that $\Lambda_{\pm}$ are \textit{orthogonal projection operators}. To see explicitly, consider the following:
+\begin{alignat*}{4}
+    \Lambda_+ u^s &= \frac{(\gsl{p}+m)}{2m}u^s &&= \frac{m u^s + m u^s}{2m} &&&= u^s\\
+    \Lambda_- u^s &= \frac{(-\gsl{p}+m)}{2m}u^s &&= \frac{-m u^s + m u^s}{2m} &&&= 0\\
+    \Lambda_+ v^s &= \frac{(\gsl{p}+m)}{2m}v^s &&= \frac{-m v^s + m v^s}{2m} &&&= 0\\
+    \Lambda_+ v^s &= \frac{(-\gsl{p}+m)}{2m}v^s &&= \frac{m v^s + m v^s}{2m} &&&= v^s
+\end{alignat*}
+where we have used Eq. \ref{eqn:hehe}. We see that, starting from an arbitrary spinor, $\Lambda_{+}$ ($\Lambda_{-}$) projects to the positive (negative) frequency sector. Hence these are also called \textit{energy projection operators}. 

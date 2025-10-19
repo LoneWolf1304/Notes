@@ -1,48 +1,50 @@
 \refstepcounter{section}
-\section*{Lecture 17: Dirac in Fourier Mode}
+\section*{Lecture 17: Dirac in Fourier Mode}\label{sec:lec17}
 \addcontentsline{toc}{section}{Lecture 17: Dirac in Fourier Mode}
 We saw that in the previous section that the Dirac equation is essentially:
 $$i \partial_t \psi = \qty(-i \alpha \cdot \nabla + \beta m)\psi\qquad \psi(x) = \begin{pmatrix}
     \psi_1(x)\\ \psi_2(x) \\ \psi_3(x) \\ \psi_4(x)
 \end{pmatrix}$$
 The solution is a four-component vector since the matrices are $4\times 4$ dimensional. \footnote{In non-relativistic QM, during angular momentum, we saw that multi-component wavefunctions imply a non-trivial spin angular momentum, so we expect Dirac equation to describe spinful particles.}
-Let the proposed solution be a plane-wave solution, since there is no interaction, and we decompose it into its Fourier modes,that is,
-$$\psi(x) = e^{-iEt}\psi(\vb{x}) = e^{-iEt}\int \meas{\vb{p}}\psi_{\vb{p}}e^{-i \vb{p}\cdot \vb{x}}$$
+Let the proposed solution be a plane-wave solution, since there is no interaction, and we decompose it into its Fourier modes, that is,
+$$\psi(x) = e^{-iEt}\psi(\vb{x}) = e^{-iEt}\int \meas{\vb{p}}\psi_p e^{-i \vb{p}\cdot \vb{x}}$$
 Substituting this in the equation above, we have:
 \begin{itemize}
     \item LHS: $$i\partial_t\psi = i (-iE) \psi(x) = E\psi(x)$$
-    \item RHS: $$e^{-iEt}\int \meas{\vb{p}} ( -i \alpha \cdot (i \vb{p}) + \beta m )\psi_{\vb{p}}e^{i\vb{p}\cdot \vb{x}} =e^{-iEt}\int \meas{\vb{p}} (  \alpha \cdot  \vb{p} + \beta m )\psi_{\vb{p}}e^{i\vb{p}\cdot \vb{x}} $$
+    \item RHS: $$e^{-iEt}\int \meas{\vb{p}} ( -i \alpha \cdot (i \vb{p}) + \beta m )\psi_pe^{i\vb{p}\cdot \vb{x}} =e^{-iEt}\int \meas{\vb{p}} (  \alpha \cdot  \vb{p} + \beta m )\psi_p e^{i\vb{p}\cdot \vb{x}} $$
 \end{itemize}
-Equating both LHS and RHS we get an equation in $\psi_{\vb{p}}$, 
+Equating both LHS and RHS we get an equation in $\psi_p$, 
 \begin{align*}
-    0 &= \qty(\alpha\cdot \vb{p} + \beta m -E)\psi_{\vb{p}}\\
+    0 &= \qty(\alpha\cdot \vb{p} + \beta m -E)\psi_p\\
     &=\qty(\begin{pmatrix}
         0&\sigma_i p_i\\
         \sigma_i p_i&0
     \end{pmatrix} + \begin{pmatrix}
         (m-E)\mathds{1}& 0\\
         0 &-(E+m)\mathds{1}
-    \end{pmatrix})\psi_{\vb{p}}\\
+    \end{pmatrix})\psi_p\\
     &= \begin{pmatrix}
         (m-E)\mathds{1} & \sigma\cdot \vb{p} \\
         \sigma\cdot \vb{p} & -(m+E)\mathds{1}
-    \end{pmatrix}\psi_{\vb{p}}
+    \end{pmatrix}\psi_p
 \end{align*}
 Now, for a solution to exist, the matrix should be \textit{singular}, that is,
 $$\det\qty(\begin{pmatrix}
         (m-E)\mathds{1} & \sigma\cdot \vb{p} \\
         \sigma\cdot \vb{p} & -(m+E)\mathds{1}
     \end{pmatrix}) = 0$$
-    Note that, we can calculate the determinant in the ``usual'' sense for block-matrices also, if the elements in the first column commute. Since first element is the identity matrix, it commutes with $\sigma\cdot \vb{p}$ and hence, we can write:
-    \begin{align*}
+    We can calculate the determinant in the ``usual'' sense for block-matrices also, if the elements in the first column commute. Since first element is the identity matrix, it commutes with $\sigma\cdot \vb{p}$ and hence, we can write:
+    \begin{align}\label{eqn:diracalpha}
+        \begin{split}
         0&= \det\qty((E^2 - m^2)\mathds{1} - (\sigma\cdot\vb{p})(\sigma\cdot\vb{p})) \\
 &=\det\qty((E^2 - m^2)\mathds{1} - (\sigma_i p_i)(\sigma_jp_j))\\
 &=\det\qty((E^2 - m^2)\mathds{1} - (\sigma_i \sigma_j)p_ip_j)\\
 &=\det\qty((E^2 - m^2)\mathds{1} - |\vb{p}|^2 +\sum\limits_{i<j} (\sigma_i\sigma_j + \sigma_j \sigma_i)p_i p_j)\\
 &=\det\qty((E^2 - m^2 - |\vb{p}|^2)\mathds{1})
-    \end{align*}
+        \end{split}
+    \end{align}
 From this, we finally obtain that $E^2 - m^2 - |\vb{p}|^2 = 0\implies E = \pm \sqrt{m^2 +|\vb{p}|^2}$. We can see that, the equation says that for each momentum $\vb{p}$, we have two positive-energy solutions and two negative-energy solutions (each energy is \textit{doubly degenerate}). Now let us find the eigenvectors. Assume it to be of the form, 
-$$\psi_{\vb{p}} =\begin{pmatrix}
+$$\psi_p =\begin{pmatrix}
     \phi\\
     \xi
 \end{pmatrix} $$
@@ -51,7 +53,11 @@ Then, substituting this in the eigenvalue equation we obtain two equations:
     0 &= (m-E)\phi + (\sigma\cdot \vb{p})\xi \\
     0 &= (\sigma\cdot \vb{p})\phi -(m+E)\xi
 \end{align*}
-Solving for $\phi$ and $\xi$, we get $\xi = \frac{(\sigma\cdot \vb{p})\phi}{m+E}$ and $\phi = \frac{(\sigma\cdot \vb{p})\xi}{E-m}$. Now, note that the other equations gives a trivial result and thus, $\phi$ can be any arbitrary vector. Now, let us first take the particle at rest, that is, $\vb{p}=0$. Then the eigenvalues are just $\pm m$ and the equation reduces to:
+Solving for $\phi$ and $\xi$, we get $\xi = \frac{(\sigma\cdot \vb{p})\phi}{m+E}$ and $\phi = \frac{(\sigma\cdot \vb{p})\xi}{E-m}$. Thus, we can write the solutions as:
+\begin{equation}\label{eqn:fourier}
+    \psi_p = \mqty(\phi \\ \frac{(\sigma\cdot \vb{p})}{m+E}\ \phi)\qquad \text{and}\qquad \psi_p = \mqty(\frac{(\sigma\cdot \vb{p})}{E-m}\ \xi \\ \xi)
+\end{equation}
+ Now, let us first take the particle at rest, that is, $\vb{p}=0$. Then the eigenvalues are just $\pm m$ and the equation reduces to:
 $$\begin{pmatrix}
     m & 0\\
     0 & -m
@@ -63,7 +69,7 @@ $$\begin{pmatrix}
     \xi
 \end{pmatrix}$$
 Since the matrix is diagonal, the eigenvectors are trivially,
-$$(\psi_{\vb{p}})_1 = \mqty(1\\ 0\\0\\0)\quad (\psi_{\vb{p}})_2 = \mqty(0\\ 1\\0\\0) \quad (\psi_{\vb{p}})_3 = \mqty(0\\ 0\\1\\0) \quad (\psi_{\vb{p}})_4= \mqty(0\\ 0\\0\\1)$$
+$$(\psi_p)_1 = \mqty(1\\ 0\\0\\0)\quad (\psi_p)_2 = \mqty(0\\ 1\\0\\0) \quad (\psi_p)_3 = \mqty(0\\ 0\\1\\0) \quad (\psi_p)_4= \mqty(0\\ 0\\0\\1)$$
 We can check that, the first two correspond to the positive energy solutions and the other two correspond to the negative energy solutions. Now, let us come back to $\vb{p}\neq 0$.The matrix $\sigma\cdot \vb{p}$ comes in the expression quite often and calculating that, we find that:
 $$\sigma\cdot \vb{p} \equiv \left(
 \begin{array}{cc}
@@ -83,7 +89,7 @@ Now, let us take a vector $v_m$ whose $m^{\mathrm{th}}$ position has 1 and all o
 \end{itemize}
 Thus, the final solutions for non-zero momentum are:
 \[
-(\psi_{\vb{p}})_1 =
+(\psi_p)_1 =
 \SN_1 \mqty(
   1 \\[6pt]
   0 \\[6pt]
@@ -91,7 +97,7 @@ Thus, the final solutions for non-zero momentum are:
   \dfrac{p_1 + i p_2}{E+m}
 )
 \quad
-(\psi_{\vb{p}})_2 =
+(\psi_p)_2 =
 \SN_2 \mqty(
   0 \\[6pt]
   1 \\[6pt]
@@ -99,7 +105,7 @@ Thus, the final solutions for non-zero momentum are:
   \dfrac{-p_3}{E+m}
 )
 \quad
-(\psi_{\vb{p}})_3 =
+(\psi_p)_3 =
 \SN_3 \mqty(
   \dfrac{p_3}{E-m} \\[6pt]
   \dfrac{p_1 + i p_2}{E+m} \\[6pt]
@@ -107,7 +113,7 @@ Thus, the final solutions for non-zero momentum are:
   0
 )
 \quad
-(\psi_{\vb{p}})_4 =
+(\psi_p)_4 =
 \SN_4 \mqty(
   \dfrac{p_1 - i p_2}{E-m} \\[6pt]
   \dfrac{-p_3}{E+m} \\[6pt]
