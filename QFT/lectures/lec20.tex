@@ -22,7 +22,7 @@ Now, this is familiar to the $SU(2)$ algebra that we had seen from, say the \tex
 \end{itemize}
 The scalar representation is the trivial one-dimensional representation where $\vb{J}^{\pm} = 0 \implies \vb{J}=0, \vb{K} = 0$ and hence is of not much interest to us. All but the Dirac representation are irreducible representations. Let us now focus on the Weyl representation. \\[0.2cm]
 \underline{Weyl Representation}\\[0.2cm]
-Let us consider the left handed spinor representation. The left-handed spinor itself can be denoted by $\psi_L$ while any representation of the Lorentz group can be represented by $\Lambda_L$. In this case, 
+Let us consider the left handed spinor representation. The left-handed spinor itself can be denoted by $\psi_{\text{\tiny L}}$ while any representation of the Lorentz group can be represented by $\Lambda_{\text{\tiny L}}$. In this case, 
 $\vb{J}^{+} =0$ while $\vb{J}^{-}$ resembles the representation of spin-half particles and can be taken to be $\vb{J}^{-}\to \frac{\bs{\sigma}}{2}$ where $\bs{\sigma}$ is the Pauli vector. Then from the definition, 
 \begin{align*}
     \vb{J} = \vb{J}^+ + \vb{J}^{-} = 0 + \frac{\bs{\sigma}}{2} = \frac{\bs{\sigma}}{2}\\
@@ -30,13 +30,17 @@ $\vb{J}^{+} =0$ while $\vb{J}^{-}$ resembles the representation of spin-half par
 \end{align*}
 Note that, the Pauli vector is Hermitian and then so is $\vb{J}$ but  $\vb{K}$ is anti-Hermitian instead, so overall the Weyl representation is not a unitary representation. This is explained by the fact that the Lorentz group is not a \textit{compact} group and by a theorem, any non-trivial finite dimensional irreducible representation cannot be unitary. \\[0.2cm]
 Thus, the representation of the Lorentz group and the transformation of a left-handed Weyl spinor becomes:
-$$\mathrm{S}[\Lambda_L] = \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_L \to \Lambda_L\psi_L $$
+$$\mathrm{S}[\Lambda_{\text{\tiny L}}] = \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_{\text{\tiny L}} \to \Lambda_{\text{\tiny L}}\psi_{\text{\tiny L}} $$
 Using a similar argument, we can see that the right-handed Weyl spinor is characterised by:
-$$\mathrm{S}[\Lambda_R] = \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_R \to \Lambda_R\psi_R $$
-\underline{Dirac representation}\\[0.23cm]
+$$\mathrm{S}[\Lambda_{\text{\tiny R}}] = \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})\qquad \psi_{\text{\tiny R}} \to \Lambda_{\text{\tiny R}}\psi_{\text{\tiny R}} $$
+\underline{Dirac representation}\label{sec:diracspin}\\[0.23cm]
 Now, let us come to the Dirac representation which is a reducible representation and can be written as\footnote{We will denote Dirac spinors with capital letters, that is, $\Psi$ while Weyl spinors with small letters, $\psi$ to distinguish between them, since these are inequivalent representations. Of course, it might not always be possible to remember this and the notation might slip sometimes \emoji{crying-face}}:
-$$\Lambda_D \equiv \mqty(\Lambda_L & \\ & \Lambda_R)\qquad \Psi \to \Lambda_D \Psi$$
-Consider an infinitesimal transformation of the Dirac representation, which can be equivalently written as the infinitesimal transformation of the two Weyl representations. 
+$$\Lambda_{\text{\tiny D}} \equiv \mqty(\Lambda_{\text{\tiny L}} & \\ & \Lambda_{\text{\tiny R}})\qquad \Psi \to \Lambda_{\text{\tiny D}} \Psi$$
+$\vartriangleright$ Why is the Dirac representation even necessary when we already had the Weyl spinors?\\[0.2cm] 
+Well, for that consider the parity transformation where $\vb{x}\to -\vb{x}$. In this case, $\vb{K}\to -\vb{K}$ since the boost velocity is reversed, however, $\vb{J}$ remains same (and thus acts as a \textit{pseudovector}) as intuitively, both position and velocity is reversed.\\[0.2cm] Thus, under parity $\vb{J}^{\pm} \to \vb{J}^{\mp}$ and an object in the $(j_-, j_+)$ representation is changed to an object in the $(j_+,j_-)$ representation which is different unless $j_+ = j_-$.\\[0.2cm] Then, the Weyl spinors (objects of kind $\qty(0,\sfrac{1}{2})$ and $\qty(\sfrac{1}{2},0)$) individually cannot be the basis for a representation of the parity transformation. In this case, it is convenient to work with fields which
+provide a representation of Lorentz and parity transformations together. Thus, we consider a Dirac spinor written in terms of two Weyl spinors, 
+$$\Psi = \mqty(\psi_{\text {\tiny L}}\\ \psi_{\text{\tiny R}})$$
+which is a $\qty(0,\sfrac{1}{2}) \oplus \qty(\sfrac{1}{2},0)$ object and conforms to parity transformations. Consider an infinitesimal transformation of the Dirac representation, which can be equivalently written as the infinitesimal transformation of the two Weyl representations. 
 \begin{align*}
   \exp \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2}) &\approx \mathds{1} + \qty((-i\bs{\theta} -\bs{\eta} )\cdot \frac{\bs{\sigma}}{2}) = \mathds{1} -\frac{i}{2}\theta^i \sigma^i -\frac{1}{2}\eta^i\sigma^i\\
    \exp \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2}) &\approx \mathds{1} + \qty((-i\bs{\theta} +\bs{\eta} )\cdot \frac{\bs{\sigma}}{2})=\mathds{1} -\frac{i}{2}\theta^i \sigma^i +\frac{1}{2}\eta^i\sigma^i
@@ -44,7 +48,7 @@ Consider an infinitesimal transformation of the Dirac representation, which can 
 
 Substituting this in the Dirac representation, we obtain:
 \begin{align*}
-  \Lambda_D &= \mathds{1} -\frac{i}{2}\theta^i \mqty(\sigma^i & \\ & \sigma^i) -\frac{1}{2}\eta^i\mqty(\sigma^i & \\ & -\sigma^i)\\
+  \Lambda_{\text{\tiny D}} &= \mathds{1} -\frac{i}{2}\theta^i \mqty(\sigma^i & \\ & \sigma^i) -\frac{1}{2}\eta^i\mqty(\sigma^i & \\ & -\sigma^i)\\
   &=\mathds{1} -\frac{i}{4}\vep^{ijk}\Omega_{jk} \mqty(\sigma^i & \\ & \sigma^i) -\frac{1}{2}\Omega^{i0}\mqty(\sigma^i & \\ & -\sigma^i)\\
   &=\mathds{1} -\frac{i}{4}\Omega_{jk} \Sigma^{jk}-\frac{i}{2}\Omega^{i0}\Sigma^{0i}\\
   &=\mathds{1} -\frac{i}{4}\Omega_{jk} \Sigma^{jk}+\frac{i}{2}\Omega_{i0}\Sigma^{0i}\\

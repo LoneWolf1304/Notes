@@ -14,14 +14,18 @@ From this, we get two separate equations that should be satisfied by the propose
     (\gsl{p} - m ) u(p) = 0 \qquad (\gsl{p} + m ) v(p) = 0
 \end{equation}
 In the Dirac basis the quantity $\gsl{p}$ becomes:
-$$\gsl{p} = \gamma^\mu p_\mu = \gamma^0p_0 + \gamma^i p_i =\gamma^0{p^0} - \gamma^i p^i  = \mqty({p^0}\mathds{1} & 0 \\ 0 & -{p^0}\mathds{1} ) - \mqty(0 & \sigma_i p^i \\ -\sigma_i p^i& 0) = \mqty({p^0}\mathds{1} & -\bs{\sigma}\cdot \vb{p}\\ \bs{\sigma}\cdot \vb{p} & -{p^0}\mathds{1})$$
-Suppose the solutions be decomposed into a pair of Weyl spinors such that:
+\begin{equation}\label{eqn:gammap}
+    \gsl{p} = \gamma^\mu p_\mu = \gamma^0p_0 + \gamma^i p_i =\gamma^0{p^0} - \gamma^i p^i  = \mqty({p^0}\mathds{1} & 0 \\ 0 & -{p^0}\mathds{1} ) - \mqty(0 & \sigma_i p^i \\ -\sigma_i p^i& 0) = \mqty({p^0}\mathds{1} & -\bs{\sigma}\cdot \vb{p}\\ \bs{\sigma}\cdot \vb{p} & -{p^0}\mathds{1})
+\end{equation}
+Suppose the solutions be decomposed into a pair of two-component spinors such that:
 $$u(p) = \mqty(\xi(p) \\ \phi(p))\qquad v(p)=\mqty(\chi(p)\\ \eta(p))$$
 Substituting this in the above Eq. \ref{eqn:hehe}, we get the following:
-\begin{align*}
+\begin{align}\label{eqn:diracmom}
+    \begin{split}
     (\bs{\sigma}\cdot \vb{p})\xi(p) -  ({p^0}+m) \phi(p) &= 0\longrightarrow \phi(p) =\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi(p) \\
     ({p^0}+m)\chi(p) - (\bs{\sigma}\cdot \vb{p})\eta(p)&=0\longrightarrow  \chi(p) = \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta(p)
-\end{align*}
+\end{split}
+\end{align}
 Thus the general solutions can be expressed in terms of two arbitrary Weyl spinors $\xi$ and $\eta$. For simplicity, let us choose them to be the standard basis vectors of the space, that is, 
 $$\vartriangleright\xi^1 = \mqty(1\\0)\qquad \vartriangleright\xi^2 = \mqty(0\\1)\qquad \vartriangleright\eta^1 = \mqty(1\\0)\qquad \vartriangleright\eta^2 = \mqty(0\\1)$$
 The solutions can then be written as (for $s=1,2$):

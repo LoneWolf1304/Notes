@@ -1,3 +1,135 @@
-% \refstepcounter{section}
-% \section*{Lecture 23: }
-% \addcontentsline{toc}{section}{Lecture 23:}
+\refstepcounter{section}
+\section*{Lecture 23: Some Other Projections }
+\addcontentsline{toc}{section}{Lecture 23: Some Other Projections}
+\subsection{Spin Projection}
+In this section we will be concerned with spins. For the \textit{non-relativistic} case, the \textit{spin projection operator} is given by:
+$$\Sigma(\hat{s}) = \frac{1}{2}\qty(1+ \bs{\sigma}\cdot \hat{\vb{s}}) $$
+Think about it, suppose $\hat{\vb{s}} = (0,0,\pm 1)$ then essentially we have a spin state either in $+z$ or $-z$ direction, denoted by say, $\ket{\alpha}$. The operator then becomes:
+$$\Sigma_z = \frac{1}{2}(1\pm\sigma_z)\ket{\alpha} = \frac{1}{2}(1\pm s)\ket{\alpha}$$
+where $s= \pm 1$ is the eigenvalue of $\sigma_z$. If $s=+1$ and $\hat{\vb{s}}=(0,0,1)$ or $s=-1$ and $\hat{\vb{s}}=(0,0,-1)$, then $\Sigma_z = \ket{\alpha}$, else $\Sigma_z = 0$. This correctly projects an arbitrary spinor to the appropriate spin $\hat{\vb{s}}$.\\[0.2cm]
+We need to extrapolate this idea to the relativistic case. First, let us begin considering the REST FRAME, where $p^\mu = (p^0, 0)$. Consider the operator,
+$$\Sigma(\hat{s}) := \frac{1}{2}\mqty(1+\bs{\sigma}\cdot \hat{\vb{s}} & 0\\ 0 & 1-\bs{\sigma}\cdot \hat{\vb{s}})=\frac{1}{2}\qty[\iden +\mqty(\bs{\sigma}\cdot \hat{\vb{s}} & 0\\0 &  -\bs{\sigma}\cdot \hat{\vb{s}})]$$
+We define the quantity $\hat{s}^\mu:= (0, \hat{\vb{s}})$. Then, using the same calculation as in Eq.\ref{eqn:gammap}, we have:
+$${\gsl{{s}}} = \mqty( 0 & -\bs{\sigma}\cdot \vb{\hat{s}} \\ \bs{\sigma}\cdot \vb{\hat{s}} & 0 )$$
+since $\hat{s}^0 = 0$. Then $\Sigma({\hat{s}})$ can be written as $\Sigma({\hat{s}} )= \frac{1}{2}\qty[\iden + \gamma^5{\gsl{{s}}} ]$. Also, note a few properties:
+\begin{equation}\label{eqn:spinproj}
+    \hat{s}^\mu \hat{s}_\mu = - |\hat{\vb{s}}|^2 = -1\qquad p^\mu s_\mu = 0
+\end{equation} Let us see what happens when we act this to the free-wave solutions of the Dirac equation, $u^r(p)$ and $v^r(p)$. Then the solutions become:
+\begin{align*}
+    u^r = \mqty(\xi^r\\ 0) \qquad v^r = \mqty(0 \\ \eta^r)\longrightarrow\ \Sigma(\hat{s})u^r = \frac{1}{2}\mqty((1+\bs{\sigma}\cdot \hat{\vb{s}})\xi^r\\ 0)\qquad \Sigma(\hat{s})v^r = \frac{1}{2}\mqty(0\\ (1-\bs{\sigma}\cdot \hat{\vb{s}})\eta^r)
+\end{align*}
+For simplicity, let us take $\hat{\vb{s}} = (0,0,\pm 1)$ (that is, spin is along $\hat{z}$ axis). We can have an interpretation of $u^r$ and $v^r$ with $r$ indicating the spin, that is, $r=1$ corresponds to spin $+\frac{1}{2}$ and $r=2$ corresponds to spin $-\frac{1}{2}$ for the positive energy solution $u$ while the opposite occurs for $v$.\\[0.2cm] For $s=\pm 1$, it is now better to denote these solutions as $u(0,s)$ and $v(0,s)$ which mentions the spin explicitly. Hence $u^1 = u(0,+1), u^2 = u(0,-1), v^1 = v(0,-1), v^2 = v(0,+1)$
+With this notation, one can verify that:\\
+\begin{center}
+    \begin{minipage}{0.48\textwidth}
+    \begin{itemize}
+    \item If $\hat{\vb{s}} = (0,0,1)$ then $\Sigma(\hat{s}) u^1 = u^1$
+     \item If $\hat{\vb{s}} = (0,0,-1)$ then $\Sigma(\hat{s}) u^1 = 0$
+      \item If $\hat{\vb{s}} = (0,0,1)$ then $\Sigma(\hat{s}) u^2 = 0$
+     \item If $\hat{\vb{s}} = (0,0,-1)$ then $\Sigma(\hat{s}) u^2 = u^2$
+\end{itemize}
+\end{minipage}%
+\begin{minipage}{0.48\textwidth}
+    \begin{itemize}
+    \item If $\hat{\vb{s}} = (0,0,1)$ then $\Sigma(\hat{s}) v^1 = 0$
+     \item If $\hat{\vb{s}} = (0,0,-1)$ then $\Sigma(\hat{s}) v^1 = v^1$
+      \item If $\hat{\vb{s}} = (0,0,1)$ then $\Sigma(\hat{s}) v^2 = v^2$
+     \item If $\hat{\vb{s}} = (0,0,-1)$ then $\Sigma(\hat{s}) v^2 = 0$
+\end{itemize}
+\end{minipage}
+\end{center}
+We see that in the rest frame, the free-wave solutions are eigenstates of $\Sigma(\hat{s})$ and they correctly project the right spin states, that is, $$\Sigma(\hat{s}) u(0,\hat{s}) = u(0,\hat{s})$$
+The equation above has a invariant form, that is, it has no index dependence. We can use this now to go into a general frame by considering $p\to \Lambda (m,0)$ and $\hat{s}\to \Lambda \hat{s}$. Then note that,
+\begin{align*}
+  u(p,s)= S(\Lambda)u(0,\hat{s})&= S(\Lambda)\ \Sigma(\hat{s})\ S^{-1}(\Lambda)S(\Lambda)\ u(0,\hat{s}) \\
+    &= \frac{1}{2}\qty[\iden+\gamma^5 S(\Lambda)\ \gamma^\mu\ S^{-1}(\Lambda) \hat{s}_\mu] S(\Lambda) u(0,\hat{s})\\
+    &=\frac{1}{2}\qty[\iden +\gamma^5 \itrmat{\mu}{\nu}\gamma^\nu  \hat{s}_\mu] u(p,s)\\
+    &=\frac{1}{2}\qty[\iden +\gamma^5 \gamma^\nu  s_\nu] u(p,s)
+\end{align*}
+Hence in a general frame, the spin projection operator takes the form:
+$$\Sigma(\pm s) = \frac{1}{2}\qty[1 \pm \gamma^5 \gsl{s}]$$
+where $s^\mu$ is now any vector satisfying Eq.\ref{eqn:spinproj}. We can check that these are indeed projection operators. For that, first let us calculate some quantitites which appear in the expression:
+\begin{align*}
+    \gamma^\mu \gamma^\nu s_\mu s_\nu = (2\eta^{\mu\nu} -\gamma^\nu \gamma^\mu) s_\mu s_\nu = 2 s^\nu s_\nu - \gamma^\nu \gamma^\mu s_\mu s_\nu =-2 - \gamma^\mu \gamma^\nu s_\nu s_\mu=-2 - \gamma^\mu \gamma^\nu  s_\mu s_\nu \implies \boxed{\gamma^\mu \gamma^\nu s_\mu s_\nu = -1}
+\end{align*}
+And we also have the following thing using the above identity:
+\begin{align*}
+    \gamma^5 \gsl{s}\gamma^5 \gsl{s} = \gamma^5 \gamma^\mu \gamma^5 \gamma^\nu s_\mu s_\nu = - (\gamma^5)^2 \gamma^\mu \gamma^\nu s_\mu s_\nu = 1
+\end{align*}
+Now, we are in a good position to calculate the projection properties. 
+\begin{itemize}
+    \item $\Sigma(s)\Sigma(s) = \frac{1}{4}(1 + 2\gamma^5\gsl{s}+\gamma^5\gsl{s}\gamma^5\gsl{s} )=\frac{1}{4}(1 + 2\gamma^5\gsl{s}+1) = \Sigma(s)$
+    \item $\Sigma(-s)\Sigma(-s) = \frac{1}{4}(1 -2\gamma^5\gsl{s}+\gamma^5\gsl{s}\gamma^5\gsl{s} )=\frac{1}{4}(1 - 2\gamma^5\gsl{s}+1) = \Sigma(-s)$
+    \item $\Sigma(s)\Sigma(-s) = \frac{1}{4}(1 -\gamma^5\gsl{s}\gamma^5\gsl{s} )= 0$
+    \item $\Sigma(s)+\Sigma(-s) = \frac{1}{2}(\iden + \gamma^5 \gsl{s}  + \iden - \gamma^5\ \gsl{s}) = 0$
+\end{itemize}
+We see that $\Sigma(\pm s)$ satisfies all the properties of orthogonal projection and is thus a valid projection operator.\\[0.2cm]
+In the previous section, we had seen that the energy projection operators $\Lambda_{\pm}$ projected states to a particular energy and here we found two operators projecting out to a particular spin state. Then we can project to some state with definite energy and definite spin by successivly acting the energy and spin projection operators together. However, problem might arise if these do not commute since then the answer would depend on their commutator. Hence, let us first see if these commute or not:
+\begin{align*}
+    \comtr{\Lambda_{\pm}}{\Sigma(\pm s)} \propto \comtr{ \gsl{p}}{ \gamma^5\gsl{s}} = (\gamma^\mu p_\mu) (\gamma^5 \gamma^\nu s_\nu) -(\gamma^5 \gamma^\nu s_\nu) (\gamma^\mu p_\mu) = -\gamma^5 (\gamma^\mu \gamma^\nu +\gamma^\nu\gamma^\mu )p_\mu s_\nu = -2\eta^{\mu\nu} p_\mu s_\nu = 0
+\end{align*}
+where we have used Eq.\ref{eqn:spinproj}. We see that the energy projection and spin projection operators happily commute and we are out of trouble!
+\subsection{ Chirality and Massless Fermions}
+We will focus on \textit{chirality} now which is a Lorentz invariant property (however, unlike helicity it does not commute with the Hamiltonian). $\gamma^5$, having eigenvalues $1$ and $-1$, is called the chirality operator and we define the right and left chiral states as the eigenstates of $\gamma^5$, that is:
+$$\gamma^5 u_{\text{\tiny R}}=u_{\text{\tiny R}} \qquad \gamma^5 u_{\text{\tiny L}}=-u_{\text{\tiny L}}$$
+From this definition, we can guess a form of the chirality projection operator:
+$$P_{\text{\tiny R}} = \frac{1}{2}(\iden+\gamma^5)\qquad P_{\text{\tiny L}} = \frac{1}{2}(\iden-\gamma^5)$$
+We can check that $$\vartriangleright P_{\text{\tiny R}}u_{\text{\tiny R}} = u_{\text{\tiny R}}\qquad \vartriangleright P_{\text{\tiny R}}u_{\text{\tiny L}} = 0\qquad \vartriangleright P_{\text{\tiny L}}u_{\text{\tiny R}} = 0\qquad \vartriangleright P_{\text{\tiny L}}u_{\text{\tiny L}} = u_{\text{\tiny L}}$$
+Also we can check the projection properties:
+\begin{itemize}
+    \item $\frac{1}{4}(\iden+\gamma^5)(\iden+\gamma^5) = \frac{1}{4}(\iden+2\gamma^5 + (\gamma^5)^2) = \frac{1}{2}(\iden + \gamma^5)$
+  \item $\frac{1}{4}(\iden-\gamma^5)(\iden-\gamma^5) = \frac{1}{4}(\iden-2\gamma^5 + (\gamma^5)^2) = \frac{1}{2}(\iden - \gamma^5)$
+   \item $(\iden+\gamma^5)(\iden-\gamma^5) = \iden - (\gamma^5)^2 = 0$
+    \item $\frac{1}{2}\qty{(\iden+\gamma^5) + (\iden-\gamma^5)} = \iden$
+\end{itemize}
+and thus, this is a valid projection operator. Any spinor can be written in terms of the chiral states as:
+$$\Psi = \iden \Psi = (P_{\text{\tiny L}} + P_{\text{\tiny R}})\Psi = \Psi_{\text{\tiny L}} + \Psi_{\text{\tiny R}}\qquad \text{where,}\quad  \Psi_{\text{\tiny L}} := P_{\text{\tiny L}}\Psi \quad \Psi_{\text{\tiny R}} := P_{\text{\tiny R}}\Psi$$
+In the chiral basis, $$\gamma^0 = \mqty(0 & \iden \\ \iden & 0) \implies \gamma^5 = \mqty( - \iden & 0 \\ 0 &\iden)\longrightarrow P_{\text{\tiny R}} = \mqty(0&0\\ 0& \iden) \quad   P_{\text{\tiny L}} = \mqty(\iden&0\\ 0& 0)$$
+and we see that, if any arbitrary Dirac spinor $\Psi$ is written in terms of the Weyl spinors in the chiral basis as,
+$$\Psi = \mqty(\psi_{\text{\tiny L}}\\\psi_{\text{\tiny R}})$$ 
+then, the chirality projections are respectively $$\Psi_{\text{\tiny R}} = P_{\text{\tiny R}}\Psi = \mqty(0\\ \psi_{\text{\tiny R}})\qquad \Psi_{\text{\tiny L}} =P_{\text{\tiny L}}\Psi = \mqty(\psi_{\text{\tiny L}}\\0)$$
+and we were right to name the two-component spinors as \textit{left} and \text{handed} Weyl spinors in the chiral basis. However, in the Dirac basis, 
+
+$$\gamma^0 = \mqty(\iden & 0 \\ 0& -\iden ) \implies \gamma^5 = \mqty( 0 & \iden \\ \iden & 0)\longrightarrow P_{\text{\tiny R}} =\frac{1}{2} \mqty(\iden&\iden\\ \iden& \iden) \quad   P_{\text{\tiny L}} = \frac{1}{2}\mqty(\iden& -\iden\\ -\iden& \iden)$$
+Hence for any Dirac spinor written in terms of some arbitrary two component spinors $\phi$ and  $\chi$, we have:
+$$\Psi_{\text{\tiny R}} = P_{\text{\tiny R}}\Psi = \frac{1}{2}\mqty(\phi+\chi\\ \phi+\chi)\qquad \Psi_{\text{\tiny L}} =P_{\text{\tiny L}}\Psi = \frac{1}{2}\mqty(\phi-\chi\\\chi-\phi)$$
+% Also, in the Dirac basis, the chirality eigenstates (eigenstates of $\gamma^5$) are $\mqty(1\\ 1)$ and $\mqty(1\\ -1)$. 
+Then, if we define $\omega_{\text{\tiny R}} =\frac{1}{2}( \phi+\chi)$ and $\omega_{\text{\tiny L}} = \frac{1}{2}(\phi-\chi)$, then we get:
+\begin{equation}\label{eqn:omegachiral}
+    \Psi_{\text{\tiny R}} = \mqty(\omega_{\text{\tiny R}}\\ \omega_{\text{\tiny R}})\qquad \Psi_{\text{\tiny L}} =\mqty(\omega_{\text{\tiny L}}\\-\omega_{\text{\tiny L}})
+\end{equation}
+\subsubsection{When mass vanishes!}
+Suppose we have a Dirac spinor in terms of two-component spinors in the Dirac basis, $\Psi = \mqty(\psi_1\\ \psi_2)$. Then using Eq. \ref{eqn:gammap} and taking $m=0$ we have:
+\begin{align}\label{eqn:massless}
+    \begin{rcases}p^0 \psi_1 - (\bs{\sigma}\cdot \vb{p})\psi_2 &= 0\quad\\
+    p^0 \psi_2 -(\bs{\sigma}\cdot \vb{p})\psi_1 &= 0\quad \end{rcases}\qquad 
+    \boxed{p^0(\psi_1 + \psi_2) = (\bs{\sigma}\cdot \vb{p})(\psi_1+\psi_2)}\quad
+    \boxed{p^0(\psi_1 - \psi_2) = -(\bs{\sigma}\cdot \vb{p})(\psi_1-\psi_2)}
+\end{align}
+Defining $\psi_{\text{\tiny L}} = \frac{1}{2}(\psi_1-\psi_2)$ and $\psi_{\text{\tiny R}} =\frac{1}{2} (\psi_1+\psi_2)$, and multiplying both sides of the equation with $(\bs{\sigma}\cdot \vb{p})$, we get:
+\begin{align*}
+ p^0\underbrace{(\bs{\sigma}\cdot \vb{p})\psi_{\text{\tiny L}}}_{p^0 \psi_{\text{\tiny L}}}&= (\bs{\sigma}\cdot \vb{p})^2\psi_{\text{\tiny L}} = |\vb{p}|^2 \psi_{\text{\tiny L}}\longrightarrow (p^0)^2 \psi_{\text{\tiny L}} = |\vb{p}|^2 \psi_{\text{\tiny L}}\\
+ p^0\underbrace{(\bs{\sigma}\cdot \vb{p})\psi_{\text{\tiny R}}}_{-p^0 \psi_{\text{\tiny R}}} &=- (\bs{\sigma}\cdot \vb{p})^2\psi_{\text{\tiny L}} = -|\vb{p}|^2 \psi_{\text{\tiny L}}\longrightarrow (p^0)^2 \psi_{\text{\tiny R}} = |\vb{p}|^2 \psi_{\text{\tiny R}}
+\end{align*}
+For a non-trivial solution, $p^0 = \pm |\vb{p}|$ and putting this in Eq. \ref{eqn:massless}, 
+\begin{align}
+    \begin{rcases}
+    \frac{(\bs{\sigma}\cdot \vb{p})}{|\vb{p}|} \psi_{\text{\tiny L}} =\psi_{\text{\tiny L}}\quad \\
+     \frac{(\bs{\sigma}\cdot \vb{p})}{|\vb{p}|} \psi_{\text{\tiny R}} =-\psi_{\text{\tiny R}} 
+    \end{rcases}\ p^0 = +|\vb{p}| \qquad\quad 
+    \begin{rcases}
+    \frac{(\bs{\sigma}\cdot \vb{p})}{|\vb{p}|} \psi_{\text{\tiny L}} = -\psi_{\text{\tiny L}}\quad \\
+     \frac{(\bs{\sigma}\cdot \vb{p})}{|\vb{p}|} \psi_{\text{\tiny R}} =\psi_{\text{\tiny R}} 
+    \end{rcases}\ p^0 = -|\vb{p}|
+\end{align}
+Recall from Eq. \ref{eqn:helicity} that the helicity operator was,
+\begin{align*}
+    \hat{h}= \frac{\hbar}{2|\vb{p}|}( \bs{\Sigma}\cdot \vb{p}) =\frac{\hbar}{2|\vb{p}|} \mqty(\bs{\sigma}\cdot \vb{p} & 0 \\ 0 &\bs{\sigma}\cdot \vb{p})
+\end{align*}
+Then, if we act $\Psi_\text{\tiny L} = P_\text{\tiny L}\Psi$ and $\Psi_\text{\tiny R} = P_\text{\tiny R}\Psi$ with the helicity operator (and using their form from Eq. \ref{eqn:omegachiral}), we have:
+\begin{align*}
+    \hat{h}(P_\text{\tiny L}\Psi )&= \frac{\hbar}{2|\vb{p}|} \mqty(\bs{\sigma}\cdot \vb{p} & 0 \\ 0 &\bs{\sigma}\cdot \vb{p}) \mqty(\psi_{\text{\tiny L}}\\ -\psi_{\text{\tiny L}} ) = \frac{\hbar}{2}(P_\text{\tiny L}\Psi )\\
+     \hat{h}(P_\text{\tiny R}\Psi )&= \frac{\hbar}{2|\vb{p}|} \mqty(\bs{\sigma}\cdot \vb{p} & 0 \\ 0 &\bs{\sigma}\cdot \vb{p}) \mqty(\psi_{\text{\tiny R}}\\ \psi_{\text{\tiny R}}) = -\frac{\hbar}{2}(P_\text{\tiny L}\Psi )
+\end{align*}
+Hence for \textit{particles} the left and right chiral states are also the helicity eigenstates with eigenvalue $\pm \sfrac{\hbar}{2}$ respectively (while for \textit{anti-particles} the left and right chiral states are helicity eigenstates with eigenvalue $\mp \sfrac{\hbar}{2}$ which can be checked using the same calculation, hence chirality is negative of helicity for anti-particles). \\[0.2cm]
+For massive particles, it is possible to Lorentz boost to different frames of reference to change helicity (however chirality does not change since it is Lorentz invariant) and hence helicity and chirality are equivalent only for \textit{massless} fermions. 
