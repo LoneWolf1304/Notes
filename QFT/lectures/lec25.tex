@@ -1,3 +1,65 @@
-% \refstepcounter{section}
-% \section*{Lecture 25: Quantisation of Dirac Field: What to do!}
-% \addcontentsline{toc}{section}{Lecture 25: Quantisation of Dirac Field: What to do!}
+\refstepcounter{section}
+\section*{Lecture 25: Quantisation of Dirac Field: What to do!}
+\addcontentsline{toc}{section}{Lecture 25: Quantisation of Dirac Field: What to do!}
+In the last section, we saw some problems regarding the Hamiltonian which came from assuming a commutation relation for fermionic fields described by the Dirac equation. Fermions follow a different statistics altogether, being constrained by the \textit{exclusion principle}.
+
+\subsection{Quantising Fermions}
+The fermionic wavefunction should be anti-symmetric under exchange of particles. Hence, instead of commutation relation, it is better to consider anti-commutation relation between the fields.
+$$\{\Psi_{\alpha}(\vb{x}), \Psi_{\beta}^\dagger(\vb{y})\} = \delta_{\alpha\beta}\delta^{(3)}(\vb{x}-\vb{y})$$
+an all other anti-commutations vanish. With these anti-commutation relations, we find a suitable relation between the field creation/annihilation operators. 
+\begin{equation}
+    \acomtr{\annapr}{\creaq} =\delta^{rs}\ddelt{\vb{p}-\vb{q}}\qquad \acomtr{\annbpr}{\crebq} =\delta^{rs}\ddelt{\vb{p}-\vb{q}}
+\end{equation}
+with all other anti-commutations vanishing. Notice that while deriving the Hamiltonian we did not use the commutation relation and thus, the Hamiltonian still remains the same,
+$$\hat{H} = \int \meas{\vb{p}} E_{\vb{p}} \sum \limits_{r}\qty(\creapr\annapr -\crebpr\annbpr)$$
+But now, let us now make the reinterpretation $\hat{b}^\dagger \leftrightarrow \hat{b}$ and then we use the anti-commutation relation:
+$$\hat{H} = \int \meas{\vb{p}} E_{\vb{p}} \sum \limits_{r}\qty(\creapr\annapr +\crebpr\annbpr - (2\pi)^3\ddelt{0}) $$
+We see that the negative sign now has been removed. The ominous infinite term is successfully neglected (or more sophisticatedly removed by \textit{normal ordering}) which we had done for the KG field too. The total Hamiltonian now becomes:
+$$\boxed{\hat{H} = \int \meas{\vb{p}} E_{\vb{p}} \sum \limits_{r}\qty(\creapr\annapr +\crebpr\annbpr)} $$
+\subsection{Constructing the Hilbert space}
+As with the KG field, we will now construct multi-particle states here also. Define the vacuum state $\ket{\Omega}$ such that,
+$$\annap\vac = 0\qquad \annbp\vac=0 \ \forall \ \vb{p}, s $$
+Then $\hat{H}\vac = 0$ as it should be. Let us now calculate some commutation relations between the Hamiltonian and the creation/annihilation operators which will allow us to create the other states. First note that,
+\begin{align*}
+    \comtr{\creap}{\creaqr \annaqr-\crebqr\annbqr} = \comtr{\creap}{\creaqr \annaqr}
+\end{align*}
+since $\hat{b}$ and $\hat{b}^\dagger$ anti-commute with $\hat{a}$, we have:
+$$(\crebqr \annbqr) \annap = - \crebqr \annap \annbqr =\annap (\crebqr \annbqr) \implies \comtr{\crebqr \annbqr}{ \annap }=0$$
+and same happens with $\hat{a}^\dagger$. Then, we expand the commutator:
+\begin{align*}
+     \comtr{\creap}{\creaqr \annaqr} = \creap(\creaqr \annaqr )- (\creaqr \annaqr )\creap=-\creaqr\creap \annaqr - (\creaqr \annaqr )\creap&=-\creaqr\qty( \delta^{rs}\ddelt{\vb{p}-\vb{q}} -\annaqr\creap)-(\creaqr \annaqr )\creap\\
+     &=-\delta^{rs}\ddelt{\vb{p}-\vb{q}}\creaqr 
+\end{align*}
+From this, we have the commutation with the Hamiltonian as:
+\begin{align*}
+   \comtr{\creap}{\hat{H}} = \int \meas{\vb{q}}E_{\vb{q}}\sum_{r} \comtr{\creap}{\creaqr \annaqr-\crebqr\annbqr}= -\int \meas{\vb{q}}E_{\vb{q}}\ddelt{\vb{p}-\vb{q}}\creaq = -E_{\vb{p}} \creap
+\end{align*}
+With a similar philosophy, we have:
+\begin{align*}
+    \comtr{\annap}{\creaqr \annaqr-\crebqr\annbqr} = \comtr{\annap}{\creaqr \annaqr}
+\end{align*}
+from following the calculation below,
+\begin{align*}
+     \comtr{\annap}{\creaqr \annaqr}= \annap(\creaqr \annaqr )- (\creaqr \annaqr )\annap=\annap(\creaqr \annaqr ) +\creaqr \annap\annaqr&=\annap(\creaqr \annaqr ) +(\delta^{rs}\ddelt{\vb{p}-\vb{q}} - \annap\creaqr)\annaqr\\&=\delta^{rs}\ddelt{\vb{p}-\vb{q}}\annaqr
+\end{align*}
+From this, we have the commutation with the Hamiltonian as:
+\begin{align*}
+   \comtr{\annap}{\hat{H}} = \int \meas{\vb{q}}E_{\vb{q}}\sum_{r} \comtr{\annap}{\creaqr \annaqr}= \int \meas{\vb{q}}E_{\vb{q}}\ddelt{\vb{p}-\vb{q}}\annaq = E_{\vb{p}} \annap
+\end{align*}
+Since $\hat{b}$ is identical to $\hat{a}$, it has the same commutation with the Hamiltonian. We finally have:
+$$ \vartriangleright\comtr{\annap}{\hat{H}} = E_{\vb{p}} \annap\quad \vartriangleright \comtr{\creap}{\hat{H}}=-E_{\vb{p}} \creap\quad \vartriangleright\comtr{\annbp}{\hat{H}} = E_{\vb{p}} \annbp\quad \vartriangleright \comtr{\crebp}{\hat{H}}=-E_{\vb{p}} \crebp$$
+Now let us define a state given by:
+$$\ket{\vb{p},s} = \sqrt{2E_{\vb{p}}}\creap\vac$$
+Let us see what happens when we apply the Hamiltonian on it. We use the commutation relations found above:
+\begin{align*}
+   E_{\vb{p}}( \creap\vac) =\comtr{\hat{H}}{\creap}\vac = \hat{H}(\creap \vac) - 0 \implies \hat{H}(\creap \vac) = E_{\vb{p}}( \creap\vac)
+\end{align*}
+Thus we see that $\ket{\vb{p},s}$ has energy $E_{\vb{p}}$. By constructing the momentum operator, we can also verify that this state indeed has momentum $\vb{p}$ and thus, we can safely interpret this as a \textit{one-particle} state (\textit{fermions}). Similar thing occurs for anti-particle, which is created by $\hat{b}^\dagger$. 
+$$\ket{\tilde{p}, s} = \sqrt{2E_{\vb{p}}}\crebp\vac$$
+where the tilde denotes that it is an anti-particle (\textit{anti-fermions}). Anti-particles are also having the same energy $E_{\vb{p}}$.
+\subsection{Pauli's Exclusion Principle}
+A characteristic property of fermions is the \textit{exclusion principle} which roughly states that two fermions with the same quantum numbers cannot occupy the same place. Let us check if this property is satisfied by our theory or not. For that, note:
+$$\{\creap, \creap\} = 0 \implies (\creap)^2 \equiv 0$$
+Now, if we create a two fermion state as:
+$$\ket{\vb{p}, \vb{p}; s,s} = \sqrt{2E_{\vb{p}}}\sqrt{2E_{\vb{p}}} \creap \creap\vac \sim (\creap)^2\vac = 0$$
+which nicely exhibits Pauli's exclusion principle and thus, this is automatically incorporated into the theory through the anti-commutation relations. 
