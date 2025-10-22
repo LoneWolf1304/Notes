@@ -62,3 +62,30 @@ From Eq. \ref{eqn:innerspinor} and \ref{eqn:innerspinor1}, we obtain a nice, cut
 \begin{align}\label{eqn:hamiltonian}
   \boxed{ \hat{H} = \int \meas{\vb{p}} E_{\vb{p}} \sum \limits_{r}\qty(\creapr\annapr -\crebpr\annbpr)}
 \end{align}
+\subsection{Commutations?}
+Till now we have not talked about any commutation relations that is neccessary for quantisation. In general, we assume multiple fields indexed by $\{\alpha\}$ and with our previous intuition, let us guess the commutation relations between the field $\Psi_{\alpha}(\vb{x})$ and the conjugate momentum $i\Psi_{\alpha}^\dagger(\vb{x})$,
+\begin{align}\label{eqn:fieldcommutation}
+   \begin{split}
+   \comtr{\Psi_{\alpha}(\vb{x})}{\Psi_{\beta}(\vb{y})} &= \comtr{\Psi_{\alpha}^\dagger(\vb{x})}{\Psi_{\beta}^\dagger(\vb{y})} = 0\\
+   \comtr{\Psi_{\alpha}(\vb{x})}{\Psi_{\beta}^\dagger(\vb{y})} &= \delta_{\alpha\beta}\delta^{(3)}(\vb{x}-\vb{y})
+   \end{split}
+\end{align}
+Let us see the commutations between the coefficient operators $\hat{a}$ and $\hat{b}$. We first claim the expressions and show that these indeed conform to the actual field operator commutators. 
+\begin{align}\label{eqn:creationcommut}
+   \begin{split}
+   \comtr{\annap}{\creaqr}  &= (2\pi)^3\delta^{rs}\delta^{(3)}(\vb{p} - \vb{q})\\
+   \comtr{\annbp}{\crebqr}  &= (2\pi)^3\delta^{rs}\delta^{(3)}(\vb{p} - \vb{q})
+   \end{split}
+\end{align}
+with all other commutators vanishing. We now check whether using the above relations, we recover the field commutations from Eq. \ref{eqn:fieldcommutation} or not. 
+\begin{align*}
+   \comtr{\Psi(\vb{x})}{\Psi^\dagger(\vb{y})}&= \sum\limits_{r,s} \int \meas{\vb{p}}\meas{\vb{q}} \frac{1}{2\sqrt{E_{\vb{p}}E_{\vb{q}}}}\Big( \comtr{\annapr}{\creaq}u^r(\vb{p})u^{s\dagger}(\vb{q})e^{i(\pdx - \qdy)}\\ &\qquad \qquad\qquad\qquad\quad \qquad\qquad \qquad + \comtr{\annbpr}{\crebq}v^r(\vb{p})v^{s\dagger}(\vb{q})e^{i(\qdy - \pdx)} \Big)\\
+   &=\sum\limits_{r}\int \meas{\vb{p}} \dd^3 \vb{q} \frac{1}{2\sqrt{E_{\vb{p}}E_{\vb{q}}}}\delta^{(3)}(\vb{p} - \vb{q})\Big(u^r(\vb{p})u^{r\dagger}(\vb{q})e^{i(\pdx - \qdy)} + v^r(\vb{p})v^{r\dagger}(\vb{q})e^{i(\qdy - \pdx)} \Big)\\
+   &=\sum\limits_{r}\int \meas{\vb{p}}  \frac{1}{2E_{\vb{p}}}\Big(u^r(\vb{p})u^{r\dagger}(\vb{p})e^{i\vb{p}\cdot (\vb{x}-\vb{y})} + v^r(\vb{p})v^{r\dagger}(\vb{p})e^{-i\vb{p}\cdot(\vb{x}-\vb{y})} \Big)\\
+   &=\int \meas{\vb{p}}  \frac{1}{2E_{\vb{p}}}\Big( (\gsl{p}+m)\gamma^0 e^{i\vb{p}\cdot (\vb{x}-\vb{y})} + (\gsl{p} -m)\gamma^0e^{-i\vb{p}\cdot(\vb{x}-\vb{y})} \Big)\\
+   &=\int \meas{\vb{p}}  \frac{1}{2E_{\vb{p}}}\qty[(\gamma^0 E_{\vb{p}} + \gamma^i p_i + m) + (\gamma^0 E_{\vb{p}} - \gamma^i p_i -m)]\gamma^0 e^{i\vb{p}\cdot (\vb{x}-\vb{y})}\\
+   &=\int \meas{\vb{p}}  e^{i\vb{p}\cdot (\vb{x}-\vb{y})} = \delta^{(3)}(\vb{x}-\vb{y}) \qquad (\text{as expected})
+\end{align*}
+where in the above steps, we have used Eq. \ref{eqn:spinsum} and in the second last step, in the second term, we changed $\vb{p}\to -\vb{p}$ in the integral, so $p_i \to -p_i$ accordingly. We thus see that assuming these form of creation/annihilation operators yields the correct field quantisation. \\[0.2cm]
+Now, note that see an inocuous $\mathcolor{red}{-}$ sign in the Hamiltonian which imply that the spectrum is unbounded from below. If we create more and more particles with $\hat{b}^\dagger$, we can lower the energy indefinitely which is really, really \textit{unphysical}. We could instead make a reinterpretation as $\hat{b}^\dagger \leftrightarrow \hat{b}$ but then the commutation relations in Eq. \ref{eqn:creationcommut} gets ruined and the states now get negative norm. \\[0.2cm]
+The fundamental flaw was that the Dirac equation describes \textcolor{blue}{fermions} which follow entirely different statistics than \textcolor{red}{bosons} (described by KG field from which we took the inspiration for the commutator).
