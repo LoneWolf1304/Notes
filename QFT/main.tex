@@ -11,11 +11,47 @@
 \newcommand{\ad}[1]{a_{#1}^\dagger}
 \usepackage{fancyhdr}
 \usepackage{tikz-feynman}
+\newcommand{\pdx}{\vb{p}\cdot \vb{x}}
+\newcommand{\creap}{{\hat{a}_{\vb{p}}}^{s\dagger}}
+\newcommand{\annap}{{\hat{a}_{\vb{p}}}^{s}}
+\newcommand{\crebp}{{\hat{b}_{\vb{p}}}^{s\dagger}}
+\newcommand{\annbp}{{\hat{b}_{\vb{p}}}^{s}}
 
+
+\newcommand{\creapr}{{\hat{a}_{\vb{p}}}^{r\dagger}}
+\newcommand{\annapr}{{\hat{a}_{\vb{p}}}^{r}}
+\newcommand{\crebpr}{{\hat{b}_{\vb{p}}}^{r\dagger}}
+\newcommand{\annbpr}{{\hat{b}_{\vb{p}}}^{r}}
+
+\newcommand{\creampr}{{\hat{a}_{-\vb{p}}}^{r\dagger}}
+\newcommand{\annampr}{{\hat{a}_{-\vb{p}}}^{r}}
+\newcommand{\crebmpr}{{\hat{b}_{-\vb{p}}}^{r\dagger}}
+\newcommand{\annbmpr}{{\hat{b}_{-\vb{p}}}^{r}}
+
+
+
+\newcommand{\qdx}{\vb{q}\cdot \vb{x}}
+\newcommand{\creaq}{{\hat{a}_{\vb{q}}}^{s\dagger}}
+\newcommand{\annaq}{{\hat{a}_{\vb{q}}}^{s}}
+\newcommand{\crebq}{{\hat{b}_{\vb{q}}}^{s\dagger}}
+\newcommand{\annbq}{{\hat{b}_{\vb{q}}}^{s}}
+
+\newcommand{\creaqr}{{\hat{a}_{\vb{q}}}^{r\dagger}}
+\newcommand{\annaqr}{{\hat{a}_{\vb{q}}}^{r}}
+\newcommand{\crebqr}{{\hat{b}_{\vb{q}}}^{r\dagger}}
+\newcommand{\annbqr}{{\hat{b}_{\vb{q}}}^{r}}
+
+\newcommand{\creamqr}{{\hat{a}_{-\vb{q}}}^{r\dagger}}
+\newcommand{\annamqr}{{\hat{a}_{-\vb{q}}}^{r}}
+\newcommand{\crebmqr}{{\hat{b}_{-\vb{q}}}^{r\dagger}}
+\newcommand{\annbmqr}{{\hat{b}_{-\vb{q}}}^{r}}
+
+% \newcommand{\crebp}{def}
 \newenvironment{bMatrix}[1]{%
 \bmatrix\array{#1}\hspace*{-0.5\arraycolsep}}%
 {\endarray\endbmatrix}
-
+\newcommand{\tund}[1]{_{\text{\tiny #1}}}
+\newcommand{\sbo}[1]{\scalebox{0.56}{#1}}
 \newcommand{\gsl}[1]{\cancel{#1}}
 \usepackage{tensor}
 \usepackage{array}
@@ -185,6 +221,8 @@ a4paper]{geometry}
 \input{lectures/lec23.tex}
 
 \input{lectures/lec24.tex}
+\input{lectures/lec25.tex}
+\input{lectures/lec26.tex}
 
 \newpage
 \begin{appendices}

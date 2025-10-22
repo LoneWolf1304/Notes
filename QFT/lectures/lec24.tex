@@ -1,3 +1,64 @@
 \refstepcounter{section}
-\section*{Lecture 24: Quantisation of Dirac Field}
-\addcontentsline{toc}{section}{Lecture 24: Quantisation of Dirac Field}
+\section*{Lecture 24: Quantisation of Dirac Field: What not to do!}
+\addcontentsline{toc}{section}{Lecture 24: Quantisation of Dirac Field: What not to do!}
+Till now we have seen many different aspects of the Dirac equations and now we want to quantise it. For that, we first need to figure out a Lorentz invariant Lagrangian for the Dirac field.
+\subsection{Dirac Lagrangian} 
+The appropriate Lagrangian turns out to be,
+$$\SL\tund{D} = \dadj{\Psi}\ (i \gsl{\partial} - m)\ \Psi$$
+where $\Psi$ and $\dadj{\Psi}$ are now treated as two independent fields. Let us see whether this Lagrangian gives us the correct equation of motion or not! 
+   \begin{align*}
+    0 = \partial_\mu \qty(\pdv{\SL\tund{D}}{(\partial_\mu \Psi)}) - \pdv{\SL\tund{D}}{\Psi}=i\partial_\mu( \dadj{\Psi} \gamma^\mu) - (-m\dadj{\Psi})=i \partial_\mu \dadj{\Psi}\gamma^\mu +m \dadj{\Psi} &=i\partial_\mu \Psi^\dagger \gamma^0\gamma^\mu +m \Psi^\dagger \gamma^0\\
+   \end{align*}
+   We use the identity from Eq. \ref{eqn:gamiden} and the invertibility of $\gamma^0$ to further simplify this:
+   \begin{align*}
+    0=i\partial_\mu \Psi^\dagger (\gamma^\mu)^\dagger \gamma^0 +m \Psi^\dagger \gamma^0=(i\partial_\mu \Psi^\dagger (\gamma^\mu)^\dagger +m \Psi^\dagger )\gamma^0\implies 0=(i\partial_\mu  (\gamma^\mu \Psi)^\dagger +m \Psi^\dagger )\implies \boxed{0=(i\gamma^\mu\partial_\mu \Psi +m \Psi)}
+   \end{align*}
+   We thus obtain the Dirac equation. Starting with $\dadj{\Psi}$ we obtain in an instant:
+%
+   \begin{align*}
+     0 =\partial_\mu \qty(\pdv{\SL\tund{D}}{(\partial_\mu \dadj{\Psi})}) - \pdv{\SL\tund{D}}{\dadj{\Psi}}= 0 - (i \gsl{\partial}\Psi-m\Psi)\implies \boxed{(i\gamma^\mu\partial_\mu \Psi +m \Psi)=0}
+   \end{align*}
+\subsection{Hamiltonian Density}
+Let us first find the conjugate momentum for the fields. 
+\begin{align*}
+   \pi_{\scalebox{0.58}{$\Psi$}} = \pdv{\SL\tund{D}}{(\partial_0 \psi)} =i \dadj{\Psi}\gamma^0= i \Psi^\dagger (\gamma^0)^2 = i\Psi^\dagger \qquad \pi_{\scalebox{0.6}{$\dadj{\Psi}$}} = \pdv{\SL\tund{D}}{(\partial_0 \dadj{\psi})} = 0
+\end{align*}
+
+Then using the Legendre transform, we have the Hamiltonian density as:
+\begin{align*}
+   \SH = \pi_{\sbo{\Psi}} \dot{\Psi} +\pi_{\dadj{\sbo{\Psi}}}   \dot{\dadj{\Psi}} - \SL =i \dadj{\Psi}\gamma^0\partial_0{\Psi} - i \dadj{\Psi} \gamma^\mu \partial_\mu \Psi + m\dadj{\Psi}\Psi= -i \dadj{\Psi}\gamma^i \partial_i \Psi + m \dadj{\Psi}\Psi
+\end{align*}
+We had obtained the Lagrangian and the Hamiltonian density for the Dirac field. What we need to do now is to propose some nice guess for the field expressions. We had already found four solutions for a momentum $p$ namely $u^s(p)$ and $v^s(p)$ for $s=1,2$. We can thus make the field a linear combination of these four solutions with some arbitrary coefficients:
+$$\Psi(x) = \int \meas{\vb{p}}\ \frac{1}{\sqrt{2E_{\vb{p}}}} \sum \limits_s \qty(\annap u^s(\vb{p}) e^{i \pdx} +\annbp v^s(\vb{p}) e^{-i \pdx})$$
+Taking the Hermitian adjoint and multiplying by $\gamma^0$ on the right, we get the expansion for the Dirac adjoint,
+$$\dadj{\Psi}(x) = \int \meas{\vb{p}}\ \frac{1}{\sqrt{2E_{\vb{p}}}} \sum \limits_r \qty(\creapr {\dadj{u}}^r(\vb{p}) e^{-i \pdx} +\crebpr {\dadj{v}}^r(\vb{p}) e^{i \pdx})$$
+\subsection{Total Hamiltonian}
+We will now try to find an expression for the total Hamiltonian $\hat{H}$:
+$$\hat{H} = \int \dd^3 \vb{x}\ \SH =  \int \dd^3 \vb{x}\ \qty( \dadj{\Psi} (-i \gamma^i \partial_i + m )\Psi)$$
+\textit{This is an extremely tedious and terrible calculation, one that I wouldn't wish upon anyone}. Substituting the expression for $\Psi(\vb{x})$ and $\dadj{\Psi}{(\vb{x})}$ we get:
+\begin{align*}
+   \hat{H} &= \int \dd^3 \vb{x}\int \meas{\vb{p}} \meas{\vb{q}} \frac{1}{2\sqrt{E_{\vb{p}}E_{\vb{q}}}} \sum \limits_{r,s} \qty(\creap u^s(\vb{p}) e^{-i \pdx} +\crebp v^s(\vb{p}) e^{i \pdx})(-i \gamma^i \partial_i + m )\\ &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \times \qty(\annaqr u^r(\vb{q}) e^{i \qdx} +\annbqr v^r(\vb{q}) e^{-i \qdx})
+\end{align*}
+Note that $\pdx = x^ip^i = -x^ip_i$ and then $\partial_i \exp \qty(\pm i \pdx) = \mp i p_i \exp \qty(\pm i\pdx) $. We use this in the above expression to get
+\begin{align*}
+   \hat{H} &= \int \dd^3 \vb{x}\int \meas{\vb{p}} \meas{\vb{q}} \frac{1}{2\sqrt{E_{\vb{p}}E_{\vb{q}}}} \sum \limits_{r,s} \qty(\creap \dadj{u}^s(\vb{p}) e^{-i \pdx} +\crebp \dadj{v}^s(\vb{p}) e^{i \pdx})\\ &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\times \qty(\annaqr(-\gamma^i q_i +m) u^r(\vb{q}) e^{i \qdx} +\annbqr(\gamma^i q_i +m) v^r(\vb{q}) e^{-i \qdx})
+\end{align*}
+From Eq. \ref{eqn:hehe}, recall that we had the following:
+\begin{align*}
+   (\gsl{p}-m)u^s(\vb{p})&=0\implies (\gamma^0p_0+\gamma^ip_i -m)u^s(\vb{p})=0 \implies (-\gamma^ip_i+m)u^s(\vb{p}) = E_{\vb{p}}\gamma^0 u^s(\vb{p})\\
+(\gsl{p}+m)v^s(\vb{p})&=0\implies (\gamma^0p_0+\gamma^ip_i +m)v^s(\vb{p})=0 \implies (\gamma^ip_i+m)v^s(\vb{p}) = -E_{\vb{p}}\gamma^0 v^s(\vb{p})
+\end{align*}
+Substituting this in the integral above we get:
+\begin{align*}
+   \hat{H} &=\int \dd^3 \vb{x}\int \meas{\vb{p}} \meas{\vb{q}} \frac{1}{2\sqrt{E_{\vb{p}}E_{\vb{q}}}}E_{\vb{q}} \sum \limits_{r,s} \qty(\creap \dadj{u}^s(\vb{p}) e^{-i \pdx} +\crebp \dadj{v}^s(\vb{p}) e^{i \pdx})\\ &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\times \gamma^0  \qty(\annaqr u^r(\vb{q}) e^{i \qdx} -\annbqr  v^r(\vb{q}) e^{-i \qdx})\\
+&=\int \dd^3 \vb{x}\int \meas{\vb{p}} \meas{\vb{q}} \sqrt{\frac{E_{\vb{q}}}{4{E_{\vb{p}}}}} \sum \limits_{r,s} \qty(\creap {u}^{s\dagger}(\vb{p}) e^{-i \pdx} +\crebp {v}^{s\dagger}(\vb{p}) e^{i \pdx})\\ &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\times( \gamma^0)^2  \qty(\annaqr u^r(\vb{q}) e^{i \qdx} -\annbqr  v^r(\vb{q}) e^{-i \qdx})\\
+&=\int \dd^3 \vb{x}\int \meas{\vb{p}} \meas{\vb{q}}\sqrt{\frac{E_{\vb{q}}}{4{E_{\vb{p}}}}} \sum \limits_{r,s}(\creap\annaqr {u}^{s\dagger}(\vb{p})u^r(\vb{q}) e^{i(\vb{q}-\vb{p})\cdot \vb{x}}-\creap\annbqr{u}^{s\dagger}(\vb{p})v^r(\vb{q})  e^{-i(\vb{q}+\vb{p})\cdot \vb{x}}\\ &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\crebp\annaqr{v}^{s\dagger}(\vb{p})u^r(\vb{q}) e^{i(\vb{q}+\vb{p})\cdot \vb{x}} -\crebp\annbqr{v}^{s\dagger}(\vb{p})v^r(\vb{q})e^{i(\vb{p}-\vb{q})\cdot \vb{x}})
+\end{align*}
+Now if we perform the position integration first, due to the exponentials, we would get $\delta^{(3)}{(\vb{p}\pm \vb{q})}$ from each term and then if we perform the integration over $\vb{q}$, these Dirac deltas would get removed, giving $q=\pm p$. Doing this, our integral becomes:
+\begin{align*}
+   \hat{H} &=\int \meas{\vb{p}} \frac{1}{2} \sum \limits_{r}(\creapr\annapr {u}^{r\dagger}(\vb{p})u^r(\vb{p})-\creapr\annbmpr{u}^{r\dagger}(\vb{p})v^r(-\vb{p}) \\ &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\crebpr\annampr{v}^{r\dagger}(\vb{p})u^r(-\vb{p}) -\crebpr\annbpr{v}^{r\dagger}(\vb{p})v^r(\vb{p}))
+\end{align*}
+From Eq. \ref{eqn:innerspinor} and \ref{eqn:innerspinor1}, we obtain a nice, cute equation (well, hidden under the cuteness is a huge mess which we have to deal with),
+\begin{align}\label{eqn:hamiltonian}
+  \boxed{ \hat{H} = \int \meas{\vb{p}} E_{\vb{p}} \sum \limits_{r}\qty(\creapr\annapr -\crebpr\annbpr)}
+\end{align}

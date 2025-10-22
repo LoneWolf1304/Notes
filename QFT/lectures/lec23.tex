@@ -85,7 +85,7 @@ Also we can check the projection properties:
 and thus, this is a valid projection operator. Any spinor can be written in terms of the chiral states as:
 $$\Psi = \iden \Psi = (P_{\text{\tiny L}} + P_{\text{\tiny R}})\Psi = \Psi_{\text{\tiny L}} + \Psi_{\text{\tiny R}}\qquad \text{where,}\quad  \Psi_{\text{\tiny L}} := P_{\text{\tiny L}}\Psi \quad \Psi_{\text{\tiny R}} := P_{\text{\tiny R}}\Psi$$
 In the chiral basis, $$\gamma^0 = \mqty(0 & \iden \\ \iden & 0) \implies \gamma^5 = \mqty( - \iden & 0 \\ 0 &\iden)\longrightarrow P_{\text{\tiny R}} = \mqty(0&0\\ 0& \iden) \quad   P_{\text{\tiny L}} = \mqty(\iden&0\\ 0& 0)$$
-and we see that, if any arbitrary Dirac spinor $\Psi$ is written in terms of the Weyl spinors in the chiral basis as,
+and we see that, if any arbitrary Dirac spinor $\Psi$ is written in terms of the Weyl spinors as,
 $$\Psi = \mqty(\psi_{\text{\tiny L}}\\\psi_{\text{\tiny R}})$$ 
 then, the chirality projections are respectively $$\Psi_{\text{\tiny R}} = P_{\text{\tiny R}}\Psi = \mqty(0\\ \psi_{\text{\tiny R}})\qquad \Psi_{\text{\tiny L}} =P_{\text{\tiny L}}\Psi = \mqty(\psi_{\text{\tiny L}}\\0)$$
 and we were right to name the two-component spinors as \textit{left} and \text{handed} Weyl spinors in the chiral basis. However, in the Dirac basis, 
@@ -98,6 +98,7 @@ Then, if we define $\omega_{\text{\tiny R}} =\frac{1}{2}( \phi+\chi)$ and $\omeg
 \begin{equation}\label{eqn:omegachiral}
     \Psi_{\text{\tiny R}} = \mqty(\omega_{\text{\tiny R}}\\ \omega_{\text{\tiny R}})\qquad \Psi_{\text{\tiny L}} =\mqty(\omega_{\text{\tiny L}}\\-\omega_{\text{\tiny L}})
 \end{equation}
+NOTE: $\phi$ and $\chi$ are not Weyl spinors, these are some arbitrary spinors. Above, $\Psi_{\text{\tiny L}}$ and $\Psi_{\text{\tiny R}}$ are eigenstates of $\gamma^5$ (as can be checked since in Dirac basis, the eigenstates of $\gamma^5$ are $\mqty(1\\ 1)$ and $\mqty(1\\ -1)$ ) and thus, have definite chirality. So, the two component spinors with which these are made up of, that is, $\omega_{\text{\tiny L}}$ and $\omega_{\text{\tiny R}}$ are the correct Weyl spinors. 
 \subsubsection{When mass vanishes!}
 Suppose we have a Dirac spinor in terms of two-component spinors in the Dirac basis, $\Psi = \mqty(\psi_1\\ \psi_2)$. Then using Eq. \ref{eqn:gammap} and taking $m=0$ we have:
 \begin{align}\label{eqn:massless}

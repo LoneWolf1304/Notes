@@ -15,7 +15,7 @@ From this, we get two separate equations that should be satisfied by the propose
 \end{equation}
 In the Dirac basis the quantity $\gsl{p}$ becomes:
 \begin{equation}\label{eqn:gammap}
-    \gsl{p} = \gamma^\mu p_\mu = \gamma^0p_0 + \gamma^i p_i =\gamma^0{p^0} - \gamma^i p^i  = \mqty({p^0}\mathds{1} & 0 \\ 0 & -{p^0}\mathds{1} ) - \mqty(0 & \sigma_i p^i \\ -\sigma_i p^i& 0) = \mqty({p^0}\mathds{1} & -\bs{\sigma}\cdot \vb{p}\\ \bs{\sigma}\cdot \vb{p} & -{p^0}\mathds{1})
+    \gsl{p} = \gamma^\mu p_\mu = \gamma^0p_0 + \gamma^i p_i =\gamma^0{p^0} - \gamma^i p^i  = \mqty({p^0}\mathds{1} & 0 \\ 0 & -{p^0}\mathds{1} ) - \mqty(0 & \sigma^i p^i \\ -\sigma^i p^i& 0) = \mqty({p^0}\mathds{1} & -\bs{\sigma}\cdot \vb{p}\\ \bs{\sigma}\cdot \vb{p} & -{p^0}\mathds{1})
 \end{equation}
 Suppose the solutions be decomposed into a pair of two-component spinors such that:
 $$u(p) = \mqty(\xi(p) \\ \phi(p))\qquad v(p)=\mqty(\chi(p)\\ \eta(p))$$
@@ -51,9 +51,9 @@ Exactly same calculations yields for the other solution,
     {v^r}^\dagger v^s = \qty(1 + \frac{{(p^0)}^2-m^2}{(p^0 + m)^2}) \delta^{rs} = \frac{2p^0}{p^0+m}\delta^{rs}
 \end{align}
 These are unfortunately not Lorentz invariant and we need to fix some factors to get a Lorentz invariant inner product between the spinors. Okay, so now let's check the orthogonality of the positive and negative frequency solutions.
-\begin{align*}
+\begin{align}\label{eqn:hehe1}
     {u^r}^\dagger v^s = \mqty({\xi^r}^\dagger & {\xi^r}^\dagger\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}) \mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s\\ \eta^s) = \frac{2}{p^0+m}  {\xi^r}^\dagger\ (\bs{\sigma}\cdot\vb{p})\ \eta^s \neq 0
-\end{align*}
+\end{align}
 The positive and negative frequency solutions are not orthogonal which is problematic since we expect the solutions for particles and anti-particles to not have any overlap. \\[0.2cm]
 We need to find some alternate definition of the inner product. Since the answer has already been found by major stalwarts, we just throw it in here. Consider the inner product $\dadj{u}^r v^s = {u^r}^\dagger \gamma^0 v^s$
 \begin{align*}
@@ -67,7 +67,14 @@ Similar calculation yields, for the negative frequency solution,
 $$\dadj{v}^r v^s = -\frac{2m}{p^0+m}\delta^{rs}$$
 All things look good except the factor $p^0+m$ in the denominator which keeps these inner products from being Lorentz invariant. Hence if we impose the normalisation as:
 $$u^s(p) =\sqrt{p^0+m} \mqty(\xi^s \\ \frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\xi^s)\qquad v^s(p)=\sqrt{p^0+m}\mqty(\frac{(\bs{\sigma}\cdot \vb{p})}{{p^0}+m}\eta^s\\ \eta^s)$$
-then, we will obtain $\dadj{v}^r v^s = -2m\ \delta^{rs}$ and $\dadj{u}^r u^s = 2m\ \delta^{rs}$ which is perfectly Lorentz invariant since it involved only the mass $m$ which is a scalar. Henceforth, we will use this normalisation everytime we write the Dirac spinors. 
+then, we will obtain $\dadj{v}^r v^s = -2m\ \delta^{rs}$ and $\dadj{u}^r u^s = 2m\ \delta^{rs}$ which is perfectly Lorentz invariant since it involved only the mass $m$ which is a scalar. Henceforth, we will use this normalisation everytime we write the Dirac spinors. With this normalisation then, we get:
+\begin{align}\label{eqn:innerspinor}
+    \boxed{u^{r\dagger} u^s = 2p^0 \delta^{rs}}\qquad  \boxed{v^{r\dagger} v^s = 2p^0 \delta^{rs}}
+\end{align}
+Also note that, from Eq. \ref{eqn:hehe1}, if we calculate the expression for $\vb{p}$ and $-\vb{p}$ , we get:
+\begin{align}\label{eqn:innerspinor1}
+   \boxed{ u^{r\dagger}(\vb{p})v^s(-\vb{p}) = u^{r\dagger}(-\vb{p})v^s(\vb{p}) =0}
+\end{align}
 \subsection{Outer Products}
 We looked at inner products and arrived at a nice definition of inner product for Dirac spinors. We now look at the outer product of these spinors. 
 \begin{align*}

@@ -38,7 +38,7 @@ Now, let us come to the Dirac representation which is a reducible representation
 $$\Lambda_{\text{\tiny D}} \equiv \mqty(\Lambda_{\text{\tiny L}} & \\ & \Lambda_{\text{\tiny R}})\qquad \Psi \to \Lambda_{\text{\tiny D}} \Psi$$
 $\vartriangleright$ Why is the Dirac representation even necessary when we already had the Weyl spinors?\\[0.2cm] 
 Well, for that consider the parity transformation where $\vb{x}\to -\vb{x}$. In this case, $\vb{K}\to -\vb{K}$ since the boost velocity is reversed, however, $\vb{J}$ remains same (and thus acts as a \textit{pseudovector}) as intuitively, both position and velocity is reversed.\\[0.2cm] Thus, under parity $\vb{J}^{\pm} \to \vb{J}^{\mp}$ and an object in the $(j_-, j_+)$ representation is changed to an object in the $(j_+,j_-)$ representation which is different unless $j_+ = j_-$.\\[0.2cm] Then, the Weyl spinors (objects of kind $\qty(0,\sfrac{1}{2})$ and $\qty(\sfrac{1}{2},0)$) individually cannot be the basis for a representation of the parity transformation. In this case, it is convenient to work with fields which
-provide a representation of Lorentz and parity transformations together. Thus, we consider a Dirac spinor written in terms of two Weyl spinors, 
+provide a representation of Lorentz and parity transformations together. Thus, we consider a Dirac spinor written in terms of two Weyl spinors\footnote{A subtlety is that this is only true for the \textit{chiral basis} where $\gamma^0$ takes an off-diagonal form}, 
 $$\Psi = \mqty(\psi_{\text {\tiny L}}\\ \psi_{\text{\tiny R}})$$
 which is a $\qty(0,\sfrac{1}{2}) \oplus \qty(\sfrac{1}{2},0)$ object and conforms to parity transformations. Consider an infinitesimal transformation of the Dirac representation, which can be equivalently written as the infinitesimal transformation of the two Weyl representations. 
 \begin{align*}
@@ -74,7 +74,9 @@ We saw that the obvious notion of an \textit{adjoint} is not Lorentz invariant w
 Firstly note that $\gamma^i$'s are anti-Hermitian while $\gamma^0$ is Hermitian. Then we have:
 $$\gamma^0 \gamma^i \gamma^0 = (-\gamma^0)^2\gamma^i = -\gamma^i = {\gamma^i}^\dagger\qquad\quad \gamma^0 \gamma^0 \gamma^0= \gamma^0={\gamma^0}^\dagger$$
 Hence we have the identity:
-$$\boxed{\gamma^0 \gamma^\mu \gamma^0 = {\gamma^\mu}^\dagger}$$
+\begin{align}\label{eqn:gamiden}
+  \boxed{\gamma^0 \gamma^\mu \gamma^0 = {\gamma^\mu}^\dagger}
+\end{align}
 Now, we will try to see how the generators transform under the adjoint. For that, note:
 \begin{align*}
   {\Sigma^{\mu\nu}}^\dagger &= \qty(\frac{i}{2} \comtr{\gamma^\mu}{\gamma^\nu})^\dagger\\
