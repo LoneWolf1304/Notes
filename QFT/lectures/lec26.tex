@@ -1,3 +1,56 @@
 \refstepcounter{section}
-\section*{Lecture 26: Gauging the field!}
-\addcontentsline{toc}{section}{Lecture 26: Gauging the field!}
+\section*{Lecture 26: Gauging the symmetry!}
+\addcontentsline{toc}{section}{Lecture 26: Gauging the symmetry!}
+Here we will consider some non-local symmetries where the parameter itself depends on spacetime. Remember in sec. \ref{sec:intsym}, we had considered a global $\mathrm{U}(1)$ symmetry for the complex scalar field, by the transformation $\phi \to e^{i\alpha}\phi$. There, $\alpha$ was a global parameter, which did not depend on spacetime. Here we will consider the generalisation when $\alpha$ can indeed depend on space-time, giving rise to \textit{local symmetry}. 
+Consider the same Lagrangian as before,
+$$\SL =(\partial^\mu \varphi^*)(\partial_\mu \varphi) -m^2 \varphi^* \varphi$$
+Suppose $\varphi(x) \to e^{iq\mathbb{e}\alpha(x)}\varphi(x)$ such that $\alpha(x)$ is now spacetime dependent and the parameter of transformation is $q\mathbb{e}$, with $q$ being called the \textit{coupling constant}. The second term is invariant under this transformation and the problem arises due to the first (kinetic) term which does not remain invariant under the transformation,
+$$\partial_\mu \varphi(x)\longrightarrow \partial_\mu \qty(e^{iq\mathbb{e}\alpha(x)}\varphi) = (\partial_\mu \varphi(x) + iq\ech\ \partial_\mu \alpha(x)\vph(x))e^{iq\mathbb{e}\alpha(x)}$$
+To resolve the problem, we will define a new kind of derivative, called the \textit{gauge covariant derivative},
+$$\gcod_\mu \varphi :=\partial_\mu \vph +\Gamma_\mu \vph \qquad \Gamma_\mu \equiv -iq\ech A_\mu(x)$$
+where $A_\mu(x)$ is called the \textit{gauge field} and its transformation is defined as,
+$$A_\mu(x) \longrightarrow A_\mu(x) +\partial_\mu\alpha(x)$$
+With the new definition of the derivative, we can see
+\begin{align*}
+    \gcod_\mu\vph(x) \longrightarrow &\qty[\partial_\mu -iq\ech \qty(A_\mu(x)+\partial_\mu\alpha(x)) ]e^{\iqe \alpha(x)}\vph(x)\\
+    =&\qty[(\partial_\mu \varphi(x) +\cancel{ iq\ech\ \partial_\mu \alpha(x)\vph(x)}) -\cancel{\iqe\partial_\mu \alpha(x)\vph{x} }- \iqe A_\mu(x)\vph(x)]  e^{iq\mathbb{e}\alpha(x)}\\
+    =&e^{iq\mathbb{e}\alpha(x)}[\partial_\mu \varphi(x) - \iqe A_\mu(x)]\varphi\\
+    =&e^{iq\mathbb{e}\alpha(x)} \gcod_\mu\vph(x) \implies ( \gcod_\mu\vph(x))^* \longrightarrow e^{-iq\mathbb{e}\alpha(x)} (\gcod_\mu\vph(x))^*
+\end{align*}
+Hence the gauge covariant derivative transforms as we intended, making $\SL$ invariant under the local $\mathrm{U}(1)$ gauge transformation. This kind of treatment is called \textit{gauging the symmetry}, more specifically, we are considering an \textit{abelian} gauge theory, since the symmetry transformation commutes with the field. Henceforth we replace all normal derivatives in the Lagrangian with the covariant derivative, doing which we obtain
+\begin{align*}
+    \SL &=(\gcod^\mu \varphi^*)(\gcod_\mu \varphi) -m^2 \varphi^* \varphi\\
+    &=\qty(\partial^\mu + \iqe A^\mu)\vph^*\qty(\partial_\mu - \iqe A_\mu)\vph-m^2 \varphi^* \varphi\\
+    &=\qty(\partial^\mu \vph^* + \iqe A^\mu\vph^*)\qty(\partial_\mu\vph -\iqe A_\mu\vph)-m^2 \varphi^* \varphi\\
+     &=\qty[{(\partial^\mu \vph^*)(\partial_\mu\vph)-m^2 \varphi^* \varphi}] - \iqe A_\mu  \vph \partial^\mu \vph^* +\iqe A^\mu\vph^*\partial_\mu\vph + g^2\ech^2\vph^* \vph A^\mu A_\mu \\
+    &=\qty[\mathcolor{blue}{(\partial^\mu \vph^*)(\partial_\mu\vph)-m^2 \varphi^* \varphi}] - q\ech A^\mu  \mathcolor{red}{i\qty(\vph \partial_\mu \vph^*-\vph^*\partial_\mu\vph)} + \mathcolor{OliveGreen}{g^2\ech^2\vph^* \vph A^\mu A_\mu }
+\end{align*}
+The blue term is the original scalar field and note from Eq. \ref{eqn:csfcurr}, the red term is actually the conserved Noether current $J_\mu$. Thus, we see that the gauge field now couples to the Noether through the red term and green terms is the four-point interaction term, often called \textit{seagull term} since the Feynman diagram (to be discuss later) looks like seagulls flying with their wings.
+\begin{figure}[H]
+    \centering
+\feynmandiagram [horizontal=a to b] {
+  i1 [particle=\(\varphi\)] -- [scalar] v -- [scalar] i2 [particle=\(\varphi^*\)],
+  v -- [photon] a [particle=\(A_\mu\)],
+  v -- [photon] b [particle=\(A_\nu\)],
+};
+\caption{Feynman diagram showing the `seagull' term. The dashed lines represent the scalar field and the wiggly lines represent the guage field.}
+\end{figure}
+\subsection{Field strength}
+To make the gauge field a true dynamical variable we need to add a term to the Lagrangian involving its derivatives, since the EoM are found from the derivatives. We thus define the \textit{field strength},
+$$F_{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu$$
+The field strength is anti-symmetric in its indices. Considering that normal partial derivatives commute, under the transformation, the field strength remains invariant,
+$$F_{\mu\nu}\longrightarrow \mathcolor{red}{\partial_\mu} (A_\nu+\mathcolor{red}{\partial_\nu \alpha(x)}) - \mathcolor{red}{\partial_\nu} (A_\mu+ \mathcolor{red}{\partial_{\mu}\alpha(x)}) = F_{\mu\nu}$$
+The simplest gauge-invariant Lagrangian we can make out of the field strength is $\SL_{s} =-\sfrac{1}{4} F_{\mu\nu}F^{\mu\nu}$ and thus, we get the total Lagrangian as,
+\begin{align}
+    \boxed{\SL = (\gcod^\mu \varphi^*)(\gcod_\mu \varphi) - m^2 \varphi^* \varphi -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}}
+\end{align}
+\subsection{Gauging the Dirac field}
+We will now couple the gauge field to the Dirac field. The Dirac Lagrangian looks very similar to the complex scalar field Lagrangian, so here also we will replace the normal derivative with the covariant derivative and this is indeed invariant under the local gauge transformation as $\dadj{\Psi}(x)= \Psi^\dagger (x)\gamma^0$ here has the same effect as $\vph^*(x)$ on the transformation. 
+$$\boxed{\SL_{\mathrm{D}} = i \dadj{\Psi} \gamma^\mu \gcod_\mu\Psi -m\dadj{\Psi}\Psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}}$$
+Expanding the covariant derivative as before, we get 
+\begin{align*}
+    \SL_{\mathrm{D}} &=  i \dadj{\Psi} \gamma^\mu (\partial_\mu - \iqe A_\mu(x))\Psi -m\dadj{\Psi}\Psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\\
+    &= [\mathcolor{blue}{i \dadj{\Psi} \gamma^\mu \partial_\mu\Psi -m\dadj{\Psi}\Psi}] -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} +q\ech\mathcolor{red}{\dadj{\Psi}\gamma^\mu \Psi} A_\mu(x)
+\end{align*}
+The blue term, as before denotes the free Dirac field. From Eq. \ref{eqn:diracnoether}, we see that the red term denotes the conserved Noether current which gets coupled to the gauge field, like the previous case. \\[0.2cm]
+If we interpret the field strenth as the electromagnetic field tensor and $A_\mu$ as the four-potential, the above modified Lagrangian essentially describes the coupling of a photon to an electron, which forms the basis of the quantum electrodynamics (QED).

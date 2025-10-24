@@ -31,7 +31,12 @@ Now, suppose there exists a solution $\widetilde{\phi}$ to the equation of motio
 \end{alignat*}
 Let the variation of the Lagrangian be a global symmetry, denoted by, $\delta_\alpha \phi$. Under this symmetry, we want our action $\Ss$ to change atmost by a boundary term and hence we have,
 $$\partial_\mu\qty(\pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi}) = \partial_\mu K^\mu\quad\implies\quad \partial_\mu\qty(\pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi} - K^\mu)=0$$
-Let us define the quantity in the bracket by $J^\mu$ which is called the \textit{Noether current}. Thus, $$J^\mu := \pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi} - K^\mu$$ from where we get $\partial_\mu J^\mu =0\implies \mathrm{\ Noether\ current \ is \ conserved}$.\\[0.2cm]
+Let us define the quantity in the bracket by $J^\mu$ which is called the \textit{Noether current}. Thus, 
+
+\begin{align}\label{eqn:noethercurr}
+    J^\mu := \pdv{\SL}{(\partial_\mu{\phi})}\Bigg|_{\widetilde{\phi}}\delta{\phi} - K^\mu
+\end{align}
+from where we get $\partial_\mu J^\mu =0\implies \mathrm{\ Noether\ current \ is \ conserved}$.\\[0.2cm]
 The above proof worked for internal symmetries where the field itself was varied. Now, let us look into the \textit{spacetime} symmetry, where the spacetime points are varied. For simplicity, we will deal with scalar fields only. Let us consider an infinitesimal coordinate transformation,
 $$x'^\mu = x^\mu + \delta x^\mu$$
 % Under this transformation, the field will transform as:
@@ -161,7 +166,7 @@ $$\dv{t}\int \dd^3\vb{x}\ x^j T^{00} = \SC \ \mathrm(const.)$$
 The above relation can be seen as the centre of energy (or mass) of the field travels with constant velocity as $T^{00}$ can be treated as the Hamiltonian ($\approx$ energy) density. 
 \subsection{Examples: Internal Symmetries}
 Let us now look at internal symmetries, where the spacetime coordinates themselves do not change but the fields change due to some global transformations. 
-\subsubsection{Global $\mathbf{U(1)}$ Symmetry of Complex Scalar Field}
+\subsubsection{Global $\mathbf{U(1)}$ Symmetry of Complex Scalar Field}\label{sec:intsym}
 Consider a complex scalar field $\phi$ with the following Lagrangian:
 $$\SL = (\partial_\mu \phi)(\partial^\mu \phi^*) - m^2\phi\phi^*$$
 Let us consider a $U(1)$ transformation \footnote{This is an \textit{internal} symmetry as spacetime points are not varied.}. Note that elements of the group $U(1)$ are represented by $e^{i\alpha}$, that is, they lie on the unit circle. Then, for an infinitesimal change $\psi\rightarrow e^{i\alpha}\psi$, $e^{i\alpha}=1 + i\alpha +\SO(\alpha^2)$\footnote{This is a \textit{global} symmetry as $\alpha$ does not depend on the spacetime coordinates} and we have:
@@ -172,7 +177,9 @@ Let us consider a $U(1)$ transformation \footnote{This is an \textit{internal} s
 Under this transformation, we see that the Lagrangian is invariant, that is,
 $$\SL' = (\partial_\mu \phi')(\partial^\mu \phi'^*) - m^2\phi'\phi'^* = e^{i\alpha}e^{-i\alpha} (\partial_\mu \phi)(\partial^\mu \phi'^*) - e^{i\alpha}e^{-i\alpha}m^2\phi'\phi'^*= \SL$$
 From this, we can take $K^\mu = 0$. Using the formula for the conserved current, we have:
-$$J^\mu = i\alpha\phi(\partial^\mu \phi^*) -i\alpha\phi^* (\partial^\mu \phi) \sim i(\partial^\mu \phi^*\phi -\partial^\mu \phi\phi^* )$$
+\begin{align}\label{eqn:csfcurr}
+    J^\mu = i\alpha\phi(\partial^\mu \phi^*) -i\alpha\phi^* (\partial^\mu \phi) \sim i(\phi\partial^\mu \phi^* -\phi^*\partial^\mu \phi )
+\end{align}
 The converved charge is then given by the volume integral:
 $$Q = \int \dd^3\vb{x}\ J^0 = -i\int \dd^3\vb{x}\ (\phi\dot{\phi}^* - \dot{\phi}\phi^*)$$
 % \subsubsection{Global $\mathbf{SO(N)}$ symmetry of $\mathbf{N}$-real scalars}

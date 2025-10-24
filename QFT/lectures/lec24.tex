@@ -4,7 +4,7 @@
 Till now we have seen many different aspects of the Dirac equations and now we want to quantise it. For that, we first need to figure out a Lorentz invariant Lagrangian for the Dirac field.
 \subsection{Dirac Lagrangian} 
 The appropriate Lagrangian turns out to be,
-$$\SL\tund{D} = \dadj{\Psi}\ (i \gsl{\partial} - m)\ \Psi$$
+$$\boxed{\SL\tund{D} = \dadj{\Psi}\ (i \gsl{\partial} - m)\ \Psi = \dadj{\Psi}\ (i \gamma^\mu \partial_\mu - m)\ \Psi}$$
 where $\Psi$ and $\dadj{\Psi}$ are now treated as two independent fields. Let us see whether this Lagrangian gives us the correct equation of motion or not! 
    \begin{align*}
     0 = \partial_\mu \qty(\pdv{\SL\tund{D}}{(\partial_\mu \Psi)}) - \pdv{\SL\tund{D}}{\Psi}=i\partial_\mu( \dadj{\Psi} \gamma^\mu) - (-m\dadj{\Psi})=i \partial_\mu \dadj{\Psi}\gamma^\mu +m \dadj{\Psi} &=i\partial_\mu \Psi^\dagger \gamma^0\gamma^\mu +m \Psi^\dagger \gamma^0\\
@@ -18,6 +18,15 @@ where $\Psi$ and $\dadj{\Psi}$ are now treated as two independent fields. Let us
    \begin{align*}
      0 =\partial_\mu \qty(\pdv{\SL\tund{D}}{(\partial_\mu \dadj{\Psi})}) - \pdv{\SL\tund{D}}{\dadj{\Psi}}= 0 - (i \gsl{\partial}\Psi-m\Psi)\implies \boxed{(i\gamma^\mu\partial_\mu \Psi +m \Psi)=0}
    \end{align*}
+   \subsection{Conserved Current}
+   The Dirac Lagrangian exhibits a global $\mathrm{U}(1)$ symmetry since if we consider $$\Psi \longrightarrow e^{i\alpha}\Psi \implies \dadj{\Psi} \longrightarrow e^{-i\alpha}\dadj{\Psi}$$Then, 
+   $$\SL_{\mathrm{D}} \longrightarrow \SL_{\mathrm{D}}' = i e^{-i\alpha}\dadj{\Psi} \gamma^\mu e^{i\alpha}\Psi - m e^{-i\alpha}e^{i\alpha}\dadj{\Psi}\Psi =\SL$$
+   Under the infinitesimal transformation of the Dirac field,
+   $$\delta \Psi = \Psi' - \Psi = \qty(e^{i\alpha}-1)\Psi = [(1 + i\alpha) -1]\Psi = i\alpha\Psi$$
+   using Eq. \ref{eqn:noethercurr} we can find the conserved Noether current as,
+   \begin{align}\label{eqn:diracnoether}
+      J^\mu = \pdv{\SL_{\mathrm{D}}}{(\partial_\mu \Psi)}\delta\Psi + \cancelto{0}{\pdv{\SL_{\mathrm{D}}}{(\partial_\mu \dadj{\Psi})}\delta\dadj{\Psi}} = (i\dadj{\Psi}\gamma^\mu)(i\alpha\Psi) = -\dadj{\Psi}\gamma^\mu\Psi
+   \end{align}
 \subsection{Hamiltonian Density}
 Let us first find the conjugate momentum for the fields. 
 \begin{align*}
