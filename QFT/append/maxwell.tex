@@ -1,0 +1,25 @@
+\section{Maxwell's Equations from Electromagnetic Tensor}\label{sec:appB}
+Maxwell's electromagnetic tensor is defined as,
+\begin{equation}
+    F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
+\end{equation}
+where $A^\mu = (\Phi, \vb{A})$ is the four-potential. Using the four potential, we can write the electric and magnetic fields as
+$$\vb{E} = -\nabla \Phi -\pdv{\vb{A}}{t}\qquad \vb{B} = \nabla\times \vb{A}$$
+Let us now find some components of the electromagnetic tensor,
+\begin{align*}
+    F^{0i} =  \partial^0 A^i - \partial^i A^0 = \partial_0 A^i +\partial_i A^0 = -\qty[ - \dv{t} A^i - \partial_i A^0] = -E^i\\
+\end{align*}
+We also have the expression of the magnetic field as, \begin{align*}
+    B^i = \varepsilon^{ijk}\partial^j A^k = \frac{1}{2}\qty[\varepsilon^{ijk}\partial^j A^k +\varepsilon^{ijk}\partial^j A^k] &= \frac{1}{2}\qty[\varepsilon^{ijk}\partial^j A^k -\varepsilon^{ikj}\partial^j A^k]\\  &=\frac{1}{2}\qty[\varepsilon^{ijk}\partial^j A^k -\varepsilon^{ijk}\partial^k A^j]\\ &= \frac{1}{2}\varepsilon^{ijk} \qty(\partial^j A^k-\partial^k A^j)\\
+    &=\frac{1}{2}\varepsilon^{ijk}F^{jk}
+\end{align*}
+where in one step we introduced a minus by interchanging the Levi-Civita position and then in the next step, we renamed dummy indices $j \leftrightarrow k$. Thus, the explicit matrix representation of the electromagnetic tensor becomes:
+\[
+\qty[F^{\mu\nu}] =
+\begin{pmatrix}
+0 & -E^1 & -E^2 & -E^3 \\
+E^1 & 0 & B^3 & -B^2 \\
+E^2 & -B^3 & 0 & -B^1 \\
+E^3 & B^2 & -B^1 & 0
+\end{pmatrix}.
+\]

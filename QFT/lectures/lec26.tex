@@ -46,11 +46,45 @@ The simplest gauge-invariant Lagrangian we can make out of the field strength is
 \end{align}
 \subsection{Gauging the Dirac field}
 We will now couple the gauge field to the Dirac field. The Dirac Lagrangian looks very similar to the complex scalar field Lagrangian, so here also we will replace the normal derivative with the covariant derivative and this is indeed invariant under the local gauge transformation as $\dadj{\Psi}(x)= \Psi^\dagger (x)\gamma^0$ here has the same effect as $\vph^*(x)$ on the transformation. 
-$$\boxed{\SL_{\mathrm{D}} = i \dadj{\Psi} \gamma^\mu \gcod_\mu\Psi -m\dadj{\Psi}\Psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}}$$
+$$\boxed{\SL\tund{D} = i \dadj{\Psi} \gamma^\mu \gcod_\mu\Psi -m\dadj{\Psi}\Psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}}$$
 Expanding the covariant derivative as before, we get 
 \begin{align*}
-    \SL_{\mathrm{D}} &=  i \dadj{\Psi} \gamma^\mu (\partial_\mu - \iqe A_\mu(x))\Psi -m\dadj{\Psi}\Psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\\
+    \SL\tund{D} &=  i \dadj{\Psi} \gamma^\mu (\partial_\mu - \iqe A_\mu(x))\Psi -m\dadj{\Psi}\Psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\\
     &= [\mathcolor{blue}{i \dadj{\Psi} \gamma^\mu \partial_\mu\Psi -m\dadj{\Psi}\Psi}] -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} +q\ech\mathcolor{red}{\dadj{\Psi}\gamma^\mu \Psi} A_\mu(x)
 \end{align*}
 The blue term, as before denotes the free Dirac field. From Eq. \ref{eqn:diracnoether}, we see that the red term denotes the conserved Noether current which gets coupled to the gauge field, like the previous case. \\[0.2cm]
 If we interpret the field strenth as the electromagnetic field tensor and $A_\mu$ as the four-potential, the above modified Lagrangian essentially describes the coupling of a photon to an electron, which forms the basis of the quantum electrodynamics (QED).
+\subsection{Equations of Motion}
+In both the cases above, we saw that expanding the kinetic term led to the coupling between the gauge field and the current. Thus, if we consider a generic Lagrangian,
+$$\SL\tund{g} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} -J^\mu A_\mu$$
+Since we are focussing on the dynamics of the gauge field, we need to find the EoM using the gauge field, that is,
+$$\partial_\mu\qty(\pdv{\SL\tund{g}}{(\partial_\mu A_\nu)}) - \underbrace{\pdv{\SL\tund{g}}{A_{\nu}}}_{-J^\nu}=0$$
+Let us calculate this step-by-step by first noting that
+\begin{align*}
+    F_{\mu\nu}F^{\mu\nu}&= (\partial_\mu A_\nu - \partial_\nu A_\mu)(\partial^\mu A^\nu - \partial^\nu A^\mu)\\
+    &=\partial_\mu A_\nu\partial^\mu A^\nu -\partial_\nu A_\mu\partial^\mu A^\nu -\partial_\mu A_\nu \partial^\nu A^\mu + \partial_\nu A_\mu \partial^\nu A^\mu\\
+    &=2\qty[\partial_\mu A_\nu\partial^\mu A^\nu  - \partial_\nu A_\mu\partial^\mu A^\nu]\\
+    &=2\qty[\partial_\mu A_\nu\partial^\mu A^\nu  - \partial_\mu A_\nu\partial^\nu A^\mu]\\
+    &=2\ \partial_\mu A_\nu F^{\mu\nu}
+\end{align*}
+Also note that,
+$$\pdv{F^{\rho\sigma}}{(\partial_\mu A_\nu)} = \pdv{(\partial^\rho A^\sigma)}{(\partial_\mu A_\nu)} - \pdv{(\partial^\sigma A^\rho)}{(\partial_\mu A_\nu)} = (\tensor{\eta}{^{\rho} ^\mu}\tensor{\eta}{^{\sigma} ^\nu}-\tensor{\eta}{^\sigma ^\mu}\tensor{\eta}{^{\rho} ^\nu})$$
+Using this, we get the equation of motion as:
+\begin{align*}
+    0 &=-\frac{1}{4} \partial_\mu\qty(\pdv{(F_{\rho\sigma}F^{\rho\sigma})}{(\partial_\mu A_\nu)}) + J^\nu\\
+    &=-\frac{1}{4}\times 2\times\partial_\mu\qty[\tensor{\delta}{^\mu _{\rho} }\tensor{\delta}{ ^\nu _{\sigma} } F^{\rho\sigma} + \partial_\rho A_\sigma \pdv{F^{\rho\sigma}}{(\partial_\mu\partial_\nu)}] + J^\nu\\
+    &=-\frac{1}{2}\times\partial_\mu\qty[F^{\mu \nu} +  \partial_\rho A_\sigma \qty(\tensor{\eta}{^{\rho} ^\mu}\tensor{\eta}{^{\sigma} ^\nu}-\tensor{\eta}{^\sigma ^\mu}\tensor{\eta}{^{\rho} ^\nu})]+J^\nu\\
+    &=-\frac{1}{2}\times\partial_\mu \qty[F^{\mu \nu} + \partial^\mu A^\nu  - \partial^\nu A^\mu] + J^\nu\\
+    &=-\ \partial_\mu F^{\mu\nu} + J^\nu
+\end{align*}
+We get the equation of motion as very similar to the Maxwell's equations,
+$$\boxed{\partial_\mu F^{\mu\nu} = J^\nu}$$
+Let us now find the conjugate momenta for the gauge field
+\begin{align*}
+    \Pi^\mu = \pdv{\SL\tund{g}}{(\partial_0 A_\mu)} &= -F^{0\mu}
+\end{align*}
+\begin{itemize}
+    \item[$\vartriangleright$] $\mu=0$ (temporal component)  $\longrightarrow \Pi^0 = -F^{00} = 0$ which is a \textit{primary constraint} since this does not depend on the EoM. This results purely from the Lagrangian definition. 
+    \item[$\vartriangleright$] $\mu \neq 0$ (spatial components)  $\longrightarrow \Pi^i = -F^{0i} = E^i$ from sec \ref{sec:appB}.
+\end{itemize} 
+where $E^i$ denotes the component of the electric field. Thus, we have the conjugate momenta as $\Pi^\mu = (0,\vb{E})$.
