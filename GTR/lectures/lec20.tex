@@ -13,15 +13,15 @@ Now let us do some analysis based on physical argument. So we want our solution 
 \end{align*}
 where $l$ is some constant. This gives the interpretation of \textit{angular momentum}, with the subtlety that now, the derivative is with respect to the proper time $\tau$. We thus see that the assumption of planar motion directly handed us the conservation of angular momentum here also. \\[0.2cm]
 Let us recall a bit about the Newtonian Lagrangian for the motion of the planet. The general Lagrangian in spherical polar coordinates for the Newtonian case is given by:
-$$\SL = \frac{1}{2}m\qty(\dot{r}^2+ r^2\dot{\theta}^2+ r^2\sin^2\theta \dot{\phi}^2)- V_N \quad \xrightarrow{\theta=\sfrac{\pi}{2}} \SL =  \frac{1}{2}m\qty(\dot{r}^2+ r^2 \dot{\phi}^2)-V_N$$
-where $V_N$ denotes the Newtonian potential and for this problem, $V_N = -\frac{GM}{r}$. We now find the ELEOM from this:
+$$\SL = \frac{1}{2}m\qty(\dot{r}^2+ r^2\dot{\theta}^2+ r^2\sin^2\theta \dot{\phi}^2)- V\tund{N} \quad \xrightarrow{\theta = \sfrac{\pi}{2}} \SL =  \frac{1}{2}m\qty(\dot{r}^2+ r^2 \dot{\phi}^2)-V\tund{N}$$
+where $V\tund{N}$ denotes the Newtonian potential and for this problem, $V\tund{N} = -\frac{GM}{r}$. We now find the ELEOM from this:
 \begin{align*}
     &\dv{t}\qty(\pdv{\SL}{\dot{\phi}}) = \dv{\SL}{\phi} \longrightarrow \dv{t}\qty(mr^2\dot{\phi}) = 0\\
-    &\dv{t}\qty(\pdv{\SL}{\dot{r}}) = \dv{\SL}{r} \longrightarrow \ddot{r} = \pdv{r}\qty(\frac{1}{2}mr^2\dot{\phi}^2 -V_N) = \pdv{r}\qty(\frac{l^2}{2mr^2} )
+    &\dv{t}\qty(\pdv{\SL}{\dot{r}}) = \dv{\SL}{r} \longrightarrow \ddot{r} = \pdv{r}\qty(\frac{1}{2}mr^2\dot{\phi}^2 -V\tund{N}) = \pdv{r}\qty(\frac{l^2}{2mr^2} - V\tund{N} )
 \end{align*}
-Thus, we see that the body `feels' two potentials and we can thus define an \textit{effective potential} as $V^{\mathrm{eff}}_{\textrm{N}}$ as:
+Thus, we see that the body `feels' two potentials and we can thus define an \textit{effective potential} as $V^{\mathrm{eff}}\tund{N}$ as:
 \begin{align}
-    \boxed{V^{\mathrm{eff}}_{\textrm{N}} := V_N + \frac{l^2}{2mr^2} = -\frac{GM}{r} + \frac{l^2}{2mr^2}}\label{eqn:veffn}
+    \boxed{V^{\mathrm{eff}}\tund{N} := V\tund{N} + \frac{l^2}{2mr^2} = -\frac{GM}{r} + \frac{l^2}{2mr^2}}\label{eqn:veffn}
 \end{align}
 Now, let us come back to Eq. \ref{eqn:rscs} and write it in the form below:
 \begin{align}
@@ -33,9 +33,9 @@ Also, recall that in natural units, $\dd s^2 = -\dd \tau^2$ and rearranging the 
 $$1+ r^2 \qty(\dv{\phi}{\tau})^2 = \frac{r- r_s}{r}\qty(\dv{t}{\tau})^2 - \frac{r}{r-r_s}\qty(\dv{r}{\tau})^2$$
 Substituting this in Eq. \ref{eqn:rscs} we get:
 $$\dv[2]{r}{\tau}+ \frac{r_s}{2r^2}\qty(1+r^2 \times \frac{l^2}{m^2r^4})-(r-r_s)\frac{l^2}{m^2r^4} =0\implies \boxed{\dv[2]{r}{\tau} = \frac{l^2}{m^2r^3} - \frac{3r_sl^2}{2m^2r^4} - \frac{r_s}{2r^2}}$$
-From this, we can define an effective potential as $\sfrac{\dd^2 r}{\dd \tau^2} = - \sfrac{\partial V^{\mathrm{eff}}_{\textrm{GR}}}{\partial r}$ where, 
+From this, we can define an effective potential as $\sfrac{\dd^2 r}{\dd \tau^2} = - \sfrac{\partial V^{\mathrm{eff}}\tund{GR}}{\partial r}$ where, 
 \begin{align}\label{eqn:veffgr}
-    \boxed{{V^{\mathrm{eff}}_{\textrm{GR}}} = -\frac{r_s}{2r} + \frac{l^2}{2m^2 r^2} \qty(1 - \frac{r_s}{r})}
+    \boxed{{V^{\mathrm{eff}}\tund{GR}} = -\frac{r_s}{2r} + \frac{l^2}{2m^2 r^2} \qty(1 - \frac{r_s}{r})}
 \end{align}
 We have to somehow reconcile Eq. \ref{eqn:veffgr} and Eq. \ref{eqn:veffn} in an appropriate limit. These look very similar and we can do an identification:
 $$r_s = 2GM$$

@@ -22,7 +22,7 @@ $$\frac{\lambda_r}{\lambda_{\scalebox{0.7}{\infty}}} =\sqrt{1-\frac{2GM}{r}} \im
 Thus, the wavelength observed at infinity is longer than the wavelength at $r$. This is called \textit{red shift} since a the wavelength shifts towards the `red' end of the spectrum. 
 \subsection{Interior Solution}
 We now focus on the interior solutiono of the Schwarzschild metric for a spherically symmetric body. In this case, $\ST_{\mu\nu}\neq 0$. Recall that the general metric had the form 
-$$\dd s^2 = f(t)\dd t^2 + h(r)\dd r^2 + r^2\dd \Omega^2\qquad\text{where} \dd \Omega^2 = \dd\theta^2+ \sin^2\theta\dd \phi^2$$
+$$\dd s^2 = f(t)\dd t^2 + h(r)\dd r^2 + r^2\dd \Omega^2\qquad\text{where}\ \  \dd \Omega^2 = \dd\theta^2+ \sin^2\theta\dd \phi^2$$
 We define $f(r) = -e^{2\Phi}$ and $h(r) = e^{2\nu}$ where $\Phi$ and $\nu$ are some unknown functions of $r$. Note that the sign for the functions have been arbitrarily chosen. Opposite signs are chosen since space and time should be distinguished somehow and the time part, we saw was negative atleast for the Minkowski case. Hence this choice!\\[0.2cm]
 Now, we use the numerical computation (see Appendix \ref{sec:appenC}) to find the Christoffel symbols and Einstein tensor. The required non-zero components are:
 $$\chris{r}{t}{t} = e^{2(\Phi-\nu)}\phi'\qquad \begin{matrix}
@@ -40,7 +40,7 @@ Now, assume a static spacetime, that is, the fluid on average does not move. Hen
 $$u^\mu = (u^0,0,0,0)$$
 As specified earlier, $g_{\mu\nu}u^\mu u^\nu = -1 $, we then have $$-e^{2\Phi}(u^0)^2 = -1\implies \boxed{u^0= e^{-\Phi}}\implies u_0 = -\sfrac{1}{u^0}= -e^\Phi$$
 Then the components of the stress-energy tensor become:
-$$\vartriangleright \ST_{00} = (\rho+P)e^{2\Phi}-\underbrace{e^{2\Phi}}_{g_00}P = \rho e^{2\Phi} \qquad \vartriangleright \ST_{11}= Pg_{11}= Pe^{2\nu}$$
+$$\vartriangleright \ST\tund{00} = (\rho+P)e^{2\Phi}-\underbrace{e^{2\Phi}}_{g_00}P = \rho e^{2\Phi} \qquad \vartriangleright \ST_{11}= Pg_{11}= Pe^{2\nu}$$
 Then, using the Einstein equation we get:
 \begin{align*}
     G_{tt} = 8\pi G\ST_{00}\longrightarrow\qquad &\frac{1}{r^2}e^{2(\Phi-\nu)}(-1 +2r\nu'+e^{2\nu})=8\pi G \rho e^{2\Phi}\\
@@ -48,7 +48,9 @@ Then, using the Einstein equation we get:
     \implies & \boxed{\dv{r}\qty(r(1-e^{-2\nu})) = 8\pi G\rho r^2}\\
 \end{align*}
 Now suppose we define a new function $\SM(r) :=\frac{r(1-e^{-2\nu})}{2G}$. Substituting this above we get:
-$$\boxed{\dv{\SM}{r} = 4\pi r^2\rho}$$
+\begin{equation}\label{eqn:TOV1}
+    \boxed{\dv{\SM}{r} = 4\pi r^2\rho}
+\end{equation}
 This is so much similar like the \textit{mass} of a thin shell. Indeed, if we write 
 $$e^{-2\nu} = \qty[1 - \frac{2G\SM(r)}{r}]$$
 then, at $r\gtrapprox R$, this must be equal to $h(r)$ for the exterior solution case which was equal to $\qty(1-\frac{2GM}{r})^{-1}$. Thus, at $r=R$, $\SM(r)$ is identified with the mass of the object, that is, $\SM(R) = M$. This is okay, since the metric must be continuous at the boundary and the interior and exterior solution must match at $r=R$. Hence, this quantity has some kind of interpretation of mass. 

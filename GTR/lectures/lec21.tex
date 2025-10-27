@@ -9,16 +9,16 @@ Since we are considering spherical polar coordinates, we introduce $u = \frac{1}
 \end{align*} 
 Recall that we had, $\dv{\phi}{\tau} = \frac{l}{mr^2}$ and $\dv{r}{\phi} = -r^2 \dv{u}{\phi}$, substituting which we obtain:
 $$-\frac{l^2u^2}{m^2}\dv[2]{u}{\phi} = -GMu^2 + \frac{l^2 u^3}{m^2} - \frac{3GMl^2}{m^2}u^4$$
-Introducing $u_0 = \sfrac{GMm^2}{l^2} = \sfrac{1}{r_0}$, we get a simplified equation:
-$$\boxed{\dv[2]{u}{\phi}+u = u_0+3GMu^2}$$
+Introducing $u\tund{0} = \sfrac{GMm^2}{l^2} = \sfrac{1}{r_0}$, we get a simplified equation:
+$$\boxed{\dv[2]{u}{\phi}+u = u\tund{0}+3GMu^2}$$
 Let us parameterise this solution by $\vep$ such that for $\vep = 0$, we have the Newtonian limit and for $\vep=1$ we obtain the GR solution. Thus, 
 \begin{equation}\label{eqn:idk}
-    \dv[2]{u}{\phi}+u = u_0+3GM\vep u^2 \quad \longrightarrow \text{solution:} u = u_{\mathrm{N}} + \vep u_{\mathrm{E}}
+    \dv[2]{u}{\phi}+u = u\tund{0}+3GM\vep u^2 \quad \longrightarrow \text{solution:} u = u\tund{N} + \vep u\tund{E}
 \end{equation}
 $\vartriangleright$ \textbf{Newtonian Solution} $\longrightarrow \vep =0$\\[0.2cm]
 Eq. \ref{eqn:idk} becomes the simple harmonic oscillators equation:
-$$\frac{\dd^2}{\dd \phi^2}(u-u_0) +(u-u_0)=0$$
-whose solution is given by $u(\phi) = u_0 + \SA \cos(\phi-\phi_0)$. We can take $\phi_0=0$. We write this in an alternative form as:
+$$\frac{\dd^2}{\dd \phi^2}(u-u\tund{0}) +(u-u\tund{0})=0$$
+whose solution is given by $u(\phi) = u\tund{0} + \SA \cos(\phi-\phi_0)$. We can take $\phi_0=0$. We write this in an alternative form as:
 \begin{equation}
     u_N = \frac{1}{r_N} = \frac{1}{r_0}\qty[1+e\cos\phi]
 \end{equation}
@@ -64,41 +64,41 @@ Consider the case of elliptic orbit, with Sun at one of the focus. We consider t
 $$\dv{u}{\phi} = -\frac{e}{r_0}\sin\phi = 0\implies \phi = 2n\pi\ n = 0,1,2\ldots$$
 We consider only the perihelion position here. Thus, the Newtonian theory says that perihelion occurs at exactly the same position always. So, after one period of revolution, the planet comes back to the original position (since $\phi = 2n\pi$ all correspond to the same point) however, it was observed that the perihelion shifts gradually. \\[0.2cm]
 $\vartriangleright$ \textbf{GR corrections to the orbit}\\[0.2cm]
-Substituting $u=u_{\mathrm{N}} + \vep u_{\mathrm{E}}$ as specified earlier, we have:
+Substituting $u=u\tund{N} + \vep u\tund{E}$ as specified earlier, we have:
 \begin{align*}
-    \dv[2]{u}{\phi} + u_{\mathrm{N}} + \vep u_{\mathrm{E}} =u_0+ 3GM\vep (u_{\mathrm{N}} + \vep u_{\mathrm{E}})^2   \implies u_0 + \vep \dv[2]{u_{\mathrm{E}}}{\phi} + u_{\mathrm{E}} = u_0 +3GM\vep (u_{\mathrm{N}} + \vep u_{\mathrm{E}})^2 
+    \dv[2]{u}{\phi} + u\tund{N} + \vep u\tund{E} =u\tund{0}+ 3GM\vep (u\tund{N} + \vep u\tund{E})^2   \implies u\tund{0} + \vep \dv[2]{u\tund{E}}{\phi} + u\tund{E} = u\tund{0} +3GM\vep (u\tund{N} + \vep u\tund{E})^2 
 \end{align*}
-Upto $\SO(\vep)$, the RHS is just $3GMu_{\mathrm{N}}^2 \vep$ and hence we have:
-$$ \dv[2]{u_{\mathrm{E}}}{\phi} + u_{\mathrm{E}} = 3GMu_{\mathrm{N}}^2 = 3GMu_0^2 (1+e\cos\phi)^2$$
-Let us define $u_{\mathrm{E}}^o :=3GMu_0^2$. Now, for many stars, the eccentricity is close to zero, so we can assume $e\ll 1$ which allows us to expand the square term linearly. We get:
+Upto $\SO(\vep)$, the RHS is just $3GMu\tund{N}^2 \vep$ and hence we have:
+$$ \dv[2]{u\tund{E}}{\phi} + u\tund{E} = 3GMu\tund{N}^2 = 3GMu\tund{0}^2 (1+e\cos\phi)^2$$
+Let us define $u\tund{E}^o :=3GMu\tund{0}^2$. Now, for many stars, the eccentricity is close to zero, so we can assume $e\ll 1$ which allows us to expand the square term linearly. We get:
 \begin{equation}\label{eqn:ue}
-    \dv[2]{u_{\mathrm{E}}}{\phi} + u_{\mathrm{E}} = u_{\mathrm{E}}^o(1+2e\cos\phi)
+    \dv[2]{u\tund{E}}{\phi} + u\tund{E} = u\tund{E}^o(1+2e\cos\phi)
 \end{equation}
-Assume an ansatz of $u_E =  u_{\mathrm{E}}^o + b\phi \sin\phi$ and note that:
+Assume an ansatz of $u_E =  u\tund{E}^o + b\phi \sin\phi$ and note that:
 \begin{align*}
     u' = b(\phi \cos\phi + \sin\phi) \\
     u'' = b(2\cos\phi -\phi \sin\phi )
 \end{align*}
 Substituting this in Eq. \ref{eqn:ue}, we get:
 \begin{align*}
-    b (2\cos\phi-\phi\sin\phi+\phi\sin\phi)+ u_{\mathrm{E}}^o=  u_{\mathrm{E}}^o(1+2e\cos\phi) \implies \boxed{b=e u_{\mathrm{E}}^o}
+    b (2\cos\phi-\phi\sin\phi+\phi\sin\phi)+ u\tund{E}^o=  u\tund{E}^o(1+2e\cos\phi) \implies \boxed{b=e u\tund{E}^o}
 \end{align*}
 Then upto $\SO(\vep)$ the equation of orbit in GR $(\vep=1)$ becomes:
 \begin{equation}\label{eqn:grrad}
-    \frac{1}{r(\phi)} =  u_{\mathrm{N}}+  u_{\mathrm{E}} = u_0(1+e\cos\phi) + \qty[3GMu_0^2(1+e\phi\sin\phi)]
+    \frac{1}{r(\phi)} =  u\tund{N}+  u\tund{E} = u\tund{0}(1+e\cos\phi) + \qty[3GMu\tund{0}^2(1+e\phi\sin\phi)]
 \end{equation}
 Now, suppose we want to calculate the perihelion for this equation. Ofcourse the perihelion is not going to be some nice expression. However, based on our intuition, we can expect that the shift might not be much from the Newtonian case, hence we assume the perihelion position to be:
 $$\phi_n = 2n\pi + \delta \phi$$
 Now, we extremise the equation with respect to this $\phi$ and put the above expression for the corrected perihelion. 
 \begin{align*}
-    \dv{u}{\phi} = -u_0e\sin\phi +3GMu_0^2e\qty(\sin\phi + \phi\cos\phi)\Bigg|_{\phi_n}=0
+    \dv{u}{\phi} = -u\tund{0}e\sin\phi +3GMu\tund{0}^2e\qty(\sin\phi + \phi\cos\phi)\Bigg|_{\phi_n}=0
 \end{align*}
 Substituting the value of $\phi_n$ and noting that $\sin(2n\pi+x) = x$, we get:
 \begin{align*}
-    \sin(\delta\phi)(1-3GMu_0) - 3GMu_0(2n\pi+\delta\phi)\cos(\delta\phi) = 0
+    \sin(\delta\phi)(1-3GMu\tund{0}) - 3GMu\tund{0}(2n\pi+\delta\phi)\cos(\delta\phi) = 0
 \end{align*}
 Upto $\SO(\delta\phi)$, we obtain $\sin(\delta\phi) \approx \delta \phi$ and $\cos(\delta\phi)\approx 1$. Substituting this above we get:
-$$\delta\phi(1-6GMu_0) = 6GMu_0 n\pi \implies \delta\phi =\frac{6GMu_0}{(1-6GMu_0)}n\pi \simeq \frac{6GM^2m^2}{l^2}n\pi$$
+$$\delta\phi(1-6GMu\tund{0}) = 6GMu\tund{0} n\pi \implies \delta\phi =\frac{6GMu\tund{0}}{(1-6GMu\tund{0})}n\pi \simeq \frac{6GM^2m^2}{l^2}n\pi$$
 Thus, we see that the shift in the perihelion is by a finite angle given by: 
 $$\delta\phi = \frac{6GM^2m^2}{l^2}n\pi\longrightarrow \boxed{\Delta\phi = \delta\phi_{n+1} - \delta\phi_n =  \frac{6GM^2m^2}{l^2}}$$
 So after one period, the planet does not come back to its original position, indicating the orbit must be changing with time. For Mercury, $\Delta\phi \simeq 43''$ per century which is a really, really minute thing\footnote{ That's what she said \emoji{wink}}, however, the effect is noticeable since we have been collecting data for centuries and also with increasing precision of modern instruments, it is evident. 
@@ -108,7 +108,7 @@ So after one period, the planet does not come back to its original position, ind
     \caption{Diagram showing the perihelion shift of a planet}
 \end{figure}
 \subsection{Black Hole}
-Note the potential for GR, which has an attractive $\frac{1}{r^3}$ term which dominates for $r\to 0$ and thus, there exists a point of no return, that is, if $r<r_o$, then we cannot come back as $V^{\text{eff}}_{\mathrm{GR}}$ is unbounded from below. 
+Note the potential for GR, which has an attractive $\frac{1}{r^3}$ term which dominates for $r\to 0$ and thus, there exists a point of no return, that is, if $r<r_o$, then we cannot come back as $V^{\text{eff}}\tund{GR}$ is unbounded from below. 
 \begin{figure}[H]
     \centering 
     \includegraphics[scale=0.6]{pics/potential.pdf}

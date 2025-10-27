@@ -1,0 +1,50 @@
+\refstepcounter{section}
+\section*{Lecture 24: Gravitational Waves }
+We will now look at a prediction which was purely based on general relativity, having no Newtonian explanation. For that, we have to consider a linearised gravity, that is, some weak perturbation to the flat-spacetime.\\[0.2cm]
+Consider a metric which is `almost Minkowski', parameterised by $\vep$
+$$g_{\mu\nu} = \eta_{\mu\nu} + \vep h_{\mu\nu}$$
+where $h_{\mu\nu}$ is the perturbation and $\vep$ controls the strength of the perturbation and we will consider upto $\SO(\vep^1)$. To this end, we will assume that the indices are lowered/raised by the usual Minkowski metric and not by $g^{\mu\nu}$. First we need to find the inverse of the metric and for that, consider an ansatz which is linear in $\vep$
+$$g^{\mu\nu} = \eta^{\mu\nu} + \vep \omega^{\mu\nu}$$
+Then substituting this in the inverse equations, we obtain 
+\begin{align*}
+    \tensor{\delta}{^\mu _\alpha} &= g^{\mu\nu} g_{\nu \alpha}\\
+    &= \tensor{\delta}{^\mu _\alpha} + \vep\qty(\eta^{\mu\nu}h_{\nu\alpha} +\omega^{\mu\nu} \eta_{\nu\alpha} ) + \SO(\vep^2)\\
+    &=\tensor{\delta}{^\mu _\alpha} + \vep\qty(\tensor{h}{^\mu _\alpha} +\tensor{\omega}{^\mu _\alpha} ) + \SO(\vep^2)
+\end{align*}
+Thus, upto first order we obtain $\tensor{h}{^\mu _\alpha} = -\tensor{\omega}{^\mu _\alpha}$, hence the inverse metric upto the leading order becomes,
+$$\boxed{g^{\mu\nu} = \eta^{\mu\nu} - \vep h^{\mu\nu}}$$
+We can now proceed to calculate other quantities. Let us start with Christoffel symbols, which takes the form 
+$$\chris{\mu}{\alpha}{\beta} ={\chris{{\mu^\text{\tiny (0)}}}{\alpha}{\beta}} +\vep {\chris{{\mu^\text{\tiny (1)}}}{\alpha}{\beta}} $$
+where the superscripts denotes the order of expansion. The zeroeth order term (which is purely Minkowski) vanishes, since the Minkowski metric is constant. The first order term is,
+$${\chris{{\mu^\text{{\tiny (1)}}}}{\alpha}{\beta}} = \frac{1}{2}\eta^{\mu\rho} \qty[\partial_\alpha h_{\rho\beta} +\partial_\beta h_{\alpha\beta} - \partial_\rho h_{\alpha\beta} ]$$
+Since the zeroeth order term of the Christoffel symbol vanishes, the leading order in $\Gamma$ is $\SO(\vep)$ and hence the Riemann tensor, which contains one of the terms as products of two Christoffel symbols, will become $\SO(\vep^2)$ which we do not want. Thus, upto leading order the Riemann tensor becomes:
+$$\rie{{\rho^{\text{{\tiny(1)}}}}}{\sigma}{\mu}{\nu} = \partial_\mu {\chris{{\rho^\text{{\tiny (1)}}}}{\nu}{\sigma}}- \partial_\nu {\chris{{\rho^\text{{\tiny (1)}}}}{\mu}{\sigma}}$$
+since the zeroeth order term vanishes. Similar thing happens with the Ricci tensor and the Ricci scalar. We will now focus on the vacuum solution, for which $\ST^{\mu\nu}(\fvec{x}) = 0\implies G_{\mu\nu} = 0\implies R_{\mu\nu} = 0$
+\begin{align*}
+    R_{\mu\nu}^{\text{{\tiny (1)}}} &= \partial_\rho {\chris{{\rho^\text{{\tiny (1)}}}}{\nu}{\nu}}- \partial_\nu {\chris{{\rho^\text{{\tiny (1)}}}}{\mu}{\rho}}\\
+    &=\frac{1}{2}\mathcolor{red}{\partial_\rho}\qty{\mathcolor{red}{\eta^{\rho\sigma}} \qty[\partial_\mu h_{\sigma\nu} +\mathcolor{red}{\partial_\nu h_{\mu\sigma}} - \partial_\sigma h_{\mu\nu} ]}-\frac{1}{2}\mathcolor{red}{\partial_\nu}\qty{\mathcolor{red}{\eta^{\rho\sigma}} \qty[\partial_\mu h_{\rho\sigma} +\mathcolor{red}{\partial_\rho h_{\sigma\mu}} - \partial_\sigma h_{\mu\rho} ]} \\
+    &=\frac{1}{2}\qty{\partial_\mu \partial^\sigma h_{\sigma\nu} -\partial_\rho \partial^\rho h_{\mu\nu} - \partial_\mu \partial_\nu (\tensor{h}{^\rho _\rho}) +\partial_\nu \partial^{\rho}h_{\mu\rho}} = 0
+\end{align*}
+Let us define $\square :=\partial_\mu \partial^\mu$ and $\mathfrak{h}:=\tensor{h}{^\rho _\rho}$ and using these, we get the linearised Einstein's equation as,
+\begin{equation}\label{eqn:lingrav}
+   \boxed{ \partial_\mu \partial^\sigma h_{\sigma\nu}+\partial_\nu \partial^{\rho}h_{\mu\rho} -\square h_{\mu\nu} - \partial_\mu \partial_\nu \mathfrak{h} =0}
+\end{equation}
+\subsection{Engaging with the gauge}
+Einstein has always been a simp for Maxwell and held his theory in high regard. We can formulate Maxwell's equations using the anti-symmetric electromagnetic tensor $F_{\mu\nu}$ defined as
+$$F_{\mu\nu}:= \partial_\mu A_\nu - \partial_\nu A_\mu$$
+Suppose were consider a source-free region such that the current $J^\nu =0 $, in which the Maxwell's equation become
+$$\partial_\mu F^{\mu\nu} = 0 \implies \partial_\mu ( \partial^\mu A^\nu - \partial^\nu A^\mu) = \square A^\nu - \partial^\nu (\partial_\mu A^\mu) = 0 $$
+We can introduce a gauge degree of freedom such that $A_\mu \longrightarrow A_\mu + \partial_\mu \lambda$ which keeps $F_{\mu\nu}$ invariant. A popular gauge choice is the Lorentz gauge such that $\partial_\mu A^\mu = 0$ which gives us $\square A_\nu =0$ which has plane-wave solutions,
+$$A_\nu (\fvec{x}) = \SC_\nu \cos (k\cdot x) + \SD_\nu\sin(k\cdot x)$$
+where the $\cdot$ represent four-vector inner product. Similar to electromagnetism, we can impose a gauge freedom in the linearised gravity too. A popular choice for the gauge is the \textit{traceless-transverse} gauge which satisfies,
+$$\partial^\rho h_{\mu \rho} = 0\qquad \mathfrak{h} =0$$
+Using this gauge choice, Eq. \ref{eqn:lingrav} becomes
+$$\square h_{\mu\nu}(\fvec{x})=0$$
+which again admits a plane-wave solution for the perturbation $h_{\mu\nu}$, which is given as
+$$h_{\mu\nu}(\fvec{x}) = \SC_\nu \cos (k\cdot x) + \SD_\nu\sin(k\cdot x)$$
+We obtained plane-wave solutions as a result of linearised Einstein gravity. Thus, the perturbation to the background Minkowski field propagate as waves through space-time. \\[0.2cm]
+To see this more clearly, let us consider two points $P\tund{1} (x\tund{1}^\mu)$ and $P\tund{2}(x\tund{2}^\mu)$. The proper distance between these points is defined as,
+$$d^2 = g_{\mu\nu} (\underbrace{x\tund{1}^\mu -x\tund{2}^\mu}_{\Delta l^\mu}) (\underbrace{x\tund{1}^\nu -x\tund{2}^\nu}_{\Delta l^\nu})$$
+which can be expanded using the linearised gravity as,
+$$d^2 = \qty(\eta_{\mu\nu} + h_{\mu\nu}) \Delta l^\mu \Delta l^\nu = \eta_{\mu\nu}  \Delta l^\mu \Delta l^\nu+h_{\mu\nu} \Delta l^\mu \Delta l^\nu$$
+The first part represents the static Minkowski proper distance while the second part denotes the perturbation which is oscillating. Hence, the proper distance between two points in linearised Einstein gravity keeps oscillating which can be detected by modern apparatus which confirmed the existence of gravitational waves. 

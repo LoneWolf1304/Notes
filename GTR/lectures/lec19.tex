@@ -4,8 +4,8 @@
 In the previous section, we calculated the various Christoffel symbols for the metric determining the orbit of planets around a star. We will continue further, towards a solution of the geodesic equation which will tell us about the motion.\\[0.2cm] As we had found out, the vacuum solutions require $\ST_{\mu\nu} = 0$ which implied that $R_{\mu\nu}=0$. Hence from the Christoffel symbol, we will now find the Ricci tensor and then solve the Einstein field equation. In general, this is an arduous (and boring) task to do it by hand. We will just mention the various non-zero components here \footnote{The appendix \ref{sec:appenB} contains code for symbolically computing the components of the Ricci and Riemann tensor} and carry on!
 \begin{align}
     R_{tt} &= -\frac{1}{2h}\qty[f'' - \frac{f'h'}{2h} - \frac{(f')^2}{2f} + 2\frac{f'}{r}] \label{eqn:ric1} \\
-    R_{tt} &= -\frac{1}{2f}\qty[f'' - \frac{(f')^2}{2f} - \frac{f'h'}{2h} - 2\frac{fh'}{rh}] \label{eqn:ric2} \\
-    R_{tt} &= -\frac{r}{h^2f}\qty[hf - \qty(\frac{r}{h})^2 +1] \label{eqn:ric3}
+    R_{rr} &= -\frac{1}{2f}\qty[f'' - \frac{(f')^2}{2f} - \frac{f'h'}{2h} - 2\frac{fh'}{rh}] \label{eqn:ric2} \\
+    R_{\theta\theta} &= -\frac{r}{h^2f}\qty[hf - \qty(\frac{r}{h})^2 +1] \label{eqn:ric3}
 \end{align}
 
 Multiplying $2h$ with \eqref{eqn:ric1} and multiplying $2f$ with \eqref{eqn:ric2} and subtracting them, we get
@@ -15,7 +15,7 @@ Multiplying $2h$ with \eqref{eqn:ric1} and multiplying $2f$ with \eqref{eqn:ric2
 \]
 
 From this we get $$h'f+hf'=0\implies \dv{(hf)}{r} = 0 \longrightarrow h(r)f(r) = \SC_1 $$
-where $\SC_1$ is a constant. Now we introduce some physical argument, that far away from the influence of the star, the metric should transform into the Minkowski metric (in polar coordinates obv) $$ds_{\mathrm{Mink.}}^2 = -\ \dd t^2 +\ \dd r^2+ r^2\qty(\dd \theta^2 + \sin^2\theta \ \dd \phi^2)$$ since the effect of gravity becomes negligible as the potential falls off as $\sim r^{-2}$.
+where $\SC_1$ is a constant. Now we introduce some physical argument, that far away from the influence of the star, the metric should transform into the Minkowski metric (in polar coordinates obv) $$ds\tund{Mink.}^2 = -\ \dd t^2 +\ \dd r^2+ r^2\qty(\dd \theta^2 + \sin^2\theta \ \dd \phi^2)$$ since the effect of gravity becomes negligible as the potential falls off as $\sim r^{-2}$.
 Thus we have:
 % $$\lim\limits_{r\to \infty} h(r) = 1  \lim\limits_{r\to \infty} f(r) = -1 \begin{cases}
 %      \lim\limits_{r\to \infty} h(r)f(r) = -1 \implies \lim\limits_{r\to\infty } \SC_1 = -1 \implies \SC_1 = -1

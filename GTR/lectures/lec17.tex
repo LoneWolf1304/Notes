@@ -2,10 +2,10 @@
 \section*{Lecture 17: Einstein Field Equation}
 \addcontentsline{toc}{section}{Lecture 17: Einstein Field Equation}
 In Eq. \ref{eqn:EHact}, we had given a form of the Einstein-Hilbert action for gravity. Since the universe consists of matter also, the total action for the Universe is written as:
-$$\Ss[\psi, g] = \Ss_{\mathrm{EH}}[g] + \Ss_{\mathrm{M}}[\psi,g]$$
-where $\Ss_{\mathrm{M}}$ denotes the action for any matter field $\psi$, like electromagnetic field, fermionic and bosonic fields, etc.
+$$\Ss[\psi, g] = \Ss\tund{EH}[g] + \Ss\tund{M}[\psi,g]$$
+where $\Ss\tund{M}$ denotes the action for any matter field $\psi$, like electromagnetic field, fermionic and bosonic fields, etc.
 To obtain the equation of motion for the metric, we have to then vary this action, that is, 
-$$\delta \Ss =\frac{1}{16\pi G}\int \dd^4 x \delta \qty(\detm\ g^{\mu\nu}R_{\mu\nu}) +\delta \Ss_{\mathrm{M}}$$
+$$\delta \Ss =\frac{1}{16\pi G}\int \dd^4 x \delta \qty(\detm\ g^{\mu\nu}R_{\mu\nu}) +\delta \Ss\tund{M}$$
 To find the variation, we need to see some identitites regarding the variation of the metric. 
 \begin{tcolorbox}[colframe=black, colback=lime!20!white, boxrule=1.5pt, arc=4pt]
 Show the following things:
@@ -51,14 +51,14 @@ where we have renamed the dummy indices in the covariant derivative. From this, 
 $$g^{\lambda\nu}\delta R_{\lambda\nu} = \nabla_\mu \qty(g^{\lambda\nu}\delta \chris{\mu}{\nu}{\lambda} - g^{\lambda\mu}\delta \chris{\rho}{\rho}{\lambda}) = \nabla_\mu A^\mu$$ \qed\\
 We are finally ready to find the variation of the action to find the equation of motion. 
 \begin{align*}
-    \frac{1}{16\pi G}\int \dd^4 x \qty{\qty(\ -\frac{1}{2}\detm \ g_{\mu\nu}\delta g^{\mu\nu}) g^{\mu\nu}R_{\mu\nu} +\detm\ \delta g^{\mu\nu}R_{\mu\nu} +  \detm\ g^{\mu\nu}\delta R_{\mu\nu}} +\delta \Ss_{\mathrm{M}} =0
+    \frac{1}{16\pi G}\int \dd^4 x \qty{\qty(\ -\frac{1}{2}\detm \ g_{\mu\nu}\delta g^{\mu\nu}) g^{\mu\nu}R_{\mu\nu} +\detm\ \delta g^{\mu\nu}R_{\mu\nu} +  \detm\ g^{\mu\nu}\delta R_{\mu\nu}} +\delta \Ss\tund{M} =0
 \end{align*}
-The third term in the integral is equal to $\detm g^{\mu\nu}\delta R_{\mu\nu} = \detm \ \nabla_\mu A^\mu = \partial_\mu (\detm A^\mu)$ from the identity that we had proved earlier in Lec. \ref{lec:14}. This term then becomes a total derivative and vanishes at the boundary. Thus, we are left with the following,
+The third term in the integral is equal to $\detm\ g^{\mu\nu}\delta R_{\mu\nu} = \detm \ \nabla_\mu A^\mu = \partial_\mu (\detm A^\mu)$ from the identity that we had proved earlier in Lec. \ref{lec:14}. This term then becomes a total derivative and vanishes at the boundary. Thus, we are left with the following,
 \begin{align*}
-    \int \dd^4 x\ \detm \qty[-\frac{1}{2}g_{\mu\nu}R +R_{\mu\nu}]\delta g^{\mu\nu} + 16\pi G \delta \Ss_{\mathrm{M}}=0
+    \int \dd^4 x\ \detm \qty[-\frac{1}{2}g_{\mu\nu}R +R_{\mu\nu}]\delta g^{\mu\nu} + 16\pi G \delta \Ss\tund{M}=0
 \end{align*}
 Let us define a tensor in the following way using the functional derivative of the action for matter:
-$$\ST_{\mu\nu} = -\frac{2}{\detm} \frac{\delta \Ss_{\mathrm{M}}}{\delta g^{\mu\nu}} \implies  \delta \Ss_{\mathrm{M}} = \int \dd^4x\ \frac{\delta \Ss_{\mathrm{M}}}{\delta g^{\mu\nu}}\delta g^{\mu\nu} = -\frac{1}{2}\int \dd^4 x \ \detm \ \ST_{\mu\nu}\delta g^{\mu\nu}$$
+$$\ST_{\mu\nu} = -\frac{2}{\detm} \frac{\delta \Ss\tund{M}}{\delta g^{\mu\nu}} \implies  \delta \Ss\tund{M} = \int \dd^4x\ \frac{\delta \Ss\tund{M}}{\delta g^{\mu\nu}}\delta g^{\mu\nu} = -\frac{1}{2}\int \dd^4 x \ \detm \ \ST_{\mu\nu}\delta g^{\mu\nu}$$
 Substituting this above, we obtain:
 \begin{align*}
     \int \dd^4 x\ \detm \qty[-\frac{1}{2}g_{\mu\nu}R +R_{\mu\nu} - 8\pi G \ST_{\mu\nu}]\delta g^{\mu\nu} =0
@@ -69,7 +69,7 @@ This equation is called \textit{Einstein's field equation} for material medium. 
 $$G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G \ST_{\mu\nu}$$
 The above equation relates the geometry of space to the matter present, in other words, a new description of gravity. We thus hope that Newton's law could be recovered in an appropriate limit from the equation. 
 \subsection{Motion of Planet around the Sun}
-Consider a planet of mass $m$ orbiting around a star of mass $M>>m$ and radius $R$ at the origin. In the Newtonian case, the gravitational force and the corresponding potential  is given by $$\tvec{F} = -\frac{GMm}{r^2}\hat{\vb{r}}\qquad V_{\mathrm{N}} = \frac{-GMm}{r}$$
+Consider a planet of mass $m$ orbiting around a star of mass $M\gg m$ and radius $R$ at the origin. In the Newtonian case, the gravitational force and the corresponding potential  is given by $$\tvec{F} = -\frac{GMm}{r^2}\hat{\vb{r}}\qquad V_{\mathrm{N}} = -\frac{GMm}{r}$$
 \begin{figure}[H]
     \centering 
 
@@ -146,7 +146,7 @@ The metric should also be independent of the orientation in $\theta$ and $\phi$ 
 $$g_{t\theta} = 0 \ g_{r\theta}=0\ g_{t\phi} = 0 \ g_{r\phi}=0 $$
 These symmetry considerations significantly reduced the metric. We presently have:
 $$ds^2 = g_{tt}\ \dd t^2 + 2g_{tr}\ \dd t \ \dd r +g_{rr}\ \dd r^2+ r^2\qty(\dd \theta^2 + \sin^2\theta \ \dd \phi^2)$$
-From the time-independent consideration, we can say that none of the metric tensor components must depend on time. They should only depend on $r$ (since spherical symmetry is also there). And under time-reversal, the metric should be invariant under $t\to -t$ from which we have $g_{tr=0}$. Let us denote $g_{tt} = f(r)$ and $g_{rr}=h(r)$. The final expression of the metric, in terms of the two unknowns $f(r)$ and $h(r)$ becomes:
+From the time-independent consideration, we can say that none of the metric tensor components must depend on time. They should only depend on $r$ (since spherical symmetry is also there). And under time-reversal, the metric should be invariant under $t\to -t$ from which we have $g_{tr}=0$. Let us denote $g_{tt} = f(r)$ and $g_{rr}=h(r)$. The final expression of the metric, in terms of the two unknowns $f(r)$ and $h(r)$ becomes:
 \begin{equation}
     \boxed{ds^2 = f(r)\ \dd t^2 +h(r)\ \dd r^2+ r^2\qty(\dd \theta^2 + \sin^2\theta \ \dd \phi^2)} \label{eqn:metric}
 \end{equation}

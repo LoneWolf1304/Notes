@@ -59,7 +59,7 @@ Using the above two facts, we obtain:
 \end{align*}
 Now, take the case when $M = g^{\mu\nu}\equiv g$ and $\det(g) = \mathfrak{g}$. Applying the above formula, we obtain:
 \begin{align}\label{eqn:chrishw}
-    \partial_\mu \ln (-\detg)  = \Tr (g \partial_\mu g) = (g \partial_\mu g)^{\rho _\rho} = g^{\rho\sigma} \partial_\mu g_{\rho\sigma}
+    \partial_\mu \ln (-\detg)  = \Tr (g \partial_\mu g) = \tensor{{(g \partial_\mu g)}}{^\rho _\rho} = g^{\rho\sigma} \partial_\mu g_{\rho\sigma}
 \end{align}
 Now, from the definition of Christoffel symbol:
 \[
@@ -142,16 +142,16 @@ Start putting all the indices on the RHS in the same order as in LHS (and in the
     $$R =g^{\mu\nu} R_{\mu\nu}$$ 
     Note that the Ricci scalar has two derivatives of the metric and is also a scalar, thus satisfying the condition to be a part of the action. 
 \end{itemize}
-Thus, we are finally in a position to sew together all the components of the action. The function $f$ can be a function of the Ricci scalar, that is, $f\equiv f(R)$. We take the simplest possible case where $f$ is linear in $R$, that is, 
+We are finally in a position to sew together all the components of the action. The function $f$ can be a function of the Ricci scalar, that is, $f\equiv f(R)$. We take the simplest possible case where $f$ is linear in $R$, that is, 
 $$f \equiv \alpha (R-2\Lambda)$$
 Here $\alpha$ and $\Lambda$\footnote{$\Lambda$ is called the \textit{cosmological constant}. While deriving the equation, Einstein added this since addition of this constant led to a solution which conveyed that the Universe was \textit{static}. However, after Hubble's discovery that the Universe is expanding, this constant was dropped. Then again, the constant was brought back since it was discovered that the Universe was apparently accelerating. } are some constants. With this, the action becomes:
-$$S_{\mathrm{G}} = \alpha \int \dd x^4 \sqrt{-\detg}[R- 2\Lambda]$$
-This is almost fine, we just need to find something more about $\alpha$.  Note that action has dimensions of the angular momentum and the metric is dimensionless. Thus, $R$ will have dimensions $L^{-2}$ since it has two derivatives of a dimensionless quantity (metric). Thus, 
+$$\Ss\tund{G} = \alpha \int \dd x^4 \sqrt{-\detg}[R- 2\Lambda]$$
+This is almost fine, we just need to find something more about $\alpha$.  Note that action has dimensions of the angular momentum and the metric is dimensionless. $R$ will have dimensions $L^{-2}$ since it has two derivatives of a dimensionless quantity (metric). Thus, 
 \begin{align*}
-    \dim{\alpha} &= \frac{\dim{S_{\mathrm{G}}}}{[L^4] \dim{R}}=\frac{ML^2T^{-1}}{L^4 L^{-2}}=\frac{(LT^{-1})^3}{\dim{G}}=\frac{c^3}{G}
+    \dim{\alpha} &= \frac{\dim{\Ss\tund{G}}}{[L^4] \dim{R}}=\frac{ML^2T^{-1}}{L^4 L^{-2}}=\frac{(LT^{-1})^3}{\dim{G}}=\frac{c^3}{G}
 \end{align*}
 So, upto some numerical factor, $\alpha\sim \frac{c^3}{G}$. The final action, which we refer to as the \textit{Einstein-Hilbert action}, is given by:
 \begin{equation}\label{eqn:EHact}
-    \Ss_{\mathrm{EH}} = \frac{c^3}{16\pi G}\int \dd x^4 \sqrt{-\detg}[R- 2\Lambda] =\frac{c^4}{16\pi G}\int \dd t \ \dd^3 x \sqrt{-\detg}[R- 2\Lambda]
+    \Ss\tund{EH} = \frac{c^3}{16\pi G}\int \dd x^4 \sqrt{-\detg}[R- 2\Lambda] =\frac{c^4}{16\pi G}\int \dd t \ \dd^3 x \sqrt{-\detg}[R- 2\Lambda]
 \end{equation}
 

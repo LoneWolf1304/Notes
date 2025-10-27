@@ -22,7 +22,7 @@ Then we obtain an expression for the radius of the circle:
 By choosing an appropriate coordinate system, we can always set the first derivative to zero \footnote{Note that since first derivative roughly gives us the slope of the tangent, with proper rotation and shifting of the coordinates, we can indeed align our coordinate system along the tangent so that it's slope is zero} and we have a result that,
 $$r = \Bigg|\dv[2]{y}{x}\Bigg|^{-1}$$
 Thus, the second derivative represents the curvature of the curve, since it is intrinsically related to the radius of curvature. And since the Ricci/Riemann tensor contains double derivative of the metric, it somehow represents the curvature of the space. Hence, it is sometimes also called \textit{Riemann curvature tensor}!\\[0.2cm]
-Now, for the sake of getting our hands dirty, let us calculate the Ricci scalar of $\mathbb{S}^2$ (sphere), of radius $r_0$. 
+Now, for the sake of getting our hands dirty, let us calculate the Ricci scalar of $\mathbb{S}^2$ (sphere), of radius $r\tund{0}$. 
 \begin{figure}[H]
     \centering 
     \input{pics/2sphere.tex}
@@ -30,9 +30,9 @@ Now, for the sake of getting our hands dirty, let us calculate the Ricci scalar 
 \noindent
 For this, we first need to calculate the Riemann tensor, then contract it to get Ricci tensor and then again contract it to get Ricci scalar. Thus, this seems a very involved task and we have to do that carefully!\\[0.2cm]
 As calculate before, the metric for the sphere is written as:
-$$ds^2 = r_0^2\dd\theta^2 + r_0^2\sin^2\theta\dd\phi^2 $$
+$$ds^2 = r\tund{0}^2\dd\theta^2 + r\tund{0}^2\sin^2\theta\dd\phi^2 $$
 From there we get the metric tensor and inverse metric tensor as:
-$$g_{\mu\nu} = \mathrm{diag}(r_0^2, r_0^2\sin^2\theta)\qquad g^{\mu\nu} = \mathrm{diag}(\sfrac{1}{r_0^2}, \sfrac{1}{r_0^2\sin^2\theta})$$
+$$g_{\mu\nu} = \mathrm{diag}(r\tund{0}^2, r\tund{0}^2\sin^2\theta)\qquad g^{\mu\nu} = \mathrm{diag}(\sfrac{1}{r\tund{0}^2}, \sfrac{1}{r\tund{0}^2\sin^2\theta})$$
 Also, we had earlier found that only two of the Christoffel symbols are non-zero, namely,
 $$\chris{\theta}{\phi}{\phi}=-\sin\theta \cos\theta \qquad \chris{\phi}{\theta}{\phi} = \cot\theta$$
 \underline{Calculating the Riemann Tensor}
@@ -47,7 +47,7 @@ Let us take $\rho =\theta, \sigma = \phi, \mu=\theta, \nu = \phi$ first. Then we
 \end{align*}
 In fact, this is the only non-zero Riemann tensor component. Other components will be zero owing to the anti-symmetric and other nice properties of the Riemann tensor. \\[0.2cm]
 \underline{Calculating the Ricci Tensor}
-$$R_{\mu}{\nu} = \rie{\lambda}{\mu}{\lambda}{\nu}$$
+$$R_{\mu \nu} = \rie{\lambda}{\mu}{\lambda}{\nu}$$
 We calculate the components one by one.
 \begin{align*}
     R_{\theta\theta} & = \rie{\lambda}{\theta}{\lambda}{\theta}
@@ -58,13 +58,13 @@ Note that we only found out one component of the Riemann tensor. We have to tran
     &=g^{\phi\alpha}R_{\alpha \theta \phi \theta}\\
     &=g^{\phi\alpha} (-1)(-1)R_{\theta \alpha \theta \phi }\\
     &=g^{\phi\phi} R_{\theta \phi \theta \phi } \qquad \text{($\because g$ diagonal, so $\alpha = \phi$)}\\
-    &=\frac{1}{r_0^2\sin^2\theta} g_{\theta\sigma}\rie{\sigma}{\phi}{\theta}{\phi }\\
-    &=\frac{1}{r_0^2\sin^2\theta} r_0^2\rie{\theta}{\phi}{\theta}{\phi }\qquad \text{($\because g$ diagonal, so $\sigma = \theta$)}\\
+    &=\frac{1}{r\tund{0}^2\sin^2\theta} g_{\theta\sigma}\rie{\sigma}{\phi}{\theta}{\phi }\\
+    &=\frac{1}{r\tund{0}^2\sin^2\theta} r\tund{0}^2\rie{\theta}{\phi}{\theta}{\phi }\qquad \text{($\because g$ diagonal, so $\sigma = \theta$)}\\
     &=1
 \end{align*}
 $R_{\theta\phi} = 0$ due to the anti-symmetric property and $R_{\phi\phi} = \rie{\lambda}{\phi}{\lambda}{\phi} =\rie{\theta}{\phi}{\theta}{\phi} =\sin^2\theta$. Now, we have obtained all the components of the Ricci tensor and hence, let us move on to the Ricci scalar. 
 \begin{align*}
-    R = \tensor{R}{^\mu _\mu} = g^{\mu\nu}R_{\mu\nu} = \frac{1}{r_0^2}\times 1 + \frac{1}{r_0^2\sin^2\theta}\times \sin^2\theta = \frac{2}{r_0^2}
+    R = \tensor{R}{^\mu _\mu} = g^{\mu\nu}R_{\mu\nu} = \frac{1}{r\tund{0}^2}\times 1 + \frac{1}{r\tund{0}^2\sin^2\theta}\times \sin^2\theta = \frac{2}{r\tund{0}^2}
 \end{align*}
-Thus we obtain that the Ricci scalar for the sphere is $\frac{2}{r_0^2}$. Thus, the Ricci scalar indeed refers to the usual curvature and its inverse represents the radius of curvature!
-$$R^{-1}\sim r_0^2$$
+Thus we obtain that the Ricci scalar for the sphere is $\frac{2}{r\tund{0}^2}$. Thus, the Ricci scalar indeed refers to the usual curvature and its inverse represents the radius of curvature!
+$$R^{-1}\sim r\tund{0}^2$$
