@@ -1,3 +1,58 @@
 \refstepcounter{section}
 \section*{Lecture 27: Quantising the gauge}
 \addcontentsline{toc}{section}{Lecture 27: Quantising the gauge}
+In the previous section, we had an introduction to local gauge transformations and now, we will proceed to understand some subtleties regarding the gauge fields and ultimately find ways to quantise them. To start with, let us see gauge transformations a bit mathematically. \\[0.2cm]
+Consider the spacetime (which acts as a \textit{base} for our theory) as $\SM$ and the group $\mathrm{U}(1)$ (since we are considering local $U(1)$ transformations). Associated to the this group is a connection $A_\mu$, also called \textit{gauge field} and let $\SA = \{A_\mu\}$ be the collection of all such gauge fields.\\[0.2cm]
+Now, consider the group $\SG$ of guage transformations, defined as
+$$\SG = \{g | \ g: \SM\to G\}$$
+An element $g\in \SG$ acts on the connection as
+$$A_\mu \mapsto gA_\mu g^{-1} -g\partial_\mu g^{-1}$$
+Given a gauge field $A_\mu$ we can define set of all gauge transformations on the field, which is called the set of \textit{gauge orbits} $\SO\tund{A}$
+$$\SO\tund{A} := \{gA_\mu | \ g \in \SG\}$$
+Let us see the example for $\mathrm{U}(1)$ symmetry. The set of gauge transformations $\SG$ is such that for $g\in \SG$,
+$$g\tund{\textalpha}(x) = e^{\iqe\alpha(x)}\ \forall \ x\in \SM$$
+Then we have $g\tund{\textalpha} A_\mu g^{-1}\tund{\textalpha}  = A_\mu$ since $g\tund{\textalpha}$ commutes with the gauge field. Now, for the derivative we have,
+$$g\tund{\textalpha}\partial_\mu g^{-1}\tund{\textalpha} = e^{\iqe\alpha(x)} \partial_\mu (e^{-\iqe\alpha(x)}) = -\iqe\partial_\mu \alpha $$
+which is exactly the transformation that we had seen earlier (we incorporated $\iqe$ in the covariant derivative definition explicitly, so the factor here makes sense). \\[0.2cm]
+Each element in the orbit is called \textit{gauge-equivalent} since all these are related by some gauge transformation. The full space $\SA$ is thus redundant since there are so many $A_\mu$'s which are connected by gauge transformations. Hence, choose some representative point from each gauge orbit and describe our physical observables with respect to these representative points, which is called \textit{gauge-fixing}.
+\begin{figure}[H]
+    \centering
+    \input{pics/gauge.tex}
+    \caption{Fixing the gauge. Each continuous lines denote the gauge orbits and the red points are the representative points denoting the gauge fixing condition}
+\end{figure}
+\noindent
+The general theory of gauge contains rigorous concepts of differential geometry, like principle fibre bundles and sections defined over them, which is \textit{extremely interesting but of not much use for physical purposes}\footnote{just like me}. The basic essence of gauge-fixing is to reduce the degrees of freedom. \\[0.2cm]
+Two most popular choices for gauge-fixing are the \textit{Lorentz gauge} where the representative $A_\mu$ satisfies $\partial_\mu A^\mu=0$  and the Coulomb gauge, where the representative $A_\mu$ satsifies $\nabla\cdot \vb{A} = 0$.\\[0.2cm] Note that the Lorentz gauge does not uniquely determine a representative from the gauge orbit since if $A_\mu$ satisfies the condition, then for any $\lambda$ satisfying $\partial_\mu \partial^\mu \lambda=0$ (that is, the wave-equation), $A_\mu+\partial_\mu\lambda$ also satisfies the gauge-fixing condition. Hence in the Lorentz gauge, there is always some residual gauge freedom left.
+
+\subsection{Fixing the Gauge}
+We will try to impose the gauge fixing condition by modifying the free electromagnetic field Lagrangian with an additional term
+$$\SL\tund{EM} = - \frac{1}{4}F_{\mu\nu} F^{\mu\nu} - \frac{1}{2\xi} (\partial_\mu A^\mu)^2$$
+where $\xi$ is a generic parameter, which weighs gauge equivalent configurations differently. We will later impose the condition that $\partial_\mu A^\mu$ vanishes between physical states. Let us expand the Lagrangian a bit. The first term as seen from Eq. \ref{eqn:fmfn} gives $-\frac{1}{2}\partial_\mu A_\nu F^{\mu\nu}$. Let us focus on the second term carefully. We can write,
+\begin{align*}
+    (\partial_\mu A^\mu)(\partial_\nu A^\nu) &= \partial_\mu\qty[A^\mu (\partial_\nu A^\nu)] - A^\mu \partial_\mu (\partial_\nu A^\nu)\\
+    &=\partial_\mu\qty[A^\mu (\partial_\nu A^\nu)] - A^\mu \partial_\nu (\partial_\mu A^\nu)\\
+    &=\partial_\mu\qty[A^\mu (\partial_\nu A^\nu)] - \qty[ \partial_\nu (A^\mu (\partial_\mu A^\nu)) -( \partial_\mu A^\nu )(\partial_\nu A^\mu)]\\
+    &=( \partial_\mu A^\nu )(\partial_\nu A^\mu) +\partial_\mu \qty[A^\mu (\partial_\nu A^\nu) -A^\nu \partial_\nu A^\mu]
+\end{align*}
+The term in the parenthesis is a total derivative and in the action, this will vanish at the boundaries, without affecting the EoM. Hence, we can neglect this term and the Lagrangian can be written as,
+\begin{align*}
+    \SL\tund{EM}  &=-\frac{1}{2}\partial_\mu A_\nu F^{\mu\nu} -\frac{1}{2\xi} ( \partial_\mu A^\nu )(\partial_\nu A^\mu) \\
+    &=-\frac{1}{2}\qty[(\partial_\mu A_\nu)(\partial^\mu A^\nu) - (\partial_\mu A_\nu)(\partial^\nu A^\mu) +\frac{1}{\xi}( \partial_\mu A^\nu )(\partial_\nu A^\mu)]\\
+    &=-\frac{1}{2}\qty[(\partial_\mu A_\nu)(\partial^\mu A^\nu) - \qty(1-\frac{1}{\xi})( \partial_\mu A_\nu )(\partial^\nu A^\mu)]
+\end{align*}
+From this, we can find the equation of motion.
+\begin{align*}
+   0 & = \partial_\sigma \qty(\pdv{ \SL\tund{EM}}{(\partial_\sigma A_\rho)})  - \pdv{\SL\tund{EM}}{A_\sigma}\implies   \boxed{\partial_\sigma\partial^\sigma A^\rho - \qty(1-\frac{1}{\xi})\partial^\rho\partial_\sigma A^\sigma =0}
+\end{align*}
+In terms of $F^{\mu\nu}$ we get the EoM as $$\partial_\mu F^{\mu\nu}+\frac{1}{\xi}\partial^\nu(\partial_\alpha A^\alpha)=0$$
+For $\xi=1$, $\partial_\sigma\partial^\sigma A^\rho = 0$ which admits a plane-wave solution for the gauge field. This choice is termed as \textit{Feynman gauge} and calculations are easy with this choice. Another choice is to take $\xi \to 0$ which is called the \textit{Landau gauge}.\\[0.2cm]
+Now let us find the canonical momentum for the Lagrangian. We will first find it from the proposed Lagrangian, without the boudary modification. The momentum from the first term, $\Pi^\mu = F^{-0\mu}$, was already seen before. Noting that $\partial_\mu A^\mu = (\partial_0 A^0 + \partial_i A^i)$, from the second term, we have
+\begin{align*}
+   \qty(\Pi^\rho)_{2} =  -\frac{1}{2\xi}\qty[2 \times \delta_{0}^\rho \partial_\mu A^\mu] = -\frac{1}{\xi}\delta_{0}^\rho \partial_\mu A^\mu\longrightarrow \qty(\Pi^0)_2 = -\frac{1}{\xi}\partial_\mu A^\mu \quad \qty(\Pi^i)_2  =0
+\end{align*}
+Then, the conjugate momentum for this modified Lagrangian becomes:
+$$\Pi^0 = -\frac{1}{\xi} \partial_\mu A^\mu \qquad \Pi^i = -F^{0i} $$
+Now if we consider the Lagrangian where we removed the total derivative term, we get an alternate conjugate momentum
+$$\Pi^\rho :=\pdv{ \SL\tund{EM}}{(\partial_0 A_\rho)} = -\partial^0 A^\rho + \qty(1-\frac{1}{\xi})\partial^\rho A^0$$
+In this case, we see that $\Pi^0\neq 0$ and thus, the \textit{primary constraint} is gone.
+\subsection{Quantisation for Feynman Gauge}

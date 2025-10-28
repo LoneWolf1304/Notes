@@ -60,13 +60,15 @@ $$\SL\tund{g} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} -J^\mu A_\mu$$
 Since we are focussing on the dynamics of the gauge field, we need to find the EoM using the gauge field, that is,
 $$\partial_\mu\qty(\pdv{\SL\tund{g}}{(\partial_\mu A_\nu)}) - \underbrace{\pdv{\SL\tund{g}}{A_{\nu}}}_{-J^\nu}=0$$
 Let us calculate this step-by-step by first noting that
-\begin{align*}
-    F_{\mu\nu}F^{\mu\nu}&= (\partial_\mu A_\nu - \partial_\nu A_\mu)(\partial^\mu A^\nu - \partial^\nu A^\mu)\\
+\begin{align}\label{eqn:fmfn}
+    \begin{split}
+        F_{\mu\nu}F^{\mu\nu}&= (\partial_\mu A_\nu - \partial_\nu A_\mu)(\partial^\mu A^\nu - \partial^\nu A^\mu)\\
     &=\partial_\mu A_\nu\partial^\mu A^\nu -\partial_\nu A_\mu\partial^\mu A^\nu -\partial_\mu A_\nu \partial^\nu A^\mu + \partial_\nu A_\mu \partial^\nu A^\mu\\
     &=2\qty[\partial_\mu A_\nu\partial^\mu A^\nu  - \partial_\nu A_\mu\partial^\mu A^\nu]\\
     &=2\qty[\partial_\mu A_\nu\partial^\mu A^\nu  - \partial_\mu A_\nu\partial^\nu A^\mu]\\
     &=2\ \partial_\mu A_\nu F^{\mu\nu}
-\end{align*}
+    \end{split}
+\end{align}
 Also note that,
 $$\pdv{F^{\rho\sigma}}{(\partial_\mu A_\nu)} = \pdv{(\partial^\rho A^\sigma)}{(\partial_\mu A_\nu)} - \pdv{(\partial^\sigma A^\rho)}{(\partial_\mu A_\nu)} = (\tensor{\eta}{^{\rho} ^\mu}\tensor{\eta}{^{\sigma} ^\nu}-\tensor{\eta}{^\sigma ^\mu}\tensor{\eta}{^{\rho} ^\nu})$$
 Using this, we get the equation of motion as:
@@ -78,7 +80,9 @@ Using this, we get the equation of motion as:
     &=-\ \partial_\mu F^{\mu\nu} + J^\nu
 \end{align*}
 We get the equation of motion as very similar to the Maxwell's equations,
-$$\boxed{\partial_\mu F^{\mu\nu} = J^\nu}$$
+\begin{equation}\label{eqn:eom}
+    \boxed{\partial_\mu F^{\mu\nu} = J^\nu}
+\end{equation}
 Let us now find the conjugate momenta for the gauge field
 \begin{align*}
     \Pi^\mu = \pdv{\SL\tund{g}}{(\partial_0 A_\mu)} &= -F^{0\mu}
@@ -88,3 +92,32 @@ Let us now find the conjugate momenta for the gauge field
     \item[$\vartriangleright$] $\mu \neq 0$ (spatial components)  $\longrightarrow \Pi^i = -F^{0i} = E^i$ from sec \ref{sec:appB}.
 \end{itemize} 
 where $E^i$ denotes the component of the electric field. Thus, we have the conjugate momenta as $\Pi^\mu = (0,\vb{E})$.
+\subsection{Solution to the Free Gauge field}
+As seen above, the gauge field satisfies the wave-equation for the Feynman gauge and we can expand the gauge field using plane waves
+$$A^\mu(x) = \uep^{\mu}(p)e^{-ipx}$$
+where $\uep^{\mu}(x)$ are called \textit{polarisation vectors}. Substituting this in the EoM $\partial_\mu J^{\mu\nu} =0$, we get
+\begin{align*}
+    0 &= \partial_\mu \qty[\partial^{\mu} (\uep^{\nu}(p)e^{-ipx}) - \partial^{\nu} (\uep^{\mu}(p)e^{-ipx})]\\
+    &=\partial_\mu \qty[\uep^{\nu}(p) (-ip^\mu )e^{-ipx} -(-ip^\nu) \uep^{\mu}(p)e^{-ipx}]\\
+    &=(-p^2\uep^{\nu}(p) + p_\mu p^\nu \uep^{\mu}(p))e^{-ipx}\\
+    &=(-p^2\eta^{\nu \mu}\uep_{\mu}(p) + p^\mu p^\nu \uep_{\mu}(p))e^{-ipx}\\
+    &=-(p^2\eta^{\nu \mu} - p^\mu p^\nu )\uep_{\mu}(p)e^{-ipx}
+\end{align*}
+Let us define the $4\times 4$ matrix $\SM^{\mu\nu} = p^2 \eta^{\mu\nu}-p^\mu p^\nu$ from which we get $\SM^{\mu\nu}\uep_{\mu}(p) =0$. Let us define the quantities
+$$P^{\mu\nu} =\eta^{\mu\nu} - \frac{p^\mu p^\nu}{p^2}\qquad Q^{\mu\nu} = \frac{p^\mu p^\nu}{p^2}$$
+Now, we check some properties of these operators
+\begin{itemize}
+    \item[$\vartriangleright$] Idempotence: (kinda?) \begin{align*}
+        \tensor{P}{^\mu _\beta} P^{\beta \nu} &=  \tensor{P}{^\mu ^\alpha}g_{\alpha\beta} P^{\beta \nu} \\
+        &=\qty(\eta^{\mu\alpha} - \frac{p^\mu p^\alpha}{p^2})\eta_{\alpha\beta}\qty(\eta^{\beta\nu} - \frac{p^\beta p^\nu}{p^2})\\
+        &=\eta^{\mu\nu} -\tensor{\delta}{^\mu _\beta}\frac{p^\beta p^\nu}{p^2} -\tensor{\delta}{^\nu _\alpha}\frac{p^\mu p^\alpha}{p^2}+\frac{p^\mu p^\alpha p^\beta  p^\nu}{p^4}\eta_{\alpha\beta}\\
+        &=\eta^{\mu\nu} -\frac{p^\mu p^\nu}{p^2} - \frac{p^\mu p^\nu}{p^2} +  \frac{p^\mu p^\nu}{p^2} = P^{\mu\nu}\\
+        \tensor{Q}{^\mu _\beta} Q^{\beta \nu} &= \frac{p^\mu p_\beta}{p^2}\frac{p^\beta p_\nu}{p^2} = \frac{p^\mu p^\nu}{p^2} = Q^{\mu\nu}
+    \end{align*}
+    \item[$\vartriangleright$] Orthogonality: $
+         \tensor{Q}{^\mu _\beta} P^{\beta \nu} = \frac{p^\mu p_\beta}{p^2}\qty(\eta^{\beta\nu} - \frac{p^\beta p^\nu}{p^2}) = \frac{p^\mu p^\nu}{p^2} - \frac{p^\mu p^\nu}{p^2} = 0$
+     \item[$\vartriangleright$] Completition: $P^{\mu\nu} + Q^{\mu\nu} = \eta^{\mu\nu}$    
+\end{itemize}
+Thus we can vaguely identify these quantities as some kind of projection operators. Let $P^{\mu\nu}$ act on some polarization vector, say $\uep_\mu$,
+$$P^{\mu\nu}\uep_\nu = \uep^\mu -\frac{p^\mu(p^\nu \uep_\nu)}{p^2}\implies p_\mu (P^{\mu\nu}\uep_\nu) = p_\mu \uep^\mu -p_\nu \uep^\nu =0$$
+Thus $P^{\mu\nu}$ projects the polarization vector onto the subspace orthogonal to the momentum $p^\mu$. 
