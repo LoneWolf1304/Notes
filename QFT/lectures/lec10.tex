@@ -8,8 +8,8 @@ So far we had worked with classical fields. In the introduction, we saw that, qu
  Now, let us make the KG field \textit{quantum} by quantising the canonical coordinates, similar to as we did for the harmonic oscillator.\\[0.2cm]
 We have our classical field $\phi(\tvec{x}, t)$ and its canonical conjugate momentum $\pi(\tvec{x},t)$ which become operators $\hat{\phi}(x)$ and $\hat{\pi}(x)$\footnote{Note that we will write four vectors with non-bold letter, as $x$ will denote the four components of the four-vector. To denote the three vectors, we will write in bold-face, that is, $\tvec{x}$ }. The classical Poisson bracket changes to the commutator, that is, $\{\cdot, \cdot\}\rightarrow i[\cdot,\cdot]$. \\[0.2cm]
 A quantum treatment of a classical Hamiltonian is sometimes messy since we have to maintain the Hermiticity condition and there can be multiple ways to do that. However, almost always, we just put the hats on appropriate places and wish we are correct! \\[0.2cm]
-Classically, we had $\{\phi(\tvec{x}), \pi(\tvec{y})\} = \delt{3}{\tvec{x}-\tvec{y}}$ and by the same logic:
-\[ [\hat{\phi}(\tvec{x}), \hat{\pi}(\tvec{y})] = i\delt{3}{\tvec{x}-\tvec{y} }\]Let us take their Fourier transforms,
+Classically, we had $\{\phi(\tvec{x}), \pi(\tvec{y})\} = \delta^{(3)}(\tvec{x}-\tvec{y})$ and by the same logic:
+\[ [\hat{\phi}(\tvec{x}), \hat{\pi}(\tvec{y})] = i\delta^{(3)}(\tvec{x}-\tvec{y})\]Let us take their Fourier transforms,
 \begin{align*}
     \widetilde{\phi}(\tvec{k},t) &= \int \dd^3\tvec{x} e^{-i \tvec{k}\cdot \tvec{x}} \phi(\tvec{x},t)\\
     \widetilde{\pi}(\tvec{k},t) &= \int \dd^3\tvec{x} e^{-i \tvec{k}\cdot \tvec{x}} \pi(\tvec{x},t)

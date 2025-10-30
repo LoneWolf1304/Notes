@@ -22,7 +22,7 @@ Each element in the orbit is called \textit{gauge-equivalent} since all these ar
 \end{figure}
 \noindent
 The general theory of gauge contains rigorous concepts of differential geometry, like principle fibre bundles and sections defined over them, which is \textit{extremely interesting but of not much use for physical purposes}\footnote{just like me}. The basic essence of gauge-fixing is to reduce the degrees of freedom. \\[0.2cm]
-Two most popular choices for gauge-fixing are the \textit{Lorentz gauge} where the representative $A_\mu$ satisfies $\partial_\mu A^\mu=0$  and the Coulomb gauge, where the representative $A_\mu$ satsifies $\nabla\cdot \vb{A} = 0$.\\[0.2cm] Note that the Lorentz gauge does not uniquely determine a representative from the gauge orbit since if $A_\mu$ satisfies the condition, then for any $\lambda$ satisfying $\partial_\mu \partial^\mu \lambda=0$ (that is, the wave-equation), $A_\mu+\partial_\mu\lambda$ also satisfies the gauge-fixing condition. Hence in the Lorentz gauge, there is always some residual gauge freedom left.
+Two most popular choices for gauge-fixing are the \textit{Lorenz gauge} where the representative $A_\mu$ satisfies $\partial_\mu A^\mu=0$  and the Coulomb gauge, where the representative $A_\mu$ satsifies $\nabla\cdot \vb{A} = 0$.\\[0.2cm] Note that the Lorenz gauge does not uniquely determine a representative from the gauge orbit since if $A_\mu$ satisfies the condition, then for any $\lambda$ satisfying $\partial_\mu \partial^\mu \lambda=0$ (that is, the wave-equation), $A_\mu+\partial_\mu\lambda$ also satisfies the gauge-fixing condition. Hence in the Lorenz gauge, there is always some residual gauge freedom left.
 
 \subsection{Fixing the Gauge}
 We will try to impose the gauge fixing condition by modifying the free electromagnetic field Lagrangian with an additional term
@@ -55,4 +55,107 @@ $$\Pi^0 = -\frac{1}{\xi} \partial_\mu A^\mu \qquad \Pi^i = -F^{0i} $$
 Now if we consider the Lagrangian where we removed the total derivative term, we get an alternate conjugate momentum
 $$\Pi^\rho :=\pdv{ \SL\tund{EM}}{(\partial_0 A_\rho)} = -\partial^0 A^\rho + \qty(1-\frac{1}{\xi})\partial^\rho A^0$$
 In this case, we see that $\Pi^0\neq 0$ and thus, the \textit{primary constraint} is gone.
-\subsection{Quantisation for Feynman Gauge}
+\subsection{Quantisation in Feynman Gauge}
+We impose the usual commutation relation between the fields and the conjugate momentum when elevating them to operators
+$$\comtr{A^\mu(x)}{A^\nu(y)} = 0\qquad \comtr{\Pi^\mu(x)}{\Pi^\nu(y)} = 0\qquad \comtr{A^\mu(x)}{\Pi^\nu(y)} = i\eta^{\mu\nu}\delta^{(3)}(\vb{x}-\vb{y})$$
+The metric ηµν is forced upon us from the condition of Lorentz covariance, since the left-hand side is a tensor. And we can expand these in terms of the creation and annihilation operators, and the polarisation vectors. Since we are considering photons where $m = 0$ we have $p^2=0 \implies E_{\vb{p}} = |\vb{p}|$. Since the polarisation vectors are  4-vectors we write the expansion as a sum of the four components. 
+\begin{equation}\label{eqn:field}
+    A_\mu(x) = \int \meas{\vb{p}} \frac{1}{\sqrt{2|\vb{p}}|}\sum\limits_{\lambda = 0}^3 (\uep_\mu)_\lambda \hat{a}_{\vb{p}}^\lambda e^{-ipx} +(\uep_\mu^*)_\lambda \hat{a}_{\vb{p}}^{\dagger\lambda} e^{ipx}
+\end{equation}
+We will have four independent solutions for $\uep^\mu(p)$ labelled by $\lambda=0,1,2,3$. We choose a normalisation for the polarisation vectors. 
+\begin{itemize}
+    \item[$\vartriangleright$] Normalisation: $(\uep^\mu)_\lambda ({\uep^\mu})^*_\lambda \eta_{\mu\nu} = \eta_{\lambda \lambda'}$ 
+    For $\mu=0$ the norm of the polarisation vector is positive while it is negative for $\lambda=1,2,3$.
+\end{itemize}
+In a frame where $p^\mu = (p,0,0,p)$ we can choose a basis such that $(\uep^\mu)_\lambda = \delt{\mu}{\lambda}$ and the expression for any generic frame can be found by an appropriate Lorentz boost. Note that $(\uep^\mu)_1$ and $(\uep^\mu)_2$ are such that $p_\mu \uep^\mu =0$ that is, these are \textit{transverse} while for $\lambda=0,3$ we see that $p_\mu \uep^\mu \neq 0$.\\[0.2cm]
+Using the canonical momentum expression found out (from the Lagrangian after removing the boundary term) we have:
+\begin{equation}\label{eqn:mome}
+    \Pi^\mu(x) = \int \meas{\vb{p}} (+i\sqrt{\frac{|\vb{p}|}{2}})\sum\limits_{\lambda = 0}^3 (\uep_\mu)_\lambda \hat{a}_{\vb{p}}^\lambda e^{-ipx} -(\uep_\mu^*)_\lambda \hat{a}_{\vb{p}}^{\dagger\lambda} e^{ipx}
+\end{equation}
+We now impose the commutation relations for the creation and annihilation operator
+$$\comtr{\hat{a}_{\vb{p}}^\lambda}{\hat{a}_{\vb{p}}^{\dagger\lambda'}} = -\eta^{\lambda\lambda'}(2\pi)^3\delta^{(3)}(\vb{p}-\vb{q})$$
+We can verify that indeed, this choice gives us the correct commutation for the field operators. 
+\subsubsection{Finding the Hamiltonian}
+Again, this is going to be an arduous calculation which feels like a curse (to me). However, I am bored and have nothing better to do right now (this is too frightening that the most exciting thing for me to do right now is to do tedious algebra), so let's do it!\\[0.2cm]
+$\vartriangleright$ In the Feynman guage we have the Lagrangian density and the momentum as $$\SL\tund{EM}  =-\frac{1}{2}(\partial_\mu A_\nu)(\partial^\mu A^\nu)\qquad \Pi^\mu = -\partial_0 A^\mu $$
+$\vartriangleright$ The Hamiltonian density is defined as 
+\begin{align*}
+    \SH =\Pi^\mu \partial_0 A_\mu - \SL &= -\Pi^\mu\Pi_\mu +\frac{1}{2}\qty(\partial_\mu A_\nu)\qty(\partial^\mu A^\nu)\\
+    &=-\Pi^\mu\Pi_\mu +\frac{1}{2}\qty[(\partial_0 A_\nu)\qty(\partial^0 A^\nu) + (\partial_i A_\nu)\qty(\partial^i A^\nu)]\\
+    &=-\Pi^\mu\Pi_\mu  +\frac{1}{2}\Pi^\mu\Pi_\mu  -\frac{1}{2}(\partial_i A_\nu)\qty(\partial^i A^\nu)\\
+    &=-\frac{1}{2}\Pi^\mu\Pi_\mu  +\frac{1}{2}(\partial_i A_\nu)\qty(\partial^i A^\nu)
+\end{align*}
+$\vartriangleright$ The total Hamiltonian is written as the space integral of the Hamiltonian density. 
+\begin{align*}
+    H = \int \dd^3 x \ \qty[-\frac{1}{2}\Pi^\mu\Pi_\mu  +\frac{1}{2}(\partial_i A_\nu)\qty(\partial^i A^\nu)]
+\end{align*}
+Then we use the field and canonical momentum expression as in Eq. \ref{eqn:field} and Eq. \ref{eqn:mome}. Let us go term by term:\\
+\textcolor{red}{(DO THE INTEGRALS WHENEVER TIME IS THERE!)}\\
+We find that the total Hamiltonian is
+\begin{equation}\label{eqn:hampho}
+    \boxed{H = -\int \meas{\vb{p}} |\vb{p}| \sum\limits_{\lambda=0}^3 \eta_{\lambda \lambda} \hat{a}_{\vb{p}}^{\dagger\lambda} \hat{a}_{\vb{p}}^{\lambda} }
+\end{equation}
+The commutation relation between the Hamiltonian and the creation/annihilation operators are thus:
+\begin{align*}
+    \comtr{H}{\hat{a}_{\vb{q}}^{\dagger\kappa} } &=  -\int \meas{\vb{p}} |\vb{p}| \sum\limits_{\lambda=0}^3 \eta_{\lambda \lambda}\comtr{\hat{a}_{\vb{p}}^{\dagger\lambda} \hat{a}_{\vb{p}}^{\lambda}}{\hat{a}_{\vb{q}}^{\dagger\kappa} }\\
+    &=-\int \meas{\vb{p}} |\vb{p}| \sum\limits_{\lambda=0}^3 \eta_{\lambda \lambda}\hat{a}_{\vb{p}}^{\dagger\lambda}\comtr{ \hat{a}_{\vb{p}}^{\lambda}}{\hat{a}_{\vb{q}}^{\dagger\kappa} }\\
+    &=\int d^3\vb{p}\ |\vb{p}| \sum\limits_{\lambda=0}^3 \eta_{\lambda \lambda} \eta^{\lambda \kappa} \hat{a}_{\vb{p}}^{\dagger\lambda}\delta^{(3)}(\vb{p} - \vb{q})\\
+    &=|\vb{q}|\hat{a}_{\vb{p}}^{\dagger\kappa}
+\end{align*}
+Similarly we also have for the annihilation operator,  $ \comtr{H}{\hat{a}_{\vb{q}}^{\kappa} } =-|\vb{q}|\hat{a}_{\vb{p}}^{\dagger\kappa} $. We could now use these to define the structure of the Hilbert space of the photons. 
+\subsubsection{Fock Space of Photons}
+We define the vacuum state $\vac$ to be the one killed by the annihilation operator
+$$\hat{a}_{\vb{p}}^\lambda \vac = 0\ \forall \ \vb{p},\lambda$$
+We can define the one-particle state with momentum $p$ and polarisation $\lambda$ by acting the creation operator on the vacuum 
+$$\ket{\vb{p, \lambda}} \equiv \sqrt{2|\vb{p}|}\hat{a}_{\vb{p}}^{\dagger\lambda}\vac$$
+Using this, we can try to calculate the norm of the states with same polarisation.
+$$\braket{\vb{p},\lambda|\vb{q}, \lambda } = 2\sqrt{|\vb{p}||\vb{q}|}\vacb\hat{a}_{\vb{p}}^{\lambda} \hat{a}_{\vb{q}}^{\dagger\lambda}\vac =-2|\vb{p}|(2\pi)^3 \delta^{(3)}(\vb{p}-\vb{q})\eta^{\lambda \lambda}  $$
+using the commutation relation. Tong refers to this as a ``wtf'' situation and indeed it is, since the state created by the oscillator with $\lambda =0$ has a negative norm (for $\lambda\neq 0$ it's fine, since $\eta^{\lambda\lambda}$ is itself negative). Since the scalar products in quantum mechanics are interpreted as probabilities, a Fock space with a scalar product which is not positive deﬁnite has no probabilistic interpretation.
+\subsubsection{Gupta-Bleuer Condition}
+We can resolve this issue by demanding that \textit{physical states} should have positive norms and thus the space-like polarisation $(\lambda =0)$ canot be a physical state. This leads us to the Gupta-Bleuer condition. We consider a subspace $\mathfrak{F}\tund{p}$ of the entire Fock space, denoting the physical states and demanding that for states $\ket{\mathrm{phys.}}$ and $\ket{\mathrm{phys.}'}$ belonging to this subspace should satisfy 
+$$\bra{\mathrm{phys.}'}\partial_\mu A^\mu \ket{\mathrm{phys.}} = 0$$
+This can be thought of as the use of the Lorenz gauge. Instead of the Lagrangian, the Lorenz gauge is recovered as an operator equation of the physical states. \\[0.2cm]
+We first note that the operator $\partial_\mu A^\mu$ can be decomposed into positive and negative frequency parts, that is,
+$$(\partial_\mu A^\mu) = (\partial_\mu A^\mu)^+ + (\partial_\mu A^\mu)^-$$
+where the corresponding operators are defined as
+\begin{align*}
+    (\partial_\mu A^\mu)^+ &= -i \int\meas{\vb{p}} \frac{1}{2|\vb{p}|}\sum\limits_{\lambda = 0}^3  p_\mu (\uep^\mu)_\lambda \hat{a}_{\vb{p}}^\lambda e^{-ipx} \\
+(\partial_\mu A^\mu)^- &= i \int\meas{\vb{p}} \frac{1}{2|\vb{p}|}\sum\limits_{\lambda=0}^3 p_\mu(\uep^{\mu*})_\lambda \hat{a}_{\vb{p}}^{\dagger\lambda} e^{ipx}
+\end{align*}
+Since these are Hermitian conjugate of each other, defining the Gupta-Bleuer condition as 
+$$(\partial_\mu A^\mu)^+ \ket{\mathrm{phys}.}=0$$ is sufficient since the other condition $(\partial_\mu A^\mu)^- \ket{\mathrm{phys}.}=0$ is automatically satisfied for any physical state.\\[0.2cm]
+The above expression is taken as a definition of the physical state. Note that this definition preserves the linearity of the Hilbert space as using this, the linear combination of any physical state is also physical. 
+\subsubsection{A Few Subtleties...}
+Let us see what happens to the one-particle state. Consider a general superposition of the one-particle state 
+$$\ket{\psi} = \sum\limits_{\lambda} c_\lambda \ket{\vb{p}, \lambda} = \sum\limits_\lambda c_\lambda \sqrt{2|\vb{p}|} \hat{a}_{\vb{p}}^{\dagger\lambda}\vac$$
+Choosing a momentum alogn the z-axis $p^\mu = (p,0,0,p)$ (and so, $p_\mu = (p,0,0,-p)$), applying the Gupta-Bleuer condition and using the commutation relation we will obtain
+$$(\partial_\mu A^\mu)^+ \ket{\psi} \propto \sum c_\lambda p_\mu (\uep^\mu)^\lambda \vac =0 \implies c_0 - c_3 =0$$
+Thus $c_1$ and $c_2$ can be arbitrary and hence the transverse polarisation states always represent the true physical states. However note that individually $\ket{p,0}$ and $\ket{p,3}$ are not physical (since it does not satisfy the Gupta-Bleuer condition), however the combination $$\ket{\phi} = (\hat{a}_{\vb{p}}^{\dagger0} - \hat{a}_{\vb{p}}^{\dagger 3})\vac$$
+is a physical state and hence the most general one-particle state of the physical subspace with momentum $\vb{p}$ can be written as,
+$$\ket{\psi} = \ket{\psi\tund{T}} + \SC \ket{\phi}$$
+where $\ket{\psi\tund{T}} $ is an arbitrary linear combination of the tranverse polarisation states and $\SC$ is an arbitrary constant. Now note that states of different polarizations are \textit{orthogonal} by definition. Hence, $\ket{\phi}$, defined with $(\hat{a}_{\vb{p}}^{\dagger0} - \hat{a}_{\vb{p}}^{\dagger 3})\vac$ is orthogonal to the tranverse polarisation states which are made up of $\hat{a}_{\vb{p}}^{\dagger1} $ and $\hat{a}_{\vb{p}}^{\dagger2}$. Also, we have 
+$$\braket{\phi|\phi} =\vacb (\hat{a}_{\vb{p}}^{0} - \hat{a}_{\vb{p}}^{3})  (\hat{a}_{\vb{p}}^{\dagger0} - \hat{a}_{\vb{p}}^{\dagger 3})\vac = \vacb (\hat{a}_{\vb{p}}^{0} \hat{a}_{\vb{p}}^{\dagger0} +\hat{a}_{\vb{p}}^{3} \hat{a}_{\vb{p}}^{\dagger3})\vac$$
+Using the commutation relations we can thus write this as:
+$$\vacb (\hat{a}_{\vb{p}}^{0} \hat{a}_{\vb{p}}^{\dagger0} +\hat{a}_{\vb{p}}^{3} \hat{a}_{\vb{p}}^{\dagger3})\vac =\vacb \comtr{\hat{a}_{\vb{p}}^{0}}{ \hat{a}_{\vb{p}}^{\dagger0}} + \comtr{\hat{a}_{\vb{p}}^{3}}{\hat{a}_{\vb{p}}^{\dagger3}}\vac = 0$$
+where in the last step, due to the difference in the metric signature, the inside term vanishes.\\[0.2cm] Thus we see that $\ket{\phi}$ is orthogonal to all physical states, since it is orthogonal to the tranverse polarisation states and also to itself. Thus the inner product between $\ket{\psi}$ and any other state will be the same as the inner product between $\ket{\psi\tund{T}}$ and that state. \\[0.2cm]
+We are kind of getting a feeling that only the transverse polarisation states might matter physically. Let us see what happens when $\ket{\psi}$ acts on the Hamiltonian. 
+From Eq. \ref{eqn:hampho} we can separate out the summation and find the matrix element of the Hamiltonian between two physical states
+\begin{align*}
+    \bra{\psi_1} H\ket{\psi_2} = \int \meas{\vb{p}}|\vb{p}| \bra{\psi}{\qty(\hat{a}_{\vb{p}}^{\dagger3} \hat{a}_{\vb{p}}^{3} -\hat{a}_{\vb{p}}^{\dagger0} \hat{a}_{\vb{p}}^{0} ) +(\hat{a}_{\vb{p}}^{\dagger1} \hat{a}_{\vb{p}}^{1}+\hat{a}_{\vb{p}}^{\dagger2} \hat{a}_{\vb{p}}^{2})}\ket{\psi}
+\end{align*} 
+We can check that applying the Gupta-Bleuer condition on any state $\ket{\gamma}$ we get
+$$(\partial_\mu A^\mu)^+ \ket{\gamma} = (\hat{a}_{\vb{p}}^{0} -\hat{a}_{\vb{p}}^{3} )\ket{\gamma} =0\implies \boxed{\hat{a}_{\vb{p}}^{0}\ket{\gamma } = \hat{a}_{\vb{p}}^{3}\ket{\gamma}} \quad \text{\tiny for any physical state}$$
+Using this on the matrix element for the Hamiltonian above, we get that for the non-transverse part,
+\begin{align*}
+    \bra{\psi} \hat{a}_{\vb{p}}^{\dagger3} \hat{a}_{\vb{p}}^{3}\ket{\psi} -\bra{\psi}\hat{a}_{\vb{p}}^{\dagger0} \hat{a}_{\vb{p}}^{0}\ket{\psi} &= \bra{\psi} \hat{a}_{\vb{p}}^{\dagger3} \hat{a}_{\vb{p}}^{0}\ket{\psi} -\bra{\psi}\hat{a}_{\vb{p}}^{\dagger0} \hat{a}_{\vb{p}}^{0}\ket{\psi} = \bra{\psi} \hat{a}_{\vb{p}}^{\dagger0} \hat{a}_{\vb{p}}^{0}\ket{\psi} -\bra{\psi}\hat{a}_{\vb{p}}^{\dagger0} \hat{a}_{\vb{p}}^{0}\ket{\psi} =0
+\end{align*}
+Thus, the matrix element of the Hamiltonian for any two physical states become
+$$\bra{\psi_1} H\ket{\psi_2} = \int \meas{\vb{p}}|\vb{p}| \bra{\psi}{ (\hat{a}_{\vb{p}}^{\dagger1} \hat{a}_{\vb{p}}^{1}+\hat{a}_{\vb{p}}^{\dagger2} \hat{a}_{\vb{p}}^{2})}\ket{\psi}$$
+The Hamiltonian acts only on the transverse polarizations in the physical subspace and thus, the contribution to energy and momentum comes purely from the tranverse part and is independent of the logitudinal and time-like polarisation part, $\SC \ket{\phi}$.\\[0.2cm]
+In conclusion, the states $\ket{\psi} =\ket{\psi\tund{T}} + \SC \ket{\phi}$ and $\ket{\psi\tund{T}}$ have the exact same energy and other physical properties and have the same scalar product with all other physical states and are therefore \textit{physically indistinguishable}. \\[0.2cm]
+To be a bit more formal, we can specify an equivalence relation $\sim\tund{R}$ such that 
+$$\ket{\gamma}\sim\tund{R} \ket{\uptheta} \iff \ket{\gamma} = \ket{\uptheta}+ \SC\ket{\phi}$$
+where $\ket{\phi}$ is what was defined above and $\SC$ is some constant. Then photons are represented by the equivalence classes of this relation, that is
+$$[\ket{\psi\tund{T}}]\tund{R} := \{ \ket{\uptheta}|\  \ket{\uptheta} \sim\tund{R}\ket{\psi\tund{T}}\}$$
+where we had put the representative of the class as the purely transverse state. Therefore, the photon is described by \textit{two transverse degrees of freedom} as it should be and the generic multiparticle state is obtained tensoring this
+physical one-particle state.
