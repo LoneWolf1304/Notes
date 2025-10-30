@@ -1,3 +1,49 @@
 \refstepcounter{section}
 \section*{Lecture 28: Dirac Propagator}
 \addcontentsline{toc}{section}{Lecture 28: Dirac Propagator}
+Recall the quantisation for the Dirac field that we had stated. Now, if we move to the Heisenberg picture, we have the field operators as 
+\begin{align*}
+    \Psi(x) &= \int \meas{\vb{p}}\ \frac{1}{\sqrt{2E_{\vb{p}}}} \sum \limits_s \qty(\annap u^s(\vb{p}) e^{-ip\cdot x} +\crebp v^s(\vb{p}) e^{i p\cdot x})\\
+    \dadj{\Psi}(x) &= \int \meas{\vb{p}}\ \frac{1}{\sqrt{2E_{\vb{p}}}} \sum \limits_r \qty(\creapr {\dadj{u}}^r(\vb{p}) e^{i p\cdot x} +\annbpr {\dadj{v}}^r(\vb{p}) e^{-i p \cdot x})
+\end{align*}
+with the following anti-commutation relations between the annihilation and creation operators,
+$$ \acomtr{\annapr}{\creaq} =(2\pi)^3\delta^{rs}\ddelt{\vb{p}-\vb{q}}\qquad \acomtr{\annbpr}{\crebq} =(2\pi)^3\delta^{rs}\ddelt{\vb{p}-\vb{q}}
+$$
+Let us find the anti-commutator between the field and the adjoint field defined by 
+$$i\Ss_{\alpha\beta}(x,y) = \{\Psi_\alpha(x), \dadj{\Psi}_\beta(y)\}$$
+We substitute the expression for the fields in the Heisenberg picture and calculate the anti-commutator
+\begin{align*}
+    iS(x,y)_{\alpha, \beta} &= \int \meas{\vb{p}} \meas{\vb{q}} \frac{1}{\sqrt{4 E_{\vb{p}}E_{\vb{q}}}}\sum\limits_{r,s}\qty[\{\annap , \creaqr\} u^s_\alpha(\vb{p}) \dadj{u}^r_\beta(\vb{q}) e^{-i(p\cdot x - q\cdot y )} + \{\crebp, \annbpr\}v^s_\alpha(\vb{p}) \dadj{v}^r_\beta(\vb{q}) e^{-i(q\cdot y - p\cdot x )}]\\
+    &=\int \meas{\vb{p}} \dd^3 \vb{q} \frac{1}{\sqrt{4 E_{\vb{p}}E_{\vb{q}}}} \delta^{(3)}(\vb{p}-\vb{q}) \sum\limits_s \qty[ u^s_\alpha(\vb{p}) \dadj{u}^s_\beta(\vb{q}) e^{-i(p\cdot x - q\cdot y )} +v^s_\alpha(\vb{p}) \dadj{v}^s_\beta(\vb{q}) e^{-i(q\cdot y - p\cdot x )}]\\
+    &=\int \meas{\vb{p}} \frac{1}{2 E_{\vb{p}}} \sum\limits_s\qty[ u^s_\alpha(\vb{p}) \dadj{u}^s_\beta(\vb{p}) e^{-i p\cdot( x - y )} +v^s_\alpha(\vb{p}) \dadj{v}^s_\beta(\vb{p}) e^{ip\cdot( x-y )}]\\
+    &=\int \meas{\vb{p}} \frac{1}{2 E_{\vb{p}}} \qty[ (\gsl{p}+m)_{\alpha\beta} e^{-i p\cdot( x - y )} +(\gsl{p}-m)_{\alpha\beta} e^{ip\cdot( x-y )}]\\
+    &=(i \gsl{\partial} + m )_{\alpha\beta}D(x-y)  - (i \gsl{\partial} + m )_{\alpha\beta}D(y-x)\\
+    &=(i \gsl{\partial} + m )_{\alpha\beta}\triangle(x-y)
+\end{align*}
+where we have used the anti-commutation relations above, also the fact that anti-commutators are symmetric, the completion relations in Eq. \ref{spinsum}, Eq. \ref{eqn:dxy} for the expresison of $D(x-y)$ and finally the fact that $$\partial_\mu e^{\pm i p\cdot (x-y)} = \pm i p_\mu e^{\pm i p\cdot (x-y)} \implies p_\mu e^{\pm i p\cdot (x-y)} = \mp i \partial_\mu e^{\pm i p\cdot (x-y)}$$
+In the bosonic case, we saw that $\triangle(x-y) =0$ for space-like intervals, now we get $S(x,y)\equiv S(x-y) \sim \{\Psi_\alpha(x), \dadj{\Psi}_\beta(y)\} =0$.\\[0.2cm]
+% Previously, when the commutators vanished, we happily said that we had made our `causal' however, here the anti-commutators vanish. This might seem to threaten causality because field operators at spacelike separation do not simply commute. However the fermionic fields are not physical observables. With a leap of faith, we assume that all such observables are bilinears in the field, for example $\hat{A}(x) := \dadj{\Psi}(x)h(x)\Psi(x)$. Then using the vanishing anti-commutation at spacelike separated points $x$ and $y$ we get,
+% \begin{align*}
+%     \comtr{\hat{A}(x)}{\hat{A}(y)} &=  \dadj{\Psi}(x)h(x)\Psi(x) \dadj{\Psi}(y)h(y)\Psi(y)- \dadj{\Psi}(y)h(y)\Psi(y) \dadj{\Psi}(x)h(x)\Psi(x)\\
+%     &=
+% \end{align*}
+We can define the retarded propagator for the Dirac field using the anti-commutation,
+$$\Ss\tund{R}(x-y) = \Theta(x^0-y^0)\{\Psi(x), \dadj{\Psi}(y)\} \equiv (i\gsl{\partial}+m)D\tund{R}(x-y)\iden$$
+where $D\tund{R}(x-y)$ is the retarded propagator for the scalar field. It is indeed a Green's function for the Dirac equation since,
+$$(i\gsl{\partial}-m)\Ss\tund{R}(x-y) = (i\gsl{\partial}-m)(i\gsl{\partial}+m)D\tund{R}(x-y) = -(\gsl{\partial}\gsl{\partial}+m^2)D\tund{R}(x-y) =  i \delta^{(4)}(x-y)\iden $$ 
+where we have used $D\tund{R}(x-y)$ is the Green's function for the scalar field and the on-shell condition is satisfied for $\gsl{\partial}\gsl{\partial} = \partial^2 +m^2$, that is $(\partial^2+m^2)D\tund{R}(x-y) = -i \delta^{(4)}(x-y)$.\\[0.2cm] If we expand $\Ss\tund{R}(x-y)$ in the momentum space and use the above equation, we have
+\begin{align*}
+i \delta^{(4)}(x-y) &= (i\gsl{\partial}-m) \int \frac{\dd^4 p}{(2\pi)^4}\ \widetilde{\Ss}\tund{R}(p)e^{-i p \cdot (x-y)} \\
+&= \int \frac{\dd^4 p}{(2\pi)^4} \widetilde{\Ss}\tund{R}(p)  (\gsl{p}-m)e^{-i p \cdot (x-y)}
+\end{align*}
+Let Dirac delta in the LHS can be expanded as $\int \frac{\dd^4 p}{(2\pi)^4}\ e^{- ip\cdot (x-y)}$. Then we find that 
+$${\widetilde{\Ss}\tund{R}(p)(\gsl{p}-m) = i \iden }\quad \xrightarrow{\text{Inverting}} \quad \widetilde{\Ss}\tund{R}(p)=  \frac{i(\gsl{p}+m)}{p^2-m^2}$$
+\subsection{Feynman Propagator}
+We now define the Feynman propagator $\Ss\tund{F}(x-y)$ for the Dirac field, defined as the time-ordered product 
+$$\Ss\tund{F}(x-y) := \vacb \ST \Psi(x)\dadj{\Psi}(y)\vac = \begin{cases}
+   \vacb \Psi(x)\dadj{\Psi}(y) \vac & x^0 > y^0\\ 
+-\vacb \Psi(y)\dadj{\Psi}(x)\vac & x^0<y^0
+\end{cases}$$
+The negative sign in the definition is necessary for Lorentz invariance. For two space-like points, no signal or causal influence can travel from one point to the other since these are outside each other's lightcones.\\[0.2cm] Thus, there should be no invariant way to determine whether $x^0>y^0$ or $x^0<y^0$. As the anti-commutators vanish for space-like separations, the definitions thus become equal for both cases, when two points are space-like separated. In the bosonic case, the commutators vanished, hence no minus sign was needed. \\[0.2cm]
+Similar to the retarded propagator, the Feynman propagator can be expressed as 
+$$\Ss\tund{F}(x-y) =i \int \frac{\dd^4 p}{(2\pi)^4}\ e^{-i p\cdot (x-y) \frac{\gsl{p}+m}{p^2-m^2 + i\epsilon}}$$%
