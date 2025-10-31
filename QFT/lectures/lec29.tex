@@ -1,4 +1,31 @@
 \refstepcounter{section}
 \section*{Lecture 29: Introducing Interactions}
 \addcontentsline{toc}{section}{Lecture 29: Introducing Interactions}
-So far we had been discussing the free field theory, where there was no interactions between the particles. We had a hint of interactions emerging when we tried to impose local gauge symmetry on the Lagrangian, when two-point and four-point interaction terms automatically emerged by the use of covariant derivatives. 
+So far we had been discussing the free field theory, where there was no interactions between the particles. We had a hint of interactions emerging when we tried to impose local gauge symmetry on the Lagrangian, when two-point and four-point interaction terms automatically emerged by the use of covariant derivatives. \\[0.2cm]
+Emergence of interesting phenomenon only happens in presence of \textit{interactions} \emoji{wink} and thus we need to add some extra terms to the Lagrangian, beyond the bilinear terms. The problem becomes intractable analytically, however,  if the strength of the interaction is small, we often fall back to \textit{perturbation theory} to find some approximate solutions. \\[0.2cm]
+We will first focus on interactions of type $hi$
+\subsection{Allowed Interactions}
+Consider the Klein-Gordon Lagrangian as an example 
+$$\SL = \frac{1}{2} (\partial^\mu \phi)(\partial_\mu \phi) - \frac{1}{2}m^2 \phi^2$$
+Intuitively we expect that an infinite number of interactions can be added to the system, however not all type of interactions are allowed or feasible for the theory. To understand the allowed interactions, we need to see some subtleties. \\[0.2cm]
+Note that the action has dimensions of $\hbar$ but we are working in natural units where $\hbar$ is dimensionless and hence, dimension of action $[\Ss]=0$. Moreover, from sec \ref{sec:two} we know that $$[L] = [M^{-1}]\implies [\dd^4x] = [M^{-4}]$$ Then from the fact that $\Ss = \int \dd^4 x\ \SL$, we obtain $[\SL] = [M^4]$. Note that the partial derivative is kinda inverse length and $[\partial_\mu ] = [M]$. Then the typical term of the Lagrangian, $[m^2\phi^2]=[M^4]\implies [\phi]=[M]$. Thus if we want to add some interaction of the form $\lambda_n \phi^n$ to the Lagrangian, $[\lambda_n]=[M^{4-n}]$\\[0.2cm]
+If $n \neq 4$ then $\lambda_n$ has non-negative mass dimension, then the theory is said to be \textit{renormalisable} (which relates to manipulating some divergences appearing in integrals) and \textit{non-renormalisable} otherwise (which become irrelevant for us)! \\[0.2cm]
+We will start with our discussion for $n=4$, that is the Lagrangian is of the form 
+$$\boxed{\SL = \frac{1}{2} (\partial^\mu \phi)(\partial_\mu \phi) - \frac{1}{2}m^2 \phi^2 - \frac{\lambda}{4!}\phi^4}$$
+\subsection{The Interaction Picture}
+Working with Hamiltonians is somewhat easier now, hence we define the Hamiltonian in terms of the free Hamiltonian and the interacting Hamiltonian 
+$$\MH = \MH\tund{0} + \MH\tund{int}$$
+The field configuration for the Hamiltonian, $\phi(x)$ will definitely not be a simple plane wave. In order to expand perturbatively we need to relate the field $\phi$ to some $\phi\tund{I}$ whose evolution is determined by $\MH\tund{0}$ alone. We define such a field, called the \textit{interaction picture field} by the following evolution
+$$\phint(t,\vb{x}) = e^{i\MH\tund{0}(t-t\tund{0})}\phint(t\tund{0},\vb{x})e^{-i\MH\tund{0}(t-t\tund{0})}$$
+The interaction field evolves with the free Hamiltonian and thus can be safely expanded as
+$$\phint(t,\vb{x}) = \int \meas{\vb{p}} \ \frac{1}{\sqrt{2E_{\vb{p}}}} \qty(\annp e^{-ip\cdot x} + \crep e^{ip\cdot x})$$
+with the usual creation and annihilation operators. We want to express the full Heisenberg field in terms of $\phint$. Suppose at $t=t\tund{0}$ both the interaction field and the Heisenberg field are the same. We now use the evolution for the Heiserberg fields (which evolve with the total Hamiltonian $\MH$)
+\begin{align*}
+    \phi(t,\vb{x}) &=e^{i\MH \uptau} \phi(t\tund{0},\vb{x})e^{-i\MH \uptau} \\
+    &=e^{i\MH \uptau}  \mathcolor{red}{e^{-i\MH\tund{0} \uptau}e^{i\MH\tund{0} \uptau}} \phi(t\tund{0},\vb{x})\mathcolor{red}{e^{-i\MH\tund{0} \uptau}e^{i\MH\tund{0} \uptau}}e^{-i\MH \uptau} \\
+    &=e^{i\MH \uptau}  e^{-i\MH\tund{0} \uptau}\mathcolor{blue}{e^{i\MH\tund{0} \uptau} \phi(t\tund{0},\vb{x})e^{-i\MH\tund{0} \uptau}}e^{i\MH\tund{0} \uptau}e^{-i\MH \uptau}\\
+    &=e^{i\MH \uptau}  e^{-i\MH\tund{0} \uptau} \phint(t,\vb{x}) e^{i\MH\tund{0} \uptau} e^{-i\MH \uptau}
+\end{align*}
+where we have define $\uptau:=(t-t\tund{0})$. In the second step, we have introduced identity operator and then used the evolution of the interaction field from above. \\[0.2cm]
+It is useful to define the unitary operator $U(t, t\tund{0}):= e^{i\MH\tund{0} \ut}e^{-i\MH\ut}$ such that we can write
+$$\boxed{\phi(t,\vb{x}) = U^\dagger(t,t\tund{0}) \phint(t,\vb{x}) U(t,t\tund{})}$$
