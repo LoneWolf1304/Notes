@@ -1,6 +1,7 @@
 \refstepcounter{section}
-\section*{Lecture 28: Dirac Propagator}
-\addcontentsline{toc}{section}{Lecture 28: Dirac Propagator}
+\section*{Lecture 28: Somethings about Propagators}
+\addcontentsline{toc}{section}{Lecture 28: Somethings about Propagators}
+$\blacktriangleright$ \textbf{\large Propagator for Dirac Field}\\[0.2cm]
 Recall the quantisation for the Dirac field that we had stated. Now, if we move to the Heisenberg picture, we have the field operators as 
 \begin{align*}
     \Psi(x) &= \int \meas{\vb{p}}\ \frac{1}{\sqrt{2E_{\vb{p}}}} \sum \limits_s \qty(\annap u^s(\vb{p}) e^{-ip\cdot x} +\crebp v^s(\vb{p}) e^{i p\cdot x})\\
@@ -47,3 +48,37 @@ $$\Ss\tund{F}(x-y) := \vacb \ST \Psi(x)\dadj{\Psi}(y)\vac = \begin{cases}
 The negative sign in the definition is necessary for Lorentz invariance. For two space-like points, no signal or causal influence can travel from one point to the other since these are outside each other's lightcones.\\[0.2cm] Thus, there should be no invariant way to determine whether $x^0>y^0$ or $x^0<y^0$. As the anti-commutators vanish for space-like separations, the definitions thus become equal for both cases, when two points are space-like separated. In the bosonic case, the commutators vanished, hence no minus sign was needed. \\[0.2cm]
 Similar to the retarded propagator, the Feynman propagator can be expressed as 
 $$\Ss\tund{F}(x-y) =i \int \frac{\dd^4 p}{(2\pi)^4}\ e^{-i p\cdot (x-y) \frac{\gsl{p}+m}{p^2-m^2 + i\epsilon}}$$%
+$\blacktriangleright$ \textbf{\large Propagator for Gauge Field}\\[0.2cm]
+We will now consider the propagator for the gauge fields that we had been studied for free electromagnetic theory, specifically for photons. Consider the basic Lagrangian for that, without the gauge fixing condition, 
+$$\SL\tund{EM} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$$
+From Eq. \ref{eqn:eom} we can write the EoM in terms of the gauge field
+$$\partial_\mu \partial^\mu A^\nu -  \partial_\mu \partial^\nu A^\nu = 0 \implies \partial_\mu \partial^\mu A^\nu -  \partial^\mu \partial^\nu A_\mu = 0\implies \boxed{\qty(\eta^{\sigma\nu}\partial^\mu \partial_\mu  -  \partial^\sigma \partial^\nu) A_\sigma = 0}$$
+In order to find the propagator, we can now try to find a Green's function for this equation, say $G_{\rho\nu}(x-y)$ satisfying 
+$$\qty(\eta^{\sigma\nu}\partial^\mu \partial_\mu  -  \partial^\sigma \partial^\nu) G_{\rho\nu}(x-y) = i \delta^{(4)}(x-y) \delt{\sigma}{\rho}$$
+Now expand the Green's function using its Fourier modes and then substitute in the equation above
+\begin{align*}
+    G_{\rho\nu}(x-y) = \int \frac{\dd^4 p}{(2\pi)^4} e^{-ip\cdot (x-y)} \widetilde{G}_{\rho\nu}(p)\longrightarrow \int \frac{\dd^4 p}{(2\pi)^4}\widetilde{G}_{\rho\nu}(p) \qty(\eta^{\sigma\nu}\partial^\mu \partial_\mu  -  \partial^\sigma \partial^\nu) e^{-ip\cdot (x-y)} &= i  \delt{\sigma}{\rho} \int  \frac{\dd^4 p}{(2\pi)^4} e^{-ip\cdot (x-y)}\\
+    \implies \int \frac{\dd^4 p}{(2\pi)^4}\widetilde{G}_{\rho\nu}(p) (-\eta^{\sigma\nu} p^2 + p^\sigma p^\nu)e^{-ip\cdot (x-y)} &=  \int  \frac{\dd^4 p}{(2\pi)^4}  i  \delt{\sigma}{\rho} e^{-ip\cdot (x-y)}
+\end{align*}
+Comparing both sides, we get the relation 
+$$(-\eta^{\sigma\nu} p^2 + p^\sigma p^\nu) \widetilde{G}_{\rho\nu}(p) = i\delt{\sigma}{\rho} $$
+which implies that $\widetilde{G}_{\rho\nu}(p)$ could be an inverse of the operator $(-\eta^{\sigma\nu} p^2 + p^\sigma p^\nu)$. However, note that 
+$$(-\eta^{\sigma\nu} p^2 + p^\sigma p^\nu)p_\nu = (-p^2 p^\sigma + p^2 p^\sigma) = 0 $$ 
+and hence $0$ is one of the eigenvalues of this operator. This implies that this operator is  singular since its determinant becomes zero as the determinant is written as the product of the eignevalues. As a result, the operator cannot be inverted and the Green's function cannot be stated to be the inverse of the operator and its existence becomes questionable! \\[0.2cm]
+To solve this problem, we fall back to our Gauge fixing Lagrangian 
+$$\SL = -\frac{1}{4}F_{\mu\nu} F^{\mu\nu} - \frac{1}{2\xi}\qty(\partial_\mu A^\mu)^2$$
+which has the corresponding EoM from Eq. \ref{eqn:eomgf}. Finding the same Green's function in momentum space, we can find that a factor of $\qty(1-\sfrac{1}{\xi})$ comes into the second term of the operator which saves it from being singular and hence, it now becomes invertible. \\[0.2cm]
+To construct the inverse matrix, we make a general symmetric ansatz
+$$\widetilde{G}_{\rho\nu}(p) = \SA(p) \eta_{\rho\nu} + \SB(p)p_\rho p_\nu$$
+We note substitute this in the modified inverse equation 
+\begin{align*}
+     i\delt{\sigma}{\rho} &=\qty(-\eta^{\sigma\nu} p^2 +\qty(1-\frac{1}{\xi}) p^\sigma p^\nu)\qty( \SA(p) \eta_{\rho\nu} + \SB(p)p_\rho p_\nu)\\
+     &=-\SA(p)p^2\delt{\sigma}{\rho} -\SB(p)p_\rho p^\sigma p^2 + \qty(1-\frac{1}{\xi})p_\rho p^\sigma \SA(p) + \SB(p)\qty(1-\frac{1}{\xi}) p^2 p^\rho p_\sigma
+\end{align*}
+Comparing both sides, we get $\SA(p) = -\sfrac{i}{p^2}$ and 
+$$-\SB(p)\frac{p^2}{\xi}+\qty(1-\frac{1}{\xi}) \SA(p)=0 \implies \SB(p) = -\frac{i}{p^4}(\xi-1)$$
+Thus the Green's function in the momentum space is found as 
+
+$$\widetilde{G}_{\rho\nu}(p) = -\frac{i}{p^2}\qty[\eta_{\rho\nu} + \frac{\xi-1}{p^2}p_\rho p_\nu]$$
+Then choosing different pole prescriptions, we can find the different propagators viz. retarded, advanced, Feynman... For example, the Feynman propagator for the photon field is given as 
+$$D\tund{F}(x-y) = \int \frac{\dd^4 p}{(2\pi)^4}  \qty{ -\frac{i}{p^2+i\varepsilon}\qty[\eta_{\rho\nu} + \frac{\xi-1}{(p^2+i\varepsilon)^2}p_\rho p_\nu]}   e^{-ip\cdot (x-y)}  $$

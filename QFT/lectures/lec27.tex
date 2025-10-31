@@ -41,9 +41,9 @@ The term in the parenthesis is a total derivative and in the action, this will v
     &=-\frac{1}{2}\qty[(\partial_\mu A_\nu)(\partial^\mu A^\nu) - \qty(1-\frac{1}{\xi})( \partial_\mu A_\nu )(\partial^\nu A^\mu)]
 \end{align*}
 From this, we can find the equation of motion.
-\begin{align*}
+\begin{align}\label{eqn:eomgf}
    0 & = \partial_\sigma \qty(\pdv{ \SL\tund{EM}}{(\partial_\sigma A_\rho)})  - \pdv{\SL\tund{EM}}{A_\sigma}\implies   \boxed{\partial_\sigma\partial^\sigma A^\rho - \qty(1-\frac{1}{\xi})\partial^\rho\partial_\sigma A^\sigma =0}
-\end{align*}
+\end{align}
 In terms of $F^{\mu\nu}$ we get the EoM as $$\partial_\mu F^{\mu\nu}+\frac{1}{\xi}\partial^\nu(\partial_\alpha A^\alpha)=0$$
 For $\xi=1$, $\partial_\sigma\partial^\sigma A^\rho = 0$ which admits a plane-wave solution for the gauge field. This choice is termed as \textit{Feynman gauge} and calculations are easy with this choice. Another choice is to take $\xi \to 0$ which is called the \textit{Landau gauge}.\\[0.2cm]
 Now let us find the canonical momentum for the Lagrangian. We will first find it from the proposed Lagrangian, without the boudary modification. The momentum from the first term, $\Pi^\mu = F^{-0\mu}$, was already seen before. Noting that $\partial_\mu A^\mu = (\partial_0 A^0 + \partial_i A^i)$, from the second term, we have
