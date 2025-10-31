@@ -21,16 +21,16 @@ $$\vartriangleright\ST^{rr} = Pe^{-2\nu}\quad \vartriangleright \ST^{\theta\thet
 Then applying the conservation criterion for the stress-energy tensor, we have
 \begin{align*}
     0 = \nabla_\mu \ST^{\mu r} &= \partial_\mu\ST^{\mu r} + \chris{r}{\mu}{\sigma}\ST^{\mu\sigma} + \chris{\mu}{\mu}{\sigma}\ST^{\sigma r}\\
-    &=\partial_r \qty(Pe^{-2\nu}) + \chris{r}{r}{r}\ST^{rr}+\chris{r}{\theta}{\theta}\ST^{\theta\theta}+\chris{r}{\phi}{\phi}\ST^{\phi\phi}+\chris{r}{t}{t}\ST^{tt}+\chris{\mu}{\mu}{r}
+    &=\partial_r \qty(Pe^{-2\nu}) + \chris{r}{r}{r}\ST^{rr}+\chris{r}{\theta}{\theta}\ST^{\theta\theta}+\chris{r}{\phi}{\phi}\ST^{\phi\phi}+\chris{r}{t}{t}\ST^{tt}+\chris{\mu}{\mu}{r}\ST^{rr}
 \end{align*}
 Expanding the last term we get the following
 $$\chris{\mu}{\mu}{r} = \chris{t}{t}{r} +\chris{r}{r}{r}+\chris{\theta}{\theta}{r} +\chris{\phi}{\phi}{r} = \Phi' + \nu'+\frac{1}{r}+\frac{1}{r} =    \Phi' + \nu'+\frac{2}{r}$$
 Then, we putting all these together we get
 \begin{align*}
-    0 &=\partial_r \qty(Pe^{-2\nu}) + \qty(P\nu'e^{-2\nu}) + \qty(-re^{-2\nu}\frac{P}{r^2}) + (-r\sin^2\theta e^{-2\nu}\frac{P}{r^2\sin^2\theta})+ \Phi' e^{2(\Phi - \nu)} \rho e^{-2\Phi}+\qty(\Phi'+\nu' + \frac{2}{r})Pe^{-2\nu}\\
+    0 &=\partial_r \qty(Pe^{-2\nu}) + \qty(P\nu'e^{-2\nu}) + \qty(-re^{-2\nu}\frac{P}{r^2}) + \qty(-r\sin^2\theta e^{-2\nu}\frac{P}{r^2\sin^2\theta})+ \Phi' e^{2(\Phi - \nu)} \rho e^{-2\Phi}+\qty(\Phi'+\nu' + \frac{2}{r})Pe^{-2\nu}\\
     &=\qty(\dv{P}{r}-2\nu'P)e^{-2\nu} + \qty(P\nu'e^{-2\nu}) -\qty(e^{-2\nu}\frac{2P}{r})+ \Phi' e^{-2\nu} \rho+\qty(\Phi'+\nu' + \frac{2}{r})Pe^{-2\nu}\\
-    &=\qty(\dv{P}{r}-\cancel{2\nu'P}) + \cancel{\qty(P\nu')} -\cancel{\qty(\frac{2P}{r})}+ \Phi'  \rho+\qty(\Phi'+\cancel{\nu'} + \cancel{\frac{2}{r}})P\\
-    &=\dv{P}{r} +\Phi'(\rho+P)
+    &=\qty{\qty(\dv{P}{r}-\cancel{2\nu'P}) + \cancel{\qty(P\nu')} -\cancel{\qty(\frac{2P}{r})}+ \Phi'  \rho+\qty(\Phi'+\cancel{\nu'} + \cancel{\frac{2}{r}})P}e^{-2\nu}\\
+    &=\qty{\dv{P}{r} +\Phi'(\rho+P)}e^{-2\nu}
 \end{align*}
 We have used the form of the Christoffel symbols from the code given in the appendix. Eq. \ref{eqn:TOV1}, \ref{eqn:TOV2} and \ref{eqn:TOV3} are together called the \textit{Tolman-Oppenheimer-Volkoff} equations which are used to model an isotropic, spherically symmetric body in hydrostatic equilibrium.
 \subsection{Newtonian Analogy}

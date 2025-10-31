@@ -1,0 +1,186 @@
+\documentclass[usenames, svgnames, dvipsnames]{scrartcl}
+\usepackage{pgfplots}
+\usepackage{emoji}
+\usepackage[makeroom]{cancel}
+\usepackage{simpler-wick}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{booktabs} % For better table formatting
+\usepackage{calc}
+\usepackage{Style_File}
+\newcommand{\ad}[1]{a_{#1}^\dagger}
+\usepackage{fancyhdr}
+\usepackage{tikz-feynman}
+
+\newenvironment{bMatrix}[1]{%
+\bmatrix\array{#1}\hspace*{-0.5\arraycolsep}}%
+{\endarray\endbmatrix}
+
+
+\usepackage{tensor}
+\usepackage{array}
+\usepackage{lmodern}
+\definecolor{violet}{rgb}{0.5,0.27,0.45}
+\newcommand{\fvec}[1]{\vb{#1}}
+\newcommand{\cre}[1]{\hat{a}_{#1}^\dagger}
+\newcommand{\ann}[1]{\hat{a}_{#1}}
+
+\newcommand{\crep}{\hat{a}_{\vb{p}}^\dagger}
+\newcommand{\annp}{\hat{a}_{\vb{p}}}
+\newcommand{\fo}{\hat{\phi}}
+\newcommand{\crepd}{\hat{a}_{\vb{p}'}^\dagger}
+\newcommand{\annpd}{\hat{a}_{\vb{p}'}}
+\newcommand{\vac}{\ket{\Omega}}
+\newcommand{\vacb}{\bra{\Omega}}
+\newcommand{\cremp}{\hat{a}_{\vb{-p}}^\dagger}
+\newcommand{\annmp}{\hat{a}_{\vb{-p}}}
+
+\newcommand{\crempd}{\hat{a}_{\vb{-p}'}^\dagger}
+\newcommand{\annmpd}{\hat{a}_{\vb{-p}'}}
+
+\newcommand{\tvec}[1]{\vb{{#1}}}
+\renewcommand{\aa}[1]{a_{#1}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\dadj}[1]{\overbar{#1}}
+\newcommand{\bili}[1]{\dadj{\Psi}\ #1 \ \Psi}
+\newcommand{\bilin}[3]{\dadj{\Psi}_{#1}\ #3 \ \Psi_{#2}}
+\newcommand{\lrep}{\mathrm{S}[\Lambda]}
+\newcommand{\lrepd}{\mathrm{S}^\dagger[\Lambda]}
+\newcommand{\lrepinv}{\mathrm{S}^{-1}[\Lambda]}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Recommended preamble:
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+    layers/standard/.define layer set={%
+        background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+    }{
+        grid style={/pgfplots/on layer=axis grid},%
+        tick style={/pgfplots/on layer=axis ticks},%
+        axis line style={/pgfplots/on layer=axis lines},%
+        label style={/pgfplots/on layer=axis descriptions},%
+        legend style={/pgfplots/on layer=axis descriptions},%
+        title style={/pgfplots/on layer=axis descriptions},%
+        colorbar style={/pgfplots/on layer=axis descriptions},%
+        ticklabel style={/pgfplots/on layer=axis tick labels},%
+        axis background@ style={/pgfplots/on layer=axis background},%
+        3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}
+\newcommand{\amstitle}[1]{%
+  {\Large\MakeUppercase{#1}}% First letter large, rest small caps (simplified)
+  % OR for true small caps:
+  % {\Large\MakeUppercase{\expandafter\@firstofone#1}\scshape\MakeLowercase{#1}}%
+}
+\usepackage[left = 0.8in,
+right = 0.6in,
+bottom = 0.8in,
+top = 0.8in,
+a4paper]{geometry}
+
+
+\fancyhead[L,C]{}
+\fancyhead[R]{Lecture Notes}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=cyan!80!black, citecolor=YellowOrange,urlcolor=cyan!80!black}
+\fancyhead[C]{ Glassy System}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R,L]{}
+\usetikzlibrary{calc}
+\pagestyle{fancy}
+\newcommand{\delt}[2]{\tensor{\delta}{^{#1}_{#2}}}
+\newcommand{\meas}[1]{\frac{\dd^3\tvec{#1}}{(2\pi)^3}}
+\newcommand{\tvp}{\tvec{p}}
+\newcommand{\tvpd}{\tvec{p}'}
+\newcommand{\myeq}[1]{\stackrel{\mathclap{\tiny\mbox{#1}}}{=}}
+\newcommand{\omp}{\omega_{\tvp}}
+\newcommand{\ompd}{\omega_{\tvpd}}
+\renewcommand{\headrulewidth}{0.4pt}
+\definecolor{titleblue}{RGB}{0, 80, 120}
+\usepackage{longtable} 
+
+\renewcommand{\fdv}[2]{\frac{\delta #1}{\delta #2}}
+\begin{document}
+\makeatletter
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[black!80!blue, line width=2pt] 
+            ($(current page.north west)+(0.6cm,-0.6cm)$) rectangle 
+            ($(current page.south east)+(-0.6cm,0.6cm)$);
+    \end{tikzpicture}
+    \vspace*{2cm}
+    
+        \begin{center}
+            {\rmfamily
+                \Huge{\textcolor{blue!30!black}{%
+                    \textmd{{\HUGE{{G}}}}lassy {\HUGE S}ystems and \\
+                     {\HUGE S}uper-cooled {\HUGE L}iquids%
+                }}\\[0.7cm]
+                
+                % \LARGE \textcolor{black!50!cyan}{%
+                %     \texttt{ \textsc{Numerics and Analytics}}%
+                % }\\[1.0cm]
+                
+                \Large \textsc{Lecture Notes} \\[0.3cm]
+               \Large \textit{Instructor: Prof. Chandan Dasgupta }\\[0.7cm]
+
+%                  $\begin{pmatrix}
+% 0 & 1 &  &  & \\
+% 1 & 0 & 2 &  & \\
+%  & 2 & 0 & 3 & \\
+%  &  & 3 & 0 & \ddots \\
+%  &  &  & \ddots  & \ddots 
+% \end{pmatrix}$
+            }
+            \end{center}
+       
+        \begin{figure}[H]
+            \centering
+           \input{pics/title.tex}
+        \end{figure}
+        \vspace{1cm}
+        \begin{center}
+           \Large \texttt{\textbf{{\LARGE  S}agnik {\LARGE S}eth }}
+        \end{center}
+        \vspace{0.5cm}
+      \begin{center}
+    \textbf{ Dept of Physical Sciences} \\
+    \textbf{IISER Kolkata}
+    \vspace{0.5cm}
+
+    % Side-by-side logos
+   
+\end{center}
+
+\end{titlepage}
+
+  
+       
+\tableofcontents
+\newpage
+\input{lecs/lec01.tex}
+% \input{lecs/lec02.tex}
+% \input{lecs/lec03.tex}
+% \input{lecs/lec04.tex}
+% \input{lecs/lec05.tex}
+% \input{lecs/lec07.tex}
+% \input{lecs/lec09.tex}
+
+% \input{lecs/lec10.tex}
+
+% \input{lecs/lec12.tex}
+% \input{lecs/lec13.tex}
+% \input{lecs/lec14.tex}
+% \input{lecs/lec16.tex}
+% \input{lecs/lec17.tex}
+% \input{lecs/lec18.tex}
+% \input{lecs/lec19.tex}
+% \input{lecs/lec20.tex}
+% \input{lecs/lec21.tex}
+% \newpage
+% \begin{appendices}
+% \input{append/lorentz.tex}
+% \end{appendices}
+\end{document}
