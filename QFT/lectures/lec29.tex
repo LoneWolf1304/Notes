@@ -2,8 +2,7 @@
 \section*{Lecture 29: Introducing Interactions}
 \addcontentsline{toc}{section}{Lecture 29: Introducing Interactions}
 So far we had been discussing the free field theory, where there was no interactions between the particles. We had a hint of interactions emerging when we tried to impose local gauge symmetry on the Lagrangian, when two-point and four-point interaction terms automatically emerged by the use of covariant derivatives. \\[0.2cm]
-Emergence of interesting phenomenon only happens in presence of \textit{interactions} \emoji{wink} and thus we need to add some extra terms to the Lagrangian, beyond the bilinear terms. The problem becomes intractable analytically, however,  if the strength of the interaction is small, we often fall back to \textit{perturbation theory} to find some approximate solutions. \\[0.2cm]
-We will first focus on interactions of type $hi$
+Emergence of interesting phenomenon only happens in presence of \textit{interactions} \emoji{wink} and thus we need to add some extra terms to the Lagrangian, beyond the bilinear terms. The problem becomes intractable analytically, however,  if the strength of the interaction is small, we often fall back to \textit{perturbation theory} to find some approximate solutions.
 \subsection{Allowed Interactions}
 Consider the Klein-Gordon Lagrangian as an example 
 $$\SL = \frac{1}{2} (\partial^\mu \phi)(\partial_\mu \phi) - \frac{1}{2}m^2 \phi^2$$
@@ -17,7 +16,7 @@ Working with Hamiltonians is somewhat easier now, hence we define the Hamiltonia
 $$\MH = \MH\tund{0} + \MH\tund{int}$$
 The field configuration for the Hamiltonian, $\phi(x)$ will definitely not be a simple plane wave. In order to expand perturbatively we need to relate the field $\phi$ to some $\phi\tund{I}$ whose evolution is determined by $\MH\tund{0}$ alone. We define such a field, called the \textit{interaction picture field} by the following evolution
 $$\phint(t,\vb{x}) = e^{i\MH\tund{0}(t-t\tund{0})}\phint(t\tund{0},\vb{x})e^{-i\MH\tund{0}(t-t\tund{0})}$$
-The interaction field evolves with the free Hamiltonian and thus can be safely expanded as
+where $\tz$ is our \textit{reference time}. The interaction field evolves with the free Hamiltonian and thus can be safely expanded as
 $$\phint(t,\vb{x}) = \int \meas{\vb{p}} \ \frac{1}{\sqrt{2E_{\vb{p}}}} \qty(\annp e^{-ip\cdot x} + \crep e^{ip\cdot x})$$
 with the usual creation and annihilation operators. We want to express the full Heisenberg field in terms of $\phint$. Suppose at $t=t\tund{0}$ both the interaction field and the Heisenberg field are the same. We now use the evolution for the Heiserberg fields (which evolve with the total Hamiltonian $\MH$)
 \begin{align*}
@@ -26,6 +25,153 @@ with the usual creation and annihilation operators. We want to express the full 
     &=e^{i\MH \uptau}  e^{-i\MH\tund{0} \uptau}\mathcolor{blue}{e^{i\MH\tund{0} \uptau} \phi(t\tund{0},\vb{x})e^{-i\MH\tund{0} \uptau}}e^{i\MH\tund{0} \uptau}e^{-i\MH \uptau}\\
     &=e^{i\MH \uptau}  e^{-i\MH\tund{0} \uptau} \phint(t,\vb{x}) e^{i\MH\tund{0} \uptau} e^{-i\MH \uptau}
 \end{align*}
-where we have define $\uptau:=(t-t\tund{0})$. In the second step, we have introduced identity operator and then used the evolution of the interaction field from above. \\[0.2cm]
+where we have define $\uptau:=(t-t\tund{0})$. In the second step, we have introduced the identity operator and then used the evolution of the interaction field from above. \\[0.2cm]
 It is useful to define the unitary operator $U(t, t\tund{0}):= e^{i\MH\tund{0} \ut}e^{-i\MH\ut}$ such that we can write
-$$\boxed{\phi(t,\vb{x}) = U^\dagger(t,t\tund{0}) \phint(t,\vb{x}) U(t,t\tund{})}$$
+$$\boxed{\phi(t,\vb{x}) = U^\dagger(t,t\tund{0}) \phint(t,\vb{x}) U(t,t\tund{0})}$$
+We need to find some evolution equation for this unitary operator which we find by its time-derivative 
+\begin{align*}
+    i \pdv{U}{t} = -\MH\tund{0}e^{i\MH\tund{0} \ut}e^{-i\MH\ut} + e^{i\MH\tund{0} \ut}\MH e^{-i\MH\ut} &= -e^{i\MH\tund{0} \ut}\MH\tund{0} e^{-i\MH\ut} + e^{i\MH\tund{0} \ut}\MH e^{-i\MH\ut}\\ &= e^{i\MH\tund{0} \ut}(\MH - \MH\tund{0})e^{-i\MH\ut}\\ &=e^{i\MH\tund{0} \ut}H\tund{int}e^{-i\MH\ut}\\
+    &=e^{i\MH\tund{0} \ut}\MH\tund{int}e^{-i\MH\tund{0}} e^{i\MH\tund{0}}e^{-i\MH\ut}
+\end{align*}
+Defining the \textit{interaction picture Hamiltonian} as $\MH\tund{I}(t) = e^{i\MH\tund{0}\ut} \MH\tund{int} e^{-i \MH\tund{0}\ut}$ we get the evolution equation as 
+\begin{equation}\label{eqn:dudt}
+    \boxed{i\pdv{U}{t} = \MH\tund{I}(t)U(t,t\tund{0})}
+\end{equation}
+\subsubsection{Dyson Series}
+We now try to find a solution for the above differential equation of the unitary operator $U$. First note the boundary condition, that $U(t\tund{0},t\tund{0})= \iden $. Then the solution of Eq. \ref{eqn:dudt} can be iteratively written as
+\begin{align*}
+    U(t,t\tund{0}) &= \iden - i \int\limits_{t\tund{0}}^t \dd t\tund{1}\ \hint(\ti) U(\ti, \tz)\\
+    &=\iden - i \int\limits_{t\tund{0}}^t \dd t\tund{1}\ \hint(\ti) \qty[ \iden - i \int\limits_{\tz}^{\ti} \dd \tii\ \hint(\tii) U(\tii, \tz)]\\
+    &=\iden - i \int\limits_{\tz}^t \dd \ti \ \hint(\ti) + (-i)^2 \int\limits_{\tz}^t \dd \ti \int\limits_{\tz}^{\ti} \dd \tii\ \hint(\ti)\hint(\tii) U(\tii, \tz)\\
+    &=\iden - i \int\limits_{\tz}^t \dd \ti \ \hint(\ti) + (-i)^2 \int\limits_{\tz}^t \dd \ti \int\limits_{\tz}^{\ti} \dd \tii\ \hint(\ti)\hint(\tii) \qty[\iden - i \int\limits_{t\tund{0}}^\tii \dd \tiii\ \hint(\tiii) U(\tiii, \tz)]\\
+    &=\iden - i \int\limits_{\tz}^t \dd \ti \ \hint(\ti) + (-i)^2 \int\limits_{\tz}^t \dd \ti \int\limits_{\tz}^{\ti} \dd \tii\ \hint(\ti)\hint(\tii) + \\ &\qquad\qquad\qquad\qquad\qquad(-i)^3 \int\limits_{\tz}^t \dd \ti \int\limits_{\tz}^{\ti} \dd \tii \int\limits_{\tz}^\tii \dd \tiii \ \hint(\ti)\hint(\tii)\hint(\tiii) U(\tiii, \tz)
+\end{align*}
+Then the general solution can be written as 
+\begin{align*}
+     U(t,t\tund{0}) &= \iden + \sum \limits_{n=1}^\infty (-i)^n \int\limits_{\tz}^{t}\dd \ti \int\limits_{\tz}^{\ti}\dd \tii \ldots \int\limits_{\tz}^{t\tund{n-1}}\dd t\tund{n}\ \qty( \prod\limits_{j=1}^{n} \hint(t\tund{j}))
+\end{align*}
+Note that in the above expression, from the integration limits we can observe that $t\tund{i} \in (\tz, t\tund{i+1})$ and hence $t\tund{i+1}<t\tund{i}$ 
+\begin{figure}[H]
+    \centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da48269703275570397] 
+\draw    (120.68,100.73) -- (299.68,100.73) -- (380.68,100.73) (154.68,96.73) -- (154.68,104.73)(188.68,96.73) -- (188.68,104.73)(222.68,96.73) -- (222.68,104.73)(256.68,96.73) -- (256.68,104.73)(290.68,96.73) -- (290.68,104.73)(324.68,96.73) -- (324.68,104.73)(358.68,96.73) -- (358.68,104.73) ;
+\draw [shift={(382.68,100.73)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (145,111.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$t_{0}$};
+% Text Node
+\draw (356,109.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$t$};
+% Text Node
+\draw (320,111.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$t_{1}$};
+% Text Node
+\draw (286,111.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$t_{2}$};
+% Text Node
+\draw (253,111.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$t_{3}$};
+% Text Node
+\draw (193,115.35) node [anchor=north west][inner sep=0.75pt]    {$\dotsc $};
+
+
+\end{tikzpicture}
+
+\end{figure}
+\noindent
+Hence a natural time-ordering appears since the Hamiltonians inside the integrals are arranged in a time-ordered fashion. Then using the time-ordering operator $\ST$ (which acts on a `string' of operators at different times and arranges them with greater times appearing on the left) we can write  
+\begin{align*}
+     U(t,t\tund{0}) &= \iden + \sum \limits_{n=1}^\infty \frac{(-i)^n}{n!} \int\limits_{\tz}^{t}\dd \ti \int\limits_{\tz}^{t}\dd \tii \ldots \int\limits_{\tz}^{t}\dd t\tund{n}\ \ST\qty{ \prod\limits_{j=1}^{n} \hint(t\tund{j})}
+\end{align*}
+We observe that in the above integrals we can permute between $t_i$ since there is no ordering. The region of integral in the above expression can be broken into $n!$ sub-regions, depending on the permutations of the times, hence we divide by $n!$ for this purpose. We symbolically define the integral as the \textit{time-ordered exponential} 
+\begin{equation}\label{eqn:dyson}
+    U(t,\tz) = \ST\qty{\exp \qty[-i \int\limits_\tz^t \dd t' \hint(t')]}
+\end{equation}
+This compact form of the operator is called the Dyson series and is extremely hard to compute fully. Computations are often done keeping only few terms and the equation is kind of a formality. 
+\begin{ffact}
+    The following are two important properties of the unitary operator $U$:
+\begin{itemize}
+    \item $U^\dagger(\tii, \tz) = U(\tz, \tii)$ 
+    \item $U(\ti, \tz)U(\tz, \tii) = U(\ti, \tii)$
+\end{itemize}
+\end{ffact}
+\textit{Proof.} Let us try to prove these properties one by one. \\[0.2cm]
+$\vartriangleright$ For the first property, note that taking dagger of Eq. \ref{eqn:dyson} changes $i\to -i$ and this extra minus sign is then used to interchange the limits of the integral. Hence in the exponential we have $-i \int_{\tii}^\tz$, thus proved. \\[0.2cm]
+ $\vartriangleright$ For the second property, let us define $\widetilde{U}(t) = U(t,\tz)U(\tz, \tii)$. Then we have 
+ \begin{align*}
+    i \pdv{\widetilde{U}}{t} = i \qty(\pdv{t}U(t,\tz)) U(\tz, \tii) = \hint(t,\tz) U(t,\tz)U(\tz,\tii) = \hint(t) \widetilde{U}(t)
+ \end{align*}
+ Thus, $\widetilde{U}$ satisfies the same differential equation as $U(t,\tz)$ and we have $\widetilde{U}(\tii) = U(\tii, \tz)U(\tz, \tii) = \iden$ using the first property and unitarity of $U$.\\[0.2cm] Thus, $\widetilde{U}(t)$ satisfies the same equation and same initial conditon as $U(t,\tii)$ (the reference time is replaced, $\tz \to \tii$). Thus by the uniqueness of the solution of first-order linear differential equation $\widetilde{U}(t) = U(t,\tii)$ and hence proved.
+ \subsection{Ground States}
+The ground state of the Hamiltonian is very special since it acts as a stable-reference state of the system. It kind of denotes the zero-temperature QFT(which is simpler since at higher temperature, the system stays in a \textit{thermal ensemble}). Indeed we had calculated the propagators as the \textit{vacuum} expectation of some shitty quantities. \\[0.2cm]
+Thus characterising ground states becomes very important.We had already said a lot of bs about the ground states of the free theory $\vac$, however, in presence of interactions, the ground state of the Hamiltonian also changes to some $\vact$ and is unknown to us. \\[0.2cm]
+Let the full Hamiltonian be characterised by the eigenpairs $\{\ket{n}, \SE_n\}$ where for simplicity we assume these to be countable(when actually these form a continuum) and non-degenerate. 
+\begin{align*}
+    e^{-i\MH \ut} {\vac} &= e^{-i\MH \ut}\qty(\sum\limits_{n\neq 0} \ket{n}\bra{n} + \vact \vactb) \vac\\
+    &=\sum\limits_{n\neq 0} e^{-i\SE\tund{n} \ut} \braket{n|\Omega} \ket{n} \ \ + e^{-i\SE\tund{0}\ut} \braket{\widetilde{\Omega}|\Omega}\ket{\widetilde{\Omega}} 
+\end{align*}
+Note the $\SE\tund{n} > \SE\tund{0}$ for all $n$ since it is the ground (lowest energy) state of the interacting theory. Then we can use a trick, sending $\ut $ to infinity in a \textit{slightly imaginary} manner, such that the only contribution is for $n=0$ (the other terms become exponentially decaying). Thus we obtain 
+$$\lim\limits_{\ut \to \infty(1-i\epsilon)}  e^{-i\MH \ut} {\vac} = \lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}\ut} \braket{\widetilde{\Omega}|\Omega}]\ket{\widetilde{\Omega}} $$
+Thus we obtain an expression for the vacuum of the interacting theory as 
+$$\ket{\widetilde{\Omega}} = \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  e^{-i\MH \ut} {\vac}}{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}\ut} \braket{\widetilde{\Omega}|\Omega}]} $$
+In the expression above, we assume that there is some finite overlap between the vacuums of the free and interacting theory. If the overlap is zero, we can say that the interaction is in no way `small' and perturbative analysis becomes invalid!\\[0.2cm]
+Now, note that $\ut$ goes to infinite and it would not matter if we shift this by some finite amount, $\ut \to \ut + \tz$
+\begin{align*}
+   \ket{\widetilde{\Omega}} &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  e^{-i\MH (\ut+\tz)} {\vac}}{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}(\ut+\tz)} \braket{\widetilde{\Omega}|\Omega}]}  \\
+   &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  e^{-i\MH (-(-\ut)+\tz)} {\vac}}{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}(-(-\ut)+\tz)} \braket{\widetilde{\Omega}|\Omega}]}
+\end{align*}
+Since $\vac$ is the ground-state of the free Hamiltonian, $\MH\tund{0}\vac =0\implies e^{i\MH\tund{0} (\ut+\tz)}\vac = \vac$. We can introduce this in the expression above 
+\begin{align*}
+    \ket{\widetilde{\Omega}}&= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  e^{-i\MH (-(-\ut)+\tz)}\mathcolor{blue}{e^{i\MH\tund{0} (\ut+\tz)}} {\vac}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}(-(-\ut)+\tz)} \braket{\widetilde{\Omega}|\Omega}]}\\ 
+    &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  e^{i\MH ((-\ut)-\tz)}{e^{-i\MH\tund{0} (-\ut-\tz)}} {\vac}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}(-(-\ut)+\tz)} \braket{\widetilde{\Omega}|\Omega}]}\\
+    &=\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  U^\dagger (-\ut,\tz) {\vac}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}(-(-\ut)+\tz)} \braket{\widetilde{\Omega}|\Omega}]}\\
+    &=\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  U (\tz, -\ut) {\vac}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}(-(-\ut)+\tz)} \braket{\widetilde{\Omega}|\Omega}]}
+\end{align*}
+Intuitively, this says that upto some numerical factor, the vacuum of the interacting theory is obtained by evolving the vacuum of the free theory from $-\ut$ to $\tz$ where $\ut$ is some very very large time.  To obtain $\vactb$ we start with $e^{i\MH t}\vac$ instead. Expanding as before we see 
+\begin{align*}
+    e^{i\MH \ut} {\vac} =\sum\limits_{n\neq 0} e^{i\SE\tund{n} \ut} \braket{n|\Omega} \ket{n} \ \ + e^{i\SE\tund{0}\ut} \braket{\widetilde{\Omega}|\Omega}\ket{\widetilde{\Omega}} 
+\end{align*}
+Taking Hermitian conjugate both sides, we obtain 
+\begin{align*}
+   \vacb e^{i\MH \ut}  =\sum\limits_{n\neq 0}\bra{n} e^{-i\SE\tund{n} \ut} \braket{\Omega|n}  \ \ +\bra{\widetilde{\Omega}}  e^{-i\SE\tund{0}\ut} \braket{\Omega|\widetilde{\Omega}}
+\end{align*}
+By the same previous logic, taking $\ut$ to infinity in a slightly imaginary manner we get 
+\begin{align*}
+    \vactb &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{i\MH \ut}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}\ut} \braket{\Omega|\widetilde{\Omega}}} \\
+    &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{i\MH( \ut-\tz)}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
+    &=\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{i\MH\tund{0}( \ut-\tz)} e^{i\MH( \ut-\tz)}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
+    &=\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb U(\ut,\tz) }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
+\end{align*}
+Thus we had found the expression of the vacuum for the interacting theory 
+\begin{equation}\label{eqn:vacuum}
+     \boxed{\ket{\widetilde{\Omega}} = \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  U (\tz, -\ut) {\vac}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)} \qty[e^{-i\SE\tund{0}(\ut+\tz)} \braket{\widetilde{\Omega}|\Omega}]}}\qquad \boxed{ \vactb =\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb U(\ut,\tz) }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}}
+\end{equation}
+\subsection{Correlation Functions}
+For interacting theories, we will often have to calculate the $n$-point correlation function of the form $\vactb \phi(x_1)\phi(x_2)\ldots \phi(x_n) \vact$. Consider a time-ordered two-point correlation function between $\phi(x)$ and $\phi(y)$ such that $x^0>y^0$. 
+\begin{align*}
+    \vactb \phi(x)\phi(y) \vact &=
+    \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb U(\ut,\tz)\phi(x)\phi(y)U (\tz, -\ut) {\vac} }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}\qty[e^{-i\SE\tund{0}(\ut+\tz)} \braket{\widetilde{\Omega}|\Omega}] }\\
+    &={\lim\limits_{\ut \to \infty(1-i\epsilon)}  \qty[ e^{-2i\SE\tund{0}\ut} |\braket{\Omega|\widetilde{\Omega}}|^2] }^{-1}  \vacb U(\ut,\tz)\qty{U^\dagger(x^0, \tz)\phi\tund{I}(x)U(x^0, \tz)}\\ &\qquad\qquad\qquad\qquad\qquad\times \qty{U^\dagger(y^0, \tz)\phi\tund{I}(y)U(y^0, \tz)}U (\tz, -\ut) {\vac} \\
+    &={\lim\limits_{\ut \to \infty(1-i\epsilon)}  \qty[ e^{-2i\SE\tund{0}\ut} |\braket{\Omega|\widetilde{\Omega}}|^2] }^{-1}  \vacb U(\ut,x^0)\phi\tund{I}(x)U(x^0, y^0) \phi\tund{I}(y)U(y^0, -\ut) {\vac}
+\end{align*}
+Now consider that the vacuum states are normalised, $\braket{\widetilde{\Omega}|\widetilde{\Omega}} =1$ and then the two-point correlation becomes 
+\begin{align*}
+    \frac{ \vactb \phi(x)\phi(y) \vact}{\braket{\widetilde{\Omega}|\widetilde{\Omega}}} &= \lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb U(\ut,x^0)\phi\tund{I}(x)U(x^0, y^0) \phi\tund{I}(y)U(y^0, -\ut) {\vac}}{\vacb U(\ut, \tz) U(\tz, -\ut)\vac}\\
+    &=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb U(\ut,x^0)\phi\tund{I}(x)U(x^0, y^0) \phi\tund{I}(y)U(y^0, -\ut) {\vac}}{\vacb U(\ut,-\ut )\vac}
+\end{align*}
+Note that the entire expression above is time-ordered. Then we can write the above expression as 
+\begin{align*}
+     { \vactb \ST\{\phi(x)\phi(y)\} \vact} &= \lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\ST\{\vacb U(\ut,x^0)\phi\tund{I}(x)U(x^0, y^0) \phi\tund{I}(y)U(y^0, -\ut) {\vac}\}}{\vacb U(\ut,  -\ut)\vac}\\[0.25cm]
+     &=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb\ST\{ \phi\tund{I}(x) \phi\tund{I}(y) U(\ut,x^0)U(x^0, y^0)U(y^0, -\ut)  \}{\vac}}{\vacb U(\ut, -\ut)\vac}\\[0.25cm]
+     &=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb\ST\{ \phi\tund{I}(x) \phi\tund{I}(y) U(\ut, -\ut)  \}{\vac}}{\vacb U(\ut, -\ut)\vac}
+\end{align*}
+Now using the Dyson series from Eq. \ref{eqn:dyson} we can write the final expression for the two-point correlation function as 
+\begin{align*}
+     { \vactb \ST\{\phi(x)\phi(y)\} \vact}=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb\ST\qty{ \phi\tund{I}(x) \phi\tund{I}(y) \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]  }{\vac}}{\vacb \ST \qty{ \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]}\vac}
+\end{align*}
+Generalising to $n$-point correlation function we have the expression 
+$$\boxed{{ \vactb \ST\{\phi(x_1)\phi(x_2)\ldots \phi(x_n) \} \vact}=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb\ST\qty{ \phi\tund{I}(x_1) \phi\tund{I}(x_2)\ldots \phi\tund{I}(x_n) \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]  }{\vac}}{\vacb \ST \qty{ \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]}\vac}}$$
+The expression tells us how to calculate the correlation function for the interacting theory in terms of the interaction picture fields (which are \textit{free fields} since these evolve with the free Hamiltonian). Also the $\MH\tund{I}$ has the same functional dependence on the $\phi\tund{I}$ as  $\MH\tund{int}$ has on $\phi$ and thus it becomes easier. However, this is indeed a brute force method for computation and becomes very cumbersome!
