@@ -31,7 +31,98 @@ We should have been more careful with the above expression. The LHS is an operat
 $$\wick[offset=1.1em]{\c\pho \c\phii} :=\fp\tund{12} \iden$$
 Then the time-ordered product of two-fields can be written as 
 $${ \ST\{\phi_1, \phi_2\} = \ :\pho\phii: + \wick[offset=1.1em]{\c\pho \c\phii}}$$
-This is actually 
+\subsection{The main theorem}
+\begin{theorem}[Wick's Theorem]
+    The time-ordered pairs of fields is given by 
+    \[\ST\{\pho, \phii \ldots \phi_n\} = \ \sum\limits_{k=0}^{\lfloor \sfrac{n}{2}\rfloor} \sum_{\substack{\text{all } m  \\ \text{pairings}}} : \underbrace{\pho \phii \ldots \phi_n}_{\text{m contractions}}: \]
+\end{theorem}
+What the theorem says is that the time-ordered product of $n$ fields is the equal to the sum of operators formed by all possible contractions between the fields.\\[0.2cm] We now try to prove the theorem but before that let us see an example for $n=4$. Note that any contraction will remove $2$ fields and hence the maximum number of contractions possible is $\lfloor \sfrac{n}{2} \rfloor$. If $n$ is odd, then one field is always uncontracted. \\[0.2cm]
+Applying this to four fields, we get 
+\begin{align*}
+    \ST\{\pho, \phii, \phiii, \phiv\} &= \ :\pho \phii \phiii \phiv: + \wick[offset=1.1em]{\c\pho \c\phii \phiii \phiv}+ \wick[offset=1.1em]{\c\pho \phii \c\phiii \phiv}+ \wick[offset=1.1em]{\c\pho \phii \phiii \c\phiv}+ \wick[offset=1.1em]{\pho \c\phii \c\phiii \phiv}\\
+      &\qquad\qquad\quad\wick[offset=1.1em]{\pho \c\phii \phiii \c\phiv}+ \wick[offset=1.1em]{\pho \phii \c\phiii \c\phiv}+ \mathcolor{blue}{\wick[offset=1.1em]{\c1\pho \c1\phii \c2\phiii \c2\phiv}}+ \mathcolor{blue}{\wick[offset=1.1em]{\c1\pho \c2\phii \c1\phiii \c2\phiv}}+\mathcolor{blue}{\wick[offset=1.1em]{\c1\pho \c2\phii \c2\phiii \c1\phiv}}
+\end{align*} 
+where the contraction between two fields not adjacent to each other, like say $\wick[offset=1.1em]{\c\pho \phii \c\phiii \phiv}$, means that the Feynman propagator is between those two fields and the other fields are normal-ordered, that is,
+$$(\fp\tund{13})(: \phii \phiv:)$$
+\textit{Proof.} We have already proved it for $n=1$ and $n=2$. Let fields $\phi_1, \ldots, \phi_n$ be given and WLOG we can relabel the fields such that these become time-ordered, that is, $x_1^0\geq x_2^0\ldots \geq x_n^0$ and we claim that Wick's theorem is true for $(n-1)$ fields, $\phi_2, \phi_3 \ldots \phi_n$, that is 
+ \[\ST\{\phii \ldots \phi_n\} = \ \sum\limits_{k=0}^{\lfloor \sfrac{(n-1)}{2}\rfloor} \sum_{\substack{\text{all } m  \\ \text{pairings}}} : \underbrace{\pho \phii \ldots \phi_n}_{\text{m contractions}}: \ \equiv \SW(\phii\ldots\phi_n)\]
+ We have to now show that it is true for $n$ fields. Multiply both sides of the above equation by $\pho$. Since $x_1^0$ is greater than all other terms, the LHS becomes $\ST\{\pho\phii \ldots \phi_n\}$. Now the RHS becomes 
+ \begin{align*}
+    \pho \SW(\phii\ldots\phi_n) = (\php{1} + \phm{1}) \SW(\phii\ldots\phi_n)
+ \end{align*}
+ The second term is not problematic, since all the terms in $\SW$ are already normal ordered, so $\phm{1}$ can safely move in to the left, without disturbing the normal-ordering. For $\php{1}$ we need to send it to the extreme right and thus, we have to invoke the commutator. 
+ $$ \pho \SW(\phii\ldots\phi_n) = \phm{1}\SW(\phii\ldots\phi_n) +\SW(\phii\ldots\phi_n)\php{1} + \comtr{\php{1}}{\SW(\phii\ldots\phi_n) } $$
+%  The first two terms are normal-ordered, as $\SW$ contains all normal-ordered terms and $\phi^{\pm}$ are correctly placed to satisfy normal ordering. And the fields inside normal ordering can be arbitrarily placed since the operator ultimately orders them. Thus, 
+%  \begin{align*}
+%     \phm{1}\SW(\phii\ldots\phi_n) +\SW(\phii\ldots\phi_n)\php{1} &=  \SW(\phm{1}\phii\ldots\phi_n) +\SW(\phii\ldots\phi_n\php{1})\\ &=\SW(\phm{1}\phii\ldots\phi_n) +\SW(\php{1}\phii\ldots\phi_n)\\  &=\SW(\pho\phii\ldots\phi_n)
+%  \end{align*}
+\textcolor{red}{COMPLETE PROOF!}\\[0.2cm]
+Note that when we take the vacuum expectation of the time-ordered product, all the terms with a dangling normal ordering is killed, since the creation and annihilation operators act on the vacuum from the right direction so as to kill it. Only those term survive where all the fields have been contracted. For $n=4$ only the blue terms survive which can be diagrammatically represented as \\[0.15cm]
+\begin{figure}[H]
+  \centering
+  % 1st contraction: (12)(34)
+  \begin{subfigure}{0.31\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{feynman}
+        \vertex (1) at (0,1) [dot] {};
+        \vertex (2) at (1.6,1) [dot] {};
+        \vertex (3) at (0,0) [dot] {};
+        \vertex (4) at (1.6,0) [dot] {};
+        \diagram*{
+          (1) -- [plain] (2),
+          (3) -- [plain] (4),
+        };
+      \end{feynman}
+      \node[left=2pt of 1] {\small 1};
+      \node[right=2pt of 2] {\small 2};
+      \node[left=2pt of 3] {\small 3};
+      \node[right=2pt of 4] {\small 4};
+    \end{tikzpicture}
+  \end{subfigure}
+  \hfill
+  % 2nd contraction: (13)(24)
+  \begin{subfigure}{0.31\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{feynman}
+        \vertex (1) at (0,1) [dot] {};
+        \vertex (2) at (1.6,1) [dot] {};
+        \vertex (3) at (0,0) [dot] {};
+        \vertex (4) at (1.6,0) [dot] {};
+        \diagram*{
+          (1) -- [plain] (3),
+          (2) -- [plain] (4),
+        };
+      \end{feynman}
+      \node[left=2pt of 1] {\small 1};
+      \node[right=2pt of 2] {\small 2};
+      \node[left=2pt of 3] {\small 3};
+      \node[right=2pt of 4] {\small 4};
+    \end{tikzpicture}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.31\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{feynman}
+        \vertex (1) at (0,1) [dot] {};
+        \vertex (2) at (1.6,1) [dot] {};
+        \vertex (3) at (0,0) [dot] {};
+        \vertex (4) at (1.6,0) [dot] {};
+        \diagram*{
+          (1) -- [plain] (4),
+          (2) -- [plain] (3),
+        };
+      \end{feynman}
+      \node[left=2pt of 1] {\small 1};
+      \node[right=2pt of 2] {\small 2};
+      \node[left=2pt of 3] {\small 3};
+      \node[right=2pt of 4] {\small 4};
+    \end{tikzpicture}
+  \end{subfigure}
+  \caption{Surviving terms of the $n=4$ vacuum expectation of time-ordered fields; Feynman diagram. The connected lines represent the fields between which contraction is there.}
+\end{figure}
 % \begin{figure}[H]
 %     \centering
 %     \begin{tikzpicture}
