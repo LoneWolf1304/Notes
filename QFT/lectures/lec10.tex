@@ -99,7 +99,7 @@ The last equality comes since the creation and annihilation operators commute fo
     \hat{P}^j &=\frac{1}{2}\int \meas{\vb{\vb{p}}} p_j \qty(\annp\crep -\cremp\annmp) = \frac{1}{2}\int \meas{\vb{\vb{p}}} p_j \qty(\annp\crep +\crep\annp) = \frac{1}{2}\int \meas{\vb{\vb{p}}} p_j \crep\annp
 \end{align*}
 In the last term, we introduced the commutator and removed the constant infinity term. 
-\subsection{Normal Ordering}
+\subsection{Normal Ordering}\label{sec:normalorder}
 The way we are doing, like removing the infinities, is a common thing in QFT. This purely results from the fact the things commute in the classical case and hence there is always an order ambiguity when we move to quantum.\\[0.2cm]
 For example, if in classical scenario, we have some term like $xp$, when elevating (idk if its really elevating) these things to operators, we can have multiple possibilities, viz. $\hat{x}\hat{p}$, $\hat{p}\hat{x}$ or even $\frac{1}{2}\qty(\hat{x}\hat{p} + \hat{p}\hat{x})$ (placing things symmetrically). Each one would present some additional constant on the final result, since the commutator of $\hat{p}$ and $\hat{x}$ is just a constant. \\[0.2cm]
 To be consistent, we generally use \textit{normal ordering}, that is, keeping all the creation operators to the left. For that we define the \textit{normal ordering operator}, $\widehat{\SN}$. For example,

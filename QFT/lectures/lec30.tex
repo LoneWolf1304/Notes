@@ -1,4 +1,43 @@
 \refstepcounter{section}
 \section*{Lecture 30: Wick's Theorem}
 \addcontentsline{toc}{section}{Lecture 30: Wick's Theorem}
-In the previous section we looked into an introduction to interacting fields and found general expressions for the correlation functions. In that we need to find the time-ordered product of free fields. These are efficiently given by a method of computation.
+In the previous section we looked into an introduction to interacting fields and found general expressions for the correlation functions
+$$\vacb \ST \{\phi(x_1)\phi(x_2)\ldots \phi(x_n)\}\vac$$
+  where we need to find the time-ordered product of free fields. These are efficiently given by a method of computation. As a gross approximation, Wick's theorem tells us how to go from time ordered products to normal ordered products.\\[0.2cm]
+Recall from sec \ref{sec:normalorder} that normal ordered products meant that all the creation operators are sent to the left. This is particularly useful, since if creation operators are on the left (and annihilation are on the right), then these will kill the vacuum from both sides when expectation is taken, which might simplify our calculations somewhat.  \\[0.2cm]
+We will use the notation $\phi(x_i) \equiv \phi_i$ and for the Feynman propagator, $D\tund{F}(x_i - x_j) \equiv \triangle_{ij}$
+\subsection{Few calculations}
+For $n=1$, $\ST\{\pho\} = \pho$ since there is only one field. For $n=2$, $$\ST\{\pho, \phii\} = \Theta(x_1^0 - x_2^0) \pho +\Theta(x_2^0 - x_1^0)\phii$$ which we already know, however, let us see this a bit differently. For that, decompose the Heisenberg field $\phi(x)$ into $\phi^+(x) + \phi^-(x)$ where   
+\begin{align*}
+    \phi^+(x) &:= \int \meas{\vb{p}} \frac{1}{\sqrt{2E_{\vb{p}}}}\annp e^{-i p\cdot x} \\
+ \phi^-(x) &:= \int \meas{\vb{p}} \frac{1}{\sqrt{2E_{\vb{p}}}}\crep e^{i p\cdot x} 
+\end{align*}
+Note the unfortunate notation that $+$ comes with annihilation and $-$ comes with creation operators. Normal ordering is there if minuses (if any) are to the left. Now suppose that we assume the time-order $x_1^0>x_2^0$ which gives 
+\begin{align*}
+    \ST\{\phi_1, \phi_2\} = \phi_1 \phi_2 &= (\php{1}+ \phm{1})(\php{2}+ \phm{2})\\
+    &=\php{1}\php{2}+ \mathcolor{blue}{\php{1}\phm{2}}+ \phm{1}\php{2}+\phm{1}\phm{2}\\
+    &=\php{1}\php{2}+\phm{2}{\php{1}}+ \phm{1}\php{2}+\phm{1}\phm{2} + \comtr{\php{1}}{\phm{2}}
+\end{align*}
+The blue term was not normal ordered and hence in the last line, we made that normal ordered by introducing the commutator. The commutator gives us $ \comtr{\php{1}}{\phm{2}} = D(x-y)\equiv D\tund{12}$ where $D(x-y)$ is defined as in sec \ref{sec:propag}. \\[0.2cm]
+As a shorthand, we denote the normal-ordering by $\SN\{\pho, \phii\} \equiv\  :\pho\phii:$, hence for $x_1^0>x_2^0$ 
+$$\ST\{\phi_1, \phi_2\} =\ :\pho\phii: + D\tund{12}$$
+If we calculate for the other case, $x_1^0<x_2^0$ then $1$ and $2$ are simply exchanged,
+$$\ST\{\phi_1, \phi_2\} = \ :\pho\phii: + D\tund{21}$$
+Thus in general we can write the time-ordered product in the following form 
+\begin{align*}
+    \ST\{\phi_1, \phi_2\} &= \ \Theta(x_2^0-x_1^0)[:\pho\phii: + D\tund{21}]+\Theta(x_1^0-x_2^0)[:\pho\phii: + D\tund{12}]\\ &=\ :\pho\phii:+ \Theta(x_2^0-x_1^0)D\tund{21} + \Theta(x_1^0-x_2^0) D\tund{21}\\ &= \ :\pho\phii: + \fp\tund{12}
+\end{align*}
+We should have been more careful with the above expression. The LHS is an operator, however the Feynman propagator $\fp\tund{ij}$ is just a complex number, hence we should have technically written $\fp\tund{12} \iden$. We define a \textit{contraction } as 
+$$\wick[offset=1.1em]{\c\pho \c\phii} :=\fp\tund{12} \iden$$
+Then the time-ordered product of two-fields can be written as 
+$${ \ST\{\phi_1, \phi_2\} = \ :\pho\phii: + \wick[offset=1.1em]{\c\pho \c\phii}}$$
+This is actually 
+% \begin{figure}[H]
+%     \centering
+%     \begin{tikzpicture}
+% \feynmandiagram [small] {
+%   a [dot, red] -- b [dot, blue],
+%   c [dot, below=1cm of a, green] -- d [dot, right=1cm of b]
+% };
+% \end{tikzpicture}
+% \end{figure}
