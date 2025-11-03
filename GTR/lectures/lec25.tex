@@ -1,0 +1,76 @@
+\refstepcounter{section}
+\section*{Lecture 25: Introduction to Cosmology}
+\addcontentsline{toc}{section}{Lecture 25: Introduction to Cosmology}
+Cosmology literally means the study of the \textit{cosmos} (`Universe') and is one of the oldest subjects studied by humans. Cosmology, as a philosophy, have been prevalent since prehistoric times. Stars and other heavenly objects have been demonstrated in cave paintings and other evidences of ancient life. \\[0.2cm]
+Almost every civilisation have studied cosmology in some form or the other. The concept of Brahmanda goes way back to the Vedic age and describes the creation of the Universe from a `cosmic egg'. \\[0.2cm]
+Keeping aside the philosophical and religious aspects of Cosmology (which might land us in controversis), we will mostly discuss about \textit{physical cosmology}, which is the study of cosmological models, defined with respect to measurable physical quantitites like size, density, etc. 
+\subsection{The scale and the physics}
+Imagine a glass of water. To measure the density of the water, we can take any mass of water from the glass and then measure the volume. Dividing the mass by the volume we get the density. We find it to be approximately $1\ \mathrm{g}/\mathrm{cc}$ and we can fairly estimate that the glass of water is homogenous and at each point the density will be the same. We can take as much small quantity of water for measurement as possible with our everyday apparatus.\\[0.2cm] However, if we use say some electron microscope to resolve between the molecules of water and in some divine way, use this to measure the density, we would find that the density does not remain fix. In fact, at this length scale $\sim10^{-10}$ m the concept of density doesn't make much sense. 
+\begin{figure}[H]
+  \centering
+    \input{pics/glass.tex}
+\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \input{pics/glass.tex}
+% \end{figure}
+\noindent
+In the figure, we find that on a coarse-grained scale, the entire glass of water looks homogenous with almost constant density (statistical fluctuations are always there). However, on zooming a particular region upto the atomic scale, we find that the constituents in the red, green and blue regions are totally different and the concept of homogenity becomes invalid. \\[0.2cm]
+We note that there is a difference of $8 orders$ between the coarse-grained $\mathrm{cm}$ length scale when homogenity is there and the $\mathrm{atomic}$ length scale where there is no homogenity.\\[0.2cm]
+So one must apply different physical concepts at different scales, even to study the same system \emoji{exploding-head}! The same thing happens to our Universe also where based on different length scales, the Universe looks different. 
+\begin{figure}[H]
+    \centering 
+    \input{pics/scales.tex}
+    \caption{Different length scales of the Universe}
+\end{figure}
+\noindent
+The solar system, with a diameter roughly of order $10^12$ m, looks fairly inhomogenous to us. In some places, there are planets, while in some other places, some asteroids or something else is present. Moving on to the Milkyway galaxy of size of order $10^21$ m, things become a bit smoother but still inhomogenity persists. For the entire observable Universe with estimated size of order $10^26$ m, we can safely assume it to be homogenous fluid. In fact there is a difference of more than $14$ order between the size of the Solar system (from where all measurements of the Universe are to be done) and the observable Universe. It seems that the Universe is even a better fluid than water!
+\begin{itemize}
+    \item[$\vartriangleright$] Our Universe at large scales look like a fluid!
+    \item[$\vartriangleright$] Only around a small region around us, can we take measurements as we cannot `physically' access all parts of the observable Universe 
+\end{itemize}
+Unlike the glass of water, we cannot directly measure the density at two different locations (separated at large lengths) of the Universe, since light (the fastest thing we have) will also take many, many years to reach that point. \\[0.2cm]
+Observations from the Earth or around the solar system suggest that the large scale properties of the Universe is independent of the direction of measurement, implying \textit{isotropy}. Hence, the large scale UNiverse is `isotropic' when viewed from the Earth or around it! \\[0.2cm]
+The major question comes to mind: are we (humans) special or some kind of privileged observer? \emoji{thinking-face}\\[0.2cm]
+Without delving much into philosophical aspects, it turns out that we simply don't know \emoji{expressionless-face} (and we might never know). 
+\subsection{Cosmological Principle}
+It is stated as an axiom that the Earth is not a privileged point \emoji{confused-face} and the Universe would appear to be the same at large scale if viewed from any other point in the space. 
+\begin{tcolorbox}[colframe=black, colback=lime!20!white, boxrule=1.5pt, arc=4pt]
+    Q: Show that if a space appears to be isotropic from just two points in it, then the space is homogenous.
+\end{tcolorbox}
+\noindent
+\textit{Proof.}
+\begin{figure}[H]
+    \centering 
+    \input{pics/homoiso.tex}
+\end{figure}
+\noindent
+Let the space be $\SM$ and let $A,B\in \SM$ such that about $A,B$ the space is isotropic, that is, any function $\rho(r,\theta,\phi)\equiv \rho(r)$ for  where $r$ is the distance of any point from $A$ or $B$. Let $r\tund{1}, r\tund{2}$ be given such that $r\tund{1}+r\tund{2}>d>|r\tund{1}-r\tund{2}|$ Then effectively we can construct the sets $\mathbb{S}^{d-1}\tund{1}$ and $\mathbb{S}^{d-1}\tund{2}$ where $d$ is the dimension of the space $\SM$
+$$\mathbb{S}^{d-1}\tund{1} := \{\vb{x} \in \SM : |\vb{x} - \vb{r}\tund{A}| := r\tund{1}\}\qquad \mathbb{S}^{d-1}\tund{2} = \{\vb{x} \in \SM : |\vb{x} - \vb{r}\tund{B}| = r\tund{2}\}$$
+such that $W = \mathbb{S}^{d-1}\tund{1}  \cap \mathbb{S}^{d-1}\tund{2} \neq \emptyset$. Let $\vb{X}\in W$ and consider $\vb{P}\in \mathbb{S}^{d-1}\tund{1},\vb{Q}\in \mathbb{S}^{d-1}\tund{2}$. Since the space is isotropic about point $A$ we can rotate the point $P$ to $X$ about $A$ by an angle $\theta$ such that $\rho$ remains same. 
+$$\rho(\vb{P}) = \rho(\vb{X})\equiv \rho(R^A_{\theta}\vb{P}) $$
+Now $\vb{X}\in \mathbb{S}^{d-1}\tund{2}$ and since the space is isoptropic about point B, we can rotate it about point $B$ by an angle $\phi$ to $Q$ without changing $\rho$
+$$\rho(\vb{X}) = \rho(\vb{Q})\equiv \rho(R^B_\phi \vb{X})$$
+Combining the above two expressions we get 
+$$\rho(\vb{Q}) = \rho(\vb{P})$$
+Since $P$ and $Q$ were arbitrary two points, we can say that $\rho(\vb{x}) = \rho(\vb{y})$ for any $\vb{x}\in \mathbb{S}^{d-1}\tund{1},\vb{y}\in \mathbb{S}^{d-1}\tund{2}$. By varying the radii we can construct different circles that follow this property and thus we get $\rho(\vb{x}) = \rho(\vb{y})\ \forall\ \vb{x}, \vb{y}\in \SM$\\[0.2cm]
+\noindent
+Thus, isotropy implies homogenity and at large scales, our Universe is both \textit{homogenous} (independent of spatial position) and \textit{isotropic}. \\[0.2cm]
+NOTE: Isotropy means that a space looks same in every direction while homogenity means that the space looks the same at every point. If the space was filled with some parallel strings, then the space would have been homogenous but not isoptropic, since depending on the orientations of the strings, the space would look different in different directions.\\[0.2cm] Now, another interesting question, is our Universe finite or infinite? And does this even matter? \\[0.2cm]
+This question is contained in the list of \textit{fourteen unanswered questions} which Gautam Buddha refused to answer, stating that these kind of questions prevents us from liberation. And this question really doesn't matter that much. 
+\subsection{Olber's Paradox}
+\begin{center}
+    "The night sky should be bright!"
+\end{center}
+Consider a star at a distance $r$ and of absolute luminosity $L$. Then the apparent luminosity of the star for an observer at the origin is $$A(r) = \frac{L}{4\pi r^2}$$
+Let the number density of the star at a distance $r$ be $n(r)$. Then the apparent luminosity of the whole sky as viewed by the observer for the stars present between $r$ and $r+\dd r$ is 
+$$\dd E = (4\pi r^2 \dd r) n(r) A(r)$$
+Then the total observed luminosity by the observer 
+$$E =\int \dd E = \int\limits_0^\infty n(r)L\ \dd r \xrightarrow[\text{Universe}]{\text{homogenous}}   n\tund{0} L\int\limits_0^\infty \dd r \rightarrow \infty$$
+Clearly this integral diverges and the observed luminosity is apparently infinite which tells us that the night sky should be bright if the observed luminosity (brightness) diverges which is clearly a contradiction. The divergence came because we carried out the integration till \textit{infinity}. There might be some issue with this then and we infer that either  \\[0.2cm]
+$\vartriangleright \ \text{The Universe is finite in age}$
+\begin{center}
+    \large \textbf{OR}
+\end{center}
+$\vartriangleright \ \text{Light can reach to us only from a finite, restricted part of the Universe}$\\[0.2cm]
+Modern models estimate that indeed Universe has a finite age and thus, we can in principle detect only objects which are situated as far light-years as the age of the Universe and we anything beyond that is out of our reach. 
