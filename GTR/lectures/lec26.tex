@@ -1,0 +1,58 @@
+\refstepcounter{section}
+\section*{Lecture 26: Friedman Equations}
+\addcontentsline{toc}{section}{Lecture 26: Friedman Equations}
+We will discuss about the metric homogenous and isotropic spacetime. Isotropy implies that $\partial_i g_{\mu\nu} = 0$ and hence the metric is at best a function of time
+$$g_{\mu\nu} \equiv g_{\mu\nu}(t)$$
+Does spacetime really depend on time? During early 1900's, Edwin Hubble observed the spectra of different galaxies and found that all these were `redshifted', that is, the spectra obtained from the galaxies deviatetd by some amount when compared with that of the normal spectra. We define that relative deviation to be the `redshift' 
+$$z := \frac{\lambda\tund{o}-\lambda\tund{e}}{\lambda\tund{o}} \implies \lambda\tund{o} = (1+z)\lambda\tund{e}$$
+where $\lambda\tund{o}$ is the observed wavelength and $\lambda\tund{e}$ is the emitted wavelength. Comparing this with the typical Doppler shift, we can say that the galaxies are moving away from us. \\[0.2cm]
+Hubble also found out that the recession speed of a distant galaxy follows a simple equation $v = H\tund{0}d$ where $H\tund{0}$ is called the Hubble constant. Actually $H\tund{0}$ is just the current value of $H(t)$ which is called the Hubble parameter. So the Hubble constant tells us the expanding rate of the galaxies at the present moment. \\[0.2cm]
+Thus spacetime seems to depend on time, though it is independent of space. We now define the metric used to study such a spacetime. 
+\subsection{Friedmann-Lema\^{i}tre-Robertson-Walker (FLRW) metric}
+We define a general time dependent metric for the spacetime described above. Suppose that $\dd x \rightarrow -\dd x$, keeping all unchanged, then $\dd x \dd y \rightarrow -\dd x \dd y $, however, $g\tund{xy}$ will not changed, since due to isotropy and homogenity, we expect the metric to depend on time only. Thus we cannot have any cross-terms like this since these will get cancelled. \\[0.2cm]
+Also due to isotropy, we expect all of $g\tund{xx}(t) $,$g\tund{yy}(t) $ and $g\tund{zz}(t) $ to be equal for a given $t$. Since the space-part of the metric should be positive, we define the metric to be of the form 
+$$\dd s^2 = g\tund{tt}(t) \dd t^2 + a^2(t)\qty[\dd x^2 + \dd y^2 + \dd z^2]$$
+We now make a choice for $g\tund{tt}= -1$ which is called the \textit{proper time} choice. For this choice, the metric tensor looks like 
+$$[g_{\mu\nu}] = \mqty(-1 & & & \\ & a^2 & & \\ & & a^2 & \\ & & & a^2 )\qquad [g^{\mu\nu}] = \mqty(-1 & & & \\ & \sfrac{1}{a^2} & & \\ & & \sfrac{1}{a^2} & \\ & & & \sfrac{1}{a^2} )$$
+$\vartriangleright$ \textbf{Christoffel Symbols}\\[0.2cm]
+Since the metric is just dependent on time, finding the Christoffel symbols and other shitty quantities becomes a bit easier here. From the definition of the Christoffel symbol,
+$ \chris{t}{\alpha}{\beta} = \frac{1}{2}g^{tt}\qty[g_{\alpha t,\beta}+ g_{t\beta,\alpha}- g_{\alpha\beta,t}]$. Now, 
+$g_{tt} = -1$ is constant and hence $\chris{t}{t}{t} =0$.\\[0.2cm]
+$$\chris{t}{x}{x} = -\frac{1}{2}\times\qty(-2a \dot{a})= a\dot{a}\qquad \chris{x}{x}{t} = \frac{1}{2}g^{xx}\qty[g_{x x,t} + g_{x t,x} - g_{xt, x}] = \frac{1}{2a^2} \times 2a \dot{a} =\sfrac{\dot{a}}{a}$$. From homogenity and isotropy of space, we can say that $$\chris{x}{x}{t}=\chris{y}{y}{t}=\chris{z}{z}{t} = \frac{\dot{a}}{a}\qquad \chris{t}{x}{x} =\chris{t}{y}{y}=\chris{t}{z}{z} = a\dot{a}$$ The rest all Christoffel symbols are zero! \\[0.2cm]
+$\vartriangleright$ \textbf{Riemann and Ricci Tensor}
+\begin{align*}
+    R_{tt}=\rie{x}{t}{x}{t}+\rie{y}{t}{y}{t}+\rie{z}{t}{z}{t} &= 3\qty(\cancelto{0}{\partial_x \chris{x}{t}{t}} -\partial_t \chris{x}{t}{x}+\chris{x}{x}{\lambda}\chris{\lambda}{t}{t}-\chris{x}{t}{\lambda}\chris{\lambda}{x}{t}  )\\
+    &=3\qty[ - \dv{\qty(\sfrac{\dot{a}}{a})}{t} - \qty(\sfrac{\dot{a}}{a})^2]\\
+    &=-3\qty[  \dv{\qty(\sfrac{\dot{a}}{a})}{t} + \qty(\sfrac{\dot{a}}{a})^2]
+\end{align*}
+\begin{align*}
+    R_{xx} = \rie{\rho}{x}{\rho}{x} &= \qty(\partial_\rho \chris{\rho}{x}{x}-\partial_x \chris{\rho}{x}{\rho} + \chris{\rho}{\rho}{\lambda}\chris{\lambda}{x}{x}-\chris{\rho}{x}{\lambda}\chris{\lambda}{\rho}{x})\\
+    &=\qty(\partial_t \chris{t}{x}{x}-\cancelto{0}{\partial_x \chris{\rho}{x}{\rho}} + \chris{x}{x}{t}\chris{t}{x}{x}-\chris{t}{x}{x}\chris{x}{t}{x}-\chris{x}{x}{t}\chris{t}{x}{x})\\
+    &=\dv{(a\dot{a})}{t} - \qty(\sfrac{\dot{a}}{a})(a\dot{a}) \\
+    &=a\ddot{a} + 2\dot{a}^2
+\end{align*}
+By isotropy we can say that $R_{xx}= R_{yy}=R_{zz} =a\ddot{a} + 2\dot{a}^2$\\[0.2cm]
+$\vartriangleright$ \textbf{Ricci Scalar}
+\begin{align*}
+    R = g^{\mu\nu}R_{\mu\nu} = g^{tt}R_{tt}+3g^{xx}R_{xx} &= 3\qty[  \dv{\qty(\sfrac{\dot{a}}{a})}{t} + \qty(\sfrac{\dot{a}}{a})^2] +\frac{3}{a^2}\qty[a\ddot{a} + 2\dot{a}^2]\\
+    &=3\qty[\frac{\ddot{a}}{a} - \cancel{\frac{\dot{a}^2}{a}} + \cancel{\frac{\dot{a}^2}{a^2} }] + 3\frac{\ddot{a}}{a} + 6\frac{\dot{a}^2}{a^2}\\
+    &=6\qty[\frac{\ddot{a}}{a}+\qty(\frac{\dot{a}}{a})^2]
+\end{align*}
+\subsection{Einstein's Equations}
+At large scale, the Universe is assumed to be a perfect fluid and thus we assume the same form of the stress-energy tensor 
+$$\ST^{\mu\nu} = (P+\rho)u^\mu u^\nu + Pg^{\mu\nu}$$
+Now the macroscopic speed of the fluid cannot have a privileged direction, so it has only
+temporal component: $\fvec{u} = (u^t,0,0,0)$. Now the norm of the velocity four vector is always $-1$
+$$g_{\mu\nu}u^\mu u^\nu = g_{tt}(u^t)^2 = -(u^t)^2 = -1 \implies u^t=1 \quad u_t = -1$$
+$\vartriangleright$ First Einstein Equation \\[0.2cm]
+We have the following non-zero component for the stress energy tensor 
+$$\ST_{tt} = (\rho+P)u_{tt} + g_{tt}P = \rho+P -P =\rho\qquad \ST_{xx} = g_{xx}P = Pa^2$$
+\begin{align*}
+    R_{tt} - \frac{1}{2}g_{tt}R &= -3\qty[  \dv{\qty(\sfrac{\dot{a}}{a})}{t} + \qty(\sfrac{\dot{a}}{a})^2] +\frac{1}{2}\times 6\qty[\frac{\ddot{a}}{a}+\qty(\frac{\dot{a}}{a})^2]\\
+    &=-\cancel{\qty(\frac{3\ddot{a}}{a})} +\cancel{3\qty(\frac{\dot{a}}{a})^2 }- \cancel{3\qty(\frac{\dot{a}}{a})^2} + \cancel{\frac{3\ddot{a}}{a}} + 3\qty(\frac{\dot{a}}{a})^2 = 8 \pi G \rho
+\end{align*}
+Then we obtain the first Einstein equation as 
+\begin{align}\label{eqn:friedmann}
+    \boxed{\qty(\frac{\dot{a}}{a})^2  = \frac{8\pi G \rho}{3}}
+\end{align}
+The above equation is called the \textit{Friedmann equation}.
