@@ -1,0 +1,70 @@
+\refstepcounter{section}
+\section*{Lecture 27: Scalar field in FLRW metric}
+\addcontentsline{toc}{section}{Lecture 27: Scalar field in FLRW metric}
+In the previous section we found out the Friedmann equation and we will now derive the second equation. \\[0.2cm]
+$\vartriangleright$ Second Einstein equation 
+\begin{align*}
+    R_{xx} - \frac{1}{2}g_{xx} R &= a\ddot{a} + 2\dot{a}^2 - \frac{a^2}{2}\times 6\qty[\frac{\ddot{a}}{a}+\qty(\frac{\dot{a}}{a})^2]=a\ddot{a}+2\dot{a}^2 - 3a\ddot{a} - 3\dot{a}^2=-2a\ddot{a} -\dot{a}^2 = 8\pi G a^2P
+\end{align*}
+Dividing by $a^2$ and using Eq. \ref{eqn:friedmann} to substitute the value of $\sfrac{\dot{a}}{a}$ above. We obtain a simplified expression 
+\begin{align}\label{eqn:friedmann2}
+    -\frac{2\ddot{a}}{{a}} - \frac{8\pi G \rho}{3}  = 8\pi G P \implies \boxed{\frac{\ddot{a}}{{a}}  = -\frac{4\pi G}{3}(\rho+3P)}
+\end{align}
+This is the second Friedmann equation that we obtain for the FLRW metric. We could obtain the time-derivative of the density from Eq. \ref{friedmann} and \ref{eqn:friedmann2}. From first equation we have 
+\begin{align*}
+    \frac{\dot{a}}{a} = c \sqrt{\rho} \qquad c = \sqrt{\frac{8\pi G}{3}} \rightarrow 3c^2 = 8\pi G
+\end{align*}
+Differentiating the above expression we get 
+\begin{align*}
+    3\qty[\frac{\ddot{a}}{a} - \qty(\frac{\dot{a}}{a})^2] = \frac{3c}{2\sqrt{\rho}}\dot{\rho}\quad  \xrightarrow[\text{Eq. II}]{\text{Friedmann}} \quad  &-\frac{3c^2}{2}(\rho+3P) - 3\rho c^2 = \frac{3c^2}{2\qty(\sfrac{\dot{a}}{a})}\dot{\rho}\\
+    \implies& -\frac{1}{2}(\rho + 3P) - \rho = \frac{\dot{\rho}}{2\qty(\sfrac{\dot{a}}{a})}\\
+    \implies& -\frac{3}{2}(\rho + P) = \frac{\dot{\rho}}{2\qty(\sfrac{\dot{a}}{a})}\\
+    \implies&\boxed{\dot{\rho} = -3\qty(\frac{\dot{a}}{a})(\rho+P)}
+\end{align*}
+\subsection{Scalar field in curved spacetime}
+Consider a scalar field $\phi(x)$ for which the action in flat spacetime takes the form 
+$$\Ss[\phi] = \int \dd^4 x \ \qty(-\frac{1}{2}(\partial^\mu \phi)(\partial_\mu \phi) - V(\phi))$$
+where $V$ is the potential. In arbitrary spacetime, we need to make the volume element invariant, and promote normal derivatives to covariant derivatives. Hence, in any arbitrary curved spacetime we have the action for the field
+\begin{align*}\label{eqn:scalarfield}
+    \Ss[\phi] = \int \dd^4 x \detm \ \qty(-\frac{1}{2}g^{\mu\nu}(\covd{\mu} \phi)(\covd{\nu} \phi) - V(\phi))
+\end{align*}
+For the FLRW metric, the field is just a function of time due to homogenity of the space and $\detm = \sqrt{(a^2)^3} = a^3$. Then the action reduces to 
+\begin{align*}
+\Ss[\phi] = \int \dd^4 x\ a^3 \qty(\frac{1}{2}(\partial_t \phi)^2 - V(\phi))
+\end{align*}
+We can now separate the integral into a space part and a time part, since field and potential all just depends on time 
+$$\Ss[\phi] = \int \dd t \  a^3 \qty(\frac{1}{2}\dot{\phi}^2 - V(\phi)) \int \dd^3 x\quad \longrightarrow\quad\int \dd t \  a^3 \qty(\frac{1}{2}\dot{\phi}^2 - V(\phi))v\tund{0}
+$$
+where $v\tund{0}$ is the free volume of the finite part of the Universe. The physical volume is of course given by $v = \int \dd^3 x\ \detm = a^3 v\tund{0}$. From this form of the action we define the Lagrangian as 
+$$\mathrm{L} = v \qty[\frac{1}{2}\dot{\phi}^2 - V(\phi)]$$
+The Lagrangian looks very much like the single particle Lagrangian with the kinetic and the potential terms. The conjugate momentum of the field is given as,
+\begin{align*}
+    \Pi = \pdv{L}{\dot{\phi}} = v\dot{\phi} \quad \xrightarrow[\text{Transformation}]{\text{Legendre}} \ \mathrm{H}= \Pi \dot{\phi} - L = \frac{\Pi^2}{v} - \qty[\frac{v}{2} \times  \frac{\Pi^2}{v^2} - vV(\phi)]
+\end{align*}
+From the above calculation we get the Hamiltonian as  
+$$\mathrm{H} = \frac{\Pi^2}{2v}+ vV(\phi)$$
+From the Hamiltonian we can find the energy density and the pressure as $$\rho = \frac{\mathrm{H}}{v}=\frac{\Pi^2}{2v^2}+ V(\phi) \qquad P = -\frac{\partial E}{\partial v} = -\qty(-\frac{\Pi^2}{2v^2}+ V(\phi) ) = \qty(\frac{\Pi^2}{2v^2}- V(\phi) )$$
+If we now want to obtain the stress-energy tensor components using the above quantites, we have 
+\begin{align*}
+    \ST_{tt} &= (\rho + P) u_t u_t +Pg_{tt} = \frac{\Pi^2}{v^2} -P = \frac{\Pi^2}{2v^2} +V(\phi) = \frac{1}{2}\dot{\phi}^2 + V(\phi)\\
+\ST_{xx} &= 0 + Pg_{xx} = a^2 \qty(\frac{\Pi^2}{2v^2} - V(\phi))   = a^2\qty( \frac{1}{2}\dot{\phi}^2 - V(\phi))
+\end{align*}
+The above components of the stress-energy tensor were derived purely from considering the thermodynamic relations and considering the perfect-fluid form. We now find the stress-energy tensor from the first principles, using the definition 
+$$\ST^{\mu\nu} := \frac{-2}{\detm}\qty(\frac{\delta \Ss\tund{M}}{\delta g_{\mu\nu}})$$
+From Eq. \ref{eqn:scalarfield} we write the action in terms of the Lagrangian density 
+$$\Ss[\phi] = \int \dd^4 x\ \detm\ \SL\qquad \text{where, } \SL = \qty(-\frac{1}{2}g^{\mu\nu}(\covd{\mu} \phi)(\covd{\nu} \phi) - V(\phi))$$ 
+Recall that the variation of the metric determinant from \ref{sec:seventeen} was given by $$\delta \detm = -\frac{1}{2}\detm\ g_{\mu\nu} \delta g^{\mu\nu}$$ 
+Using that above we obtain the variation of the action as 
+\begin{align*}
+    \delta \Ss &= \int \dd^4 x \ \qty[\SL \delta \detm + \detm \delta \SL ]\\
+    &=\int \dd^4 x \ \qty[-\frac{1}{2}\detm\ g_{\mu\nu} \delta g^{\mu\nu}\SL -\frac{1}{2}\detm\qty(\covd{\mu}\phi)\qty(\covd{\nu}\phi)\delta g^{\mu \nu} ]\\
+    &=\int \dd^4 x \ -\frac{1}{2}\detm\qty[\ g_{\mu\nu} \SL+ \qty(\covd{\mu}\phi)\qty(\covd{\nu}\phi) ]\delta g^{\mu\nu}\equiv \int \dd^4x \ \frac{\delta \Ss\tund{M}}{\delta g^{\mu\nu}} \delta g^{\mu\nu}
+\end{align*}
+From this we can identify the stress-energy tensor to be 
+$$\ST_{\mu\nu} = g_{\mu\nu}\SL +\qty(\covd{\mu}\phi)\qty(\covd{\nu}\phi) =\qty(\covd{\mu}\phi)\qty(\covd{\nu}\phi) + g_{\mu\nu} \qty{-\frac{1}{2}g^{\alpha\beta}\qty(\covd{\alpha}\phi)\qty(\covd{\beta}\phi) - V(\phi)}$$
+Let us now calculate the components using this expression: 
+\begin{align*}
+    \ST_{tt} &= \dot{\phi}^2 - \frac{1}{2}\dot{\phi}^2 +V(\phi) =   \frac{1}{2}\dot{\phi}^2 +V(\phi) \\
+\ST_{xx} &= a^2\qty( \frac{1}{2}\dot{\phi}^2 -V(\phi))
+\end{align*}
+We see that the stress-energy tensor as calculated from the definition by varying the action with respect to the metric is the same as that calculated from thermodynamic relations, atleast for the case of the scalar field.
