@@ -1,0 +1,73 @@
+\refstepcounter{section}
+\section*{Lecture 31: Feynman diagrams: loops and oops!}
+\addcontentsline{toc}{section}{Lecture 31: Loops and oops!}
+In the previous case, we discussed about Wick's theorem and time-ordered product of fields can be simply written as a sum of contractions of the fields. We will now consider the case of $\phi^4$ interacting theory and try to find the $n$-point correlation functions of the interacting theory. \\[0.2cm]
+Recall from Eq. \ref{eqn:green} that the correlation functions are basically the vacuum expectation of the time-ordered field products and the time-ordered product is known from Wick's theorem. Thus we already have a recipe to calculate this and we will use a perturbative approach for this. \\[0.2cm]
+We had considered the interaction of the form $\phi^4$ and from this $\SH\tund{I} = \frac{\lambda}{4!}\phi\tund{I}^4$ where everything is in the interaction picture. Let us consider the \textbf{\textcolor{red}{numerator}} for the two-point correlation function first which is of the form 
+$$\vacb \ST\qty{\phi_1 \phi_2 \exp\qty(\frac{-i\lambda}{4!} \int \dd^4 z\ \phi^4(z))}\vac$$ We first Taylor expand the exponential
+$$\exp\qty(-\frac{i\lambda}{4!} \int \dd^4 z\ \phi^4(z) ) = \iden + \qty(\frac{-i\lambda}{4!})\int\dd^4z\ \phi^4(z) +\qty(\frac{-i\lambda}{4!})^2\int\dd^4z\ \dd^4w\ \phi^4(z) \phi^4(w)+\ldots $$
+and then the numerator takes on a ghastly form
+$$\vacb \ST\qty{\phi_1 \phi_2 }\vac + \qty(-\frac{i\lambda}{4!})\int \dd^4 z \ \vacb\ST\qty{\phi_1 \phi_2 \phi^4(z)}\vac + \frac{1}{2!}\qty(-\frac{i\lambda}{4!})^2\int \dd^4 z \dd^4 w \vacb \ST\qty{\phi_1\phi_2 \phi^4(z)\phi^4(w)}\vac+ \ldots$$
+It is now possible to use Wick's theorem to characterise all these integrals, carefully considering the cumbersome contractions. \\[0.2cm]
+$\vartriangleright $\underline{ Upto $\SO(1)$}:\\[0.2cm]
+The term is  $\vacb \ST\qty{\phi_1 \phi_2 }\vac$, which is simply $\triangle_{12}$ and is denoted diagrammatically as 
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+      \begin{feynman}
+        \vertex (1) at (0,0) [dot] {};
+        \vertex (2) at (1,0) [dot] {};
+        \diagram*{
+          (1) -- [plain] (2),
+        };
+      \end{feynman}
+      \node[below=2pt of 1] {\small x};
+      \node[below=2pt of 2] {\small y};
+    \end{tikzpicture}
+\end{figure}
+\noindent
+$\vartriangleright $\underline{ Upto $\SO(\lambda)$}:\\[0.2cm]
+We have to work a little bit here. The term is 
+$$\int \dd^4 z \ \vacb\ST\qty{\phi_1 \phi_2 \phi^4(z)}\vac \equiv \int \dd^4 z \ \vacb\ST\qty{\phi_1 \phi_2 \phi(z)\phi(z)\phi(z)\phi(z)}\vac$$
+We have to find all type of contractions amidst these six fields if we use the Wick's theorem. Note that any partial contractions will not matter, since we are taking vacuum expectations and uncontracted normal ordered products will kill it. Thus we need to consider only fully contracted fields. How many such configurations are there? \\[0.2cm]
+It turns out that we need to do some combinatorics for this. Indeed, all \textit{good} math and physics ends in either linear algebra or combinatorics\footnote{which implies that if you don't find yourself doing these, you are not doing good physics}. \\[0.2cm]So if we take one field, then it can be contracted with the remaining $5$, then these two fields are gone, remaining four are there. If we choose one, we can contract with remaining 3, and then the last two automatically gets contracted. So total $5\times 3 = 15$ such fully contracted field configurations. \\[0.2cm]
+Due to symmetry conditions, we only have two distinct types of contractions which are, 
+$$\wick{\c1 \phi_1 \c1 \phi_2\ \c1 \phi(z) \c1 \phi(z)\ \c1 \phi(z) \c1 \phi(z)}\qquad \wick{\c1 \phi_1 \c2 \phi_2\ \c3 \phi(z) \c1 \phi(z)\ \c3 \phi(z) \c2 \phi(z)}$$
+For the first case, we have $x-y$ contracting with each other and for the second case, we have $x-z$ contracting. These can be diagrammatically represented as:
+\begin{figure}[H]
+    \centering 
+ \begin{minipage}[b]{0.4\textwidth}
+        \centering 
+        \input{pics/o1c1.tex}
+        \caption{Type I contraction}
+\end{minipage}
+    \hspace{0.2cm}
+     \begin{minipage}[b]{0.45\textwidth}
+      \centering 
+      \input{pics/o1c2.tex}
+      \caption{Type II contraction}
+     \end{minipage}
+\end{figure} 
+\noindent
+There are three of the above Type I terms, since if $x$ contracts with $y$ then the first $z$ can contract with three other guys.\\[0.2cm] Let us consider the second type of contraction where $x$ contracts with $z$. There are 12 such terms since $x$ can go with $z$ in 4 ways and for each $xz$ pair there are three ways $y$ can go with $z$.    
+\noindent
+Then the term of order $\SO(\lambda)$ becomes $$\mathcolor{red}{3}\times\qty(\frac{-i\lambda}{4!})\int \dd^4 z \ \triangle^2(x-y) \triangle^2(z-z)+\mathcolor{red}{12}\times\qty(\frac{-i\lambda}{4!})\int \dd^4 z \ \triangle(x-z)\triangle(y-z) \triangle(z-z) $$
+(For now just take $\triangle(z-z)$ to be some `number' (even though it diverges) and let us now worry about this!)\\[0.2cm]
+     \textbf{Some terms}
+     \begin{itemize}[label=$\vartriangleright$]
+      \item The outermost nodes in the diagram (Eg. $x$ and $y$) are the \textit{external vertices}. These vertices are not integrated over.
+      \item The inner nodes (Eg. $z$) are called the \textit{internal vertices} and for each internal vertex, we have to associate an integral to them.
+     \end{itemize}
+We had found the numerator upto order $\lambda$ and now let us find the \textbf{\textcolor{blue}{denominator}} upto the same order. 
+$$\iden + \qty(-\frac{i\lambda}{4!})\int \dd^4 z \ \vacb\ST\qty{ \phi^4(z)}\vac + \frac{1}{2!}\qty(-\frac{i\lambda}{4!})^2\int \dd^4 z \dd^4 w \vacb \ST\qty{ \phi^4(z)\phi^4(w)}\vac+ \ldots$$
+Note that the denominator does not have any free fields $\phi_1$ and $\phi_2$ and thus, upto $\SO(1)$ the term will be just $\iden$ while the term upto $\SO(\lambda)$ will consist of only the contractions with $z$ (3 terms). Thus symbolically (since the integrals will be just some number) we can write the two point correlator function as: 
+\begin{figure}[H]
+  \centering 
+  \input{pics/2pointcancel.tex}
+\end{figure}
+\noindent
+Note than, a cancellation was involved in the reduction such that the diagram with two disconnected components got cancelled. Even though this seems like a miracle, in fact, it's not!\\[0.2cm]
+Turns out, only those diagrams contribute where the components are connected to the external points. Before showing this, let us write a summary of what we need to do for systematic calculations:
+\begin{itemize}[label=$\blacktriangleright$]
+  \item 
+\end{itemize}

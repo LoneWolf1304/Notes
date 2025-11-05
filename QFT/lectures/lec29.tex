@@ -136,13 +136,13 @@ Intuitively, this says that upto some numerical factor, the vacuum of the intera
 \end{align*}
 Taking Hermitian conjugate both sides, we obtain 
 \begin{align*}
-   \vacb e^{i\MH \ut}  =\sum\limits_{n\neq 0}\bra{n} e^{-i\SE\tund{n} \ut} \braket{\Omega|n}  \ \ +\bra{\widetilde{\Omega}}  e^{-i\SE\tund{0}\ut} \braket{\Omega|\widetilde{\Omega}}
+   \vacb e^{-i\MH \ut}  =\sum\limits_{n\neq 0}\bra{n} e^{-i\SE\tund{n} \ut} \braket{\Omega|n}  \ \ +\bra{\widetilde{\Omega}}  e^{-i\SE\tund{0}\ut} \braket{\Omega|\widetilde{\Omega}}
 \end{align*}
 By the same previous logic, taking $\ut$ to infinity in a slightly imaginary manner we get 
 \begin{align*}
-    \vactb &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{i\MH \ut}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}\ut} \braket{\Omega|\widetilde{\Omega}}} \\
-    &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{i\MH( \ut-\tz)}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
-    &=\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{i\MH\tund{0}( \ut-\tz)} e^{i\MH( \ut-\tz)}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
+    \vactb &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{-i\MH \ut}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}\ut} \braket{\Omega|\widetilde{\Omega}}} \\
+    &= \frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{-i\MH( \ut-\tz)}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
+    &=\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb e^{i\MH\tund{0}( \ut-\tz)} e^{-i\MH( \ut-\tz)}  }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
     &=\frac{\lim\limits_{\ut \to \infty(1-i\epsilon)}  \vacb U(\ut,\tz) }{\lim\limits_{\ut \to \infty(1-i\epsilon)}   e^{-i\SE\tund{0}(\ut-\tz)} \braket{\Omega|\widetilde{\Omega}}}\\
 \end{align*}
 Thus we had found the expression of the vacuum for the interacting theory 
@@ -173,5 +173,7 @@ Now using the Dyson series from Eq. \ref{eqn:dyson} we can write the final expre
      { \vactb \ST\{\phi(x)\phi(y)\} \vact}=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb\ST\qty{ \phi\tund{I}(x) \phi\tund{I}(y) \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]  }{\vac}}{\vacb \ST \qty{ \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]}\vac}
 \end{align*}
 Generalising to $n$-point correlation function we have the expression 
-$$\boxed{{ \vactb \ST\{\phi(x_1)\phi(x_2)\ldots \phi(x_n) \} \vact}=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb\ST\qty{ \phi\tund{I}(x_1) \phi\tund{I}(x_2)\ldots \phi\tund{I}(x_n) \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]  }{\vac}}{\vacb \ST \qty{ \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]}\vac}}$$
+\begin{equation}\label{eqn:green}
+    \boxed{{ \vactb \ST\{\phi(x_1)\phi(x_2)\ldots \phi(x_n) \} \vact}=\lim\limits_{\ut \to \infty(1-i\epsilon)}\frac{\vacb\ST\qty{ \phi\tund{I}(x_1) \phi\tund{I}(x_2)\ldots \phi\tund{I}(x_n) \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]  }{\vac}}{\vacb \ST \qty{ \exp\qty[-i \int\limits_{-\ut}^\ut \dd t' \ \hint(t')]}\vac}}
+\end{equation}
 The expression tells us how to calculate the correlation function for the interacting theory in terms of the interaction picture fields (which are \textit{free fields} since these evolve with the free Hamiltonian). Also the $\MH\tund{I}$ has the same functional dependence on the $\phi\tund{I}$ as  $\MH\tund{int}$ has on $\phi$ and thus it becomes easier. However, this is indeed a brute force method for computation and becomes very cumbersome!

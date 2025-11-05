@@ -10,7 +10,7 @@ Dividing by $a^2$ and using Eq. \ref{eqn:friedmann} to substitute the value of $
 \begin{align}\label{eqn:friedmann2}
     -\frac{2\ddot{a}}{{a}} - \frac{8\pi G \rho}{3}  = 8\pi G P \implies \boxed{\frac{\ddot{a}}{{a}}  = -\frac{4\pi G}{3}(\rho+3P)}
 \end{align}
-This is the second Friedmann equation that we obtain for the FLRW metric. We could obtain the time-derivative of the density from Eq. \ref{friedmann} and \ref{eqn:friedmann2}. From first equation we have 
+This is the second Friedmann equation that we obtain for the FLRW metric. We could obtain the time-derivative of the density from Eq. \ref{eqn:friedmann} and \ref{eqn:friedmann2}. From first equation we have 
 \begin{align*}
     \frac{\dot{a}}{a} = c \sqrt{\rho} \qquad c = \sqrt{\frac{8\pi G}{3}} \rightarrow 3c^2 = 8\pi G
 \end{align*}
@@ -25,9 +25,9 @@ Differentiating the above expression we get
 Consider a scalar field $\phi(x)$ for which the action in flat spacetime takes the form 
 $$\Ss[\phi] = \int \dd^4 x \ \qty(-\frac{1}{2}(\partial^\mu \phi)(\partial_\mu \phi) - V(\phi))$$
 where $V$ is the potential. In arbitrary spacetime, we need to make the volume element invariant, and promote normal derivatives to covariant derivatives. Hence, in any arbitrary curved spacetime we have the action for the field
-\begin{align*}\label{eqn:scalarfield}
+\begin{align}\label{eqn:scalarfield}
     \Ss[\phi] = \int \dd^4 x \detm \ \qty(-\frac{1}{2}g^{\mu\nu}(\covd{\mu} \phi)(\covd{\nu} \phi) - V(\phi))
-\end{align*}
+\end{align}
 For the FLRW metric, the field is just a function of time due to homogenity of the space and $\detm = \sqrt{(a^2)^3} = a^3$. Then the action reduces to 
 \begin{align*}
 \Ss[\phi] = \int \dd^4 x\ a^3 \qty(\frac{1}{2}(\partial_t \phi)^2 - V(\phi))
