@@ -1,6 +1,6 @@
 \refstepcounter{section}
-\section*{Lecture 31: Feynman diagrams: loops and oops!}
-\addcontentsline{toc}{section}{Lecture 31: Loops and oops!}
+\section*{Lecture 31: Feynman diagrams - loops and oops!}
+\addcontentsline{toc}{section}{Lecture 31: Feynman diagrams - loops and oops!}
 In the previous case, we discussed about Wick's theorem and time-ordered product of fields can be simply written as a sum of contractions of the fields. We will now consider the case of $\phi^4$ interacting theory and try to find the $n$-point correlation functions of the interacting theory. \\[0.2cm]
 Recall from Eq. \ref{eqn:green} that the correlation functions are basically the vacuum expectation of the time-ordered field products and the time-ordered product is known from Wick's theorem. Thus we already have a recipe to calculate this and we will use a perturbative approach for this. \\[0.2cm]
 We had considered the interaction of the form $\phi^4$ and from this $\SH\tund{I} = \frac{\lambda}{4!}\phi\tund{I}^4$ where everything is in the interaction picture. Let us consider the \textbf{\textcolor{red}{numerator}} for the two-point correlation function first which is of the form 
@@ -69,5 +69,36 @@ Note that the denominator does not have any free fields $\phi_1$ and $\phi_2$ an
 Note than, a cancellation was involved in the reduction such that the diagram with two disconnected components got cancelled. Even though this seems like a miracle, in fact, it's not!\\[0.2cm]
 Turns out, only those diagrams contribute where the components are connected to the external points. Before showing this, let us write a summary of what we need to do for systematic calculations:
 \begin{itemize}[label=$\blacktriangleright$]
-  \item 
+  \item For each propagator \begin{tikzpicture}[baseline={(current bounding box.center)}]
+      \begin{feynman}
+        \vertex (1) at (0,0) [dot] {};
+        \vertex (2) at (1,0) [dot] {};
+        \diagram*{
+          (1) -- [plain] (2),
+        };
+      \end{feynman}
+      \node[below=2pt of 1] {\small x};
+      \node[below=2pt of 2] {\small y};
+    \end{tikzpicture} we associate the Feynman propagator $\triangle(x-y)$ .
+    \item For each internal vertex \begin{tikzpicture}[baseline={(current bounding box.center)}]\begin{feynman}
+        \vertex (1) at (0,0) [dot] {};
+        \vertex (2) at (0.5,0.5)  {};
+         \vertex (3) at (0.5,-0.5)  {};
+        \vertex (4) at (-0.5,0.5)  {};
+        \vertex (5) at (-0.5,-0.5)  {};
+        \diagram*{
+          (1) -- [plain] (2),
+          (1) -- [plain] (3),
+          (1) -- [plain] (4),
+          (1) -- [plain] (5),
+        };
+      \end{feynman}
+      \node[right=2pt of 1] {\small z};
+    \end{tikzpicture} we associate the term $(-i\lambda)\int \dd^4 z$ (that is, we integrate over any internal vertices).
+    \item For each external vertex, we associate the value $1$.
+    \item Finally we divide by the \textit{symmetry factor}
 \end{itemize}
+The above set of rules are called the \textit{Feynman rules} in position-space (since we are considering the fields in the real space). 
+\begin{theorem}[Linked-Cluster Theorem]
+  $$\vactb \ST\{\phi_1 \ldots \phi_n\} = \mqty(\text{~sum of all connected diagrams~}\\ \text{subjected to \textit{Feynman rules}})$$
+\end{theorem}

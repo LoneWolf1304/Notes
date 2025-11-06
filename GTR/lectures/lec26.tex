@@ -27,9 +27,9 @@ $\vartriangleright$ \textbf{Riemann and Ricci Tensor}
 \end{align*}
 \begin{align*}
     R_{xx} = \rie{\rho}{x}{\rho}{x} &= \qty(\partial_\rho \chris{\rho}{x}{x}-\partial_x \chris{\rho}{x}{\rho} + \chris{\rho}{\rho}{\lambda}\chris{\lambda}{x}{x}-\chris{\rho}{x}{\lambda}\chris{\lambda}{\rho}{x})\\
-    &=\qty(\partial_t \chris{t}{x}{x}-\cancelto{0}{\partial_x \chris{\rho}{x}{\rho}} + \chris{x}{x}{t}\chris{t}{x}{x}-\chris{t}{x}{x}\chris{x}{t}{x}-\chris{x}{x}{t}\chris{t}{x}{x})\\
-    &=\dv{(a\dot{a})}{t} - \qty(\sfrac{\dot{a}}{a})(a\dot{a}) \\
-    &=a\ddot{a} + 2\dot{a}^2
+    &=\qty(\partial_t \chris{t}{x}{x}-\cancelto{0}{\partial_x \chris{\rho}{x}{\rho}} + 3\chris{x}{x}{t}\chris{t}{x}{x}-\chris{t}{x}{x}\chris{x}{t}{x}-\chris{x}{x}{t}\chris{t}{x}{x})\\
+    &=\dv{(a\dot{a})}{t} + 3\qty(\sfrac{\dot{a}}{a})(a\dot{a} ) -2\qty(\sfrac{\dot{a}}{a})(a\dot{a} ) \\
+    &=a\ddot{a} + \dot{a}^2 +\dot{a}^2 =  a\ddot{a}  +2\dot{a}^2 
 \end{align*}
 By isotropy we can say that $R_{xx}= R_{yy}=R_{zz} =a\ddot{a} + 2\dot{a}^2$\\[0.2cm]
 $\vartriangleright$ \textbf{Ricci Scalar}
