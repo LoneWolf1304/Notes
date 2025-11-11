@@ -67,7 +67,7 @@ Note that the denominator does not have any free fields $\phi_1$ and $\phi_2$ an
 \end{figure}
 \noindent
 Note than, a cancellation was involved in the reduction such that the diagram with two disconnected components got cancelled. Even though this seems like a miracle, in fact, it's not!\\[0.2cm]
-Turns out, only those diagrams contribute where the components are connected to the external points. Before showing this, let us write a summary of what we need to do for systematic calculations:
+Turns out, only those diagrams contribute where the components are connected to the external points. The contributions from all the disconnected subgraphs cancel. Before showing this, let us write a summary of what we need to do for systematic calculations:
 \begin{itemize}[label=$\blacktriangleright$]
   \item For each propagator \begin{tikzpicture}[baseline={(current bounding box.center)}]
       \begin{feynman}
@@ -96,9 +96,10 @@ Turns out, only those diagrams contribute where the components are connected to 
       \node[right=2pt of 1] {\small z};
     \end{tikzpicture} we associate the term $(-i\lambda)\int \dd^4 z$ (that is, we integrate over any internal vertices).
     \item For each external vertex, we associate the value $1$.
-    \item Finally we divide by the \textit{symmetry factor}
+    \item Finally we divide by the \textit{symmetry factor}, which is like an \textit{enigmatic term} but basically means the number of ways we can rearrange the propagators or vertices, without changing the diagram. 
 \end{itemize}
-The above set of rules are called the \textit{Feynman rules} in position-space (since we are considering the fields in the real space). 
+The above set of rules are called the \textit{Feynman rules} in position-space (since we are considering the fields in the real space) and these are specific to the $\phi^4$-theory. 
 \begin{theorem}[Linked-Cluster Theorem]
-  $$\vactb \ST\{\phi_1 \ldots \phi_n\} = \mqty(\text{~sum of all connected diagrams~}\\ \text{subjected to \textit{Feynman rules}})$$
+  $$\vactb \ST\{\phi_1 \ldots \phi_n\} \vact = \mqty(\text{~sum of all connected diagrams~}\\ \text{subjected to \textit{Feynman rules}})$$
 \end{theorem}
+\textit{Proof.} 

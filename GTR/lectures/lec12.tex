@@ -6,7 +6,9 @@ Motion under gravity can be determined once we know the metric $g_{\mu\nu}$, how
 In free space, the \textit{electromagnetic} action can be written as:
 $$\Ss_{\mathrm{EM}} = \int \dd^4\fvec{x} \qty[-\frac{1}{4\mu_0}F_{\mu\nu}F^{\mu\nu}]$$
 Here $F_{\mu\nu}$ is the anti-symmetric electromagnetic tensor and is defined by:
-$$F_{\mu\nu}:= \partial_\mu A_{\nu} - \partial_\nu A_{\mu}\qquad F_{\mu\nu} = -F_{\nu\mu}$$
+\begin{equation}\label{eqn:fmunu}
+    F_{\mu\nu}:= \partial_\mu A_{\nu} - \partial_\nu A_{\mu}\qquad F_{\mu\nu} = -F_{\nu\mu}
+\end{equation}
 $A^\mu = \qty(\phi, \tvec{A})$ is the four-potential, which we will simply call the \textit{electromagnetic field}. From the above defined action, we can obtain all of Maxwell's equations. We can manipulate the action as follows,
 \begin{align*}
     \Ss_{\mathrm{EM}} &= \frac{1}{4\mu_0}\int \dd^4\fvec{x} - \qty[\partial_\mu A_\nu -\partial_\nu A_\mu  ]F^{\mu\nu}\\

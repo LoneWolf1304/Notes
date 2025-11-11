@@ -15,12 +15,14 @@ This is the second Friedmann equation that we obtain for the FLRW metric. We cou
     \frac{\dot{a}}{a} = c \sqrt{\rho} \qquad c = \sqrt{\frac{8\pi G}{3}} \rightarrow 3c^2 = 8\pi G
 \end{align*}
 Differentiating the above expression we get 
-\begin{align*}
-    3\qty[\frac{\ddot{a}}{a} - \qty(\frac{\dot{a}}{a})^2] = \frac{3c}{2\sqrt{\rho}}\dot{\rho}\quad  \xrightarrow[\text{Eq. II}]{\text{Friedmann}} \quad  &-\frac{3c^2}{2}(\rho+3P) - 3\rho c^2 = \frac{3c^2}{2\qty(\sfrac{\dot{a}}{a})}\dot{\rho}\\
+\begin{align}\label{eqn:rhodot}
+    \begin{split}
+        3\qty[\frac{\ddot{a}}{a} - \qty(\frac{\dot{a}}{a})^2] = \frac{3c}{2\sqrt{\rho}}\dot{\rho}\quad  \xrightarrow[\text{Eq. II}]{\text{Friedmann}} \quad  &-\frac{3c^2}{2}(\rho+3P) - 3\rho c^2 = \frac{3c^2}{2\qty(\sfrac{\dot{a}}{a})}\dot{\rho}\\
     \implies& -\frac{1}{2}(\rho + 3P) - \rho = \frac{\dot{\rho}}{2\qty(\sfrac{\dot{a}}{a})}\\
     \implies& -\frac{3}{2}(\rho + P) = \frac{\dot{\rho}}{2\qty(\sfrac{\dot{a}}{a})}\\
     \implies&\boxed{\dot{\rho} = -3\qty(\frac{\dot{a}}{a})(\rho+P)}
-\end{align*}
+    \end{split}
+\end{align}
 \subsection{Scalar field in curved spacetime}
 Consider a scalar field $\phi(x)$ for which the action in flat spacetime takes the form 
 $$\Ss[\phi] = \int \dd^4 x \ \qty(-\frac{1}{2}(\partial^\mu \phi)(\partial_\mu \phi) - V(\phi))$$
