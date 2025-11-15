@@ -1,0 +1,557 @@
+\documentclass[usenames, svgnames, dvipsnames]{scrartcl}
+\usepackage{pgfplots}
+\usepackage{emoji}
+\usepackage[makeroom]{cancel}
+\usepackage{simpler-wick}
+\newcommand{\ech}{\mathbb{e}}
+\newcommand{\gcod}{\mathfrak{D}}
+\newcommand{\tz}{{t\tund{0}}}
+\newcommand{\php}[1]{\phi_{#1}^+}
+\newcommand{\phm}[1]{\phi_{#1}^-}
+\newcommand{\fp}{\triangle}
+\newcommand{\pho}{\phi_1}
+\newcommand{\phii}{\phi_2}
+\newcommand{\phiii}{\phi_3}
+\newcommand{\phiv}{\phi_4}
+\newcommand{\phv}{\phi_5}
+\newcommand{\phvi}{\phi_6}
+\newcommand{\ti}{{t\tund{1}}}
+\newcommand{\tii}{{t\tund{2}}}
+\newcommand{\tiii}{{t\tund{3}}}
+\newcommand{\tiv}{{t\tund{4}}}
+\newcommand{\tv}{{t\tund{5}}}
+\usepackage{mathbbol}
+\newcommand{\iqe}{iq\ech}
+\newcommand{\vph}{\varphi}
+\newcommand{\MH}{\mathrm{H}}
+\newcommand{\ut}{\uptau}
+\newcommand{\phint}{\phi\tund{I}}
+\usepackage{simpler-wick}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{booktabs} % For better table formatting
+\usepackage{calc}
+\usepackage{Style_File}
+
+\newcommand{\crai}{\hat{c}\tund{A,i}^\dagger}
+\newcommand{\annai}{\hat{c}\tund{A,i}}
+\newcommand{\crbi}{\hat{c}\tund{B,i}^\dagger}
+\newcommand{\annbi}{\hat{c}\tund{B,i}}
+
+\newcommand{\crar}{\hat{c}\tund{A,r}^\dagger}
+\newcommand{\annar}{\hat{c}\tund{A,r}}
+\newcommand{\crbr}{\hat{c}\tund{B,r}^\dagger}
+\newcommand{\annbr}{\hat{c}\tund{B,r}}
+
+
+\newcommand{\crak}{\hat{c}\tund{A,k}^\dagger}
+\newcommand{\annak}{\hat{c}\tund{A,k}}
+\newcommand{\crbk}{\hat{c}\tund{B,k}^\dagger}
+\newcommand{\annbk}{\hat{c}\tund{B,k}}
+
+
+
+\newcommand{\crakd}{\hat{c}\tund{A,k'}^\dagger}
+\newcommand{\annakd}{\hat{c}\tund{A,k'}}
+\newcommand{\crbkd}{\hat{c}\tund{B,k'}^\dagger}
+\newcommand{\annbkd}{\hat{c}\tund{B,k'}}
+
+
+\newcommand{\craip}{\hat{c}\tund{A,i+1}^\dagger}
+\newcommand{\annaip}{\hat{c}\tund{A,i+1}}
+\newcommand{\crbip}{\hat{c}\tund{B,i+1}^\dagger}
+\newcommand{\annbip}{\hat{c}\tund{B,i+1}}
+\newcommand{\craim}{\hat{c}\tund{A,i-1}^\dagger}
+\newcommand{\annaim}{\hat{c}\tund{A,i-1}}
+\newcommand{\crbim}{\hat{c}\tund{B,i-1}^\dagger}
+\newcommand{\annbim}{\hat{c}\tund{B,i-1}}
+
+
+\newcommand{\ad}[1]{a_{#1}^\dagger}
+\usepackage{fancyhdr}
+\usepackage{tikz-feynman}
+\newcommand{\pdx}{\vb{p}\cdot \vb{x}}
+\newcommand{\creap}{{\hat{a}_{\vb{p}}}^{s\dagger}}
+\newcommand{\annap}{{\hat{a}_{\vb{p}}}^{s}}
+\newcommand{\crebp}{{\hat{b}_{\vb{p}}}^{s\dagger}}
+\newcommand{\annbp}{{\hat{b}_{\vb{p}}}^{s}}
+
+
+\newcommand{\creapr}{{\hat{a}_{\vb{p}}}^{r\dagger}}
+\newcommand{\annapr}{{\hat{a}_{\vb{p}}}^{r}}
+\newcommand{\crebpr}{{\hat{b}_{\vb{p}}}^{r\dagger}}
+\newcommand{\annbpr}{{\hat{b}_{\vb{p}}}^{r}}
+
+\newcommand{\creampr}{{\hat{a}_{-\vb{p}}}^{r\dagger}}
+\newcommand{\annampr}{{\hat{a}_{-\vb{p}}}^{r}}
+\newcommand{\crebmpr}{{\hat{b}_{-\vb{p}}}^{r\dagger}}
+\newcommand{\annbmpr}{{\hat{b}_{-\vb{p}}}^{r}}
+\newcommand{\acomtr}[2]{\{#1,#2\}}
+\newcommand{\pdy}{\vb{p}\cdot \vb{y}}
+\newcommand{\qdy}{\vb{q}\cdot \vb{y}}
+
+\newcommand{\qdx}{\vb{q}\cdot \vb{x}}
+\newcommand{\creaq}{{\hat{a}_{\vb{q}}}^{s\dagger}}
+\newcommand{\annaq}{{\hat{a}_{\vb{q}}}^{s}}
+\newcommand{\crebq}{{\hat{b}_{\vb{q}}}^{s\dagger}}
+\newcommand{\annbq}{{\hat{b}_{\vb{q}}}^{s}}
+
+\newcommand{\creaqr}{{\hat{a}_{\vb{q}}}^{r\dagger}}
+\newcommand{\annaqr}{{\hat{a}_{\vb{q}}}^{r}}
+\newcommand{\crebqr}{{\hat{b}_{\vb{q}}}^{r\dagger}}
+\newcommand{\annbqr}{{\hat{b}_{\vb{q}}}^{r}}
+
+\newcommand{\creamqr}{{\hat{a}_{-\vb{q}}}^{r\dagger}}
+\newcommand{\annamqr}{{\hat{a}_{-\vb{q}}}^{r}}
+\newcommand{\crebmqr}{{\hat{b}_{-\vb{q}}}^{r\dagger}}
+\newcommand{\annbmqr}{{\hat{b}_{-\vb{q}}}^{r}}
+
+% \newcommand{\crebp}{def}
+\newenvironment{bMatrix}[1]{%
+\bmatrix\array{#1}\hspace*{-0.5\arraycolsep}}%
+{\endarray\endbmatrix}
+\newcommand{\tund}[1]{_{\text{\tiny #1}}}
+\newcommand{\uep}{\upepsilon}
+\newcommand{\sbo}[1]{\scalebox{0.56}{#1}}
+\newcommand{\gsl}[1]{\cancel{#1}}
+\usepackage{tensor}
+\usepackage{array}
+\usepackage{lmodern}
+\definecolor{violet}{rgb}{0.5,0.27,0.45}
+\newcommand{\hint}{\MH\tund{I}}
+\newcommand{\fvec}[1]{\vb{#1}}
+\newcommand{\cre}[1]{\hat{a}_{#1}^\dagger}
+\newcommand{\ann}[1]{\hat{a}_{#1}}
+
+\newcommand{\crep}{\hat{a}_{\vb{p}}^\dagger}
+\newcommand{\annp}{\hat{a}_{\vb{p}}}
+\newcommand{\fo}{\hat{\phi}}
+\newcommand{\crepd}{\hat{a}_{\vb{p}'}^\dagger}
+\newcommand{\annpd}{\hat{a}_{\vb{p}'}}
+\newcommand{\vac}{\ket{\Omega}}
+\newcommand{\vacb}{\bra{\Omega}}
+\newcommand{\cremp}{\hat{a}_{\vb{-p}}^\dagger}
+\newcommand{\annmp}{\hat{a}_{\vb{-p}}}
+
+\newcommand{\crempd}{\hat{a}_{\vb{-p}'}^\dagger}
+\newcommand{\annmpd}{\hat{a}_{\vb{-p}'}}
+
+\newcommand{\tvec}[1]{\vb{{#1}}}
+\renewcommand{\aa}[1]{a_{#1}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu{#1}\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\dadj}[1]{\overbar{#1}}
+\newcommand{\bili}[1]{\dadj{\Psi}\ #1 \ \Psi}
+\newcommand{\bilin}[3]{\dadj{\Psi}_{#1}\ #3 \ \Psi_{#2}}
+\newcommand{\lrep}{\mathrm{S}[\Lambda]}
+\newcommand{\lrepd}{\mathrm{S}^\dagger[\Lambda]}
+\newcommand{\lrepinv}{\mathrm{S}^{-1}[\Lambda]}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Recommended preamble:
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+    layers/standard/.define layer set={%
+        background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+    }{
+        grid style={/pgfplots/on layer=axis grid},%
+        tick style={/pgfplots/on layer=axis ticks},%
+        axis line style={/pgfplots/on layer=axis lines},%
+        label style={/pgfplots/on layer=axis descriptions},%
+        legend style={/pgfplots/on layer=axis descriptions},%
+        title style={/pgfplots/on layer=axis descriptions},%
+        colorbar style={/pgfplots/on layer=axis descriptions},%
+        ticklabel style={/pgfplots/on layer=axis tick labels},%
+        axis background@ style={/pgfplots/on layer=axis background},%
+        3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}
+\newcommand{\amstitle}[1]{%
+  {\Large\MakeUppercase{#1}}% First letter large, rest small caps (simplified)
+  % OR for true small caps:
+  % {\Large\MakeUppercase{\expandafter\@firstofone#1}\scshape\MakeLowercase{#1}}%
+}
+\usepackage[left = 0.8in,
+right = 0.6in,
+bottom = 0.8in,
+top = 0.8in,
+a4paper]{geometry}
+
+
+\fancyhead[L,C]{}
+\fancyhead[R]{PH4101}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=cyan!80!black, citecolor=YellowOrange,urlcolor=cyan!80!black}
+\fancyhead[L]{Assignment 03}
+\fancyhead[C]{ Condensed Matter}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R,L]{}
+\usetikzlibrary{calc}
+\pagestyle{fancy}
+\newcommand{\delt}[2]{\tensor{\delta}{^{#1}_{#2}}}
+\newcommand{\vact}{\ket{\widetilde{\Omega}}}
+\newcommand{\vactb}{\bra{\widetilde{\Omega}}}
+\newcommand{\meas}[1]{\frac{\dd^3\tvec{#1}}{(2\pi)^3}}
+\newcommand{\tvp}{\tvec{p}}
+\newcommand{\tvpd}{\tvec{p}'}
+\newcommand{\ddelt}[1]{\delta^{(3)}(#1)}
+\newcommand{\myeq}[1]{\stackrel{\mathclap{\tiny\mbox{#1}}}{=}}
+\newcommand{\omp}{\omega_{\tvp}}
+\newcommand{\ompd}{\omega_{\tvpd}}
+\renewcommand{\headrulewidth}{0.4pt}
+\definecolor{titleblue}{RGB}{0, 80, 120}
+\usepackage{longtable} 
+
+\renewcommand{\fdv}[2]{\frac{\delta #1}{\delta #2}}
+\begin{document}
+\begin{center}
+    {\Large \textbf{\sffamily Assignment 03: Condensed Matter Physics }} \\[0.2cm]
+   {\sffamily Sagnik Seth \hspace{0.4cm} 22MS026}
+\end{center}
+\begin{definition}[Kronig-Penney Model]
+
+
+Consider a one-dimensional periodic potential consisting of a sequence of rectangular barriers of height \(U\), width \(b\), and period \(a\):
+
+\[
+V(x)=\begin{cases}U,&0\leq x<b\pmod{a},\\ 0,&b\leq x<a\pmod{a}.\end{cases}
+\]
+
+\begin{enumerate}
+   { \item[(a)] Choosing values for \(U\), \(b\), \(a\) so that (\(0<b<a\)), numerically solve the Kronig-Penney dispersion to obtain \(E(\mathbf{k})\) within the first Brillouin zone. Plot the dispersion and clearly indicate the allowed bands and band gaps. Mark the lowest two energy bands and the zone boundaries at \(k=\pm\pi/a\).
+
+    \item[(b)] Consider the limiting case of the Kronig-Penney model where \(b\to 0\) and \(U\rightarrow\infty\), while keeping the product \(V_{0}\equiv Ub\) constant. In this limit, the potential reduces to a Dirac comb, and the dispersion relation takes the form 
+    \[
+    \cos(ka)=\cos(qa)+\frac{maV_{0}}{\hbar^{2}}\frac{\sin(qa)}{qa},
+    \]
+    where \(q\) is the wave vector inside the potential wells. Now, by allowing the wave vector \(k\) to take complex values, numerically demonstrate that the corresponding energy solutions lie within the forbidden energy gaps of the band structure. (It is sufficient to perform the numerical analysis within the first energy band gap.)}
+\end{enumerate}
+\end{definition}
+\noindent
+\textit{Answer.} \\[0.2cm]
+(a) The dispersion relation obtained from the class for the Kronig-Penney model was 
+\begin{equation}
+    \cos(ka) = \cos(\alpha d)\cosh(\beta s) + \frac{\beta^2-\alpha^2}{2\alpha\beta}\sin(\alpha d)\sinh(\beta s)
+\end{equation}
+where for simplicity we take $m=\hbar=1$ and we have the following 
+ $$\vartriangleright\ \alpha =\sqrt{\frac{2mE}{\hbar^2}} =\sqrt{2E}\qquad\vartriangleright \beta =\sqrt{\frac{2m(V-E)}{\hbar^2}} =  \sqrt{2(V-E)}$$
+We numerically found the roots of the above dispersion relation, taking the parameters
+$$\vartriangleright\ a = 1.0\quad \vartriangleright\ b=0.04 \quad \vartriangleright\ V=80.0$$
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Q1(a)plot.pdf}
+    \caption{\textbf{Energy dispersion for Kronig-Penney model.} The figure shows the four lowest bands marked with different colors. The increasing bandgaps obtained for the above parameters are $\triangle E =4.88,5.84,6.1$ denoted in the plot. The dashed horizontal lines denote the energy band boundaries and the vertical lines denote the BZ boundaries at $\pm \sfrac{\pi}{a}$}
+\end{figure}
+
+
+
+\begin{definition}[2D Square Lattice]
+    Consider a two-dimensional square lattice with lattice constant \(a\), where each site hosts a single orbital \(|m,n\rangle\), with \(m\) and \(n\) denoting the lattice indices along the \(x\) and \(y\)-directions, respectively. Electrons can hop between nearest neighbours with hopping amplitude \(t\), and each site has an on-site energy \(\epsilon\tund{0}\). The tight-binding Hamiltonian is given by:
+\[
+H=-t\sum_{m,n}\left(|m+1,n\rangle\left\langle m,n\right|+|m,n+1 \rangle\left\langle m,n\right|+\text{h.c.}\right)+\epsilon\tund{0}\sum_{m,n}|m,n \rangle\left\langle m,n\right|.
+\]
+
+\begin{enumerate}
+    \item[(a)] Derive the dispersion relation \(E(\mathbf{k})\) using Bloch's theorem, and plot the equal-energy contours in the \(k_{x}-k_{y}\) plane within the first Brillouin zone, i.e., for \(-\pi/a<k_{x}<\pi/a\) and \(-\pi/a<k_{y}<\pi/a\).
+    
+    \item[(b)] Compute the density of states (DOS) corresponding to the energy band. Examine if there are any singularities that appear, and if so, comment on the nature of these van Hove singularities.
+    
+    \item[(c)] Consider each site is populated on average by a single electron (half-filled case) and determine the Fermi energy \(E_{F}\) and the corresponding Fermi momentum \(\mathbf{k}_{F}\). Plot the Fermi surface in the first Brillouin zone.
+\end{enumerate}
+
+\end{definition}
+\noindent
+\textit{Answer.}\\[0.2cm]
+(a) Let us consider the state with momentum ket $\ket{\vb{k}} \equiv \ket{k\tund{x}, k\tund{y}}$ and from Bloch's theorem, we can expand it as 
+\begin{align}
+    \ket{\vb{k}} = \frac{1}{\sqrt{N}} \sum\limits_{\vb{R}} e^{i \vb{k}\cdot \vb{R}} \ket{\vb{R}}\quad \longleftrightarrow\quad \ket{k\tund{x}, k\tund{y}} = \frac{1}{\sqrt{N}} \sum\limits_{m,n} e^{ia (k\tund{x} m +k\tund{y}n )} \ket{m,n}
+\end{align}
+Now, substituting this in the Hamiltonian gives us 
+\begin{align}
+    \begin{split}
+        H\ket{\vb{k}} &= -\frac{t}{\sqrt{N}} \sum\limits_{m,n,p,q}e^{ia(k\tund{x}p + k\tund{y}q )} \Big\{\ket{m+1,n}\braket{m,n|p,q}+\ket{m,n+1}\braket{m,n|p,q}+\\ &\qquad\qquad\qquad\qquad\quad\qquad\qquad\ket{m,n}\braket{m+1,n|p,q}+\ket{m,n}\braket{m,n+1|p,q}\Big\}\\ &\qquad\qquad\qquad\qquad\quad\hspace{4cm}+\epsilon\tund{0}\sum\limits_{m,n,p,q} e^{ia(k\tund{x}p + k\tund{y}q )}\ket{m,n}\braket{m,n|p,q}
+    \end{split}
+\end{align}
+Since the orbitals are localised we have the following condition 
+$$\braket{m,n|p,q} = \delta_{mp}\delta_{nq}\quad \forall \ m,n,p,q$$
+Using this in the equation above we obtain the following 
+\begin{align}
+    \begin{split}
+       H\ket{\vb{k}} &= -\frac{t}{\sqrt{N}} \sum\limits_{p,q}e^{ia(k\tund{x}p + k\tund{y}q )} \Big\{\ket{p+1,q}+\ket{p,q+1}+\ket{p-1,q}+\\ &\qquad\qquad\qquad\qquad\quad\qquad\qquad \ket{p,q-1}\Big\} +\epsilon\tund{0} \sum\limits_{p,q}e^{ia(k\tund{x}p + k\tund{y}q )} \ket{p,q}\\
+       &=-\frac{t}{\sqrt{N}} \sum\limits_{p,q}\qty(e^{ia(k\tund{x}(p-1) + k\tund{y}q )}+e^{ia(k\tund{x}p + k\tund{y}(q-1) )}+e^{ia(k\tund{x}(p+1) + k\tund{y}q )}+e^{ia(k\tund{x}p + k\tund{y}(q+1) )})\ket{p,q} + \epsilon\tund{0}\ket{\vb{k}}\\
+       &= -t\qty(e^{-iak\tund{x}} + e^{-iak\tund{y}}+e^{iak\tund{x}}+e^{-iak\tund{y}})\sum\limits_{p,q}(e^{-ia(k\tund{x}p + k\tund{y}q)})\ket{p,q}+ \epsilon\tund{0}\ket{\vb{k}}\\
+       &=\qty[\epsilon\tund{0}-2t\cos(k\tund{x}a) -2t \cos(k\tund{y}a)]\ket{\vb{k}}
+    \end{split}
+\end{align}
+We obtain an eigen-equation for $\ket{\vb{k}}$ and the dispersion relation thus obtained is 
+\begin{align}\label{eqn:dispersion2dsq}
+    E(\vb{k}) = \qty[\epsilon\tund{0} -2t\cos(k\tund{x}a) -2t \cos(k\tund{y}a)]
+\end{align}
+\begin{figure}[H]
+    \centering 
+    \includegraphics[scale=0.8]{Q2(a).pdf}
+    \caption{\textbf{Dispersion for 2D Square lattice.} Energy contours for 2D suare lattice within the first BZ; parameters used $t=1.0, a=1.0,\epsilon\tund{0}=0.2$. The dashed lines denote the BZ boundary at $\pm \frac{\pi}{a}$ }
+\end{figure}
+\noindent
+(b) The density of states is given by the expression 
+$$\rho(E) = \int\limits_{\vb{k} \in \text{BZ}} \frac{\dd^2 k}{(2\pi)^2}\ \delta(E- E(\vb{k}))$$
+Using the dispersion relation in Eq. \ref{eqn:dispersion2dsq} we have for the DOS 
+\begin{align}
+    \begin{split}
+        \rho(E) =\frac{1}{(2\pi)^2} \int\limits_{-\sfrac{\pi}{a}}^{\sfrac{\pi}{a}} \dd k\tund{x} \int\limits_{-\sfrac{\pi}{a}}^{\sfrac{\pi}{a}} \dd k\tund{y} \ \delta(E-  \qty[\epsilon\tund{0} -2t\cos(k\tund{x}a) -2t \cos(k\tund{y}a)])
+    \end{split}
+\end{align}
+
+
+
+
+
+\begin{definition}[Tight Binding with Modulated On-site Potential]
+    Consider the one-dimensional tight-binding Hamiltonian that includes an additional modulated on-site potential term,
+\[
+\hat{H}=-t\sum_{n}(|n\rangle\langle n+1|+\text{h.c.})+U\sum_{n}|n \rangle\langle n|+V\sum_{n}(-1)^{n}|n\rangle\langle n|.
+\]
+
+\begin{enumerate}
+    \item[(a)] Determine the dispersion relation corresponding to this Hamiltonian.
+    
+    \item[(b)] Further, demonstrate that the Brillouin zone becomes reduced as a result of the staggered potential. 
+\end{enumerate}
+\end{definition}
+\noindent
+\textit{Answer.} The given Hamiltonian can be schematically represented as below, where between each site, the hopping amplitude is $-t$ and the onsite-potential is $U$ and an additional on-site potential of strength $V$ is imposed with alternate signs along the sites. 
+\begin{figure}[H]
+    \centering
+    \input{pics/q3_1.tex}
+\end{figure}
+\noindent
+We can equivalently divide the entire lattice into sublattices, where each unit cell now contains two atoms $A$ and $B$, as shown below: 
+\begin{figure}[H]
+    \centering
+    \input{pics/q3_2.tex}
+\end{figure}\noindent
+where the red sites in the $j^{\text{\small th}}$ unit cell denote sublattice atoms of type $A$ (located at sites $2j$) and the blue sites denote sublattice atoms of type $B$ (located at sites $2j+1$). We can then define the lattice creation and annihilation operators for each sublattice sites viz. $\hat{c}\tund{A,i}^\dagger$ and $\hat{c}\tund{A,i}$ which will create and destroy particle at $A$ site of unit cell $i$ respectively and $\hat{c}\tund{B,i}^\dagger$ and $\hat{c}\tund{B,i}$ which will create and destroy particle at $B$ site of unit cell $i$. \\[0.2cm]
+Dividing the lattice into two sublattices, we note that $+V$ ($-V$) now occurs only at site $A$ (site $B$) and then we can easily rewrite the above Hamiltonian as,
+\begin{align*}
+    \hat{H} = -t\sum\limits_{i}\qty(\craip \annbi + \text{h.c})  -t\sum\limits_{i}\qty(\crai \annbi + \text{h.c})  + (U+V)\sum\limits_{i}\crai \annai+(U-V)\sum\limits_{i}\crai \annai 
+\end{align*} 
+We can now expand these creation and annihilation operators in the momentum space as follows:
+\begin{align*}
+    \annar = \frac{1}{\sqrt{\sfrac{N}{2}}}\sum\limits_{k}e^{2ikra} \annak\qquad  \annbr = \frac{1}{\sqrt{\sfrac{N}{2}}}\sum\limits_{k}e^{2ikra} \annbk
+\end{align*}
+We now substitute this in the Hamiltonian above. Let us do this term-by-term, first for the hopping terms: 
+\begin{align*}
+    -t\sum\limits_{i}\qty(\craip \annbi +\crbi\annaip  ) &= -\frac{t}{\sqrt{\sfrac{N}{2}}}\sum\limits_{r,k,k'} e^{-2ika(r+1)} e^{2ik'ar} \crak \annbkd + e^{-2ik'ar}e^{2ika(r+1)} \crbkd \annak\\
+    &= -\frac{t}{\sqrt{\sfrac{N}{2}}}\sum\limits_{r,k,k'} e^{-2ika}e^{-2ira(k-k')} \crak \annbkd + e^{2ika}e^{-2ira(k'-k)} \crbkd \annak\\
+    &= -t\sum\limits_{k,k'} e^{-2ika}\delta_{k,k'} \crak \annbkd + e^{2ika}\delta_{k,k'}\crbkd \annak\\
+    &=-t\sum\limits_{k} e^{-2ika} \crak \annbk + e^{2ika}\crbk \annak
+\end{align*}
+\begin{align*}
+    -t\sum\limits_{i}\qty(\crai \annbi +\crbi\annai  ) &= -\frac{t}{\sqrt{\sfrac{N}{2}}}\sum\limits_{r,k,k'} e^{-2ikar} e^{2ik'ar} \crak \annbkd + e^{-2ik'ra}e^{2ikra} \crbkd \annak\\
+    &= -\frac{t}{\sqrt{\sfrac{N}{2}}}\sum\limits_{r,k,k'} e^{-2ira(k-k')} \crak \annbkd + e^{-2ira(k'-k)} \crbkd \annak\\
+    &= -t\sum\limits_{k,k'}  \crak \annbkd + \crbkd \annak\\
+    &=-t\sum\limits_{k}  \crak \annbk + \crbk \annak
+\end{align*}
+Similarly the on-site terms would have a similar form:
+\begin{align*}
+    (U+V)\sum\limits_i \crai \annai  = (U+V)\sum\limits_{k} \crak \annak \qquad (U-V)\sum\limits_i \crai \annai  = (U-V)\sum\limits_{k} \crbk \annbk
+\end{align*}
+where we have used the identity that $\frac{1}{\sqrt{\sfrac{N}{2}}}\sum\limits_{r} e^{-2ia(k-k')r} = \delta_{k,k'}$. Now joining these terms together we get the following: 
+\begin{align*}
+    \hat{H} = \sum\limits_{k} -t(1+e^{-2ika}) \crak \annbk -t(1+e^{2ika})\crbk \annak (U+V)\crak \annak+(U-V)\crbk \annbk 
+\end{align*}
+Let us define the vector $\hat{\vb{c}}\tund{k}:= \mqty(\annak\\ \annbk)$ and then we can compactly write the Hamiltonian as: 
+\begin{align*}
+    \hat{H} = \sum\limits_{k} \hat{\vb{c}}\tund{k}^\dagger\ h(k) \ \hat{\vb{c}}\tund{k}
+\end{align*}
+where the matrix $h(k)$ takes the following form: 
+$$h(k) = \mqty((U+V) & -t(1+e^{-2ika})\\ -t(1+e^{2ika})& (U-V))\quad \xrightarrow{\text{diagonalise}}\quad \det\mqty((U+V-\lambda) & -t(1+e^{-2ika})\\ -t(1+e^{2ika})& (U-V -\lambda)) =0$$
+We obtain the characteristic equation as:
+\begin{align*}
+    (U-\lambda)^2 - V^2 -t^2(2+2\cos(2ka)) =0 \implies  (U-\lambda)^2 = V^2 +4t^2\cos^2(ka) 
+\end{align*}
+The dispersion relation obtained for the modulated on-site potential is  
+$$\boxed{\lambda_{\pm}(k) = U\pm \sqrt{V^2 +4t^2\cos^2(ka)}}$$
+(b) If $V=0$ then the lattice has translational symmetry of unit $a$, however, when $V\neq 0$ then this translational symmetry becomes $2a$ (which we also saw explicitly from the sublattice structure). Thus the Brillouin zone reduces from $\qty(-\sfrac{\pi}{a},\sfrac{\pi}{a})$ to $\qty(-\sfrac{\pi}{2a},\sfrac{\pi}{2a})$ due to the introduction of the staggered potential. 
+\begin{definition}[Ladder Lattice]
+    Consider a one-dimensional lattice composed of two parallel chains, where each chain corresponds to a distinct orbital -- the lower chain represents the \(p\)-orbital and the upper chain represents the \(s\)-orbital. Electrons can hop between neighbouring sites within the same chain, as well as between the two orbitals on the same site. Such a system can be described by the following tight-binding Hamiltonian:
+\[
+H = -t\sum_{n}\left(\left|n,s\right\rangle\left\langle n+1,s\right|+ \text{h.c.}\right)-t^{\prime}\sum_{n}\left(\left|n,p\right\rangle\left\langle n +1,p\right|+\text{h.c.}\right)
+\]
+\[
+-\Omega\sum_{n}\left(\left|n,s\right\rangle\left\langle n,p\right |+\text{h.c.}\right)+{\epsilon}_{s}\sum_{n}\left|n,s\right\rangle\left\langle n ,s\right|+{\epsilon}_{p}\sum_{n}\left|n,p\right\rangle\left\langle n,p\right|.
+\]
+Here, \(t\) and \(t^{\prime}\) denote the hopping amplitudes along the \(s\) and \(p\) orbital chains, respectively, \(\Omega\) represents the inter-orbital coupling between the two chains, and \({\varepsilon}_{s}\) and \({\varepsilon}_{p}\) are the on-site energies of the respective orbitals.
+
+\begin{enumerate}
+    \item[(a)] Perform a Fourier transform to momentum space using the Bloch states
+    \[
+    \left|k,\sigma\right\rangle=\frac{1}{\sqrt{N}}\sum_{n}e^{ikns}\left|n,\sigma\right\rangle,
+    \]
+    where \(\sigma=s,p\), and express the Hamiltonian as a \(2\times 2\) matrix \(H(k)\).
+    
+    \item[(b)] Obtain the energy dispersion relation \(E_{\pm}(s)\) and sketch the two resulting energy bands for representative parameters (\(t^{\prime}<t\), \(\Omega\neq 0\)).
+\end{enumerate}
+   
+\end{definition}
+\noindent
+    \textit{Answer.} The lattice can be schematically shown as: 
+     \begin{figure}[H]
+        \centering
+    \input{pics/ladder.tex}
+    \caption{Schematic representation of two coupled 1D chains corresponding to \(s\) and \(p\) orbitals. The hopping amplitudes along the \(s\) and \(p\) chains are \(t\) and \(t^{\prime}\) respectively, while the inter-chain coupling (hybridization) is \(\Omega\).
+}
+\end{figure} 
+\noindent 
+We can expand the orbital states in terms of the Fourier modes as, 
+$$\ket{n,\sigma} = \frac{1}{\sqrt{N}}\sum\limits_{k} e^{-ikna}\ket{k,\sigma}$$
+where $\sigma$ denotes the orbital type (\sigma \in \{s,p\}). Let us consider the terms of the Hamiltonian one by one.   
+\begin{align*}
+    -t \sum\limits_{n} \ket{n,s}\bra{n+1,s} + \ket{n+1,s}\bra{n,s} &= -\frac{t}{N}\sum\limits_{n,k,k'} (e^{-ikna} e^{ik'(n+1)a} + e^{-ik(n+1)a}e^{ik'na}) \ket{k,s}\bra{k',s}\\
+    &=-\frac{t}{N}\sum\limits_{n,k,k'} (e^{ik'a} e^{-ina(k-k')} + e^{-ika}e^{-ina(k-k')}) \ket{k,s}\bra{k',s}\\
+    &=-t \sum\limits_{k,k'} (e^{ik'a} \delta_{k,k'} + e^{-ika}\delta_{k,k'}) \ket{k,s}\bra{k',s}\\
+     &=-t \sum\limits_{k} (e^{ika}  + e^{-ika}) \ket{k,s}\bra{k,s} = \sum\limits_{k}(-2t\cos(ka))\ket{k,s}\bra{k,s} 
+\end{align*}
+Similarly, the second term in the Hamiltonian leads to  
+$$-t' \sum\limits_{n} \ket{n,p}\bra{n+1,p} + \ket{n+1,p}\bra{n,p} = \sum\limits_{k}(-2t'\cos(ka))\ket{k,p}\bra{k,p}$$
+Let us now consider the onsite terms in the Hamiltonian:
+\begin{align*}
+    \varepsilon\tund{s}\sum\limits_n \ket{n,s}\bra{n,s} = \frac{ \varepsilon\tund{s}}{N}\sum\limits_{n,k,k'} e^{-ikna}e^{ik'na}\ket{k,s}\bra{k',s} = \frac{ \varepsilon\tund{s}}{N}\sum\limits_{n,k,k'} e^{-ina(k-k')}\ket{k,s}\bra{k',s} = \varepsilon\tund{s}\sum\limits_k \ket{k,s}\bra{k,s} 
+\end{align*}
+Similarly, for the $p$ orbital we will have the onsite term as: 
+$$\varepsilon\tund{p}\sum\limits_n \ket{n,p}\bra{n,p} = \varepsilon\tund{p}\sum\limits_k \ket{k,p}\bra{k,p} $$
+Finally, let us consider the hopping term between the parallel chains: 
+\begin{align*}
+    \Omega \sum\limits_n \ket{n,s}\bra{n,p} + \ket{n,p}\bra{n,s} &= -\frac{\Omega}{N} \sum\limits_{n,k,k'} e^{-ikna} e^{ik'na} \ket{k,s}\bra{k',p} + e^{-ikna} e^{ik'na} \ket{k,p}\bra{k',s} \\
+    &= -\frac{\Omega}{N} \sum\limits_{n,k,k'} e^{-i(k-k')na} \qty[ \ket{k,s}\bra{k',p} +\ket{k,p}\bra{k',s}]\\
+    &=-\Omega \sum\limits_k \ket{k,s}\bra{k,p} + \ket{k,p}\bra{k,s}
+\end{align*}
+Now joining all these terms together we get the Hamiltonian expanded in the momentum space as, 
+\begin{align*}
+    \hat{H} = \sum\limits_k (\varepsilon\tund{p}-2t'\cos(ka)) \ket{k,p}\bra{k,p} +(\varepsilon\tund{s}-2t\cos(ka)) \ket{k,s}\bra{k,s} -\Omega \ket{k,s}\bra{k,p} -\Omega \ket{k,p}\bra{k,s}
+\end{align*}
+Now using the fact that $\braket{q,\sigma|q',\sigma'} = \delta_{\sigma \sigma'}\delta_{q,q'}$ we can obtain the matrix elements: 
+\begin{alignat*}{3}
+     &\vartriangleright\ \braket{k',s|\hat{H}|k',s}  = \varepsilon\tund{s}-2t\cos(k'a)\qquad &&\vartriangleright\braket{k',s|\hat{H}|k',p}  = -\Omega\\
+   &\vartriangleright\ \braket{k',p|\hat{H}|k',p}  = \varepsilon\tund{p}-2t'\cos(k'a) \qquad &&\vartriangleright\ \braket{k',s|\hat{H}|k',s}  =-\Omega
+\end{alignat*}
+$$H(k) = \mqty(\varepsilon\tund{s}-2t\cos(ka) & -\Omega \\ -\Omega & \varepsilon\tund{p}-2t'\cos(ka))$$
+(b) The energy dispersion is found from the eigenvalues of the above matrix $H(k)$. We obtain the characteristic equation using 
+$$\det \mqty(\varepsilon\tund{s}-2t\cos(ka)-\lambda & -\Omega \\ -\Omega & \varepsilon\tund{p}-2t'\cos(ka)-\lambda) = 0  $$
+Let us denote $h\tund{1} = 2t\cos(ka)$ and $h\tund{2} = 2t'\cos(ka)$ for simplicity. Then we have the equation as,
+\begin{align*}
+     (\lambda - \varepsilon\tund{s} +h\tund{1})(\lambda - \varepsilon\tund{p} +h\tund{2}) -\Omega^2 = 0 \implies   \lambda^2 - \lambda (h\tund{1}+h\tund{2} - \varepsilon\tund{p}+\varepsilon\tund{s}) + (h\tund{1}-\varepsilon\tund{s})(h\tund{2}-\varepsilon\tund{p})-\Omega^2 = 0
+\end{align*}
+The solutions to this quadratic equation are given as: 
+\begin{align*}
+   \boxed{ E_\pm = \frac{1}{2}\qty{(h\tund{1}+h\tund{2} - \varepsilon\tund{p}+\varepsilon\tund{s}) \pm \sqrt{(h\tund{1}+h\tund{2} - \varepsilon\tund{p}+\varepsilon\tund{s})^2 - 4\qty[(h\tund{1}-\varepsilon\tund{s})(h\tund{2}-\varepsilon\tund{p})-\Omega^2]}}}
+\end{align*}
+\begin{figure}
+    \centering 
+    \includegraphics[scale=0.6]{Q4.pdf}
+    \caption{\textbf{Dispersion for the ladder lattice.} The parameters used are $a=1,\varepsilon\tund{s} = 0.8, \varepsilon\tund{p}=0.6, t=0.4, t'=0.2, \Omega=0.1$}
+\end{figure}
+
+
+\begin{definition}[Bloch's Theorem]
+    
+    The wavefunction of a particle in a periodic lattice with lattice constant 'a' obeys Bloch's theorem,
+\[
+\psi_{n,k}(x)=e^{ikx}u_{n,k}(x),
+\]
+where \(u_{n,k}(x)\) has the periodicity of the lattice.
+
+\begin{enumerate}
+    \item[(a)] Substituting the Bloch form into the time-independent Schr\"{o}dinger equation, show that the problem reduces to
+    \[
+    h_{k}\,u_{n,k}(x)=\epsilon_{n,k}\,u_{n,k}(x),\quad\text{where}\quad h_{k}=\frac {1}{2m}(p_{x}+\hbar k)^{2}+V(x),
+    \]
+    where the periodic potential can be expanded as
+    \[
+    V(x)=\sum_{G}V_{G}e^{iGx},
+    \]
+    where \(Ga=2\pi n\) are the reciprocal lattice vectors.
+    
+    \item[(b)] Treating the potential \(V(x)\) as a weak perturbation, only the lowest harmonic is important
+    \[
+    V(x)\approx V_{G_{1}}e^{iG_{1}x}+V^{*}_{G_{1}}e^{-iG_{1}x}.
+    \]
+    (Since the potential is real, \(V^{*}_{G}=V_{-G}\)). Show that a gap of width \(\Delta=2|V_{G_{1}}|\) opens at the Brillouin zone boundary \(k=G_{1}/2\) (i.e., \(k=\pi/a\) for the first zone). Estimate \(\Delta\) from the truncated potential.
+    
+    \item[(c)] For an optical lattice with a periodic Gaussian potential
+    \[
+    V(x)=-V_{0}\sum_{n}e^{-\alpha(x-na)^{2}},
+    \]
+    compute the Fourier coefficients \(V_{G}\) and hence estimate the band gap at the first zone boundary in the weak-potential limit.
+    
+    \item[(d)] Extend the Bloch wave-vector into the complex plane as
+    \[
+    k=\frac{G}{2}+i\chi,\qquad\chi\in\mathcal{R},
+    \]
+    and repeat (b) to show that the allowed energies can exist within the forbidden region \(\Delta\), by suitably choosing \(\chi\).
+\end{enumerate}
+
+\end{definition}
+\noindent
+\textit{Answer}. (a) Before substituting the equation in time-independent Schr{\"o}dinger, note that $$\hat{p}\equiv -i\hbar \partial_x \implies \hat{p}e^{ikx} = (-i\hbar) (ik) e^{ikx} = (\hbar k) e^{ikx}$$ Using this fact we can easily find that,
+\begin{align*}
+    \hat{p}^2 (e^{ikx} u_{n,k}(x)) &= \hat{p}\qty((\hbar k ) e^{ikx} u_{n,k} + e^{ikx}\hat{p}u_{n,k}) \\
+    &=(\hbar k)\qty[(\hbar k)e^{ikx}u_{n,k} + e^{ikx} \hat{p}u_{n,k}] + (\hbar k)e^{ikx}\hat{p}u_{n,k} + e^{ikx} \hat{p}^2 u_{n,k}\\
+    &=e^{ikx}[(\hbar k)^2 u_{n,k} + 2(\hbar k)\hat{p}u_{n,k} + \hat{p}^2 u_{n,k}] \equiv e^{ikx} (\hbar k + \hat{p})^2 u_{n,k}
+\end{align*}
+Hence we have 
+\begin{align*}
+    \hat{H} \psi_{n,k}(x) = \frac{\hat{p}^2}{2m}\psi_{n,k} + V(x)\psi_{n,k} =e^{ikx}\qty[ \frac{1}{2m}(\hbar k + \hat{p})^2+V(x)] u_{n,k} = E e^{ikx} u_{n,k}
+\end{align*}
+
+\begin{definition}[Reciprocal Lattice]
+Consider a body-centered cubic (bcc) lattice with lattice constant $a$. Identify the primitive lattice vectors, determine the corresponding reciprocal lattice vectors, and identify the type of reciprocal lattice obtained. Repeat the calculation for a two-dimensional equilateral triangular lattice with lattice constant $a$.
+\end{definition}
+\textit{Answer.}\\[0.2cm]
+$\vartriangleright$ \textbf{Body-centered cubic}\\[0.2cm]
+Let us consider the primitive unit cell for bcc lattice, such that each side of the cube is $a$ and let us consider the atom at the centre of the cube to be the origin.
+\begin{figure}[H]
+    \centering 
+    \input{pics/bcc.tex}
+\end{figure}
+\noindent
+There are $8$ nearest neighbours of this atom and we choose three of them to be the \textit{primitive lattice vectors}. 
+$$\vb{a}\tund{1} = \frac{a}{2}\mqty(-1\\ -1\\1)\qquad \vb{a}\tund{2} = \frac{a}{2}\mqty(1\\ -1\\1) \qquad \vb{a}\tund{3} = \frac{a}{2}\mqty(-1\\ 1\\1)$$ 
+We calculate the volume $v = \vb{a}\tund{1}\cdot (\vb{a}\tund{2}\times\vb{a}\tund{3} ) = \sfrac{a^3}{2}$. From this we can calculate the \textit{reciprocal lattice vectors},
+\begin{align*}
+    \vb{b}\tund{1}&= \frac{2\pi (\vb{a}\tund{2}\times \vb{a}\tund{3})}{v} =\frac{2\pi}{a} \mqty(-1\\ -1 \\ 0)\\
+     \vb{b}\tund{2}&= \frac{2\pi (\vb{a}\tund{3}\times \vb{a}\tund{1})}{v} =\frac{2\pi}{a}\mqty(1\\ 0 \\ 1)\\
+      \vb{b}\tund{3}&= \frac{2\pi (\vb{a}\tund{1}\times \vb{a}\tund{2})}{v} =\frac{2\pi}{a}\mqty(0\\ 1 \\1)
+\end{align*}
+$\vartriangleright$ \textbf{Face-centered cubic}\\[0.2cm]
+Let us consider the primitive unit cell for the 2D triangular lattice, such that each side of the triangle is $a$.
+\begin{figure}[H]
+    \centering 
+    \input{pics/fcc.tex}
+\end{figure}
+\noindent
+There are $6$ nearest neighbours of an atom and we choose two of them to be the \textit{primitive lattice vectors}. 
+$$\vb{a}\tund{1} = a\mqty(1\\ 0)\qquad \vb{a}\tund{2} = \frac{a}{2}\mqty(1\\ \sqrt{3}) $$ 
+From the orthogonality relation we can say that the reciprocal lattice vectors, $\vb{b}\tund{1}\perp \vb{a}\tund{2}$ and $\vb{b}\tund{2}\perp \vb{a}\tund{1}$. Then suppose $\vb{b}\tund{1} = c(\sqrt{3}, -1)^{\text{\tiny T}}$ and $\vb{b}\tund{2} = d(0,-1)^{\text{\tiny T}}$. Moreover, from the normalisation we have, 
+\begin{align*}
+    \vb{a}\tund{1} \cdot   \vb{b}\tund{1} &=2\pi \implies c = \frac{2\pi}{\sqrt{3}a}\\
+    \vb{a}\tund{2} \cdot   \vb{b}\tund{2} &=2\pi \implies d = -\frac{4\pi}{\sqrt{3}a}
+\end{align*}
+Thus we get the \textit{reciprocal lattice vectors} as 
+$$\vb{b}\tund{1} = \frac{2\pi}{\sqrt{3}a}\mqty(\sqrt{3}\\ -1)\qquad \vb{b}\tund{2} = \frac{4\pi}{\sqrt{3}a}\mqty(0\\1)$$
+\begin{definition}[Ultracold Atoms]
+Ultracold atoms confined in an optical lattice experience a periodic potential given by  
+\[
+V(x) = V_0 \cos^2 \left( \frac{\pi x}{a} \right),
+\]  
+where \( V_0 \) is the lattice depth and \( a \) is the lattice spacing.  
+
+\begin{enumerate}
+    \item[(a)] Construct the Bloch wave function \(\Psi(x)\) for a particle in this lattice within the tight-binding approximation.
+    
+    \item[(b)] Estimate the nearest-neighbour tunnelling amplitude \( t \), which characterises the hopping of an atom between adjacent lattice sites.
+\end{enumerate}
+\end{definition}
+
+\end{document}
