@@ -33,7 +33,6 @@
 \usepackage{perpage}
 \MakePerPage{footnote}
 \RequirePackage{enumitem}
-
 \newcommand{\tsr}[3]{\tensor{{#1}}{^#2 _#3}}
 \usepackage{emoji}
 \usepackage{cancel}
@@ -42,6 +41,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{tgbonum}
 \usepackage{siunitx}
+\newcommand{\iden}{\mathds{1}}
 \sisetup{detect-all}
 \usepackage{makecell}
 \usepackage{pgfplots}
@@ -50,8 +50,8 @@
 
 % \usepackage[ttdefault=true]{AnonymousPro}
 % \renewcommand*\familydefault{\ttdefault} 
-
-
+\newcommand{\vep}{\varepsilon}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
 \usepackage[T1]{fontenc}
 % \usepackage[sfdefault]{AlegreyaSans} 
 %\renewcommand{\familydefault}{\sfdefault}%% Option 'black' gives heavier bold face
@@ -138,9 +138,7 @@
 	colframe=black,colback= white,
 	boxrule=1.5pt,arc=4pt,boxsep=0pt,left=6pt,right=6pt,top=6pt,bottom=6pt}
 
-\newtcbox{\limbox}{on line,
-	colframe=black,colback=lime!20!white,
-	boxrule=1.5pt,arc=4pt,boxsep=0pt,left=6pt,right=6pt,top=6pt,bottom=6pt}
+
 
 
 \DeclareCaptionStyle{modify_cap}[justification=centering,indention=0pt]{font={small},labelfont={sf,bf},width=0.9\textwidth}
@@ -182,12 +180,12 @@
     headindent={0pt},
     notefont={\sffamily\bfseries},
     headfont={\color{blue}\sffamily\bfseries},
-    headpunct={:\\},
+    headpunct={\\[0.2cm]},
     postheadspace={0.5pt},
     notebraces={(}{)},
 ]{def}
 
-\declaretheorem[style=def, name=Definition]{definition}
+\declaretheorem[style=def, name=$\vartriangleright\ $ {\sffamily Question}]{definition}
 
 
 
@@ -256,12 +254,22 @@
  
 \declaretheorem[style=idty, name=Identity]{identity}
 
+\usepackage{xparse}
+
+\NewDocumentCommand{\gamprod}{O{1}m m m m m}{%
+  \gamma^{#2}%
+  \IfNoValueF{#3}{\gamma^{#3}}%
+  \IfNoValueF{#4}{\gamma^{#4}}%
+  \IfNoValueF{#5}{\gamma^{#5}}%
+  \IfNoValueF{#6}{\gamma^{#6}}%
+}
 
 
 
 
-
-
+\newtcbox{\limbox}{on line,
+	colframe=black,colback=lime!20!white,
+	boxrule=1.5pt,arc=4pt,boxsep=0pt,left=6pt,right=6pt,top=6pt,bottom=6pt}
 
 
 \mdfdefinestyle{propbox}{
@@ -301,12 +309,12 @@
 
 
 \mdfdefinestyle{factbox}{
-    backgroundcolor=electricpurple!12!white,
+    backgroundcolor=electriclime!20!white,
     nobreak=true,
     innertopmargin=7pt,
     innerleftmargin=7pt,
     innerrightmargin=7pt,
-    linecolor=electricpurple,
+    linecolor=OliveGreen,
     linewidth=3pt,
     topline=false,
     bottomline=false,
@@ -321,7 +329,7 @@
     bodyfont={\normalfont},
     headindent={0pt},
     notefont={\sffamily\bfseries},
-    headfont={\color{electricpurple}\sffamily\bfseries},
+    headfont={\color{OliveGreen}\sffamily\bfseries},
     headpunct={:\\},
     postheadspace={0.5pt},
 ]{fact}
