@@ -98,8 +98,68 @@ Turns out, only those diagrams contribute where the components are connected to 
     \item For each external vertex, we associate the value $1$.
     \item Finally we divide by the \textit{symmetry factor}, which is like an \textit{enigmatic term} but basically means the number of ways we can rearrange the propagators or vertices, without changing the diagram. 
 \end{itemize}
-The above set of rules are called the \textit{Feynman rules} in position-space (since we are considering the fields in the real space) and these are specific to the $\phi^4$-theory. 
+The above set of rules are called the \textit{Feynman rules} in position-space (since we are considering the fields in the real space) and these are specific to the $\phi^4$-theory. For other type of interactions, few changes are accordingly made. 
 \begin{theorem}[Linked-Cluster Theorem]
   $$\vactb \ST\{\phi_1 \ldots \phi_n\} \vact = \mqty(\text{~sum of all connected diagrams~}\\ \text{subjected to \textit{Feynman rules}})$$
 \end{theorem}
-\textit{Proof.} 
+\textit{Proof.} A typical diagram consists of \textit{connected} and \textit{disconnected} diagrams, where connected pieces are the ones where everything is connected to the external vertices. Since each vertex has even number of lines coming in (except the external points), the external points must be connected to each other. \\[0.2cm]
+Let us consider the set of all disconnected pieces by $\mathcal{V}$, then 
+\begin{align*}
+  \mathcal{V} = \qty{\begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
+\begin{feynman}
+            \vertex (v);
+            \vertex[above=0.7cm of v](t);
+            \vertex[below=0.7cm of v](b);
+            \diagram*{
+            (v)  -- [plain,out=160,in=180] (t) --[plain,out=0,in=20] (v)
+             -- [plain,out=-160,in=180] (b) --[plain,out=0,in=-20] (v)
+            };
+            \draw[fill=black] (v) circle (1.5pt);
+\end{feynman}
+\end{tikzpicture},\begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
+\begin{feynman}
+            \vertex (v);
+            \vertex[above=0.7cm of v](t);
+            \vertex[below=0.7cm of v](b);
+            \vertex[below=0.7cm of b](w);
+            \diagram*{
+            (v)  -- [plain,out=160,in=180] (t) --[plain,out=0,in=20] (v)
+             -- [plain,out=180,in=180] (b) --[plain,out=0,in=0] (v),
+             (w)  -- [plain,out=180,in=-160] (b) --[plain,out=-20,in=0] (w)
+            };
+            \draw[fill=black] (v) circle (1.5pt);
+             \draw[fill=black] (b) circle (1.5pt);
+\end{feynman}
+\end{tikzpicture}, \begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
+\begin{feynman}
+            \vertex (v);
+            \vertex[above=0.7cm of v](t);
+            \diagram*{
+            (v)  -- [plain,out=130,in=-130] (t) --[plain,out=-50,in=50] (v),
+             (v)  -- [plain, half left] (t) --[plain,half left] (v),
+            };
+            \draw[fill=black] (v) circle (1pt);
+            \draw[fill=black] (t) circle (1pt);
+\end{feynman}
+\end{tikzpicture}, \mathrm{etc.} }
+\end{align*}
+
+
+
+
+
+\begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
+\begin{feynman}
+            \vertex (v);
+            \vertex[left=0.7cm of v](t);
+            \vertex[right=0.7cm of v](b);
+            \diagram*{
+            (v)  -- [plain,out=135,in=90] (t) --[plain,out=-90,in=-135] (v)
+             -- [plain,out=45,in=90] (b) --[plain,out=-90,in=-45] (v)
+            };
+            \draw[fill=black] (v) circle (1.5pt);
+\end{feynman}
+\end{tikzpicture}\;.
+
+
+

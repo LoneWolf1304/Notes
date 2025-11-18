@@ -1,0 +1,26 @@
+\refstepcounter{section}
+\section*{Lecture 29: Some issues...}
+\addcontentsline{toc}{section}{Lecture 29: Some issues...}
+Recall the definition of the Hubble parameter as the proportionality between the recession speed of a distant galaxy and its distance from us which can be written in terms of the scale factor $a(t)$
+$$H =\frac{v}{d} = \frac{\dot{d}}{d}= \frac{l\dot{a}(t)}{la(t)} = \frac{\dot{a}}{a}$$
+Then the Friedmann equation now becomes $3H^2 = 8\pi G\rho$. Let us define $\rho\tund{H} = \sfrac{3H^2}{8\pi G}$ from which we have $\sfrac{\rho}{\rho\tund{H}}=1$. However, the observed baryonic energy density is $\rho_{*} = 0.05\rho\tund{H}$. Thus there must be some other contributions to $\rho$.\\[0.2cm] It is kinda known that there is a $0.25\rho\tund{H}$ contribution from \textit{dark matter} (which is a form of almost non-interacting matter assumed to be present in the Universe). There are various evidences for the presence of DM however, concretely we still don't know what it is.\\[0.2cm]The rest $0.7\rho\tund{H}$ contribution is still unknown and in a completely unimaginative way, we attribute it to \textit{dark energy}\footnote{The mere fact that so much unknown energy is attributed to \textit{darkness} is a vivid example of how progressive our society has become!}.\\[0.2cm]
+\subsection{Strong-Energy Condition}
+Recall that the stress-energy tensor $\ST_{\mu\nu}$ was somewhat arbitrarily defined. In fact, for any given metric, we can always calculate $G_{\mu\nu}$ and then demand that this is the stress-energy tensor, however, this will not always be physical. For `realistic' sources of energy, we thus impose some coordinate-invariant conditions on the stress-energy tensor which are called \textit{energy conditions}. There are different energy conditions, of which we focus on: 
+\begin{itemize}[label=$\blacktriangleright$]
+    \item \textbf{Weak Energy Condition} which states that $\ST_{\mu\nu}t^\mu t^\nu\geq 0$ for all time-like vectors $t^\mu$. For the perfect fluid form, this condition is equivalent to $\rho+P\geq 0$ and $\rho\geq 0$
+    \item \textbf{Strong Energy Condition} which states that $\ST_{\mu\nu}t^\mu t^\nu\geq  \frac{1}{2}\tensor{\ST}{^\lambda _\lambda}t^\sigma t_\sigma$ for any time-like vector $t^\mu$ which, for the perfect fluid form, is equivalent to $\rho+P\geq 0$ and $\rho+3P\geq 0$
+\end{itemize}
+Let us define a quantity 
+\begin{align*}
+    q = -\frac{\sfrac{\ddot{a}}{{a}}}{\qty(\sfrac{\dot{a}}{a})^2} = -\frac{\frac{4\pi G}{3}(\rho+3P)}{\frac{8\pi G}{3}\rho}= \frac{1}{2}\qty(1+\frac{3P}{\rho}) = \frac{1}{2}(1+3w)
+\end{align*}
+where $w$ is the EoS parameter. The quantity $q$ is the measure of the cosmic acceleration. If $q>0$ then Universe decelerates. Note that, if the strong energy condition holds, then this directly implies that Universe is decelerating since $w=\frac{P}{\rho}$ and for physical matter, in general $\rho>0$!\\[0.2cm]
+Recent observations tells the contrary fact that Universe is accelerating ($q<0$ and $w<-\sfrac{1}{3}$), that is, somehow gravity is behaving as a \textit{repulsive force}!
+\subsection{Cosmological Constant}
+Recall from Eq.\ref{eqn:EHact} that the complete Einstein-Hilbert action had the term $\Lambda$ which was termed as the cosmological constant. 
+$$\Ss_\Lambda =-\frac{1}{8\pi G} \int\dd^4x \ \sqrt{-g} \ \Lambda \implies \ST^{\Lambda}_{\mu\nu} = \frac{-2}{\sqrt{g}} \fdv{\Ss_\Lambda}{g^{\mu\nu}} =-\frac{\Lambda}{8 \pi G}g_{\mu\nu}$$
+Also if we assume the perfect fluid form, we have $\ST_{\mu\nu} = (\rho+P)u_\mu u_\nu + Pg_{\mu\nu}$. If we want to satisfy both of these, then we get 
+$$\boxed{P = -\frac{\Lambda}{8\pi G}} \qquad \boxed{P+\rho =0}\implies w=-1 <-\frac{1}{3} \quad \rho = \frac{\Lambda}{8\pi G}>0$$
+Thus we see that adding the cosmological constant naturally gave us a way to explain the accelerating Universe and thus we can kinda attribute the rest of the energy density contribution to $\Lambda$. 
+$$3H^2 = 8\pi H(\rho\tund{baryon}+ \rho\tund{DM}+\rho_\Lambda)$$
+$\Lambda$ solves the \textit{missing energy} and \textit{missing acceleration} issue, however, other subtleties do remain!
