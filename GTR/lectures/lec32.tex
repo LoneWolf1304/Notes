@@ -1,4 +1,64 @@
 \refstepcounter{section}
 \section*{Lecture 32: Killing vectors for Minkowski space}
 \addcontentsline{toc}{section}{Lecture 32: Killing vectors for Minkowski space}
-HI
+In the previous section, we saw the isometry group of the 2D flat metric to be the proper Euclidean group. We will now focus on the Minkowski metric and characterise its isometries. 
+$$\dd s^2 = -\dd t^2+\dd x^2+\dd y^2+\dd z^2 \qquad g_{\mu\nu}=\mqty(-1& & &\\ & 1 & &\\ & & 1 &\\ & & & 1)$$
+In this case also, the Christoffel symbols are zero, since the metric is constant and covariant and partial derivatives are interchangeable. The Killing equation thus becomes 
+\begin{align}\label{eqn:ke1}
+    \partial_\mu \xi_\nu +\partial_\nu \xi_\mu =0
+\end{align}
+Let us differentiate this expression, 
+\begin{align}\label{eqn:ke2}
+    \mathcolor{red}{\partial_\sigma\partial_\mu \xi_\nu} +\mathcolor{blue}{\partial_\sigma\partial_\nu \xi_\mu} =0
+\end{align}
+Replacing $\sigma \to \mu$, $\mu \to \nu$ and $\nu \to \sigma$ in Eq. \ref{eqn:ke2} we get:
+\begin{align}\label{eqn:ke3}
+    \mathcolor{OliveGreen}{\partial_\mu\partial_\nu \xi_\sigma} +\mathcolor{red}{\partial_\mu\partial_\sigma \xi_\nu} =0
+\end{align}
+Replacing $\sigma \to \mu$, $\mu \to \nu$ and $\nu \to \sigma$ in Eq. \ref{eqn:ke3} we get:
+\begin{align}\label{eqn:ke4}
+   \mathcolor{blue}{ \partial_\nu\partial_\sigma \xi_\mu} +\mathcolor{OliveGreen}{\partial_\nu\partial_\mu\xi_\sigma} =0
+\end{align}
+Adding Eq. \ref{eqn:ke2} and Eq. \ref{eqn:ke3} and subtracting Eq. \ref{eqn:ke4} we get:
+$$2\partial_\sigma(\partial_\mu\xi_\nu)=0\implies \partial_\mu\xi_\nu = \SB_{\mu\nu}\longrightarrow\ \text{constant tensor}$$
+Integrating the expression we obtain
+$$\xi_\nu = \SA_{\nu}+\SB_{\rho\nu}x^\rho$$
+This is the general solution of the Killing equation and hence, must satisfy Eq. \ref{eqn:ke1}. Substituting this in Eq. \ref{eqn:ke1} we get:
+$$\SB_{\mu\nu}+\SB_{\nu\mu}=0$$
+Hence $\SB_{\mu\nu}$ is an anti-symmetric tensor and hence it can have atmost sixe independent entries (diagonals are zero and upper triangle elements are negative of lower triangle elements. So total $(16-4)/2=6$ independent entries).\\[0.2cm] $\SA_\mu$ has no such restrictions so it has \textit{four} independent components and $\SB_{\mu\nu}$ has \textit{six} independent components, so in total, 10 independent constants are there which corresponds to 10 independent Killing vector fields possible for the Minkowski metric.  
+\\[0.2cm]
+Let us now write the Killing vector field in terms of the basis
+$$\boldsymbol{\xi} = \xi^\mu \partial_\mu = g^{\mu\nu}\xi_\nu\partial_\mu=g^{\mu\nu}\qty(\SA_{\nu}+\SB_{\rho\nu}x^\rho)\partial_\mu $$
+Let us again consider different cases to explicitly see the different generators of the isometry group. 
+\begin{itemize}[label=$\triangleright$]
+    \item $\boxed{\SA\tund{0}=-1,\SA\tund{i}=0, \SB\tund{\textmu\textnu}=0}$ \\[0.2cm]
+    $\boldsymbol{\xi}^{(1)}= g^{00}\partial_0 = \partial_t$ is the infinitesimal generator. To obtain the finite transformation, we use exponentiation as before:
+    $$\exp(\varepsilon \boldsymbol{\xi}^{(1)})\equiv \exp(\varepsilon \partial_t) = \sum\limits_{n=0}^\infty \frac{\varepsilon^n}{n!}\partial_t^n \equiv \mathsf{T}_\varepsilon$$
+    Then note that $\mathsf{T}_\varepsilon(t) = t +\varepsilon$ and $\mathsf{T}_\varepsilon(x^i) =0$. Thus this generator corresponds to \textit{time translation} or \textit{time evolution}.
+    \item $\boxed{\SA\tund{i}=1,\SA\tund{0}=0, \SB\tund{\textmu\textnu}=0}$ \\[0.2cm]
+    $\boldsymbol{\xi}^{(i+1)}= g^{ii}\partial_i = \partial_i$ is the infinitesimal generator. We had already seen this before, that the generator corresponds to \textit{spatial translation} in the x, y or z direction. We already found four generators corresponding to $\SA_\mu$ which are temporal and spatial translations.  
+     \item $\boxed{\SA\tund{\textmu}=0, \SB\tund{0i}=1 = -\SB\tund{i0} }$ \\[0.2cm]
+     We then have the generator as, $\boldsymbol{\xi}^{(i+4)} = g^{ii}\SB\tund{0i}x^0\partial_i + g^{00}\SB\tund{i0}x^i\partial_0=t\partial_i+x^i\partial_t$. This is a somewhat non-trivial thing, though this looks kinda like the rotation generator as seen in the 2D flat metric. Let us exponentiate to investigate this further. 
+     \begin{align*}
+        \exp(w\boldsymbol{\xi}^{(i+4)}) \equiv \exp(w(t\partial_i+x^i\partial_t)) = \sum\limits_{n=0}^\infty \frac{w^n}{n!}(t\partial_i+x^i\partial_t)^n \equiv \Lambda_w^i
+     \end{align*}
+     Note that $(t\partial_i + x^i\partial_t)t =x^i$ and  $(t \partial_i + x^i\partial_t)x^i =t$ and hence acting this on $t$ odd number of times, generates $x^i$ and even number of times, generates $t$ (and vice versa). 
+     \begin{align*}
+        \Lambda_w^i(t) = \sum\limits_{n=0}^\infty \frac{w^{2n}}{(2n)!}\ t + \sum\limits_{n=0}^\infty \frac{w^{2n+1}}{(2n+1)!}\ x = t\cosh w+x^i \sinh w\\
+         \Lambda_w^i(x) = \sum\limits_{n=0}^\infty \frac{w^{2n}}{(2n)!}\ x^i + \sum\limits_{n=0}^\infty \frac{w^{2n+1}}{(2n+1)!}\ t = t\sinh w+x^i \cosh w
+     \end{align*}
+     This might be a little bit difficult to identify at the first glance. Consider the usual Lorentz transformations,
+     \begin{align*}
+        t' = \gamma\qty(t-vx)\equiv \gamma\qty(t-\beta x) \qquad x'^i = \gamma(x^i - vt)\equiv \gamma(x^i - \beta t)
+     \end{align*}
+     where $\beta=v$. Define a quantitiy \textit{rapidity}, $w$, such that $\tanh w:= -\beta $ which gives us the parameters, \begin{align*}
+        \gamma&=\frac{1}{\sqrt{1-\beta^2}} = \frac{1}{\sqrt{1-\tanh^2 w}}=\frac{\cosh w}{\sqrt{\cosh^2 w- \sinh^2 w}}=\cosh w\\
+       \beta \gamma  &=\tanh w \cosh w = -\sinh w
+     \end{align*}
+     Then the Lorentz transformation in terms of rapidity becomes:
+     $$t' = t\cosh w + x\sinh w\qquad x'^i = x^i \cosh w + t\sinh w$$
+     This is exactly the form that we had obtained from the Killing equation and hence we can safely say that this Killing vector field generates \textit{Lorentz boosts} along x,y or z direction.  
+      \item $\boxed{\SA\tund{\textmu}=0, \SB\tund{ij}=1 = -\SB\tund{ji} }$ \\[0.2cm]
+      This is again familiar to us as $\boldsymbol{\xi}^{(i+7)} = g^{jj}\SB\tund{ij}x^i\partial_j + g^{ii}\SB\tund{ji}x^j\partial_i=x^i\partial_j-x^j\partial_i$ was seen to be the generator of rotation about x,y or z axis.  
+\end{itemize}
+This completes the identification of all the 10 Killing vector fields for the Minkowski metric. These include three \textit{spatial translations}, one \textit{time translation}, three \textit{rotations} and three \textit{Lorentz boosts}. This is exactly the Poincar\'e group and hence, the \textit{isometry group} of the Minkowski metric is the \textit{Poincar\'e group}. 
