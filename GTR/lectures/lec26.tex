@@ -14,12 +14,12 @@ Also due to isotropy, we expect all of $g\tund{xx}(t) $,$g\tund{yy}(t) $ and $g\
 $$\dd s^2 = g\tund{tt}(t) \dd t^2 + a^2(t)\qty[\dd x^2 + \dd y^2 + \dd z^2]$$
 We now make a choice for $g\tund{tt}= -1$ which is called the \textit{proper time} choice. For this choice, the metric tensor looks like 
 $$[g_{\mu\nu}] = \mqty(-1 & & & \\ & a^2 & & \\ & & a^2 & \\ & & & a^2 )\qquad [g^{\mu\nu}] = \mqty(-1 & & & \\ & \sfrac{1}{a^2} & & \\ & & \sfrac{1}{a^2} & \\ & & & \sfrac{1}{a^2} )$$
-$\vartriangleright$ \textbf{Christoffel Symbols}\\[0.2cm]
+$\triangleright$ \textbf{Christoffel Symbols}\\[0.2cm]
 Since the metric is just dependent on time, finding the Christoffel symbols and other shitty quantities becomes a bit easier here. From the definition of the Christoffel symbol,
 $ \chris{t}{\alpha}{\beta} = \frac{1}{2}g^{tt}\qty[g_{\alpha t,\beta}+ g_{t\beta,\alpha}- g_{\alpha\beta,t}]$. Now, 
 $g_{tt} = -1$ is constant and hence $\chris{t}{t}{t} =0$.\\[0.2cm]
-$$\chris{t}{x}{x} = -\frac{1}{2}\times\qty(-2a \dot{a})= a\dot{a}\qquad \chris{x}{x}{t} = \frac{1}{2}g^{xx}\qty[g_{x x,t} + g_{x t,x} - g_{xt, x}] = \frac{1}{2a^2} \times 2a \dot{a} =\sfrac{\dot{a}}{a}$$. From homogenity and isotropy of space, we can say that $$\chris{x}{x}{t}=\chris{y}{y}{t}=\chris{z}{z}{t} = \frac{\dot{a}}{a}\qquad \chris{t}{x}{x} =\chris{t}{y}{y}=\chris{t}{z}{z} = a\dot{a}$$ The rest all Christoffel symbols are zero! \\[0.2cm]
-$\vartriangleright$ \textbf{Riemann and Ricci Tensor}
+$$\chris{t}{x}{x} = -\frac{1}{2}\times\qty(-2a \dot{a})= a\dot{a}\qquad \chris{x}{x}{t} = \frac{1}{2}g^{xx}\qty[g_{x x,t} + g_{x t,x} - g_{xt, x}] = \frac{1}{2a^2} \times 2a \dot{a} =\sfrac{\dot{a}}{a}$$ From homogenity and isotropy of space, we can say that $$\chris{x}{x}{t}=\chris{y}{y}{t}=\chris{z}{z}{t} = \frac{\dot{a}}{a}\qquad \chris{t}{x}{x} =\chris{t}{y}{y}=\chris{t}{z}{z} = a\dot{a}$$ The rest all Christoffel symbols are zero! \\[0.2cm]
+$\triangleright$ \textbf{Riemann and Ricci Tensor}
 \begin{align*}
     R_{tt}=\rie{x}{t}{x}{t}+\rie{y}{t}{y}{t}+\rie{z}{t}{z}{t} &= 3\qty(\cancelto{0}{\partial_x \chris{x}{t}{t}} -\partial_t \chris{x}{t}{x}+\chris{x}{x}{\lambda}\chris{\lambda}{t}{t}-\chris{x}{t}{\lambda}\chris{\lambda}{x}{t}  )\\
     &=3\qty[ - \dv{\qty(\sfrac{\dot{a}}{a})}{t} - \qty(\sfrac{\dot{a}}{a})^2]\\
@@ -32,7 +32,7 @@ $\vartriangleright$ \textbf{Riemann and Ricci Tensor}
     &=a\ddot{a} + \dot{a}^2 +\dot{a}^2 =  a\ddot{a}  +2\dot{a}^2 
 \end{align*}
 By isotropy we can say that $R_{xx}= R_{yy}=R_{zz} =a\ddot{a} + 2\dot{a}^2$\\[0.2cm]
-$\vartriangleright$ \textbf{Ricci Scalar}
+$\triangleright$ \textbf{Ricci Scalar}
 \begin{align*}
     R = g^{\mu\nu}R_{\mu\nu} = g^{tt}R_{tt}+3g^{xx}R_{xx} &= 3\qty[  \dv{\qty(\sfrac{\dot{a}}{a})}{t} + \qty(\sfrac{\dot{a}}{a})^2] +\frac{3}{a^2}\qty[a\ddot{a} + 2\dot{a}^2]\\
     &=3\qty[\frac{\ddot{a}}{a} - \cancel{\frac{\dot{a}^2}{a}} + \cancel{\frac{\dot{a}^2}{a^2} }] + 3\frac{\ddot{a}}{a} + 6\frac{\dot{a}^2}{a^2}\\
@@ -41,10 +41,9 @@ $\vartriangleright$ \textbf{Ricci Scalar}
 \subsection{Einstein's Equations}
 At large scale, the Universe is assumed to be a perfect fluid and thus we assume the same form of the stress-energy tensor 
 $$\ST^{\mu\nu} = (P+\rho)u^\mu u^\nu + Pg^{\mu\nu}$$
-Now the macroscopic speed of the fluid cannot have a privileged direction, so it has only
-temporal component: $\fvec{u} = (u^t,0,0,0)$. Now the norm of the velocity four vector is always $-1$
+The macroscopic speed of the fluid cannot have a privileged direction, so it must have only a temporal component: $\fvec{u} = (u^t,0,0,0)$. Now the norm of the velocity four vector is always $-1$
 $$g_{\mu\nu}u^\mu u^\nu = g_{tt}(u^t)^2 = -(u^t)^2 = -1 \implies u^t=1 \quad u_t = -1$$
-$\vartriangleright$ First Einstein Equation \\[0.2cm]
+$\triangleright$ First Einstein Equation \\[0.2cm]
 We have the following non-zero component for the stress energy tensor 
 $$\ST_{tt} = (\rho+P)u_{tt} + g_{tt}P = \rho+P -P =\rho\qquad \ST_{xx} = g_{xx}P = Pa^2$$
 \begin{align*}
