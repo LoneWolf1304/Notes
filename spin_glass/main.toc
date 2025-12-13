@@ -1,2 +1,0 @@
-\contentsline {section}{Lecture 1: Introduction}{3}{section*.3}%
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
