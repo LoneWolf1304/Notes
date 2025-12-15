@@ -1,0 +1,57 @@
+\refstepcounter{section}
+\section*{Lecture 32: Feynman diagrams in Momentum space}
+\addcontentsline{toc}{section}{Lecture 32: Feynman diagrams in Momentum space}
+Recall that the Feynman propagator and its Fourier transform were defined as 
+$$D\tund{F}(x-y) = \int \frac{\dd^4 k}{(2\pi)^4}\ \frac{i}{k^2-m^2+i\epsilon} e^{-ik\cdot (x-y)}\qquad \widetilde{D}\tund{F}(k) = \frac{i}{k^2-m^2+i\epsilon}$$
+Then, if we convert the correlation function to the momentum space, we would have product of these propagators and also, we would introduce a delta function for any internal vertex. For example, 
+\begin{align*}
+    \int \dd^4 z \ \triangle(x-z) \triangle(y-z) &\sim \int \dd^4 z \  \frac{\dd^4 p_1}{(2\pi)^4}\frac{\dd^4 p_2}{(2\pi)^4} \widetilde{D}\tund{F}(p_1) \widetilde{D}\tund{F}(p_2) e^{-i p_1\cdot x-i p_2\cdot y} e^{-i (p_1+p_2)\cdot z}\\
+    &\sim \int \frac{\dd^4 p_1}{(2\pi)^4}\frac{\dd^4 p_2}{(2\pi)^4} \widetilde{D}\tund{F}(p_1) \widetilde{D}\tund{F}(p_2)  \delta^{(4)}(p_1+p_2)e^{-i p_1\cdot x-i p_2\cdot y}
+\end{align*}
+Note that the delta function in some sense, denotes \textit{momentum conservation}. The Feynman rules for the momentum space becomes as follows: 
+\begin{itemize}
+    \item For each internal line, we associate a momentum $k$ and associate the propagator $\widetilde{D}\tund{F}(k)$
+    \item For each vertex, we write down the factor $(-i\lambda)(2\pi)^4 \delta^{(4)}\qty(\sum\limits_i k_i)$ where $\sum k_i$ is the sum of all momenta flowing \textit{into} the vertex that we are considering. 
+    \item Divide by the symmetry factor and the other things that we did before.
+\end{itemize}
+The best thing would be to demonstrate through an example. Consider the diagram, 
+\begin{center}
+    \begin{tikzpicture}[baseline={(current bounding box.center)}]\begin{feynman}
+        \vertex (1) at (0,0) [dot] {};
+        \vertex (2) at (1.5,1.5)  {};
+         \vertex (3) at (1.5,-1.5)  {};
+        \vertex (4) at (-1.5,1.5)  {};
+        \vertex (5) at (-1.5,-1.5)  {};
+        \diagram*{
+          (1) -- [plain, momentum'={[scale=0.6, xshift=30pt, yshift=30pt] $p_3$}] (2),
+          (1) -- [plain, momentum'={[scale=0.6, xshift=30pt, yshift=-30pt] $p_4$}] (3),
+          (1) -- [plain, rmomentum={[scale=0.6, xshift=-30pt, yshift=30pt] $p_1$}] (4),
+          (1) -- [plain,rmomentum={[scale=0.6, xshift=-30pt, yshift=-30pt] $p_2$}] (5),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+\end{center}
+The contribution of this diagram to the four-point correlation function, according to the above rules would be, $$(-i\lambda)(2\pi)^4\qty(\prod\limits_{j=1}^4\frac{i}{p_j^2-m^2+i\epsilon})\ \delta^{(4)}(p_1+p_2-p_3-p_4)$$
+Now, consider a bit more involved diagram, containing a loop. 
+\begin{center}
+    \begin{tikzpicture}[baseline={(current bounding box.center)}]\begin{feynman}
+        \vertex (1) at (0,0) [dot] {};
+        \vertex (2) at (-1.5,1.5)  {};
+         \vertex (3) at (-1.5,-1.5)  {};
+        \vertex (4) at (2,0)[dot]  {};
+        \vertex (5) at (3.5,1.5)  {};
+        \vertex (6) at (3.5,-1.5)  {};
+        \diagram*{
+          (1) -- [plain, rmomentum'={[scale=0.6, xshift=-30pt, yshift=30pt] $p_1$}] (2),
+          (1) -- [plain, rmomentum'={[scale=0.6, xshift=-30pt, yshift=-30pt] $p_2$}] (3),
+          (4) -- [plain, momentum={[scale=0.6, xshift=50pt, yshift=12pt] $p_3$}] (5),
+          (4) -- [plain,momentum'={[scale=0.6, xshift=50pt, yshift=-12pt] $p_4$}] (6),
+          (1) -- [plain, out=-60, in=-120, momentum'=$k$, draw=red] (4), (1) -- [plain, out=60, in=120, momentum=$p$, draw=blue] (4),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+\end{center}
+Let us first impose the momentum conservation, which will give us $\delta^{(4)}(p_1+p_2-p-k)$ and $\delta^{(4)}(p+k-p_3-p_4)$. Note that, these delta functions will be in product with each other. The argument of the second delta function becomes zero for $p=p_3+p_4-k$ and we can substitute this in the first delta function, leading to $\delta^{(4)}(p_1+p_2-p_3-p_4)$.\\[0.2cm] We see that, both $p$ and $k$ cannot be uniquely determined just from momentum conservation and hence, there is always a dangling momentum remaining, which we need to integrate out. \\[0.2cm]
+Also, we can interchange the red and blue lines, leaving the diagram unchanged, giving us a symmetry factor of $2$. Thus, considering all the facts, the contribution of the diagram becomes:
+$$\frac{1}{2}(-i\lambda)^2 (2\pi)^4\delta^{(4)}(p_1+p_2-p_3-p_4)\int \frac{\dd^4 k}{(2\pi)^4}\frac{i}{k^2-m^2+i\epsilon} \frac{i}{(p_3+p_4-k)^2-m^2+i\epsilon}   \qty(\prod\limits_{j=1}^4\frac{i}{p_j^2-m^2+i\epsilon})$$
+\subsection{Scattering Matrix}
