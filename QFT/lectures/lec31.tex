@@ -1,6 +1,6 @@
 \refstepcounter{section}
-\section*{Lecture 31: Feynman diagrams - loops and oops!}
-\addcontentsline{toc}{section}{Lecture 31: Feynman diagrams - loops and oops!}
+\section*{Lecture 31: Feynman diagrams}
+\addcontentsline{toc}{section}{Lecture 31: Feynman diagrams}
 In the previous case, we discussed about Wick's theorem and time-ordered product of fields can be simply written as a sum of contractions of the fields. We will now consider the case of $\phi^4$ interacting theory and try to find the $n$-point correlation functions of the interacting theory. \\[0.2cm]
 Recall from Eq. \ref{eqn:green} that the correlation functions are basically the vacuum expectation of the time-ordered field products and the time-ordered product is known from Wick's theorem. Thus we already have a recipe to calculate this and we will use a perturbative approach for this. \\[0.2cm]
 We had considered the interaction of the form $\phi^4$ and from this $\SH\tund{I} = \frac{\lambda}{4!}\phi\tund{I}^4$ where everything is in the interaction picture. Let us consider the \textbf{\textcolor{red}{numerator}} for the two-point correlation function first which is of the form 
@@ -9,7 +9,7 @@ $$\exp\qty(-\frac{i\lambda}{4!} \int \dd^4 z\ \phi^4(z) ) = \iden + \qty(\frac{-
 and then the numerator takes on a ghastly form
 $$\vacb \ST\qty{\phi_1 \phi_2 }\vac + \qty(-\frac{i\lambda}{4!})\int \dd^4 z \ \vacb\ST\qty{\phi_1 \phi_2 \phi^4(z)}\vac + \frac{1}{2!}\qty(-\frac{i\lambda}{4!})^2\int \dd^4 z \dd^4 w \vacb \ST\qty{\phi_1\phi_2 \phi^4(z)\phi^4(w)}\vac+ \ldots$$
 It is now possible to use Wick's theorem to characterise all these integrals, carefully considering the cumbersome contractions. \\[0.2cm]
-$\vartriangleright $\underline{ Upto $\SO(1)$}:\\[0.2cm]
+$\vartriangleright $\underline{ Term of $\SO(1)$}:\\[0.2cm]
 The term is  $\vacb \ST\qty{\phi_1 \phi_2 }\vac$, which is simply $\triangle_{12}$ and is denoted diagrammatically as 
 \begin{figure}[H]
     \centering
@@ -26,11 +26,11 @@ The term is  $\vacb \ST\qty{\phi_1 \phi_2 }\vac$, which is simply $\triangle_{12
     \end{tikzpicture}
 \end{figure}
 \noindent
-$\vartriangleright $\underline{ Upto $\SO(\lambda)$}:\\[0.2cm]
+$\vartriangleright $\underline{ Term of $\SO(\lambda)$}:\\[0.2cm]
 We have to work a little bit here. The term is 
 $$\int \dd^4 z \ \vacb\ST\qty{\phi_1 \phi_2 \phi^4(z)}\vac \equiv \int \dd^4 z \ \vacb\ST\qty{\phi_1 \phi_2 \phi(z)\phi(z)\phi(z)\phi(z)}\vac$$
 We have to find all type of contractions amidst these six fields if we use the Wick's theorem. Note that any partial contractions will not matter, since we are taking vacuum expectations and uncontracted normal ordered products will kill it. Thus we need to consider only fully contracted fields. How many such configurations are there? \\[0.2cm]
-It turns out that we need to do some combinatorics for this. Indeed, all \textit{good} math and physics ends in either linear algebra or combinatorics\footnote{which implies that if you don't find yourself doing these, you are not doing good physics}. \\[0.2cm]So if we take one field, then it can be contracted with the remaining $5$, then these two fields are gone, remaining four are there. If we choose one, we can contract with remaining 3, and then the last two automatically gets contracted. So total $5\times 3 = 15$ such fully contracted field configurations. \\[0.2cm]
+It turns out that we need to do some combinatorics for this. Indeed, all \textit{good} math and physics ends in either linear algebra or combinatorics\footnote{which implies that if you don't find yourself doing these, you are not doing good physics}. \\[0.2cm]So if we take one field, then it can be contracted with the remaining $5$, then these two fields are gone, remaining four are there. If we choose one, we can contract with remaining 3, and then the last two automatically gets contracted. So total $5\times 3 = 15$ such fully contracted field configurations.\\[0.2cm]
 Due to symmetry conditions, we only have two distinct types of contractions which are, 
 $$\wick{\c1 \phi_1 \c1 \phi_2\ \c1 \phi(z) \c1 \phi(z)\ \c1 \phi(z) \c1 \phi(z)}\qquad \wick{\c1 \phi_1 \c2 \phi_2\ \c3 \phi(z) \c1 \phi(z)\ \c3 \phi(z) \c2 \phi(z)}$$
 For the first case, we have $x-y$ contracting with each other and for the second case, we have $x-z$ contracting. These can be diagrammatically represented as:
@@ -52,15 +52,15 @@ For the first case, we have $x-y$ contracting with each other and for the second
 There are three of the above Type I terms, since if $x$ contracts with $y$ then the first $z$ can contract with three other guys.\\[0.2cm] Let us consider the second type of contraction where $x$ contracts with $z$. There are 12 such terms since $x$ can go with $z$ in 4 ways and for each $xz$ pair there are three ways $y$ can go with $z$.    
 \noindent
 Then the term of order $\SO(\lambda)$ becomes $$\mathcolor{red}{3}\times\qty(\frac{-i\lambda}{4!})\int \dd^4 z \ \triangle^2(x-y) \triangle^2(z-z)+\mathcolor{red}{12}\times\qty(\frac{-i\lambda}{4!})\int \dd^4 z \ \triangle(x-z)\triangle(y-z) \triangle(z-z) $$
-(For now just take $\triangle(z-z)$ to be some `number' (even though it diverges) and let us now worry about this!)\\[0.2cm]
-     \textbf{Some terms}
+(For now just take $\triangle(z-z)$ to be some `number' (even though it diverges) and let us not worry about this!)\\[0.2cm]
+     \textbf{Some observations}
      \begin{itemize}[label=$\vartriangleright$]
       \item The outermost nodes in the diagram (Eg. $x$ and $y$) are the \textit{external vertices}. These vertices are not integrated over.
       \item The inner nodes (Eg. $z$) are called the \textit{internal vertices} and for each internal vertex, we have to associate an integral to them.
      \end{itemize}
-We had found the numerator upto order $\lambda$ and now let us find the \textbf{\textcolor{blue}{denominator}} upto the same order. 
+We had found the numerator upto order $\lambda$ and now let us find the \textbf{\textcolor{blue}{denominator}}.
 $$\iden + \qty(-\frac{i\lambda}{4!})\int \dd^4 z \ \vacb\ST\qty{ \phi^4(z)}\vac + \frac{1}{2!}\qty(-\frac{i\lambda}{4!})^2\int \dd^4 z \dd^4 w \vacb \ST\qty{ \phi^4(z)\phi^4(w)}\vac+ \ldots$$
-Note that the denominator does not have any free fields $\phi_1$ and $\phi_2$ and thus, upto $\SO(1)$ the term will be just $\iden$ while the term upto $\SO(\lambda)$ will consist of only the contractions with $z$ (3 terms). Thus symbolically (since the integrals will be just some number) we can write the two point correlator function as: 
+Note that the denominator does not have any free fields $\phi_1$ and $\phi_2$ and thus, the $\SO(1)$ the term will be just $\iden$ while the term of $\SO(\lambda)$ will consist of only the contractions with $z$ (3 terms). Thus symbolically (since the integrals will be just some number) we can write the two point correlator function as: 
 \begin{figure}[H]
   \centering 
   \input{pics/2pointcancel.tex}
@@ -96,59 +96,16 @@ Turns out, only those diagrams contribute where the components are connected to 
       \node[right=2pt of 1] {\small z};
     \end{tikzpicture} we associate the term $(-i\lambda)\int \dd^4 z$ (that is, we integrate over any internal vertices).
     \item For each external vertex, we associate the value $1$.
-    \item Finally we divide by the \textit{symmetry factor}, which is like an \textit{enigmatic term} but basically means the number of ways we can rearrange the propagators or vertices, without changing the diagram. 
+    \item Finally we divide by the \textit{symmetry factor}, which is like an \textit{enigmatic term} but basically means the number of ways we can rearrange the propagators or vertices, without changing the diagram (Peskin says that we \textit{almost surely} never need to calculate any diagram with symmetry factor greater than $2$). 
 \end{itemize}
 The above set of rules are called the \textit{Feynman rules} in position-space (since we are considering the fields in the real space) and these are specific to the $\phi^4$-theory. For other type of interactions, few changes are accordingly made. 
 \begin{theorem}[Linked-Cluster Theorem]
   $$\vactb \ST\{\phi_1 \ldots \phi_n\} \vact = \mqty(\text{~sum of all connected diagrams~}\\ \text{subjected to \textit{Feynman rules}})$$
 \end{theorem}
-\textit{Proof.} A typical diagram consists of \textit{connected} and \textit{disconnected} diagrams, where connected pieces are the ones where everything is connected to the external vertices. Since each vertex has even number of lines coming in (except the external points), the external points must be connected to each other. \\[0.2cm]
-Let us consider the set of all disconnected pieces by $\mathcal{V}$, then 
+\textit{Proof.} A typical diagram consists of \textit{connected} and \textit{disconnected} diagrams, where connected diagrams are the ones where everything is connected to some external vertices. Disconnected diagrams are such that the diagrams consist of different components where at least one component is not connected to any external vertex. The components not connected to any external vertices are called the \textit{vacuum bubbles}. \\[0.2cm]
+Let us consider the set of all vacuum bubbles represented by $\mathcal{V}$, then we have 
 \begin{align*}
   \mathcal{V} = \qty{\begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
-\begin{feynman}
-            \vertex (v);
-            \vertex[above=0.7cm of v](t);
-            \vertex[below=0.7cm of v](b);
-            \diagram*{
-            (v)  -- [plain,out=160,in=180] (t) --[plain,out=0,in=20] (v)
-             -- [plain,out=-160,in=180] (b) --[plain,out=0,in=-20] (v)
-            };
-            \draw[fill=black] (v) circle (1.5pt);
-\end{feynman}
-\end{tikzpicture},\begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
-\begin{feynman}
-            \vertex (v);
-            \vertex[above=0.7cm of v](t);
-            \vertex[below=0.7cm of v](b);
-            \vertex[below=0.7cm of b](w);
-            \diagram*{
-            (v)  -- [plain,out=160,in=180] (t) --[plain,out=0,in=20] (v)
-             -- [plain,out=180,in=180] (b) --[plain,out=0,in=0] (v),
-             (w)  -- [plain,out=180,in=-160] (b) --[plain,out=-20,in=0] (w)
-            };
-            \draw[fill=black] (v) circle (1.5pt);
-             \draw[fill=black] (b) circle (1.5pt);
-\end{feynman}
-\end{tikzpicture}, \begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
-\begin{feynman}
-            \vertex (v);
-            \vertex[above=0.7cm of v](t);
-            \diagram*{
-            (v)  -- [plain,out=130,in=-130] (t) --[plain,out=-50,in=50] (v),
-             (v)  -- [plain, half left] (t) --[plain,half left] (v),
-            };
-            \draw[fill=black] (v) circle (1pt);
-            \draw[fill=black] (t) circle (1pt);
-\end{feynman}
-\end{tikzpicture}, \mathrm{etc.} }
-\end{align*}
-
-
-
-
-
-\begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
 \begin{feynman}
             \vertex (v);
             \vertex[left=0.7cm of v](t);
@@ -159,7 +116,38 @@ Let us consider the set of all disconnected pieces by $\mathcal{V}$, then
             };
             \draw[fill=black] (v) circle (1.5pt);
 \end{feynman}
-\end{tikzpicture}\;.
-
-
-
+\end{tikzpicture}\hspace{0.2cm},\hspace{0.2cm}\begin{tikzpicture}[line width=.7pt,baseline=(v.south)]
+\begin{feynman}
+            \vertex (v);
+            \vertex[left=0.7cm of v](t);
+            \vertex[right=0.7cm of v](b);
+             \vertex[right=0.7cm of b](d);
+            \diagram*{
+            (v)  -- [plain,out=135,in=90] (t) --[plain,out=-90,in=-135] (v)
+             -- [plain,out=53,in=110] (b) --[plain,out=-110,in=-53] (v), (b)
+             -- [plain,out=45,in=90] (d) --[plain,out=-90,in=-45] (b)
+            };
+            \draw[fill=black] (v) circle (1.5pt);
+            \draw[fill=black] (b) circle (1.5pt);
+\end{feynman}
+\end{tikzpicture}\hspace{0.2cm},\hspace{0.2cm} \begin{tikzpicture}[line width=.7pt,baseline=(v.center)]
+\begin{feynman}
+            \vertex (v);
+            \vertex[left=0.7cm of v](t);
+            \diagram*{
+            (v)  -- [plain,out=135,in=45] (t) --[plain,out=-45,in=-135] (v),
+             (v)  -- [plain, half left] (t) --[plain,half left] (v),
+            };
+            \draw[fill=black] (v) circle (1pt);
+            \draw[fill=black] (t) circle (1pt);
+\end{feynman}
+\end{tikzpicture}\hspace{0.2cm}, \hspace{0.2cm}\mathrm{etc.} }
+\end{align*}
+Suppose a diagram $V$ (where $V$ actually denotes the value of the integral represented by the diagram) has $n_i$ pieces of $v_i \in \mathcal{V}$, in addition to the connected components (containing external vertices) whose value is, let say, $c$. Then the contribution of the diagram becomes: 
+$$c\cdot \prod\limits_{i} \frac{1}{n_i!} (v_i)^{n_i}$$
+where the $n_i!$ is taken since there are $n_i$ copies of $v_i$, but these copies are indistinguishable. Then the numerator of the correlation function is obtained by summing over all the different connected components $c$
+$$\mathrm{numerator} \ =\ \sum\limits_{\stackrel{\text{all possible}}{\stackrel{\text{connected}}{\text{\tiny pieces } c}}}\sum\limits_{\{n_i\}} c\cdot \prod\limits_{i} \frac{1}{n_i!} (v_i)^{n_i}  =\sum\limits_{\stackrel{\text{all possible}}{\stackrel{\text{connected}}{\text{\tiny pieces } c}}} c\cdot \prod\limits_{i} \sum\limits_{\{n_i\}} \frac{1}{n_i!} (v_i)^{n_i} = \qty(\sum\limits_{\stackrel{\text{all possible}}{\stackrel{\text{connected}}{\text{\tiny pieces } c}}} c)\cdot \qty(\exp\qty(\sum\limits_i v_i))$$
+where we have used the expansion for $e^x$ and we finally obtain that the numerator is just the product of the connected contribution and the vacuum bubble contribution. The denominator has no connected contributions since the external fields do not occur in the denominator. Hence, 
+$$\mathrm{denominator}\ = \ \exp\qty(\sum\limits_i v_i)$$
+The exponential part thus cancels when we divide the numerator and the denominator, leaving only the contribution from the connected components. \\[0.2cm]
+NOTE: Higher order ($>\ 2 $ point) correlation functions may have apparent disconnected pieces in the diagram, like say, the diagrams for the four point correlation function in \ref{subsec:mainthm}, where two of the diagrams are not connected. However, each disconnected piece is itself connected to some or the other externel vertices. When we talk about disconnected pieces (or vacuum bubbles), we talk about diagrams which contain a piece where that piece has no connection with any of the external vertex.
