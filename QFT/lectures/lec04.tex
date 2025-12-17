@@ -9,7 +9,7 @@ Let us start with a familiar setting, the spring-mass system in one-dimensions. 
 \end{figure}
 Then the kinetic and potential energies can be written as:
 $$T = \frac{1}{2}\sum\limits_i\dot{\eta}_i^2 \qquad \quad V = \frac{1}{2}\sum\limits_{i}k \qty(\eta_{i+}-\eta_i)^2 $$
-From this, the Langrangian of the system is obtained as:
+From this, the Lagrangian of the system is obtained as:
 $$L = T-V = \frac{1}{2}\sum \limits_i a \qty[\qty(\sfrac{m}{a}) \dot{\eta}_i^2 - ka \qty(\frac{\eta_{i+1}-\eta_i}{a})^2] = a\sum\limits_i L_i $$
 The resulting ELEOM are:
 $$\dv{t}\qty(\pdv{L}{\dot{\eta}_i}) = \pdv{L}{\eta}\implies \qty(\sfrac{m}{a})\ddot{\eta}_i - ka \qty(\frac{\eta_{i+1}-\eta_i}{a^2}) + ka\qty(\frac{\eta_i - \eta_{i-1}}{a^2})=0$$
@@ -35,10 +35,10 @@ Hence in the continuum limit, the ELEOM becomes:
 Defining the velocity as $v:= \sqrt{\frac{Y}{\mu}}$, we obtain the wave-equation:
 $$\frac{1}{v^2}\dv[2]{\eta}{t} -\dv[2]{\eta}{x} = 0 $$
 Note that, in this case, position becomes a mere label like in the discrete case, $i$ just labelled the index of the $i^{\mathrm{th}}$ mass. Also, technically, $\eta$ can also depend on time, so it is better to write it as $\eta(x,t)$. \\[0.2cm]
-Position and time, both are kind of labels and thus are independent. Hence, total and partial derivatives coincide in this case. Note that in continuum, the Langrangian itself becomes an integral of the form:
+Position and time, both are kind of labels and thus are independent. Hence, total and partial derivatives coincide in this case. Note that in continuum, the Lagrangian itself becomes an integral of the form:
 $$L = \frac{1}{2}\int \qty[\mu \dot{\eta}^2 - Y \qty(\dv{\eta}{x})^2] dx$$
-The bracketted term is the Lagrangian density, denoted by $\SL$ and hence, the Lagrangian is the space integral of the Langrangian density: $$L = \int \SL \ dx$$
-Henceforth, we allow ourselves to be \textit{sloppy} enough and refer to Lagrangian density as simply the Langrangian when context is clear.
+The bracketted term is the Lagrangian density, denoted by $\SL$ and hence, the Lagrangian is the space integral of the Lagrangian density: $$L = \int \SL \ dx$$
+Henceforth, we allow ourselves to be \textit{sloppy} enough and refer to Lagrangian density as simply the Lagrangian when context is clear.
 \subsection{Our actions tell a lot!}
 Let us now consider a general setting. So, the Lagrangian density can be a function of the field, the spatial and temporal derivatives and space and time themselves. In compact notation, we write:
 $$\SL \equiv \SL(\phi, \partial_\mu \phi, x^\mu)$$

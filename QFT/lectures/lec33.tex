@@ -1,3 +1,200 @@
 \refstepcounter{section}
-\section*{Lecture 32: Scalar Yukawa Theory}
-\addcontentsline{toc}{section}{Lecture 32: Scalar Yukawa Theory}
+\section*{Lecture 33: Scalar Yukawa Theory}
+\addcontentsline{toc}{section}{Lecture 33: Scalar Yukawa Theory}
+We have dealt with $\phi^4$ interaction in the previous few sections and we saw some Feynman diagrams for the interaction. Now we will consider the interaction between a real scalar and a complex scalar field, which goes by the name of \textit{Yukawa interaction} which is of the form:
+$$\SH = g \psi^\dagger \psi  \phi$$
+where $\psi$ is our charged complex field and $\phi$ is the real scalar field. The full Lagrangian is given by:
+$$\SL = \frac{1}{2}(\partial_\mu \phi)(\partial^\mu \phi) -\frac{1}{2}m^2\phi^2 +(\partial_\mu \psi^\dagger)(\partial^\mu \psi)-M^2\psi^\dagger\psi - \mathcolor{blue}{g\psi^\dagger\psi \phi}$$
+where $m$ is the mass associated with the $\phi$ field and $M$ is the mass associated with the $\psi$ field. The $\sfrac{1}{2}$ factor does not come with the complex scalar field, since a complex scalar field already has two degrees of freedom. And regarding the interaction, the simplest case is considered. $\psi^\dagger\psi$ gives a real, Lorentz invariant quantity and we multiply it with $\phi$ to get us an interaction between the two fields. \\[0.2cm]
+Having been familiarised with Feynman diagrams before, we will straightaway jump to calculate the amplitude of some scattering processes for this interaction. Before that we need to consider a few things:
+\begin{itemize}
+    \item We have two kinds of field here, so we need a way to distinguish between them. We will denote the real scalar field by \textit{dashed lines} while the complex scalar field by \textit{solid lines}. Also, the solid lines will be \textit{directed}, to denote the charge flow of the complex scalar field.\\[0.2cm] The convention will be to have an \textit{incoming} arrow for the initial state in $\psi$. For the initial state in $\psi^\dagger$, we will have an \textit{outgoing} arrow. For the final state, the convention is reversed. 
+    \item Each interaction vertex will have \textit{three} fields, since the interaction term has three fields. In $\phi^4$ theory, we have tetravalent interaction vertices since the interaction had four terms in $\phi$. 
+    \item The Feynman rules mostly remain same in this case. The propagator for real and complex field is the same, only the appropriate mass of the field needs to be taken in each case. Each vertex will have a factor of $(-ig)$. 
+\end{itemize}
+Consider the process \underline{$\psi\psi\longrightarrow\psi\psi$} where two incoming $\psi$ particles result in two outgoing $\psi$ particles. Henceforth, we will call $\psi$ particles are \textit{nucleons} and $\phi$ particles as \textit{mesons}. Hence this is a case of nucleon-nucleon scattering.\\[0.2cm]
+ At order $\SO(g^0)$ we have no scattering, both $\psi$ comes and leaves as it is, without any interaction. Diagram of order $\SO(g)$ with only one vertex is not possible for this process. Hence, the only meaningful diagram will start at order $\SO(g^2)$. The simplest diagrams contributing to this process are,
+\begin{center}
+    \begin{tikzpicture}
+  \begin{feynman}
+        \vertex (1) at (0,0.8) [dot] {};
+        \vertex (2) at (0,-0.8)[dot]  {};
+
+         \vertex (3) at (1.6,1.7)  {};
+        \vertex (4) at (-1.6,1.7)  {};
+
+        \vertex (5) at (1.6,-1.7)  {};
+        \vertex (6) at (-1.6,-1.7)  {};
+        \diagram*{
+          (1) -- [fermion, arrow size=0.9pt, momentum'={[scale=0.6, xshift=10pt, yshift=14pt] $p_1'$}] (3),
+          (1) -- [anti fermion,arrow size=0.9pt, rmomentum={[scale=0.6, xshift=-10pt, yshift=14pt] $p_1$}] (4),
+          (2) -- [fermion,arrow size=0.9pt, momentum={[scale=0.6, xshift=10pt, yshift=-14pt] $p_2'$}] (5),
+          (2) -- [anti fermion,arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=-10pt, yshift=-14pt] $p_2$}] (6),
+          (1) -- [dashed, momentum={[scale=0.7] $k$}] (2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1.5cm}
+\begin{tikzpicture}
+  \begin{feynman}
+        \vertex (1) at (0,0.8) [dot] {};
+        \vertex (2) at (0,-0.8)[dot]  {};
+
+         \vertex (3) at (1.6,1.7)  {};
+        \vertex (4) at (-1.6,1.7)  {};
+
+        \vertex (5) at (1.6,-1.7)  {};
+        \vertex (6) at (-1.6,-1.7)  {};
+        \diagram*{
+          (1) -- [fermion,arrow size=0.9pt,  momentum'={[scale=0.6, xshift=10pt, yshift=14pt] $p_2'$}] (3),
+          (1) -- [anti fermion,arrow size=0.9pt,  rmomentum={[scale=0.6, xshift=-10pt, yshift=14pt] $p_1$}] (4),
+          (2) -- [fermion,arrow size=0.9pt,  momentum={[scale=0.6, xshift=10pt, yshift=-14pt] $p_1'$}] (5),
+          (2) -- [anti fermion,arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=-10pt, yshift=-14pt] $p_2$}] (6),
+          (1) -- [dashed, momentum={[scale=0.7] $k$}] (2), 
+        };
+      \end{feynman}
+    \end{tikzpicture}
+\end{center} 
+Explicitly written with the momenta, this scattering process reads $$\psi(p_1)+\psi(p_2)\longrightarrow \psi(p_1')+\psi(p_2')$$
+Consider the first diagram. Momentum conservation leads to $k = p_1-p_1'= p_2'-p_2$. Since there are two vertices, the contribution of the vertex will be $(-ig)^2$. We will consider only the propagator for $k$, since all the other momenta are determined. Then the scattering amplitude for the first diagram will be,
+$$i\SM_1 = (-ig)^2 \frac{i}{(p_1-p_1')^2-m^2+i\epsilon}$$
+where we have substituted $k =p_1-p_1'$ and since $k$ is associated with the $\phi$ field, we considered the mass $m$. Similarly, for the second diagram we have, 
+$$i\SM_2 = (-ig)^2 \frac{i}{(p_1-p_2')^2-m^2+i\epsilon}$$
+The total scattering amplitude is the sum of these two terms, 
+$$i\SM = (-ig)^2\qty[\frac{i}{(p_1-p_1')^2-m^2+i\epsilon}+\frac{i}{(p_1-p_2')^2-m^2+i\epsilon}]$$
+These diagrams are tree-level diagrams and have no loops and hence no undetermined momentum to integrate over. The loops come in at $\SO(g^4)$ and higher orders. Let us consider another process,
+$$\psi(p_1)+\psi^\dagger(p_2)\longrightarrow \phi(p_1')+\phi(p_2')$$
+\begin{center}
+    \begin{tikzpicture}
+  \begin{feynman}
+        \vertex (1) at (0,0.8) [dot] {};
+        \vertex (2) at (0,-0.8)[dot]  {};
+
+         \vertex (3) at (1.6,1.7)  {};
+        \vertex (4) at (-1.6,1.7)  {};
+
+        \vertex (5) at (1.6,-1.7)  {};
+        \vertex (6) at (-1.6,-1.7)  {};
+        \diagram*{
+          (1) -- [dashed, momentum'={[scale=0.6, xshift=10pt, yshift=14pt] $p_1'$}] (3),
+          (1) -- [anti fermion,arrow size=0.9pt, rmomentum={[scale=0.6, xshift=-10pt, yshift=14pt] $p_1$}] (4),
+          (2) -- [dashed, momentum={[scale=0.6, xshift=10pt, yshift=-14pt] $p_2'$}] (5),
+          (2) -- [fermion,arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=-10pt, yshift=-14pt] $p_2$}] (6),
+          (1) -- [fermion,arrow size=0.9pt, momentum={[scale=0.7] $k$}] (2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1.5cm}
+\begin{tikzpicture}
+  \begin{feynman}
+        \vertex (1) at (0,0.8) [dot] {};
+        \vertex (2) at (0,-0.8)[dot]  {};
+
+         \vertex (3) at (1.6,1.7)  {};
+        \vertex (4) at (-1.6,1.7)  {};
+
+        \vertex (5) at (1.6,-1.7)  {};
+        \vertex (6) at (-1.6,-1.7)  {};
+        \diagram*{
+          (1) -- [dashed,  momentum'={[scale=0.6, xshift=10pt, yshift=14pt] $p_2'$}] (3),
+          (1) -- [anti fermion,arrow size=0.9pt,  rmomentum={[scale=0.6, xshift=-10pt, yshift=14pt] $p_1$}] (4),
+          (2) -- [dashed,  momentum={[scale=0.6, xshift=10pt, yshift=-14pt] $p_1'$}] (5),
+          (2) -- [fermion,arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=-10pt, yshift=-14pt] $p_2$}] (6),
+          (1) -- [fermion,arrow size=0.9pt, momentum={[scale=0.7] $k$}] (2), 
+        };
+      \end{feynman}
+    \end{tikzpicture}
+\end{center} 
+Observe the direction of the arrows denoting the charges. These have been drawn taking care of the \textit{charge conservation } at each vertices. Since the internal line is now a \textit{nucleon}, the amplitude is,
+$$i\SM = (-ig)^2\qty[\frac{i}{(p_1-p_1')^2-M^2+i\epsilon}+\frac{i}{(p_1-p_2')^2-M^2+i\epsilon}]$$
+Consider yet another process, which will have a bit different diagram than the previous two 
+$$\psi(p_1)+\psi^\dagger(p_2) \longrightarrow \psi(p_1')+\psi^\dagger(p_2')$$
+\begin{center}
+     \begin{tikzpicture}
+  \begin{feynman}
+        \vertex (1) at (0,0.8) [dot] {};
+        \vertex (2) at (0,-0.8)[dot]  {};
+
+         \vertex (3) at (1.6,1.7)  {};
+        \vertex (4) at (-1.6,1.7)  {};
+
+        \vertex (5) at (1.6,-1.7)  {};
+        \vertex (6) at (-1.6,-1.7)  {};
+        \diagram*{
+          (1) -- [fermion, arrow size=0.9pt, momentum'={[scale=0.6, xshift=10pt, yshift=14pt] $p_1'$}] (3),
+          (1) -- [anti fermion,arrow size=0.9pt, rmomentum={[scale=0.6, xshift=-10pt, yshift=14pt] $p_1$}] (4),
+          (2) -- [anti fermion,arrow size=0.9pt, momentum={[scale=0.6, xshift=10pt, yshift=-14pt] $p_2'$}] (5),
+          (2) -- [fermion,arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=-10pt, yshift=-14pt] $p_2$}] (6),
+          (1) -- [dashed, momentum={[scale=0.7] $k$}] (2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+    \hspace{1.5cm}
+   \begin{tikzpicture}
+  \begin{feynman}
+        \vertex (1) at (0,0) [dot] {};
+        \vertex (2) at (2,0)[dot]  {};
+
+         \vertex (3) at (-1.6,1.7)  {};
+        \vertex (4) at (-1.6,-1.7)  {};
+
+        \vertex (5) at (3.6,1.7)  {};
+        \vertex (6) at (3.6,-1.7)  {};
+        \diagram*{
+          (1) -- [anti fermion, arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=-8pt, yshift=15pt] $p_1$}] (3),
+          (1) -- [fermion,arrow size=0.9pt, rmomentum={[scale=0.6, xshift=-8pt, yshift=-15pt] $p_2$}] (4),
+          (2) -- [fermion,arrow size=0.9pt, momentum={[scale=0.6, xshift=43pt, yshift=10pt] $p_1'$}] (5),
+          (2) -- [anti fermion,arrow size=0.9pt, momentum'={[scale=0.6, xshift=43pt, yshift=-10pt] $p_2'$}] (6),
+          (1) -- [dashed, momentum={[scale=0.7, xshift=10pt] $k$}] (2),
+        };
+      \end{feynman}
+    \end{tikzpicture}
+\end{center}
+The second diagram is a tad different from the other diagrams that we have seen. Momentum conservation in the second diagram gives $p_1+p_2=k$. Thus the amplitude for the process will be given by,
+$$i\SM = (-ig)^2\qty[\frac{i}{(p_1-p_1')^2-m^2+i\epsilon}+\frac{i}{(p_1+p_2)^2-m^2+i\epsilon}]$$
+\subsection{Mandelstam variables}
+The quantities $(p_1-p_1'), (p_1-p_2')$ and $(p_1+p_2)$ seems to appear in the propagator expression quite often. These are given some standard names, called \textit{Mandelstam variables}, which are defined as the Lorentz invariant quantities,
+\begin{align*}
+    s&=(p_1+p_2)^2 = (p_1'+p_2')^2\\
+    t&=(p_1-p_1')^2 = (p_2-p_2')^2\\
+    u&=(p_1-p_2')^2 = (p_2-p_1')^2
+\end{align*}
+These are also called $s,t,u$-channels. Firstly note that we have the total momentum conservation, $p_1+p_2=p_1'+p_2'$. Then,
+\begin{align*}
+    s+t+u &= (p_1+p_2)^2 + (p_1-p_1')^2 + (p_1-p_2')^2 \\
+    &=p_1^2+p_2^2+2p_1\cdot p_2 +p_1^2+p_1'^2-2p_1\cdot p_1'+p_1^2+p_2'^2-2p_1\cdot p_2'\\
+    &=3p_1^2 +p_2'^2+p_1'^2 +p_2^2+2p_1\cdot(p_2-p_1'-p_2')\\
+    &=3p_1^2 +p_2'^2+p_1'^2 +p_2^2-2p_1^2\\
+    &=p_1^2 +p_2'^2+p_1'^2 +p_2^2
+\end{align*}
+where $p_i^2\equiv (p_i)^\mu(p_i)_\mu$ and $p_i\cdot p_j \equiv (p_i)^\mu(p_j)_\mu$ are the Lorentz scalar product. Using the on-shell condition, $p_j^2=m_j^2$ we have $s+t+u=\sum m_j^2$, which is a nice thing perhaps. Now, consider the \textit{centre of mass/momentum} frame, where the total three-momentum is zero. Then, 
+\begin{align*}
+    \vb{p}_1+\vb{p}_2&=0 \implies \vb{p}_i \equiv \vb{p}_1 = -\vb{p}_2\\
+    \vb{p}_1'+\vb{p}_2'&=0 \implies \vb{p}_f \equiv \vb{p}_1' = -\vb{p}_2'
+\end{align*}
+From the above conditions, the momentum four vectors become $$p_1=(E_1, \vb{p}_i),p_2=(E_2, -\vb{p}_i),p_1'=(E_1', \vb{p}_f),p_2'=(E_2', -\vb{p}_f)$$
+Then, $s = (p_1+p_2)^2 \equiv (E_1+E_2)^2\equiv E\tund{T}^2$. $s$ thus measures the total center of mass energy of the collision.\\[0.2cm]
+We can now find an expression for the energies in terms of the variable $s$. For that, we will require the on-shell condition, $p^2=m^2$ and the above relation, which gives us:
+\begin{align*}
+    E_1+E_2 = \sqrt{s} \qquad E_1^2-\vb{p}_i^2 = m_1^2 \qquad E_2^2-\vb{p}_i^2 = m_2^2 
+\end{align*}
+Using the above, we get the following,
+ \begin{align*}
+   m_1^2-m_2^2 =  E_1^2-E_2^2 =E_1^2-(\sqrt{s}-E_1)^2 = \sqrt{s}(2E_1-\sqrt{s}) \implies E_1 = \frac{s+m_1^2-m_2^2}{2\sqrt{s}}
+ \end{align*} 
+ Similarly, we obtain the other energies in terms of the masses and $s$,
+ $$E_2 = \frac{s+m_2^2-m_1^2}{2\sqrt{s}}\qquad E_1' = \frac{s+m_1'^2-m_2'^2}{2\sqrt{s}}\qquad E_2' = \frac{s+m_2'^2-m_1'^2}{2\sqrt{s}}$$
+ Let us now consider the variable $t = (p_1-p_1')^2$ which turns out to be 
+ \begin{align*}
+    t &=p_1^2+p_1'^2-2 p_1\cdot p_1'\\
+    &=p_1^2+p_1'^2 -2((p_1)^0(p_1')^0 - |\vb{p}_1||\vb{p}_1'|\cos\theta)\\
+    &=p_1^2+p_1'^2 -2(E_1E_1' - |\vb{p}_1||\vb{p}_1'|\cos\theta)
+ \end{align*}
+ where $\theta$ is the angle between $\vb{p}_1$ and $\vb{p}_1'$. Let us take the elastic limit, $m_1=m_1'$ and $m_2=m_2'$ which gives us $E_1=E_1'=\mathfrak{E}_1$ and $E_2=E_2'=\mathfrak{E}_2$ along with $|\vb{p}_i| = |\vb{p}_f|\equiv \mathfrak{p}$. Then the expression for $t$ becomes, 
+ $$t =\cancel{2\mathfrak{E}_1^2}-2\mathfrak{p}^2 - \cancel{2\mathfrak{E}_1^2}+2\mathfrak{p}^2\cos\theta =-2\mathfrak{p}^2(1-\cos\theta) = -4\mathfrak{p}^2\sin^2\qty(\frac{\theta}{2})\leq 0$$
+ In a similar way, we can derive $u = -4\mathfrak{p}^2\cos^2\qty(\frac{\theta}{2})\leq 0$. Thus, $t$ and $u$ are measures of the momentum exchanged between particles. The amplitudes of the scattering processes can be written entirely in terms of the Mandelstam variables. 
+ \begin{itemize}
+    \item For the process $\psi\psi\longrightarrow\psi\psi$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-m^2+i\epsilon}+\frac{i}{u-m^2+i\epsilon}]$
+    \item For the process $\psi\psi^\dagger\longrightarrow\phi\phi$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-M^2+i\epsilon}+\frac{i}{u-M^2+i\epsilon}]$
+    \item For the process $\psi\psi^\dagger\longrightarrow\psi\psi^\dagger$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-m^2+i\epsilon}+\frac{i}{s-m^2+i\epsilon}]$
+ \end{itemize}
