@@ -12,13 +12,14 @@ Having been familiarised with Feynman diagrams before, we will straightaway jump
     \item Each interaction vertex will have \textit{three} fields, since the interaction term has three fields. In $\phi^4$ theory, we have tetravalent interaction vertices since the interaction had four terms in $\phi$. 
     \item The Feynman rules mostly remain same in this case. The propagator for real and complex field is the same, only the appropriate mass of the field needs to be taken in each case. Each vertex will have a factor of $(-ig)$. 
 \end{itemize}
+\subsection{Nucleon-Nucleon scattering}
 Consider the process \underline{$\psi\psi\longrightarrow\psi\psi$} where two incoming $\psi$ particles result in two outgoing $\psi$ particles. Henceforth, we will call $\psi$ particles are \textit{nucleons} and $\phi$ particles as \textit{mesons}. Hence this is a case of nucleon-nucleon scattering.\\[0.2cm]
  At order $\SO(g^0)$ we have no scattering, both $\psi$ comes and leaves as it is, without any interaction. Diagram of order $\SO(g)$ with only one vertex is not possible for this process. Hence, the only meaningful diagram will start at order $\SO(g^2)$. The simplest diagrams contributing to this process are,
 \begin{center}
     \begin{tikzpicture}
   \begin{feynman}
-        \vertex (1) at (0,0.8) [dot] {};
-        \vertex (2) at (0,-0.8)[dot]  {};
+        \vertex (1) at (0,0.8) [dot, minimum size=2pt] {};
+        \vertex (2) at (0,-0.8)[dot, minimum size=2pt]  {};
 
          \vertex (3) at (1.6,1.7)  {};
         \vertex (4) at (-1.6,1.7)  {};
@@ -37,8 +38,8 @@ Consider the process \underline{$\psi\psi\longrightarrow\psi\psi$} where two inc
     \hspace{1.5cm}
 \begin{tikzpicture}
   \begin{feynman}
-        \vertex (1) at (0,0.8) [dot] {};
-        \vertex (2) at (0,-0.8)[dot]  {};
+        \vertex (1) at (0,0.8) [dot, minimum size=2pt] {};
+        \vertex (2) at (0,-0.8)[dot, minimum size=2pt]  {};
 
          \vertex (3) at (1.6,1.7)  {};
         \vertex (4) at (-1.6,1.7)  {};
@@ -62,13 +63,15 @@ where we have substituted $k =p_1-p_1'$ and since $k$ is associated with the $\p
 $$i\SM_2 = (-ig)^2 \frac{i}{(p_1-p_2')^2-m^2+i\epsilon}$$
 The total scattering amplitude is the sum of these two terms, 
 $$i\SM = (-ig)^2\qty[\frac{i}{(p_1-p_1')^2-m^2+i\epsilon}+\frac{i}{(p_1-p_2')^2-m^2+i\epsilon}]$$
-These diagrams are tree-level diagrams and have no loops and hence no undetermined momentum to integrate over. The loops come in at $\SO(g^4)$ and higher orders. Let us consider another process,
+These diagrams are tree-level diagrams and have no loops and hence no undetermined momentum to integrate over. The loops come in at $\SO(g^4)$ and higher orders. 
+\subsection{Nucleon to Meson Scattering}
+Let us consider another process,
 $$\psi(p_1)+\psi^\dagger(p_2)\longrightarrow \phi(p_1')+\phi(p_2')$$
 \begin{center}
     \begin{tikzpicture}
   \begin{feynman}
-        \vertex (1) at (0,0.8) [dot] {};
-        \vertex (2) at (0,-0.8)[dot]  {};
+        \vertex (1) at (0,0.8) [dot, minimum size=2pt] {};
+        \vertex (2) at (0,-0.8)[dot, minimum size=2pt]  {};
 
          \vertex (3) at (1.6,1.7)  {};
         \vertex (4) at (-1.6,1.7)  {};
@@ -87,8 +90,8 @@ $$\psi(p_1)+\psi^\dagger(p_2)\longrightarrow \phi(p_1')+\phi(p_2')$$
     \hspace{1.5cm}
 \begin{tikzpicture}
   \begin{feynman}
-        \vertex (1) at (0,0.8) [dot] {};
-        \vertex (2) at (0,-0.8)[dot]  {};
+        \vertex (1) at (0,0.8) [dot, minimum size=2pt] {};
+        \vertex (2) at (0,-0.8)[dot, minimum size=2pt]  {};
 
          \vertex (3) at (1.6,1.7)  {};
         \vertex (4) at (-1.6,1.7)  {};
@@ -107,13 +110,15 @@ $$\psi(p_1)+\psi^\dagger(p_2)\longrightarrow \phi(p_1')+\phi(p_2')$$
 \end{center} 
 Observe the direction of the arrows denoting the charges. These have been drawn taking care of the \textit{charge conservation } at each vertices. Since the internal line is now a \textit{nucleon}, the amplitude is,
 $$i\SM = (-ig)^2\qty[\frac{i}{(p_1-p_1')^2-M^2+i\epsilon}+\frac{i}{(p_1-p_2')^2-M^2+i\epsilon}]$$
+
+\subsection{Nucleon-Anti-Nucleon Scattering}
 Consider yet another process, which will have a bit different diagram than the previous two 
 $$\psi(p_1)+\psi^\dagger(p_2) \longrightarrow \psi(p_1')+\psi^\dagger(p_2')$$
 \begin{center}
      \begin{tikzpicture}
   \begin{feynman}
-        \vertex (1) at (0,0.8) [dot] {};
-        \vertex (2) at (0,-0.8)[dot]  {};
+        \vertex (1) at (0,0.8) [dot, minimum size=2pt] {};
+        \vertex (2) at (0,-0.8)[dot, minimum size=2pt]  {};
 
          \vertex (3) at (1.6,1.7)  {};
         \vertex (4) at (-1.6,1.7)  {};
@@ -132,8 +137,8 @@ $$\psi(p_1)+\psi^\dagger(p_2) \longrightarrow \psi(p_1')+\psi^\dagger(p_2')$$
     \hspace{1.5cm}
    \begin{tikzpicture}
   \begin{feynman}
-        \vertex (1) at (0,0) [dot] {};
-        \vertex (2) at (2,0)[dot]  {};
+        \vertex (1) at (0,0) [dot, minimum size=2pt] {};
+        \vertex (2) at (2,0)[dot, minimum size=2pt]  {};
 
          \vertex (3) at (-1.6,1.7)  {};
         \vertex (4) at (-1.6,-1.7)  {};
@@ -192,10 +197,46 @@ Using the above, we get the following,
  \end{align*}
  where $\theta$ is the angle between $\vb{p}_1$ and $\vb{p}_1'$. Let us take the elastic limit, $m_1=m_1'$ and $m_2=m_2'$ which gives us $E_1=E_1'=\mathfrak{E}_1$ and $E_2=E_2'=\mathfrak{E}_2$ along with $|\vb{p}_i| = |\vb{p}_f|\equiv \mathfrak{p}$. Then the expression for $t$ becomes, 
  $$t =\cancel{2\mathfrak{E}_1^2}-2\mathfrak{p}^2 - \cancel{2\mathfrak{E}_1^2}+2\mathfrak{p}^2\cos\theta =-2\mathfrak{p}^2(1-\cos\theta) = -4\mathfrak{p}^2\sin^2\qty(\frac{\theta}{2})\leq 0$$
- In a similar way, we can derive $u = -4\mathfrak{p}^2\cos^2\qty(\frac{\theta}{2})\leq 0$. Thus, $t$ and $u$ are measures of the momentum exchanged between particles. The amplitudes of the scattering processes can be written entirely in terms of the Mandelstam variables. 
+ In a similar way, we can derive $u = -4\mathfrak{p}^2\cos^2\qty(\frac{\theta}{2})\leq 0$. Thus, $t$ and $u$ are measures of the momentum exchanged between particles. As the Mandelstam variables are scalars, these will retain these properties in all frames, so $s\geq0$ and $t,u\leq 0$ in all frames.\\[0.2cm] The amplitudes of the scattering processes can be written entirely in terms of the Mandelstam variables. 
  \begin{itemize}
-    \item For the process $\psi\psi\longrightarrow\psi\psi$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-m^2+i\epsilon}+\frac{i}{u-m^2+i\epsilon}]$
-    \item For the process $\psi\psi^\dagger\longrightarrow\phi\phi$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-M^2+i\epsilon}+\frac{i}{u-M^2+i\epsilon}]$
-    \item For the process $\psi\psi^\dagger\longrightarrow\psi\psi^\dagger$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-m^2+i\epsilon}+\frac{i}{\mathcolor{red}{s-m^2+i\epsilon}}]$
+    \item For the process $\psi\psi\longrightarrow\psi\psi$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-m^2}+\frac{i}{u-m^2}]$
+    \item For the process $\psi\psi^\dagger\longrightarrow\phi\phi$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-M^2}+\frac{i}{u-M^2}]$
+    \item For the process $\psi\psi^\dagger\longrightarrow\psi\psi^\dagger$ we have $i\SM = (-ig)^2\qty[\frac{i}{t-m^2}+\frac{i}{\mathcolor{red}{s-m^2+i\epsilon}}]$
  \end{itemize}
- Note that the denominator of the red term can be 
+As $t$ and $u$ are always negative, the denominator in the amplitudes (except the red term) cannot be zero and hence we have safely removed the $+i\epsilon$ term. However, the red term with $s$ channel can be zero, as $s\geq 0$. Take the COM frame for the $s$ channel diagram. Since the particles are all nucleons, $s=E\tund{T}^2 = 4(M^2+\mathfrak{p}^2)$ and hence the denominator becomes $4(M^2+\mathfrak{p}^2)-m^2$. If $m<2M$ then $4M^2-m^2>0$ which implies that the denominator is positive, so we can drop the $+i\epsilon$ term. If $m>2M$ then the amplitude corresponding to the second diagram diverges at some value of the momentum and we have to keep $+i\epsilon$.
+\subsection{Meson Scattering}
+This will be another different process with a different diagram.
+$$\phi(p_1)+\phi(p_2)\longrightarrow \phi(p_1')+\phi(p_2')$$
+There are two incoming and two outgoing $\phi$ lines and we have to put two $\psi$ lines to each of them. If we think about this, the simplest diagram for this process will contain a loop (which increases the complexity)!
+\begin{center}
+     \begin{tikzpicture}
+  \begin{feynman}
+        \vertex (1) at (0,0) [dot, minimum size=2pt] {};
+        \vertex (2) at (0,-1.5)[dot, minimum size=2pt]  {};
+
+         \vertex (3) at (1.5,0) [dot, minimum size=2pt] {};
+        \vertex (4) at (1.5,-1.5) [dot, minimum size=2pt]  {};
+
+        \vertex (5) at (-1.3,0.8)  {};
+        \vertex (6) at (-1.3,-2.3)  {};
+
+        \vertex (7) at (2.8,0.8)  {};
+        \vertex (8) at (2.8,-2.3)  {};
+        \diagram*{
+          (1) -- [fermion, arrow size=0.9pt, momentum={[scale=0.6, xshift=14pt, yshift=0pt] $k$}] (3),
+          (3) -- [fermion,arrow size=0.9pt, momentum={[scale=0.6, xshift=30pt, yshift=-15pt] $l$}] (4),
+          (2) -- [anti fermion,arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=14pt, yshift=-30pt] $q$}] (4),
+          (1) -- [anti fermion,arrow size=0.9pt, rmomentum'={[scale=0.6, xshift=0pt, yshift=-15pt] $r$}] (2),
+          (1) -- [dashed, rmomentum={[scale=0.7, xshift=-8pt, yshift=8pt] $p_1$}] (5),
+          (2) -- [dashed, rmomentum'={[scale=0.7, xshift=-8pt, yshift = -27pt] $p_2$}] (6),
+          (3) -- [dashed, momentum'={[scale=0.7, xshift=35pt, yshift=12pt] $p_1'$}] (7),
+          (4) -- [dashed, momentum={[scale=0.7, xshift=35pt, yshift=-30pt] $p_2'$}] (8)
+        };
+      \end{feynman}
+    \end{tikzpicture}
+\end{center}
+Since there is a loop, all the momentum cannot be uniquely determined solely from momentum conservation. Let us keep $l$ fixed and try to express $k,r,q$ in terms of $l$. Momentum conservation at each vertex gives:
+$$\triangleright\ \boxed{k = l+p_1'}\quad \triangleright\ l=q+p_2'\implies \boxed{q = l-p_2'}\quad \triangleright\  p_1+r = k = l+p_1' \implies \boxed{r = l+p_1'-p_1}$$
+The scattering amplitude will have the integral over the undetermined momentum $l$ and the product of propagators containing $l$. Since there are four vertices, there will be a contribution of $(-ig)^4$ 
+$$(-ig)^4 \int \frac{\dd^4k}{(2\pi)^4} \frac{i}{\qty[l^2-M^2+i\epsilon]}\frac{i}{\qty[(l+p_1')^2-M^2+i\epsilon]}\frac{i}{\qty[(l-p_2')^2-M^2+i\epsilon]}\frac{i}{\qty[(l+p_1'-p_1)^2-M^2+i\epsilon]}$$
+The integral seems to be complicated. I don't know how to do this. Even Tong has left the integral like this, so it's a good time for me to stop too!
