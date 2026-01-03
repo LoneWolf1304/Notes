@@ -1,1 +1,4 @@
+\contentsline {section}{Lecture 1: Intro and Van der Waal's Equation of State}{3}{section*.3}%
+\contentsline {subsection}{\numberline {1.1}Van der Waal's gas}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Uniform Density Approximation}{4}{subsection.1.2}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

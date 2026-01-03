@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.11.18)  1 JAN 2026 02:07
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.11.18)  3 JAN 2026 18:56
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1990,7 +1990,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip166
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 149.
+Package hyperref Info: Option `colorlinks' set `true' on input line 150.
 
 (/usr/share/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
@@ -2011,49 +2011,49 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \c@LT@chunks=\count491
 \LT@p@ftn=\toks77
 )
-Class scrartcl Info: longtable captions redefined on input line 169.
+Class scrartcl Info: longtable captions redefined on input line 170.
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 171.
+h' as default language. on input line 172.
  (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 171.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 172.
 LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 1
-71.
+72.
 
 (/usr/share/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-Package scrbase Info: activating english \abstractname on input line 171.
-Package scrbase Info: activating english \partname on input line 171.
-Package scrbase Info: activating english \figurename on input line 171.
-Package scrbase Info: activating english \tablename on input line 171.
-Package scrbase Info: activating english \contentsname on input line 171.
-Package scrbase Info: activating english \listfigurename on input line 171.
-Package scrbase Info: activating english \listtablename on input line 171.
-Package scrbase Info: activating english \refname on input line 171.
-Package scrbase Info: activating english \indexname on input line 171.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+Package scrbase Info: activating english \abstractname on input line 172.
+Package scrbase Info: activating english \partname on input line 172.
+Package scrbase Info: activating english \figurename on input line 172.
+Package scrbase Info: activating english \tablename on input line 172.
+Package scrbase Info: activating english \contentsname on input line 172.
+Package scrbase Info: activating english \listfigurename on input line 172.
+Package scrbase Info: activating english \listtablename on input line 172.
+Package scrbase Info: activating english \refname on input line 172.
+Package scrbase Info: activating english \indexname on input line 172.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -2081,7 +2081,7 @@ e
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 171.
+ on input line 172.
 
 
 Package fontspec Info: 
@@ -2121,7 +2121,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 171.
+or `english'. on input line 172.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -2132,7 +2132,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count502
 Package tocbasic Info: omitting babel extension for `lol'
-(tocbasic)             because of missing \bbl@set@language on input line 171.
+(tocbasic)             because of missing \bbl@set@language on input line 172.
 \scr@dte@lstlisting@maxnumwidth=\skip171
 
 *geometry* driver: auto-detecting
@@ -2169,7 +2169,7 @@ Package tocbasic Info: omitting babel extension for `lol'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 171.
+Package hyperref Info: Link coloring ON on input line 172.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 
@@ -2181,7 +2181,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           `bookmarkpackage=false' before \begin{document} and
 (scrartcl)           you can avoid this message adding:
 (scrartcl)             \usepackage{bookmark}
-(scrartcl)           before \begin{document} on input line 171.
+(scrartcl)           before \begin{document} on input line 172.
 
 (/usr/share/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -2194,10 +2194,10 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 <pics/ising.pdf, id=43, 378.41376pt x 379.4175pt>
 File: pics/ising.pdf Graphic file (type pdf)
 <use pics/ising.pdf>
-Package luatex.def Info: pics/ising.pdf  used on input line 207.
+Package luatex.def Info: pics/ising.pdf  used on input line 208.
 (luatex.def)             Requested size: 189.2064pt x 189.70828pt.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-11.
+12.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -2207,50 +2207,190 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}<./pics/ising.pdf>]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
-27.
+28.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10.95> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 227.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 228.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <14.4> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 227.
- (./main.toc)
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 228.
+ (./main.toc
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
+.
+
+(/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+.
+
+(/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+2.
+
+(/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+2.
+
+(/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 2.
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 2
+.
+
+(/usr/share/texmf-dist/tex/latex/bbold/Ubbold.fd)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+
+
+(/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 
+2.
+
+(/usr/share/texmf-dist/tex/latex/yhmath/OMXyhex.fd
+File: OMXyhex.fd 
+File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write5
 
 \openout5 = main.toc
 
 
-[2] (./main.aux)
+[2] (./lectures/lec01.tex
+<pics/interactions.pdf, id=73, 845.66841pt x 358.25946pt>
+File: pics/interactions.pdf Graphic file (type pdf)
+<use pics/interactions.pdf>
+Package luatex.def Info: pics/interactions.pdf  used on input line 14.
+(luatex.def)             Requested size: 496.32924pt x 210.26698pt.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 15.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 15.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 15.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 15.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 19.
+
+
+[3<./pics/interactions.pdf>]
+LaTeX Font Info:    Calculating math sizes for size <7.665> on input line 29.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7.665> on input line 29.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5.36546> on input line 29.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <3.83249> on input line 29.
+
+
+LaTeX Font Warning: Font shape `U/bbold/m/n' in size <3.83249> not available
+(Font)              size <5> substituted on input line 29.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.83249> not available
+(Font)              size <5> substituted on input line 29.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.83249> not available
+(Font)              size <5> substituted on input line 29.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <3.83249> not available
+(Font)              size <5> substituted on input line 29.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <3.83249> not available
+(Font)              size <5> substituted on input line 29.
+
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 4
+8.
+(/usr/share/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+
+[4]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 77.
+
+ (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+
+[5]) (./lectures/lec02.tex) (./lectures/lec03.tex) (./lectures/lec04.tex)
+(./lectures/lec05.tex)
+
+[6] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.90001pt have occurred.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 69702 strings out of 475506
+ 70267 strings out of 475506
  100000,2848258 words of node,token memory allocated
- 1571 words of node memory still in use:
-   30 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 79 attribute, 112 glue_s
-pec, 79 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:1,2:297,3:155,4:66,5:94,6:27,7:772,8:1,9:174,10:4,11:30
- 91118 multiletter control sequences out of 65536+600000
- 40 fonts using 4980375 bytes
- 108i,11n,141p,10919b,960s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts
-/type1/public/lm/lmb10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.
-pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dis
-t/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/
-texmf-dist/fonts/type1/public/lm/lmtk10.pfb>
-Output written on main.pdf (2 pages, 165161 bytes).
+ 1676 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 98 attribute, 116 glue_s
+pec, 98 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 1:1,2:1053,3:155,4:66,5:743,6:33,7:5718,8:88,9:1372,10:9,11:405
+ 91541 multiletter control sequences out of 65536+600000
+ 292 fonts using 21793455 bytes
+ 108i,22n,141p,10919b,960s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/f
+onts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.
+enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-di
+st/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/doublestroke/dsrom10.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmb10.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></
+usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/font
+s/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.p
+fb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist
+/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
+8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-
+dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.p
+fb>
+Output written on main.pdf (6 pages, 406890 bytes).
 
-PDF statistics: 94 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 131072)
- 256 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 233 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
+ 14 named destinations out of 1000 (max. 131072)
+ 280 words of extra memory for PDF output out of 10000 (max. 100000000)
 
