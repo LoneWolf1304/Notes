@@ -12,7 +12,7 @@
 A few points to note:
 \begin{itemize}
     \item We sometimes (almost everytime) omit $*$ when the context is clear and just write $gh$ for $g*h$ where $g,h\in G$.
-    \item Technically $(G,*)$ is called a group but when context is clear, the just simply refer to $G$ as the group.
+    \item Technically $(G,*)$ is called a group but when the context is clear, we just simply refer to $G$ as the group.
     \item A group  $G$ is called \textit{Abelian} if the elements comute, that is, $\forall \ g_1,g_2 \in G \ g_1g_2 = g_2g_1$
 \end{itemize}
 Let us see some examples of groups, all of which can be checked to satisfy the properties specified in the definition:
@@ -28,7 +28,7 @@ $$   \pi \equiv
   1         & 2         & \cdots & n \\
   \pi(1) & \pi(2) & \cdots & \pi(n)
 \end{pmatrix}$$
-The above representation means that the first row, after the arrangement (acting on by map $pi$), changes to the second row. As an example, let us consider: 
+The above representation means that the first row, after the arrangement (acting on by map $\pi$), changes to the second row. As an example, let us consider: 
 $$\begin{pmatrix}
     \mathcolor{red}{1&2&3&4&5&6&7}\\
     \mathcolor{blue}{7&2&5&6&1&4&3}
@@ -182,14 +182,22 @@ We can now check the group properties from this table. By the way, the group of 
 \begin{ffact}
 Consider a finite group G with $h$ elements. For any $g_k\in G$ the sequence $\{g_ig_k\}_{i=1}^h$ contains each group element exactly once. 
 \end{ffact}
-\textit{Proof.} For any $g_i$, there exists an element $g_r = g_ig_k^{-1}$ since $g_k^{-1}\in G$ and elements of $G$ satisfy closure property. Then we have $g_i = g_r g_k$ and then $g_i$ must appear in the sequence atleast once, since $r\leq h$. Now, this happens for all $i=1,\ldots,h$ and there are only $h$ terms in the sequence. Thus, each element can occur atmost once.
+\textit{Proof.} Let $g_k\in G$ and choose any $g_i\in G$. Then, there exists an element $g_r = g_ig_k^{-1}$ since $g_k^{-1}\in G$ and elements of $G$ satisfy closure property.\\[0.2cm] Then we have $g_i = g_r g_k$ and then $g_i$ must appear in the sequence atleast once, since $r\leq h$ and $g_i$ has the form of terms appearing in the sequence. Now, this happens for all $i=1,\ldots,h$ and there are only $h$ terms in the sequence. Thus, each element can occur atmost once, since if any element has occurred twice, then atleast one of the elements will not have appeared in the sequence. 
 \subsection{Subgroup}
-So we saw what a group is. Now, let us see what a subgroup is \footnote{Think about it, it is natural that smaller groups are always formed within a bigger group}. A subset $H\subseteq G$ is called a \textit{subgroup} if it is a group in its own right, where the binary operation is the same operation as in $G$ but restricted to $H\times H$, that is, $*\Big|_{H\times H}$
-\begin{lemma}\label{lem:subgroup}
-    If $H\subseteq G, H \neq \emptyset$ and if $h_1h_2^{-1}\in H\ \forall \ h_1,h_2\in H$, then $H$ is a subgroup of $G$
+We saw what a group is. Now, let us see what a subgroup is \footnote{Think about it, it is natural that smaller groups are always formed within a bigger group}. A subset $H\subseteq G$ is called a \textit{subgroup} if it is a group in its own right, where the binary operation is the same operation as in $G$ but restricted to $H\times H$, that is, $*\Big|_{H\times H}$\\[0.2cm]
+\textbf{Examples}\\[0.2cm]
+Let us see some example of subgroups. 
+\begin{itemize}
+    \item Consider the multiplication table of the diheral group $D_3$,again. Note that, any rotation $\rho_i$, when multiplied with any other rotation $\rho_j$ will always produce another rotation. Thus, we can say that rotations are closed among themselves and the set of all rotations indeed form a subgroup of the dihedral group. 
+    \item Consider the group of integers under addition, $G={\inte, + }$. Then all the even integers form a subgroup of G. That is, $(2\inte,+)$ is a subgroup of G.  
+\end{itemize}
+Subgroups are pretty important. Let us see how to identify whether a subset of a group is indeed a subgroup or not.
+\begin{lemma}[One-step subgroup test]\label{lem:subgroup}
+    Let G be a group and if $H\subseteq G, H \neq \emptyset$ and if $h_1h_2^{-1}\in H\ \forall \ h_1,h_2\in H$, then $H$ is a subgroup of $G$.
 \end{lemma}
-\textit{Proof.} Note that the restricted binary operation is still associative. Now, $h_1 = h_2 \implies h_1 h_1^{-1} = e$ and hence $e\in H$ (existence of identity). Then take $h_1 =e, h_2 = h \in H \implies eh^{-1} = h^{-1}\in H$ (existence of inverse). Now, take $h_1 = h', h_2 = h^{-1}$ for $h', h\in H$, then $h'\brac{h^{-1}}^{-1}=h'h\in H$ (closure property). Thus, $H$ follows all properties of a group and hence is a subgroup of $G$.\\[0.3cm]
-Using the lemma above, we can say that the special linear group is a subgroup of the general linear group. Obviously, $\mathrm{SL}(n,\re)\subseteq \mathrm{GL}(n,\re)$.  For the other part, note that,  $A,B\in \mathrm{SL}(n,\re)\implies \det(A) = \det(B)=1$. Now, $\det(AB^{-1}) = \det{A}\det{B^{-1}} = \det{A}\frac{1}{\det{B}} = 1 \implies AB^{-1}\in \mathrm{SL}(n,\re)$, hence proved.
+\textit{Proof.} Note that the restricted binary operation on H is still associative. Now, we show that $H$ follows all the properties of a group. For that, consider $h_1,h_2\in H\subseteq G$. As $h_1,h_2\in G$, then $h_1^{-1}$ and $h_2^{-1}$ exist.\\[0.2cm]
+Take $h_1 = h_2\implies h_1 h_1^{-1} = e$ and hence, from the given property, $e\in H$ (existence of identity). Then take $h_1 =e, h_2 = h \in H \implies eh^{-1} = h^{-1}\in H$ (existence of inverse). Now, take $h_1 = h', h_2 = h^{-1}$ for $h', h\in H$, then $h'\brac{h^{-1}}^{-1}=h'h\in H$ (closure property). Thus, $H$ follows all properties of a group and hence is a subgroup of $G$.\\[0.3cm]
+Using the lemma above, we can say that the special linear group is a subgroup of the general linear group. Obviously, $\mathrm{SL}(n,\re)\subseteq \mathrm{GL}(n,\re)$.  For the other part, note that,  $A,B\in \mathrm{SL}(n,\re)\implies \det(A) = \det(B)=1$. Now, $\det(AB^{-1}) = \det(A)\det(B^{-1}) = \det(A)\frac{1}{\det(B)} = 1 \implies AB^{-1}\in \mathrm{SL}(n,\re)$, hence proved.
 \subsubsection{Cyclic Subgroups}
 Consider a group $G$ and let $g\in G$. Then the \textit{cyclic subgroup} of $G$ generated by $g$, is given by the set $\avg{g} = \{g^k|k\in \inte \}\subseteq G$\footnote{We can check that this set is indeed a subgroup.}. Note that the cyclic subgroup is element-specific. Let us see an example using the symmetry group of the equilateral triangle.\\[0.2cm]
 So, $G\equiv \{e,\rho_1, \rho_2, \mu_1, \mu_2, \mu_3\}$ is the group of symmetries of the equilateral triangle. Now,
@@ -199,8 +207,9 @@ So, $G\equiv \{e,\rho_1, \rho_2, \mu_1, \mu_2, \mu_3\}$ is the group of symmetri
     \item Similarly, $\avg{\mu_1} = \{\mu_1, e\}$
     \item and so on...
 \end{itemize}
-For a finite group, the cyclic subgroup must have some repitition and hence there exists $m,n\in \nat$ such that $g^m \equiv g^{m+n}$ and hence $g^n = e$. If there always exist this kind of $n$, then the set $\{n\in \nat|g^n=e\}\neq \emptyset$ has a minimum element and this is called the \textit{order} of g. If no such finite $n$ exist (which happens mostly when infinite groups are considered), then order is taken to be infinite.\\[0.2cm]
-For finite groups, we have $g^m g^n = g^{(m+n) \mathrm{mod} \ r}$ where $r$ is the order of $g$. This mimics the group of integers under addition modulo $r$, denoted by $\sfrac{\inte}{r\inte}$. 
+For a finite group, the cyclic subgroup must have some repitition and hence there exists $m,n\in \nat$ such that $g^m \equiv g^{m+n}$ and hence $g^n = e$. If there always exist this kind of $n$, then the set $\{n\in \nat|g^n=e\}\neq \emptyset$ has a minimum element and this is called the \textit{order} of g (basically this is the number of elements in the subgroup generated by $g$). If no such finite $n$ exist (which happens mostly when infinite groups are considered), then order is taken to be infinite.\\[0.2cm]
+For finite groups, we have $g^m g^n = g^{(m+n) \mathrm{mod} \ r}$ where $r$ is the order of $g$. This mimics the group of integers under addition modulo $r$, denoted by $\sfrac{\inte}{r\inte}$. \\[0.2cm]
+NOTE: The order of the group $G$ is the number of elements in $G$ and is denoted by $|G|$. If $G$ is infinite, then $|G|$ is also taken to be infinite.
 \subsubsection{Centre of a Group}
 \begin{definition}[Centre]
     If $G$ is a group, then the centre of the group denoted by $Z(G)$ is given by:
@@ -217,7 +226,7 @@ Basically, we are looking for the set of all elements which commute with every o
   3 & 3 & 0 & 1 & 2 \\
 \end{array}
 \]
-Then we can check that $Z(\inte_4) = \{0,1,2,3\}=\inte_4$. Note that $G$ itself was abelian and hence the centre of the group is the entire group itself. We can also check that $Z(D_3) = \{e\}$. So we saw the centre of a group being the entire set as well as just the identity. Can we have something in between? \\[0.3cm]
+Then we can check that $Z(\inte_4) = \{0,1,2,3\}=\inte_4$. Note that $G$ itself was abelian and hence the centre of the group is the entire group itself. We can also check that $Z(D_3) = \{e\}$. So we saw the centre of a group can be the entire set as well as just the identity. Can we have something in between? \\[0.3cm]
 It turns out that $Z(D_4) = \{e,\rho_2\}$ where $D_4$ is the group of symmetries of the square and $\rho_2$ being the action of rotation by $180^\circ$ anti-clockwise.
 \begin{lemma}
     The centre of a group $Z(G)$ is a subgroup of the group $G$. 
@@ -243,7 +252,12 @@ For example, if we consider $\inte_6$ (integers under addition modulo 6), then:
     \begin{ffact}
     For any integer $n>1$, $\inte_n = \avg{1} = \avg{n-1}$
     \end{ffact}
-    We will now see a nice relation between cyclic and abelian groups. It turns out, every cyclic group is abelian. 
+    \noindent
+    \textit{Proof.} $1$ and $n-1$ both belong to $\inte_n$. Note that given $k\in \inte$, the operation, $1^k = k \ (\mathrm{mod}\ n) \equiv -k \ (\mathrm{mod}\ n)\equiv nk-k \ (\mathrm{mod}\ n)\equiv  (n-1)k \ (\mathrm{mod}\ n) = (n-1)^k$. Hence, by definition of cyclic subgroup, $\avg{1} = \avg{n-1}$
+    We will now see a nice relation between cyclic and abelian groups. It turns out, every cyclic group is abelian.\\[0.2cm]
+    NOTE: Sometimes, a group might not be cyclic, so it cannot be generated by a single element. However, it can have two or more generators, that is, any element of the group can be written as a finite combination of these generators. The set of all such generators is called the \textit{generating set of a group}.\\[0.2cm]
+    For example, let $G$ be a group with two generators, $a$ and $b$, each of order 2. Thus $a^2=e$ and $b^2=e$. Using the property of the group and the generators, the possible elements in the group are $G=\{e,a,b,ab,ba\}$. Thus the generating set of the group $G$ is $\{a,b\}$. \\
+    Suppose we further impose the condition, $ab=ba$, then $G= \{e,a,b,ab\}$ is called the \textit{Klein four-group} and is denoted by $V_4$. Note that $V_4$ is Abelian. This is the unique non-cyclic group of order 4. Surprisingly, this is also the dihedral group of order 4, $D_4$, that is, set of symmetries of a square.  
     \begin{lemma}
         Every cyclic group is an abelian group but converse is not true.
     \end{lemma}
@@ -285,14 +299,14 @@ $(\Longleftarrow)\ u = v \implies a^u = a^v$ lol \emoji{face-with-tears-of-joy}
 \subsubsection{Group Presentation}
 
 \subsection{Cosets}
-For this, let us focus on something related to lemma~\ref{lem:subgroup}. Consider a relation $\sim_L\subseteq G\times G$ such that for $a,b\in G, a\sim_Lb \iff a^{-1}b\in H$. We show the following:
+For this, let us focus on something related to lemma~\ref{lem:subgroup}. Given a group G and its subgroup H,consider a relation $\sim_L\subseteq G\times G$ such that for $a,b\in G, a\sim_Lb \iff a^{-1}b\in H$. We show the following:
 \begin{proposition}
-    Let $G$ be a group and let $H$ be a subgroup of $G$. Define the relations $\sim_L$ and $\sim_R$ such that $a\sim_L b \iff a^{-1}b\in H\ \text{and } a\sim_R b \iff ab^{-1}\in H$. Then, $\sim_L$ and $\sim_R$ are an equivalence relations on $G$. 
+    Let $G$ be a group and let $H$ be a subgroup of $G$. Define the relations $\sim_L$ and $\sim_R$ such that $a\sim_L b \iff a^{-1}b\in H\ \text{and } a\sim_R b \iff ab^{-1}\in H$. Then, $\sim_L$ and $\sim_R$ are equivalence relations on $G$. 
 \end{proposition}
 \textit{Proof.} For $\sim_L$:
 \begin{itemize}
     \item $a\in G \implies a^{-1}a = e \in H\implies a\sim_L a$ (reflexive)
-    \item $a\sim_Lb\implies a,b \in G a^{-1}b \in H \implies (a^{-1}b)^[-1]\in H \implies b^{-1}a\in H  b\sim_La$ (symmetric)
+    \item $a\sim_Lb\implies a,b \in G,\ a^{-1}b \in H \implies (a^{-1}b)^{-1}\in H \implies b^{-1}a\in H \implies  b\sim_La$ (symmetric)
     \item $a\sim_Lb, b\sim_Lc\implies a^{-1}b\in H, b^{-1}c\in H\implies (a^{-1}b)(b^{-1}c)= a^{-1}c\in H$ (transitive)
 \end{itemize}
 Similarly we can show for $\sim_R$
@@ -304,12 +318,24 @@ Whenever we define any equivalence relation, we at once go into the equivalence 
 From this, we have $x = ah$ which implies that $x\in \{ah \ | \ h\in H\} \implies [a]\subseteq \{ah \ | \ h\in H\}$. Now, let us prove the opposite way:\\[0.3cm]
 Let $x\in \{ah \ | \ h\in H\} \implies x = ah$ for some $h\in H$. This implies that $a^{-1}x = h \in H \implies x\sim_L a \implies x\in [a]$. Thus,  $\{ah \ | \ h\in H\} \subseteq [a]$. From these two things, we can say:
 $$[a] = \{ah\ |\ h\in H\}$$
-Similarly, for $\sim_R$, we will have $[b] = \{hb \ |\ h\in H\}$. This will lead us to the definition of cosets.
+Similarly, for $\sim_R$, we will have $[b] = \{hb \ |\ h\in H\}$. This motivates us to the definition of cosets.
 \begin{definition}[Cosets]
-    Let $G$ be a group and $H$ be a subgroup of $G$. Let $a\in G$, then the \textit{left coset} of $G$ is given by $aH = \{ah \ | \ h\in H\}$ and the \textit{right coset} of $G$ is given by $Ha = \{ha \ | \ h\in H\}$
+    Let $G$ be a group and $H$ be a subgroup of $G$. Let $a\in G$, then the \textit{left coset} of $H$ in G is given by $aH = \{ah \ | \ h\in H\}$ and the \textit{right coset} of $H$ is given by $Ha = \{ha \ | \ h\in H\}$
     
 \end{definition}
-
+We will mostly consider left cosets only. Things about right cosets follow similarly. We find that cosets are nothing but the equivalence classes for the above defined relations. Since equivalence classes are disjoint unless two elements are related, then, two cosets will either coincide or are disjoint. Since we know that equivalence classes partition the set, the set of all distinct cosets partition the group $G$. Let us denote the set of distinct cosets by $\{g_1 H, g_2H\ldots g_kH\}$, considering that $H$ is finite. Thus we can write, 
+$$G = \bigcup\limits_{i=1}^k g_iH$$ 
+since distinct cosets partition the group. Since each set $g_iH$ is distinct, the order of their union is equal to the sum of order of each set, which is equal to the order of the subgroup $|H|$. Then we obtain $|G| = k |H|$, where $k$ is the number of distinct cosets. This is \textit{Lagrange's Theorem} which states that $|H|$ divides $|G|$. The integer $k$ is called the \textit{index} of the group and is denoted by $[G:H]$.
+\begin{lemma}
+    Order of an element divides the order of the group
+\end{lemma}
+\noindent
+\textit{Proof.} Consider a group $G$ of order k and $g\in G$. Then, $\avg{g}$ is the cyclic subgroup generated by $g$ which has an order, say $n$. From Lagrange's theorem, $|\avg{g}|$ divides $k$. Observe that $|\avg{g}| = n$ and hence $n|k$. \\[0.2cm]
+Having seen a lot of derivations, let us see an example of coset. For this, consider the dihedral group again, however, we will write it in a different form. $G=\{e, \rho_1, \rho_2, \mu_1, \mu_2, \mu_3\}$. Consider $\rho_2$ and $\mu_1$. Then $\rho_1 = \rho_2^2 \equiv $ rotation by $60\degree$. Also, from the multiplication table, we can see $\mu_3 = \mu_1\rho_2$ and $\mu_2 = \mu_1\rho_2^2$. Hence we can write each element in the group using $\mu_1$ and $\rho_2$. Renaming them as $a$ and $b$, we get the group as, 
+$$G=\{e,a,b,b^2,ab,ab^2\}$$
+What is the use for this alternate renaming? Well, now we can say the $G$ is generated by two generators $a$ and $b$ with the following relations, $a^2=b^3=e$ and $ab = b^2$. From the second relation, we can obtain $b = ab^2 a$ and $ba = ab^2a^2=ab^2$, which we will use below.\\[0.2cm]
+Now, consider the subgroup $H= \{e,a\} \subseteq G$. Then $\mathcolor{red}{aH = \{e,a\}},bH = \{b,ba\},\mathcolor{red}{b^2H = \{b^2,b^2a=ab\}},(ab)H = \{ab,aba=b^2a^2=b^2\}=b^2H,\mathcolor{red}{(ab^2)H = \{ab^2,ab^2a=b\}}$. The red coloured ones are the distinct cosets and we can write, 
+$$G = aH \cup b^2H\cup (ab^2)H $$
 \subsection{Homomorphism}
 \begin{definition}
     Let $(G,*)$ and $(H,\cdot)$ be two groups. Then, a map $f: G\rightarrow H$ is called a \textit{group homomorphism} if $f(a*b) = f(a)\cdot f(b) \ \forall \ a,b\in G$
