@@ -71,9 +71,10 @@ $$\boxed{\SZ(N,V,T) = \frac{e^{\beta aN^2/V}}{N! \lambda\tund{T}^{3N}}\qty[V-\fr
 The free energy can be obtained from the partition function using $F = -\kb T \ln \SZ$,
 $$F = -\cancel{\kb T} \cancel{\beta} \frac{a N^2}{V}-N\kb T \ln\qty[V-\frac{N\omega}{2}]+c(N,T)$$
 and from here, we can find the pressure $P = - \qty(\pdv{F}{V})_{N,T}$ 
-\begin{align*}
+\begin{align}
+    \label{eqn:vander}
     P &=-\frac{aN^2}{V^2} +\frac{N\kb T}{\qty(V-\frac{N\omega}{2})} \implies \boxed{\qty(P+\frac{aN^2}{V^2})\qty(V-Nb) = N\kb T}
-\end{align*}
+\end{align}
 This is the Van der Waal's equation, where we have defined $b = \sfrac{\omega}{2}$. This can be written in an alternate form using the number of moles, $\mathfrak{n} = \sfrac{N}{N\tund{A}}$ where $N\tund{A}$ is the Avogadro's number:
 $$\qty(P+\frac{a'\mathfrak{n}^2}{V^2})\qty(V-\mathfrak{n}b') = \mathfrak{n}RT\iff \qty(P+\frac{a'}{v_m^2})\qty(v_m-b') = RT$$
 where $a' = N\tund{A}^2 a$ and $b' = b N\tund{A}$ and $v_m$ is the molar volume. 

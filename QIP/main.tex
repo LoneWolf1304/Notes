@@ -34,6 +34,7 @@
 \usepackage{Style_File}
 \newcommand{\ad}[1]{a_{#1}^\dagger}
 \usepackage{fancyhdr}
+\usepackage{quantikz}
 \newcommand{\pdx}{\vb{p}\cdot \vb{x}}
 \newcommand{\creap}{{\hat{a}_{\vb{p}}}^{s\dagger}}
 \newcommand{\annap}{{\hat{a}_{\vb{p}}}^{s}}
@@ -149,7 +150,7 @@ a4paper]{geometry}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{colorlinks=true,linkcolor=cyan!80!black, citecolor=YellowOrange,urlcolor=cyan!80!black}
 \fancyhead[L]{ PH4202}
-\fancyhead[C]{ Adv. Stat Phys}
+\fancyhead[C]{ Quantum Info.}
 \fancyfoot[C]{\thepage}
 \fancyfoot[R,L]{}
 \usetikzlibrary{calc}
@@ -182,8 +183,8 @@ a4paper]{geometry}
         \begin{center}
             {\rmfamily
                 \Huge{\textcolor{blue!30!black}{%
-                    \textmd{{\HUGE{{A}}}}dvanced {\HUGE S}tatistical \\
-                     {\HUGE P}hysics%
+                    \textmd{{\HUGE{{Q}}}}uantum {\HUGE I}nformation \\
+                     {\HUGE P}rocessing
                 }}\\[0.7cm]
                 
                 % \LARGE \textcolor{black!50!cyan}{%
@@ -191,7 +192,7 @@ a4paper]{geometry}
                 % }\\[1.0cm]
                 
                 \Large \textsc{Lecture Notes} \\[0.3cm]
-               \Large \textit{Instructor: Prof. Bhavtosh Bansal }\\[1cm]
+               \Large \textit{Instructor: Prof. Chiranjib Mitra}\\[1cm]
 
 %                  $\begin{pmatrix}
 % 0 & 1 &  &  & \\
@@ -205,7 +206,13 @@ a4paper]{geometry}
        
         \begin{figure}[H]
             \centering
-           \includegraphics[scale=0.5]{pics/ising.pdf}
+            \begin{tikzpicture}
+\node[scale=2]{
+            \begin{quantikz}
+     & \gate[style={fill=cyan!20,rounded
+corners}, label style= black]{H} & \ctrl{1}&\\  && \targ[style={fill=cyan!20}, label style= black]{}
+    &
+    \end{quantikz}};\end{tikzpicture}
         \end{figure}
         \vspace{1cm}
         \begin{center}
@@ -227,10 +234,10 @@ a4paper]{geometry}
        
 \tableofcontents
 \newpage
+\input{lectures/lec00.tex}
 \input{lectures/lec01.tex}
 \input{lectures/lec02.tex}
 \input{lectures/lec03.tex}
 \input{lectures/lec04.tex}
 \input{lectures/lec05.tex}
-\input{lectures/appendix.tex}
 \end{document}
