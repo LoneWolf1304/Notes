@@ -369,3 +369,36 @@
 ]{lem}
 
 \declaretheorem[style=lem, name=Lemma]{lemma}
+
+
+
+
+
+\mdfdefinestyle{defboxa}{
+    backgroundcolor=black!20!white,
+    nobreak=true,
+    innertopmargin=7pt,
+    innerleftmargin=7pt,
+    innerrightmargin=7pt,
+    linecolor=blue,
+    linewidth=3pt,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    leftline=true
+}
+
+\declaretheoremstyle[
+    mdframed={style=defboxa},
+    spaceabove={0pt},
+    spacebelow={2pt},
+    bodyfont={\normalfont},
+    headindent={0pt},
+    notefont={\sffamily\bfseries},
+    headfont={\color{black}\sffamily\bfseries},
+    headpunct={:\\},
+    postheadspace={0.5pt},
+    notebraces={(}{)},
+]{defa}
+
+\declaretheorem[style=defa, name=Algorithm]{algorithm}

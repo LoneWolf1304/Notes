@@ -1,0 +1,123 @@
+%% Creator: Inkscape 1.4.2 (ebf0e940d0, 2025-05-08), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'moore_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{553.1164856bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.87946195)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{moore_svg-tex.pdf}}%
+    \put(0.3704728,0.53860018){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}curve shows transistor\\count doubling every\\two years\end{tabular}}}}%
+    \put(0.11900636,0.14552412){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}2,300\end{tabular}}}}%
+    \put(0.1076922,0.20975934){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}10,000\end{tabular}}}}%
+    \put(0.09747296,0.31012701){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}100,000\end{tabular}}}}%
+    \put(0.08104916,0.4104946){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}1,000,000\end{tabular}}}}%
+    \put(0.06973499,0.51013224){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}10,000,000\end{tabular}}}}%
+    \put(0.05805586,0.61013486){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}100,000,000\end{tabular}}}}%
+    \put(0.04126709,0.71013747){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}1,000,000,000\end{tabular}}}}%
+    \put(0.04090213,0.75174441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}2,600,000,000\end{tabular}}}}%
+    \put(0.02995294,0.34881413){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.03323769,0.3491791){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.03798234,0.53422048){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.21754909,0.06559506){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}1971\end{tabular}}}}%
+    \put(0.35295407,0.06741993){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}1980\end{tabular}}}}%
+    \put(0.50441794,0.06814988){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
+    \put(0.65624678,0.06814988){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}2000\end{tabular}}}}%
+    \put(0.82267446,0.06960978){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}2011\end{tabular}}}}%
+    \put(0.41025492,0.00026483){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Date of introduction\end{tabular}}}}%
+    \put(0.2065999,0.14807895){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}4004\end{tabular}}}}%
+    \put(0.22170857,0.16688088){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}8008\end{tabular}}}}%
+    \put(0.2399572,0.19242889){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}8080\end{tabular}}}}%
+    \put(0.25711093,0.14498245){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}RCA 1802\end{tabular}}}}%
+    \put(0.27097991,0.22235669){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}8085\end{tabular}}}}%
+    \put(0.36769783,0.25885404){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}8088\end{tabular}}}}%
+    \put(0.32061626,0.1935239){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Z80\end{tabular}}}}%
+    \put(0.30674729,0.16761075){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}MOS 6502\end{tabular}}}}%
+    \put(0.35127403,0.20775777){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}6809\end{tabular}}}}%
+    \put(0.31295182,0.25848907){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}8086\end{tabular}}}}%
+    \put(0.41112962,0.286957){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}80186\end{tabular}}}}%
+    \put(0.2713449,0.21104263){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}6800\end{tabular}}}}%
+    \put(0.32207616,0.29571633){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}68000\end{tabular}}}}%
+    \put(0.36587295,0.32527915){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}80286\end{tabular}}}}%
+    \put(0.41222455,0.35630187){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}80386\end{tabular}}}}%
+    \put(0.47317499,0.4194422){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}80486\end{tabular}}}}%
+    \put(0.57865223,0.46214405){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Pentium\end{tabular}}}}%
+    \put(0.62463885,0.476378){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}AMD K5\end{tabular}}}}%
+    \put(0.6388728,0.50010122){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Pentium II\end{tabular}}}}%
+    \put(0.66916557,0.51068545){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Pentium III\end{tabular}}}}%
+    \put(0.65055192,0.52455447){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}AMD K6\end{tabular}}}}%
+    \put(0.66916557,0.54462798){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}AMD K6-III\end{tabular}}}}%
+    \put(0.66916557,0.55411725){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}AMD K7\end{tabular}}}}%
+    \put(0.61989418,0.57528571){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Pentium 4\end{tabular}}}}%
+    \put(0.72975112,0.58659985){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Barton\end{tabular}}}}%
+    \put(0.80639541,0.58076031){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Atom\end{tabular}}}}%
+    \put(0.72938614,0.61579772){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}AMD K8\end{tabular}}}}%
+    \put(0.66989552,0.64755038){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Itanium 2\end{tabular}}}}%
+    \put(0.77537277,0.65047016){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Cell\end{tabular}}}}%
+    \put(0.77537268,0.65995945){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Core 2 Duo\end{tabular}}}}%
+    \put(0.72829114,0.679668){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}AMD K10\end{tabular}}}}%
+    \put(0.59799575,0.69098217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Itanium 2 with 9MB cache\end{tabular}}}}%
+    \put(0.72756127,0.70266129){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}POWER6\end{tabular}}}}%
+    \put(0.81807461,0.67930303){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Core i7 (Quad)\end{tabular}}}}%
+    \put(0.8319435,0.69098217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Six-Core Opteron 2400\end{tabular}}}}%
+    \put(0.85457188,0.70448615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}8-Core Xeon Nehalem-EX\end{tabular}}}}%
+    \put(0.85347696,0.71507039){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Quad-Core Itanium Tukwila\end{tabular}}}}%
+    \put(0.85347696,0.72528963){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Quad-core z196\end{tabular}}}}%
+    \put(0.85457188,0.7351439){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}8-core POWER7\end{tabular}}}}%
+    \put(0.84946223,0.75521743){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}10-Core Xeon Westmere-EX\end{tabular}}}}%
+    \put(0.78048234,0.79645938){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}16-Core SPARC T3\end{tabular}}}}%
+    \put(0.70967757,0.77456101){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Six-Core Core i7\end{tabular}}}}%
+    \put(0.67719503,0.75740726){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Six-Core Xeon 7400\end{tabular}}}}%
+    \put(0.6582164,0.73587385){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Dual-Core Itanium 2\end{tabular}}}}%
+    \put(0.73267084,0.71799019){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}AMD K10\end{tabular}}}}%
+    \put(0.07849435,0.85612671){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Microprocessor transistor counts 1971-2011 \& Moore's law\end{tabular}}}}%
+    \put(0.01965073,0.33947656){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Transistor count\end{tabular}}}}}%
+  \end{picture}%
+\endgroup%
