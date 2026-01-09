@@ -6,7 +6,7 @@ $$H(x,p) = L - p\dot{x}$$
 We will use this for thermodynamic quantities also. From the first law, we know that,
 $$U = T\dd S-P\dd V + \mu \dd N$$
 As clearly seen, the conjugate variable pairs are $(S,T)$, $(V,-P)$, $(N,\mu)$. The internal energy $U(S,V,N)$ is a function of $S,V,N$ from the statement of the first law. However, in any experiment, keeping these as control parameters are way too hard. Think about this, controlling entropy of a system is an arduous task but controlling its conjugate variable, $T$, is easy-peasy.\\[0.2cm]
-We get three different `potentials' by just Legendre transformation (which is basically multiplying the conjugate variables together) of the internal energy, switching between the different conjugate variables. 
+We get four different `potentials' by just Legendre transformation (which is basically multiplying the conjugate variables together) of the internal energy, switching between the different conjugate variables. 
 \begin{itemize}
     \item \textbf{Helmholtz Free Energy}: switching $S\leftrightarrow T$
     $$F(T,V,N) = U - \mathcolor{blue}{TS} \implies \dd F= -S\dd T -P\dd V + \mu \dd N$$
@@ -14,5 +14,7 @@ We get three different `potentials' by just Legendre transformation (which is ba
     $$H(S,P,N) = U + \mathcolor{red}{PV}\implies \dd H= T\dd S+V\dd P + \mu \dd N$$
      \item \textbf{Gibb's Free Energy}: switching both $S\leftrightarrow T$ and $V\leftrightarrow -P$
     $$G(T,P,N) = U - \mathcolor{blue}{TS}+ \mathcolor{red}{PV}\implies \dd G= -S\dd T+V\dd P + \mu \dd N$$
+    \item \textbf{Grand Potential}: switching both $S\leftrightarrow T$ and $N\leftrightarrow \mu$
+    $$\Phi(T,V,\mu) = U - \mathcolor{blue}{TS}- \mathcolor{OliveGreen}{\mu N}\implies \dd \Phi= -S\dd T-P\dd V - N \dd \mu$$
 \end{itemize}
 \end{appendices}

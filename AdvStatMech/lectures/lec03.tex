@@ -1,0 +1,27 @@
+\refstepcounter{section}
+\section*{Lecture 3: First Order Phase Transition}
+\addcontentsline{toc}{section}{Lecture 3: First Order Phase Transition}
+Let us now see some qualitative aspect of phase transition. Each phase transition can be viewed as a result of the failure of the stability criteria. We will see some characteristic aspects of first order phase transition\footnote{In modern language, these are called \textit{abrupt phase transition}}. However, let us first note some geometric interpretation of the thermodynamic potentials.\\[0.2cm]
+We will consider the relation $G=F+PV$ which can be obtained from the Legendre transform of the internal energy. 
+\begin{figure}[H]
+    \centering 
+    \input{pics/lec3_1.tex}
+    \caption{\textbf{Relation between $\mathbf{G}$ and $\mathbf{F}$.} (a) Variation of Gibbs potential with pressure at a temperature $T>T_c$ (b) Corresponding plot of Helmholtz potential with $V$ (c) and (d) denotes the P-V diagrams constructed from these potentials}
+    \label{fig:lec31}
+\end{figure}
+\noindent
+In the above figure, observe the plot of $G$ vs. $P$, which is smooth. We draw the tangent line at a $P=P_0$ and this intercepts the y-axis somewhere. The equation of the tangent is $G= PV+c$ as $V = \qty(\pdv{G}{P})_{T,N}$ and it passes through the point $(P_0, G_0)$. Thus we have,
+$$G_0 = P_0 V_0 + c \implies c = G_0-P_0V_0$$
+The tangent has an intercept of $G_0-P_0V_0$ and so the remaining length as shown by the arrow in is Fig.\ref{fig:lec31} (a) is $G_0-(G_0-P_0V_0) = P_0V_0$. From the length of the intercept of the tangent, we can obtain the Helmholtz potential for this value of $P_0$. We also obtain the volume from the slope of the tangent. The corresponding $F$ vs. $V$ graph has been plotted using these values. Also, plotted are the $V$ vs. $P$ graph (using the slope of the tangent of the Gibbs potential) and the $P$ vs. $V$ graph (using the slope of the tangent of the Helmholtz potential ). This is the case for $T>T_c$. Now let us see the case when $T<T_c$ and the phase transition has occurred. We will see this with respect to the Van der Waal's equation.
+\begin{figure}[H]
+    \centering
+    \input{pics/lec3_2}
+    \caption{Plot of different quantities for $T<T_c$}
+    \label{fig:lec32}
+\end{figure}
+\noindent
+In this scenario, $G$ will have a `kink' for some pressure $P=P_0$, since for first order phase transition, the derivative of the free energy is discontinuous. At this point, $\qty(\pdv[2]{G}{P}) \to \infty$ (even though this quantity cannot be defined exactly at $P=P_0$) and using Eq.\eqref{eqn:inverseGA}, we get $\qty(\pdv{A}{V})=0$. Thus we expect that the corresponding plot of $A$ has a \textit{straight line} portion, as is shown in Fig.\ref{fig:lec32} (b) with a blue dashed line.\\[0.2cm]
+Let us now see how the plot of $G$ in (a) is actually constructed. For that, we need the isotherm in (c). Let us start at $A$ and then, integrating we have $$G(P)-G(P\tund{A}) = \int\limits_{P\tund{A}}^{P}V\dd P$$ and we do this for all values of $P$. This creates a closed loop kind of plot, since for a single $P$, we have three values of $V$. Note that, this disappears for higher temperature since then, Van der Waal's equation consists of only one real and two complex roots. \\[0.2cm]
+What happens physically? Let us suppose our system is in a temperature bath and the temperature is fixed. So, consider the isotherm in (c) and start increasing pressure from $P_A$. The system will follow this isotherm. At $P_A$, there is a unique volume and thus a unique state of the system. Now, if we increase further, for each pressure, we will get multiple values of volume, so there are different states to choose from.\\[0.2cm] Consider the blue points (all having same $P$ but different $V$). Of these, the state $x$ is unstable and hence the system has two states B and B' to choose from. The state chosen is the one with the minimum value of $G$ which is determined from panel (a). As clearly seen, the physical state chosen is B. Increasing pressure further, we get to C where the kink is there.\\[0.2cm] On increasing further, we see that the state chosen is $D'$ since this has lesser value of $G$. The blue and gray dashed lines in (a) denote the branch of $G$ with higher value of $G$ and thus, is not chosen. The green dashed line represent the unstable region where the states, say $x,y$ or $z$ lies. We see that in (c), no state from the dashed region is selected and hence after $C$, there is a volume jump, denoted by $\Delta V$. The physical isotherm is thus the one created from the Maxwell equal area construction (as discussed before). \\[0.2cm]
+The points C and C' are determined by the condition that $G(P_c) = G(P_{c'})$ and hence, $\int\limits_{P_c}^{P_{c'}}V\dd P = 0$, which proves that the areas divided by the line segment are indeed equal.\\[0.5cm]
+There are higher order transitions also.

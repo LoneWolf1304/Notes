@@ -4,6 +4,7 @@
 \contentsline {section}{Lecture 2: Stability of Thermodynamic Systems}{6}{section*.5}%
 \contentsline {subsection}{\numberline {2.1}Stability Relations for Potentials}{7}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Stability Analysis of Van der waal's solutions}{8}{subsection.2.2}%
-\contentsline {section}{Appendices}{9}{section*.10}%
-\contentsline {section}{\numberline {A}Legendre Transformation}{9}{appendix.1.A}%
+\contentsline {section}{Lecture 3: First Order Phase Transition}{9}{section*.10}%
+\contentsline {section}{Appendices}{11}{section*.13}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{11}{appendix.1.A}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
