@@ -1,4 +1,13 @@
 \begin{appendices}
+    From the first law we have the energy conservation equation,
+$$\dd U = T\dd S - P\dd V + \mu \dd N$$
+and thus the internal energy is a function of $S,V$ and $N$. We know that the internal energy is a homogenous function of degree $1$, on physical grounds, since if we scale the system variables by $\lambda$, $U$ is also appropriately scaled (extensitivity)
+$$U(\lambda S,\lambda V,\lambda N) = \lambda U(S,V,N)$$
+Now, from Euler's theorem of homogenous functions, we know that any homogenous function $f$ of degree $k$ can be written as,
+$$kf(x_1,x_2\ldots x_n) = \sum\limits_{i=1}^n x_i \pdv{f}{x_i}$$
+Using this theorem for $U$, we have 
+$$U = S \pdv{U}{S}+V \pdv{U}{V}+N \pdv{U}{N}$$
+Substituting the values from the first law, we obtain $U = TS -PV+\mu N$
 \section{Legendre Transformation}
 \label{appendix:legendre}
 From classical mechanics, we know that the Legendre transformation is used to convert Lagrangian $L(x,\dot{x})$ to the Hamiltonian $H(x,p)$ and vice versa. Note how we switch $\dot{x}$ in $L$ for $p$ in $H$. We will call the variable that we want to switch to as the `conjugate' of the variable we are switching. The Legendre transformation gives us, 
@@ -15,6 +24,8 @@ We get four different `potentials' by just Legendre transformation (which is bas
      \item \textbf{Gibb's Free Energy}: switching both $S\leftrightarrow T$ and $V\leftrightarrow -P$
     $$G(T,P,N) = U - \mathcolor{blue}{TS}+ \mathcolor{red}{PV}\implies \dd G= -S\dd T+V\dd P + \mu \dd N$$
     \item \textbf{Grand Potential}: switching both $S\leftrightarrow T$ and $N\leftrightarrow \mu$
-    $$\Phi(T,V,\mu) = U - \mathcolor{blue}{TS}- \mathcolor{OliveGreen}{\mu N}\implies \dd \Phi= -S\dd T-P\dd V - N \dd \mu$$
+    $$\Phi(T,V,\mu) = U - \mathcolor{blue}{TS}- \mathcolor{OliveGreen}{\mu N} = -PV\implies \dd \Phi= -S\dd T-P\dd V - N \dd \mu$$
 \end{itemize}
 \end{appendices}
+
+

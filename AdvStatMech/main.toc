@@ -5,6 +5,8 @@
 \contentsline {subsection}{\numberline {2.1}Stability Relations for Potentials}{7}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Stability Analysis of Van der waal's solutions}{8}{subsection.2.2}%
 \contentsline {section}{Lecture 3: First Order Phase Transition}{9}{section*.10}%
-\contentsline {section}{Appendices}{12}{section*.15}%
-\contentsline {section}{\numberline {A}Legendre Transformation}{12}{appendix.1.A}%
+\contentsline {subsection}{\numberline {3.1}Geometric Interpretation of Potentials}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Grand canonical basis of phase coexistence}{12}{subsection.3.2}%
+\contentsline {section}{Appendices}{14}{section*.16}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{14}{appendix.1.A}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

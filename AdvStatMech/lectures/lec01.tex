@@ -67,7 +67,9 @@ Now, the integral is simply not equal to $V^N$, since we have assumed a hard-sph
 where we have made the product over $\approx N/2$ pairs. Now, assume $N\omega \ll V$ from which we can use the approximation $(1+x)^n \approx 1+nx$ to get,
 $$\qty[V\qty(1-\frac{N\omega}{V})^{1/2}]^N \approx \qty[V\qty(1-\frac{N\omega}{2V})]^N = \qty[V-\frac{N\omega}{2}]^N$$
 We see that the available volume is reduced by a factor of $N\omega/2$. This was the final step and we can now write the partition function,
-$$\boxed{\SZ(N,V,T) = \frac{e^{\beta aN^2/V}}{N! \lambda\tund{T}^{3N}}\qty[V-\frac{N\omega}{2}]^N }$$
+\begin{equation}\label{eqn:partition}
+    \boxed{\SZ(N,V,T) = \frac{e^{\beta aN^2/V}}{N! \lambda\tund{T}^{3N}}\qty[V-\frac{N\omega}{2}]^N }
+\end{equation}
 The free energy can be obtained from the partition function using $F = -\kb T \ln \SZ$,
 $$F = -\cancel{\kb T} \cancel{\beta} \frac{a N^2}{V}-N\kb T \ln\qty[V-\frac{N\omega}{2}]+c(N,T)$$
 and from here, we can find the pressure $P = - \qty(\pdv{F}{V})_{N,T}$ 

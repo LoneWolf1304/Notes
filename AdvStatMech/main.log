@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.11.18)  9 JAN 2026 23:24
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.11.18)  10 JAN 2026 16:20
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2290,7 +2290,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2] (./lectures/lec01.tex
-<pics/interactions.pdf, id=85, 845.66841pt x 358.25946pt>
+<pics/interactions.pdf, id=89, 845.66841pt x 358.25946pt>
 File: pics/interactions.pdf Graphic file (type pdf)
 <use pics/interactions.pdf>
 Package luatex.def Info: pics/interactions.pdf  used on input line 14.
@@ -2343,7 +2343,7 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 
 [4]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 78.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 80.
 
  (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
@@ -2366,7 +2366,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  (./pics/lec3_1.tex) (./pics/lec3_2.tex)
 
 [9] (./pics/lec3_3.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 24--31
+Underfull \hbox (badness 10000) in paragraph at lines 25--32
 
  []
 
@@ -2374,11 +2374,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--31
 
 [10] (./pics/lec3_4.tex)
 
-[11]) (./lectures/lec04.tex) (./lectures/lec05.tex) (./lectures/appendix.tex
+[11]
 
-[12])
+[12] (./pics/kardarlec3.tex)) (./lectures/lec04.tex) (./lectures/lec05.tex)
+(./lectures/appendix.tex
 
-[13] (./main.aux)
+[13])
+
+[14]
+
+[15] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2393,20 +2398,20 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 70654 strings out of 475506
+ 70684 strings out of 475506
  100000,2848258 words of node,token memory allocated
- 4491 words of node memory still in use:
-   141 hlist, 14 vlist, 25 rule, 12 math, 50 glue, 67 kern, 88 glyph, 164 attrib
-ute, 118 glue_spec, 164 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
+ 4188 words of node memory still in use:
+   124 hlist, 12 vlist, 23 rule, 10 math, 47 glue, 57 kern, 77 glyph, 176 attrib
+ute, 118 glue_spec, 176 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
 ck nodes
-   avail lists: 1:1,2:4129,3:2023,4:108,5:683,6:41,7:7058,8:88,9:1249,10:16,11:4
+   avail lists: 1:1,2:4138,3:2029,4:124,5:706,6:47,7:6979,8:94,9:1287,10:16,11:4
 05
- 91827 multiletter control sequences out of 65536+600000
+ 91842 multiletter control sequences out of 65536+600000
  320 fonts using 23632951 bytes
- 108i,22n,141p,10919b,1194s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,22n,141p,10919b,1054s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/font
-s/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
-}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/font
+s/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/u
+sr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/font
 s/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex
 .enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texmf-dist/
@@ -2421,18 +2426,18 @@ type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
 onts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr1
 7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf-di
 st/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-
-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/
-lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/share
-/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type
-1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></
-usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/font
-s/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/yhmath/yh
-cmex.pfb>
-Output written on main.pdf (13 pages, 530920 bytes).
+mr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-
+dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm
+/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/
+texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts
+/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.p
+fb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
+Output written on main.pdf (15 pages, 561641 bytes).
 
-PDF statistics: 353 PDF objects out of 1000 (max. 8388607)
- 267 compressed objects within 3 object streams
- 43 named destinations out of 1000 (max. 131072)
- 333 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 384 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 131072)
+ 349 words of extra memory for PDF output out of 10000 (max. 100000000)
 
