@@ -1,3 +1,4 @@
-\contentsline {section}{Lecture 0: Introduction}{3}{section*.3}%
+\contentsline {section}{Lecture 00: Introduction}{3}{section*.3}%
 \contentsline {section}{Lecture 01: Historical Development}{3}{section*.4}%
+\contentsline {section}{Lecture 02: Qubits}{5}{section*.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

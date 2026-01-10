@@ -1,0 +1,26 @@
+\refstepcounter{section}
+\section*{Lecture 02: Qubits}
+\addcontentsline{toc}{section}{Lecture 02: Qubits}
+Classical computers uses classical bits $0$ and $1$ which represents the different modes of a transistor. However, for quantum computers, the fundamental unit of computation needs to be modified. We thus use \textit{quantum bits} or \textit{qubits} as the basis of quantum computation.\\[0.2cm] Suppose we have a two dimensional Hilbert space $\SH$, spanned by the vectors $\{\ket{0}, \ket{1}\}$, which are the eigenstates of $\sigma_z$. Any arbitrary state in the Hilbert space can be written as a superposition of these vectors,
+$$\ket{\psi} = \alpha \ket{0} + \beta\ket{1}\qquad\qquad \alpha,\beta\in \ce, \abs{\alpha}^2+\abs{\beta}^2=1$$
+where the last condition used for normalisation of the vector. The states $\ket{0}$ and $\ket{1}$ are orthonormal, that is, $\braket{0|0} = \braket{1|1}=1$ and $\braket{0|1}=0$. In the computational (standard) basis, 
+$$\ket{0} = \mqty(1\\0) \quad \ket{1} = \mqty(0\\1)\quad\implies\quad \ket{\psi} = \mqty(\alpha\\\beta)\quad \bra{\psi} = \mqty(\alpha^* & \beta^*) $$
+Qubits are thus two level systems which are used for computation. These can be visualised as the ground and first excited state of an atom. Different systems are being used as qubits to harness the power of quantum computation, such as:
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Electron spins $\ket{\uparrow}$ and $\ket{\downarrow}$
+        \item Nuclear spin
+        \item Two-level atomic systems
+        \item Cooper pair in a box (superconducting)
+        \item Ion-trapped qubits
+        \item Cavity QED
+        \item Quantum dots
+        \item Dopants in silicon
+        \item NV centres in diamond 
+        \item Photon polarisation
+    \end{itemize}
+    \end{multicols}
+    \noindent
+    These different systems have their own pros and cons based on \textit{scalability}, \textit{decoherence}, etc. Computations cannot be done by a single qubit, hence we need to introduce systems with more than two qubits. Let us consider two qubits, which is equivalent to combining two spin-half systems.\\[0.2cm]
+    The direct product states are just $\ket{\ups \ups}, \ket{\ups \dns},\ket{\dns \ups}$ and $\ket{\dns \dns}$. Let us consider the direct sum states too. From addition of angular momentum, we know that the total spin operator is given by $\vb{S}= \vb{S}_1+\vb{S}_2$ where $\vb{S}_1$ and $\vb{S}_2$ are the spin operators of the individual spins. We now want to find the states of the type $\ket{S,S_z}$. Note that, $s_1=s_2=\frac{1}{2}$ and hence $S=s_1+s_2, s_1+s_2-1\ldots \abs{s_1-s_2} \implies S= 0,1$.\\[0.2cm]
+    If $S=0$ then we have $\ket{0,0} = \frac{1}{\sqrt{2}}\qty(\ket{\ups\dns} - \ket{\dns\ups})$ which is the singlet state. If $S=1$, then we have the three triplet states $\ket{11} = \ket{\ups\ups}, \ket{10} = \frac{1}{\sqrt{2}}\qty(\ket{\ups\dns} + \ket{\dns\ups}), \ket{1,-1} = \ket{\dns\dns}$
