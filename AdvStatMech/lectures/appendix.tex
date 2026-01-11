@@ -10,12 +10,12 @@ $$U = S \pdv{U}{S}+V \pdv{U}{V}+N \pdv{U}{N}$$
 Substituting the values from the first law, we obtain $U = TS -PV+\mu N$
 \section{Legendre Transformation}
 \label{appendix:legendre}
-From classical mechanics, we know that the Legendre transformation is used to convert Lagrangian $L(x,\dot{x})$ to the Hamiltonian $H(x,p)$ and vice versa. Note how we switch $\dot{x}$ in $L$ for $p$ in $H$. We will call the variable that we want to switch to as the `conjugate' of the variable we are switching. The Legendre transformation gives us, 
-$$H(x,p) = L - p\dot{x}$$
-We will use this for thermodynamic quantities also. From the first law, we know that,
+From classical mechanics, we know that the Legendre transformation is used to convert Lagrangian $L(x,\dot{x})$ to the Hamiltonian $H(x,p)$ and vice versa. Note how we switch $\dot{x}$ in $L$ for $p$ in $H$. We will call the variable that we want to switch to as the `conjugate' of the variable we are switching. The Legendre transformation of the Lagrangian gives us the Hamiltonian, 
+$$H(x,p) = p\dot{x}-L$$
+A function $f(x)$ with the Legendre transform $f^*(p)$ satsifies $f(x)+f^*(p) = xp$. We will use this for thermodynamic quantities also, however we will use an alternate definition using minus sign, $f(x)-f^*(p) = xp$. From the first law, we know that,
 $$U = T\dd S-P\dd V + \mu \dd N$$
-As clearly seen, the conjugate variable pairs are $(S,T)$, $(V,-P)$, $(N,\mu)$. The internal energy $U(S,V,N)$ is a function of $S,V,N$ from the statement of the first law. However, in any experiment, keeping these as control parameters are way too hard. Think about this, controlling entropy of a system is an arduous task but controlling its conjugate variable, $T$, is easy-peasy.\\[0.2cm]
-We get four different `potentials' by just Legendre transformation (which is basically multiplying the conjugate variables together) of the internal energy, switching between the different conjugate variables. 
+As clearly seen, the conjugate variable pairs are $(S,T)$, $(V,-P)$, $(N,\mu)$. We will consider the starting point as the internal energy $U(S,V,N)$ which is a function of $S,V,N$ from the statement of the first law. However, in any experiment, keeping these as control parameters are way too hard. Think about this, controlling entropy of a system is an arduous task but controlling its conjugate variable, $T$, is easy-peasy.\\[0.2cm]
+We get four different `potentials' by just Legendre transformation (which is basically multiplying the conjugate variables together and subtracting from the function) of the internal energy, switching between the different conjugate variables. 
 \begin{itemize}
     \item \textbf{Helmholtz Free Energy}: switching $S\leftrightarrow T$
     $$F(T,V,N) = U - \mathcolor{blue}{TS} \implies \dd F= -S\dd T -P\dd V + \mu \dd N$$

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.11.18)  10 JAN 2026 16:20
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.11.18)  11 JAN 2026 20:52
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2379,9 +2379,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--32
 [12] (./pics/kardarlec3.tex)) (./lectures/lec04.tex) (./lectures/lec05.tex)
 (./lectures/appendix.tex
 
-[13])
+[13]
 
-[14]
+[14])
 
 [15] (./main.aux)
  ***********
@@ -2408,7 +2408,7 @@ ck nodes
 05
  91842 multiletter control sequences out of 65536+600000
  320 fonts using 23632951 bytes
- 108i,22n,141p,10919b,1054s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,22n,141p,10919b,1196s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/font
 s/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/u
 sr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/font
@@ -2434,7 +2434,7 @@ blic/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
 sr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts
 /type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.p
 fb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (15 pages, 561641 bytes).
+Output written on main.pdf (15 pages, 562146 bytes).
 
 PDF statistics: 384 PDF objects out of 1000 (max. 8388607)
  295 compressed objects within 3 object streams
