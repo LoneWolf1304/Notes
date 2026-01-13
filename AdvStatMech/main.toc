@@ -7,6 +7,8 @@
 \contentsline {section}{Lecture 3: First Order Phase Transition}{9}{section*.10}%
 \contentsline {subsection}{\numberline {3.1}Geometric Interpretation of Potentials}{9}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Grand canonical basis of phase coexistence}{12}{subsection.3.2}%
-\contentsline {section}{Appendices}{14}{section*.16}%
-\contentsline {section}{\numberline {A}Legendre Transformation}{14}{appendix.1.A}%
+\contentsline {section}{Lecture 04: Yang-Lee Theory for Phase Transition}{14}{section*.16}%
+\contentsline {subsection}{\numberline {4.1}Singularities and Phase Transition}{14}{subsection.4.1}%
+\contentsline {section}{Appendices}{15}{section*.19}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{16}{appendix.1.A}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

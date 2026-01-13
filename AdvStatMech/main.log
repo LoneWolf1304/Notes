@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2025.11.18)  11 JAN 2026 20:52
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  13 JAN 2026 19:38
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2000,8 +2000,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip166
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 150.
+Package hyperref Info: Option `colorlinks' set `true' on input line 149.
 
+(/usr/share/texmf-dist/tex/latex/doi/doi.sty
+Package: doi 2018/09/09 handle doi numbers
+)
 (/usr/share/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \LTleft=\skip167
@@ -2290,7 +2293,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2] (./lectures/lec01.tex
-<pics/interactions.pdf, id=89, 845.66841pt x 358.25946pt>
+<pics/interactions.pdf, id=93, 845.66841pt x 358.25946pt>
 File: pics/interactions.pdf Graphic file (type pdf)
 <use pics/interactions.pdf>
 Package luatex.def Info: pics/interactions.pdf  used on input line 14.
@@ -2376,14 +2379,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--32
 
 [11]
 
-[12] (./pics/kardarlec3.tex)) (./lectures/lec04.tex) (./lectures/lec05.tex)
-(./lectures/appendix.tex
+[12] (./pics/kardarlec3.tex)) (./lectures/lec04.tex
 
 [13]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 20.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
+t line 20.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 25.
 
-[14])
 
-[15] (./main.aux)
+[14] (./pics/lec41.tex) (./pics/lec42.tex)) (./lectures/lec05.tex)
+(./lectures/appendix.tex
+
+[15]) (./main.bbl)
+
+[16] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2398,20 +2412,20 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 70684 strings out of 475506
+ 70888 strings out of 475506
  100000,2848258 words of node,token memory allocated
- 4188 words of node memory still in use:
-   124 hlist, 12 vlist, 23 rule, 10 math, 47 glue, 57 kern, 77 glyph, 176 attrib
-ute, 118 glue_spec, 176 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorsta
-ck nodes
-   avail lists: 1:1,2:4138,3:2029,4:124,5:706,6:47,7:6979,8:94,9:1287,10:16,11:4
-05
- 91842 multiletter control sequences out of 65536+600000
+ 5116 words of node memory still in use:
+   135 hlist, 20 vlist, 26 rule, 12 math, 84 glue, 103 kern, 111 glyph, 172 attr
+ibute, 119 glue_spec, 172 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colors
+tack nodes
+   avail lists: 1:1,2:4146,3:2132,4:144,5:675,6:53,7:6906,8:95,9:1306,10:16,11:4
+18
+ 92009 multiletter control sequences out of 65536+600000
  320 fonts using 23632951 bytes
- 108i,22n,141p,10919b,1196s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/font
-s/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/u
-sr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/font
+ 108i,22n,141p,10919b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/f
+onts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/font
 s/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex
 .enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texmf-dist/
@@ -2421,23 +2435,24 @@ public/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 exmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr
 /share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/
-type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
-></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/f
-onts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr1
-7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf-di
-st/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-
-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm
-/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/
-texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
-sr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts
-/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.p
-fb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (15 pages, 562146 bytes).
+type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
+></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/f
+onts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr1
+0.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-d
+ist/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/
+lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/l
+m/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/lm/lmri9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></us
+r/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts
+/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pf
+b></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist
+/fonts/type1/public/yhmath/yhcmex.pfb>
+Output written on main.pdf (16 pages, 589287 bytes).
 
-PDF statistics: 384 PDF objects out of 1000 (max. 8388607)
- 295 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 131072)
- 349 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 429 PDF objects out of 1000 (max. 8388607)
+ 337 compressed objects within 4 object streams
+ 67 named destinations out of 1000 (max. 131072)
+ 365 words of extra memory for PDF output out of 10000 (max. 100000000)
 
