@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  13 JAN 2026 19:38
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  14 JAN 2026 18:41
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2293,7 +2293,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2] (./lectures/lec01.tex
-<pics/interactions.pdf, id=93, 845.66841pt x 358.25946pt>
+<pics/interactions.pdf, id=101, 845.66841pt x 358.25946pt>
 File: pics/interactions.pdf Graphic file (type pdf)
 <use pics/interactions.pdf>
 Package luatex.def Info: pics/interactions.pdf  used on input line 14.
@@ -2361,27 +2361,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
 [6] (./pics/entro_tang.tex)
 
-[7] (./pics/critical_van.tex)) (./lectures/lec03.tex
+[7] (./pics/critical_van.tex)
 
-[8]
+[8]) (./lectures/lec03.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 4.
- (./pics/lec3_1.tex) (./pics/lec3_2.tex)
+ (./pics/lec3_1.tex)
 
-[9] (./pics/lec3_3.tex)
+[9] (./pics/lec3_2.tex)
+
+[10] (./pics/lec3_3.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 25--32
 
  []
 
 
 
-[10] (./pics/lec3_4.tex)
+[11] (./pics/lec3_4.tex)
 
-[11]
+[12]
 
-[12] (./pics/kardarlec3.tex)) (./lectures/lec04.tex
+[13] (./pics/kardarlec3.tex)) (./lectures/lec04.tex
 
-[13]
+[14]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 20.
@@ -2392,12 +2394,41 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 25.
 
 
-[14] (./pics/lec41.tex) (./pics/lec42.tex)) (./lectures/lec05.tex)
-(./lectures/appendix.tex
+[15] (./pics/lec41.tex) (./pics/lec42.tex)) (./lectures/lec05.tex
+(./pics/lec51.tex)
 
-[15]) (./main.bbl)
+[16]
 
-[16] (./main.aux)
+Package caption Warning: \label without proper reference on input line 5.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:isotherms' on page 17 undefined on input line 11.
+
+
+
+
+[17]
+<pics/2026-01-14-132503_hyprshot.png, id=293, 647.41875pt x 531.9875pt>
+File: pics/2026-01-14-132503_hyprshot.png Graphic file (type png)
+<use pics/2026-01-14-132503_hyprshot.png>
+Package luatex.def Info: pics/2026-01-14-132503_hyprshot.png  used on input lin
+e 37.
+(luatex.def)             Requested size: 258.9629pt x 212.79123pt.
+
+
+[18<./pics/2026-01-14-132503_hyprshot.png>]
+
+[19]
+Overfull \hbox (7.2282pt too wide) detected at line 81
+[]
+ []
+
+) (./lectures/appendix.tex
+
+[20]) (./main.bbl)
+
+[21] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2407,22 +2438,25 @@ L3 programming layer <2020/03/25>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 70888 strings out of 475506
+ 70962 strings out of 475506
  100000,2848258 words of node,token memory allocated
- 5116 words of node memory still in use:
-   135 hlist, 20 vlist, 26 rule, 12 math, 84 glue, 103 kern, 111 glyph, 172 attr
-ibute, 119 glue_spec, 172 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colors
-tack nodes
-   avail lists: 1:1,2:4146,3:2132,4:144,5:675,6:53,7:6906,8:95,9:1306,10:16,11:4
-18
- 92009 multiletter control sequences out of 65536+600000
- 320 fonts using 23632951 bytes
- 108i,22n,141p,10919b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 6399 words of node memory still in use:
+   214 hlist, 27 vlist, 39 rule, 18 math, 91 glue, 79 kern, 124 glyph, 253 attri
+bute, 119 glue_spec, 253 attribute_list, 2 write, 24 pdf_literal, 1 pdf_action, 
+24 pdf_colorstack nodes
+   avail lists: 1:6,2:5059,3:2631,4:181,5:700,6:64,7:7086,8:139,9:1548,10:16,11:
+418
+ 92056 multiletter control sequences out of 65536+600000
+ 321 fonts using 23715631 bytes
+ 108i,22n,141p,10919b,1148s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/f
 onts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 }{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/font
@@ -2437,22 +2471,23 @@ lic/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr
 /share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/
 type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
 ></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/f
-onts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr1
-0.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-d
-ist/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/
-lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf
--dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/l
-m/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/t
-exmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/lm/lmri9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></us
-r/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts
-/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pf
-b></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist
-/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (16 pages, 589287 bytes).
+onts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi
+9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm
+/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texm
+f-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/te
+xmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/
+type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pf
+b></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/
+fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/yhmat
+h/yhcmex.pfb>
+Output written on main.pdf (21 pages, 658105 bytes).
 
-PDF statistics: 429 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
- 67 named destinations out of 1000 (max. 131072)
- 365 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 496 PDF objects out of 1000 (max. 8388607)
+ 396 compressed objects within 4 object streams
+ 85 named destinations out of 1000 (max. 131072)
+ 397 words of extra memory for PDF output out of 10000 (max. 100000000)
 

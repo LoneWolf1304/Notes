@@ -24,9 +24,16 @@
 \bibitem{YangLee}
 \BIBentryALTinterwordspacing
 C.~N. Yang and T.~D. Lee, ``Statistical theory of equations of state and phase
-  transitions. i. theory of condensation,'' \emph{Phys. Rev.}, vol.~87, pp.
-  404--409, Aug 1952. [Online]. Available:
+  transitions. i. theory of condensation,'' \emph{Phys. Rev.}, vol.~87, Aug
+  1952. [Online]. Available:
   \url{https://link.aps.org/doi/10.1103/PhysRev.87.404}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Guggenheim}
+\BIBentryALTinterwordspacing
+E.~A. Guggenheim, ``The principle of corresponding states,'' \emph{The Journal
+  of Chemical Physics}, vol.~13, no.~7, pp. 253--261, 07 1945. [Online].
+  Available: \url{https://doi.org/10.1063/1.1724033}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

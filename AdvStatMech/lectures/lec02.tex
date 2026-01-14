@@ -32,28 +32,34 @@ This implies that the curvature of the entropy should be downwards! It might hap
 This \textit{convex intruder} cannot describe the equilibrium state and we have to obtain the \textit{stable thermodynamic fundamental equation} from this curve. To do that, we construct all the \textit{superior tangents}, that is, tangents which are above this curve. Now, within the family of tangents, there will be one line which will touch the curve at two places.\\[0.2cm] In the diagram, tangent at any point after A (but before E) will cross the curve. Now, the tangent at A will touch the curve at E. If it had not touched, it would have either intersected the curve or gone above E (If it has intersected the curve, then the tangent at A should not have been considered at all since we are considering only superior tangents. If it had gone over E, this means that there must be some points after A, where this touching will occur. In any case, what we want to say is that, there will be a `common tangent' at points A and E). \\[0.2cm]
 Now, take the envelope of this family of tangents and this will be the fundamental thermodynamic equation that describes the equilibirum states.\\[0.2cm]
 Any point on the straight line denotes a phase-separated state, where part of the system is in state A and another part is in E. This happens because of the convex curve of entropy, which creates an inhomogenity.  \\[0.2cm]
-Note that in the region AB and DE, entropy is still concave, hence these are called \textit{metastable} or locally stable states. These states satisfy Eq.\eqref{eqn:local} but does not satisfy Eq.\eqref{eqn:global} while the region BCD satisfy neither condition.
+Note that in the region AB and DE, entropy is still concave, hence these are called \textit{metastable} or locally stable states. These states satisfy Eq.\eqref{eqn:local} but does not satisfy Eq.\eqref{eqn:global} while the region BCD satisfy neither condition.\\[0.2cm]
+\textbf{NOTE:}\\[0.5cm]
+A generic condition for stability is given by $\delta P\delta V \leq 0$ where $\delta P$ and $\delta V$ represent a small deviation from the equilibrium value. We can write,
+\begin{align}\label{eqn:stability}
+    0 \leq \delta V \qty[\pdv{P}{V}\Bigg|_T \delta V + \frac{1}{2}\pdv[2]{P}{V}\Bigg|_T (\delta V)^2+\frac{1}{6}\pdv[3]{P}{V}\Bigg|_T (\delta V)^3+\ldots]
+\end{align}
+The first term has $(\delta V)^2$ which is always positive. Hence to make this term negative, we need $$\pdv{P}{V}\Big|_T\leq 0$$ Suppose that $\pdv{P}{V}\Big|_T=0$. Then the second term has $(\delta V)^3$ and irrespective of what sign $\pdv[2]{P}{V}\Big|_T$ has, $\delta V$ can always be chosen to make the overall term positive. Hence the only option we have is that $$\pdv[2]{P}{V}\Big|_T=0$$ Similar to the first term, we have the third term as, $$\pdv[3]{P}{V}\Big|_T\leq 0$$ These define the stability conditions for our thermodynamic system. 
 \subsection{Stability Relations for Potentials}
-We will now discuss what are the consequence of stability on the thermodynamic potentials, $F$ and $G$. We will use the fact that for a mechanically stable system, the \textit{specific heat} and the \textit{thermal compressibility} must be positive for all temperatures. It can be motivated since compressibility and specific heat are related to number and energy fluctuations, $\sigma\tund{N}$ and $\sigma\tund{E}$ respectively, both of which are positive.\\[0.2cm]
+We will now discuss what are the consequence of stability on the thermodynamic potentials, $F$ and $G$. We will use the fact that for a mechanically stable system, the \textit{specific heat} and the \textit{isothermal compressibility} must be positive for all temperatures. It can be motivated since compressibility and specific heat are related to number and energy fluctuations, $\sigma\tund{N}$ and $\sigma\tund{E}$ respectively, both of which are positive.\\[0.2cm]
 From appendix \ref{appendix:legendre}, we see that $S = -\qty(\pdv{F}{T})_{V,N}$ from which we get:
 $$\qty(\pdv[2]{F}{T})_{V,N} = - \qty(\pdv{S}{T})_{V,N} = -\frac{1}{T}C_v \leq 0$$
 Similarly, we can use $S = -\qty(\pdv{G}{T})_{P,N}$ from which we get:
 $$\qty(\pdv[2]{G}{T})_{P,N} = - \qty(\pdv{S}{T})_{P,N} = -\frac{1}{T}C_p \leq 0$$
-From this, we infer that $G(T,P,N)$ and $F(T,V,N)$ are concave functions of temperature. Apart from temperature, since $F$ depends on $V$ and $G$ depends on P, let us check for pressure and volume too. We note that $V = -\qty(\pdv{G}{P})_{T,N}$ and $P = -\qty(\pdv{F}{V})_{T,N}$
+From this, we infer that $G(T,P,N)$ and $F(T,V,N)$ are concave functions of temperature. Apart from temperature, since $F$ depends on $V$ and $G$ depends on P, let us check for pressure and volume too. We note that $V = \qty(\pdv{G}{P})_{T,N}$ and $P = -\qty(\pdv{F}{V})_{T,N}$
 \begin{align}\label{eqn:potential}
     \begin{split}
-        \qty(\pdv[2]{G}{P})_{T,N} &= - \qty(\pdv{V}{P})_{T,N} = -VK\tund{T} \leq 0\\
-    \qty(\pdv[2]{F}{V})_{T,N} &= - \qty(\pdv{P}{V})_{P,N} = \frac{1}{VK\tund{T}} \geq 0
+        \qty(\pdv[2]{G}{P})_{T,N} &=  \qty(\pdv{V}{P})_{T,N} = -V\kappa\tund{T} \leq 0\\
+    \qty(\pdv[2]{F}{V})_{T,N} &= - \qty(\pdv{P}{V})_{P,N} = \frac{1}{V\kappa\tund{T}} \geq 0
     \end{split}
 \end{align}
-where we have appropriately used the definitions of thermal compressibility and heat capacity. Using this, we find that $G$ is a concave function of pressure and $F$ is a convex function of volume. From the above expressions in Eq \ref{eqn:potential}, we can also write 
+where we have appropriately used the definitions of isothermal compressibility and heat capacity. Using this, we find that $G$ is a concave function of pressure and $F$ is a convex function of volume. From the above expressions in Eq \ref{eqn:potential}, we can also write 
 \begin{equation}\label{eqn:inverseGA}
     \qty(\pdv[2]{G}{P})_{T,N} = -\qty{\qty(\pdv[2]{F}{V})_{T,N}}^{-1} 
 \end{equation}
 \subsection{Stability Analysis of Van der waal's solutions}
 Recall the Van der Waal's equation from Eq \eqref{eqn:vander},
 $$\qty(P+\frac{aN^2}{V^2})\qty(V-Nb) = N\kb T$$
-At high temperature, the $P$ vs. $V$ curves at constant temperature (\textit{isotherm}) follows the usual ideal-gas curve. However, there exists a critical temperature $T\tund{c}$ (which can be found out from the equation), such that, for $T<T\tund{c}$, there always exist a region, where the slope $\pdv{P}{V}$ is positive. Since $K\tund{T} = -\frac{1}{V}\qty(\pdv{V}{P})_{N,T}$, this implies a negative compressibility, which, as motivated before, is \textit{unphysical}.\\[0.2cm]
+At high temperature, the $P$ vs. $V$ curves at constant temperature (\textit{isotherm}) follows the usual ideal-gas curve. However, there exists a critical temperature $T\tund{c}$ (which can be found out from the equation), such that, for $T<T\tund{c}$, there always exist a region, where the slope $\pdv{P}{V}$ is positive. Since $\kappa\tund{T} = -\frac{1}{V}\qty(\pdv{V}{P})_{N,T}$, this implies a negative compressibility, which, as motivated before, is \textit{unphysical}.\\[0.2cm]
 This leads to a breakdown of the theory and Maxwell subsequently proposed an \textit{ad hoc} remedy, similar in line to the construction of superior tangents that we noted earlier. 
 \begin{figure}[H]
     \centering 
