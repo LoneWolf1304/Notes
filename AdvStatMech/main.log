@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  14 JAN 2026 18:41
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  15 JAN 2026 21:45
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2395,38 +2395,34 @@ Package mdframed Info: mdframed detected package amsthm
 
 
 [15] (./pics/lec41.tex) (./pics/lec42.tex)) (./lectures/lec05.tex
-(./pics/lec51.tex)
+
+LaTeX Warning: Reference `fig:isotherms' on page 16 undefined on input line 7.
+
+
 
 [16]
-
-Package caption Warning: \label without proper reference on input line 5.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:isotherms' on page 17 undefined on input line 11.
-
-
-
-
-[17]
-<pics/2026-01-14-132503_hyprshot.png, id=293, 647.41875pt x 531.9875pt>
+<pics/2026-01-14-132503_hyprshot.png, id=285, 647.41875pt x 531.9875pt>
 File: pics/2026-01-14-132503_hyprshot.png Graphic file (type png)
 <use pics/2026-01-14-132503_hyprshot.png>
 Package luatex.def Info: pics/2026-01-14-132503_hyprshot.png  used on input lin
-e 37.
+e 33.
 (luatex.def)             Requested size: 258.9629pt x 212.79123pt.
 
 
-[18<./pics/2026-01-14-132503_hyprshot.png>]
+[17]
 
-[19]
-Overfull \hbox (7.2282pt too wide) detected at line 81
+[18<./pics/2026-01-14-132503_hyprshot.png>]
+Overfull \hbox (7.2282pt too wide) detected at line 77
 []
  []
 
-) (./lectures/appendix.tex
+) (./lectures/lec06.tex) (./lectures/lec07.tex) (./lectures/lec08.tex)
+(./lectures/lec09.tex) (./lectures/lec10.tex) (./lectures/lec11.tex)
+(./lectures/appendix.tex
 
-[20]) (./main.bbl)
+[19]) (./main.bbl
+
+[20])
 
 [21] (./main.aux)
  ***********
@@ -2446,17 +2442,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 70962 strings out of 475506
+ 70978 strings out of 475506
  100000,2848258 words of node,token memory allocated
  6399 words of node memory still in use:
    214 hlist, 27 vlist, 39 rule, 18 math, 91 glue, 79 kern, 124 glyph, 253 attri
 bute, 119 glue_spec, 253 attribute_list, 2 write, 24 pdf_literal, 1 pdf_action, 
 24 pdf_colorstack nodes
-   avail lists: 1:6,2:5059,3:2631,4:181,5:700,6:64,7:7086,8:139,9:1548,10:16,11:
+   avail lists: 1:3,2:3854,3:2143,4:183,5:700,6:64,7:7158,8:140,9:1246,10:16,11:
 418
- 92056 multiletter control sequences out of 65536+600000
- 321 fonts using 23715631 bytes
- 108i,22n,141p,10919b,1148s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92043 multiletter control sequences out of 65536+600000
+ 320 fonts using 23632951 bytes
+ 108i,22n,141p,10919b,1101s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/f
 onts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 }{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/font
@@ -2484,10 +2480,10 @@ type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pf
 b></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/
 fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/yhmat
 h/yhcmex.pfb>
-Output written on main.pdf (21 pages, 658105 bytes).
+Output written on main.pdf (21 pages, 651925 bytes).
 
-PDF statistics: 496 PDF objects out of 1000 (max. 8388607)
- 396 compressed objects within 4 object streams
- 85 named destinations out of 1000 (max. 131072)
+PDF statistics: 493 PDF objects out of 1000 (max. 8388607)
+ 393 compressed objects within 4 object streams
+ 84 named destinations out of 1000 (max. 131072)
  397 words of extra memory for PDF output out of 10000 (max. 100000000)
 

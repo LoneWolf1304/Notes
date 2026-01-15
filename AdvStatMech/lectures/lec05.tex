@@ -2,11 +2,7 @@
 \section*{Lecture 05: More on Van der Waal's Equation}
 \addcontentsline{toc}{section}{Lecture 05: More on Van der Waal}
 In the previous section, we saw a mathematical theory of condensation based on the zeroes of the grand partition function. Let us now move back to the Van der Waal's equation and try to analyse the critical point. 
-\begin{figure}[H]\label{fig:isotherms}
-    \centering
-    \input{pics/lec51.tex}
-    \caption{\textbf{Van der Waal's isotherm}. The figure shows Van der Waal's isotherms for $T<T_c$ ($T>T_c$) with blue (red) lines. The curve for $T=T_c$ is shown with purple line. Maxwell's construction is shown with green dotted line. The red line denotes the \textit{binodal line} and the gray line denotes the \textit{spinodal} line. The yellow region denote the metastable state while the green region denote the unstable states.}
-\end{figure}
+
 \noindent
 In Fig.\ref{fig:isotherms}, we see the Van der Waal's isotherms at different temperature regime. There exists a temperature $T_c$ such that at a particular point $(V_c, P_c)$, the isotherm has zero slope and zero curvature. Thus the critical point is characterised by 
 $$\pdv{P}{V}=0\qquad \pdv[2]{P}{V}=0$$
@@ -50,7 +46,7 @@ Each of the coefficients are functions of temperature and hence, can be Taylor e
     P(T,v_c) &= \underbrace{P(T_c,v_c)}_{P_c}+\alpha(T-T_c)+\SO\qty[\qty(\frac{T-T_c}{T_c})^2]\\
     \pdv{P}{v}\Bigg|_{T, v_c}&=\cancelto{0}{\pdv{P}{v}}\Bigg|_{T_c, v_c} -a(T-T_c)+\SO\qty[\qty(\frac{T-T_c}{v_c})^2]\\
      \pdv[2]{P}{v}\Bigg|_{T, v_c}&=\cancelto{0}{\pdv[2]{P}{v}}\Bigg|_{T_c, v_c} +b(T-T_c)+\SO\qty[\qty(\frac{T-T_c}{T_c})^2]\\
-     \pdv[3]{P}{v}\Bigg|_{T, v_c}&=-c +\SO\qty[\qty(\frac{T-T_c}{T_c})^2]
+     \pdv[3]{P}{v}\Bigg|_{T, v_c}&=-c +\SO\qty[\qty(\frac{T-T_c}{T_c})]
 \end{align*}
 At the critical point the slope and the curvature vanishes and hence the first terms in the second and third equation is zero. Using the stability condition in Eq. \eqref{eqn:stability}, $a>0$ for $T>T_c$ and $c>0$. $b$ can have any arbitrary sign\footnote{These $a,b$ are not the ones appearing in the Van der Waal's equation.}. Let us put these expression in the original Taylor expansion.
 \begin{align}

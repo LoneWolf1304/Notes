@@ -1,4 +1,6 @@
 \contentsline {section}{Lecture 00: Introduction}{3}{section*.3}%
 \contentsline {section}{Lecture 01: Historical Development}{3}{section*.4}%
 \contentsline {section}{Lecture 02: Qubits}{5}{section*.7}%
+\contentsline {section}{Lecture 03: Gates}{6}{section*.8}%
+\contentsline {subsection}{\numberline {4.1}Deutsch's Algorithm}{9}{subsection.4.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
