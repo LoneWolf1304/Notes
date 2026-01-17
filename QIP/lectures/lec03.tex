@@ -119,10 +119,49 @@ corners}, label style= black]{H} &\ \ket{\phi}
         \end{figure} 
         \noindent
 The Hadamard gate is a unitary gate and is defined by its action on the basis elements:
-$$\ket{0}\xmapsto{H}\ket{+} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{1})\qquad \ket{0}\xmapsto{H}\ket{-}= \frac{1}{\sqrt{2}}(\ket{0}-\ket{1})$$
-Note that $H\ket{+} = \frac{1}{\sqrt{2}}(H\ket{0}+H\ket{1}) = \frac{1}{\sqrt{2}}(\ket{+}+\ket{-}) = \ket{0}$. Similarly, $H\ket{-}=\ket{1}$. Thus, $H^2=\iden$ which implies that $H=H^{-1}$. This is also evident from the Hadamard matrix written using the computation basis\footnote{To obtain the matrix element in a particular basis, we have $H_{ij} =\braket{i|H|j}$. So let's say $H_{00}$ for the Hadamard gate will be, $$\braket{0|H|0} = \braket{0|+} = \frac{1}{\sqrt{2}}(\braket{0|0}+\braket{0|1}) = \frac{1}{\sqrt{2}}$$}, 
+$$\ket{0}\xmapsto{H}\ket{+} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{1})\qquad \ket{1}\xmapsto{H}\ket{-}= \frac{1}{\sqrt{2}}(\ket{0}-\ket{1})$$
+Note that $H\ket{+} = \frac{1}{\sqrt{2}}(H\ket{0}+H\ket{1}) = \frac{1}{\sqrt{2}}(\ket{+}+\ket{-}) = \ket{0}$. Similarly, $H\ket{-}=\ket{1}$. Thus, $H^2=\iden$ which implies that $H=H^{-1}$. This is also evident from the Hadamard matrix written using the computational basis\footnote{To obtain the matrix element in a particular basis, we have $H_{ij} =\braket{i|H|j}$. So let's say $H_{00}$ for the Hadamard gate will be, $$\braket{0|H|0} = \braket{0|+} = \frac{1}{\sqrt{2}}(\braket{0|0}+\braket{0|1}) = \frac{1}{\sqrt{2}}$$}, 
 \begin{align*}
     H\equiv \frac{1}{\sqrt{2}}\mqty(1& 1 \\ 1 & -1)
 \end{align*}
     \subsection{Deutsch's Algorithm}
-    Let us demonstrate a quantum algorithm which demonstrates `quantum parallelism'. Parallelism is meant to convey the sense that multiple computations can be simultaneously performed which is not possible in classical computation. 
+    Let us discuss a quantum algorithm which demonstrates `quantum parallelism'. Parallelism is meant to convey the sense that multiple computations can be simultaneously performed which is not possible in classical computation.\\[0.2cm]
+    The basic task is to determine whether a binary function $f:\{0,1\}\to \{0,1\}$ is \textit{constant} or \textit{balanced}. Constant means that $f(0)=f(1)$ while balanced means $f(0)\neq f(1)$. If we use classical computation, we have to make two evaluations of the function to determine whether it is balanced or constant. Let us see whether we can obtain any advantage if we use quantum computation.\\[0.2cm]
+    For carrying out the task, we will use an \textit{oracle} which is like a \textit{black box}, where we can pass some queries and it returns us some answers. We use an oracle $U_f$ which takes two states, $\ket{x}$ and $\ket{y}$ and returns two states $\ket{x}$ and $\ket{y\oplus f(x)}$. The basic algorithm is as follows:
+    \begin{itemize}
+        \item Start with a initial two qubit state $\ket{0}\otimes \ket{1}$
+        \item Apply Hadamard gate on both qubits 
+        \item Apply $U_f$ to the product state 
+        \item Apply Hadamard gate to the first qubit and measure it.
+    \end{itemize}
+    \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+\node[scale=1.4]{
+            \begin{quantikz}
+    \ket{0}\  & \gate[style={fill=cyan!20,rounded
+corners}]{H} & \gate[2,style={fill=cyan!20,rounded
+corners}]{U_f} & \gate[style={fill=cyan!20,rounded
+corners}]{H} & \meter[style={fill=yellow!20,rounded
+corners}]{}&\\
+    \ket{1}\ & \gate[style={fill=cyan!20,rounded
+corners}]{H} && &&
+    \end{quantikz}};\end{tikzpicture}
+    \caption{Circuit diagram for Deutsch's algorithm}
+        \end{figure}
+We now elaborate each step of the algorithm. In the first step, we apply Hadamard gates on both of the initial qubits. 
+$$\ket{\psi_1} = (H\otimes H)\ket{0}\otimes \ket{1} = (H\ket{0})\otimes (H\ket{1}) = \ket{+}\otimes \ket{-}\longrightarrow \frac{\ket{0}}{\sqrt{2}}\qty(\frac{\ket{0}-\ket{1}}{\sqrt{2}}) + \frac{\ket{1}}{\sqrt{2}}\qty(\frac{\ket{0}-\ket{1}}{\sqrt{2}})$$
+Now, note the following fact which we will use in the second step, 
+$$U_f\ket{x}\ket{-} = (-1)^{f(x)}\ket{x}\ket{-}$$
+which follows because,
+\begin{align*}
+    U_f\qty(\frac{\ket{x}\ket{0}-\ket{x}\ket{1}}{\sqrt{2}}) = \frac{1}{\sqrt{2}}\qty(\ket{x}\ket{f(x)\oplus 0} - \ket{x}\ket{f(x)\oplus 1}) = \frac{1}{\sqrt{2}}\qty(\ket{x}\ket{f(x)} - \ket{x}\ket{f(x)\oplus 1})
+\end{align*}
+where we have used $a\oplus 0 = a$. Now, if $f(x) = 0$ then we have the state $\ket{x}\qty(\frac{\ket{0}-\ket{1}}{\sqrt{2}}) = +\ket{x}\ket{-}$ while if $f(x)=1$ we get the state $\ket{x}\qty(\frac{\ket{1}-\ket{0}}{\sqrt{2}}) = - \ket{x}\ket{-}$. Hence in the second step, we have 
+$$\ket{\psi_2} = U_f\ket{\psi_1} = \frac{1}{\sqrt{2}}\qty((-1)^{f(0)}\ket{0}+(-1)^{f(1)}\ket{1})\ket{-}$$
+If $f(0)=f(1)$ (balanced), then $\ket{\psi_2} = (-1)^{f(0)}\ket{+}\ket{-}$ and if $f(0)\neq f(1)$, then $(-1)^{f(0)}$ and $(-1)^{f(1)}$ will have opposite signs which will give us $\ket{\psi_2} = \pm \ket{-}\ket{-}$. The $\pm$ sign will depend on the value of the function, however, it is just an overall phase and will not matter to us. In the third step,we apply Hadamard gate to the first qubit, 
+$$(H\otimes \iden)\ket{\psi_2} = \begin{cases}
+    \ket{0}\ket{-} & f(0) = f(1)\\
+    \ket{1} \ket{-} & f(0)\neq f(1)
+\end{cases}$$
+Hence by measuring the first qubit, if we obtain $0$ then the function is \textcolor{red}{constant}, else the function is \textcolor{red}{balanced}. 

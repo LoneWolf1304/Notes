@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  15 JAN 2026 15:30
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  18 JAN 2026 04:16
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2491,10 +2491,11 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
 (Font)              Font shape `T1/lmss/bx/n' tried instead on input line 127.
-)
-(./lectures/lec04.tex) (./lectures/lec05.tex)
 
-[9] (./main.aux)
+
+[9]) (./lectures/lec04.tex) (./lectures/lec05.tex)
+
+[10] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2504,16 +2505,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 91328 strings out of 475506
+ 91591 strings out of 475506
  100000,3417909 words of node,token memory allocated
- 1672 words of node memory still in use:
-   32 hlist, 2 vlist, 14 rule, 4 glue, 4 kern, 1 glyph, 90 attribute, 117 glue_s
-pec, 90 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:1,2:3223,3:1169,4:90,5:519,6:54,7:8144,8:57,9:1103,10:12,11:52
-0
- 112365 multiletter control sequences out of 65536+600000
+ 1688 words of node memory still in use:
+   32 hlist, 2 vlist, 14 rule, 4 glue, 4 kern, 1 glyph, 94 attribute, 117 glue_s
+pec, 94 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 1:1,2:4322,3:1706,4:90,5:520,6:82,7:8144,8:103,9:1844,10:12,11:5
+20
+ 112626 multiletter control sequences out of 65536+600000
  148 fonts using 12119999 bytes
- 108i,25n,141p,10919b,2160s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,25n,141p,10919b,2191s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts
 /enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
 enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/f
@@ -2536,10 +2537,10 @@ ype1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 ></usr/share/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf-dist/f
 onts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmt
 t10.pfb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (9 pages, 413390 bytes).
+Output written on main.pdf (10 pages, 422585 bytes).
 
-PDF statistics: 279 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
- 39 named destinations out of 1000 (max. 131072)
- 296 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 287 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 41 named destinations out of 1000 (max. 131072)
+ 304 words of extra memory for PDF output out of 10000 (max. 100000000)
 
