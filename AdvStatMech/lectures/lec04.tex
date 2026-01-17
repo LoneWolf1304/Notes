@@ -1,0 +1,49 @@
+\refstepcounter{section}
+\section*{Lecture 04: Yang-Lee Theory for Phase Transition}
+\addcontentsline{toc}{section}{Lecture 04: Yang-Lee Theory for Phase Transition}
+We will now discuss about a mathematical basis of condensation based on Yang and Lee's theory of phase transition \cite{YangLee} which is based on the analysis of the zeroes of the grand partition function. The partition function seems to be an analytic function since it essentially consists of sums of well-behaved exponentials. \\[0.2cm]
+However, phase transitions are characterised by non-analyticity which leads us to think about how the analytic partition function will capture the essence of the non-analytic phase transition. As discussed before, \textit{true} phase transitions occur only in the thermodynamic limit and in the thermodynamic limit, partition function can indeed become non-analytic (since the limit functions of a sequence of analytic function need not be analytic).
+\subsection{Singularities and Phase Transition}
+We will write Eq \eqref{eqn:gpf} in terms of the \textit{fugacity} $z=e^{\beta\mu}$ and also consider a finite system with volume $V$ (and then take ultimately take $V\to \infty$). Only a finite number of particles, say $M$, can be crammed into this finite volume, hence 
+\begin{equation}
+    \label{eqn:fug}
+    \Xi(z,V) = \sum\limits_{N=0}^{M}z^N \SZ(N,V,T)  = 1+z\SZ_1+z^2\SZ_2+\ldots+z^M\SZ_M
+\end{equation}
+Note that the above equation is a well-behaved polynomial of degree $M$ in $z$  and its coefficients $\SZ_N$ are all positive which implies that $\Xi(z,V)$ has no real positive root. From the grand potential $\Phi=-PV = -\kb T\ln\Xi$, we can write the pressure $P$ and density $\rho$ in the thermodynamic limit,
+\begin{align}\label{eqn:rhoP}
+   \begin{split}
+     P &=\lim\limits_{V\to\infty} \frac{\kb T}{V}\ln \Xi(z,V)\\
+    \avg{N} &= z\pdv{\ln\Xi}{z}\implies \rho = \lim\limits_{V\to\infty} \frac{\avg{N}}{V} =\lim\limits_{V\to\infty} \frac{z}{V}\pdv{\ln\Xi(z,V)}{z}
+   \end{split}
+\end{align}
+These quantities will not have any singularity unless $\Xi(z,V)=0$ which cannot hold true, unless we cosider a \textit{complex} fugacity. Then for finite $V$, the algebraic equation $\Xi =0$ has $M$ roots appearing in complex-conjugate pairs. As $V$ increases, the number of roots also increases (linearly with $V$) and moves around in the complex plane, excluding the real axis. In the limit $V\to\infty$, some of these roots touch the real axis and this describes a phase transition. With regard to this, we discuss two theorems as stated in the original paper.
+\begin{theorem}\label{thm:1}
+    For all positive values of $z$, the limit $$L = \lim\limits_{V\to\infty}\frac{1}{V}\ln\Xi(z,V)$$ \textit{exists} and is independent of the shape of the volume holding the particles, with the assumption that the surface area does not scale faster than $ V^{2/3}$. \\[0.2cm]
+    Moreover, $L(z)$ is a continuous, monotonically increasing function of $z$. 
+\end{theorem}
+
+\begin{theorem}\label{thm:2}
+    Suppose in the complex $z$ plane, there exists a region $\SR$ containing the positive real axis, which has no roots of $\Xi$, then $\lim\limits_{V\to \infty}\frac{1}{V}\pdv[k]{\ln \Xi}{z}$ is uniformly convergent and the limit function is analytic for all $z\in \SR$.\\[0.2cm]
+    Moreover, the operations $\lim\limits_{V\to \infty}$ and $z\pdv{z}$ can be interchanged. 
+\end{theorem}
+The above theorem implies that, \begin{equation}\label{eqn:eos}
+    \rho = \lim\limits_{V\to\infty} \frac{z}{V}\pdv{\ln\Xi}{z} \iff z\pdv{z}\qty(\lim\limits_{V\to\infty} \frac{1}{V} {\ln\Xi}) = z\pdv{(\beta P)}{z}
+\end{equation}
+If such a region $\SR$ does not exist, then the limit does not exist which makes sense physically, since the density $\rho $ as defined in Eq \eqref{eqn:rhoP}, does not assume a single value at the condensation point. Hence, everything depends on the existence of $\SR$
+\begin{itemize}
+    \item As $V\to \infty$, if a region $\SR$ exists  which fully encloses the positive real axis, then $P$ exists from Thm \eqref{thm:1} and is an analytic, increasing function of $z$. From Thm \eqref{thm:2}, $\rho$ also exists and is an analytic function of $z$. It can be shown that $\rho$ is also increasing with $z$. $P$ and $\rho$ are related by Eq \eqref{eqn:eos}. The system under consideration is in a \textit{single phase}.
+    \begin{figure}[H]
+        \centering
+        \input{pics/lec41.tex}
+    \end{figure}
+    \noindent
+    \item On the other hand, if the roots of $\Xi(z,V)$ approach some specific values $z=t_1,t_2\ldots$ on the real axis as $V\to\infty$, from the figure below, there will exist regions $\SR_1,\SR_2\ldots$ within which Thm \eqref{thm:2} will be satsified piecewise and hence, within these regions, the system exists in a single phase as argued before. At the points $t_1, t_2\ldots$, the pressure $P$ will be continuous from Thm \eqref{thm:1}, but $\rho$ might have some non-analyticity since this does not satisfy the condition for Thm \eqref{thm:2}. The system now possess \textit{multiple phases}. 
+    \begin{figure}[H]
+        \centering
+        \input{pics/lec42.tex}
+    \end{figure}
+    \noindent 
+    It is to be noted that the discontinuity in the density is only possible in the thermodynamic limit. For finite system, we will get a \textit{continuous crossover} due to \textit{finite-size effects}.\\[0.2cm]
+    If $\pdv{P}{z}$ is discontinuous, then we have a \textit{first-order phase transition} as shown in the figure above. If $\pdv{P}{z}$ is continuous but $\pdv[2]{P}{z}$ is discontinuous, then we obtain a \textit{second-order phase transition}.
+\end{itemize}  
+From this discussion, we observe that the study of phase transitions can be reduced to just studying the distribution of the zeroes of the grand partition function.

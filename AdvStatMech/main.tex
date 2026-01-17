@@ -1,0 +1,247 @@
+\documentclass[usenames, svgnames, dvipsnames]{scrartcl}
+\usepackage{pgfplots}
+\usepackage{emoji}
+\usepackage{siunitx}
+\usepackage{ gensymb }
+\usepackage[makeroom]{cancel}
+\usepackage{simpler-wick}
+\newcommand{\ech}{\mathbb{e}}
+\newcommand{\gcod}{\mathfrak{D}}
+\newcommand{\tz}{{t\tund{0}}}
+\newcommand{\php}[1]{\phi_{#1}^+}
+\newcommand{\phm}[1]{\phi_{#1}^-}
+\newcommand{\fp}{\triangle}
+\newcommand{\pho}{\phi_1}
+\newcommand{\phii}{\phi_2}
+\newcommand{\phiii}{\phi_3}
+\newcommand{\phiv}{\phi_4}
+\newcommand{\phv}{\phi_5}
+\newcommand{\phvi}{\phi_6}
+\newcommand{\ti}{{t\tund{1}}}
+\newcommand{\tii}{{t\tund{2}}}
+\newcommand{\tiii}{{t\tund{3}}}
+\newcommand{\tiv}{{t\tund{4}}}
+\newcommand{\tv}{{t\tund{5}}}
+\usepackage{mathbbol}
+\newcommand{\iqe}{iq\ech}
+\newcommand{\vph}{\varphi}
+\newcommand{\MH}{\mathrm{H}}
+\newcommand{\ut}{\uptau}
+\newcommand{\phint}{\phi\tund{I}}
+\usepackage{simpler-wick}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{booktabs} % For better table formatting
+\usepackage{calc}
+\usepackage{Style_File}
+\newcommand{\ad}[1]{a_{#1}^\dagger}
+\usepackage{fancyhdr}
+\newcommand{\pdx}{\vb{p}\cdot \vb{x}}
+\newcommand{\creap}{{\hat{a}_{\vb{p}}}^{s\dagger}}
+\newcommand{\annap}{{\hat{a}_{\vb{p}}}^{s}}
+\newcommand{\crebp}{{\hat{b}_{\vb{p}}}^{s\dagger}}
+\newcommand{\annbp}{{\hat{b}_{\vb{p}}}^{s}}
+
+
+\newcommand{\creapr}{{\hat{a}_{\vb{p}}}^{r\dagger}}
+\newcommand{\annapr}{{\hat{a}_{\vb{p}}}^{r}}
+\newcommand{\crebpr}{{\hat{b}_{\vb{p}}}^{r\dagger}}
+\newcommand{\annbpr}{{\hat{b}_{\vb{p}}}^{r}}
+\newcommand{\creampr}{{\hat{a}_{-\vb{p}}}^{r\dagger}}
+\newcommand{\annampr}{{\hat{a}_{-\vb{p}}}^{r}}
+\newcommand{\crebmpr}{{\hat{b}_{-\vb{p}}}^{r\dagger}}
+\newcommand{\annbmpr}{{\hat{b}_{-\vb{p}}}^{r}}
+\newcommand{\acomtr}[2]{\{#1,#2\}}
+\newcommand{\pdy}{\vb{p}\cdot \vb{y}}
+\newcommand{\qdy}{\vb{q}\cdot \vb{y}}
+
+\newcommand{\qdx}{\vb{q}\cdot \vb{x}}
+\newcommand{\creaq}{{\hat{a}_{\vb{q}}}^{s\dagger}}
+\newcommand{\annaq}{{\hat{a}_{\vb{q}}}^{s}}
+\newcommand{\crebq}{{\hat{b}_{\vb{q}}}^{s\dagger}}
+\newcommand{\annbq}{{\hat{b}_{\vb{q}}}^{s}}
+
+\newcommand{\creaqr}{{\hat{a}_{\vb{q}}}^{r\dagger}}
+\newcommand{\annaqr}{{\hat{a}_{\vb{q}}}^{r}}
+\newcommand{\crebqr}{{\hat{b}_{\vb{q}}}^{r\dagger}}
+\newcommand{\annbqr}{{\hat{b}_{\vb{q}}}^{r}}
+
+\newcommand{\creamqr}{{\hat{a}_{-\vb{q}}}^{r\dagger}}
+\newcommand{\annamqr}{{\hat{a}_{-\vb{q}}}^{r}}
+\newcommand{\crebmqr}{{\hat{b}_{-\vb{q}}}^{r\dagger}}
+\newcommand{\annbmqr}{{\hat{b}_{-\vb{q}}}^{r}}
+
+% \newcommand{\crebp}{def}
+\newenvironment{bMatrix}[1]{%
+\bmatrix\array{#1}\hspace*{-0.5\arraycolsep}}%
+{\endarray\endbmatrix}
+\newcommand{\tund}[1]{_{\text{\tiny #1}}}
+\newcommand{\tup}[1]{^{\text{\tiny #1}}}
+\newcommand{\uep}{\upepsilon}
+\newcommand{\sbo}[1]{\scalebox{0.56}{#1}}
+\newcommand{\gsl}[1]{\cancel{#1}}
+\usepackage{tensor}
+\usepackage{array}
+\usepackage{lmodern}
+\definecolor{violet}{rgb}{0.5,0.27,0.45}
+\newcommand{\hint}{\MH\tund{I}}
+\newcommand{\fvec}[1]{\vb{#1}}
+\newcommand{\cre}[1]{\hat{a}_{#1}^\dagger}
+\newcommand{\ann}[1]{\hat{a}_{#1}}
+
+\newcommand{\crep}{\hat{a}_{\vb{p}}^\dagger}
+\newcommand{\annp}{\hat{a}_{\vb{p}}}
+\newcommand{\fo}{\hat{\phi}}
+\newcommand{\crepd}{\hat{a}_{\vb{p}'}^\dagger}
+\newcommand{\annpd}{\hat{a}_{\vb{p}'}}
+\newcommand{\vac}{\ket{\Omega}}
+\newcommand{\kb}{k\tund{B}}
+\newcommand{\vacb}{\bra{\Omega}}
+\newcommand{\cremp}{\hat{a}_{\vb{-p}}^\dagger}
+\newcommand{\annmp}{\hat{a}_{\vb{-p}}}
+
+\newcommand{\crempd}{\hat{a}_{\vb{-p}'}^\dagger}
+\newcommand{\annmpd}{\hat{a}_{\vb{-p}'}}
+
+\newcommand{\tvec}[1]{\vb{{#1}}}
+\renewcommand{\aa}[1]{a_{#1}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu{#1}\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\dadj}[1]{\overbar{#1}}
+\newcommand{\bili}[1]{\dadj{\Psi}\ #1 \ \Psi}
+\newcommand{\bilin}[3]{\dadj{\Psi}_{#1}\ #3 \ \Psi_{#2}}
+\newcommand{\lrep}{\mathrm{S}[\Lambda]}
+\newcommand{\lrepd}{\mathrm{S}^\dagger[\Lambda]}
+\newcommand{\lrepinv}{\mathrm{S}^{-1}[\Lambda]}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Recommended preamble:
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+    layers/standard/.define layer set={%
+        background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+    }{
+        grid style={/pgfplots/on layer=axis grid},%
+        tick style={/pgfplots/on layer=axis ticks},%
+        axis line style={/pgfplots/on layer=axis lines},%
+        label style={/pgfplots/on layer=axis descriptions},%
+        legend style={/pgfplots/on layer=axis descriptions},%
+        title style={/pgfplots/on layer=axis descriptions},%
+        colorbar style={/pgfplots/on layer=axis descriptions},%
+        ticklabel style={/pgfplots/on layer=axis tick labels},%
+        axis background@ style={/pgfplots/on layer=axis background},%
+        3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}
+\newcommand{\amstitle}[1]{%
+  {\Large\MakeUppercase{#1}}% First letter large, rest small caps (simplified)
+  % OR for true small caps:
+  % {\Large\MakeUppercase{\expandafter\@firstofone#1}\scshape\MakeLowercase{#1}}%
+}
+\usepackage[left = 0.8in,
+right = 0.6in,
+bottom = 0.8in,
+top = 0.8in,
+a4paper]{geometry}
+
+
+\fancyhead[L,C]{}
+\fancyhead[R]{Lecture Notes}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=cyan!80!black, citecolor=YellowOrange,urlcolor=cyan!80!black}
+\usepackage{doi}
+\fancyhead[L]{ PH4202}
+\fancyhead[C]{ Adv. Stat Phys}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R,L]{}
+\usetikzlibrary{calc}
+\pagestyle{fancy}
+\newcommand{\delt}[2]{\tensor{\delta}{^{#1}_{#2}}}
+\newcommand{\vact}{\ket{\widetilde{\Omega}}}
+\newcommand{\vactb}{\bra{\widetilde{\Omega}}}
+\newcommand{\meas}[1]{\frac{\dd^3\tvec{#1}}{(2\pi)^3}}
+\newcommand{\tvp}{\tvec{p}}
+\newcommand{\tvpd}{\tvec{p}'}
+\newcommand{\ddelt}[1]{\delta^{(3)}(#1)}
+\newcommand{\myeq}[1]{\stackrel{\mathclap{\tiny\mbox{#1}}}{=}}
+\newcommand{\omp}{\omega_{\tvp}}
+\newcommand{\ompd}{\omega_{\tvpd}}
+\renewcommand{\headrulewidth}{0.4pt}
+\definecolor{titleblue}{RGB}{0, 80, 120}
+\usepackage{longtable} 
+
+\renewcommand{\fdv}[2]{\frac{\delta #1}{\delta #2}}
+\begin{document}
+\makeatletter
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[black!80!blue, line width=2pt] 
+            ($(current page.north west)+(0.6cm,-0.6cm)$) rectangle 
+            ($(current page.south east)+(-0.6cm,0.6cm)$);
+    \end{tikzpicture}
+    \vspace*{2cm}
+    
+        \begin{center}
+            {\rmfamily
+                \Huge{\textcolor{blue!30!black}{%
+                    \textmd{{\HUGE{{A}}}}dvanced {\HUGE S}tatistical \\
+                     {\HUGE P}hysics%
+                }}\\[0.7cm]
+                
+                % \LARGE \textcolor{black!50!cyan}{%
+                %     \texttt{ \textsc{Numerics and Analytics}}%
+                % }\\[1.0cm]
+                
+                \Large \textsc{Lecture Notes} \\[0.3cm]
+               \Large \textit{Instructor: Prof. Bhavtosh Bansal }\\[1cm]
+
+%                  $\begin{pmatrix}
+% 0 & 1 &  &  & \\
+% 1 & 0 & 2 &  & \\
+%  & 2 & 0 & 3 & \\
+%  &  & 3 & 0 & \ddots \\
+%  &  &  & \ddots  & \ddots 
+% \end{pmatrix}$
+            }
+            \end{center}
+       
+        \begin{figure}[H]
+            \centering
+           \includegraphics[scale=0.5]{pics/ising.pdf}
+        \end{figure}
+        \vspace{1cm}
+        \begin{center}
+           \Large \texttt{\textbf{{\LARGE  S}agnik {\LARGE S}eth }}
+        \end{center}
+        \vspace{0.5cm}
+      \begin{center}
+    \textbf{ Dept of Physical Sciences} \\
+    \textbf{IISER Kolkata}
+    \vspace{0.5cm}
+
+    % Side-by-side logos
+   
+\end{center}
+
+\end{titlepage}
+
+
+       
+\tableofcontents
+\newpage
+\input{lectures/lec01.tex}
+\input{lectures/lec02.tex}
+\input{lectures/lec03.tex}
+\input{lectures/lec04.tex}
+\input{lectures/lec05.tex}
+\input{lectures/lec06.tex}
+\input{lectures/lec07.tex}
+\input{lectures/lec08.tex}
+\input{lectures/lec09.tex}
+\input{lectures/lec10.tex}
+\input{lectures/lec11.tex}
+\input{lectures/appendix.tex}
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+\end{document}

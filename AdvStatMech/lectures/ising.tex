@@ -1,0 +1,40 @@
+\section{1D Solution of Ising Model}
+\label{append:ising1d}
+In 1D, the Ising model is given by,
+$$\SH =-J \sum\limits_{i}^N \sigma_i \sigma_{i+1} -h\sum\limits_i\sigma_i$$
+where we have assumed periodic boundary conditions. The second term can be written as a symmetric sum, utilisng the translation invariance. Hence the Hamiltonian becomes,
+\begin{align*}
+    \SH = -J \sum\limits_{i}^N \sigma_i \sigma_{i+1} -\frac{h}{2}\sum\limits_i\qty(\sigma_i+\sigma_{i+1})\equiv \sum\limits_i \mathcal{E}(\sigma_i, \sigma_{i+1})
+\end{align*}
+where $\SE(\sigma_i, \sigma_{i+1}) = -J\sigma_i \sigma_{i+1} - \frac{B}{2}(\sigma_i + \sigma_{i+1})$. Note that $\SE(+,+) = -(J+h), \SE(-,-)= -(J-h), \SE(+,-) = \SE(-,+) = J$. The contribution of each configuration is, 
+$$P(\{\sigma_i\}) \propto e^{-\beta\SH(\{\sigma_i\})} = \exp(-\beta\sum_j\SE(\sigma_j, \sigma_{j+1})) \equiv \prod\limits_{i=1}^N \exp(-\beta\SE(\sigma_i, \sigma_{i+1}))$$
+Let us define $t_{\sigma_i \sigma_{i+1}} = \exp(-\beta\SE(\sigma_i, \sigma_{i+1}))$ which is an entry of a matrix $t$ called the \textit{transfer matrix}:
+$$t_{\sigma_{i}\sigma_{j}} \equiv \braket{\sigma_i|t|\sigma_j}$$
+The transfer matrix is just a notational trick and is assumed to be an operator of the Hilbert space spanned by $\ket{+1}$ and $\ket{-1}$. 
+\begin{align*}
+    \braket{+|t|+} &=e^{\beta(J+h)} \qquad \braket{+|t|-} = e^{-\beta J}\\
+    \braket{-|t|-} &= e^{\beta(J-h)} \qquad \braket{-|t|+} = e^{-\beta J}\qquad 
+\end{align*}
+The partition function can then be written as,
+\begin{align}
+    \begin{split}
+        \SZ = \sum_{\{\sigma_i\}} e^{-\beta \SH(\{\sigma_i\})} &=\sum_{\sigma_1}\sum_{\sigma_2}\cdots \sum_{\sigma_N} t_{\sigma_1\sigma_2}t_{\sigma_2\sigma_3}\ldots t_{\sigma_N\sigma_1}\\
+        &=\sum_{\sigma_1}\sum_{\sigma_2}\cdots \sum_{\sigma_N} \braket{\sigma_1|t|\sigma_2}\braket{\sigma_2|t|\sigma_3}\braket{\sigma_3|t|\sigma_4}\ldots \braket{\sigma_N|t|\sigma_1}\\
+    \end{split}
+\end{align}
+From the resolution of identity, $\sum\limits_{\sigma}\ket{\sigma}\bra{\sigma}=\iden$ and hence all the inner spin sums vanish. We are left with,
+$$\SZ = \sum_{\sigma_1}\braket{\sigma_1|t^N|\sigma_1} = \mathrm{Tr}(t^N) = \lambda_+^N+\lambda^N_- = \lambda_+^N\qty(1+\qty(\frac{\lambda_-}{\lambda_+})^N)$$
+where $\lambda_-<\lambda_+$ are the eigenvalues of the transfer matrix. In the limit $N\to\infty$, $\SZ\to \lambda_+$. The eigenvalues of the transfer matrix are given as, 
+\begin{align*}
+    t\equiv \mqty(e^{\beta(J+h)} & e^{-\beta J} \\ e^{-\beta J} & e^{\beta(J-h)}) \implies \boxed{\lambda_{\pm} = e^{\beta J}\qty[\cosh(\beta h) \pm \sqrt{\sinh^2(\beta h) + e^{-4\beta J}}]}
+\end{align*}
+In the thermodynamic limit, the free energy $F= -\kb T \ln \SZ = -N\kb T\ln \lambda_+$ and then the magnetisation is given as,
+\begin{align*}
+    M = -\pdv{F}{h} &= N\kb T\pdv{h} \qty[\beta J +\ln\qty(\cosh(\beta h) + \sqrt{\sinh^2(\beta h) + e^{-4\beta J}})] \\
+    &=N\kb T \frac{\beta \sinh(\beta h) + \frac{2\beta\sinh(\beta h)\cosh(\beta h)}{2\sqrt{\sinh^2(\beta h) + e^{-4\beta J}}}}{\qty(\cosh(\beta h) + \sqrt{\sinh^2(\beta h) + e^{-4\beta J}})}\\
+    &=N\cancel{(\kb T)}\cancel{\beta }\frac{\sinh(\beta h)\qty[\sqrt{\sinh^2(\beta h) + e^{-4\beta J}}+\cosh(\beta h)]}{\qty( \sqrt{\sinh^2(\beta h) + e^{-4\beta J}})\qty(\cosh(\beta h) + \sqrt{\sinh^2(\beta h) + e^{-4\beta J}})}\\
+    &=\frac{N\sinh(\beta h)}{ \sqrt{\sinh^2(\beta h) + e^{-4\beta J}}}
+\end{align*}
+The magnetisation per spin is then,
+$$\boxed{m = \frac{\sinh(\beta h)}{ \sqrt{\sinh^2(\beta h) + e^{-4\beta J}}}}$$
+For $T>0$ and $h\neq 0$ , $m$ is a well-behaved function with no singularity. For $h\to 0$, we get $m\to 0$ for all $T>0$. Thus, temperature is not sufficient to produce a finite magnetisation without an external field. For $T\to 0$, we have $m \to 1$ and hence we can say that the phase transition to ferromagnetic behaviour in the 1D Ising model is at $T_c=0$. This is the reason why Ising said that there is no phase transition in 1D case (and incorrectly generalised it to higher dimensions too)!

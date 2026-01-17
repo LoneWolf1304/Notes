@@ -1,0 +1,32 @@
+\refstepcounter{section}
+\section*{Lecture 07: Introduction to Ising Model}
+\addcontentsline{toc}{section}{Lecture 07: Introduction to Ising Model}
+The Ising model is a prototypical model to study phase transitions in magnetic systems. Since its fomulation by \textit{Lenz} in 1920 and subsequent 1D solution by \textit{Ising} and 2D solution by \textit{Onsager}, Ising model has penetrated deep into all fields. The Ising model is defined faily simply, by the Hamiltonian,
+\begin{align}\label{isingham}
+    \SH = -J \sum\limits_{\avg{ij}}\sigma_i \sigma_j -h\sum\limits_j \sigma_j
+\end{align}
+where $\sigma_j \in \{+1, -1\}$ is a random variables which is given an interpretation of a \textit{classical spin}. $J$ and $h$ respectively denote the spin-coupling constant and the external field. The notation $\avg{ij}$ means that the spins $i$ and $j$ are nearest-neighbours. The Ising model provides interesting numerical and analytical artefacts till date which makes it an important system to study. The 1D solution is fairly simple, using a \textit{transfer-matrix} method which is provided in appendix \ref{append:ising1d}.
+\subsection{Mean-field solution}
+In the mean-field solution for the Ising model, we `throw' away the fluctuations in each spin, which makes the spins interact with an `effective' field resulting from the average orientation of the neighboring spins. Consider the identity,
+\begin{equation}
+   { (\sigma_i-\avg{\sigma_i} )} (\sigma_j-\avg{\sigma_j} ) = \sigma_i\sigma_j -\sigma_i\avg{\sigma_j} -\sigma_j\avg{\sigma_i} + \avg{\sigma_i}\avg{\sigma_j}
+\end{equation}
+The LHS is zero since we are neglecting the spin fluctuations in the mean-field and hence the Ising Hamiltonian in Eq. \eqref{isingham} becomes, 
+\begin{align*}
+    \SH = -J\sum\limits_{\avg{ij}} \sigma_i \avg{\sigma_j}-J\sum\limits_{\avg{ij}} \sigma_j \avg{\sigma_j} +J\sum\limits_{\avg{ij}} \avg{\sigma_i} \avg{\sigma_j}-h\sum\limits_{i}\sigma_i
+\end{align*}
+Due to translation invariance, $\avg{\sigma_i} = \avg{\sigma_j} \equiv \avg{\sigma}$ and hence can be taken out of the sum. 
+\begin{align*}
+    \SH &= -J\avg{\sigma}\sum\limits_{\avg{ij}}\sigma_i  -J\avg{\sigma}\sum\limits_{\avg{ij}}\sigma_j +  J\avg{\sigma}^2\sum\limits_{\avg{ij}} - h\sum\limits_i \sigma_i \\
+    &=-2J\avg{\sigma}\sum\limits_{\avg{ij}}\sigma_i  +J\avg{\sigma}^2\sum\limits_{\avg{ij}} - h\sum\limits_i \sigma_i
+\end{align*}
+For each spin $\sigma_i$, let us suppose that we have $\gamma$ neighbours. Since the sums are now independent of $j$, these can be reduced to a sum over spins,
+\begin{align}
+    \begin{split}
+        \sum\limits_{\avg{ij}}f(\sigma_i) =\frac{1}{2}\sum_i f(\sigma_i) \sum_{j\in \mathrm{NN}(i)} \equiv \frac{\gamma}{2}\sum_{i=1}^N f(\sigma_i) \implies \SH &= -J\gamma\avg{\sigma}\sum_i \sigma_i+\frac{JN\gamma}{2}\avg{\sigma}^2 -h\sum_i\sigma_i \\
+        &= -\mathrm{h}_{\text{\tiny eff}} \sum_i \sigma_i +\frac{JN\gamma}{2}\avg{\sigma}^2
+    \end{split}
+\end{align}
+where $\mathrm{h}_{\text{\tiny eff}} = h+J\gamma \avg{\sigma}$ is kind of the \textit{mean field} which is subjected to each spin. The Hamiltonian depends on $\avg{\sigma}$, however, given the Hamiltonian, we can also calculate $\avg{\sigma}$. This leads to a \textit{self-consistent} equation which we need to tackle!
+
+

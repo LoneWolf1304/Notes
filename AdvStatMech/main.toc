@@ -1,0 +1,23 @@
+\contentsline {section}{Lecture 01: Intro and Van der Waal's Equation of State}{3}{section*.3}%
+\contentsline {subsection}{\numberline {1.1}Van der Waal's gas}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Uniform Density Approximation}{4}{subsection.1.2}%
+\contentsline {section}{Lecture 02: Stability of Thermodynamic Systems}{6}{section*.5}%
+\contentsline {subsection}{\numberline {2.1}Stability Relations for Potentials}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Stability Analysis of Van der waal's solutions}{8}{subsection.2.2}%
+\contentsline {section}{Lecture 03: First Order Phase Transition}{9}{section*.10}%
+\contentsline {subsection}{\numberline {3.1}Geometric Interpretation of Potentials}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Grand canonical basis of phase coexistence}{13}{subsection.3.2}%
+\contentsline {section}{Lecture 04: Yang-Lee Theory for Phase Transition}{15}{section*.16}%
+\contentsline {subsection}{\numberline {4.1}Singularities and Phase Transition}{15}{subsection.4.1}%
+\contentsline {section}{Lecture 05: More on Van der Waal}{16}{section*.19}%
+\contentsline {subsection}{\numberline {5.1}Approaching Universality}{17}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Critical Opalescence}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Critical Point Behaviour}{18}{subsection.5.3}%
+\contentsline {section}{Lecture 06: Correlations and Fluctuations}{20}{section*.22}%
+\contentsline {subsection}{\numberline {6.1}Structure Factor}{21}{subsection.6.1}%
+\contentsline {section}{Lecture 07: Introduction to Ising Model}{22}{section*.24}%
+\contentsline {subsection}{\numberline {7.1}Mean-field solution}{22}{subsection.7.1}%
+\contentsline {section}{Appendices}{23}{section*.25}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{23}{appendix.1.A}%
+\contentsline {section}{\numberline {B}1D Solution of Ising Model}{24}{appendix.1.B}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
