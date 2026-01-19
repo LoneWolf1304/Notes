@@ -17,7 +17,8 @@
 \contentsline {subsection}{\numberline {6.1}Structure Factor}{21}{subsection.6.1}%
 \contentsline {section}{Lecture 07: Introduction to Ising Model}{22}{section*.24}%
 \contentsline {subsection}{\numberline {7.1}Mean-field solution}{22}{subsection.7.1}%
-\contentsline {section}{Appendices}{23}{section*.25}%
-\contentsline {section}{\numberline {A}Legendre Transformation}{23}{appendix.1.A}%
-\contentsline {section}{\numberline {B}1D Solution of Ising Model}{24}{appendix.1.B}%
+\contentsline {section}{Lecture 08: Mean-field solution for Ising model}{23}{section*.25}%
+\contentsline {section}{Appendices}{25}{section*.27}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{25}{appendix.1.A}%
+\contentsline {section}{\numberline {B}1D Solution of Ising Model}{26}{appendix.1.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

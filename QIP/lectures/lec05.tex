@@ -1,0 +1,35 @@
+\refstepcounter{section}
+\section*{Lecture 05: Bloch Sphere}
+\addcontentsline{toc}{section}{Lecture 05: Bloch Sphere}
+The Bloch sphere is a geometric representation of the state of a qubit where each state is a point on the unit sphere $\mathbb{S}^1\subset \re^3$
+\begin{figure}[H]
+    \centering 
+    \input{pics/bloch_sph}
+    \caption{\textbf{The Bloch Sphere. }All important states lying at special points have been shown. An arbitrary state $\ket{\psi}$ is also shown at a point $(\theta,\phi)$}
+    \label{blochsph}
+\end{figure}
+\noindent
+We know that any arbitrary qubit can be written as,
+$$\ket{\psi} = \alpha\ket{0}+\beta\ket{1}\qquad \alpha,\beta\in \ce \quad \abs{\alpha}^2+\abs{\beta}^2=1$$
+Now, let us take $\alpha = e^{i\phi_1}\cos\qty(\frac{\theta}{2})$ and $\beta = e^{i\phi_2}\sin\qty(\frac{\theta}{2})$ from which we obtain,
+\begin{align}
+    \begin{split}
+        \ket{\psi}&=e^{i\phi_1}\cos\qty(\frac{\theta}{2})\ket{0}+e^{i\phi_2}\sin\qty(\frac{\theta}{2})\ket{1}\\
+        &=e^{i\phi_1}\qty[\cos\qty(\frac{\theta}{2})\ket{0}+ e^{i\phi}\sin\qty(\frac{\theta}{2})\ket{1}]
+    \end{split}
+\end{align}
+where $\phi:=\phi_1-\phi_1$ is the relative phase. The overall phase in $\ket{\psi}$ can be neglected and we get the Bloch sphere representation of the qubit,
+\begin{equation}
+    \boxed{\ket{\psi} = \cos\qty(\frac{\theta}{2})\ket{0}+ e^{i\phi}\sin\qty(\frac{\theta}{2})\ket{1}}\qquad 0\leq \theta\leq \pi \quad 0\leq \phi \leq 2\pi
+\end{equation}
+Let us analyse some special points on the sphere: 
+\begin{itemize}
+    \item $\theta=0: \ket{\psi} = \ket{0}$ and $\theta=\pi: \ket{\psi} = \ket{1}$ which are shown with \textcolor{blue}{blue} points in Fig. \ref{blochsph}.
+    \item $\theta=\frac{\pi}{2}\ \phi=0: \ket{\psi} = \ket{+}$ and $\theta=\frac{\pi}{2}\ \phi=\pi: \ket{\psi} = \ket{-}$ which are shown with \textcolor{red}{red} points in Fig. \ref{blochsph}.
+    \item $\theta=\frac{\pi}{2}\ \phi=\frac{\pi}{2}: \ket{\psi} =\frac{1}{\sqrt{2}} \qty(\ket{0}+i\ket{1})\equiv \ket{+i}$ and $\theta=\frac{\pi}{2}\ \phi=\frac{3\pi}{2}: \ket{\psi} = \frac{1}{\sqrt{2}} \qty(\ket{0}-i\ket{1})\equiv \ket{-i}$ which are shown with \textcolor{OliveGreen}{green} points in Fig. \ref{blochsph}.
+\end{itemize}
+\subsection{Bloch sphere and group theory}
+Note that while defining $\alpha$ and $\beta$ in terms of the angles, we had assumed $\qty(\sfrac{\theta}{2})$ in an \textit{ad hoc} manner. This assumptions stems from concepts in group theory.\\[0.2cm]
+The transformations of a single-qubit is governed by $\sun{2}$ matrices which are unitary matrices with determinant $1$. Thus, 
+$$\ket{\psi} \longrightarrow \ket{\psi'} = U\ket{\psi} \qquad U\in \sun{2}$$
+However, any point of the sphere $\mathbb{S}^1$ is transformed by rotation matrices which are elements of $\son{3}$.

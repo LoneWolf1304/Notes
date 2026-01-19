@@ -1,0 +1,11 @@
+using Plots, LaTeXStrings
+pgfplotsx()
+x = LinRange(-6,6,200)
+plot(x,tanh.(x), label="",lw=2)
+plot!(x, 1.5 .*x, label=L"T>T_c", ls=:dash,lw=1.5)
+plot!(x, 0.2 .*x, label=L"T<T_c",ls=:dashdot,lw=1.5)
+ylims!(-1.1,1.1)
+xlabel!(L"x")
+ylabel!(L"\tanh(x)")
+scatter!([0],[0], c="red",ms=3, msw=0.4)
+savefig("tanhx.pdf")
