@@ -1,3 +1,27 @@
 \refstepcounter{section}
 \section*{Lecture 04: Classical Information}
 \addcontentsline{toc}{section}{Lecture 04: Classical Information}
+As seen before, classical gates is basically associated with the reduction of phase space complexity, wherein the number of outputs is less than the number of inputs. However, it is to be noted that the total phase space, containing many degrees of freedom, cannot be compressed. During computation, the degrees of freedom associated with the `information' are compressed which leads to expansion of some other degrees of freedom that corresponds to an increase in their entropy. As a result, throwing away bits of information require \textit{dissipation}. 
+\begin{principle}[Landauer]
+Each time a single bit of information is erased, the amount of energy dissipated into the environment is atleast $k\tund{B} T \ln 2$ where $T$ is the temperature at which the system is operating. 
+\end{principle}
+\begin{figure}[H]
+    \centering 
+    \input{pics/landau}
+    \caption{Demonstration of Landauer's Principle}
+     \label{fig:land}
+\end{figure}
+\noindent
+In Fig.\ref{fig:land}, we have a system of one particle `\textit{ideal gas}', consisting of an imaginary partition. Initially the particle can be in either of the left or right compartment and hence the number of microstates is $\Omega=2 \implies S\tund{i}= k\tund{B} \ln 2$. Now, suppose we perform an isothermal compression which reduces the number of microstates to $Omega=1\implies S\tund{f}=0$. Hence $Q = T\Delta S = -k\tund{B}\ln 2$. For an ideal gas, $\Delta U=0$ for isothermal process and hence $W = k\tund{B}T\ln 2$ which is the statement of Landauer's principle.
+\subsection{Maxwell's Demon}
+Maxwell's demon is a thought experiment, which apparently disproves the second law of thermodynamics. Suppose that we have a system separated into two compartments $A$ and $B$, each at equilibrium. Now, the gas particles have different velocities, following the MB distribution. Suppose there exists a `superior being' (called a \textit{demon} by Lord Kelvin) which can see the particles and allow only the slow moving particles to move from $B$ to $A$ and the faster moving particles from $A$ to $B$, through a small frictionless trap-door. The door is assumed to be opened and closed \textit{reversibly} and \textit{quasistatically}, so that in principle it can be operated with arbitrarily small work. 
+\begin{figure}[H]
+
+    \centering
+
+\input{pics/demon}
+\caption{\textbf{Schematic of the Maxwell's demon}. The red particles are fast moving while blue particles are slow moving. The demon is shown holding the trap-door!}
+\end{figure}
+\noindent
+Hence, there will be a time, when the right compartment is fully filled with fast moving particles and left compartment is filled with slow moving particles. The mean velocity is a measure of temperature and hence, the demon, without doing any work, has been successful in creating a temperature difference, contracdicting the sacred second law. \\[0.2cm]
+One of the resolutions of this paradox comes from the Landauer principle. Suppose the demon is starting with a clean memory. As it records the molecules' speed to decide whether to let the molecule to pass or not, it inadvertently stores this information in its brain. Now, the brain is a finite thing and hence can store only finite amount of information. Thus, at one point the demon has to erase some amount of information previously gained. This erasure, from Landauer's principle, causes dissipation which increases the entropy of the system!
