@@ -1,0 +1,100 @@
+\refstepcounter{section}
+\section*{Lecture 09: More on Ising Model}
+\addcontentsline{toc}{section}{Lecture 09: More on Ising Model}
+We have predicted a phase transition for the Ising model using mean-field approximation. However, the approximation seems to be inconsistent on many grounds, working well for higher dimensions and long-range interactions. It predicted that in 1D too, Ising model has a spontaneous magnetisation at some finite temperature which cannot be. Even though we have solved the Ising system for dimension $d=1$ in appendix. \ref{append:ising1d} (and it has been painfully solved by many stalwarts for $d=2$ case too), let us see some arguments on why phase transitions cannot occur for 1D but it is possible in 2D Ising system. 
+\subsection{Phase Transition in 1D Ising System}
+We will show that for $T>0$ in $d=1$ zero-field Ising Model, there exists no \textit{long-range order}. Consider the ground state of the Ising model at $T=0$, which is \textit{ordered}, with all spins aligned in the same direction. Under open boundary conditions, this configuration has minimum energy $E\tund{0} = -J(N-1)$.
+\begin{figure}[H]
+    \centering 
+    \input{pics/ground1d.tex}
+\end{figure}
+\noindent
+The above configuration has entropy $S=0$, since all the spins are aligned. Hence, the free energy of the system is $F\tund{grnd}=E-TS = -J(N-1)$.\\[0.2cm] On increasing the temperature, the spins flips randomly due to interactions and this increases the energy of the system (since the interaction term is $-J(-1) = +J$ only if neighbouring spins are oppositely aligned). We need to check whether this destroys the long-range order. Now, consider a configuration with one \textit{domain wall}\footnote{in simple terms, a domain wall is an imaginary boundary which separates \textit{domains}. Domains are regions with the same kind of spins, that is, all up or all down. } introduced at some point in the Ising chain, as shown in red below. 
+\begin{figure}[H]
+    \centering 
+\input{pics/dw1d.tex}
+\end{figure}
+\noindent
+Introducing the domain wall increases the energy, due to the spins on either side of the domain wall.
+$$E\tund{dw}= -J(N_+-1) -J(N_- -1) -J (-1) = -J(N-1)+2J$$
+Thus introducing one domain wall incurs a cost of $\Delta E = 2J$. Now, since there are $N$ spins, this domain wall can be placed at any of the $(N-1)$ positions. Then the entropy of the system with one domain wall is $S=\kb \ln (N-1)$ and the free energy is $F\tund{dw} = -J(N-1) + 2J - \kb T\ln (N-1)$. The change in free energy is, 
+$$\Delta  F= F\tund{dw} - F\tund{grnd} = 2J - \kb T\ln (N-1)$$
+In the thermodynamic limit $N\to \infty$ which implies that $\Delta F \to -\infty$. The system can always lower the free energy by creating a domain wall for any temperature $T>0$. In fact, the free energy is further lowered by introducing arbitrary number of domain walls, untill no domains remain at all. This implies that the long-ranged order is unstable and there is no spontaneous magnetisation at any finite temperature in the zero-field $d=1$ Ising model. 
+\subsection{Phase Transition in 2D Ising System ( Peirls' Theorem)}
+The situation becomes a bit different for $d=2$ Ising model. To prove the existence of phase transition at a finite temperature in $d=2$, consider a case where all the outer layer spins in the lattice are of the same type, say $\uparrow$. Now, consider the spin in the center of the lattice, highlighted yellow in Fig. \ref{peirl1} 
+\begin{figure}[H]
+    \centering 
+    \input{pics/peirl1}
+    \caption{2D Ising lattice; the outer layer have all same spins while the center spin is oppositely aligned with the outer spins.}
+    \label{peirl1}
+\end{figure}
+\noindent
+If there is spontaneous magnetisation at some finite temperature, then the probability of the center spin to be oppositely aligned to the outer spins become zero (since the lattice becomes \textit{ordered}). Also, note that the central spin is not particularly important and is just a representative of the bulk spin. 
+\begin{figure}[H]
+    \centering 
+    \input{pics/peirl2}
+\end{figure} 
+\noindent
+Now, consider $\Omega$ to be the set of all configurations where all the outer layers have spin $+$. Naturally, if we define $\Omega\tund{0}$ to be the set of all configurations where the central spin is $-$ and all the outer layers have spin $+$, we have $\Omega\tund{0}\subset \Omega$, as shown in the above figure. To have a phase transition is to show that the probability of any configuration $\{\sigma\} \in \Omega\tund{0} \to 0$ as $N\to \infty$. \\[0.2cm]
+To show that, we define a \textit{shoreline} which is an imaginary closed loop separating $+$ spins from $-$ spins. So, along the boundary of the shoreline, we have all opposite spins on either side. A given shoreline thus separates spins $\sigma_i$ and $\sigma_j$ such that $\sigma_i\cdot \sigma_j = -1$. Note that, in the interior of the shoreline, there can be $+$ or $-$ spins.\\[0.2cm]
+We define another set of configurations, $\Omega\tund{s}$ in which every configuration has the central spin to be $-$ and all the outer layers have spin $+$. In addition to it, there is a \textit{fixed} shoreline $S$ surrounding the central spin. Clearly, $\Omega\tund{s}\subset \Omega\tund{0}$
+\begin{figure}[H]
+    \centering 
+    \input{pics/peirl3}
+    \caption{The set of configurations showing the shoreline with a green line.}
+    \label{peirl3}
+\end{figure} 
+\noindent
+The probability of a configuration inside $\Omega\tund{s}$ is given by, 
+\begin{align}
+    \mathrm{Prob}(\{\sigma\} \in \Omega\tund{s}) = \frac{1}{\SZ}\sum\limits_{\{\sigma\}\in \Omega\tund{s}} e^{-\beta \SH(\{\sigma\})} =\frac{1}{\SZ}\sum\limits_{\{\sigma\}\in \Omega\tund{s}} \exp\qty({\scriptsize \beta J \sum\limits_{\avg{ij}\in S}}\sigma_i \sigma_j) \exp\qty(\beta J \sum\limits_{\avg{ij}\notin S}\sigma_i \sigma_j)
+\end{align}
+where we have broken the nearest neighbour sum into two parts: spins which are separated by the shoreline and spins which are not. Note that if the spins are separated by the shoreline, then $\sigma_i \sigma_j=-1$ and the sum is just $-n(S)$, where $n(S)$ denotes the \textit{length} of the shoreline. Thus, the probability becomes,
+\begin{align}\label{probdw}
+    \mathrm{Prob}(\{\sigma\} \in \Omega\tund{s}) = \frac{1}{\SZ}\sum\limits_{\{\sigma\}\in \Omega\tund{s}} e^{-\beta J n(S)} \exp\qty(\beta J \sum\limits_{\avg{ij}\notin S}\sigma_i \sigma_j) 
+\end{align}
+The remaining sum, where spins are not separated by the shoreline, is hard to calculate exactly and we need to find an estimate for that.
+\begin{figure}[H]
+    \centering 
+    \input{pics/peirl4}
+    \caption{Flipping of all the spins inside the shoreline, taking $\sigma\to \sigma'$}
+    \label{peirl4}
+\end{figure}
+\noindent
+We consider a specific configuration $\{\sigma\}\in \Omega\tund{s}$ and then flip all the spins in the inner side of the shoreline as shown in Fig. \ref{peirl4}. We call this configuration $\{\sigma'\}$. If a spin in this configuration is outside the shoreline, then $\sigma_i = \sigma'_i$ since the spins outside the shoreline remains unchanged. If the spins belong inside the shoreline, then both spins have flipped and we have $\sigma_i'\sigma_j' = (-\sigma_i) (-\sigma_j) = \sigma_i\sigma_j$. If the spins are separated by shoreline, only one of the spins (which is in the inner side of the shoreline ) changes and $\sigma_i'\sigma_j' = -\sigma_i \sigma_j = -(-1)=+1$. Thus we have,
+$$\sum\limits_{\avg{ij}}\sigma_i' \sigma_j ' = \sum\limits_{\avg{ij}\in S}\sigma_i' \sigma_j '+\sum\limits_{\avg{ij}\notin S}\sigma_i' \sigma_j ' = n(S)+\sum\limits_{\avg{ij}\notin S}\sigma_i \sigma_j$$
+Note that $n(S)>0$ always which give us the inequality,
+$$\sum\limits_{\avg{ij}\notin S} \sigma_i \sigma_j =\sum\limits_{\avg{ij}}\sigma_i' \sigma_j ' - n(S) <\sum\limits_{\avg{ij}}\sigma_i' \sigma_j '$$ 
+Also note that $\sigma_i\to \sigma'_i$ is a one-to-one map and hence the sum of spins over $\Omega\tund{s}$ is equal to the sum of spins over $\Omega'\tund{s}$. Using this and the estimate of the sum, Eq. \eqref{probdw} becomes, 
+\begin{align}
+    \begin{split}
+        \mathrm{Prob}(\{\sigma\}\in \Omega\tund{s}) &< \frac{1}{\SZ}\sum\limits_{\{\sigma'\}\in\Omega'\tund{s}} e^{-\beta J n(S)} \exp\qty[\beta J \sum\limits_{\avg{ij}}\sigma_i'\sigma_j']\\
+        &=\frac{e^{-\beta J n(S)}}{\SZ}\sum\limits_{\{\sigma'\}\in\Omega'\tund{s}}  \exp\qty[\beta J \sum\limits_{\avg{ij}}\sigma_i'\sigma_j']
+    \end{split}
+\end{align}
+Now, the RHS is the sum over all configurations in $\Omega'\tund{s}$. Since $e^x>0$ for all $x$, this term is less than the sum over all the configurations $\{\sigma\}\in \Omega$. Thus,
+$$ \mathrm{Prob}(\{\sigma\}\in \Omega\tund{s}) < e^{-\beta J n(S)}\frac{1}{\SZ} \mathcolor{red}{\sum\limits_{\{\sigma\}\in \Omega} \exp\qty[\beta J \sum\limits_{\avg{ij}}\sigma_i\sigma_j] = e^{-\beta J n(S)}}$$
+since the red term is just the definition of the partition function. Thus the probability of any configuration in $\Omega\tund{s}$ is less than $e^{-\beta Jn(S)}$. However, we were interested in the situation where the configuration belonged to $\Omega\tund{0}$ which can be obtained by summing over all such possible shorelines $S$. 
+\begin{align*}
+    \mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) =\sum\limits_{\{S \}}\mathrm{Prob}(\Omega\tund{S})< \sum\limits_{\{S\}} e^{-\beta J n(S)}
+\end{align*}
+Note that the length $n$ of a shoreline can be $n=4,5,6\ldots$. The minimum value is $4$, for the shoreline which contains only the central spin and this length increases. Then the sum over shorelines can be written as, 
+$$\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) <\sum\limits_{n=4}^\infty s(n) e^{-\beta J n}$$
+where $s(n)$ denote the number of shorelines with length $n$. The final thing to do is to have an estimate for $s(n)$. For this, note that shorelines are closed curves. To form a shoreline, start from any point $P$. We can move in only three directions (not in four) since shorelines are self-avoiding, so we cannot move in the direction in which we had already formed a line.\\[0.2cm] The number of ways to form a shoreline of length $n$ is thus $\sim 3^n$. Note that in this case, the choice of $P$ was arbitrary and we can essentially start from any of the $n$ points. Thus, the number of shorelines of length $n$ is $s(n)\sim 3^n n$. Substituting this in the above expression, 
+$$\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) <\sum\limits_{n=4}^\infty  3^n ne^{-\beta J n} \equiv\sum\limits_{n=4}^\infty  n r^n <\sum\limits_{n=1}^\infty  n r^n \qquad \text{where, }r =3e^{-\beta J }$$
+From the ratio test, we have 
+$$\lim\limits_{k\to \infty}\abs{\frac{a_{k+1}}{a_k}} = \lim\limits_{k\to \infty}\abs{\frac{(k+1)r^{k+1}}{kr^k}} =\lim\limits_{k\to \infty}\qty(1+\frac{1}{k})\abs{r} = \abs{r}$$
+and hence the sum converges if $\abs{r}<1\implies e^{\beta J}>3$. The value of the sum in the RHS is $\qty\frac{r}{(r-1)^2}$ and hence,
+$$\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) < \frac{r}{(r-1)^2} = \frac{3e^{-\beta J }}{(3e^{-\beta J }-1)^2}$$
+As $\beta\to \infty$ (corresponding to $T\to 0$), $\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) \to 0$ and hence for suciently low temperatures all spins in the systems tend to align even without an external magnetic field, proving the existence of a phase transition. 
+\subsection{Symmetries of the Ising Model}
+The zero-field Ising Hamiltonian has an obvious symmetry of $\sigma_i \to -\sigma_i$, which is broken if $h\neq 0$. If non-zero field, from Eq. \eqref{isingham}, we can see that if $h\to -h$ and $\{\sigma\}\to \{-\sigma\}$, then the Ising Hamiltonian remains invariant. 
+$$\SH(J, h, \{\sigma\}) = \SH(J,-h,\{-\sigma\})$$
+This is called the \textit{time-reversal} symmetry or $\inte_2$ symmetry. Let us see what happens to the partition function under $h\to -h$. 
+\begin{align*}
+    \SZ(-h, J, T) &= \sum\limits_{\{\sigma\}} \exp\qty[-\beta \SH(-h, J,\{\sigma\})]\\
+    &=\sum\limits_{\{\sigma\}} \exp\qty[-\beta\SH(-h, J,\{-\sigma\})]\\
+    &=\sum\limits_{\{\sigma\}} \exp\qty[-\beta\SH(h, J,\{\sigma\})]=\SZ(h,J,T)
+\end{align*}
+where in the second sum we used the fact that changing $\sigma\to -\sigma$ will not matter since we are summing over both $-1$ and $+1$ spins. 
+\subsection{Spontaneous Symmetry Breaking}

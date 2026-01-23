@@ -18,7 +18,13 @@
 \contentsline {section}{Lecture 07: Introduction to Ising Model}{22}{section*.24}%
 \contentsline {subsection}{\numberline {7.1}Mean-field solution}{22}{subsection.7.1}%
 \contentsline {section}{Lecture 08: Mean-field solution for Ising model}{23}{section*.25}%
-\contentsline {section}{Appendices}{25}{section*.27}%
-\contentsline {section}{\numberline {A}Legendre Transformation}{25}{appendix.1.A}%
-\contentsline {section}{\numberline {B}1D Solution of Ising Model}{26}{appendix.1.B}%
+\contentsline {section}{Lecture 09: More on Ising Model}{24}{section*.27}%
+\contentsline {subsection}{\numberline {9.1}Phase Transition in 1D Ising System}{25}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Phase Transition in 2D Ising System ( Peirls' Theorem)}{25}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Symmetries of the Ising Model}{28}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Spontaneous Symmetry Breaking}{29}{subsection.9.4}%
+\contentsline {section}{Lecture 10: Some more on Ising Model}{29}{section*.34}%
+\contentsline {section}{Appendices}{29}{section*.35}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{29}{appendix.1.A}%
+\contentsline {section}{\numberline {B}1D Solution of Ising Model}{30}{appendix.1.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
