@@ -9,7 +9,7 @@ We will show that for $T>0$ in $d=1$ zero-field Ising Model, there exists no \te
     \input{pics/ground1d.tex}
 \end{figure}
 \noindent
-The above configuration has entropy $S=0$, since all the spins are aligned. Hence, the free energy of the system is $F\tund{grnd}=E-TS = -J(N-1)$.\\[0.2cm] On increasing the temperature, the spins flips randomly due to interactions and this increases the energy of the system (since the interaction term is $-J(-1) = +J$ only if neighbouring spins are oppositely aligned). We need to check whether this destroys the long-range order. Now, consider a configuration with one \textit{domain wall}\footnote{in simple terms, a domain wall is an imaginary boundary which separates \textit{domains}. Domains are regions with the same kind of spins, that is, all up or all down. } introduced at some point in the Ising chain, as shown in red below. 
+The above configuration has entropy $S=0$, since all the spins are aligned. Hence, the free energy of the system is $F\tund{grnd}=E-TS = -J(N-1)$.\\[0.2cm] On increasing the temperature, the spins flips randomly due to interactions and this increases the energy of the system (since the interaction term is $-J(-1) = +J$ only if neighbouring spins are oppositely aligned). We need to check whether this destroys the long-range order. Now, consider a configuration with one \textit{domain wall}\footnote{In simple terms, a domain wall is an imaginary boundary which separates \textit{domains}. Domains are regions with the same kind of spins, that is, all up or all down. } introduced at some point in the Ising chain, as shown in red below. 
 \begin{figure}[H]
     \centering 
 \input{pics/dw1d.tex}
@@ -73,7 +73,7 @@ Also note that $\sigma_i\to \sigma'_i$ is a one-to-one map and hence the sum of 
     \end{split}
 \end{align}
 Now, the RHS is the sum over all configurations in $\Omega'\tund{s}$. Since $e^x>0$ for all $x$, this term is less than the sum over all the configurations $\{\sigma\}\in \Omega$. Thus,
-$$ \mathrm{Prob}(\{\sigma\}\in \Omega\tund{s}) < e^{-\beta J n(S)}\frac{1}{\SZ} \mathcolor{red}{\sum\limits_{\{\sigma\}\in \Omega} \exp\qty[\beta J \sum\limits_{\avg{ij}}\sigma_i\sigma_j] = e^{-\beta J n(S)}}$$
+$$ \mathrm{Prob}(\{\sigma\}\in \Omega\tund{s}) < e^{-\beta J n(S)}\frac{1}{\SZ} \mathcolor{red}{\sum\limits_{\{\sigma\}\in \Omega} \exp\qty[\beta J \sum\limits_{\avg{ij}}\sigma_i\sigma_j]} = e^{-\beta J n(S)}$$
 since the red term is just the definition of the partition function. Thus the probability of any configuration in $\Omega\tund{s}$ is less than $e^{-\beta Jn(S)}$. However, we were interested in the situation where the configuration belonged to $\Omega\tund{0}$ which can be obtained by summing over all such possible shorelines $S$. 
 \begin{align*}
     \mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) =\sum\limits_{\{S \}}\mathrm{Prob}(\Omega\tund{S})< \sum\limits_{\{S\}} e^{-\beta J n(S)}
@@ -84,11 +84,11 @@ where $s(n)$ denote the number of shorelines with length $n$. The final thing to
 $$\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) <\sum\limits_{n=4}^\infty  3^n ne^{-\beta J n} \equiv\sum\limits_{n=4}^\infty  n r^n <\sum\limits_{n=1}^\infty  n r^n \qquad \text{where, }r =3e^{-\beta J }$$
 From the ratio test, we have 
 $$\lim\limits_{k\to \infty}\abs{\frac{a_{k+1}}{a_k}} = \lim\limits_{k\to \infty}\abs{\frac{(k+1)r^{k+1}}{kr^k}} =\lim\limits_{k\to \infty}\qty(1+\frac{1}{k})\abs{r} = \abs{r}$$
-and hence the sum converges if $\abs{r}<1\implies e^{\beta J}>3$. The value of the sum in the RHS is $\qty\frac{r}{(r-1)^2}$ and hence,
+and hence the sum converges if $\abs{r}<1\implies e^{\beta J}>3$. The value of the sum in the RHS is $\frac{r}{(r-1)^2}$ and hence,
 $$\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) < \frac{r}{(r-1)^2} = \frac{3e^{-\beta J }}{(3e^{-\beta J }-1)^2}$$
-As $\beta\to \infty$ (corresponding to $T\to 0$), $\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) \to 0$ and hence for suciently low temperatures all spins in the systems tend to align even without an external magnetic field, proving the existence of a phase transition. 
+As $\beta\to \infty$ (corresponding to $T\to 0$), $\mathrm{Prob}(\{\sigma\} \in \Omega\tund{0}) \to 0$ and hence for sufficiently low temperatures all spins in the systems tend to align even without an external magnetic field, proving the existence of a phase transition. 
 \subsection{Symmetries of the Ising Model}
-The zero-field Ising Hamiltonian has an obvious symmetry of $\sigma_i \to -\sigma_i$, which is broken if $h\neq 0$. If non-zero field, from Eq. \eqref{isingham}, we can see that if $h\to -h$ and $\{\sigma\}\to \{-\sigma\}$, then the Ising Hamiltonian remains invariant. 
+The zero-field Ising Hamiltonian has an obvious symmetry of $\sigma_i \mapsto -\sigma_i$, which is broken if $h\neq 0$. In non-zero field, from Eq. \eqref{isingham}, we can see that if $h\to -h$ and $\{\sigma\}\to \{-\sigma\}$, then the Ising Hamiltonian remains invariant. 
 $$\SH(J, h, \{\sigma\}) = \SH(J,-h,\{-\sigma\})$$
 This is called the \textit{time-reversal} symmetry or $\inte_2$ symmetry. Let us see what happens to the partition function under $h\to -h$. 
 \begin{align*}
@@ -96,5 +96,29 @@ This is called the \textit{time-reversal} symmetry or $\inte_2$ symmetry. Let us
     &=\sum\limits_{\{\sigma\}} \exp\qty[-\beta\SH(-h, J,\{-\sigma\})]\\
     &=\sum\limits_{\{\sigma\}} \exp\qty[-\beta\SH(h, J,\{\sigma\})]=\SZ(h,J,T)
 \end{align*}
-where in the second sum we used the fact that changing $\sigma\to -\sigma$ will not matter since we are summing over both $-1$ and $+1$ spins. 
-\subsection{Spontaneous Symmetry Breaking}
+where in the second sum we used the fact that changing $\sigma\to -\sigma$ will not matter since we are summing over both $-1$ and $+1$ spins. The free energy is just the logarithm of the partition function, hence it also enjoys the symmetry,
+$$F(-h, J, T) = F(h, J,T)$$
+From the free energy, we obtain the magnetisation  
+\begin{align}
+    \begin{split}
+        \SM(h) = -\pdv{F(h,J,T)}{h} = -\pdv{F(-h,J,T)}{h} = \pdv{F(-h,J,T)}{(-h)} = -\SM(-h)
+    \end{split}
+\end{align} 
+From the above expression, if $h=0$ then we have $\SM(0) = 0$ which apparently says that \textit{phase transition is impossible in zero-field!}\\[0.2cm]
+This situation arises since we assumed the derivative of the free energy is well-behaved which is indeed true for finite systems, however, in the thermodynamic limit, $F$ develops a \text{kink} for $T<T_c$ and hence $\qty(\pdv{F}{h})$ develops a discontinuity as shown in Fig. \ref{kink} (a)
+\begin{figure}[H]
+    \centering 
+    \input{pics/kink.tex}
+    \caption{(a) Free energy and (b) Magnetisation behaviour in finite $N$ and thermodynamic limit for $T<T_c$.}
+    \label{kink}
+\end{figure}
+\noindent
+In the thermodynamic limit, near $h=0$ the free energy behaves as,
+$$F(h) = F(0) - \SM\tund{0} \abs{h} +\SO(h^{q>1})$$
+From this, if $h<0$ then $\SM(0^-) = -\SM\tund{0}$ and if $h>0$ then $\SM(0^+) = +\SM\tund{0}$ which is clearly discontinuous as shown in Fig. \ref{kink} (b). It is clear that if we take the thermodynamic limit first and then take $h\to 0$ and if we first take $h\to 0$ for a finite $N$ and then take $N\to infty$, we get two different behaviours. Thus, the limits do not commute.  
+$$\lim\limits_{N\to\infty}\lim\limits_{h\to 0} \qty( \frac{1}{N}\pdv{F(h)}{h})\neq \lim\limits_{h\to 0}\lim\limits_{N\to\infty} \qty( \frac{1}{N}\pdv{F(h)}{h})$$ 
+\subsubsection{Spontaneous Symmetry Breaking}
+When the Hamiltonian of the system has a particular symmetry but the statistical behavior of the system breaks that symmetry, we say that the symmetry is broken spontaneously. As seen before, the zero-field Ising Hamiltonian enjoys a $\inte_2$ symmetry, under the exchange $\{\sigma_i \}\to \{-\sigma_i\}$. For $T<T_c$ in the thermodynamic limit, we saw that 
+$$\SM = \lim\limits_{N\to \infty} \frac{1}{N}\sum\limits_i \avg{\sigma_i} \neq 0$$
+Hence, at all temperature $\SH$ has a symmetry under the exchange of spins but $\avg{\sigma_i}$ does not. Thus we say that the symmetry is spontaneously broken.\\[0.2cm]
+This is different from the uninteresting explicit symmetry breaking in the $h\neq 0$ case, where the Hamiltonian itself does not have the $\inte_2$ symmetry from beginning.
