@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  24 JAN 2026 12:56
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  25 JAN 2026 02:24
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2450,7 +2450,7 @@ Overfull \hbox (7.2282pt too wide) detected at line 92
 <codes/tanhx.pdf, id=376, 482.68431pt x 271.94498pt>
 File: codes/tanhx.pdf Graphic file (type pdf)
 <use codes/tanhx.pdf>
-Package luatex.def Info: codes/tanhx.pdf  used on input line 27.
+Package luatex.def Info: codes/tanhx.pdf  used on input line 28.
 (luatex.def)             Requested size: 337.87671pt x 190.36018pt.
 ) (./lectures/lec09.tex
 
@@ -2476,16 +2476,17 @@ LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 51.
 
 [27]
 
-[28] (./pics/kink.tex)) (./lectures/lec10.tex) (./lectures/lec11.tex)
-(./lectures/appendix.tex
+[28] (./pics/kink.tex)
 
-[29]
+[29]) (./lectures/lec10.tex) (./lectures/lec11.tex) (./lectures/appendix.tex
 
-[30] (./lectures/ising.tex
+[30]
 
-[31])) (./main.bbl)
+[31] (./lectures/ising.tex
 
-[32] (./main.aux)
+[32])) (./main.bbl)
+
+[33] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2503,17 +2504,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 71322 strings out of 475506
+ 71326 strings out of 475506
  156267,2848258 words of node,token memory allocated
- 4446 words of node memory still in use:
-   106 hlist, 12 vlist, 16 rule, 8 math, 60 glue, 23 kern, 101 glyph, 274 attrib
-ute, 120 glue_spec, 274 attribute_list, 2 write, 24 pdf_literal, 1 pdf_action, 2
+ 4458 words of node memory still in use:
+   106 hlist, 12 vlist, 16 rule, 8 math, 60 glue, 23 kern, 101 glyph, 277 attrib
+ute, 120 glue_spec, 277 attribute_list, 2 write, 24 pdf_literal, 1 pdf_action, 2
 4 pdf_colorstack nodes
-   avail lists: 1:6,2:9841,3:6108,4:524,5:757,6:101,7:8647,8:139,9:2895,10:16,11
-:418
- 92262 multiletter control sequences out of 65536+600000
+   avail lists: 1:6,2:9835,3:6108,4:524,5:758,6:100,7:8647,8:139,9:2895,10:16,11
+:471
+ 92264 multiletter control sequences out of 65536+600000
  358 fonts using 26113495 bytes
- 108i,22n,141p,10919b,1192s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,22n,141p,10919b,1196s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/f
 onts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
 enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/
@@ -2543,10 +2544,10 @@ texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (32 pages, 826952 bytes).
+Output written on main.pdf (33 pages, 834925 bytes).
 
-PDF statistics: 694 PDF objects out of 1000 (max. 8388607)
- 571 compressed objects within 6 object streams
- 135 named destinations out of 1000 (max. 131072)
+PDF statistics: 702 PDF objects out of 1000 (max. 8388607)
+ 578 compressed objects within 6 object streams
+ 137 named destinations out of 1000 (max. 131072)
  493 words of extra memory for PDF output out of 10000 (max. 100000000)
 

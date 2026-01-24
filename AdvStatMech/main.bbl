@@ -36,4 +36,8 @@ E.~A. Guggenheim, ``The principle of corresponding states,'' \emph{The Journal
   Available: \url{https://doi.org/10.1063/1.1724033}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Glimm}
+J.~Glimm and A.~M. Jaffe, \emph{{Quantum Physics: A Functional Integral Point
+  of View}}, 1987.
+
 \end{thebibliography}

@@ -1,3 +1,16 @@
 \refstepcounter{section}
 \section*{Lecture 10: Some more on Ising Model}
 \addcontentsline{toc}{section}{Lecture 10: Some more on Ising Model}
+In the previous section, we noted some properties based on the symmetry of the Ising model. Let us now continue our discussion on the mean field solution, focussing on critical exponents, that we previously saw in the phase transition in fluids. Critical exponents are defined as the limiting \textit{power-law} behaviour of some thermodynamic quantities near the critical point. 
+$$f(t)\sim t^\lambda \quad \implies \quad \lambda = \lim\limits_{t\to 0}\frac{\ln f(t)}{\ln t}$$
+The variable $t$ is often taken to be the reduced temperature $t:=\frac{\pm(T-T_c)}{T_c}$ depending on whether we want to approach from below or above $T_c$. The critical exponents for $T_c^+$ and $T_c^-$ are found to be always equal, if they exist (Like for magnetisation, $m=0$ for $T>T_c$ so no exponent can be obtained in that case and hence, magnetisation is approached only from below $T_c$).\\[0.2cm]
+From Eq. \eqref{transcendeq}, the mean field magnetisation was written as $\avg{\sigma}= \tanh(\beta h + \beta J \gamma \avg{s})$. Let us denote $m=\avg{\sigma}$ and $\tau = \frac{T_c}{T} = \beta J\gamma$. In terms of the reduced temperature $t$, we have $\tau = t+1$. Using $\tanh(x)\simeq x - \frac{x^3}{3}$ for $x\ll 1$, we get
+\begin{align*}
+    m = \tanh(\tau m) = \tanh((t+1)m) = m(t+1) - \frac{(t+1)^3}{3}m^3 + \SO(t^5)
+\end{align*}
+Solving this, we get $m=0$ or $m^2= \frac{3t}{(t+1)^3}$. The non-zero magnetisation is interesting for us and let us check what is the scaling of this,
+\begin{align*}
+   m^2 = \frac{3t}{(t+1)^3} = 3t(t+1)^{-3} \approx 3t(1-3t) = 3t + \SO(t^2) \implies m\sim (3t)^{1/2}
+\end{align*}
+Thus we obtain the first critical exponent from the mean-field analysis,
+$$\boxed{m\sim \qty(\frac{T_c-T}{T})^{\beta} \qquad \beta: \frac{1}{2}}$$

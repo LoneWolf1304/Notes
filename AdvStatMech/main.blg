@@ -11,46 +11,48 @@ Database file #1: ref.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--missing publisher in Glimm
 
 Done.
-You've used 2 entries,
+You've used 3 entries,
             4087 wiz_defined-function locations,
-            841 strings with 7653 characters,
-and the built_in function-call counts, 1454 in all, are:
-= -- 123
-> -- 20
+            846 strings with 7751 characters,
+and the built_in function-call counts, 1832 in all, are:
+= -- 148
+> -- 29
 < -- 11
-+ -- 12
-- -- 3
-* -- 89
-:= -- 266
-add.period$ -- 4
-call.type$ -- 2
++ -- 16
+- -- 5
+* -- 104
+:= -- 325
+add.period$ -- 5
+call.type$ -- 3
 change.case$ -- 2
 chr.to.int$ -- 21
-cite$ -- 2
-duplicate$ -- 99
-empty$ -- 100
-format.name$ -- 4
-if$ -- 308
+cite$ -- 4
+duplicate$ -- 128
+empty$ -- 146
+format.name$ -- 7
+if$ -- 397
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 15
-newline$ -- 33
-num.names$ -- 2
-pop$ -- 23
+int.to.str$ -- 3
+missing$ -- 21
+newline$ -- 36
+num.names$ -- 3
+pop$ -- 42
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 107
+skip$ -- 142
 stack$ -- 0
 substring$ -- 51
-swap$ -- 85
+swap$ -- 102
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 2
-warning$ -- 0
-while$ -- 5
-width$ -- 3
-write$ -- 48
+type$ -- 3
+warning$ -- 1
+while$ -- 6
+width$ -- 4
+write$ -- 55
+(There was 1 warning)

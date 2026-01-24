@@ -20,8 +20,8 @@ $$E\tund{dw}= -J(N_+-1) -J(N_- -1) -J (-1) = -J(N-1)+2J$$
 Thus introducing one domain wall incurs a cost of $\Delta E = 2J$. Now, since there are $N$ spins, this domain wall can be placed at any of the $(N-1)$ positions. Then the entropy of the system with one domain wall is $S=\kb \ln (N-1)$ and the free energy is $F\tund{dw} = -J(N-1) + 2J - \kb T\ln (N-1)$. The change in free energy is, 
 $$\Delta  F= F\tund{dw} - F\tund{grnd} = 2J - \kb T\ln (N-1)$$
 In the thermodynamic limit $N\to \infty$ which implies that $\Delta F \to -\infty$. The system can always lower the free energy by creating a domain wall for any temperature $T>0$. In fact, the free energy is further lowered by introducing arbitrary number of domain walls, untill no domains remain at all. This implies that the long-ranged order is unstable and there is no spontaneous magnetisation at any finite temperature in the zero-field $d=1$ Ising model. 
-\subsection{Phase Transition in 2D Ising System ( Peirls' Theorem)}
-The situation becomes a bit different for $d=2$ Ising model. To prove the existence of phase transition at a finite temperature in $d=2$, consider a case where all the outer layer spins in the lattice are of the same type, say $\uparrow$. Now, consider the spin in the center of the lattice, highlighted yellow in Fig. \ref{peirl1} 
+\subsection{Phase Transition in 2D Ising System ( Peirls' Argument)}
+The situation becomes a bit different for $d=2$ Ising model. To prove the existence of phase transition at a finite temperature in $d=2$, consider a case where all the outer layer spins in the lattice are of the same type, say $\uparrow$. Now, consider the spin in the center of the lattice, highlighted yellow in Fig. \ref{peirl1}.
 \begin{figure}[H]
     \centering 
     \input{pics/peirl1}
@@ -119,6 +119,14 @@ From this, if $h<0$ then $\SM(0^-) = -\SM\tund{0}$ and if $h>0$ then $\SM(0^+) =
 $$\lim\limits_{N\to\infty}\lim\limits_{h\to 0} \qty( \frac{1}{N}\pdv{F(h)}{h})\neq \lim\limits_{h\to 0}\lim\limits_{N\to\infty} \qty( \frac{1}{N}\pdv{F(h)}{h})$$ 
 \subsubsection{Spontaneous Symmetry Breaking}
 When the Hamiltonian of the system has a particular symmetry but the statistical behavior of the system breaks that symmetry, we say that the symmetry is broken spontaneously. As seen before, the zero-field Ising Hamiltonian enjoys a $\inte_2$ symmetry, under the exchange $\{\sigma_i \}\to \{-\sigma_i\}$. For $T<T_c$ in the thermodynamic limit, we saw that 
-$$\SM = \lim\limits_{N\to \infty} \frac{1}{N}\sum\limits_i \avg{\sigma_i} \neq 0$$
+$$m = \lim\limits_{N\to \infty} \frac{1}{N}\sum\limits_i \avg{\sigma_i} \neq 0$$
 Hence, at all temperature $\SH$ has a symmetry under the exchange of spins but $\avg{\sigma_i}$ does not. Thus we say that the symmetry is spontaneously broken.\\[0.2cm]
-This is different from the uninteresting explicit symmetry breaking in the $h\neq 0$ case, where the Hamiltonian itself does not have the $\inte_2$ symmetry from beginning.
+This is different from the uninteresting explicit symmetry breaking in the $h\neq 0$ case, where the Hamiltonian itself does not have the $\inte_2$ symmetry from beginning.\\[0.2cm]
+Spontaneous symmetry breaking seems a bit counterintuitive if we naively see a probabilistic viewpoint of the situation. Since the Hamiltonian has $\inte_2$ symmetry, the Boltzmann factor $P(\{\sigma\}) = \frac{1}{\SZ}\exp\qty(-\beta \SH(\{\sigma\}))$ is also invariant under this symmetry. Then the expectation, 
+\begin{align*}
+    \avg{\sigma_i} = \sum\limits_{\{\sigma\}}\sigma_i P(\{\sigma\}) = 0 
+\end{align*}
+The sum is zero because for a configuration $\{\sigma_i\}$, the opposite configuration $\{-\sigma_i\}$ will have the same Boltzmann factor, however, the $\sigma_i$ factor in the sum will become $-\sigma_i$, which will cancel with the configuration. Thus, in the thermodynamic limit, we have to be careful with the calculation!\\[0.2cm]
+Consider the Ising model when $h\neq 0$. In this case, consider two configurations $A$ and $B$ which differ by the fact that all spins in configuration $B$ are the flipped spins of configuration $A$. Due to the field term $-h\sum \sigma_i = -hNm$, the probability of these two contributions will be
+$$\frac{P\tund{A}}{P\tund{B}} = \frac{\exp[\beta h N m ]}{\exp[-\beta h N m ]} \implies \frac{P\tund{B}}{P\tund{A}} = \exp[-2\beta h N m ]$$
+In the thermodynamic limit, for $h>0$, $\frac{P\tund{B}}{P\tund{A}} \to 0$ and hence the system must be in configuration $A$, with magnetisation $+m$ for any $h>0$ (in particular, true for $h\to 0^+$). For $h<0$, $\frac{P\tund{B}}{P\tund{A}}\to \infty $ and hence the system must be in configuration $B$, with magnetisation $-m$ for any $h<0$ (in particular, true for $h\to 0^-$).\\[0.2cm] Thus, in an infinitesimal field close to zero and in the thermodynamic limit, there is a large weight assigned to states with particular magnetisation $+m$ or $-m$, for $h>0$ and $h<0$ respectively. This is equivalent to setting $h=0$ but taking a \textit{restricted ensemble}, where we exclude the configurations with the `unpreferred' magnetisation and thus, their Boltzmann weight is identically zero. Two such probability distribution can be defined $P_+$ and $P_-$ based on the magnetisation values. I haven't gone through the rigorous mathematical arguments for this, however, Goldenfeld advised to refer to \cite{Glimm}, where this has been dealt with rigorously.
