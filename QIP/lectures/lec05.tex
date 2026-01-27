@@ -32,4 +32,19 @@ Let us analyse some special points on the sphere:
 Note that while defining $\alpha$ and $\beta$ in terms of the angles, we had assumed $\qty(\sfrac{\theta}{2})$ in an \textit{ad hoc} manner. This assumptions stems from concepts in group theory.\\[0.2cm]
 The transformations of a single-qubit is governed by $\sun{2}$ matrices which are unitary matrices with determinant $1$. Thus, 
 $$\ket{\psi} \longrightarrow \ket{\psi'} = U\ket{\psi} \qquad U\in \sun{2}$$
-However, any point of the sphere $\mathbb{S}^1$ is transformed by rotation matrices which are elements of $\son{3}$.
+However, any point of the sphere $\mathbb{S}^1$ is transformed by rotation matrices which are elements of $\son{3}$. \textcolor{red}{to be completed...}
+\subsection{Expectation of Pauli Matrices}
+Consider the vector of Pauli matrices, $\vbs{\sigma} \equiv (\sigma_x, \sigma_y,\sigma_z)$ and an arbitrary qubit, $\ket{\psi} = (\cos\frac{\theta}{2}, e^{i\phi}\sin\frac{\theta}{2})$. Let us calculate the expectation value $\avg{\vbs{\sigma}} = (\avg{\sigma_x},\avg{\sigma_y},\avg{\sigma_z})$ where the average is with respect to the state $\ket{\psi}$. Let us first start with $\sigma_x$,
+\begin{align*}
+    \braket{\psi|\sigma_x|\psi} = \mqty(\cos\frac{\theta}{2}& e^{-i\phi}\sin\frac{\theta}{2}) \mqty(0 & 1 \\ 1 & 0)\mqty(\cos\frac{\theta}{2}\\ e^{i\phi}\sin\frac{\theta}{2}) &= \mqty(\cos\frac{\theta}{2}& e^{-i\phi}\sin\frac{\theta}{2}) \mqty(e^{i\phi}\sin\frac{\theta}{2}\\\cos\frac{\theta}{2})\\ &=\cos\qty(\frac{\theta}{2}) \sin\qty(\frac{\theta}{2})(e^{i\phi}+e^{-i\phi})\\ &= 2 \cos\qty(\frac{\theta}{2}) \sin\qty(\frac{\theta}{2}) \cos\phi \\ &= \sin\theta\cos\phi
+\end{align*}
+Taking the expectation with $\sigma_y$,
+\begin{align*}
+    \braket{\psi|\sigma_y|\psi} = \mqty(\cos\frac{\theta}{2}& e^{-i\phi}\sin\frac{\theta}{2}) \mqty(0 & -i \\ i & 0)\mqty(\cos\frac{\theta}{2}\\ e^{i\phi}\sin\frac{\theta}{2}) &= \mqty(\cos\frac{\theta}{2}& e^{-i\phi}\sin\frac{\theta}{2}) \mqty(-ie^{i\phi}\sin\frac{\theta}{2}\\ i\cos\frac{\theta}{2})\\ &=i\cos\qty(\frac{\theta}{2}) \sin\qty(\frac{\theta}{2})(-e^{i\phi}+e^{-i\phi})\\ &= 2 \cos\qty(\frac{\theta}{2}) \sin\qty(\frac{\theta}{2}) \sin\phi \\ &= \sin\theta\sin\phi
+\end{align*}
+And doing the same thing with $\sigma_z$,
+\begin{align*}
+    \braket{\psi|\sigma_z|\psi} = \mqty(\cos\frac{\theta}{2}& e^{-i\phi}\sin\frac{\theta}{2}) \mqty(1 & 0 \\ 0 & -1)\mqty(\cos\frac{\theta}{2}\\ e^{i\phi}\sin\frac{\theta}{2}) &= \mqty(\cos\frac{\theta}{2}& e^{-i\phi}\sin\frac{\theta}{2}) \mqty(\cos \frac{\theta}{2}\\ -e^{i\phi}\sin\frac{\theta}{2})\\ &=\cos^2\qty(\frac{\theta}{2})-\sin^2\qty(\frac{\theta}{2})\\
+    &=\cos \theta
+\end{align*}
+This implies $\avg{\vbs{\sigma}} = (\sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)= \vb{r}$ where $\vb{r}$ is the Bloch vector, connecting the origin of the Bloch sphere to the point representing the qubit.

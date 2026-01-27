@@ -1,0 +1,67 @@
+\refstepcounter{section}
+\section*{Lecture 07: More on Rotations}
+\addcontentsline{toc}{section}{Lecture 07: More on Rotations}
+Let us find a convenient expression to denote any group element from $\sun{2}$. In the previous section we saw that, 
+\begin{align*}
+    \rn{\hat{\vb{n}}}{\theta} = \exp\qty(-\frac{i\phi}{2}\hat{\vb{n}}\cdot \vbs{\sigma}) = \sum\limits_{n=0}^\infty \frac{1}{n!}\qty(-\frac{i\phi}{2}\vb{\hat{n}}\cdot \vbs{\sigma})^n
+\end{align*}
+\begin{identity}
+    For any vectors $\vb{a}$ and $\vb{b}$, we have:
+\begin{center}
+    $(\vbs{\sigma}\cdot \vb{a})(\vbs{\sigma}\cdot \vb{b}) = (\vb{a}\cdot \vb{b})\iden + i \sigma\cdot (\vb{a}\times \vb{b})$
+\end{center}
+\end{identity}
+\noindent
+\textit{Proof.} We will use repeated indices notation to denote sum over those indices. 
+\begin{align*}
+    (\sigma_j a_j)(\sigma_k b_k) =\frac{1}{2}\times 2\sigma_j \sigma_k a_j b_k
+    =\frac{1}{2}\qty[\mathcolor{red}{\sigma_j\sigma_k + \sigma_k \sigma_j} + \mathcolor{blue}{\sigma_j\sigma_k - \sigma_k \sigma_j}] a_j b_k =\frac{1}{2}\qty(\{\sigma_j, \sigma_k\} + \comtr{\sigma_j}{\sigma_k})a_jb_k
+\end{align*}
+Using the commutation $\comtr{\sigma_i}{\sigma_j} = 2i\epsilon_{ijk}\sigma_k$ and anti-commutation $\{\sigma_i, \sigma_j\} =2\delta_{ij}$ relations of the Pauli matrices, we get 
+\begin{align*}
+    \frac{1}{2}(2\delta_{kj} + 2i \epsilon_{jkl}\sigma_l)a_j b_k =a_j b_k \delta_{jk} + i \sigma_l (\vb{a}\times \vb{b})_l  =(\vb{a}\cdot \vb{b})\iden + i \sigma\cdot (\vb{a}\times \vb{b})
+\end{align*}
+From this, we can write $(\vbs{\sigma}\cdot \vb{\hat{n}})^2=\iden$ and hence $(\vbs{\sigma}\cdot \vb{\hat{n}})^k = (\vbs{\sigma}\cdot \vb{\hat{n}})$ is $k$ is odd, otherwise $(\vbs{\sigma}\cdot \vb{\hat{n}})^k = \iden$.
+\begin{align*}
+    \sum\limits_{n=0}^\infty \frac{1}{n!}\qty(-\frac{i\phi}{2}\vb{\hat{n}}\cdot \vbs{\sigma})^n &= \sum\limits_{n  \text{ even}} \frac{1}{n!}\qty(-\frac{i\phi}{2}\vb{\hat{n}}\cdot \vbs{\sigma})^n\iden+\sum\limits_{n  \text{ odd}} \frac{1}{n!}\qty(-\frac{i\phi}{2}\vb{\hat{n}}\cdot \vbs{\sigma})^n\\
+    &=\sum\limits_{n  \text{ even}} \frac{1}{n!}\qty(-\frac{i\phi}{2})^n\iden+\qty[\sum\limits_{n  \text{ odd}} \frac{1}{n!}\qty(-\frac{i\phi}{2})^n] \qty(\vb{\hat{n}}\cdot \vbs{\sigma})\\
+    &=\sum\limits_{n  \text{ even}} \frac{(-1)^{n/2}}{n!}\qty(\frac{\phi}{2})^n\iden+\qty[\sum\limits_{n  \text{ odd}} \frac{(-1)^{(n-1)/2}}{n!}\qty(\frac{\phi}{2})^n] \qty(-i\vb{\hat{n}}\cdot \vbs{\sigma})\\
+    &=\cos\qty(\frac{\phi}{2})\iden -i(\hat{\vb{n}}\cdot \vbs{\sigma})\sin\qty(\frac{\theta}{2})
+\end{align*}
+Thus we obtained a very important identity for the $\sun{2}$ matrices, 
+$$\boxed{\rn{\hat{\vb{n}}}{\theta} =\cos\qty(\frac{\phi}{2})\iden -i(\hat{\vb{n}}\cdot \vbs{\sigma})\sin\qty(\frac{\theta}{2}) }$$
+Any single qubit system can be viewed as a rotation on the Bloch sphere. For example, let us take the Hadamard gate. We know that $H\ket{0}=\ket{+}$ and $H\ket{1} = \ket{-}$, thus, it can naively be seen as a $90\degree$ rotation about y-axis. The Hadamard matrix is,
+$$H =\frac{1}{\sqrt{2}} \mqty(1 & 1 \\ 1 & -1)$$
+However, note that a rotation of $90\degree$ about the y-axis is, 
+$$\rn{y}{\frac{\pi}{2}} = \cos\qty(\frac{\pi}{4}) \iden - i \sigma_y \sin\qty(\frac{\pi}{4}) = \frac{1}{\sqrt{2}}\mqty(1 & -1 \\ 1 & 1)$$
+This is a tad bit different than the Hadamard matrix, and can be made equal if we have, 
+$$\mqty(0 & 1 \\ 1 & 0)\times\frac{1}{\sqrt{2}}\mqty(1 & -1 \\ 1 & 1) \implies H = \sigma_x \rn{y}{\frac{\pi}{2}}$$
+Now, if we take $\hat{\vb{n}} = \hat{\vb{x}}$ and an angle $\pi$, then $\rn{x}{\pi} = -i \sigma_x$. Then upto a global phase $i = e^{-i\pi/2}$, we have 
+$$H = \rn{x}{\pi}\rn{y}{\frac{\pi}{2}}$$
+We had decomposed the Hadamard gate into product of two rotation operators. It turns out that any $\sun{2}$ matrix can be decomposed into a product of rotation operators, a process which is called the \textit{Euler decomposition}. Before that note, if we conjugate any rotation operator with the Pauli matrix, 
+$$\sigma_i \rn{\hat{\vb{n}}}{\theta}{\sigma_i} = \cos\qty(\frac{\theta}{2})\sigma_i^2 - i\sigma_i(\vbs{\sigma} \cdot \hat{\vb{n}})\sigma_i \sin\qty(\frac{\theta}{2}) =\cos\qty(\frac{\theta}{2})\iden -i \sigma_i(\vbs{\sigma} \cdot \hat{\vb{n}})\sigma_i \sin\qty(\frac{\theta}{2})$$
+The second term, after some manipulation, becomes:
+$$\sigma_i(\vbs{\sigma} \cdot \hat{\vb{n}})\sigma_i =\sum_j (\sigma_i \sigma_j \sigma_i) n_j = \qty(\sigma_i n_i - \sum_{i\neq j} \sigma_j  n_j ) =2\sigma_i n_i - \vbs{\sigma}\cdot \vbs{\hat{n}}  $$
+Suppose that $n_i = 0$ (that is, we have rotation axis as, say $\hat{x}$ and we apply $\sigma_y$ conjugation), we get 
+$$\sigma_i \rn{\hat{\vb{n}}}{\theta}{\sigma_i} = \cos\qty(\frac{\theta}{2})\iden+i(\vbs{\sigma}\cdot \vbs{\hat{n}})\sin\qty(\frac{\theta}{2}) = \rn{\hat{\vb{n}}}{-\theta}\implies \boxed{\sigma_i \rn{\hat{\vb{n}}}{\theta}{\sigma_i} =\rn{\hat{\vb{n}}}{-\theta}} $$
+Now, right multiplying by $\rn{\hat{\vb{n}}}{-\theta}$ and left multiplying $\sigma_i$:
+$$\sigma_i^2 \rn{\hat{\vb{n}}}{\theta}{\sigma_i}\rn{\hat{\vb{n}}}{-\theta} = \sigma_i \rn{\hat{\vb{n}}}{-\theta}\rn{\hat{\vb{n}}}{-\theta}\implies \boxed{ \rn{\hat{\vb{n}}}{\theta}{\sigma_i}\mathrm{R}_{\hat{\vb{n}}}^\dagger (\theta) = \sigma_i \rn{\hat{\vb{n}}}{-2\theta}}$$
+We can readily use this formula to get some identities, 
+\begin{identity}
+   Using the identities above, we can note the following:
+    \begin{itemize}
+        \item $\sigma_x \rn{y}{\theta} \sigma_x = \rn{y}{-\theta}$
+     \item $\sigma_x \rn{z}{\theta} \sigma_x = \rn{z}{-\theta}$  
+       \item $\rn{y}{\theta}\sigma_z \rn{y}{-\theta}  = \sigma_z \qty(\cos \theta + i\sigma_y \sin\theta) = \sigma_z \cos\theta + i (-i\sigma_x)\sin\theta = \sigma_z \cos\theta + \sigma_x \sin\theta$
+        \item $\rn{x}{\theta}\sigma_y \rn{x}{-\theta}  = \sigma_y \qty(\cos \theta + i\sigma_x \sin\theta) = \sigma_y \cos\theta + i (-i\sigma_z)\sin\theta = \sigma_y \cos\theta + \sigma_z \sin\theta$
+        \item $\rn{y}{\theta}\sigma_x \rn{y}{-\theta}  = \sigma_x \qty(\cos \theta + i\sigma_y \sin\theta) = \sigma_x \cos\theta + i (i\sigma_z)\sin\theta = \sigma_x \cos\theta - \sigma_z \sin\theta$
+        \item $\rn{z}{\theta}\sigma_x \rn{z}{-\theta}  = \sigma_x \qty(\cos \theta + i\sigma_z \sin\theta) = \sigma_x \cos\theta + i (-i\sigma_y)\sin\theta = \sigma_x \cos\theta + \sigma_y \sin\theta$
+    \end{itemize}
+\end{identity}
+We now come to the Euler decomposition of an $\sun{2}$ matrix, which states that any rotation $\rn{\vb{\hat{n}}}{\alpha}$ can be decomposed into a series of trivial rotation operators,
+$$\rn{\vb{\hat{n}}}{\alpha} = \rn{z}{\phi} \rn{y}{\theta} \rn{z}{\alpha}\mathrm{R}_{y}^\dagger(\theta)\mathrm{R}_{z}^\dagger(\phi)=  (\rn{z}{\phi} \rn{y}{\theta}) \rn{z}{\alpha}(\rn{z}{\phi} \rn{y}{\theta})^\dagger$$ 
+A simple proof can be given as,
+\begin{align*}
+    \rn{z}{\phi} \rn{y}{\theta} \rn{z}{\alpha}\mathrm{R}_{y}^\dagger(\theta)\mathrm{R}_{z}^\dagger(\phi) &=\rn{z}{\phi} \qty(\cos\qty(\frac{\theta}{2}) - \frac{i\sigma_y}{2}\sin\qty(\frac{\theta}{2})) \rn{z}{\alpha}\qty(\cos\qty(\frac{\theta}{2}) + \frac{i\sigma_y}{2}\sin\qty(\frac{\theta}{2}))\mathrm{R}_{z}^\dagger(\phi)\\
+    &=\rn{z}{\phi} \qty(\cos^2\qty(\frac{\theta}{2})\rn{z}{\alpha} - \frac{i\sigma_y}{2}\sin\qty(\frac{\theta}{2})) \rn{z}{\alpha}\qty(\cos\qty(\frac{\theta}{2}) + \frac{i\sigma_y}{2}\sin\qty(\frac{\theta}{2}))\mathrm{R}_{z}^\dagger(\phi)\\
+\end{align*}

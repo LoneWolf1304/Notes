@@ -7,4 +7,7 @@
 \contentsline {subsection}{\numberline {4.1}Maxwell's Demon}{11}{subsection.4.1}%
 \contentsline {section}{Lecture 05: Bloch Sphere}{11}{section*.21}%
 \contentsline {subsection}{\numberline {5.1}Bloch sphere and group theory}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Expectation of Pauli Matrices}{12}{subsection.5.2}%
+\contentsline {section}{Lecture 06: Rotation Operator}{13}{section*.23}%
+\contentsline {section}{Lecture 07: More on Rotations}{14}{section*.24}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

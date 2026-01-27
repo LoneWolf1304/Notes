@@ -1,0 +1,27 @@
+\refstepcounter{section}
+\section*{Lecture 06: Rotation Operator}
+\addcontentsline{toc}{section}{Lecture 06: Rotation Operator}
+Any vector $\vb{r}\in \re^3$ can be acted about by a vector which brings about a sense of rotation. Keeping the vector fixed, if we rotate the coordinate system, then the rotation is called \textit{passive rotation} and is denoted by $\rn{\hat{\vb{n}}}{\phi}$ where $\hat{\vb{n}}$ is the axis about which we are performing the rotation and $\phi$ is the angle by which we are rotating.\\[0.2cm] On the other hand, if we rotate the vector itself, it is called an \textit{active rotation}. A passive rotation of the coordinate system about an axis by an angle $+\phi$ is equivalent to an active rotation of the vector about that axis by angle $-\phi$.\\[0.2cm]
+Consider an active rotation about z-axis, taking $\vb{r}$ to $\vb{r}'$, represented as,
+$$\vb{r}' = \rn{z}{-\phi} \vb{r} \implies \vb{r} = \rni{z}{-\phi}\vb{r}' = \rn{z}{\phi}\vb{r}'$$
+We use the \textit{isotropy} of space to argue that a wavefunction $\psi(\vb{r})$ will not change after this rotation. Hence,
+$$\psi'(\vb{r}') = \psi(\vb{r}) = \psi(\rn{z}{\phi}\vb{r}')$$
+Since $\vb{r}'$ is just a dummy variable in the argument, we can write $\psi(\vb{r}) = \psi(\rn{z}{\phi}\vb{r})$. Consider the rotation about the z-axis, denoted by $\rn{z}{\phi}$ and taking its infinitesimal limit $\phi\to \delta \phi$ which makes $\cos\delta\phi \to 1$ and $\sin\delta \phi\to \delta \phi$
+\begin{align*}
+    \rn{z}{\phi} = \mqty(\cos\phi & \sin\phi & 0\\ -\sin\phi & \cos\phi & 0 \\ 0 & 0 & 1)\xrightarrow{\phi\to \delta \phi}\mqty(1 & \delta\phi & 0\\ -\delta\phi & 1 & 0 \\ 0 & 0 & 1)
+\end{align*}
+Now, when acted on $\vb{r} = (x,y,z)$, the vector changes by $\vb{r}' = \rn{z}{\delta\phi}\vb{r} =(x+y\delta \phi, -x\delta \phi + y, z)$. Then the wavefunction becomes,
+\begin{align*}
+    \psi'(\vb{r}) = \psi((x+y\delta \phi, -x\delta \phi + y, z)) =\psi(x,y,z) +y\delta\phi \pdv{\psi}{x}-x\delta\phi\pdv{\psi}{y}
+\end{align*}
+Identifying the partial derivatives with the momentum operator in position basis, $\hat{p}_i \equiv -i\hbar \pdv{x^i}$ we have,
+$$ \psi'(\vb{r}) = \psi(x,y,z) -\frac{i}{\hbar}\qty[x \hat{p}_y - y \hat{p}_z] \delta\phi \psi$$
+The quantity in the bracket is just the angular momentum operator $\hat{L}_z$, thus obtaining $\psi(\vb{r})= \psi(x,y,z) - \frac{i}{\hbar} \delta\phi L_z\psi$. This was an infinitesimal transformation. To obtain a finite rotation with angle $\phi$, define $\delta \phi = \frac{\phi}{N}$ and apply the transformation by $\delta \phi$, $N$ times and then take $N\to \infty$.
+\begin{align*}
+    \psi' &= \lim\limits_{N\to \infty} \qty(\iden - \frac{i\phi}{\hbar N} \hat{L}_z )^N \psi \\
+    &=\exp\qty(-i\phi \frac{\hat{L}_z}{\hbar})\psi
+\end{align*}
+Generalising this to any arbitrary direction, any finite rotation can be obtained as 
+$$\rn{\hat{\vb{n}}}{\phi}  = \exp\qty(-i\phi \frac{\vb{J}\cdot \vb{\hat{n}}}{\hbar})$$
+where $\vb{J}$ are the generators of rotation, viz. $\hat{L}_x, \hat{L}_y, \hat{L}_z$ in our case. The notation with the generators is particularly nice, since when we go to $\sun{2}$, we can simply replace $\vb{J}\to \frac{\hbar}{2}\vbs{\sigma}$, since the Pauli matrices are the generators of $\sun{2}$ group. Then any rotation of the qubit can be written as, 
+$$\rn{\hat{\vb{n}}}{\phi}  = \exp\qty(-\frac{i\phi}{2}\hat{\vb{n}}\cdot \vbs{\sigma})$$
