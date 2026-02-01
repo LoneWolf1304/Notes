@@ -1,0 +1,29 @@
+\begin{question}[Yang-Lee edge]
+
+ Consider the following grand partition function for a hypothetical fluid
+\[
+\Xi(z,V) = (1+z)^{[\alpha V]}(1+z^{[\alpha V]}).
+\]
+Here $[x]$ denotes the integer part of $x$.
+
+\begin{enumerate}
+\item[(a)] Determine the zeros of $\Xi(z,V)$ and (roughly) plot them on the complex $z$ plane. Here $z$ denotes the fugacity, $z=e^{\beta\mu}$.
+
+\item[(b)] Show that the zeros of $\Xi(z,V)$ in the thermodynamic limit hit the real $z$ axis at $z=1$.
+
+\item[(c)] Evaluate
+\[
+\Theta = \lim_{V\to\infty} \frac{1}{V}\ln\Xi(z,V)
+\]
+for $z<1$ and $z>1$ and show that it is continuous but non-analytic.
+
+\item[(d)] Given that the particle density is $n = z\frac{\partial \Theta}{\partial z}$, show that there is a density jump at the phase transition.
+
+\item[(e)] Using the fact $\beta p = \Theta$, derive the equations of state $p(n)$, for $z<1$ and $z>1$ by eliminating $z$ from the expressions of $p(z)$ and $n(z)$.
+\end{enumerate}
+\end{question}
+(a) The roots of the grand partition will satisfy, 
+$$(z+1)^{[\alpha V]} = 0\qquad \text{or}\qquad z^{[\alpha V]} = -1$$
+The first condition gives the real root $z=-1$ with multiplicity $[\alpha V]$. The second condition gives $z = \exp\qty[\frac{i\pi (2n+1)}{[\alpha V]}]$ for $n=0,1\ldots ([\alpha V]-1)$. The roots lie on the unit circle in the complex plane and the arguments are,
+$$\theta_n =\pi \frac{(2n+1)}{[\alpha V]}$$.\\[0.2cm]
+(b) For $n=0$, we have $z_0 = e^{i\pi/[\alpha V]}$ which in the thermodynamic limit $V\to \infty$ becomes, $z_0 = 1$. Hence, in the thermodynamic limit, one of the roots of $\Xi$ hits the real axis at $z=1$

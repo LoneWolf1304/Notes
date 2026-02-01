@@ -1,0 +1,24 @@
+\begin{question}[Critical exponents in the mean field Ising model.]
+Familiarize yourself with the definition of the critical exponents $\beta$, $\gamma$, and $\delta$. Show that the specific heat for the mean field Ising model satisfies
+\[
+\begin{cases}
+c = \dfrac{3N k_B}{2}, & T<T_c,\\[6pt]
+c = 0, & T>T_c.
+\end{cases}
+\]
+If the specific heat critical exponent $\alpha$ is defined via the relation
+\[
+c \sim \left|\frac{T-T_c}{T_c}\right|^{-\alpha},
+\]
+what value of $\alpha$ do we infer from the above analysis?
+\end{question}
+\noindent
+\textit{Answer.} The partition function of the mean-field Ising model can be written as, 
+$$\SZ =\qty[2\cosh(\beta J \gamma m +\beta h)]^N e^{-\beta \varepsilon\tund{0}}$$
+Now, the specific heat is defined as $c=\beta^2 \pdv[2]{\beta}\qty(\ln \SZ )$ which gives us,
+\begin{align*}
+    c &= \beta^2 \pdv[2]{\beta}\qty(\beta\varepsilon\tund{0} + N\ln2 + N\ln \cosh(\beta J \gamma m +\beta h))\\
+    &=N(J\gamma m+h)\beta^2\pdv{\beta}\qty(\tanh[\beta J \gamma m +\beta h])\\
+    &=N(J\gamma m+h)^2\sech^2(\beta J \gamma m +\beta h)
+\end{align*}
+Let us focus on the zero-field case $h=0$. For $T>T_c$ we have $m=0$ and hence $c=0$. For $T<T_c$ we have $m^2 = \frac{3(T_c-T)}{T_c}$

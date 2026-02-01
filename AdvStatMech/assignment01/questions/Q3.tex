@@ -1,0 +1,23 @@
+\begin{question}[q-state Potts model]
+A generalization of the Ising model is the q-state Potts model, where one assume that the spin variable at a site can now take $q$ different values, $\sigma_i \in \{1, 2, 3, .., q\}$ and the Hamiltonian is given by,
+$$\SH\tund{Potts} = -J \sum\limits_{\avg{ij}}\delta_{\sigma_i \sigma_j} - h\sum\limits_i \delta_{\sigma_i,1}$$
+where $\avg{ij}$ denotes nearest neighbour interaction. By defining a suitable transformation between
+the Ising spin variable $\sigma_i$ and the Kronecker delta $\delta_{\sigma_i\sigma_j}$, show that the for $q=2$, this Hamiltonian is equivalent to the Ising Hamiltonian.
+\end{question}
+\noindent
+\textit{Answer.} The interaction term given here is $\delta_{\sigma_i\sigma_j}$ while in the Ising Hamiltonian, the interaction term is $S_iS_j$. If both Ising spins are different, the interaction is $-1$ while for the $q=2$ Potts model, it is $0$. If both Ising spins are same, the interaction is $+1$ which is same as the $q=2$ Potts model. Thus we can have a linearly transformation, such that 
+$$\delta_{\sigma_i \sigma_j} = a S_iS_j + b$$
+The conditions to satisfy are,
+$$0 = b-a\qquad 1 = b+a$$
+from which we obtain $a=b=\sfrac{1}{2}$. Thus, the transformation is, 
+$$\delta_{\sigma_i \sigma_j} =  \frac{1}{2}(S_iS_j + 1)$$
+With this transformation, the Potts Hamiltonian becomes, 
+\begin{align}
+   \begin{split}
+     \SH\tund{Potts} &= -\frac{J}{2} \sum\limits_{\avg{ij}} (S_iS_j+1) - \frac{h}{2}\sum\limits_i (S_i +1)\\
+    &= -\frac{J}{2} \sum\limits_{\avg{ij}} S_iS_j - \frac{h}{2}\sum\limits_i S_i -\underbrace{\frac{J}{2}\sum\limits_{\avg{ij}}1 - \frac{h}{2}\sum\limits_{i} 1}_{\mathrm{const.}}\\
+    &=-J'\sum\limits_{\avg{ij}} S_iS_j - h'\sum\limits_i S_i +\mathrm{const.}\\
+    &=\SH\tund{Ising}+\mathrm{const.}
+   \end{split}
+\end{align}
+where $J'\equiv \sfrac{J}{2}$ and $h'\equiv \sfrac{h}{2}$. Since a constant in the Hamiltonian can be neglected (will cause only a shift in the energy), we obtain that for $q=2$, the Potts model reduces to the Ising Hamiltonian.
