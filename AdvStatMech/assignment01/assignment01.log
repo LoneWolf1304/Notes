@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  2 FEB 2026 15:56
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  2 FEB 2026 22:12
  restricted system commands enabled.
 **assignment01.tex
 (./assignment01.tex
@@ -2364,9 +2364,9 @@ Package mdframed Info: mdframed detected package amsthm
  (./sublattice.tex)
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10> not available
 (Font)              Font shape `T1/lmss/bx/n' tried instead on input line 14.
-)
 
-[4]
+
+[4])
 
 [5] (./assignment01.aux)
  ***********
@@ -2378,23 +2378,20 @@ L3 programming layer <2020/03/25>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `assignment01.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 71070 strings out of 475506
+ 71078 strings out of 475506
  100000,2848258 words of node,token memory allocated
- 4439 words of node memory still in use:
-   103 hlist, 14 vlist, 19 rule, 20 math, 69 glue, 57 kern, 126 glyph, 155 attri
-bute, 113 glue_spec, 155 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorst
-ack nodes
-   avail lists: 1:6,2:1568,3:926,4:131,5:656,6:67,7:5562,8:69,9:1477,10:7,11:261
+ 4463 words of node memory still in use:
+   157 hlist, 18 vlist, 26 rule, 6 math, 46 glue, 38 kern, 85 glyph, 175 attribu
+te, 113 glue_spec, 175 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstac
+k nodes
+   avail lists: 1:6,2:1530,3:926,4:131,5:675,6:67,7:5640,8:69,9:1412,10:7,11:261
 
- 92339 multiletter control sequences out of 65536+600000
+ 92342 multiletter control sequences out of 65536+600000
  214 fonts using 16672255 bytes
  108i,26n,141p,10927b,1052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts
@@ -2412,10 +2409,10 @@ e1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pf
 b></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist
 /fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
 tt12.pfb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on assignment01.pdf (5 pages, 243877 bytes).
+Output written on assignment01.pdf (5 pages, 249756 bytes).
 
-PDF statistics: 173 PDF objects out of 1000 (max. 8388607)
- 122 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 131072)
+PDF statistics: 182 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 131072)
  256 words of extra memory for PDF output out of 10000 (max. 100000000)
 

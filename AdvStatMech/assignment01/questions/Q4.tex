@@ -37,3 +37,40 @@ Going from the first to the second line, we used the sub-lattice symmetry from E
 \end{equation}
 Hence the partition function and the free energy for the ferromagnetic ($J>0$) and the anti-ferromagnetic ($J<0$) Ising model is same and hence, both these are thermodynamically equivalent.\\[0.3cm]
 (b) We apply the mean-field approximation where we neglect the fluctuations in the spin.
+\begin{equation}
+    (m\tund{A} - \sigma^A_i) (m\tund{B} - \sigma^B_j) = m\tund{A}m\tund{B} -m\tund{A}\sigma_j^B - m\tund{B}\sigma_i^A + \sigma_i^A \sigma_j^B = 0
+\end{equation}
+Substituting this in the anti-ferromagnetic Hamiltonian with $J>0$ we get,
+\begin{align*}
+    \SH = J \sum\limits_{\avg{ij}} \sigma_i^A \sigma_j^B &= Jm\tund{A} \sum\limits_{\avg{ij}}\sigma_j^B + Jm\tund{B} \sum\limits_{\avg{ij}}\sigma_j^A -J m\tund{A}m\tund{B}\sum\limits_{\avg{ij}} 1 -h \sum_{i}\sigma_i^A -h\sum_{j}\sigma_j^B\\
+    &=-(h-Jm\tund{A}\gamma)\sum\limits_i \sigma_i^B -(h-Jm\tund{B}\gamma)\sum\limits_i \sigma_i^A - \frac{Jm\tund{A}m\tund{B}\gamma}{2}\\
+    &= -h\tund{A}\sum\limits_i \sigma_i^B -h\tund{B}\sum\limits_i \sigma_i^A -  \frac{Jm\tund{A}m\tund{B}\gamma}{2}
+\end{align*}
+The partition function becomes, 
+$$\SZ = \SZ\tund{A}^{N/2} \SZ\tund{B}^{N/2} e^{-\beta J \gamma m\tund{A}m\tund{B}/2 }$$
+where $\SZ\tund{A} = 2\cosh(\beta h\tund{B})$ and $\SZ\tund{B} = 2\cosh(\beta h\tund{A})$. The sublattice magnetisation can be obtained from the partition function as,
+\begin{equation}
+    m\tund{A} = \tanh(\beta h\tund{B}) \qquad m\tund{B} = \tanh(\beta h\tund{A})
+\end{equation}
+which are two coupled transcendental equations. In the zero field, $h\tund{A} = -Jm\tund{A}\gamma$ and $h\tund{B} = -Jm\tund{B}\gamma$. Expanding $\tanh(x)$ for $x\ll 1$ we get, 
+\begin{align}\label{magg}
+    \begin{split}
+         m\tund{A} &= - \tanh(m\tund{B} \frac{T\tund{c}}{T}) \simeq -\frac{T\tund{c}}{T}m\tund{B}  +\frac{1}{3}\qty(\frac{T\tund{c}}{T})^3 m\tund{B}^3\\
+     m\tund{B} &= - \tanh(m\tund{A} \frac{T\tund{c}}{T}) \simeq -\frac{T\tund{c}}{T}m\tund{A}  +\frac{1}{3}\qty(\frac{T\tund{c}}{T})^3 m\tund{A}^3
+    \end{split}
+\end{align}
+Define $M := \frac{m\tund{A}+m\tund{B}}{2}$ and $m\tund{s} := \frac{m\tund{A}-m\tund{B}}{2}$ which allows us to write,
+\begin{equation}
+    \begin{split}
+        m\tund{A}^3+m\tund{B}^3 = 2M(M^2 +3m\tund{s}^2)\\
+         m\tund{A}^3-m\tund{B}^3 = 2m\tund{s}(3M^2 +m\tund{s}^2)
+    \end{split}
+\end{equation}
+From Eq. \eqref{magg}, by adding and subtracting we have: 
+\begin{align}
+    \begin{split}
+        M\qty(1+\frac{T\tund{c}}{T}) = \frac{M}{3}\qty(\frac{T\tund{c}}{T})^3\qty[M^2+3m\tund{s}^2]\\
+        m\tund{s}\qty(1-\frac{T\tund{c}}{T}) = -\frac{m\tund{s}}{3}\qty(\frac{T\tund{c}}{T})^3\qty[3M^2+m\tund{s}^2]
+    \end{split}
+\end{align}
+The solution of the second equation for  is $m\tund{s} =0 $ or $$
