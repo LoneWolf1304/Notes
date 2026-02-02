@@ -14,11 +14,52 @@ what value of $\alpha$ do we infer from the above analysis?
 \end{question}
 \noindent
 \textit{Answer.} The partition function of the mean-field Ising model can be written as, 
-$$\SZ =\qty[2\cosh(\beta J \gamma m +\beta h)]^N e^{-\beta \varepsilon\tund{0}}$$
-Now, the specific heat is defined as $c=\beta^2 \pdv[2]{\beta}\qty(\ln \SZ )$ which gives us,
-\begin{align*}
-    c &= \beta^2 \pdv[2]{\beta}\qty(\beta\varepsilon\tund{0} + N\ln2 + N\ln \cosh(\beta J \gamma m +\beta h))\\
-    &=N(J\gamma m+h)\beta^2\pdv{\beta}\qty(\tanh[\beta J \gamma m +\beta h])\\
-    &=N(J\gamma m+h)^2\sech^2(\beta J \gamma m +\beta h)
-\end{align*}
-Let us focus on the zero-field case $h=0$. For $T>T_c$ we have $m=0$ and hence $c=0$. For $T<T_c$ we have $m^2 = \frac{3(T_c-T)}{T_c}$
+$$\SZ =\qty[2\cosh(\beta J \gamma m +\beta h)]^N e^{-\beta \varepsilon\tund{0}}\qquad \varepsilon\tund{0} = \frac{J N \gamma m^2}{2}$$
+Now, let us find the internal energy $U = -\partial_\beta \ln \SZ$ for the zero-field case,
+\begin{align}
+    \begin{split}
+        U &= -\pdv{\beta}\qty(-\frac{\beta J N \gamma m^2}{2} +N\ln 2 + N \ln \cosh(\beta J \gamma m))\\
+        &= N \qty[\frac{J\gamma m^2}{2} + {\beta J \gamma m} \pdv{m}{\beta} - \tanh(\beta J \gamma m)\qty(J\gamma m + \beta J \gamma \pdv{m}{\beta})]
+    \end{split}
+\end{align}
+Using the self-consistent equation $m = \tanh(\beta J \gamma m)$ we get,
+\begin{align}
+    \begin{split}
+        U &= N \qty[\frac{J\gamma m^2}{2} + \cancel{{\beta J \gamma m} \pdv{m}{\beta} }-J\gamma m^2 -\cancel{\beta J \gamma m\pdv{m}{\beta}}]\\
+        &= -\frac{J N \gamma m^2}{2}
+    \end{split}
+\end{align}
+The specific heat is defined as $c = \pdv{U}{T}$ which can be written as,
+\begin{equation}\label{magn}
+    c = \pdv{U}{T} = \pdv{U}{\beta}\times \pdv{\beta}{T} = -\kb \beta^2 \pdv{U}{\beta} = \kb \beta^2 \frac{JN\gamma}{2}\times 2m\times \pdv{m}{\beta}
+\end{equation}
+Now, consider the reduced emperature defined as $t=\frac{T_c-T}{T_c}$ where $\kb T_c  = J\gamma$, 
+\begin{equation}
+    \frac{1}{1-t} = \frac{T_c}{T} = \frac{J\gamma}{\kb T} = \beta J \gamma
+\end{equation}
+Hence the self-consistent equation becomes $m = \tanh(\frac{m}{1-t})$ which can be expanded as,
+\begin{equation}
+    m = \frac{m}{1-t} -\frac{m^3}{3(1-t)^3}+\ldots
+\end{equation}
+from which we get either $m=0$ or $m^2=(3t)(1-t)^2$. For $T>T_c$, we have only one solution $m=0$ and hence $\pdv{m}{\beta}=0$ which implies that 
+\begin{equation}
+    c= 0 \qquad \text{for} T>T_c
+\end{equation}
+For $T<T_c$ we have, 
+$$m^2 = 3t + \SO(t^2) \implies 2m \times \pdv{m}{\beta} = 3\pdv{t}{\beta} = 3\pdv{\beta}\qty(1-\frac{1}{\beta \kb T_c}) = \frac{3}{\kb T_c \beta^2}$$
+Substituting this in Eq. \eqref{magn} we get for $T<T_c$,
+\begin{equation}
+    c = \cancel{\kb \beta^2} \frac{J N \gamma}{2} \times \frac{3}{\cancel{\kb  \beta^2} T_c} = \frac{3N}{2}\times \frac{J\gamma}{T_c} = \frac{3N\kb}{2}
+\end{equation}
+Thus, we obtain 
+\begin{equation}
+   c=  \begin{cases}
+        \frac{3N\kb}{2} & T<T_c \\
+        0 & T>T_c
+    \end{cases}
+\end{equation}
+Hence there is a discontinuous jump in specific heat across $T_c$. If we define the scaling $$c\sim \abs{\frac{T_c-T}{T_c}}^{-\alpha}$$ Then from the definition of the critical exponent, we have 
+\begin{equation}
+    \alpha = - \lim\limits_{t\to 0^+} \frac{\ln \qty(\sfrac{3N\kb }{2})}{\ln t} \rightarrow 0 \quad
+\end{equation}
+Hence, from the mean-field analysis, we obtain the critical exponent $\alpha=0$.

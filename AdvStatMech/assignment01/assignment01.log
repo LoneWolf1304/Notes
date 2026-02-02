@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  1 FEB 2026 12:23
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  2 FEB 2026 15:56
  restricted system commands enabled.
 **assignment01.tex
 (./assignment01.tex
@@ -2320,47 +2320,55 @@ Package mdframed Info: mdframed detected package amsthm
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-]) (./questions/Q3.tex
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1.
-LaTeX Font Info:    Calculating math sizes for size <7.665> on input line 12.
+]
+
+[2]
+LaTeX Font Info:    Calculating math sizes for size <7.665> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.665> on input line 12.
+(Font)              <7.665> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.36546> on input line 12.
+(Font)              <5.36546> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <3.83249> on input line 12.
+(Font)              <3.83249> on input line 63.
 
 
 LaTeX Font Warning: Font shape `U/bbold/m/n' in size <3.83249> not available
-(Font)              size <5> substituted on input line 12.
+(Font)              size <5> substituted on input line 63.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.83249> not available
-(Font)              size <5> substituted on input line 12.
+(Font)              size <5> substituted on input line 63.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.83249> not available
-(Font)              size <5> substituted on input line 12.
+(Font)              size <5> substituted on input line 63.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <3.83249> not available
-(Font)              size <5> substituted on input line 12.
+(Font)              size <5> substituted on input line 63.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <3.83249> not available
-(Font)              size <5> substituted on input line 12.
+(Font)              size <5> substituted on input line 63.
 
-
-
-[2]) (./questions/Q4.tex
+) (./questions/Q3.tex
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1.
+) (./questions/Q4.tex
+
+[3]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1.
+ (./sublattice.tex)
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 14.
 )
 
-[3] (./assignment01.aux)
+[4]
+
+[5] (./assignment01.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2378,34 +2386,36 @@ Package rerunfilecheck Info: File `assignment01.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 71013 strings out of 475506
+ 71070 strings out of 475506
  100000,2848258 words of node,token memory allocated
- 5481 words of node memory still in use:
-   161 hlist, 24 vlist, 27 rule, 24 math, 111 glue, 50 kern, 135 glyph, 157 attr
-ibute, 113 glue_spec, 157 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colors
-tack nodes
-   avail lists: 1:5,2:1124,3:605,4:131,5:450,6:67,7:5507,8:48,9:925,10:7,11:261
- 92303 multiletter control sequences out of 65536+600000
- 204 fonts using 15845391 bytes
- 108i,22n,141p,10927b,1052s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/f
-onts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.
-enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/f
-onts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><
-/usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fon
-ts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.p
-fb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/
-fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
-ssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/t
-exmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on assignment01.pdf (3 pages, 221588 bytes).
+ 4439 words of node memory still in use:
+   103 hlist, 14 vlist, 19 rule, 20 math, 69 glue, 57 kern, 126 glyph, 155 attri
+bute, 113 glue_spec, 155 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorst
+ack nodes
+   avail lists: 1:6,2:1568,3:926,4:131,5:656,6:67,7:5562,8:69,9:1477,10:7,11:261
 
-PDF statistics: 140 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 131072)
+ 92339 multiletter control sequences out of 65536+600000
+ 214 fonts using 16672255 bytes
+ 108i,26n,141p,10927b,1052s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts
+/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/f
+onts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/lin
+e10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texm
+f-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/
+share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pf
+b></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist
+/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
+tt12.pfb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
+Output written on assignment01.pdf (5 pages, 243877 bytes).
+
+PDF statistics: 173 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 131072)
  256 words of extra memory for PDF output out of 10000 (max. 100000000)
 

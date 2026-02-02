@@ -6,3 +6,34 @@ $$\SH = J\sum\limits_{\avg{ij}} \sigma_i \sigma_j -h\sum\limits_i \sigma_i\qquad
     \item[(b)]  Solve the problem in the mean field approximation with $h = 0$.
 \end{enumerate}
 \end{question}
+\noindent
+\textit{Answer.} (a) Let us divide the 2D lattice into two sub-lattices with sites $A$ and site $B$, alternately placed. Hence, there are only sites of type $B$ surrounding any site of type $A$ (and vice versa). Let us consider the zero-field Ising model on this sublattice. 
+\begin{figure}[H]
+    \centering 
+    \input{sublattice.tex}
+    \caption{2D lattice broken into interpenetrating sub-lattices.}
+\end{figure}
+\noindent 
+Since interaction of spins on type A site  is only with those at type B site, the Ising Hamiltonian $\SH(h=0, J, \{\sigma_i\}) = -J\sum\limits_{\avg{ij}}\sigma_i \sigma_j$ can be written as,
+\begin{equation}
+    \SH(h=0, J,\{\sigma_i^A\},\{\sigma_i^B\} ) = -J\sum\limits_{\avg{ij}}\sigma_i^A \sigma_j^B
+\end{equation}
+From this, the obvious symmetry exhibited by the Hamiltonian is,
+\begin{equation}\label{sublat}
+    \SH(h=0, -J,\{\sigma_i^A\},\{\sigma_i^B\} ) = \SH(h=0, J,\{-\sigma_i^A\},\{\sigma_i^B\} ) = \SH(h=0, J,\{\sigma_i^A\},\{-\sigma_i^B\} )
+\end{equation}
+The zero-field partition function becomes, 
+\begin{align}
+    \begin{split}
+        \SZ(h=0, -J, T) &= \sum\limits_{\{\sigma^A\}}\sum\limits_{\{\sigma^B\}} e^{-\beta \SH(0, -J,\{\sigma^A\},\{\sigma^B\} )}\\
+        &=\sum\limits_{\{\sigma^A\}}\sum\limits_{\{\sigma^B\}} e^{-\beta \SH(0, J,\{ -\sigma^A\},\{\sigma^B\} )}\\
+        &=\sum\limits_{\{\sigma^A\}}\sum\limits_{\{\sigma^B\}} e^{-\beta \SH(0, J,\{\sigma^A\},\{\sigma^B\} )}\\
+        &=\SZ(h=0, J, T)
+    \end{split}
+\end{align}
+Going from the first to the second line, we used the sub-lattice symmetry from Eq. \eqref{sublat} while going from the second to the third line, we used the fact the since we are summing over all values of $\sigma_i = \pm$, the sum with $\{ -\sigma\}$ will be the same as the sum with $\{ +\sigma\}$. Since the free energy is just the derivative of the partition function, we obtain 
+\begin{equation}
+    F(h=0, J, T) = F(h=0, -J, T)
+\end{equation}
+Hence the partition function and the free energy for the ferromagnetic ($J>0$) and the anti-ferromagnetic ($J<0$) Ising model is same and hence, both these are thermodynamically equivalent.\\[0.3cm]
+(b) We apply the mean-field approximation where we neglect the fluctuations in the spin.
