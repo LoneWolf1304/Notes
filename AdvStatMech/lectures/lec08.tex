@@ -2,7 +2,9 @@
 \section*{Lecture 08: Mean-field solution for Ising model}
 \addcontentsline{toc}{section}{Lecture 08: Mean-field solution for Ising model}
 We will continue our discussion of the mean-field solution of the Ising model. Previously, we had reduced the Hamiltonian to a simplified expression, with an effective field. 
-$$\SH =  -\mathrm{h}_{\text{\tiny eff}} \sum_i \sigma_i +\frac{JN\gamma}{2}\avg{\sigma}^2$$
+\begin{align}\label{mfham}
+    \SH\tund{MF} =  -\mathrm{h}_{\text{\tiny eff}} \sum_i \sigma_i +\frac{JN\gamma}{2}\avg{\sigma}^2
+\end{align}
 This is simple to solve, since this is $N$ independent spins in a field. The partition function is, 
 \begin{align}
     \SZ = \sum_{\{\sigma_i\}} e^{\beta \mathrm{h}_{\text{\tiny eff}}\sum \sigma_i} \cdot e^{-\beta\SE\tund{0}}

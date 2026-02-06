@@ -52,3 +52,58 @@ For $T\gg T_c$ then $\chi_+ \sim \frac{1}{T}$, in accordance with Curie's law. W
 Fig. \ref{critexp} (a) shows the Ising model phase diagram. For low temperatures $T<T_c$, the system undergoes a discontinuous phase transition in which $m$ changes abruptly as it crosses from $h<0$ to $h>0$, denoting a first-order transition. Shown in red is the \textit{coexistence curve}, which ends at $T_c$. Beyond $T_c$, $m$ changes continuously across the $h<0$ to $h>0$ transition. \\[0.2cm]
 As we vary $T$ for a fixed $h$, the magnetisation varies smoothly as shown in Fig.  \ref{critexp} (c) until $T_c$, after which it becomes zero. The Ising model shows a first-order transition as a function of $h$ but a second-order transition as a function of $T$.
 \subsection{Bragg-Williams Approximation}
+This is kind of an alternate mean-field description of the Ising model. Consider the Ising lattice containing $N$ spins, with say, $N\tund{+}$ up spins and $N_-$ down spins. Then the average magnetisation is given by,
+\begin{align*}
+    m = \frac{N\tund{+} - N_-}{N\tund{+}+N_-} = \frac{2N\tund{+}-N}{N} \implies \frac{N\tund{+}}{N} = \frac{1}{2}(m+1)
+\end{align*}
+The entropy of the system is defined as the number of ways by which a configuration with magnetisation $m$ can be produced. Hence, out of $N$ spins, we choose $N\tund{+}$ spins and the rest are set to $N_-$, which gives us,
+\begin{align*}
+   \Omega(N\tund{+}, N_-) = \frac{N!}{N\tund{+}! N_-!}  =\frac{N!}{\qty(\frac{N(1+m)}{2})!\qty(\frac{N(1-m)}{2})! } \qquad S = \kb \ln \Omega(N\tund{+}, N_-) 
+\end{align*} 
+Using Sterling's approximation, $\ln N! \approx N\ln N - N$ we obtain,
+\begin{align*}
+    \ln \Omega &\approx (N \ln N - N) - \frac{N(1+m)}{2}\ln \qty(\frac{N(1+m)}{2}) -\frac{N(1-m)}{2}\ln \qty(\frac{N(1-m)}{2})+N\\
+    &=N\qty[\ln N  - \frac{(1+m)}{2}\ln \qty(\frac{N(1+m)}{2}) -\frac{(1-m)}{2}\ln \qty(\frac{N(1-m)}{2})]\\
+    &=N\qty[\ln N  - \frac{(1+m)}{2}\ln \qty(1+m) -\frac{(1-m)}{2}\ln \qty(1-m) - \ln N - \ln 2]\\
+    &=N\qty[\ln 2 - \frac{1+m}{2}\ln (1+m) - \frac{1-m}{2}\ln (1-m)]
+\end{align*}
+The mean-field energy of the Ising model is given by, 
+\begin{align*}
+    U = -\frac{J\gamma Nm^2}{2}-Nhm
+\end{align*}
+We can now calculate the free energy and minimise it to find the equation of state. 
+\begin{align*}
+    F(T,m,N) = U -TS = -\frac{J\gamma Nm^2}{2}-Nhm - N\kb T\qty[\ln 2 - \frac{1+m}{2}\ln (1+m) - \frac{1-m}{2}\ln (1-m)]
+\end{align*}
+which implies that,
+\begin{align*}
+    \pdv{F}{m} &= -JN\gamma m - Nh + \frac{N\kb T}{2}\qty[1 + \ln(1+m) -1 -\ln(1-m)] =-JN\gamma m - Nh + \frac{N\kb T}{2}\ln\frac{1+m}{1-m}=0\\
+    &\implies  \frac{1+m}{1-m} = e^{2\beta(J\gamma m + h)} \implies m = \frac{e^{2\beta(J\gamma m + h)}-1}{e^{2\beta(J\gamma m + h)}+1} = \frac{e^{\beta(J\gamma m + h)} -e^{-\beta(J\gamma m + h)}}{e^{\beta(J\gamma m + h)} +e^{-\beta(J\gamma m + h)}} = \tanh(\beta(J\gamma m + h))
+\end{align*}
+Thus we obtained the same previous self-consistent equation $m = \tanh(\beta J\gamma m + \beta h)$ from this method. 
+\subsection{Towards the Landau free energy}
+Instead of writing the Ising partition function $\SZ(T,h,N)$ as a sum over all spin configurations, we can write it as a sum over all possible magnetisations $m$. We can write, 
+\begin{align*}
+    \SZ(T,h,N) = \sum\limits_m \sum\limits_{\{\sigma\}|m} e^{-\beta \SH(\{\sigma\}, N,h)} \approx \sum\limits_m \Omega(m,N) e^{-\beta \SH\tund{MF}(m,N,h)}
+\end{align*}
+where $\Omega(m,N)$ is just the \textit{degeneracy factor}, which tells us how many states are there with magnetisation $m$ and $\SH\tund{MF}$ is the mean-field Hamiltonian from Eq. \eqref{mfham}. The above sum can be approximated by an integral from $-1$ to $1$, taking magnetisation to be continuous:
+\begin{align*}
+     \SZ(T,h,N) &= \int\limits_{-1}^1 \dd m\ \Omega(m,N) e^{-\beta \SH\tund{MF}(m,N,h)}\\
+     &=\int\limits_{-1}^1 \dd m\ e^{\ln \Omega(m,N)} e^{-\beta \SH\tund{MF}(m,N,h)}\\
+     &=\int\limits_{-1}^1 \dd m\ e^{\ln \Omega(m,N) -\beta \SH\tund{MF}(m,N,h)}\\
+     &=\int\limits_{-1}^1 \dd m\ e^{-\beta N\qty(\mathcolor{blue}{\frac{-J\gamma m^2}{2} - mh -\frac{\kb T}{N} \ln \Omega(m,N) } )}
+\end{align*}
+The blue term feels like some kind of thermodynamic potential but it depends both on $m$ and $h$. Hence this is some kind of pseudo-free energy called the \textit{Landau free energy} denoted by $\mathsterling(m,h)$,
+\begin{align*}
+    \mathsterling(m,h) = -\frac{\gamma J m^2}{2} - mh -\kb T \ln 2 + \frac{\kb T}{2}\qty[(1+m)\ln (1+m) + (1-m)\ln (1-m)]
+\end{align*}
+From saddle-point approximation, the integral will take the value at $m=m^*$, such that $N\mathsterling(m^*,h)$ is minimum. Thus, 
+\begin{align*}
+    \pdv{\mathsterling}{m}\Bigg|_{m^*} = -\gamma J m^* - h + \frac{\kb T}{2}\qty[1 +\ln(1+m^*) -1 - \ln(1-m^*)] =0 
+\end{align*}
+From this we obtain the same transcendental equation $\tanh(\beta h +\beta J \gamma m) = m$ as before. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{codes/L_vs_m_h.pdf}
+    \caption{$\mathsterling$ vs. $m$ at different temperature regimes.}
+\end{figure}

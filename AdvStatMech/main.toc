@@ -20,13 +20,14 @@
 \contentsline {section}{Lecture 08: Mean-field solution for Ising model}{23}{section*.25}%
 \contentsline {section}{Lecture 09: More on Ising Model}{24}{section*.27}%
 \contentsline {subsection}{\numberline {9.1}Phase Transition in 1D Ising System}{25}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Phase Transition in 2D Ising System ( Peirls' Argument)}{25}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.2}Phase Transition in 2D Ising System ( Peierls' Argument)}{25}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}Symmetries of the Ising Model}{28}{subsection.9.3}%
 \contentsline {subsubsection}{\numberline {9.3.1}Spontaneous Symmetry Breaking}{29}{subsubsection.9.3.1}%
 \contentsline {section}{Lecture 10: Some more on Ising Model}{30}{section*.35}%
 \contentsline {subsection}{\numberline {10.1}Critical Exponents}{30}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Bragg-Williams Approximation}{32}{subsection.10.2}%
-\contentsline {section}{Appendices}{32}{section*.37}%
-\contentsline {section}{\numberline {A}Legendre Transformation}{32}{appendix.1.A}%
-\contentsline {section}{\numberline {B}1D Solution of Ising Model}{33}{appendix.1.B}%
+\contentsline {subsection}{\numberline {10.3}Towards the Landau free energy}{33}{subsection.10.3}%
+\contentsline {section}{Appendices}{34}{section*.38}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{34}{appendix.1.A}%
+\contentsline {section}{\numberline {B}1D Solution of Ising Model}{35}{appendix.1.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
