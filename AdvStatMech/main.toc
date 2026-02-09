@@ -27,7 +27,9 @@
 \contentsline {subsection}{\numberline {10.1}Critical Exponents}{30}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Bragg-Williams Approximation}{32}{subsection.10.2}%
 \contentsline {subsection}{\numberline {10.3}Towards the Landau free energy}{33}{subsection.10.3}%
-\contentsline {section}{Appendices}{34}{section*.38}%
-\contentsline {section}{\numberline {A}Legendre Transformation}{34}{appendix.1.A}%
-\contentsline {section}{\numberline {B}1D Solution of Ising Model}{35}{appendix.1.B}%
+\contentsline {subsection}{\numberline {10.4}Hysterisis}{35}{subsection.10.4}%
+\contentsline {section}{Lecture 11: Landau Theory for Phase Transition}{36}{section*.41}%
+\contentsline {section}{Appendices}{36}{section*.42}%
+\contentsline {section}{\numberline {A}Legendre Transformation}{37}{appendix.1.A}%
+\contentsline {section}{\numberline {B}1D Solution of Ising Model}{37}{appendix.1.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

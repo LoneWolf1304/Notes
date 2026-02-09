@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  7 FEB 2026 01:26
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  9 FEB 2026 11:29
  system commands enabled.
 **main.tex
 (./main.tex
@@ -2307,7 +2307,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2] (./lectures/lec01.tex
-<pics/interactions.pdf, id=131, 845.66841pt x 358.25946pt>
+<pics/interactions.pdf, id=135, 845.66841pt x 358.25946pt>
 File: pics/interactions.pdf Graphic file (type pdf)
 <use pics/interactions.pdf>
 Package luatex.def Info: pics/interactions.pdf  used on input line 14.
@@ -2423,7 +2423,7 @@ LaTeX Warning: Reference `fig:isotherms' on page 17 undefined on input line 22.
 
 
 [17]
-<pics/2026-01-14-132503_hyprshot.png, id=325, 647.41875pt x 531.9875pt>
+<pics/2026-01-14-132503_hyprshot.png, id=329, 647.41875pt x 531.9875pt>
 File: pics/2026-01-14-132503_hyprshot.png Graphic file (type png)
 <use pics/2026-01-14-132503_hyprshot.png>
 Package luatex.def Info: pics/2026-01-14-132503_hyprshot.png  used on input lin
@@ -2447,7 +2447,7 @@ Overfull \hbox (7.2282pt too wide) detected at line 92
 [22]) (./lectures/lec08.tex
 
 [23]
-<codes/tanhx.pdf, id=383, 482.68431pt x 271.94498pt>
+<codes/tanhx.pdf, id=387, 482.68431pt x 271.94498pt>
 File: codes/tanhx.pdf Graphic file (type pdf)
 <use codes/tanhx.pdf>
 Package luatex.def Info: codes/tanhx.pdf  used on input line 30.
@@ -2490,20 +2490,44 @@ Overfull \hbox (8.10704pt too wide) detected at line 82
 
 
 [32]
-<codes/L_vs_m_h.pdf, id=490, 544.97pt x 226.06056pt>
+<codes/L_vs_m_h.pdf, id=494, 544.97pt x 226.06056pt>
 File: codes/L_vs_m_h.pdf Graphic file (type pdf)
 <use codes/L_vs_m_h.pdf>
 Package luatex.def Info: codes/L_vs_m_h.pdf  used on input line 107.
 (luatex.def)             Requested size: 326.98453pt x 135.63737pt.
-) (./lectures/lec11.tex) (./lectures/appendix.tex
 
-[33<./codes/L_vs_m_h.pdf>] (./lectures/ising.tex
 
-[34]
+[33]
+<codes/spinodal.pdf, id=504, 291.00319pt x 199.42505pt>
+File: codes/spinodal.pdf Graphic file (type pdf)
+<use codes/spinodal.pdf>
+Package luatex.def Info: codes/spinodal.pdf  used on input line 135.
+(luatex.def)             Requested size: 232.80286pt x 159.54024pt.
 
-[35])) (./main.bbl)
 
-[36] (./main.aux)
+[34<./codes/L_vs_m_h.pdf>]
+<codes/hvsT.pdf, id=555, 289.95828pt x 202.9964pt>
+File: codes/hvsT.pdf Graphic file (type pdf)
+<use codes/hvsT.pdf>
+Package luatex.def Info: codes/hvsT.pdf  used on input line 143.
+(luatex.def)             Requested size: 231.96693pt x 162.39731pt.
+<codes/hysterisis.pdf, id=557, 760.26634pt x 265.07933pt>
+File: codes/hysterisis.pdf Graphic file (type pdf)
+<use codes/hysterisis.pdf>
+Package luatex.def Info: codes/hysterisis.pdf  used on input line 151.
+(luatex.def)             Requested size: 456.16331pt x 159.04881pt.
+
+
+[35<./codes/spinodal.pdf><./codes/hvsT.pdf>]) (./lectures/lec11.tex)
+(./lectures/appendix.tex
+
+[36<./codes/hysterisis.pdf>] (./lectures/ising.tex
+
+[37])) (./main.bbl
+
+[38])
+
+[39] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -2516,22 +2540,25 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 71392 strings out of 475506
+ 71440 strings out of 475506
  156267,2848258 words of node,token memory allocated
- 4482 words of node memory still in use:
-   106 hlist, 12 vlist, 16 rule, 8 math, 60 glue, 23 kern, 101 glyph, 283 attrib
-ute, 120 glue_spec, 283 attribute_list, 2 write, 24 pdf_literal, 1 pdf_action, 2
+ 4514 words of node memory still in use:
+   106 hlist, 12 vlist, 16 rule, 8 math, 60 glue, 23 kern, 101 glyph, 291 attrib
+ute, 120 glue_spec, 291 attribute_list, 2 write, 24 pdf_literal, 1 pdf_action, 2
 4 pdf_colorstack nodes
-   avail lists: 1:6,2:9821,3:6108,4:524,5:757,6:109,7:8647,8:139,9:2895,10:16,11
+   avail lists: 1:6,2:9805,3:6108,4:524,5:758,6:115,7:8647,8:139,9:2895,10:16,11
 :493
- 92312 multiletter control sequences out of 65536+600000
+ 92342 multiletter control sequences out of 65536+600000
  364 fonts using 26609639 bytes
- 108i,22n,141p,10919b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,22n,141p,10919b,1107s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts
 /enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
 enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/
@@ -2555,16 +2582,17 @@ type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb><
 /usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/font
 s/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.p
 fb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dis
-t/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/
-texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (36 pages, 924008 bytes).
+t/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
+mri9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/yhmath/yhcmex.
+pfb>
+Output written on main.pdf (39 pages, 1133462 bytes).
 
-PDF statistics: 783 PDF objects out of 1000 (max. 8388607)
- 643 compressed objects within 7 object streams
- 146 named destinations out of 1000 (max. 131072)
- 517 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 907 PDF objects out of 1000 (max. 8388607)
+ 737 compressed objects within 8 object streams
+ 155 named destinations out of 1000 (max. 131072)
+ 533 words of extra memory for PDF output out of 10000 (max. 100000000)
 
