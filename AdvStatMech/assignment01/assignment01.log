@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  9 FEB 2026 20:53
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=lualatex 2026.1.12)  10 FEB 2026 00:35
  restricted system commands enabled.
 **assignment01.tex
 (./assignment01.tex
@@ -2355,9 +2355,9 @@ LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <3.83249> not available
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1.
-) (./questions/Q4.tex
 
-[3]
+
+[3]) (./questions/Q4.tex
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1.
@@ -2392,7 +2392,7 @@ Here is how much of LuaTeX's memory you used:
    157 hlist, 18 vlist, 26 rule, 6 math, 46 glue, 38 kern, 85 glyph, 177 attribu
 te, 113 glue_spec, 177 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstac
 k nodes
-   avail lists: 1:6,2:1530,3:926,4:129,5:675,6:73,7:6175,8:69,9:1412,10:7,11:255
+   avail lists: 1:5,2:1523,3:921,4:129,5:675,6:73,7:6259,8:69,9:1412,10:7,11:261
 ,12:1
  92342 multiletter control sequences out of 65536+600000
  214 fonts using 16672255 bytes
@@ -2413,7 +2413,7 @@ mri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr
 /share/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on assignment01.pdf (5 pages, 252641 bytes).
+Output written on assignment01.pdf (5 pages, 252875 bytes).
 
 PDF statistics: 188 PDF objects out of 1000 (max. 8388607)
  136 compressed objects within 2 object streams
