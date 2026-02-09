@@ -1,3 +1,32 @@
 \refstepcounter{section}
-\section*{Lecture 11: Landau Theory for Phase Transition}
-\addcontentsline{toc}{section}{Lecture 11: Landau Theory for Phase Transition}
+\section*{Lecture 11: Landau Theory for Phase Transition: I}
+\addcontentsline{toc}{section}{Lecture 11: Landau Theory for Phase Transition: I}
+We move on to a formal description of the process encountered in the previous lecture. Here, will be be doing away with the microscopic details. Although, time and again, we will be taking the Ising model as our basis to build intuition and stuff, the method can be possibly generalised to other systems. We will define the system in terms of an \textit{order parameter} which we will take to be a scalar. However, order parameters can literally be \textit{anything} as long as it can distinguish between two phases. 
+\subsection{Order Parameter}
+Order parameters can be scalars, or in general tensors or an element from a group, it can be real or complex; there is a lot of diversity. The basic necessity is that, it should distinguish between phases. It is usually zero in the unordered phase and non-zero in the ordered phase. For example, in the \textit{Heisenberg model} with the Hamiltonian,
+\begin{equation}
+    \SH = -J \sum\limits_{\avg{ij}} \bs{\sigma}_i \cdot \bs{\sigma}_j - \vb{h} \cdot \sum\limits_i \bs{\sigma}_i
+\end{equation}
+where the spins on the lattice are \textit{vectors}, the magnetisation $\vb{M}$ is a vector, such that $\vb{M}=0$ for $T>T_c$ and $\vb{M} = M \hat{\vb{n}}$, pointing in some arbitrary direction $\hat{\vb{n}}$ for $T<T_c$.\\[0.2cm]
+For the superfluid transition in \ce{^3He}, the order parameter is something called a \textit{pairing amplitude} which is kinda a complex matrix and has to do with formation of Cooper pairs. In superconductors, the energy gap $\Delta$ is often taken to be the order parameter. In fluid systems, as seen before, we took the density difference between the phases to be the order parameter. In each of these, the number of components in the order parameter are different. 
+\subsection{Expanding the energy}
+The Landau theory has to do with expanding a function $\SL$ in powers of the \textit{order parameter}. The function $\SL$ must obey the symmetry of the system. With all our might we write the phenomenological expansion,
+\begin{equation}
+    \SL = \sum\limits_{i=0}^\infty a_i(\{K\}, T) m^i
+\end{equation}
+where $\{K\}$ denote the set of couplings in the model (for example, in the Ising model, $J$ was our coupling constant and also $h$, kinda). The expansion in itself is not that helpful, unless we do something stupid with it. We expect that $m$ should be small in and around $T_c$ and hence we truncate the expansion upto $m^4$, leaving us with the quartic free energy,
+$$\SL = a_0 + a_1m +a_2m^2 + a_3m^3+a_4m^4 $$
+For the time being, let us consider the $\inte_2$ symmetry case as in zero-field Ising model. Thus, $\SL(m) = \SL(-m)$ which forces the odd terms to be zero viz. $\mathcolor{blue}{a_1 = a_3=0}$. Moreover, we want $\SL$ to be bounded below, since we hope to extract physical insights from minimising the free energy. If $\SL$ has no finite minima, then we can arbitrarily make that small by taking $\eta\to \infty$ which is unphysical. Thus, $\mathcolor{blue}{a_4>0}$ is taken to make $\SL$ bounded below. \\[0.2cm]
+All the coefficients here are dependent on temperature and the coupling. In the unordered phase, $m=0$ and hence $a_0$ denotes the value of $\SL$ in the disordered phase. Since this coefficient is independent of the order parameter, we can think of this as a \textit{smooth background field}, containing the irrelevant degrees of freedom, upon which the phase transition stuff is superimposed. We set $\mathcolor{blue}{a_0 = 0}$, that's it!
+We expand the remaining coefficients with respect to the reduced temperature, $t = \frac{T-T_c}{T_c}$:
+\begin{align}
+    a_2 &= a_2^{(0)} + a_2^{(1)}t + \SO(t^2)\\
+    a_4 &= a_4^{(0)} + a_4^{(1)}t + \SO(t^2)
+\end{align}
+We don't need $a_4$ upto the linear term also, since $a_4$ comes with $m^4$, which is itself assumed to be tiny. So, we just take $a_4$ to be some positive constant. We now minimise $\SL$, hoping to get some insights. 
+\begin{align}
+    \pdv{\SL}{m} = 2a_2 m +4a_4m^3 = 0 \implies  m =0 \quad \text{or} \quad m = \sqrt{-\frac{a_2}{2a_4}}
+\end{align}
+We assume $m$ to be continuous across the transition, and hence $a_2(T_c)\to 0$, which implies that $a_2^{(0)}=0$
+\subsection{Continuous Transition}
+

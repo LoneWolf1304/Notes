@@ -93,23 +93,23 @@ where $\Omega(m,N)$ is just the \textit{degeneracy factor}, which tells us how m
      &=\int\limits_{-1}^1 \dd m\ e^{\ln \Omega(m,N) -\beta \SH\tund{MF}(m,N,h)}\\
      &=\int\limits_{-1}^1 \dd m\ e^{-\beta N\qty(\mathcolor{blue}{\frac{-J\gamma m^2}{2} - mh -\frac{\kb T}{N} \ln \Omega(m,N) } )}
 \end{align*}
-The blue term feels like some kind of thermodynamic potential but it depends both on $m$ and $h$. Hence this is some kind of pseudo-free energy called the \textit{Landau free energy} denoted by $\mathsterling(m,h)$,
+The blue term feels like some kind of thermodynamic potential but it depends both on $m$ and $h$. Hence this is some kind of pseudo-free energy called the \textit{Landau free energy} denoted by $\SL(m,h)$,
 \begin{align*}
-    \mathsterling(m,h) = -\frac{\gamma J m^2}{2} - mh -\kb T \ln 2 + \frac{\kb T}{2}\qty[(1+m)\ln (1+m) + (1-m)\ln (1-m)]
+    \SL(m,h) = -\frac{\gamma J m^2}{2} - mh -\kb T \ln 2 + \frac{\kb T}{2}\qty[(1+m)\ln (1+m) + (1-m)\ln (1-m)]
 \end{align*}
-From saddle-point approximation, the integral will take the value at $m=m^*$, such that $N\mathsterling(m^*,h)$ is minimum. Thus, 
+From saddle-point approximation, the integral will take the value at $m=m^*$, such that $N\SL(m^*,h)$ is minimum. Thus, 
 \begin{align*}
-    \pdv{\mathsterling}{m}\Bigg|_{m^*} = -\gamma J m^* - h + \frac{\kb T}{2}\qty[1 +\ln(1+m^*) -1 - \ln(1-m^*)] =0 
+    \pdv{\SL}{m}\Bigg|_{m^*} = -\gamma J m^* - h + \frac{\kb T}{2}\qty[1 +\ln(1+m^*) -1 - \ln(1-m^*)] =0 
 \end{align*}
 From this we obtain the same transcendental equation $\tanh(\beta h +\beta J \gamma m) = m$ as before. Let us see some insights from the plot of the Landau free energy.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{codes/L_vs_m_h.pdf}
-    \caption{$\mathsterling$ vs. $m$ at different temperature regimes. The curves have been appropriately shifted so that $\mathsterling(m=0)=0$}
+    \caption{$\SL$ vs. $m$ at different temperature regimes. The curves have been appropriately shifted so that $\SL(m=0)=0$}
     \label{landau}
 \end{figure}
 \noindent
-Fig. \ref{landau} (a) shows the variation of $\mathsterling(m)$ as $m$ is varied between $-1$ and $+1$. For the zero-field case, $\lfe$ is symmetric about $m=0$. For $T>T_c$ we have only one minima at $m=0$ and for $T<T_c$ we have two mimima at $\pm m\tund{0}$ while $m=0$ is a local maxima. The second derivative of the Landau free energy at $m=0$
+Fig. \ref{landau} (a) shows the variation of $\SL(m)$ as $m$ is varied between $-1$ and $+1$. For the zero-field case, $\lfe$ is symmetric about $m=0$. For $T>T_c$ we have only one minima at $m=0$ and for $T<T_c$ we have two mimima at $\pm m\tund{0}$ while $m=0$ is a local maxima. The second derivative of the Landau free energy at $m=0$
 \begin{align*}
     \pdv[2]{\lfe}{m}\Bigg|_{m=0} = -\gamma J + \frac{\kb T}{2}\qty[\frac{1}{1+m} + \frac{1}{1-m}]\Bigg|_{m=0} = -J\gamma +\kb T\implies  \pdv[2]{\lfe}{m}\Bigg|_{m=0, T=T_c} = 0  
 \end{align*}

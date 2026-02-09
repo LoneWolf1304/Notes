@@ -22,8 +22,19 @@ for $z<1$ and $z>1$ and show that it is continuous but non-analytic.
 \item[(e)] Using the fact $\beta p = \Theta$, derive the equations of state $p(n)$, for $z<1$ and $z>1$ by eliminating $z$ from the expressions of $p(z)$ and $n(z)$.
 \end{enumerate}
 \end{question}
-(a) The roots of the grand partition will satisfy, 
-$$(z+1)^{[\alpha V]} = 0\qquad \text{or}\qquad z^{[\alpha V]} = -1$$
-The first condition gives the real root $z=-1$ with multiplicity $[\alpha V]$. The second condition gives $z = \exp\qty[\frac{i\pi (2n+1)}{[\alpha V]}]$ for $n=0,1\ldots ([\alpha V]-1)$. The roots lie on the unit circle in the complex plane and the arguments are,
-$$\theta_n =\pi \frac{(2n+1)}{[\alpha V]}$$.\\[0.2cm]
-(b) For $n=0$, we have $z_0 = e^{i\pi/[\alpha V]}$ which in the thermodynamic limit $V\to \infty$ becomes, $z_0 = 1$. Hence, in the thermodynamic limit, one of the roots of $\Xi$ hits the real axis at $z=1$
+(a) To find the roots of $\Xi$, we set 
+\begin{equation}
+    (z+1)^{[\alpha V]} = 0 \qquad z^{[\alpha V]} = -1
+\end{equation} 
+The real root is $z=-1$ with multiplicity $[\alpha V]$,  which is physically irrelevant since the fugacity is $z=e^{\beta \mu} > 0$. The other complex roots come from $z^{[\alpha V] } = -1$, which are the roots of $-1$, lying on the unit circle 
+$$z_m = e^{i\theta_m}\qquad \theta_m = \frac{(2m+1)\pi}{[\alpha V]}, \ m \in \{0,1\ldots [\alpha V]-1\}$$ \\[0.2cm]
+(b) We see that the number of roots increases as we increase $V$. Consider the root with $m=0$ and $n=[\alpha V]-1$:
+$$z_0 = e^{i\pi/[\alpha V]} \qquad z_1 = e^{i\pi(2[\alpha V]-1)/[\alpha V] }$$
+(c) From the definition, 
+\begin{align}
+  \begin{split}
+      \Theta &= \lim\limits_{V\to \infty} \frac{1}{V} \ln \Xi(z,V) \qquad z \in \re_{\geq 0} \\
+&= \lim\limits_{V\to \infty} \frac{1}{V} \qty{[\alpha V]\ln (1+z) + \ln\qty(1 + z^{[\alpha V]})}
+  \end{split}
+\end{align}
+Consider the second term. 
