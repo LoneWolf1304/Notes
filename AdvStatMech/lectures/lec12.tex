@@ -23,8 +23,8 @@ Thus, for $T>T_c$ we have $m_+>m_->0$ and for $T<T_c$ we have $m_-<0<m_+$. The p
 \end{align*}
 \begin{figure}[t]
     \centering
-    \includegraphics[scale=0.5]{codes/first_order.pdf}
-    \caption{Landau free energy $\SL$ with the cubic term, for different values of temperature.}
+    \includegraphics[scale=0.65]{codes/cubic_landau.pdf}
+    \caption{\textbf{Landau free energy $\boldsymbol{\SL}$ with the cubic term}. (a) Phase diagram in the $a_3$ vs. $t$ plane. The blue line denotes the first order line $a_3^2 = (9/2)a_2a_4t$ while the dashed grey line denotes the spinodal line $a_3^2=4a_2a_4t$ (b) Behavious of $\SL$ in different temperature regime.}
  \end{figure}
 At $m=0$, $\pdv[2]{\SL}{m}  = a_2(T-T_c)$ which implies that for $T<T_c$ we have a maxima at $m=0$ and for $T>T_c$, there's a minima at $m=0$. From these facts, we have: 
 \begin{itemize}
@@ -51,5 +51,47 @@ At $m=0$, $\pdv[2]{\SL}{m}  = a_2(T-T_c)$ which implies that for $T<T_c$ we have
     \item For $T_c<T<T^{**}$ we have three extrema, the global minima is at $m_+$ and at $m=0$ we have a local minima.  $m_-$ is still a maxima.
     \item For $T<T_c$, we have three extremas and $m=0$ is a local maxima, while the global minima is at $m_+$.  $m_-$ is a local minima.
  \end{itemize}
- But where does the first order transition take place? 
+ But where does the first order transition take place? Note that, for $T>T^{**}$ the minima is at $m=0$ and then, at $T=T^{**}$, we have two minima at $m=0$ and a finite $m = m_+>0$. Just below $T^{**}$ we have the global minima as $m_+$ which is not zero. Thus, there is a abrupt jump between the minima, which is the telltale sign of a first order transition. 
 \subsection{Tricritical Point}
+We now consider a free energy with $\inte_2$ symmetry, but with a higher order term, $m^6$.
+\begin{equation}
+    \SL = \frac{1}{2}a_2(T-T_c)m^2+\frac{1}{4}a_4m^4 + \frac{1}{6}a_6 m^6 \qquad a_6, a_2>0
+\end{equation}
+From the same old routine, we minimise the Landau free energy 
+\begin{equation}
+    \pdv{\SL}{m} = m(a_2(T-T_c) + a_4 m^2 + a_6 m^4) = 0
+\end{equation}
+Denoting $t=T-T_c$, the trivial solution is $m=0$ while the four other solutions are given by,
+\begin{align*}
+    m^2 = -\frac{a_4}{2a_6} \pm \sqrt{\qty(\frac{a_4}{2a_6})^2 - \frac{a_2}{a_6}t} \implies \boxed{m = \pm \sqrt{-\frac{a_4}{2a_6} \pm \sqrt{\qty(\frac{a_4}{2a_6})^2 - \frac{a_2}{a_6}t}}}
+\end{align*}
+Suppose that, $T>T_c$ and $a_4>0$, which implies that $a_2t+a_4m^2+a_6m^4>0$ and cannot produce any root, for all $m$ and hence, $\pdv{\SL}{m}$ has a unique root at $m=0$. For $T<T_c$, consider $a_2t+a_4x+a_6x^2 =0$ where we defined $x=m^2$.\\[0.2cm] The discriminant of this equation is $a_4^2-4a_6a_2t$. As $T<T_c$, we have $t<0$ and hence the discriminant is positive. This implies the existence of two roots to the equation. However, note that the product of the roots is $\frac{a_2t}{a_6}<0$ which implies that one of the root is negative and the other is positive. We discard the negative root, as $x=m^2>0$ by definition. Then, apart from $m=0$, only two root survive from this, corresponding to $x_+ \longrightarrow m = \pm \sqrt{x_+}$, which are:
+$$m=  \pm \sqrt{-\frac{a_4}{2a_6} + \sqrt{\qty(\frac{a_4}{2a_6})^2 - \frac{a_2}{a_6}t}}$$
+as the `$-$' root inside the square root gives imaginary solution. To see this, note that $\frac{a_2}{a_6}t<0$ and hence,
+$$\sqrt{\qty(\frac{a_4}{2a_6})^2 - \frac{a_2}{a_6}t} = \sqrt{\qty(\frac{a_4}{2a_6})^2 + \Bigg|\frac{a_2}{a_6}t\Bigg|} >\Bigg|\frac{a_4}{2a_6}\Bigg|$$
+\begin{figure}[t]
+    \centering
+    \includegraphics[scale=0.7]{codes/sixth_landau.pdf}
+    \caption{\textbf{Landau free energy $\boldsymbol{\SL}$ with the sixth order term}. (a) Phase diagram in the $a_4$ vs. $t$ plane. The blue line denotes the second order line ($a_2=0$) while the dashed grey line denotes the spinodal line $a_4^2=4a_2a_6t$ (b) Behavious of $\SL$ in different temperature regime.}
+    \label{m6}
+ \end{figure}
+ \noindent
+Let us now look at the case when $T>T_c$ but $a_4<0$, which has all five real roots, provided $a_4^2>4a_2a_6t\implies a_4<-2\sqrt{a_2a_6t}$. If $a_4>-2\sqrt{a_2a_6t}$, then the quantity under the root becomes imaginary and all the four roots become complex, so only real root is $m=0$.\\[0.2cm]
+As $\SL\to \infty$ as $m\to \pm \infty$, we must have three minima, separated by two maximas. From $\inte_2$ symmetry or otherwise, we can say that for $T>T_c$, $m=0$ is always going to be a minima (and for $T<T_c$,  it is a maxima). We now need to check whether the other two minima are lower in energy than $m=0$ or not; so we check as before, $\SL(m) = \SL(0)=0$ along with $\pdv{\SL}{m}=0$ which gives us two simultaneous equations, 
+\begin{equation}
+    \begin{split}
+        6a_2t+3a_4m^2+2a_6m^4=0\\
+        a_2t +a_4m^2+a_6m^4 = 0
+    \end{split}
+\end{equation}
+Multiplying the second equation by $2$ and subtracting, we obtain:
+$$4a_2t + a_4m^2 = 0 \implies m^2 = -\frac{4a_2}{a_4}t$$
+Substituting this again the one of the equations gives us, 
+$$a_4 = -\frac{4}{\sqrt{3}}\sqrt{a_2a_6t}<0$$
+Now, we summarise the cases for $T>T_c$:
+\begin{itemize}
+    \item If $a_4>-2\sqrt{a_2a_6t}$ then only minima is $m=0$.
+    \item If $-\frac{4}{\sqrt{3}}\sqrt{a_2a_6t}<a_4<-2\sqrt{a_2a_6t}$, then five real roots appear, but the global minima is still $m=0$.
+    \item If $a_4< -\frac{4}{\sqrt{3}}\sqrt{a_2a_6t}$, then five real roots appear and zero minima is the local minima, while the other two (degenerate) minimas are global.
+\end{itemize}
+For $T<T_c$, three extremas are three; $m=0$ is a maxima while two other global minimas are present. As before, there are two temperature scales involved, first is the spinodal temperature $T^* = T_c + \frac{a_4^2}{4a_2a_6}$ where the minima first start to appear and $T^{**} = T_c + \frac{3a_4^2}{16a_2 a_6}$ where the first order transition take place (minima is the same as the minima at $m=0$), as shown in Fig. \ref{m6}. The point $(t=0,a_4=0)$ in the phase diagram, where the first and the second order line meet is called the \textit{tricritical point}.
