@@ -104,7 +104,7 @@ From the free energy, we obtain the magnetisation
         \SM(h) = -\pdv{F(h,J,T)}{h} = -\pdv{F(-h,J,T)}{h} = \pdv{F(-h,J,T)}{(-h)} = -\SM(-h)
     \end{split}
 \end{align} 
-From the above expression, if $h=0$ then we have $\SM(0) = 0$ which apparently says that \textit{phase transition is impossible in zero-field!}\\[0.2cm]
+From the above expression, if $h=0$ then we have $\SM(0) = 0$ for all temperatures, which apparently says that \textit{phase transition is impossible in zero-field!}\\[0.2cm]
 This situation arises since we assumed the derivative of the free energy is well-behaved which is indeed true for finite systems, however, in the thermodynamic limit, $F$ develops a \text{kink} for $T<T_c$ and hence $\qty(\pdv{F}{h})$ develops a discontinuity as shown in Fig. \ref{kink} (a)
 \begin{figure}[H]
     \centering 
@@ -115,7 +115,7 @@ This situation arises since we assumed the derivative of the free energy is well
 \noindent
 In the thermodynamic limit, near $h=0$ the free energy behaves as,
 $$F(h) = F(0) - \SM\tund{0} \abs{h} +\SO(h^{q>1})$$
-From this, if $h<0$ then $\SM(0^-) = -\SM\tund{0}$ and if $h>0$ then $\SM(0^+) = +\SM\tund{0}$ which is clearly discontinuous as shown in Fig. \ref{kink} (b). It is clear that if we take the thermodynamic limit first and then take $h\to 0$ and if we first take $h\to 0$ for a finite $N$ and then take $N\to infty$, we get two different behaviours. Thus, the limits do not commute.  
+From this, if $h<0$ then $\SM(0^-) = -\SM\tund{0}$ and if $h>0$ then $\SM(0^+) = +\SM\tund{0}$ which is clearly discontinuous as shown in Fig. \ref{kink} (b). It is clear that if we take the thermodynamic limit first and then take $h\to 0$ and if we first take $h\to 0$ for a finite $N$ and then take $N\to \infty$, we get two different behaviours. Thus, the limits do not commute.  
 $$\lim\limits_{N\to\infty}\lim\limits_{h\to 0} \qty( \frac{1}{N}\pdv{F(h)}{h})\neq \lim\limits_{h\to 0}\lim\limits_{N\to\infty} \qty( \frac{1}{N}\pdv{F(h)}{h})$$ 
 \subsubsection{Spontaneous Symmetry Breaking}
 When the Hamiltonian of the system has a particular symmetry but the statistical behavior of the system breaks that symmetry, we say that the symmetry is broken spontaneously. As seen before, the zero-field Ising Hamiltonian enjoys a $\inte_2$ symmetry, under the exchange $\{\sigma_i \}\to \{-\sigma_i\}$. For $T<T_c$ in the thermodynamic limit, we saw that 

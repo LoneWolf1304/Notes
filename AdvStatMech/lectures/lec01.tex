@@ -38,14 +38,14 @@ One of the most popular ways to deal with interactions is through \textit{pertur
 Then the interaction term becomes,
 \begin{align*}
    2U &=\sum\limits_i\sum\limits_{j\neq i} u(\abs{\vb{q}_i-\vb{q}_j})\\
-   &=\sum\limits_i\sum\limits_{j\neq i} \int\dd q_1\ \delta^{(3)}(\vb{q}_1-\vb{q}_i)\cdot u(\abs{\vb{q}_1-\vb{q}_j})\\
-   &=\sum\limits_i\sum\limits_{j\neq i} \int\dd q_1\ \delta^{(3)}(\vb{q}_1-\vb{q}_i)\cdot \int\dd q_2 \ \delta^{(3)}(\vb{q}_2-\vb{q}_j)\cdot u(\abs{\vb{q}_1-\vb{q}_2})\\
-   &=\int\dd q_1\dd q_2\ \sum\limits_i\sum\limits_{j\neq i} \delta^{(3)}(\vb{q}_1-\vb{q}_i)\cdot  \ \delta^{(3)}(\vb{q}_2-\vb{q}_j)\cdot u(\abs{\vb{q}_1-\vb{q}_2})\\
-   &=\int\dd q_1\dd q_2\ n(\vb{q}_1)n(\vb{q}_2)u(\abs{\vb{q}_1-\vb{q}_2})
+   &=\sum\limits_i\sum\limits_{j\neq i} \int\dd^3 q_1\ \delta^{(3)}(\vb{q}_1-\vb{q}_i)\cdot u(\abs{\vb{q}_1-\vb{q}_j})\\
+   &=\sum\limits_i\sum\limits_{j\neq i} \int\dd^3 q_1\ \delta^{(3)}(\vb{q}_1-\vb{q}_i)\cdot \int\dd q_2 \ \delta^{(3)}(\vb{q}_2-\vb{q}_j)\cdot u(\abs{\vb{q}_1-\vb{q}_2})\\
+   &=\int\dd^3 q_1\dd q_2\ \sum\limits_i\sum\limits_{j\neq i} \delta^{(3)}(\vb{q}_1-\vb{q}_i)\cdot  \ \delta^{(3)}(\vb{q}_2-\vb{q}_j)\cdot u(\abs{\vb{q}_1-\vb{q}_2})\\
+   &=\int\dd^3 q_1\dd q_2\ n(\vb{q}_1)n(\vb{q}_2)u(\abs{\vb{q}_1-\vb{q}_2})
 \end{align*}
 We will use a heavily \textit{unmotivated} approximation where we will treat the density to be uniform, independent of the spatial coordinate, that is, $n(\vb{r})\equiv n$
 Then, 
-$$U = \frac{n^2}{2}\int\dd q_1^3 \dd q_2^3\ u(\abs{\vb{q}_1-\vb{q}_2})$$
+$$U = \frac{n^2}{2}\int\dd^3 q_1 \dd^3 q_2\ u(\abs{\vb{q}_1-\vb{q}_2})$$
 Let us define the variables $\vb{R} = \frac{1}{2}(\vb{r}_1+\vb{r}_2)$ and $\vb{r} = \vb{r}_1-\vb{r}_2$ from which we have $\vb{r}_1 = \vb{R}+\frac{\vb{r}}{2}$ and $\vb{r}_2 = \vb{R}-\frac{\vb{r}}{2}$. The Jacobian of this transformation can be written as,
 $$\mathrm{\vb{J}} \equiv \pdv{(\vb{r}_1, \vb{r}_2)}{\vb{R}, \vb{r}} =\mqty(\iden & \frac{1}{2}\iden\\ \iden & -\frac{1}{2}\iden) \implies J = \det({\mathrm{\vb{J}}}) = -1$$
 Using the new variables, the integral becomes, 

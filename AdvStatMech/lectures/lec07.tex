@@ -1,11 +1,11 @@
 \refstepcounter{section}
 \section*{Lecture 07: Introduction to Ising Model}
 \addcontentsline{toc}{section}{Lecture 07: Introduction to Ising Model}
-The Ising model is a prototypical model to study phase transitions in magnetic systems. Since its fomulation by \textit{Lenz} in 1920 and subsequent 1D solution by \textit{Ising} and 2D solution by \textit{Onsager}, Ising model has penetrated deep into all fields. The Ising model is defined faily simply, by the Hamiltonian,
+The Ising model is a prototypical model to study phase transitions in magnetic systems. Since its fomulation by \textit{Lenz} in 1920 and subsequent 1D solution by \textit{Ising} and 2D solution by \textit{Onsager}, Ising model has penetrated deep into all fields. The Ising model is defined fairly simply, by the Hamiltonian,
 \begin{align}\label{isingham}
     \SH = -J \sum\limits_{\avg{ij}}\sigma_i \sigma_j -h\sum\limits_j \sigma_j
 \end{align}
-where $\sigma_j \in \{+1, -1\}$ is a random variables which is given an interpretation of a \textit{classical spin}. $J$ and $h$ respectively denote the spin-coupling constant and the external field. The notation $\avg{ij}$ means that the spins $i$ and $j$ are nearest-neighbours. The Ising model provides interesting numerical and analytical artefacts till date which makes it an important system to study. The 1D solution is fairly simple, using a \textit{transfer-matrix} method which is provided in appendix \ref{append:ising1d}.
+where $\sigma_j \in \{+1, -1\}$ is a random variable which is given an interpretation of a \textit{classical spin}. $J$ and $h$ respectively denote the spin-coupling constant and the external field. The notation $\avg{ij}$ means that the spins $i$ and $j$ are nearest-neighbours. The Ising model provides interesting numerical and analytical artefacts till date which makes it an important system to study. The 1D solution is fairly simple, using a \textit{transfer-matrix} method which is provided in Appendix \ref{append:ising1d}.
 \subsection{Mean-field solution}
 In the mean-field solution for the Ising model, we `throw' away the fluctuations in each spin, which makes the spins interact with an `effective' field resulting from the average orientation of the neighboring spins. Consider the identity,
 \begin{equation}
