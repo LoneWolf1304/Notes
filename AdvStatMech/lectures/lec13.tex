@@ -55,3 +55,11 @@ Note that $\varphi''(0) = r$ which implies that for $r>0$, $u=0$ is a minima and
     r - u^2 + u^4 &= 0
 \end{align*}
 solving which, we obtain $u^2 = 4r$ and $r = 0$ or $r = \frac{3}{16}$. Then, for $r>\frac{3}{16}$, $u=0$ is the global minima. For $r<\frac{3}{16}$, $u_{++}$ and $u_{-+}$ are the global stable minimas. Between $\frac{3}{16}<r<\frac{1}{4}$, $u_{++}$ and $u_{-+}$ are the metastable minimas. From this, we obtain the following $u$ vs. $r$ plot. 
+\begin{figure}[H]
+    \centering 
+    \includegraphics[scale=0.71]{codes/hystm6.pdf}
+    \caption{Hysterisis plot for $\varphi(u)$ with $m^6$. The solid black and grey line denote the stable fixed points while the red line represents the metastable fixed points. The dashed green line denote the unstable points.}
+    \label{hyst6}
+\end{figure}
+\noindent
+There is an obvious $u\to -u$ symmetry in Fig. \ref{hyst6}. When $r$ is positive, the flow is towards the fixed point $u=0$, which persists even when $r<\frac{1}{4}$. When it reaches $r=0$, $u=0$ becomes unstable and the flow shifts to either of the global fixed points $u_{++}$ or $u_{-+}$.\\[0.2cm] If we instead start from a higher positive value of $u$ when $r<0$, the system shifts to the upper black branch and follows that line till $r=\frac{1}{4}$ where the stable point is annihilated and the system abruptly shifts to $u=0+$, where it remains on increasing $r$ further. We thus see that between $0<r<\frac{1}{4}$, the dynamics is irreversible and there is \textit{hysterisis}. 
