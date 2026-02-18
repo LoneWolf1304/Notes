@@ -87,12 +87,14 @@ Instead of writing the Ising partition function $\SZ(T,h,N)$ as a sum over all s
     \SZ(T,h,N) = \sum\limits_m \sum\limits_{\{\sigma\}|m} e^{-\beta \SH(\{\sigma\}, N,h)} \approx \sum\limits_m \Omega(m,N) e^{-\beta \SH\tund{MF}(m,N,h)}
 \end{align*}
 where $\Omega(m,N)$ is just the \textit{degeneracy factor}, which tells us how many states are there with magnetisation $m$ and $\SH\tund{MF}$ is the mean-field Hamiltonian from Eq. \eqref{mfham}. The above sum can be approximated by an integral from $-1$ to $1$, taking magnetisation to be continuous:
-\begin{align*}
-     \SZ(T,h,N) &= \int\limits_{-1}^1 \dd m\ \Omega(m,N) e^{-\beta \SH\tund{MF}(m,N,h)}\\
+\begin{align}\label{landpart}
+     \begin{split}
+        \SZ(T,h,N) &= \int\limits_{-1}^1 \dd m\ \Omega(m,N) e^{-\beta \SH\tund{MF}(m,N,h)}\\
      &=\int\limits_{-1}^1 \dd m\ e^{\ln \Omega(m,N)} e^{-\beta \SH\tund{MF}(m,N,h)}\\
      &=\int\limits_{-1}^1 \dd m\ e^{\ln \Omega(m,N) -\beta \SH\tund{MF}(m,N,h)}\\
      &=\int\limits_{-1}^1 \dd m\ e^{-\beta N\qty(\mathcolor{blue}{\frac{-J\gamma m^2}{2} - mh -\frac{\kb T}{N} \ln \Omega(m,N) } )}
-\end{align*}
+     \end{split}
+\end{align}
 The blue term feels like some kind of thermodynamic potential but it depends both on $m$ and $h$. Hence this is some kind of pseudo-free energy called the \textit{Landau free energy} denoted by $\SL(m,h)$,
 \begin{align*}
     \SL(m,h) = -\frac{\gamma J m^2}{2} - mh -\kb T \ln 2 + \frac{\kb T}{2}\qty[(1+m)\ln (1+m) + (1-m)\ln (1-m)]

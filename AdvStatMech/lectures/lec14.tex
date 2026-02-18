@@ -1,3 +1,41 @@
 \refstepcounter{section}
 \section*{Lecture 14: Spontaneous Symmetry Breaking}
 \addcontentsline{toc}{section}{Lecture 14: Spontaneous Symmetry Breaking}
+Let us re-visit the spontaneous symmetry breaking seen earlier, through the perspective of Landau theory. SSB, as stated before, refers to the fact that in some regime, the ground state does not respect the symmetry of the Hamiltonian. For a finite system, we observe no SSB since everything is analytic. In the thermodynamic limit, we had seen, 
+$$ m =- \lim\limits_{h\to 0} \pdv{h}\qty[\lim\limits_{N\to \infty} \qty(\frac{1}{N}\pdv{F}{h})] \neq - \lim\limits_{N\to \infty} \pdv{h}\qty[\lim\limits_{h\to 0} \qty(\frac{1}{N}\pdv{F}{h})]$$
+With the definition of the partition function using $\SL$, we can write the free energy from Eq. \eqref{landpart} as, 
+\begin{equation}
+    F = -\kb T \ln \qty[\int\limits_{-\infty}^{\infty} \dd m e^{-\beta N \SL}]
+\end{equation}
+where we have extended the integral limits to $\pm \infty$. Taking derivative with respect to the field, we obtain,
+\begin{equation}
+    \pdv{F}{h} = -\kb T \cdot -\beta N \frac{\int \dd m\ e^{-\beta N \SL} (-m)}{\int \dd m\ e^{-\beta N \SL}} = -N\frac{\int \dd m\ m e^{-\beta N \SL}}{\int \dd m\ e^{-\beta N \SL}}
+\end{equation}
+where we assumed that $\SL$ has the coupling term $-mh$ with the field. Let us focus on the numerator only, since the denominator is just the partition function and is always positive. 
+\begin{equation}
+    \lim\limits_{h\to 0} \pdv{F}{h} \propto   \lim\limits_{h\to 0} \int \dd m\ me^{-\beta N \SL} =  \lim\limits_{h\to 0}\qty[\int\limits_{-\infty}^0 \dd m\ me^{-\beta N \SL}+\int\limits_{0}^\infty \dd m\ me^{-\beta N \SL}]
+\end{equation}
+Now, in the zero field limit, $\SL(m) = \SL(-m)$ (presence of $\inte_2$ symmetry). Let we change the integral variable $m\to -m$, using which we get 
+\begin{equation}
+    \lim\limits_{h\to 0} \pdv{F}{h} \propto   \lim\limits_{h\to 0}\qty[-\int\limits_{0}^\infty \dd m\ me^{-\beta N \SL}+\int\limits_{0}^\infty \dd m\ me^{-\beta N \SL}] = 0
+\end{equation}
+Thus, on taking the zero-field limit first, we get an overall zero magnetisation, even if we take the thermodynamic limit after this. Let us now try to take the thermodynamic limit first and then take the zero-field limit. 
+\begin{align}
+    \begin{split}
+        \lim\limits_{N\to \infty} -\frac{\kb T}{N}\ln\qty[ \int\limits_{-\infty}^{\infty} \dd m \ e^{-\beta N (\widetilde{\SL} - hm)}] &=  \lim\limits_{N\to \infty} -\frac{\kb T}{N}\ln\qty[ \int\limits_{-\infty}^{0} \dd m \ e^{-\beta N (\widetilde{\SL} - hm)}+\int\limits_{0}^{\infty} \dd m \ e^{-\beta N (\widetilde{\SL} - hm)}]\\
+        &= \lim\limits_{N\to \infty} -\frac{\kb T}{N}\ln\qty[ \int\limits_{0}^{\infty} \dd m \ \qty(e^{-\beta N (\widetilde{\SL} - hm)}    + e^{-\beta N (\widetilde{\SL} + hm)})]
+    \end{split}
+\end{align}
+where $\widetilde{\SL}$ denotes the Landau free energy without the field coupling. In the last step, we had used the substitution $m\to -m$ as before. Let us suppose $h> 0$, then the integral can be written as,
+\begin{align}
+    \lim\limits_{N\to \infty} -\frac{\kb T}{N}\ln\qty[ \int\limits_{0}^{\infty} \dd m \ e^{-\beta N (\widetilde{\SL} - hm)}\qty[  1  + \mathcolor{blue}{e^{-2\beta N hm}}]]
+\end{align}
+For a finite positive $h$, if $N\to \infty$, then the blue term is really really small and hence can be neglected. The remaining integral (evaluated by the saddle point approximation) takes the value where it peaks at $m^*$. Taking the thermodynamic limit and $h\to 0^+$, we have: 
+\begin{equation}
+   - \lim\limits_{h\to 0^+} \lim\limits_{N\to \infty} \pdv{h}\qty[-\frac{\kb T}{N} \ln e^{-\beta N (\widetilde{\SL}(m^*) - h m^*)}] = -\lim\limits_{h\to 0^+} \lim\limits_{N\to \infty} \pdv{h}\qty[ \widetilde{\SL}(m^*) - h m^*] =  m^*
+\end{equation}
+which gives a finite magnetisation. Suppose we had taken $h<0$ initially,
+\begin{align}
+    \lim\limits_{N\to \infty} -\frac{\kb T}{N}\ln\qty[ \int\limits_{0}^{\infty} \dd m \ e^{-\beta N (\widetilde{\SL} + hm)}\qty[  1  + \mathcolor{red}{e^{+2\beta N hm}}]]
+\end{align}
+Since $h<0$ then the red term goes to zero and exactly similarly, we obtain a finite magnetisation $-m^*$ when taking the zero field limit after the thermodynamic limit. This gives us the correct prescription of analysing the spontaneous magnetisation, depicting SSB. 
