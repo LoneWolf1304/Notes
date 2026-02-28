@@ -120,4 +120,10 @@ Substituting this value above, we get the equation as,
 \end{align}
 from which get two solutions, 
 $$\sqrt{\frac{2\gamma}{a_4}}\dv{m}{x} = \pm (m^2-m_\infty^2)$$
-We take the $+$
+We take the $-$ve solution and then we integrate to get,
+$$\sqrt{\frac{2\gamma}{a_4}} \int\limits_{m(x\tund{0})}^m \frac{\dd m}{m_\infty^2-m^2} = \int\limits_{x\tund{0}}^x \dd x = (x-x\tund{0})$$
+where $x\tund{0}$ is the centre of the domain wall and we assume $m(x\tund{0}) = 0$. On solving the integral, we obtain the solution, 
+\begin{align*}
+    \sqrt{\frac{2\gamma}{a_4}} \frac{1}{m_\infty}\tanh^{-1}\qty(\frac{m}{m_\infty})= (x-x\tund{0})\implies m(x) &= m_\infty \tanh\qty[\frac{m_\infty(x-x\tund{0})}{\sqrt{2}\qty(\gamma/a_4)^{1/2}}]\\&= m_\infty \tanh\qty[\frac{(x-x\tund{0})}{\mathcolor{red}{\sqrt{2}\qty(\gamma/a_4)^{1/2}\qty(a_2(T_c-T)/a_4)^{-1/2}}}]
+\end{align*}
+Now, the red quantity has the dimension of length and we denote is by $\xi$. Physically, $\xi$ denotes the length scale over which significant change occurs across the domain wall. This is appropriately called the \textit{correlation length} since this is the scale across which correlations between the spins persist. The correlation length is temperature dependent as seen above. It scales as, $\xi \sim (T_c-T)^{-1/2}$, hence shows a power-law divergence at $T=T_c$. 
