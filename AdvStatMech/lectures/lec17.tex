@@ -1,3 +1,32 @@
 \refstepcounter{section}
 \section*{Lecture 17: Fluctuation-Response Relations}
 \addcontentsline{toc}{section}{Lecture 17: Fluctuation-Response Relations}
+Given a partition function we can obtain the free energy as $F = -\kb T \ln \SZ$ and from there we can find the expectation value of the order parameter, 
+\begin{equation}
+    \avg{m(\vb{r})}  = -\fdv{F}{h(\vb{r})} = \frac{\int\SD m\ e^{-\beta \SL} m(\vb{r})}{\int \SD m \ e^{-\beta\SL}}
+\end{equation}
+The second expression is just the definition of the expectation value. In a similar way, the generalised susceptibility (with spatial dependence) can be found out as,
+\begin{equation}
+   \chi(\vb{r} - \vb{r}') = \fdv{\avg{ m(\vb{r})}}{h(\vb{r}')} = -\frac{\delta^2 F}{\delta h(\vb{r})h(\vb{r}')}
+\end{equation}
+Using the definition of functional derivatives we can then write the variations,
+\begin{align*}
+    \delta F = - \int \dd^dr'\ \avg{m(\vb{r'})} \delta h(\vb{r}')\qquad  \delta \avg{m(\vb{r})} =  \int \dd^dr'\ \chi(\vb{r} - \vb{r}')  \delta h(\vb{r}')
+\end{align*}
+We assume that $\SL$ has a term $-h(\vb{r})m(\vb{r})$. Differentiating the expectation value with respect to the field, we have 
+\begin{align}
+    \begin{split}
+  \chi(\vb{r}-\vb{r}') \fdv{\avg{ m(\vb{r})}}{h(\vb{r}')} &= \frac{\int\SD m\ e^{-\beta \SL[m]}\beta m(\vb{r}) m(\vb{r}')}{\int \SD m \ e^{-\beta\SL}} -\frac{\qty[\int\SD m\ e^{-\beta \SL} m(\vb{r})]\qty[\int \SD m \ m(\vb{r}') \beta e^{-\beta\SL}]}{\qty[\int \SD m \ e^{-\beta\SL}]^2}\\
+   &=\frac{1}{\kb T}\qty[\avg{m(\vb{r})m(\vb{r}')} -\avg{m(\vb{r})}\avg{m(\vb{r}')} ] = \beta \SG(\vb{r} - \vb{r}')
+    \end{split}
+\end{align}
+where $\SG(\vb{r} - \vb{r}')$ is the correlation function defined in Lec. \ref{lec06}. Hence we get a simple relation,
+$$\chi(\vb{r}-\vb{r}') = \beta \SG(\vb{r}-\vb{r}')$$
+Note that we have assumed translational invariance from the beginning, that's why we were writing the functions as a different of the two vectors $\vb{r}-\vb{r}'$. We can easily use the Fourier transform for translationally invariant systems.
+\begin{align*}
+    \chi(\vb{r}-\vb{r}') = \int \frac{\dd^d k}{(2\pi)^d} \ \widetilde{\chi}(k) e^{i \vb{k}\cdot (\vb{r}-\vb{r}')}
+\end{align*}
+Using this in the above relation above, we get $\widetilde{\chi}(k) = \beta \widetilde{\SG}(k)$. Now, if the frequency of the external perturbation (like the Fourier decomposition of the magnetic field) tends to zero, $\chi$ must reduce to the static isothermal susceptibility, 
+$$\chi\tund{T} = \lim\limits_{k\to 0 }\widetilde{\chi}(k) = \beta \widetilde{\SG}(0) = \beta \int \dd^d r \ \SG(\vb{r})$$
+\subsection{Calculating the Correlation function (Ornstein-Zernike relation)}
+Here, we outline a method to calculate the correlation function.
