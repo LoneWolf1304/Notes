@@ -1,4 +1,50 @@
 \refstepcounter{section}
 \section*{Lecture 18: Some More Fluctuations}
 \addcontentsline{toc}{section}{Lecture 18: Some More Fluctuations}
-By now, we have realised that the mean-field theory is very unstable and in many cases, it breaks down. Let us analyse when it is effective and when it is not. In MFT, we threw away the fluctuations and hence, if the fluctuations become more than the order parameter scale, the it breaks down. 
+By now, we have realised that the mean-field theory is very unstable and in many cases, it breaks down. Let us analyse when it is effective and when it is not. In MFT, we threw away the fluctuations and hence, if the fluctuations become more than the order parameter scale, the it breaks down.\\[0.2cm]
+In general, we see that the exponents do match for $d\geq 4$. What is so special about $d=4$? 
+\subsection{Ginzburg-Levanyuk Criterion}
+Suppose we consider only regions of extent upto order $\xi$ in each dimensions (so correlations persist). We then define the correlation volume $V_\xi\sim \xi^d \alpha_d$ where $\alpha_d = \frac{\pi^{d/2}}{\Gamma(\frac{d}{2}+1)}$ is the volume of a unit $d$-sphere. Now, within this volume, if the fluctuations are way smaller than the value of the order parameter, then we can say that MFT is kinda valid. Since the correlation is given by $\SG(\vb{r})$ then, mathematically, we can define the condition for validity of Landau theory, 
+\begin{equation}
+    \frac{\int\limits_{V_\xi} \dd^d r \ \SG(\vb{r})}{V_\xi} \ll \avg{m}^2
+\end{equation}
+This criteria is called the \textit{Ginzburg-Levanyuk} criteria. We further analyse this, 
+$$\int\limits_{V_\xi} \dd^d r \ \SG(\vb{r}) \ll \avg{m}^2 \xi^d \alpha_d$$
+Now, from Eq. \eqref{chixi} the LHS just becomes the isothermal susceptibility\footnote{In Eq. \eqref{chixi}, the integral is over the whole space, but it is well approximated by the integral over the correlation volume, since $\SG$ is a rapidly decaying function.},
+$$\chi\tund{T}\kb T \ll \avg{m}^2 \xi^d \alpha_d \implies (-t)^{-\gamma} \ll (-t)^{2\beta} t^{-d\nu}$$
+where we used the reduced temperature $t= \frac{T-T_c}{T_c}$ and the various scaling laws, $m\sim (-t)^\beta, \xi\sim (-t)^{-\gamma}$ and $\xi \sim (-t)^{-\nu}$. From this, we finally obtain: 
+\begin{equation}
+    (-t)^{\gamma+2\beta-\nu d} \gg 1
+\end{equation}
+As $t\to 0$ (near $T_c$), this condition is only satisfied if $\gamma+2\beta-\nu d <0$, since then the LHS becomes less than 1 and blows up when the denominator becomes arbitrarily small. The criteria gives us, 
+\begin{equation}
+    \frac{\gamma+2\beta}{\nu}<d
+\end{equation}
+Defining $d_c = \frac{\gamma+2\beta}{\nu}$ as the \textit{upper critical dimension}, we see that for the Ising universality class (that is, those systems where the mean-field exponents are equal to that of the Ising model), $d_c = 4$ as $\gamma=1, \beta=\nu = 1/2$ which tells us why $d=4$ is important.\\[0.2cm]
+From our previous discussion, we saw that for $T<T_c$, 
+$$\xi =\qty[\frac{\gamma}{2a_2(T_c-T)}]^{-1/2} \implies \xi =\qty[\frac{\gamma}{2a_2T_c (-t)}]^{-1/2}\implies \xi^d = \xi^d_1 (-t)^{-d/2}$$
+where $\xi_1$ is the rest of the constants, having no temperature depedence. For $T<T_c$ the susceptibility is equal to,
+$$\chi = \frac{1}{2a(T_c-T)} = \frac{1}{2a T_c(-t)}$$
+Then, for $T<T_c^-$ the Ginzburg criteria gives us,
+\begin{align*}
+    \kb T_c\cdot \frac{1}{2aT_c (-t)}\ll \alpha_d \xi^d_1 (-t)^{-d/2}\cdot \frac{a_2(-t)T_c}{a_4}\implies 
+    \frac{\kb a_4}{2a_2^2 T_c \xi_1^d \alpha_d}\ll (-t)^{2-\frac{d}{2}}
+\end{align*}
+Note that, from sec \ref{critexplec}, the discontinuity in the specific heat was found out to be $\Delta C  = \frac{a_2^2}{a_4}T_c$ which exactly appears hear also. Define the GL reduced temperature as, 
+\begin{equation}
+    (-t\tund{GL}):= \qty[\frac{\kb }{2\Delta C \xi_1^d \alpha_d}]^{2/(4-d)}
+\end{equation}
+which tells us that MFT is valid only if $(-t)^{(4-d)/2}\gg (-t\tund{GL})^{(4-d)/2}$. This relation is also dependent on the dimension. 
+\begin{itemize}
+    \item For $\mathbf{d>4}$: As $t\to 0$, since $(4-d)<0$ the LHS blows up and hence the relation is always satisfied, since the RHS is just a finite constant. 
+    \item For $\mathbf{d<4}$: As $t\to 0$, the Ginzburg criteria is not satisfied. There exists a temperature $T\tund{GL}$ obtained from $t\tund{GL}$ such that between $T_c - T\tund{GL}$ and $T_c+T\tund{GL}$, the Landau theory is not applicable. This region is called the \textit{fluctuation dominating window}. 
+    \item For $\mathbf{d=4}$: Landau Theory is strictly not valid, however the Ginzburg criteria is marginally satisfied. There are some logarithmic corrections due to fluctuations. 
+\end{itemize}
+\begin{figure}[H]
+    \centering 
+    \input{pics/fdw.tex}
+    \caption{Fluctuation dominating window}
+\end{figure}
+\noindent
+This explains the significance of $d_c=4$ as the upper critical dimension. Although we considered the Ising universality class, this procedure is also valid for other classes, however, $d_c\neq 4$ for those systems. Similar to the upper critical dimension, we do have a lower critical dimension $d_l$. Below $d_l$, fluctuations are so strong that they kill all the ordering and hence the mean-field theory is not even qualitatively correct (For Ising class, $d_l=1$). Between $d_l$ and $d_c$, we can qualitatively explain things using MFT but it will not provide quantitative accuracy. \\[0.2cm]
+\textbf{Note:} MFT is valid at $T=0$, since at this temperature, no fluctuations exist. Also, when $d\to \infty$ and for infinite-range interactions, MFT is valid. 

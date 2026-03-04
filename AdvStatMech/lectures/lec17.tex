@@ -27,7 +27,9 @@ Note that we have assumed translational invariance from the beginning, that's wh
     \chi(\vb{r}-\vb{r}') = \int \frac{\dd^d k}{(2\pi)^d} \ \widetilde{\chi}(k) e^{i \vb{k}\cdot (\vb{r}-\vb{r}')}
 \end{align*}
 Using this in the above relation above, we get $\widetilde{\chi}(k) = \beta \widetilde{\SG}(k)$, which is an aspect of \textit{linear response theory}. The susceptibility is a response, which is linearly proportional to the correlation function. Now, if the frequency of the external perturbation (like the Fourier decomposition of the magnetic field) tends to zero, $\chi$ must reduce to the static isothermal susceptibility, 
-$$\chi\tund{T} = \lim\limits_{k\to 0 }\widetilde{\chi}(k) = \beta \widetilde{\SG}(0) = \beta \int \dd^d r \ \SG(\vb{r})$$
+\begin{equation}\label{chixi}
+    \chi\tund{T} = \lim\limits_{k\to 0 }\widetilde{\chi}(k) = \beta \widetilde{\SG}(0) = \beta \int \dd^d r \ \SG(\vb{r})
+\end{equation}
 \subsection{Calculating the Correlation function (Ornstein-Zernike relation)}
 Here, we outline a method to calculate the correlation function. For that, let us take the derivative of the equation of state with respect to the field. 
 $$\frac{\delta}{\delta h(\vb{r}')}\qty[a_2(T-T_c) m(\vb{r}) + a_4 m^3(\vb{r}) - h(\vb{r}) - \gamma \grad^2 m] = 0 $$
