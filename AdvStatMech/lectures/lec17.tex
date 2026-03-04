@@ -32,19 +32,77 @@ $$\chi\tund{T} = \lim\limits_{k\to 0 }\widetilde{\chi}(k) = \beta \widetilde{\SG
 Here, we outline a method to calculate the correlation function. For that, let us take the derivative of the equation of state with respect to the field. 
 $$\frac{\delta}{\delta h(\vb{r}')}\qty[a_2(T-T_c) m(\vb{r}) + a_4 m^3(\vb{r}) - h(\vb{r}) - \gamma \grad^2 m] = 0 $$
 From the definition of susceptibility, we have 
-$$\qty[-\gamma \grad^2 + a_2(T-T_c) + 3a_4m^2]\chi(\vb{r}-\vb{r}') = \delta(\vb{r}-\vb{r}')$$
+$$\qty[-\gamma \grad^2 + a_2(T-T_c) + 3a_4m^2]\chi(\vb{r}-\vb{r}') = \delta^{(d)}(\vb{r}-\vb{r}')$$
 Using the linear response result, we have
-$$\qty[-\gamma \grad^2 + a_2(T-T_c) + 3a_4m^2]\SG(\vb{r}-\vb{r}') =\kb T \delta(\vb{r}-\vb{r}')$$
+$$\qty[-\gamma \grad^2 + a_2(T-T_c) + 3a_4m^2]\SG(\vb{r}-\vb{r}') =\kb T \delta^{(d)}(\vb{r}-\vb{r}')$$
 It is evident that the correlation function is the \textit{Green's function} for this differential equation. Let us focus on the spatially homogenous case, $m(\vb{r})\equiv m = \sqrt{\frac{a_2(T_c-T)}{a_4}}$ for $T<T_c$ and $m = 0$ for $T>T_c$. Then, 
-$$\qty(-\grad^2+ \xi_{>}^{-2})\SG(\vb{r}-\vb{r}') = \frac{\kb T}{\gamma}\delta(\vb{r}-\vb{r}')\qquad \xi_> = \qty[\frac{a_2(T-T_c)}{\gamma}]^{-1/2} $$
+$$\qty(-\grad^2+ \xi_{>}^{-2})\SG(\vb{r}-\vb{r}') = \frac{\kb T}{\gamma}\delta^{(d)}(\vb{r}-\vb{r}')\qquad \xi_> = \qty[\frac{a_2(T-T_c)}{\gamma}]^{-1/2} $$
 and for $T<T_c$ we have
-$$\qty(-\gamma\grad^2 + a_2(T-T_c) + 3 a_4\times \frac{a_2(T_c -T)}{a_4})  =(-\gamma\grad^2 -2 a_2(T-T_c)) \implies \qty(-\grad^2 + \xi_{<}^{-2})\SG(\vb{r}-\vb{r}')  = \frac{\kb T}{\gamma}\delta(\vb{r}-\vb{r}')$$
+$$\qty(-\gamma\grad^2 + a_2(T-T_c) + 3 a_4\times \frac{a_2(T_c -T)}{a_4})  =(-\gamma\grad^2 -2 a_2(T-T_c)) \implies \qty(-\grad^2 + \xi_{<}^{-2})\SG(\vb{r}-\vb{r}')  = \frac{\kb T}{\gamma}\delta^{(d)}(\vb{r}-\vb{r}')$$
 where $ \xi_{<} = \qty[\frac{2a_2(T_c-T)}{\gamma}]^{-1/2}$. These are the \textit{correlation length} defined above and before $T_c$. We see the scaling of $\xi$ with $\abs{T_c-T}$ and conclude that, 
 $\xi \sim {(T_c-T)}^{-\nu}$ for $T<T_c$ and $\xi \sim (T-T_c)^{\nu'}$ for $T>T_c$ with $\nu = \nu' = \frac{1}{2}$ from the mean-field theory. In summary, the two-point correlation function satisfies the differential equation, 
-$$(-\grad^2 + \xi^{-2})\SG(\vb{r}-\vb{r}') = \frac{\kb T}{\gamma}\delta(\vb{r}-\vb{r}')$$
+$$(-\grad^2 + \xi^{-2})\SG(\vb{r}-\vb{r}') = \frac{\kb T}{\gamma}\delta^{(d)}(\vb{r}-\vb{r}')$$
 Fourier transform of the equation yields, 
 \begin{equation}
     \widetilde{\SG}(k) = \frac{\kb T}{\gamma} \frac{1}{k^2 + \xi^{-2}}
 \end{equation}
- This is kind of the Fourier transform of the Yukawa potential. Note that, at $T=T_c$, $\xi\to \infty$ and hence $\widetilde{\SG}(k) \sim k^{-2}$. We can revert back to the real space correlation function using the polar coordinates. 
-
+ This is kind of the Fourier transform of the Yukawa potential. Note that, at $T=T_c$, $\xi\to \infty$ and hence $\widetilde{\SG}(k) \sim k^{-2}$. We can revert back to the real space correlation function using the polar coordinates which we do now. For that, let us choose $\vb{r}'= 0$ and write the Laplacian in polar coordinates in $d$ dimensions which gives us, 
+ \begin{equation}
+   \qty[ -\frac{1}{r^{d-1}} \pdv{r}\qty(r^{d-1}\pdv{r}) + \xi^{-2} ] \SG(\vb{r}) = \frac{\kb T}{\gamma} \delta^{(d)}(\vb{r})
+ \end{equation}
+Let us define $\rho := r/\xi$ and $G(\rho) = \SG(r/\xi)$. Moreover, the d-dimensional delta function gives $\delta^{(d)}(\rho \xi) = \frac{1}{\xi^d}\delta^{(d)}(\rho)$. Using these variables, the differential equation becomes, 
+$$\qty[ -\frac{1}{\rho^{d-1}} \pdv{\rho}\qty(\rho^{d-1}\pdv{\rho}) + 1 ] G(\vb{\rho}) = g \delta^{(d)}(\vb{\rho})$$
+where we have defined $g:= \frac{\kb T}{\gamma}\xi^{2-d}$. $g$ is a strength of the fluctuations since this contains the correlation length. Now, if $\rho\neq 0$, then 
+$$  \pdv{\rho}\qty(\rho^{d-1}\pdv{G}{\rho}) =\rho^{d-1} G(\vb{\rho})\implies  G''+\frac{(d-1)}{\rho} G' -G=0$$
+Define $G(\rho) = \rho^{-\nu}F(\rho)$ and carrying out the derivatives,
+\begin{equation}
+    \begin{split}
+        G' &= -\nu \rho^{-(1+\nu)}F + \rho^{-\nu}F' = \rho^{-\nu}\qty(F' - \frac{\nu F}{\rho})\\
+        G'' &= -\nu\qty[\rho^{-(1+\nu)}F' - (1+\nu)\rho^{-(\nu+2)}F] - \nu \rho^{-(1+\nu)}F' + \rho^{-\nu}F''\\
+        &=\rho^{-\nu}F'' - 2\nu F'\rho^{-(\nu+1)} + \nu(1+\nu)\rho^{-(2+\nu)}F\\
+        &=\rho^{-\nu}\qty[F'' -\frac{2\nu}{\rho}F' + \frac{\nu(\nu+1)}{\rho^2}F]
+     \end{split}
+\end{equation}
+Let us substitute these in the above differential equation, 
+\begin{align}
+    \begin{split}
+        G'' + \frac{(d-1)}{\rho}G' - G &= \rho^{-\nu}\qty[\qty(F'' -\frac{2\nu}{\rho}F' +\frac{\nu(\nu+1)}{\rho^2}F) +\frac{(d-1)}{\rho}F' - \frac{\nu(d-1)}{\rho^2}F - F] \\
+        &=\rho^{-\nu}\qty[F'' + \frac{d-1-2\nu}{\rho}F' +\frac{\nu(\nu+1) - \nu(d-1)-\rho^2}{\rho^2}F]=0
+    \end{split}
+\end{align}
+Let us choose $d-1-2\nu = 1 \implies \nu = \frac{d}{2}-1$. Then $\nu(\nu+1) - \nu(d-1) =\nu(\nu+1-d+1) = \nu(\nu+2-d) = -\nu^2$. Finally, we get the simplified differential equation, 
+$$\rho^2 F'' +\rho F' -(\nu^2 + \rho^2)F=0$$
+This is the \textit{modified Bessel equation} and its solutions are given by the modified Bessel functions, 
+$$G(\rho) = \rho^{-\nu}(c_1 I_{\nu}(\rho)+c_2 K_{\nu}(\rho))$$
+Note that $I_\nu \sim e^\rho$ and hence it exponentially grows up, which we do not want. Thus, we keep only $K_{\nu}(\rho)$ in the solution and hence, $G(\rho) \sim \rho^{-\nu}K_\nu$. The constant can be fixed another complicated process (which I skip) and finally we get, 
+\begin{align}
+    \begin{split}
+        \frac{G(\rho)}{g} = \begin{cases}
+            e^{-\rho} & d=1 \\
+            \frac{1}{(2\pi)^{d/2}} \frac{1}{\rho^{(d-2)/2}} K_{\frac{d-2}{2}}(\rho) & d \geq 2
+        \end{cases}
+    \end{split}
+\end{align}
+For $\rho\gg 1 \implies r \gg \xi$, $K_\nu(\rho) \sim \qty(\frac{\pi}{2\rho})^{1/2}e^{-\rho}$ and hence for $d\geq 2$, 
+\begin{align}
+   \begin{split}
+     \SG(r) =\frac{g}{(2\pi)^{d/2}} \frac{1}{\rho^{(d-2)/2}} K_{\frac{d-2}{2}}(\rho)&\longrightarrow
+    \frac{g}{(2\pi)^{d/2}} \frac{\xi^{(d-2)/2}}{r^{(d-2)/2}}\qty(\frac{\pi \xi}{2r})^{1/2}e^{-r/\xi}\\
+    &= \xi^{2-d}\frac{\kb T}{\gamma}\frac{1}{2^{d/2}\pi^{d/2}} \frac{\xi^{d/2-1}}{r^{d/2-1}} \frac{\pi^{1/2}\xi^{1/2}}{2^{1/2}r^{1/2}}e^{-r/\xi} \\
+    &=\frac{\kb T}{\gamma}\cdot  \frac{\pi^{(1-d)/2}}{2^{(1+d)/2}}\cdot \frac{e^{-r/\xi}}{r^{(d-1)/2}}\cdot \frac{1}{\xi^{(d-3)/2}}
+   \end{split}
+\end{align}
+For $r\ll \xi$ (near $T_c$ where correlation length diverges), $K_\nu \sim \frac{1}{2}\Gamma(\nu) \qty(\frac{\rho}{2})^{-\nu}$ and we get the expression: 
+\begin{align}
+    \begin{split}
+        \SG(r) = \frac{g}{(2\pi)^{d/2}} \frac{1}{\rho^{(d-2)/2}} K_{\frac{d-2}{2}}(\rho)&\longrightarrow 
+        \frac{g}{(2\pi)^{d/2}} \frac{\xi^{(d-2)/2}}{r^{(d-2)/2}}\cdot \frac{1}{2}\Gamma\qty(\frac{d-2}{2}) \qty(\frac{2\xi}{r})^{(d-2)/2}\\
+        &= \frac{\kb T}{\gamma}\cdot \xi^{2-d}\cdot \frac{1}{2^{d/2}\pi^{d/2}}\frac{\xi^{d-2}}{r^{(d-2)/2}}\Gamma\qty(\frac{d-2}{2})2^{d/2 -2}\\
+        &= \frac{\kb T}{\gamma} \cdot \frac{1}{4\pi^{d/2}}\cdot \frac{1}{r^{d-2}}\cdot \Gamma\qty(\frac{d-2}{2}) \implies \SG(r) \sim r^{-(d-2)}
+    \end{split}
+\end{align}
+Thus, near $T=T_c$, $\SG(r)$ becomes a power-law and it is self-similar. There is no inherent length scale. It has been experimentally seen that the exponent is not exactly $(d-2)$, hence we add a correction $\eta$. Thus, 
+\begin{equation}
+    \SG(r) \sim \frac{1}{r^{d-2+\eta}}
+\end{equation}
+From mean-field, $\eta$ is obtained to be zero. The critical exponents heavily depend on the dimensionality of space. As $d$ increases, the exponents becomes closer to that of the mean-field theory. In general, the exponents are not simple rational fractions, however, in $d=2$ due to \textit{conformal symmetry} (about which I do not have any idea), the exponents become rational numbers. 
