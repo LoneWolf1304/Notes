@@ -1,0 +1,57 @@
+\refstepcounter{section}
+\section*{Lecture 19: Gaussian Approximation}
+\addcontentsline{toc}{section}{Lecture 19: Gaussian Approximation}
+We will try to incorporate some simple correction to MFT, to take care of the fluctuations. We try to approximate the functional integral in some way. For that, assume some deviation from the uniform magnetisation, 
+$$m(\vb{r}) = m\tund{0} + \phi(\vb{r})$$
+For $T>T_c$, we have $m\tund{0}=0$ and hence the Landau free energy becomes, 
+$$\SL[\phi(\vb{x})] = \int \dd^d x \ \qty[\frac{1}{2}a_2(T-T_c)(\phi(\vb{x}))^2 + \frac{1}{4}a_4 (\phi(\vb{x}))^4 - h(\vb{x})\phi(\vb{x}) +\frac{\gamma}{2}\qty(\grad \phi(\vb{x}))^2]$$
+We neglect terms greater than the quadratic order and also take the zero field case, which gives us, 
+\begin{equation}
+    \SL[\phi(\vb{x})] = \int \dd^d x \ \qty[\frac{1}{2}a_2(T-T_c)(\phi(\vb{x}))^2 +\frac{\gamma}{2}\qty(\grad \phi(\vb{x}))^2]\equiv \int \dd^d x \ f(\phi(\vb{x}))
+\end{equation}
+Let us consider a finite volume $V = L^d$, which will lead to the discretisation of the functional integral. If we decompose the field in terms of its Fourier modes, then the momenta will take discrete values in the $d$-dimensional space,  
+$$\vb{k} = \frac{2\pi \vb{n}}{L}\qquad \vb{n} \in \inte^d$$
+We define the Fourier transform as, 
+$$\phi(\vb{x}) = \frac{1}{V} \sum\limits_{\vb{k}}  e^{i \vb{k}\cdot \vb{x}} \widetilde{\phi}_{\vb{k}} \xlongrightarrow{V\to \infty} \int \frac{\dd^d k}{(2\pi)^d}\ e^{i\vb{k}\cdot \vb{x}} \widetilde{\phi}_{\vb{k}}$$
+We will work with the discrete case (finite volume) for now. Let us substitute this definition carefully in the Landau functional.
+\begin{align*}
+    f(\vb{x}) &=\frac{1}{V^2}\sum\limits_{\vb{k}, \vb{k}'} \frac{\gamma}{2}\qty[\grad_x\cdot\qty(\widetilde{\phi}_{\vb{k}}e^{i\vb{k}\cdot \vb{x}})]\qty[\grad_x\cdot\qty(\widetilde{\phi}_{\vb{k}'}e^{i\vb{k}'\cdot \vb{x}})] + \frac{a\tund{2}}{2}(T-T_c)\widetilde{\phi}_{\vb{k}}\widetilde{\phi}_{\vb{k}'}e^{i(\vb{k}+\vb{k}')\cdot \vb{x}}\\
+    &=\frac{1}{2V^2}\sum\limits_{\vb{k}, \vb{k}'}\qty[-\gamma\vb{k}\cdot\vb{k}' + a\tund{2}(T-T_c)]\widetilde{\phi}_{\vb{k}}\widetilde{\phi}_{\vb{k}'}e^{i(\vb{k}+\vb{k}')\cdot \vb{x}}
+\end{align*}
+There is only $\vb{x}$ dependence on the last exponential term. Integrating this over all the spatial dimensions of our system \footnote{Note that the space is still continuous, even though the volume is finite}, we will get a Kronecker delta, 
+\begin{align*}
+     \int \dd^d x\ f(\vb{x}) &=\frac{1}{2V^2}\sum\limits_{\vb{k}, \vb{k}'}\qty[-\gamma\vb{k}\cdot\vb{k}' + a\tund{2}(T-T_c)]\widetilde{\phi}_{\vb{k}}\widetilde{\phi}_{\vb{k}'}(V\delta_{\vb{k}+\vb{k}',0}) = \frac{1}{2V}\sum\limits_{\vb{k}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\widetilde{\phi}_{\vb{k}}\widetilde{\phi}_{-\vb{k}}
+\end{align*}
+Since the field $\phi(\vb{x})\in \re$, we have  $\widetilde{\phi}_{-\vb{k}} = \widetilde{\phi}_{\vb{k}}^*$ which means that, 
+\begin{align*}
+     \int \dd^d x\ f(\vb{x}) &=\frac{1}{2V}\sum\limits_{\vb{k}, \vb{k}'}\qty[-\gamma\vb{k}\cdot\vb{k}' + a\tund{2}(T-T_c)]\widetilde{\phi}_{\vb{k}}\widetilde{\phi}_{\vb{k}'}\delta_{\vb{k}+\vb{k}',0} = \frac{1}{2V}\sum\limits_{\vb{k}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2
+\end{align*}
+Observe that $\phi{\vb{x}} = \widetilde{\phi}_{0} +\sum\limits_{\vb{k}\neq 0} e^{i\vb{k}\cdot \vb{x}\widetilde{\phi}_{\vb{k}}}$ which implies that, $\vb{k} = 0$ is the uniform mean field solution while $\vb{k}\neq 0$ denotes the fluctuations. Previously we had performed a corase-graining to define the Landau-Ginzburg theory, which imposed a mesoscopic length scale $l$. Thus, $\abs{\vb{r}}\gg l \implies \abs{k}\ll \frac{1}{l}$. Hence, there is a cutoff for the momenta, let us call it $\Lambda$. Thus the sum is restricted to only those momenta $\vb{k}$ which satisfies $\abs{\vb{k}}<\Lambda$.
+\begin{equation*}
+    \SL[\{\widetilde{\phi}_{\vb{k}}\}] = \frac{1}{2V}\sum\limits_{\substack{\vb{k}\\ \abs{\vb{k}}<\Lambda}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2
+\end{equation*}
+Now, divide the k-space into two halves, $\Omega$ and $\Omega'$ such that if $\vb{k}\in \Omega$ then $-\vb{k}\in \Omega'$\footnote{One way to construct these regions can be to choose any arbitrary vector $\vb{a}$ and define $\Omega:= \{\vb{k} | \vb{k}\cdot \vb{a} >0\}$ and $\Omega':= \{\vb{k} | \vb{k}\cdot \vb{a} <0\}$}. We need to focus only on one half, since if $\vb{k}\in \Omega$ then $-\vb{k}\in \Omega'$ and these are not indepedent. Then the Landau functional becomes, 
+\begin{equation}
+    \boxed{ \SL[\{\widetilde{\phi}_{\vb{k}}\}] = \frac{1}{V}\sum\limits_{\substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2}
+\end{equation}
+Now, let us find the partition function, where we need to perform the functional integral. Since the functional now depends on the Fourier modes, the functional integral measure will also change, which we write as, 
+\begin{align*}
+    \SZ = \int \SD \phi(\vb{x})\ e^{-\beta \SL[\phi(\vb{x})]} \equiv \int \prod \widetilde{\phi}_{\vb{k}}\widetilde{\phi}^*_{\vb{k}}\ e^{-\beta \SL[\{\widetilde{\phi}_{\vb{k}}\}]}
+\end{align*}
+Let us elaborate this a little bit explicitly, getting rid of some subtleties.
+\begin{itemize}
+    \item Firstly, note that $\widetilde{\phi}_{\vb{k}}$ and $\widetilde{\phi}^*_{\vb{k}}$ are in the same footing as the real and imaginary parts of $\widetilde{\phi}_{\vb{k}}$, so henceforth we will use the real and imaginary parts in the integral measure which we denote as, $\Re \widetilde{\phi}_{\vb{k}}\equiv \widetilde{\phi}_{\vb{k}}^{R}$ and $\Im \widetilde{\phi}^*_{\vb{k}}\equiv \widetilde{\phi}_{\vb{k}}^{I}$.
+    \item Secondly, the limits of the product needs to be ascertained. Firstly, due to the same constraint that the field is real, the positive and negative modes are not independent. Moreover, we also need to take care of the cutoff. As a result, the product has the same limits as of the sum. 
+    \item While changing the measure to the Fourier modes, some constants surely crept in, which we would simply write as $\SN$, since these would not be much of use. 
+\end{itemize}
+Then the partition function becomes, 
+\begin{equation}
+    \boxed{\SZ = \SN \prod\limits_{\substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}} \int  \widetilde{\phi}_{\vb{k}}^R\widetilde{\phi}^I_{\vb{k}}\ \exp \qty[\frac{-\beta}{V}\qty[\gamma k^2 + a\tund{2}(T-T_c)][(\widetilde{\phi}^R_{\vb{k}})^2+(\widetilde{\phi}^I_{\vb{k}})^2]]}
+\end{equation}
+where we have converted the exponential of the sum as a product of exponentials. Each integral has independent $\widetilde{\phi}_{\vb{k}}^{R/I}$ going from $-\infty$ to $+\infty$ and the integrand is a Gaussian. Thus, for each $\vb{k}$, the integral gives two Gaussian results, one for the imaginary and other for the real part. So the partition function becomes, 
+\begin{equation}
+    \SZ = \SN \prod\limits_{\substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}} \frac{\pi \kb T V}{\gamma k^2+a\tund{2}(T-T_c)}
+\end{equation}
+The free energy is then found by taking the logarithm, 
+$$F = -\kb T \qty[\SZ\tund{0} +\sum\limits_{\substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}}\ln \qty(\frac{\pi \kb T V}{\gamma k^2+a\tund{2}(T-T_c)})  ] = F\tund{0} -\frac{\kb T}{2}\sum\limits_{\abs{\vb{k}}<\Lambda}\ln \qty(\frac{\pi \kb T V}{\gamma k^2+a\tund{2}(T-T_c)})$$
+In the last part, we included the sum over all k-space, which introduced the factor of $\sfrac{1}{2}$ there. Next, we will calculate the heat capacity using this free energy and see whether any changes from MFT is seen by the introduction of fluctuations. 
