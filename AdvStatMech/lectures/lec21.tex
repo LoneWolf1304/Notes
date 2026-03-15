@@ -1,0 +1,52 @@
+\refstepcounter{section}
+\section*{Lecture 21: Correlation due to Fluctuations}
+
+\addcontentsline{toc}{section}{Lecture 21: Correlation due to Fluctuations}
+
+With respect to fluctuations, let us see how the correlation function changes. To begin our calculations, let us start with the following, 
+\begin{align*}
+    \avg{\abs{\widetilde{\phi}_{\vb{q}}}^2} = \frac{\prod\limits_{\tiny \substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}}\int \dd\widetilde{\phi}_{\vb{k}}^R\dd\widetilde{\phi}^I_{\vb{k}}\ \abs{\widetilde{\phi}_{\vb{q}}}^2 e^{-\beta \SL}}{\prod\limits_{\tiny \substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}}\int \dd\widetilde{\phi}_{\vb{k}}^R\dd\widetilde{\phi}^I_{\vb{k}} \ e^{-\beta \SL}}=\frac{\prod\limits_{\tiny \substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}}\int \dd\widetilde{\phi}_{\vb{k}}^R\dd\widetilde{\phi}^I_{\vb{k}}\ \qty[{(\widetilde{\phi}_{\vb{q}}^R)}^2+{(\widetilde{\phi}_{\vb{q}}^I)}^2] e^{-\beta \SL}}{\prod\limits_{\tiny \substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}}\int \dd\widetilde{\phi}_{\vb{k}}^R\dd\widetilde{\phi}^I_{\vb{k}} \ e^{-\beta \SL}}
+\end{align*}
+where $\SL$ is the same as in Eq. \eqref{flucland}. From this structure, we can see that if $\vb{k} \neq \vb{q}$, then the numerator and denominator gets cancelled. Thus all we are left with is just the integral over $\vb{k}$:
+\begin{align*}
+    &\frac{\int \dd\widetilde{\phi}_{\vb{q}}^R\dd\widetilde{\phi}^I_{\vb{q}}\ \qty[{(\widetilde{\phi}_{\vb{q}}^R)}^2+{(\widetilde{\phi}_{\vb{q}}^I)}^2] \exp\qty(-\frac{\beta}{V}\qty[\gamma k^2+a\tund{2}(T-T_c)]\qty[{(\widetilde{\phi}_{\vb{q}}^R)}^2+{(\widetilde{\phi}_{\vb{q}}^I)}^2])}{\int \dd\widetilde{\phi}_{\vb{q}}^R\dd\widetilde{\phi}^I_{\vb{q}} \ \exp\qty(-\frac{\beta}{V}\qty[\gamma k^2+a\tund{2}(T-T_c)]\qty[{(\widetilde{\phi}_{\vb{q}}^R)}^2+{(\widetilde{\phi}_{\vb{q}}^I)}^2])} \\ &\quad\quad=  \frac{\int \dd\widetilde{\phi}_{\vb{q}}^R\ {(\widetilde{\phi}_{\vb{q}}^R)}^2 \exp\qty(-\frac{\beta}{V}\qty[\gamma k^2+a\tund{2}(T-T_c)]{(\widetilde{\phi}_{\vb{q}}^R)}^2)}{\int \dd\widetilde{\phi}_{\vb{q}}^R \ \exp\qty(-\frac{\beta}{V}\qty[\gamma k^2+a\tund{2}(T-T_c)]{(\widetilde{\phi}_{\vb{q}}^R)}^2)}+\frac{\int \dd\widetilde{\phi}_{\vb{q}}^I\ {(\widetilde{\phi}_{\vb{q}}^I)}^2 \exp\qty(-\frac{\beta}{V}\qty[\gamma k^2+a\tund{2}(T-T_c)]{(\widetilde{\phi}_{\vb{q}}^I)}^2)}{\int \dd\widetilde{\phi}_{\vb{q}}^I \ \exp\qty(-\frac{\beta}{V}\qty[\gamma k^2+a\tund{2}(T-T_c)]{(\widetilde{\phi}_{\vb{q}}^I)}^2)}
+\end{align*}
+These two integrals are same and are typical Gaussian integrals, whose values can be found using Appendix \ref{append:gaussian}:
+\begin{align*}
+    2\times \frac{\int \dd x \ x^2 e^{-c_k x^2}}{\int \dd x \ e^{-c_k x^2}} = \frac{\kb TV}{\gamma k^2+a\tund{2}(T-T_c)}
+\end{align*}
+Thus, the average correlation is obtained as, 
+\begin{equation}
+    \avg{\abs{\widetilde{\phi}_{\vb{q}}}^2} =  \frac{\kb TV}{\gamma k^2+a\tund{2}(T-T_c)}
+\end{equation}
+We thus obtain that in the Fourier space, $V\widetilde{\SG}({\vb{k}}) =  \frac{\kb TV}{\gamma k^2+a\tund{2}(T-T_c)}$. Putting $\vb{k} =0$ here gives us,
+$$V\widetilde{\SG}({\vb{k}=0}) =   \frac{\kb TV}{a\tund{2}(T-T_c)} = \kb T V \chi\tund{T}$$
+where $\chi\tund{T} = \frac{1}{a\tund{2}(T-T_c)}$ is the isothermal susceptibility. Hence, in this case the static susceptibility rule still applies. 
+\subsection{Hartree Approximation}
+We will now attempt to incorporate the quartic term in the calculations, which we neglected previously. In doing so, we will be doing some extremely stupid stuffs, without any justifications and some answers will emerge. This approximation is called the \textit{Hartfree}/\textit{self-consistent field}/\textit{random phase} approximation.
+
+What we do is, we consider a $\phi^4$ theory but replace two of the $\phi$ with their average value, that is, $\phi^4 \longrightarrow \phi^2 \avg{\phi^2}$.
+
+There are six ($=\leftidx{^4}{C}{_2}$) ways to choose which two out of the four  $\phi$'s to take in the average. So the Landau functional becomes, 
+\begin{equation}
+    \SL[\phi] = \int \dd^d x \ \qty[\frac{\gamma}{2} (\grad \phi)^2 + \frac{a\tund{2}}{2}(T-T_c)\phi^2 + \frac{6a\tund{4}}{4}\phi^2\avg{\phi^2}]
+\end{equation}
+The effect of this is that the theory becomes $\phi^2$ but the coefficient of $\phi^2$ gets modified. 
+$$\frac{a\tund{2}}{2}(T-T_c) \longrightarrow \frac{a'\tund{2}}{2}(T-T_c) = \frac{a\tund{2}}{2}(T-T_c) + \frac{3a\tund{4}}{2}\avg{\phi^2}$$
+Then the correlation found out before becomes, 
+$$\avg{\abs{\widetilde{\phi}_{\vb{q}}}^2} =  \frac{\kb TV}{\gamma k^2+a'\tund{2}(T-T_c)} =  \frac{\kb TV}{\gamma k^2+a\tund{2}(T-T_c)+3a\tund{4}\avg{\phi^2}}$$
+Now, note the following, 
+\begin{align*}
+    \avg{\phi^2} \equiv \avg{\phi(\vb{x})\phi(\vb{x})} = \SG(\vb{x},\vb{x}) = \int\ \frac{\dd^d k}{(2\pi)^d}\widetilde{\SG}(\vb{k})= \int\ \frac{\dd^d k}{(2\pi)^d}\frac{\kb T}{\gamma k^2+a\tund{2}(T-T_c)+3a\tund{4}\avg{\phi^2}}
+\end{align*}
+This is already a self-consistent equation for $\phi$. From the expression of the isothermal susceptibility, $\chi\tund{T}^{-1} = a'\tund{2}(T-T_c)$, we get: 
+\begin{equation*}
+    \frac{\chi\tund{T}^{-1}-a\tund{2}(T-T_c)}{3a\tund{4}} = \int \frac{\dd^d k}{(2\pi)^d}\ \frac{\kb T}{\gamma k^2+\chi\tund{T}^{-1}}
+\end{equation*}
+Near the critical temperature, the susceptibility diverges and hence $\chi\tund{T}^{-1}\to 0$. Now, there is no apriori reason to consider the same critical point as in the $\phi^2$ theory. Denoting the new critical temperature as $T^*$ and changing to polar coordinates, 
+$$\frac{a\tund{2}}{3a\tund{4}}(T_c-T^*) =\kb T^*\cdot \frac{S\tund{d}}{(2\pi)^d\gamma^2} \int\limits_{0}^\Lambda \dd k\  k^{d-3} = \qty[\frac{S\tund{d}\kb }{(2\pi)^d\gamma^2} \cdot \frac{ \Lambda^{d-2}}{d-2}]T^* $$
+From here, we obtain the value of $T*$,
+\begin{equation}
+    T^* = \qty[\frac{3a\tund{4}S\tund{d}\kb }{(2\pi)^da\tund{2}\gamma^2} \cdot \frac{ \Lambda^{d-2}}{d-2} + 1]^{-1} T_c \implies T^* <T_c 
+\end{equation}
+The transition temperature is depressed below that of the mean-field value. Also note that, as $d\to 2$, $T^*\to 0$. This gives us the concept of the \textit{lower critical dimension}, below which the critical fluctuations become so violent that no phase transition at a finite temperature is possible. Hence for $d<d\tund{l}= 2$, no phase transition is possible.
