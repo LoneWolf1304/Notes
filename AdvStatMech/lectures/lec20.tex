@@ -1,0 +1,59 @@
+\refstepcounter{section}
+\section*{Lecture 20: Heat Capacity from Fluctuations}
+
+\addcontentsline{toc}{section}{Lecture 20: Heat Capacity from Fluctuations}
+From MFT we know that the critical exponent $\alpha=0$ and there is just a finite discontinuity across the transition point. However, in experiments, we have seen that the heat capacity actually diverges at the critical point. Let us see whether we can explain this behaviour using the fluctuations. The heat capacity at constant volume is given by,
+$$C_v = -T \pdv{(S/V)}{T} = - T \pdv[2]{(F/V)}{T}$$
+We had calculated the free energy with incorporated fluctuations, in the previous lecture. The fluctuations are incorporated in the second term of the free energy, where the sum over $\vb{k}$ is there. Let us focus on that part only. 
+\begin{align*}
+    \frac{C_v}{T}  &= \pdv[2]{T}\qty[\frac{1}{2}\frac{\kb T}{V}\sum\limits_{\abs{\vb{k}}<\Lambda}\ln\qty(\pi\kb VT)-\ln\qty(\gamma k^2+a\tund{2}(T-T_c))]\\
+    &=\frac{\kb}{2 V} \pdv{T}\qty[\sum\limits_{\abs{\vb{k}}<\Lambda}\ln\qty(\pi\kb VT)-\ln\qty(\gamma k^2+a\tund{2}(T-T_c)) + \qty{1 - \frac{a\tund{2}T}{\gamma k^2+a\tund{2}(T-T_c)}}]\\
+    &=\frac{\kb}{2 V}\sum\limits_{\abs{\vb{k}}<\Lambda}\qty[ \frac{1}{T} - \frac{2a\tund{2}}{\gamma k^2+a\tund{2}(T-T_c)}-\frac{a\tund{2}^2T}{(\gamma k^2 +a\tund{2}(T-T_c))^2}]\\
+    &=\frac{\kb}{2}\int\limits_{\abs{\vb{k}}<\Lambda}\frac{\dd^d k}{(2\pi)^d}\ \qty[ \frac{1}{T} - \frac{2a\tund{2}}{\gamma k^2+a\tund{2}(T-T_c)}-\frac{a\tund{2}^2T}{(\gamma k^2 +a\tund{2}(T-T_c))^2}]
+\end{align*}
+where we have converted the summation to an integral, taking $V\to \infty$. Now, we shall change the integral to polar coordinates. The angular part will be integrated out as the integrand has no angular dependence, giving us the solid angle $S_d$. We are then left with, 
+\begin{align*}
+    \frac{\kb}{2}\frac{1}{(2\pi)^d}\int\limits_0^\Lambda k^{d-1}\dd k \ \qty[ \frac{1}{T} - \frac{2a\tund{2}}{\gamma k^2+a\tund{2}(T-T_c)}-\frac{a\tund{2}^2T}{(\gamma k^2 +a\tund{2}(T-T_c))^2}]
+\end{align*}
+Let us focus on these integrals one by one:
+\begin{itemize}
+    \item The first integral is, 
+    \begin{align*}
+        \int\limits_0^\Lambda k^{d-1}\dd k \ \frac{1}{T} = \frac{1}{T}\frac{\Lambda^d}{d}\longrightarrow \ \text{just a finite constant}
+    \end{align*}
+    \item The second integral is, 
+    \begin{align*}
+      \frac{1}{\gamma} \int\limits_0^\Lambda k^{d-1}\dd k \  \frac{2a\tund{2}}{ k^2+\frac{a\tund{2}}{\gamma}(T-T_c)} =  \frac{1}{\gamma} \int\limits_0^\Lambda k^{d-1}\dd k \  \frac{2a\tund{2}}{ k^2+\xi^{-2}}
+    \end{align*}
+    Let us define $\vb{q} = \xi \vb{k}\implies \dd q = \xi \dd k$. Substituting this in the integral, 
+    \begin{align*}
+    \frac{2a\tund{2}}{\gamma}\cdot \xi^{2-d} \int\limits_0^{\Lambda \xi} \dd q \  \frac{q^{d-1}}{1+q^2}
+    \end{align*}
+    Since we are interested at points near $T_c$, where $\xi\to \infty$. Let us break the integral into two parts. The second part is for large $q$ ($q\gg 1$) while the first part is for $q\ll 1$ or $q\sim 1$. 
+    \begin{align*}
+    \int\limits_0^{ c} \dd q \ q^{d-1} +  \int\limits_c^{ \Lambda \xi} \dd q \  q^{d-3}= \qty[\frac{q^d}{d}]_0^c+ \qty[\frac{q^{d-2}}{d-2}]_c^{\Lambda \xi} \sim (w+\xi^{d-2})
+    \end{align*}
+    where $w$ is some constant, obtained from the first part. The integral overall becomes, 
+    $$\frac{2a\tund{2}}{\gamma}\cdot (w+\xi^{d-2}) \xi^{2-d} \sim \xi^{2-d}\sim t^{-(1-\frac{d}{2})}$$
+    $\xi$ blows up at $T=T_c$ and hence the contribution would be finite if $2-d<0 \implies d>2$.
+    \item Let us now focus on the third integral
+    \begin{align*}
+        \frac{\kb}{2}\frac{1}{(2\pi)^d}\int\limits_0^\Lambda k^{d-1}\dd k  \ \frac{a\tund{2}^2T}{(\gamma k^2 +a\tund{2}(T-T_c))^2}
+    \end{align*}
+    We do a similar kind of substitution $\vb{q} = \xi \vb{k}$ which gives us, 
+   \begin{align*}
+        \frac{ a\tund{2}^2 \kb T}{2\gamma^2}\frac{1}{(2\pi)^d}\cdot \xi^{4-d}\int\limits_0^{\Lambda \xi}\dd q  \ \frac{q^{d-1}}{(1+q^2)^2}
+    \end{align*}
+    Again, separating the integral into two parts gives us, 
+    \begin{align*}
+        \int\limits_0^{\Lambda \xi}\dd q  \ \frac{q^{d-1}}{(1+q^2)^2} =\int\limits_0^{c}\dd q  \ {q^{d-1}}+\int\limits_c^{\Lambda \xi}\dd q  \ {q^{d-5}} \sim (w' + \xi^{d-4})
+    \end{align*}
+    Then the contribution from the third integral becomes, 
+    \begin{align*}
+        \frac{ a\tund{2}^2 \kb T}{2\gamma^2}\frac{1}{(2\pi)^d}\cdot \xi^{4-d}(w'+\xi^{d-4}) \sim \xi^{4-d} \sim t^{-(2-\frac{d}{2})}
+    \end{align*}
+    The contribution would be finite if $4-d<0\implies d>4$
+\end{itemize}
+For $d<2$, both the integrals diverge while for $d>4$, both converge. For $2<d<4$, the first converges while the second diverges. The scaling of the specific heat with the reduced temperature then becomes, 
+$$C_v \sim t^{-(1-\frac{d}{2})}+t^{-(2-\frac{d}{2})}\longrightarrow t^{-(2-\frac{d}{2})} \implies \boxed{C_v \sim t^{-(2-\frac{d}{2})} }$$
+Hence, we see that the fluctuation shave shifted the exponent $\alpha$ from the mean field value of zero to $\alpha =\qty(2-\frac{d}{2})$ and we do get a diverging behaviour at $T=T_c$, in agreement with reality. However, this is just a qualitative thing, since this exponent does not numerically agree with the experiments. Next, we will see a bit about correlation functions with fluctuations.
