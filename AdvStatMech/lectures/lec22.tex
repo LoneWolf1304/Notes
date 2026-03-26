@@ -1,0 +1,38 @@
+\refstepcounter{section}
+\section*{Lecture 22: Continuous Symmetry}
+\addcontentsline{toc}{section}{Lecture 22: Continuous Symmetry}
+Till now, we focussed on a scalar order parameter, with only one component. Previously we had mentioned in passing that order parameters can be of any type. Here, we discuss about systems with multicomponent order parameter. Consider the order parameter, 
+$$\boldsymbol{\phi}(\vb{r}) \equiv \mqty[\phi_1(\vb{x})\\ \phi_2(\vb{x})\\ \phi_3(\vb{x})\\ \vdots\\ \phi_N(\vb{x})]$$
+Since there are $N$ components in the order parameter, the simplest way to impose symmetry is to consider a free energy which is invariant under $\SO(N)$ transformation, that is, 
+$$\phi_\alpha \to \phi_\alpha = \tensor{R}{^\beta _\alpha} \phi_\beta \qquad R^{\top}R=\iden$$
+where $R\in \SO(N)$ is the orthogonal group. We have suppressed the position dependence since this is an \textit{internal symmetry}, where the spatial points are not varied under the symmetry transformation. The free energy will be constructed out of \textit{scalar} which are invariant under this transformation. The simplest such case is, 
+\begin{equation}
+    \SL[\bphi(\vb{x})] = \int \dd^dx\ \qty[\frac{\gamma}{2}\grad \bphi \cdot \grad\bphi + \frac{a_2}{2}(T-T_c)(\bphi \cdot \bphi) + \frac{a_4}{4}(\bphi \cdot \bphi)^2+\ldots]
+ \end{equation}
+ where $\grad \bphi \cdot \grad\bphi \equiv \partial_i\phi_j\partial_i\phi_j$ where the sum is over the repeated indices. The Landau free energy depends only on $\abs{\bphi}$ and hence if we minimise it with respect to the norm, we obtain: 
+ $$\fdv{\SL}{\abs{\bphi}}=0\implies a_2(T-T_c)\abs{\bphi} + a_4\abs{\bphi}^3 = 0$$ 
+ Thus we obtain $\abs{\bphi} = 0$ for $T>T_c$ and $\abs{\bphi} = \sqrt{\frac{a_2}{a_4}(T_c-T)}$ for $T<T_c$. Note that minimisation of the free-energy fixed the magnitude of $\bphi$, however, it still can have any orbitrary direction. The minimisation condition gives us one constraint,
+ $$\phi_1^2+\phi_2^2+\cdots+\phi_N^2 = \frac{a_2}{a_4}(T_c-T)$$
+ In other words, $\bphi\in \mathbb{S}^{N-1}$, the $(N-1)$ dimensional sphere. This implies that any $\bphi$ in the symmetry broken phase is invariant under $\SO(N-1)$ transformation. Thus, the $\SO(N)$ symmetry of the theory is spontaneously broken down to its $\SO(N-1)$ subgroup.\\[0.2cm] The Ising model possessed $\inte_2$ symmetry where there were two degenerate ground states and the system had to choose one of them. In here, we have the ground state over the entire sphere, all having the same energy. Hence, there are \textit{infinitely} many degenerate ground states to choose from. 
+ \subsection{Fluctuations}
+ Let us choose one particular ground state $\vb{m}\tund{0} = (m\tund{0}\ 0\ 0\ \cdots\ 0)^\top$ and we consider some fluctuating field $\bpsi$ such that, 
+ $$\bphi \equiv \vb{m}\tund{0} + \bpsi = \mqty[m\tund{0}+\psi_1 \\ \psi_2\\ \vdots \\ \psi_N]$$ 
+ For simplicity, let us take $N=2$ and thus we have $\vb{m} = (\vb{m}\tund{0}+\psi_1, \psi_2)$. Substituting this in the Landau functional gives us and doing calculation for $T<T_c$, where $m\tund{0}^2 = -\frac{a_2}{a_4}(T-T_c)$ we have:
+ \begin{align*}
+  \SL &= \int \dd^d x\ \qty[\frac{\gamma}{2}(\grad ({m}\tund{0}+\psi_1, \psi_2))^2 +\frac{a_2}{2}(T-T_c)\qty((m\tund{0}+\psi_1)^2 +\psi_2^2) +\frac{a_4}{4}\qty((m\tund{0}+\psi_1)^2 +\psi_2^2)^2   ] \\
+  &=\int \dd^d x\ \frac{\gamma}{2}\qty[(\grad\psi_1)^2+(\grad\psi_2)^2] -\frac{1}{2} m\tund{0}^2a_4\qty(m\tund{0}^2+\psi_1^2+2m\tund{0}\psi_1 +\psi_2^2)\\
+  & \qquad\qquad\qquad\qquad+\frac{a_4}{4}\qty((m\tund{0}+\psi_1)^4 +\psi_2^4 +2(m\tund{0}+\psi_1)^2\psi_2^2)  \\
+  &=\int \dd^d x \ \qty[\frac{\gamma}{2}\qty[(\grad\psi_1)^2+(\grad\psi_2)^2] +\frac{a_4}{4}\qty[(m\tund{0}+\psi_1)^4+\cancel{2m\tund{0}^2\psi_2^2} - \qty(2m\tund{0}^4 +2m\tund{0}^2\psi_1^2+4m\tund{0}^3\psi_1+\cancel{2m\tund{0}^2\psi_2^2})] ] \\
+  &=\int \dd^d x \ \qty[\frac{\gamma}{2}\qty[(\grad\psi_1)^2+(\grad\psi_2)^2] +\frac{a_4}{4}\qty[(m\tund{0}^4+\cancel{4m\tund{0}^3\psi_1}+6m\tund{0}^2\psi_1^2) - \qty(2m\tund{0}^4 +2m\tund{0}^2\psi_1^2+\cancel{4m\tund{0}^3\psi_1})] ]\\
+  &=\int \dd^d x \ \qty[\frac{\gamma}{2}\qty[(\grad\psi_1)^2+(\grad\psi_2)^2] +m\tund{0}^2a_4\qty[\psi_1^2-\frac{1}{4}m\tund{0}^2] ]\\
+  &=\int \dd^d x \ \qty[\frac{\gamma}{2}\qty[(\grad\psi_1)^2+(\grad\psi_2)^2] +\frac{1}{2}[2a_2(T_c-T)]\psi_1^2 ] - \SL\tund{0}
+ \end{align*}
+ where $\SL\tund{0}$ represents the $\psi$ independent part of the functional. Except for the gradient, there is no quadratic term for $\psi_2$. We now write this in the Fourier space as before,
+\begin{equation*}
+  \SL = \frac{1}{2V}\sum\limits_{\abs{\vb{k}}<\Lambda} \qty[\gamma k^2 + 2a_2(T_c-T)]\abs{\widetilde{\psi}_{\vb{k}}^{(1)}}^2 + \gamma k^2\abs{\widetilde{\psi}_{\vb{k}}^{(2)}}^2 - \SL\tund{0}
+\end{equation*}
+We see that the coefficient of $\widetilde{\psi}_{\vb{k}}^{(1)}$ has a term $2a_2(T_c-T)$ other than the $k^2$ while no such thing occurs for $\widetilde{\psi}_{\vb{k}}^{(2)}$ term. Thus for $k=0$. the first term is non-zero but the second term is zero. As a result, the mode associated with $\widetilde{\psi}_{\vb{k}}^{(1)}$ is called a \textit{gapped mode} while that for $\widetilde{\psi}_{\vb{k}}^{(1)}$ is called a \textit{gapless mode}.
+\begin{figure}[H]
+    \centering
+  \input{pics/godstone.tex}
+\end{figure}
