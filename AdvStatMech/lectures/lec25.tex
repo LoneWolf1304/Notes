@@ -1,0 +1,59 @@
+\refstepcounter{section}
+\section*{Lecture 25: Scaling Relations}
+\addcontentsline{toc}{section}{Lecture 25: Scaling Relations}
+Till now, we have had numerous (apparently pointless) discussions on the critical exponents $\alpha, \beta, \gamma, \delta\ldots$ blah blah. There are so many of them and we are now interested in finding some relations between these exponents. It turns out that all these are not independent. Finding a few of them will help us to calculate of all them through relations called the \textit{scaling laws}. These can be obtained from the \textit{static scaling hypothesis} which treats thermodynamic quantities near the critical points to be \textit{generalised homegenous functions}.
+
+The beginning to all these was perhaps an attempt of exploratory data analysis, where we look for pattens in data and find an explanation for them. The ultimate basis for this is the OG \textit{renormalisation group}, which we will deal with later. 
+
+\subsection{Scaling for Magnetisation}
+From our previous discussions, we know that in the zero-field and for $T<T_c$, $m\sim (-t)^\beta$ (where $t= (T-T_c)/T_c$ is the reduced temperature) while at $T=T_c$, $m\sim h^{1/\delta}$. Let us now combine these into a single expressions, showing dependence of magnetisation on both $T$ and $h$,
+\begin{equation}
+   m(t,h) = \begin{cases}
+        t^\beta \SF_+\qty(\frac{h}{t^\Delta}) & t>0 \\
+        (-t)^\beta \SF_-\qty(\frac{h}{(-t)^\Delta}) & t<0
+    \end{cases}
+\end{equation}
+where $\Delta$ is a ``new" exponent which is introduced and is often referred to as the \textit{gap exponent}. $\SF_{\pm}$ are well-behaved universal functions\footnote{So, these functions will be same for every system belonging to the same \textit{universality class}}. This is still a bit \textit{ad hoc} and we need to justify writing this expression. However, let us come to the what we can do provided this expression is feasible. Firstly from the experimental data, if we plot $m/\abs{t}^\beta$ vs. $h/\abs{t}^\Delta$, then we expect that all the data across various systems will fall on the same curve. This is called \textit{data collapse} and is very useful for estimating the exponents (but we do have to ``guess'' the exponents for the collapse, since these are not known beforehand).\\[0.2cm]
+We can also extract information from various limits of this scaling. Let us first take $h\to 0$ which gives us,
+\begin{equation*}
+   m(t,h) = \begin{cases}
+        t^\beta \SF_+\qty(0) & t>0 \\
+        (-t)^\beta \SF_-\qty(0) & t<0
+    \end{cases}
+\end{equation*}
+Based on the previous discussions, we expect $\SF_+(0) = 0$ and $\SF_-(0)= \text{const.} \neq 0$. Now, let us take $t\to 0$ keeping $h$ to be small but non-zero. Then $(h/t^{\Delta})\to \infty$, but we want $m$ to be finite in this limit and to follow $m\sim h^{1/\delta}$. This forces us to assume a power-law behaviour for $\SF_{\pm}$ with some exponent $\rho$, 
+$$\SF_{\pm}(x) \sim x^\rho\implies m \sim \abs{t}^{\beta}\times \qty[\frac{h}{\abs{t}^\Delta}]^{\rho} = \abs{t}^{\beta-\Delta \rho} h^{\rho }  $$
+The exponent of $\abs{t}$ must cancel since we know $m\sim h^{1/\delta}$ and hence we can conclude $\beta = \Delta \rho$ and $\rho = \frac{1}{\delta}$. This gives $\boxed{\mathcolor{OliveGreen}{\Delta = \beta \delta}}$, which implies that $\Delta$ is not anything new, just the product of two previously obtained exponents. \\[0.2cm]
+Let us now move on to the derivatives, starting with susceptibility. 
+\begin{align*}
+    \chi \sim \pdv{m}{h}\Big|_{h=0} = \abs{t}^{\beta} \pdv{h}\qty[\SF_{\pm}\qty(\frac{h}{\abs{t}^{\Delta}})]_{h=0} \cdot \frac{1}{\abs{t}^{\Delta}} =\abs{t}^{\beta-\Delta}\SF'_{\pm}(0)
+\end{align*}
+Using the form $\chi \sim \abs{t}^{-\gamma}$ we conclude that $\beta-\Delta = -\gamma \implies \boxed{\mathcolor{OliveGreen}{\Delta = \beta+\gamma}}$. Using the above two expressions for $\Delta$, we obtain our first scaling relation,
+\begin{equation}
+    \beta \delta = \beta + \gamma
+\end{equation}
+which is known as the \textit{Widom scaling law}. The validity of this relation is seen across multiple experiments for diverse systems. Moreover, the relation is independent of the dimension of the system. Even though the actual exponents differed from those predicted by the mean-field approach, the scaling law still seemed to be valid, which implies a more fundamental basis of scaling laws. 
+\subsection{Scaling for Free Energy}
+Let us now try to find a similar thing for the free energy. For that, let us assume a scaling form of $F(t,h)$,
+\begin{align*}
+F(t,h) = t^{\lambda}\widetilde{\SF}\qty(\frac{h}{t^{\Delta}})
+\end{align*}
+We consider the scenario only for $t>0$. Differentiating once with respect to the field gives us the magnetisation 
+$$m = - \pdv{F}{h} \sim t^\lambda \widetilde{\SF}'\qty(\frac{h}{t^{\Delta}})\cdot \frac{1}{t^{\Delta}}$$
+Then this tells us that $\boxed{\mathcolor{OliveGreen}{\lambda-\Delta = \beta}}$, from the previous scaling form. Differentiating $F$ once with respect to the temperature gives us, 
+$$\pdv{F}{t} = \lambda t^{\lambda-1} \widetilde{\SF}\qty(\frac{h}{t^{\Delta}}) - t^\lambda \widetilde{\SF}'\qty(\frac{h}{t^{\Delta}})\cdot h\Delta t^{-\Delta -1} =\lambda t^{\lambda-1} \qty[  \widetilde{\SF}\qty(\frac{h}{t^{\Delta}}) -h t^{-\Delta}\widetilde{\SF}'\qty(\frac{h}{t^{\Delta}})\cdot \frac{\Delta}{\lambda} ]$$
+Differentiating again with respect to temperature, 
+$$\pdv[2]{F}{t} = \lambda (\lambda-1)t^{\lambda -2}\qty[\ \#\ ] + \lambda t^{\lambda-1}\qty[-h\Delta\widetilde{\SF}'\qty(\frac{h}{t^{\Delta}})t^{-\Delta-1} - h\times (\ldots)]$$
+In the zero field case ($h=0$), only the first term survives and the specific heat is then, 
+$$C_v \propto \pdv[2]{F}{t}  \sim t^{\lambda-2}$$
+From this, we at once conclude that $\lambda-2 = -\alpha \implies \boxed{\mathcolor{OliveGreen}{\lambda = 2-\alpha}}$. From the above two expressions, we have $\alpha+\beta+\Delta =2 \implies \alpha + \beta+ (\beta+\gamma) = 2$. Using this, we get our second scaling relation,
+\begin{equation}
+    \alpha + 2\beta+ \gamma = 2
+\end{equation}
+which is known as the \textit{Rushbrooke's scaling law}. Let us see whether these laws apply for the mean-field theory or not! For MFT, the critical exponents are: 
+$$\alpha=0\quad \beta=\frac{1}{2}\quad \gamma =1 \quad \delta =3 $$
+Then we have,
+\begin{align*}
+   \text{Rushbrooke} :\ &\alpha + 2\beta + \gamma = 0 +1 + 1 = 2\qquad \checkmark \\
+  \text{Widom}  :\  &\beta + \gamma = \frac{1}{2} + 1 = \frac{3}{2} = \frac{1}{2}\cdot 3 = \beta \delta \qquad \checkmark
+\end{align*}

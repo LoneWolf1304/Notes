@@ -1,0 +1,50 @@
+\refstepcounter{section}
+\section*{Lecture 26: Further Scaling}
+\addcontentsline{toc}{section}{Lecture 26: Further Scaling}
+The scaling forms used in the previous lectures all come by assuming that the thermodynamic quantities are generalised homogenous functions. So let us discuss a bit about homogenous functions in general. A function $f:\re \to \re$ is called \textit{homogenous} if $$f(\lambda x) = g(\lambda) f(x)$$ 
+where $g(\lambda)$ is some function. A simple example for $p=2$ is, $f(x) = x^2$ since $f(\lambda x) = \lambda^2 x^2 = \lambda^2  f(x)$, with $g(\lambda) = \lambda^2$. Note that, $g(\lambda)$ cannot be any arbitrary function, it must satisfy some properties. For this, note: 
+$$f(\lambda (\mu x)) = g(\lambda) g(\mu)f(x) = f((\lambda \mu)x) = g(\lambda \mu) f(x)$$
+which imposes the condition $g(x) g(y) = g(xy)\ \forall \ x,y$. This eventually forces the form $g(x) = x^\rho$ which has an elegant proof, considering $g$ to be differentiable. 
+\begin{proposition}
+    If $g: \re\to \re$ is a \textit{differentiable} function and $g(x) g(y) = g(xy)\ \forall \ x,y$ then for all $x$, either $g(x)=0$ or $g(x) = x^\lambda$ for some $\lambda$
+\end{proposition}
+\textit{Proof.} Let any arbitrary $y=y_0$. Differentiating both sides, we get:
+$$g'(x) g(y_0) = y_0 g'(xy_0)\ \forall \ x\quad \xlongrightarrow{x=1} \quad  \frac{g'(y_0)}{g(y_0)} = \frac{g'(1)}{y_0}\quad\xlongrightarrow{\text{Integrating}} \quad g(y_0) = A y_0^\lambda$$
+where, after differentiation we have taken the $g$ as a function of $y_0$ since $y_0$ was arbitrary and then replaced $g'(1) = \lambda$. The initial condition $g(1) = (g(1))^2 \implies g(1)=0$ or $g(1)=1$. If $g(1) = 0$ then this implies $A=0$, implying that $g$ is identically zero. Otherwise, if $g(1) = 1$ then $A =1$ which gives us $g(x) = x^\lambda$\\[0.2cm]
+We can extend the definition of homogenity to arbitrary number of variables. 
+$$f(\lambda x_1, \lambda x_2\ldots \lambda x_n)  = g(\lambda) f(x_1,x_2\ldots x_n) \implies f(\lambda \vb{x}) = \lambda^p f(\vb{x})\quad \vb{x} \in \re^{n}$$
+The cool thing with homogenous functions is that if we know the value of the function at one point, then we know it at every other point, since given $f(x_0)=c$, we can always choose $\lambda = \frac{y}{x_0}$ such that $f(y) =\qty(\frac{y}{x_0})^\lambda f(x_0) $. We now extend the definition of a homogenous function to generalised homogenous function (GHF); a function $f:\re^n \to \re^m$ is called a GHF if, 
+$$f(\lambda^{a_1} x_1,\lambda^{a_2} x_2  ,\ldots, \lambda^{a_n}x_n) = \lambda^k f(x_1, x_2 ,\ldots, x_n)$$
+where $\{a_i\}$ and $k$ are some arbitrary numbers. Note that these are not independent, since if we choose an arbitrary $\lambda = \mu^{1/k}$ then we have, 
+$$f(\mu^{a_1/k} x_1,\mu^{a_2/k} x_2  ,\ldots, \mu^{a_n/k}x_n) = \mu f(x_1, x_2 ,\ldots, x_n)$$
+Then all $a_i \mapsto a_i/k$ which is just a rescaling. The GHF can thus be defined by always choosing $k=1$ and hence the final definition,
+$$f(\lambda^{a_1} x_1,\lambda^{a_2} x_2  ,\ldots, \lambda^{a_n}x_n) = \lambda f(x_1, x_2 ,\ldots, x_n)$$
+Let us now focus only on the two variable case, which is $f(\lambda x)$. The static scaling hypothesis states that the thermodynamic potentials are GHFs near the critical point $T_c$. Then the free energy can be written as, 
+$$F(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h) = \lambda F(t,h)\quad \longrightarrow \quad -\pdv{h}\qty[F(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h)] = -\pdv{h}\qty[A(t,h)] \implies \lambda^{a\tund{h}-1} m(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h) =m(t,h)$$
+Now, suppose we take $T>T_c$. Then we choose $\lambda$ such that $\lambda^{a\tund{t}} = -\frac{1}{t}\implies \lambda = (-t)^{-1/a\tund{t}}$. Taking the zero-field limit we get: 
+$$(-t)^{\beta} \sim m(t,0) = (-t)^{-(a\tund{h}-1)/a\tund{t}}m(1,0) \implies \boxed{\beta = \frac{1-a\tund{h}}{a\tund{t}}}$$ 
+Now, suppose we take $T=T_c $ and choose $\lambda$ such that $\lambda^{a\tund{h}}=\frac{1}{h}\implies \lambda = h^{-1/a\tund{h}}$. Substituting this in the scaling form above, we get:
+$$h^{1/\delta} \sim m(0,h) = h^{-(a\tund{h}-1)/a\tund{h}}m(0,1)\implies \boxed{\delta = \frac{a\tund{h}}{1-a\tund{h}}}$$
+Solving these we get,
+\begin{equation}
+    a\tund{h} = \frac{\delta}{1+\delta} \qquad a\tund{t} = \frac{1}{\beta(1+\delta)} 
+\end{equation}
+We get $a\tund{h}$ and $a\tund{t}$ in terms of the critical exponents (and vice versa). Now, differentiating $m$ with respect to $h$ gives us the susceptibility:
+\begin{align*}
+   \lambda^{2a\tund{h}-1} \chi(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h) = \chi(t,h)
+\end{align*}
+For $T>T_c$, taking $h=0$ and choosing $\lambda$ such that $\lambda^{a\tund{t}}=\frac{1}{t}$, we get the following
+$$t^{-\gamma'}\chi(t,0) = t^{-(2a\tund{h}-1)/a\tund{t}} \chi(1,0) $$
+from which we can read off the exponent as,
+$$\gamma' =  \frac{(2a\tund{h}-1)}{a\tund{t}}= \frac{\frac{2\delta}{1+\delta}-1}{\frac{1}{\beta(1+\delta)}} = (\delta-1)\beta \implies \beta \delta = \beta+\gamma$$
+which was the Widom's scaling law that we had earlier derived.  One thing to note here is that, if we had taken $T<T_c$ then also the same calculation follows, which would give us the same expression for $\gamma$. Hence we can conclude that $\gamma=\gamma'$
+
+Doing the same thing for the specific heat will lead to the Rushbrooke relation (which I skip since it has become very boring at this point of time!).
+\subsection{A small note}
+The scaling laws that we derived manifest as inequalities when derived from thermodynamic principles, considering stability of physical systems. Let us try to derive the Rushbrook (in)equality! 
+
+Consider the first law of thermodynamics for a magnetic system with field $H$ and and magnetisation $M$:
+\begin{equation}
+    \dd U = T\dd S - M \dd H \implies T = \qty(\pdv{U}{S})_{H} \quad M = -\qty(\pdv{U}{H})_{S}
+\end{equation}
+
