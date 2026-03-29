@@ -1,3 +1,48 @@
 \refstepcounter{section}
-\section*{Lecture 24: Continuous Symmetry-III}
-\addcontentsline{toc}{section}{Lecture 24: Continuous Symmetry-III}
+\section*{Lecture 24: Higgs' Mechanism}
+\addcontentsline{toc}{section}{Lecture 24: Higgs' Mechanism}
+Instead of considering a two-component vector order parameter $\vb{\psi} = (\psi_1, \psi_2)^\top$, we can equivalently consider a complex scalar field, $\psi = \psi_1 + i \psi_2 \equiv \abs{\psi} e^{i\theta}$. Then the $\mathrm{O}(2)$ invariance under a global rotation changes to $\mathrm{U}(1)$ invariance of $\psi$ under a global phase shift. Then the Landau functional becomes,
+\begin{equation}
+    \SL = \int \dd^d x \ \qty[\frac{\gamma}{2} (\grad \psi)^* (\grad \psi) + \frac{a_2}{2}(T-T_c) \psi^* \psi + \frac{a_4}{4}(\psi^* \psi)^2]
+\end{equation}
+We integrate the gradient term by parts, after which we write the Landau functional as, 
+$$\SL = \int \dd^d x \ \psi^* \qty[-\frac{\gamma}{2} \grad ^2  + \frac{a_2}{2}(T-T_c)  + \frac{a_4}{4}(\psi^* \psi)]\psi \equiv \int \dd^d x \ \psi^* \widetilde{H}\psi$$
+where $\widetilde{H}$ is a non-linear Hamiltonian and $\SL$ is just the expectation value of this Hamiltonian. Let us now move on to \textit{superconductors}.\\[0.2cm] Technically, we can treat superconductors using the BCS theory, which is a \textit{microscopic approach}, however, here we do a coarse-grained study using the Landau-Ginzburg theory. Till now, we had neutral fields, but since superconductors are basically condensates of electronic \textit{Cooper pairs}, these are essentially charged and hence, will couple to electromagnetic fields.\\[0.2cm] To incorporate this, we impose a local gauge invariance and the gradient term is changed due to \textit{minimal coupling}
+$$\grad \to \grad - \frac{iq}{\hbar} \vb{A}$$
+where $q$ is the charge of the field and $\vb{A}(\vb{x})$ is the vector-potential (which introduces a magnetic field $\vb{h} = \grad\times \vb{A}$). We also get a contribution of $\frac{1}{\mu\tund{0}^2}(\grad\times \vb{A})^2$ from the vector potential. Thus, the modified Landau functional becomes,
+\begin{equation}
+    \SL[\psi, \vb{A}] = \int \dd^d x\ \frac{\hbar^2}{2m} \qty[\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}^*\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}]  + \frac{a_2}{2}(T-T_c)(\psi^* \psi)  + \frac{a_4}{4}(\psi^* \psi)^2+ \frac{1}{2\mu\tund{0}}(\grad\times \vb{A})^2
+\end{equation}
+where we now introduced a $\frac{\hbar^2}{2m}$ factor in place of $\gamma$, to make it look more quantum-mechanical. To find the equation of state, we vary $\SL$ separately with respect to $\psi$ (or better, $\psi^*$) and $\vb{A}$. Let us start with the gradient term which is the most complicated.
+\begin{align*}
+    \delta_{\psi^*}\int \qty[\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}^*\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}]&=\int\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi} \qty[\qty(\grad + \frac{iq}{\hbar}\vb{A})(\delta\psi^*)] \\
+    &=\int\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi} \cdot \grad (\delta\psi^*) +\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}\cdot\qty(\frac{iq}{\hbar}\vb{A})(\delta\psi^*)\\
+    &\xrightarrow{IBP} \int (\delta \psi^*)\qty[\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}\cdot\qty(\frac{iq}{\hbar}\vb{A}) -\grad \cdot\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}]\\
+    &=-\int\qty(\grad - \frac{iq}{\hbar}\vb{A})^2\psi 
+\end{align*}
+The variation of the other terms are straight forward. Doing this, we obtain the equation of state:
+\begin{equation}
+   \qty(i\hbar \grad + q\vb{A})^2\psi +\frac{a_2}{2}(T-T_c)\psi + \frac{a_4}{2}|\psi|^2 \psi =0
+\end{equation}
+This equation handles the average behaviour of the order parameter. Let us now find the variation with respect to $\vb{A}$. Let us focus on the term,
+\begin{align*}
+    \delta_{\vb{A}}\int (\grad\times \vb{A})^2 &= 2\int (\grad\times \vb{A})\cdot(\grad\times \delta \vb{A})\\
+    &=2\int (\grad\times \vb{A})_i(\epsilon_{ijk}\partial_j (\delta \vb{A})_k)\\
+    &=-2\int \partial_j(\grad\times \vb{A})_i(\epsilon_{ijk} (\delta \vb{A})_k)\\
+    &=2\int \epsilon_{kji}\partial_j (\grad\times \vb{A})_i (\delta \vb{A})_k \\
+    &=2\int (\grad\times (\grad\times \vb{A}))\cdot (\delta \vb{A})
+\end{align*}
+And the variation of the kinetic terms become:
+\begin{align*}
+    \delta_{\vb{A}}\int \qty[\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}^*\qty{\qty(\grad - \frac{iq}{\hbar}\vb{A})\psi}]&= \int \frac{iq}{\hbar}\qty(\psi^* \grad\psi -\psi \grad \psi^*) + \frac{q^2}{\hbar^2}|\vb{A}|^2 |\psi|^2
+\end{align*}
+Then what we get overall from the variation of the vector potential is, 
+\begin{equation}
+   \frac{1}{\mu\tund{0}} \grad\times \vb{B} + \frac{iq\hbar}{2m}\qty(\psi^* \grad\psi -\psi \grad \psi^*) + \frac{q^2}{m}|\vb{A}| |\psi|^2=0
+\end{equation}
+Let us define the current, $$\vb{J} := \frac{q\hbar}{2im}\qty(\psi^* \grad\psi -\psi \grad \psi^*) - \frac{q^2}{m}|\vb{A}| |\psi|^2$$
+which gives us the equation in simplified form as, $$\grad\times \vb{B}  = \mu\tund{0}\vb{J}$$
+This equation handles the electrodynamic degrees of freedom. Suppose we want an uniform solution with zero current. Then the gradients will vanish and also $\vb{J} =0$, which gives us $\vb{A}=0$ and from the equation of state we get, 
+$$\abs{\psi\tund{0}}^2 = -\frac{a_2}{a_4}(T-T_c)$$
+\subsection{Gaussian Fluctuations}
+\subsection{Meissner Effect}
