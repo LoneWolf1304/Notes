@@ -9,11 +9,11 @@ We focus on magnetic systems only, however, this can be applied to more general 
     \caption{Coarse graining the lattice}
 \end{figure}
 \noindent
-Let the centre each cell $I$ be $\vb{x}$ and define the local order parameter,
+Let the centre  of cell $I$ be $\vb{x}$ and define the local order parameter,
 \begin{equation}
     m\tund{I}(\vb{x}) = \frac{1}{N\tund{I}}\sum\limits_{i\in I} \sigma_i
 \end{equation}
-where $N\tund{I}$ is the number of spins in cell $I$. This process is called \textit{coarse graining}, since we are defining an order parameter, averaged over $N\tund{I}$ spins in each cell. Let us now define $\SL$ in this case. At the first glance, it seems that 
+where $N\tund{I}$ is the number of spins in cell $I$. This process is called \textit{coarse graining}, since we are defining an order parameter, averaged over $N\tund{I}$ spins in each cell. Let us now define $\SL$ in this case. At first glance, it seems that 
 \begin{equation*}
     \SL(\{m\tund{I}\}) = \sum\limits_{i}^{N'}\qty[ \frac{1}{2}a_2(T-T_c)m_i^2 + \frac{1}{4}a_4 m_i^4 - h_im_i]
 \end{equation*}
@@ -43,20 +43,20 @@ The final expression for the Landau free energy is,
 \begin{equation}
     \SL[m(\vb{x})] = \int \dd^d x \ \qty[\frac{1}{2}a_2(T-T_c)(m(\vb{x}))^2 + \frac{1}{4}a_4 (m(\vb{x}))^4 - h(\vb{x})m(\vb{x}) +\frac{\gamma}{2}\qty(\grad m(\vb{x}))^2]
 \end{equation}
-Note that, $\SL$ has now become a \textit{functional}, that is, it takes a function $m(\vb{x})$ and spits out a scalar. The partition function calculation becomes a bit involved, since it contains the term $\exp(-\beta \SL[m(\vb{x})])$ and we have to perform an integral. However, this is not an ordinary integral, since the integration variable is now a function $m(\vb{x})$. What happens is that there are infinite realisations of the function $m(\vb{x})$ and we need to `integrate' over all these realisations. The process through which it is done is called \textit{functional integral} or a more cool sounding \textit{path integral}. The formal notation of the functional integral is, 
+Note that, $\SL$ has now become a \textit{functional}, that is, it takes a function $m(\vb{x})$ and spits out a scalar. The partition function calculation becomes a bit involved, since it contains the term $\exp(-\beta \SL[m(\vb{x})])$ and we have to perform an integral. However, this is not an ordinary integral, since the integration variable is now a function $m(\vb{x})$.\\[0.2cm] What happens is that there are infinite realisations of the function $m(\vb{x})$ and we need to `integrate' over all these realisations. The process through which it is done is called \textit{functional integral} or a more cool sounding, \textit{path integral}. The formal notation of the functional integral is, 
 \begin{equation}
     \SZ = \int \SD m(\vb{x})\ e^{-\beta  \int \dd^d x \ \qty[\frac{1}{2}a_2(T-T_c)(m(\vb{x}))^2 + \frac{1}{4}a_4 (m(\vb{x}))^4 - h(\vb{x})m(\vb{x}) +\frac{\gamma}{2}\qty(\grad m(\vb{x}))^2]}
 \end{equation}
-Out of the infinite realisations of $m(\vb(x))$, the one which gives the equation of state is the one which minimises the free energy functional. For minimisation purpose, we have to invoke the concept of function derivative since $m(\vb{x})$ is a function. Thus, we have the equation of state as, 
+Out of the infinite realisations of $m(\vb{x})$, the one which gives the equation of state is the one which minimises the free energy functional. For minimisation purpose, we have to invoke the concept of function derivative since $m(\vb{x})$ is a function. Thus, we have the equation of state as, 
 $$m^*(\vb{x})\ : \quad \fdv{\SL}{m} = 0$$
-Before formally going down this rabbit hole, let us find the minima by simply calculating the variation $\delta \SL$ when the function $m(vb{x})$ is varied from the minimising function as $m(\vb(x)) = m^*(\vb{x}) + \delta m (\vb{x})$, such that at the boundaries, $\delta m =0$.
+Before formally going down this rabbit hole, let us find the minima by simply calculating the variation $\delta \SL$ when the function $m(vb{x})$ is varied from the minimising function as $m(\vb{x}) = m^*(\vb{x}) + \delta m (\vb{x})$, such that at the boundaries, $\delta m =0$.
 \begin{align*}
     \delta \SL = \int \dd^dx\ \qty[a_2(T-T_c)m\delta m + a_4 m^3 \delta m - h \delta m + \frac{\gamma}{2}\times 2\qty(\delta(\grad m)\cdot (\grad m))]
 \end{align*}
 Let us calculate the variation of the gradient term.
 \begin{align*}
-    \int \dd^dx \ (\grad m ) \delta (\grad m) &=  \int \dd^dx \ (\grad m )  \grad( \delta m) \\ 
-    &\stackrel{\text{\tiny IBP}}{=} - \int \dd^dx \ (\grad^2 m )  \delta m + \qty[\grad m \delta m]_{\text{bound.}}\\
+    \int \dd^dx \ (\grad m ) \cdot \delta (\grad m) &=  \int \dd^dx \ (\grad m ) \cdot \grad( \delta m) \\ 
+    &\stackrel{\text{\tiny IBP}}{=} - \int \dd^dx \ (\grad^2 m )  \delta m + \text{Boundary terms}\\
     &=- \int \dd^dx \ (\grad^2 m )  \delta m
 \end{align*}
 The boundary term is zero, since $\delta m$ is zero at the boundaries. From the variation of the functional, we obtained 

@@ -1,12 +1,11 @@
 \refstepcounter{section}
 \section*{Lecture 16: Kink Solutions}
 \addcontentsline{toc}{section}{Lecture 16: Kink Solutions}
-In the previous lecture, we introduced a spatial variation of the order parameter, $m(\vb{x})$. Consider the 1D Ising chain as an example. Suppose in the extreme left end of the chain, we have a $\uparrow$ spin while in the extreme right, we have a $\downarrow$ spin.\\[0.2cm] If we keep this constraint, then it is evident that somewhere in the middle, there should be a spin flip (that is, we cannot \textit{continuously deform} the left side to bring it to the right side). This inability to continuously deforma aptly indicates that this is a \textit{topological artifact}. \\[0.2cm]
-This spin flip is nothing but a \textit{domain wall} if we think about it. The domain wall is also exotically called a \textit{kink} or \textit{soliton} depending on the context and the type of system used. Note that if there are two kinks, then there are two spin flips and hence these cancel each other (that is, the boundaries have the same spins). Thus, this configuration can be continuously deformed to the ground state. 
+In the previous lecture, we introduced a spatial variation of the order parameter, $m(\vb{x})$. Consider the 1D Ising chain as an example. Suppose in the extreme left end of the chain, we have a $\uparrow$ spin while in the extreme right, we have a $\downarrow$ spin.\\[0.2cm] If we keep this constraint fixed, then it is evident that somewhere in the middle, there should be a spin flip (that is, we cannot \textit{continuously deform} the left side to bring it to the right side). This inability to continuously deform a configuration aptly indicates that this is a \textit{topological artifact}. \\[0.2cm]
+This spin flip is nothing but a \textit{domain wall} if we think about it. The domain wall is also exotically called a \textit{kink} or \textit{soliton} depending on the context and the type of system used. Note that if there are two kinks, then there are two spin flips and hence these cancel each other (that is, the boundaries have the same spins). Thus, this configuration can be continuously deformed to the ground state which is uniform. 
 \begin{figure}[H]
     \begin{center}
         
-
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
@@ -84,9 +83,11 @@ This spin flip is nothing but a \textit{domain wall} if we think about it. The d
 \end{tikzpicture}
 
     \end{center}
+    \caption{Mapping of spins to the order parameter space.}
+    \label{ops}
 \end{figure}
 \noindent
-The spins left and right of the kink can be mapped from the real space (of the lattice) to the order-parameter space, where there are two points $+1$ and $-1$, as shown above. Thus a state $(+,+)$ or $(-,-)$ will have all up spins and down spins respectively and hence are the ground states. The state $(+,-)$ ( state $(-,+)$) will have up spins on the left (right) and down spins on the right (left) of the kink. These are the four topologically distinct sectors for the 1D Ising model. The state $(-,+)$ is called the kink state where we have up spins on the right of the chain while $(+,-)$ is called the anti-kink state.\\[0.2cm]
+The spins left and right of the kink can be mapped from the real space (of the lattice) to the order-parameter space, where there are two points $+1$ and $-1$, as shown in Fig. \ref{ops}. Thus a state $(+,+)$ or $(-,-)$ will have all up spins and down spins respectively and hence are the ground states. The state $(+,-)$ ( state $(-,+)$) will have up spins on the left (right) and down spins on the right (left) of the kink. These are the four topologically distinct sectors for the 1D Ising model. The state $(-,+)$ is called the kink state where we have up spins on the right of the chain while $(+,-)$ is called the anti-kink state.\\[0.2cm]
 We want to see the variation of the order parameter across the domain wall. For this, consider the following Landau functional, 
 \begin{equation*}
     \SL[m(\vb{x})] = \int \dd^d x \ \qty[\frac{1}{2}a_2(T-T_c)(m(\vb{x}))^2 + \frac{1}{4}a_4 (m(\vb{x}))^4 - h(\vb{x})m(\vb{x}) +\frac{\gamma}{2}\qty(\grad m(\vb{x}))^2]
@@ -130,18 +131,18 @@ Now, the red quantity has the dimension of length and we denote is by $\xi$. Phy
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{codes/correlation.pdf}
-    \caption{\textbf{Spatial variation of order parameter.} (a) $m(x)$ at $T<T_c$. The black vertical dashed line denotes the centre of the domain wall, while the green lines denote the extent of $\xi$. Within this region, most change occur across the domain wall. (b) $m(x)$ for various temperature. We see that the correlation length gradually increases on increasing $T$. }
+    \caption{\textbf{Spatial variation of order parameter.} (a) $m(x)$ at $T<T_c$. The black vertical dashed line denotes the centre of the domain wall, while the green lines denote the extent of $\xi$. Within this region, most changes occur across the domain wall. (b) $m(x)$ for various temperatures. We see that the correlation length gradually increases on increasing $T$. }
 \end{figure}
 The domain wall incurs some energy cost in the system. This is reflected in terms of the surface tension $\upvarsigma$ defined as,
 \begin{equation}
-    \upvarsigma \equiv \int\limits_{-\infty}^\infty \qty[\frac{1}{2}a_2 m^2(x) + \frac{1}{4}a_4m^4(x) + \frac{\gamma}{2}\qty(\dv{m}{x})^2] -\qty[\frac{1}{2}a_2 m_\infty^2 + \frac{1}{4}a_4m^4_\infty] 
+    \upvarsigma \equiv \int\limits_{-\infty}^\infty \qty[\frac{1}{2}a_2(T-T_c) m^2(x) + \frac{1}{4}a_4m^4(x) + \frac{\gamma}{2}\qty(\dv{m}{x})^2] -\qty[\frac{1}{2}a_2(T-T_c) m_\infty^2 + \frac{1}{4}a_4m^4_\infty] 
 \end{equation}
 The above is just the increase in energy from the uniform ground state. This gives us, 
 \begin{align}
     \begin{split}
-        \upvarsigma &= \int\limits_{-\infty}^\infty \qty[\frac{1}{2}a_2 \qty(m^2(x)-m_\infty^2) + \frac{1}{4}a_4\qty(m^4(x)-m^4_\infty) + \frac{\gamma}{2}\qty(\dv{m}{x})^2]\ \dd x \\
-        &=\int\limits_{-\infty}^\infty \qty[\frac{1}{2}a_2 \qty(m^2-m_\infty^2) + \frac{1}{4}a_4\qty(m^4-m^4_\infty) + \frac{a_4}{4}(m^2-m_\infty^2)^2]\ \dd x\\
-        &=\int\limits_{-\infty}^\infty \qty(m^2-m_\infty^2) \qty[\frac{1}{2}a_2  + \frac{1}{4}a_4\qty(m^2+\cancel{m^2_\infty}) + \frac{a_4}{4}(m^2-\cancel{m_\infty^2})]\ \dd x\\
+        \upvarsigma &= \int\limits_{-\infty}^\infty \qty[\frac{1}{2}a_2(T-T_c) \qty(m^2(x)-m_\infty^2) + \frac{1}{4}a_4\qty(m^4(x)-m^4_\infty) + \frac{\gamma}{2}\qty(\dv{m}{x})^2]\ \dd x \\
+        &=\int\limits_{-\infty}^\infty \qty[\frac{1}{2}a_2(T-T_c) \qty(m^2-m_\infty^2) + \frac{1}{4}a_4\qty(m^4-m^4_\infty) + \frac{a_4}{4}(m^2-m_\infty^2)^2]\ \dd x\\
+        &=\int\limits_{-\infty}^\infty \qty(m^2-m_\infty^2) \qty[\frac{1}{2}a_2(T-T_c)  + \frac{1}{4}a_4\qty(m^2+\cancel{m^2_\infty}) + \frac{a_4}{4}(m^2-\cancel{m_\infty^2})]\ \dd x\\
         &=\int\limits_{-\infty}^\infty\frac{a_4}{2} \qty(m^2-m_\infty^2)^2\ \dd x = \int\limits_{-\infty}^\infty\frac{a_4}{2} \times \frac{2\gamma}{a_4} \qty(\dv{m}{x})^2\ \dd x = \gamma \int\limits_{-\infty}^\infty \qty[\dv{x} \qty(m_\infty \tanh\qty(\frac{x-x\tund{0}}{\sqrt{2}\xi}))]^2\ \dd x
     \end{split}
 \end{align}
