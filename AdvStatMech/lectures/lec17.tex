@@ -24,14 +24,14 @@ where $\SG(\vb{r} - \vb{r}')$ is the correlation function defined in Lec. \ref{l
 $$\chi(\vb{r}-\vb{r}') = \beta \SG(\vb{r}-\vb{r}')$$
 Note that we have assumed translational invariance from the beginning, that's why we were writing the functions as a different of the two vectors $\vb{r}-\vb{r}'$. We can easily use the Fourier transform for translationally invariant systems.
 \begin{align*}
-    \chi(\vb{r}-\vb{r}') = \int \frac{\dd^d k}{(2\pi)^d} \ \widetilde{\chi}(k) e^{i \vb{k}\cdot (\vb{r}-\vb{r}')}
+    \chi(\vb{r}-\vb{r}') = \int \frac{\dd^d k}{(2\pi)^d} \ \widetilde{\chi}(\vb{k}) e^{i \vb{k}\cdot (\vb{r}-\vb{r}')}
 \end{align*}
-Using this in the above relation above, we get $\widetilde{\chi}(k) = \beta \widetilde{\SG}(k)$, which is an aspect of \textit{linear response theory}. The susceptibility is a response, which is linearly proportional to the correlation function. Now, if the frequency of the external perturbation (like the Fourier decomposition of the magnetic field) tends to zero, $\chi$ must reduce to the static isothermal susceptibility, 
+Using this in the above relation above, we get $\widetilde{\chi}(k) = \beta \widetilde{\SG}(k)$, which is an aspect of \textit{linear response theory}. The susceptibility is a response, which is linearly proportional to the correlation function, related to the fluctuations in the system. Now, if the frequency of the external perturbation (like the Fourier modes of the magnetic field) tends to zero, $\chi$ must reduce to the static isothermal susceptibility, 
 \begin{equation}\label{chixi}
     \chi\tund{T} = \lim\limits_{k\to 0 }\widetilde{\chi}(k) = \beta \widetilde{\SG}(0) = \beta \int \dd^d r \ \SG(\vb{r})
 \end{equation}
-\subsection{Calculating the Correlation function (Ornstein-Zernike relation)}
-Here, we outline a method to calculate the correlation function. For that, let us take the derivative of the equation of state with respect to the field. 
+\subsection{Calculating the correlation function (Ornstein-Zernike relation)}
+Here, we outline a method to calculate the correlation function. For that, let us take the of the equation of state with respect to the field. 
 $$\frac{\delta}{\delta h(\vb{r}')}\qty[a_2(T-T_c) m(\vb{r}) + a_4 m^3(\vb{r}) - h(\vb{r}) - \gamma \grad^2 m] = 0 $$
 From the definition of susceptibility, we have 
 $$\qty[-\gamma \grad^2 + a_2(T-T_c) + 3a_4m^2]\chi(\vb{r}-\vb{r}') = \delta^{(d)}(\vb{r}-\vb{r}')$$
@@ -41,14 +41,14 @@ It is evident that the correlation function is the \textit{Green's function} for
 $$\qty(-\grad^2+ \xi_{>}^{-2})\SG(\vb{r}-\vb{r}') = \frac{\kb T}{\gamma}\delta^{(d)}(\vb{r}-\vb{r}')\qquad \xi_> = \qty[\frac{a_2(T-T_c)}{\gamma}]^{-1/2} $$
 and for $T<T_c$ we have
 $$\qty(-\gamma\grad^2 + a_2(T-T_c) + 3 a_4\times \frac{a_2(T_c -T)}{a_4})  =(-\gamma\grad^2 -2 a_2(T-T_c)) \implies \qty(-\grad^2 + \xi_{<}^{-2})\SG(\vb{r}-\vb{r}')  = \frac{\kb T}{\gamma}\delta^{(d)}(\vb{r}-\vb{r}')$$
-where $ \xi_{<} = \qty[\frac{2a_2(T_c-T)}{\gamma}]^{-1/2}$. These are the \textit{correlation length} defined above and before $T_c$. We see the scaling of $\xi$ with $\abs{T_c-T}$ and conclude that, 
+where $ \xi_{<} = \qty[\frac{2a_2(T_c-T)}{\gamma}]^{-1/2}$. These are the \textit{correlation length} defined above and below $T_c$. We see the scaling of $\xi$ with $\abs{T_c-T}$ and conclude that, 
 $\xi \sim {(T_c-T)}^{-\nu}$ for $T<T_c$ and $\xi \sim (T-T_c)^{\nu'}$ for $T>T_c$ with $\nu = \nu' = \frac{1}{2}$ from the mean-field theory. In summary, the two-point correlation function satisfies the differential equation, 
 $$(-\grad^2 + \xi^{-2})\SG(\vb{r}-\vb{r}') = \frac{\kb T}{\gamma}\delta^{(d)}(\vb{r}-\vb{r}')$$
 Fourier transform of the equation yields, 
 \begin{equation}
     \widetilde{\SG}(k) = \frac{\kb T}{\gamma} \frac{1}{k^2 + \xi^{-2}}
 \end{equation}
- This is kind of the Fourier transform of the Yukawa potential. Note that, at $T=T_c$, $\xi\to \infty$ and hence $\widetilde{\SG}(k) \sim k^{-2}$. We can revert back to the real space correlation function using the polar coordinates which we do now. For that, let us choose $\vb{r}'= 0$ and write the Laplacian in polar coordinates in $d$ dimensions which gives us, 
+ This is kinda the Fourier transform of the Yukawa potential. Note that, at $T=T_c$, $\xi\to \infty$ and hence $\widetilde{\SG}(k) \sim k^{-2}$. We can revert back to the real space correlation function using the polar coordinates which we do now. For that, let us choose $\vb{r}'= 0$ and write the Laplacian in polar coordinates in $d$ dimensions which gives us, 
  \begin{equation}
    \qty[ -\frac{1}{r^{d-1}} \pdv{r}\qty(r^{d-1}\pdv{r}) + \xi^{-2} ] \SG(\vb{r}) = \frac{\kb T}{\gamma} \delta^{(d)}(\vb{r})
  \end{equation}
@@ -76,7 +76,7 @@ Let us choose $d-1-2\nu = 1 \implies \nu = \frac{d}{2}-1$. Then $\nu(\nu+1) - \n
 $$\rho^2 F'' +\rho F' -(\nu^2 + \rho^2)F=0$$
 This is the \textit{modified Bessel equation} and its solutions are given by the modified Bessel functions, 
 $$G(\rho) = \rho^{-\nu}(c_1 I_{\nu}(\rho)+c_2 K_{\nu}(\rho))$$
-Note that $I_\nu \sim e^\rho$ and hence it exponentially grows up, which we do not want. Thus, we keep only $K_{\nu}(\rho)$ in the solution and hence, $G(\rho) \sim \rho^{-\nu}K_\nu$. The constant can be fixed another complicated process (which I skip) and finally we get, 
+Note that $I_\nu \sim e^\rho$ and hence it exponentially grows up, which we do not want. Thus, we keep only $K_{\nu}(\rho)$ in the solution and hence, $G(\rho) \sim \rho^{-\nu}K_\nu$. The constant can be fixed by another complicated process (which I skip) and finally we get, 
 \begin{align}
     \begin{split}
         \frac{G(\rho)}{g} = \begin{cases}
@@ -103,7 +103,7 @@ For $r\ll \xi$ (near $T_c$ where correlation length diverges), $K_\nu \sim \frac
         &= \frac{\kb T}{\gamma} \cdot \frac{1}{4\pi^{d/2}}\cdot \frac{1}{r^{d-2}}\cdot \Gamma\qty(\frac{d-2}{2}) \implies \SG(r) \sim r^{-(d-2)}
     \end{split}
 \end{align}
-Thus, near $T=T_c$, $\SG(r)$ becomes a power-law and it is self-similar. There is no inherent length scale. It has been experimentally seen that the exponent is not exactly $(d-2)$, hence we add a correction $\eta$. Thus, 
+Thus, near $T=T_c$, $\SG(r)$ becomes a power-law and it is self-similar. There is no inherent length scale. It has been experimentally seen that the exponent is not exactly $(d-2)$, hence we add a correction $\eta$, which is a new critical exponent. Thus, 
 \begin{equation}
     \SG(r) \sim \frac{1}{r^{d-2+\eta}}
 \end{equation}

@@ -26,7 +26,7 @@ Since the field $\phi(\vb{x})\in \re$, we have  $\widetilde{\phi}_{-\vb{k}} = \w
 \begin{align*}
      \int \dd^d x\ f(\vb{x}) &=\frac{1}{2V}\sum\limits_{\vb{k}, \vb{k}'}\qty[-\gamma\vb{k}\cdot\vb{k}' + a\tund{2}(T-T_c)]\widetilde{\phi}_{\vb{k}}\widetilde{\phi}_{\vb{k}'}\delta_{\vb{k}+\vb{k}',0} = \frac{1}{2V}\sum\limits_{\vb{k}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2
 \end{align*}
-Observe that $\phi{\vb{x}} = \widetilde{\phi}_{0} +\sum\limits_{\vb{k}\neq 0} e^{i\vb{k}\cdot \vb{x}\widetilde{\phi}_{\vb{k}}}$ which implies that, $\vb{k} = 0$ is the uniform mean field solution while $\vb{k}\neq 0$ denotes the fluctuations. Previously we had performed a corase-graining to define the Landau-Ginzburg theory, which imposed a mesoscopic length scale $l$. Thus, $\abs{\vb{r}}\gg l \implies \abs{k}\ll \frac{1}{l}$. Hence, there is a cutoff for the momenta, let us call it $\Lambda$. Thus the sum is restricted to only those momenta $\vb{k}$ which satisfies $\abs{\vb{k}}<\Lambda$.
+Observe that $\phi({\vb{x}} )= \widetilde{\phi}_{0} +\sum\limits_{\vb{k}\neq 0} e^{i\vb{k}\cdot \vb{x}\widetilde{\phi}_{\vb{k}}}$ which implies that, $\vb{k} = 0$ is the uniform mean field solution while $\vb{k}\neq 0$ denotes the fluctuations. Previously we had performed a coarse-graining to define the Landau-Ginzburg theory, which imposed a mesoscopic length scale $l$. Thus, $\abs{\vb{r}}\gg l \implies \abs{\vb{k}}\ll \frac{1}{l}$. Hence, there is a cutoff for the momenta, let us call it $\Lambda$. Thus the sum is restricted to only those momenta $\vb{k}$ which satisfies $\abs{\vb{k}}<\Lambda$.
 \begin{equation*}
     \SL[\{\widetilde{\phi}_{\vb{k}}\}] = \frac{1}{2V}\sum\limits_{\substack{\vb{k}\\ \abs{\vb{k}}<\Lambda}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2
 \end{equation*}
@@ -46,7 +46,7 @@ Let us elaborate this a little bit explicitly, getting rid of some subtleties.
 \end{itemize}
 Then the partition function becomes, 
 \begin{equation}
-    \boxed{\SZ = \SN \prod\limits_{\substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}} \int  \dd\widetilde{\phi}_{\vb{k}}^R\dd\widetilde{\phi}^I_{\vb{k}}\ \exp \qty[\frac{-\beta}{V}\qty[\gamma k^2 + a\tund{2}(T-T_c)][(\widetilde{\phi}^R_{\vb{k}})^2+(\widetilde{\phi}^I_{\vb{k}})^2]]}
+    \boxed{\SZ = \SN \prod\limits_{\substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}} \int  \dd\widetilde{\phi}_{\vb{k}}^R\dd\widetilde{\phi}^I_{\vb{k}}\ \exp \qty[-\frac{\beta}{V}\qty[\gamma k^2 + a\tund{2}(T-T_c)][(\widetilde{\phi}^R_{\vb{k}})^2+(\widetilde{\phi}^I_{\vb{k}})^2]]}
 \end{equation}
 where we have converted the exponential of the sum as a product of exponentials. Each integral has independent $\widetilde{\phi}_{\vb{k}}^{R/I}$ going from $-\infty$ to $+\infty$ and the integrand is a Gaussian. Thus, for each $\vb{k}$, the integral gives two Gaussian results, one for the imaginary and other for the real part. So the partition function becomes, 
 \begin{equation}

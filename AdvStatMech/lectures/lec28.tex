@@ -1,0 +1,64 @@
+\refstepcounter{section}
+\section*{Lecture 28: Introduction to RG}
+\addcontentsline{toc}{section}{Lecture 28: Introduction to RG}
+We will have a sketchy introduction to the enlightening concept of the \textit{renormalisation group}. RG can explain universality (why vastly different models seem to have same critical exponents ) and can also predict these exponents. RG is an approach to approximately calculate the sums involved in the partition function. \\[0.2cm]
+Renormalisation basically means doing certain transformations or reparameterisation, in the hope that it will make the theory easier. It is called `group' since two such transformations leads to a third transformation (composition rule). 
+First let us use this for the 1D Ising model. Consider $N$ Ising spins on a 1D lattice with periodic boundary condition (\textit{i.e.} $\sigma_1 \equiv \sigma_{N+1}$) with the following Hamiltonian,
+$$\SH = -J \sum\limits_{i=1}^N \sigma_i \sigma_{i+1}$$
+For this case, we take the zero field condition. We define $K := \beta J$ and using this, the partition function becomes, 
+$$\SZ = \sum\limits_{\sigma_1 = \pm 1}\sum\limits_{\sigma_2 = \pm 1}\cdots \sum\limits_{\sigma_N = \pm 1} e^{K\sum_i \sigma_i \sigma_{i+1}} \equiv \sum\limits_{\sigma_1 = \pm 1}\sum\limits_{\sigma_2 = \pm 1}\cdots \sum\limits_{\sigma_N = \pm 1} e^{K\qty(\sigma_1 \sigma_2 + \sigma_2\sigma_3 + \sigma_3\sigma_4 \ldots \sigma_N\sigma_1)}$$
+Note that the even spins, say $\sigma_2$, appears in two consecutive terms. We can first do the trace over the even spins then, which gives us, 
+\begin{align}
+    \begin{split}
+        \SZ &= \sum\limits_{\sigma_1 = \pm 1}\sum\limits_{\sigma_3 = \pm 1}\sum\limits_{\sigma_5 = \pm 1}\cdots \sum\limits_{\sigma_N = \pm 1} \prod\limits_{j=1}^{N/2} \qty(e^{K \qty(\sigma_{2j-1}+\sigma_{2j+1})}+e^{-K \qty(\sigma_{2j-1}+\sigma_{2j+1})})\\
+&\equiv \sum\limits_{\sigma_1 = \pm 1}\sum\limits_{\sigma_3 = \pm 1}\sum\limits_{\sigma_5 = \pm 1}\cdots \sum\limits_{\sigma_N = \pm 1} \prod\limits_{j=1}^{N/2} \qty[2\cosh(K \qty(\sigma_{2j-1}+\sigma_{2j+1}))]
+    \end{split}
+\end{align}
+Next, if we assume that there exist some function $f(K)$ and $K'$ such that \begin{equation}\label{coshspin}
+    2\cosh(K \qty(\sigma_{2j-1}+\sigma_{2j+1})) = f(K)e^{K'\sigma_{2j-1}\sigma_{2j+1}}\qquad \forall\ j 
+\end{equation}
+then the partition function will take the following form, 
+\begin{align}
+        \SZ =(f(K))^{N/2} \mathcolor{red}{\sum\limits_{\sigma_1 = \pm 1}\sum\limits_{\sigma_3 = \pm 1}\sum\limits_{\sigma_5 = \pm 1}\cdots \sum\limits_{\sigma_N = \pm 1} \prod\limits_{j=1}^{N/2}  e^{K'\sigma_{2j-1}\sigma_{2j+1}}}
+\end{align}
+If we forgo the indexing, the red colour is exactly the partition function for a 1D Ising chain with $N/2$ spins and coupling constant $K'$. Thus, the partition function with $N$ spins and coupling $K$ follows, 
+\begin{equation}\label{partition}
+    \SZ\tund{N}(K) = (f(K))^{N/2} \SZ\tund{N/2}(K')
+\end{equation}
+\begin{figure}[H]
+    \centering 
+    \input{pics/decimation.tex}
+    \caption{The process of decimation by taking partial traces of few spins, leading to a renormalised model.}
+\end{figure}
+Now, let us focus on our claim about the existence of this transformation. Eq. \eqref{coshspin} is valid for all possibilities of $\sigma_{2j\pm 1} \in \{+1,-1\}$. From this, we get:
+$$2\cosh(2K) = f(K)e^{K'}\qquad f(K)e^{-K'}=2$$
+Dividing and multiplying the two expressions above give us,
+$$\cosh(2K) = e^{2K'} \qquad 4\cosh(2K)= f^2(K) \implies K' = \frac{1}{2}\ln \cosh (2K)\qquad f(K) = 2\sqrt{\cosh (2K)}$$
+Now, we know that the free energy $-\beta F = \ln Z\tund{N} \sim N \equiv N\zeta$ where $\zeta$ is the free-energy per spin. Using this in Eq. \eqref{partition}, we have 
+\begin{align*}
+    N\zeta(K) = \frac{N}{2}\ln f(K) + \frac{N}{2}\zeta(K') \implies \zeta(K) = \frac{1}{2}\ln f(K) + \frac{1}{2}\zeta(K') \implies \boxed{\zeta(K') = 2\zeta(K) - \ln \qty[2\sqrt{\cosh 2K}]}
+\end{align*}
+This is a recursion equation (or a map). So starting from a value of $K$, we can find a \textit{decimated} system with coupling $K'$. Now, doing the same procedure again we get $K''$ and this continues, 
+$$K \rightarrow K' \rightarrow K'' \rightarrow \cdots$$
+Also, note one thing. We have $2K'= \ln \cosh(2K)  $ from which we get: 
+\begin{align*}
+    2K' = \ln e^{2K}+e^{-2K} - \ln 2 &= \ln e^{2K}(1+e^{-4K}) -\ln 2 \\ &= 2K + \ln (1+e^{-4K}) - \ln 2 \\ &\implies K' = K +\frac{1}{2}\ln (1+e^{-4K}) - \ln 2 \leq K
+\end{align*}
+From this, we see that the decimated coupling constant is less than the original coupling. Since we defined $K=\beta J$, this means that the new coupling is all the way farther from the critical point. \\[0.2cm]
+The opposite recursion relation (obtaining $K$ from $K'$) is given by, 
+\begin{align}\label{recursionopp}
+   \begin{split}
+     K = \frac{1}{2}\cosh^{-1}(e^{2K'}) \qquad \zeta(K) = \frac{1}{2}\ln f(K) +\frac{1}{2}\zeta(K') &=\frac{1}{2}(\ln 2+K') +\frac{1}{2}\zeta(K')\\ & \implies \boxed{\zeta(K) = \frac{1}{2}(\ln 2+K') +\frac{1}{2}\zeta(K')}
+   \end{split}
+\end{align}
+Now, when $K'$ is reall really small (so $T$ is very high), then the contribution from the interaction is negligible since $\beta \SH = K\sum \cdots \to 0$. Then the system effectively acts as a collection of non-interacting spins. So suppose we have $N'$ spins in this case of very small $K'$, then the partition function is simply $2^{N'}$ which implies that $\beta F = N'\ln 2$, hence $\zeta(K') = \ln 2$.\\[0.2cm]
+Starting from say $K\tund{0}=0.01$, we have $\zeta(K\tund{0})\approx \ln 2$ and we put this in Eq. \eqref{recursionopp} to get the new value of $K$. Now we take this to be $K'$ and put it again in Eq. \eqref{recursionopp}.\\[0.2cm]
+Now, one thing which can probably happen is that, the transformation gives the same output as the input. Then the process will continue in a loop and will be essentially terminated. This situation occurs when we encounter a \textit{fixed point} of the map. The fixed point $K^*$ is then given by the condition, $2K^* = \ln \cosh(2K^*) $, which has solutions $K=0$ ($T\to \infty$) and $K\to \infty$ ($T=0$).\\[0.2cm]
+Hence, starting from any value of $K\tund{0}$, we will always land to $K=0$. Thus, for a finite $K\tund{0}$ we never arrive at an ordered state \textit{viz.} there is no phase transition in 1D Ising model. Only for $K\to \infty$ do the spins order. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.56\textwidth]{codes/RG.pdf}
+    \caption{\textbf{The decimation process.} Starting from $K\tund{0}=3.5$, we map it onto the curve $K'=\frac{1}{2}\ln \cosh 2K$ and repeat the process. The black dashed line represents $K'=K$ line while the green line represents $K'=\frac{1}{2}\ln \cosh 2K$ line. The process converges to $K^*=0$}
+\end{figure}
+
+

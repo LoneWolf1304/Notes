@@ -1,8 +1,84 @@
 \refstepcounter{section}
 \section*{Lecture 27: Kadanoff's Block Spins}
 \addcontentsline{toc}{section}{Lecture 27: Kadanoff's Block Spins}
+In the previous lecture, we used an \textit{ad hoc} assumption of the thermodynamic quantitites being generalised homogenous functions. We now try to give a proper justification of why this turns out to be okay(ish)! For that, consider our favourite Ising model with $N$ spins, given by the corresponding Hamiltonian,
+\begin{align*}
+    \mathscr{H} = -J \sum\limits_{\avg{ij}} \sigma_i \sigma_j - h \sum\limits_{i}\sigma_i
+\end{align*}
 \begin{figure}[H]
     \centering
     \input{pics/kadanoff}
     \caption{Kadanoff's block-spin construction}
 \end{figure}
+\noindent 
+Let the system be defined on a $d$ dimensional lattice, with lattice spacing $a$. Now consider an arbitrary number, $l\gg 1$ and partition the lattice into cells of dimension $la$. Hence, in a single cell there are $l^d$ spins which implies there are $N'=N/l^d$ such blocks. For each such block $I$, define the \textit{block spin} as,
+\begin{equation}
+    S\tund{I} = \frac{1}{\abs{m_l}} \frac{1}{l^d}\sum\limits_{i\in I} \sigma_i
+\end{equation}
+where $m_l$ denotes the average magnetisation of block $I$ and is given by:
+\begin{equation}\label{blockmag}
+    m_l = \frac{1}{l^d}\sum\limits_{i\in I} \avg{\sigma_i}
+\end{equation}
+What we are doing is essentially a coarse-graining procedure, where we are treating a \textit{block} of linear dimension $la$, to be an \textit{effective spin} $S\tund{I}$. The total number of spins then decreases from $N$ to $Nl^{-d}$. Since all spins within the correlation length will be correlated, we assume that $la \ll \xi$, so that each block will behave as an effective single correlated chamber, with all of the spins pointing in the same direction on average. \\[0.2cm]
+We now make a bold assumption that the block spins $\{S\tund{I}\}$ also follow the same Hamiltonian, which is not apriori evident. The new Hamiltonian for the block spins will have the same form but with different coupling constants, say $J_l$ and $h_l$ 
+\begin{equation}
+    \mathscr{H}_l = -J_l\sum\limits_{\avg{IJ}}S\tund{I}S\tund{J} -h_l \sum\limits_{I}S\tund{I}. 
+\end{equation}
+For this `block' Hamiltonian, the lattice spacing is $la$ and this also has fewer spins than the original Hamiltonian. Let $\xi\tund{1}$ denote the correlation length in units of $a$ while $\xi_l$ denote the same in units of $la$. Since the actual physical correlation length $\xi$ is unchanged, we have
+\begin{align*}
+    \xi = \xi\tund{1}a = \xi_l (la) \implies \xi_l = \xi\tund{1}l^{-1}< \xi\tund{1}
+\end{align*}
+This says that the block spins are further away from criticality than the original system, which implies that the system is now at a new effective reduced temperature $t_l$. \\[0.2cm]
+Since the block spin Hamiltonian is of the same form, the total free energy should also be the same for both. 
+\begin{equation}
+    N f(t,h) = N' f(t_l,h_l) = N l^{-d}f(t_l,h_l) \implies f(t,h) = l^{-d}f(t_l,h_l)
+\end{equation}
+where $f(t,h)$ is the free energy per spin. We now assume that the new couplings are related to the original ones by,
+\begin{align}
+    \begin{split}
+        t_l &= t l^{y_t}\\
+        h_l &= h l^{y_h}
+    \end{split}
+\end{align}
+where $y_t, y_h>0$ are some positive numbers. Substituting this in the free energy equation above, we get:
+\begin{equation}
+ f(t l^{y_t},h l^{y_h})=l^d f(t,h)\quad \xrightarrow{l\to l^{1/d}}  \quad f( l^{y_t/d}t, l^{y_h/d}h)=lf(t,h)
+\end{equation}
+The equation above seems to be the definition of a generalised homogenous function, however, there's a subtlety; to be a GHF, we need the parameter $\lambda$ to be arbitrary. However, in this case, $\lambda = l$, which is constrained by $1 \ll l \ll \frac{\xi}{a}$. However, let us do away with this and just say that $l$ can take any values. Hence, $f$ becomes a GHF and the rest of the procedure to relate the exponents $y_t$ and $y_h$ to critical exponents follows as before. 
+\subsection{Correlation Function}
+We now analyse the correlation function for the block spins, 
+$$\SG(r_l, t_l) = \avg{S\tund{I}S\tund{J}} - \avg{S\tund{I}}\avg{S\tund{J}}$$
+where $r_l = \abs{\vb{r}\tund{I}-\vb{r}\tund{J}}$ in units of $la$. Since the physical distance remains the same, we have $r_l = r/l$. Let us substite the definition of the block spins in the correlation function,
+\begin{align}
+    \begin{split}
+        \SG(r_l, t_l)= \frac{1}{\abs{m_l}^2 l^{2d}} \sum\limits_{i\in I } \sum\limits_{i\in J } \avg{\sigma_i \sigma_j} - \avg{\sigma_i}\avg{\sigma_j}
+    \end{split}
+\end{align}
+Now let us find some relation between the couplings and $m_l$. For that, note from the definition of the block spins,
+\begin{align*}
+    h\sum\limits_i\sigma_i = h \sum\limits_{I}\sum\limits_{i\in I} \sigma_i = h|m_l| l^d  \sum\limits_{I} S\tund{I}  \equiv h_l \sum\limits_{I} S\tund{I}
+\end{align*}
+We can thus make an equivalence, $h|m_l| l^d = h_l \implies |m_l| = (h_l/h)l^{-d} = l^{y_h-d}$. Substituting this in the correlation function we get:
+\begin{align*}
+    \SG(r_l, t_l)= l^{-2y_h} \sum\limits_{i\in I } \sum\limits_{i\in J } \avg{\sigma_i \sigma_j} - \avg{\sigma_i}\avg{\sigma_j}\simeq  l^{-2y_h} l^d \cdot l^d \avg{\sigma_i \sigma_j} - \avg{\sigma_i}\avg{\sigma_j} = l^{2(d-y_h)}\SG(r,t)
+\end{align*} 
+where we assumed that if we take $\sigma_i$ in the $I^{\text{th}}$ block and $\sigma_j$ in the $J^{\text{th}}$ block, then for all such $(i,j)$, the correlator will be same and equal to $\SG(r,t)$. Let us also introduce the factor for field, which gives us finally 
+\begin{equation*}
+    \SG\qty(\frac{r}{l}, l^{y_t}t, l^{y_h}h) = l^{2(d-y_h)}\SG(r,t,h)
+\end{equation*}
+Let us choose $l$ such that $lt^{y_t}=1$ which gives us, 
+\begin{equation*}
+     \SG\qty(rt^{1/y_t},1, t^{-y_h/y_t}h) = t^{-2(d-y_h)/y_t}\SG(r,t,h)  
+\end{equation*}
+Define a new function $\widetilde{\SF}$ such that, 
+$$ \SG\qty(rt^{1/y_t},1, t^{-y_h/y_t}h) \equiv (rt^{1/y_t})^{-2(d-y_h)} \widetilde{\SF}\qty(rt^{1/y_t},1, t^{-y_h/y_t}h)$$
+Substituting this above, we get:
+\begin{equation}
+     (rt^{1/y_t})^{-2(d-y_h)} \widetilde{\SF}\qty(rt^{1/y_t},1, t^{-y_h/y_t}h) = t^{-2(d-y_h)/y_t}\SG(r,t,h)   \implies \SG(r,t,h) = r^{-2(d-y_h)}\widetilde{\SF}\qty(rt^{1/y_t},t^{-y_h/y_t}h)
+\end{equation}
+We know that near $T_c$, $\SG(r)\sim r^{-(\eta+d-2)}$ and thus we expect that, $$2(d-y_h) = \eta+d-2 \implies y_h = \frac{d+2-\eta}{2}$$
+Now, $rt^{1/y_t} $ should be dimensionless and define $\xi \equiv t^{-1/y_t}$ and we also know that $\xi \sim t^{-\nu}$. From this we get $ y_t\nu=1$. We can also get something with the exponent $\gamma$. For that, note that $\SG(r)\sim r^{-(\eta+d-2)}$ and, 
+\begin{align*}
+   t^{-\gamma}= \chi\tund{T} \sim \int\limits_{V_\xi}\dd^d r \  \SG({r}) \sim \int\limits_0^\xi \dd r\  r^{d-1} \cdot r^{-(\eta+d-2)} = \int\limits_0^\xi \dd r\   \cdot r^{1-\eta} \sim \xi^{2-\eta}  \sim t^{-(2-\eta)\nu}
+\end{align*}
+Equating this, we get $\gamma=(2-\eta)\nu$ which is another scaling relation. 

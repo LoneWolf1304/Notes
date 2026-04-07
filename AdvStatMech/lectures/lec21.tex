@@ -19,6 +19,7 @@ Thus, the average correlation is obtained as,
 \begin{equation}
     \avg{\abs{\widetilde{\phi}_{\vb{q}}}^2} =  \frac{\kb TV}{\gamma k^2+a\tund{2}(T-T_c)}
 \end{equation}
+We can also use a heuristic equipartition method to get to this in an effortless way. For that, note  
 We thus obtain that in the Fourier space, $V\widetilde{\SG}({\vb{k}}) =  \frac{\kb TV}{\gamma k^2+a\tund{2}(T-T_c)}$. Putting $\vb{k} =0$ here gives us,
 $$V\widetilde{\SG}({\vb{k}=0}) =   \frac{\kb TV}{a\tund{2}(T-T_c)} = \kb T V \chi\tund{T}$$
 where $\chi\tund{T} = \frac{1}{a\tund{2}(T-T_c)}$ is the isothermal susceptibility. Hence, in this case the static susceptibility rule still applies. 
@@ -39,7 +40,7 @@ Now, note the following,
 \begin{align*}
     \avg{\phi^2} \equiv \avg{\phi(\vb{x})\phi(\vb{x})} = \SG(\vb{x},\vb{x}) = \int\ \frac{\dd^d k}{(2\pi)^d}\widetilde{\SG}(\vb{k})= \int\ \frac{\dd^d k}{(2\pi)^d}\frac{\kb T}{\gamma k^2+a\tund{2}(T-T_c)+3a\tund{4}\avg{\phi^2}}
 \end{align*}
-This is already a self-consistent equation for $\phi$. From the expression of the isothermal susceptibility, $\chi\tund{T}^{-1} = a'\tund{2}(T-T_c)$, we get: 
+This is already a self-consistent equation for $\avg{\phi^2}$. From the expression of the isothermal susceptibility, $\chi\tund{T}^{-1} = a'\tund{2}(T-T_c)$, we get: 
 \begin{equation*}
     \frac{\chi\tund{T}^{-1}-a\tund{2}(T-T_c)}{3a\tund{4}} = \int \frac{\dd^d k}{(2\pi)^d}\ \frac{\kb T}{\gamma k^2+\chi\tund{T}^{-1}}
 \end{equation*}
