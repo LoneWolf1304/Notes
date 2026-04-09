@@ -65,6 +65,6 @@ fixpt(x) = (1-1/x)
 scatter!(μ_plot, x_plot, ms=0.2, color=:black, legend=false,
         xlabel=L"\mu", title="", ylabel=L"x",inset = (1, BB),
 subplot = 2)
+plot!(dpi=1000)
 
-
-savefig("eg.pdf")
+savefig("logistic_orbit.png")

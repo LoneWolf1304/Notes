@@ -1,7 +1,8 @@
 \refstepcounter{section}
 \section*{Lecture 29: Stability Analysis}
 \addcontentsline{toc}{section}{Lecture 29: Stability Analysis}
-In the previous lecture, we saw a map over which we iterate our system to perform the decimation. This map resulted in two fixed points, $K^*=0$ and $K^*\to \infty$ for the 1D Ising model case. $K^*=0$ was a stable fixed point and hence starting the process from any $K\tund{0}>0$ resulted in convergence to zero, which denoted the infinite temperature, non-interacting case. \\[0.2cm]
+In the previous lecture, we saw a map over which we iterate our system to perform the decimation. This map resulted in two fixed points, $K^*=0$ and $K^*\to \infty$ for the 1D Ising model case. $K^*=0$ was a stable fixed point and hence starting the process from any $K\tund{0}>0$ resulted in convergence to zero, which denoted the infinite temperature, non-interacting case. 
+\subsection{Stability in Non-Linear Systems}
 Let us proceed to understand a general procedure to analyse the stability of these kind of maps. We will focus on the \textit{logistic map}, given by:
 \begin{equation}\label{logistic}
     x_{n+1} = \mu x_n (1-x_n) \qquad x_n \in [0,1]
@@ -26,16 +27,42 @@ If $\abs{f'(0)} =\abs{ \mu} <1$ then $x^*=0$ is a stable fixed point. Thus, for 
 If $\abs{f'(x^*)} =\abs{ 2-\mu} <1$ then $x^*=0$ is a stable fixed point. The condition leads to,
 $$-1 < 2-\mu <1 \implies -3 <-\mu<-1\implies  1<\mu <3$$
 Thus, for $1<\mu<3$ we have $x^*=1-\frac{1}{\mu}$ is a \textit{stable point} of the map. This means that starting from any value of $x\tund{0}$, we will eventually converge to $1-\frac{1}{\mu}$. Note that the point of convergence will now depend on the value of $\mu$.\\[0.2cm]
-Beyond $mu=3$, none of the fixed points are stable and there are some other complicated things like period-doubling and chaos going on. It can be shown that for $3<r<1+\sqrt{6}$, there is a stable \textit{period-2 orbit}, which means that instead of $f(x^*) = x^*$ we have $f(f(x^*))=x^*$.\\[0.2cm]
+Beyond $\mu=3$, none of the fixed points are stable and there are some other complicated things like period-doubling and chaos going on. It can be shown that for $3<r<1+\sqrt{6}$, there is a stable \textit{period-2 orbit}, which means that instead of $f(x^*) = x^*$ we have $f(f(x^*))=x^*$.\\[0.2cm]
 Similarly for $1+\sqrt{6}<\mu<3.54409\ldots$ we have a \textit{period-4 orbit}. This way, period-$2^n$ occurs for different $\mu_n$ ($\mu_n$ is the value where the first bifurcation occurs). Successive bifurcations come faster and faster and ultimately $\mu_n$ converges to $\mu_\infty$ ($\approx 3.569946$ for the logistic map). For $\mu>\mu_\infty$, the dynamics become \textit{chaotic}.\\[0.2cm] These behaviour can be demonstrated using the \textit{orbit diagram}, generated numerically. What we do is, we choose a particular value of $\mu$ and then, choosing some initial value, we iterate the map for quite some generations (to kill of the initial transient behaviour). Then, we plot $x_n$ for multiple successive iterations. 
 \begin{figure}[H]
+
     \centering
-    \includegraphics[width=0.7\textwidth]{codes/logistic_orbit.pdf}
+    \includegraphics[width=0.7\textwidth]{codes/logistic_orbit.png}
     \caption{\textbf{Orbit diagram for logistic map.} We see that at $\mu=1$, there is a bifurcation. At $\mu=3$, there is another bifurcation (period doubling) and so on. The inset shows a zoomed in region between $3<\mu<4$ which shows further bifurcations. The red line shows the $x=1-\frac{1}{\mu}$ line. }
 \end{figure}
-Now, finally let us plot the cobweb diagrams for different values of $r$ which will make the case a bit more clear. 
+Now, finally let us plot the cobweb diagrams for different values of $\mu$ which will make the case a bit more clear. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{codes/timewaste.pdf}
     \caption{\textbf{Cobweb diagram for different $\boldsymbol{\mu}$.} The upper panel shows the cobweb diagram of the logistic map for different values of $\mu$ while the lower panel shows the corresponding convergence of the map under successive iterations. For the third panel, there is no convergence but there is a periodic orbit with period 2 and in the last panel, there is no pattern as such, the evolution is \textit{chaotic}. }
 \end{figure}
+\subsection{Stability in RG}
+As seen in the previous discussions, the recursion relations, like say Eq. \eqref{recRG}, are called \textit{RG transformations} and for a general system with a set of coupling constants $\vb{K}\equiv [K]$, is denoted by
+$$[K'] = R_l [K]\qquad l>1$$
+where $R_l$ is the non-linear recursion relation. The subscript $l$ refers to the change in length scale after such transformation. Like in Fig. \ref{decimationfig}, if the initial spacing between two spins was $a$, after decimation, the spacing between two spins become $a'=2a$. The physical length remains same, which implies $A = a = \frac{a'}{2}$, hence $l=2$ in this case. \\[0.2cm]
+There cannot be an inverse transformation in general, because we are tracing out degrees of freedom after each decimation step and there is no way to get that information back again. If we do successive transformations $R_{l_1}$ and $R_{l_2}$, we get 
+$$[K'] = R_{l_1}[K]\qquad [K''] = R_{l_2}[K'] =R_{l_2}\cdot R_{l_1}[K] \equiv R_{l_1l_2}[K] $$
+Hence, product of two transformations is equal to another transformation and thus exhibits a `semi-group' structure (it's not a group since the inverse does not exist in general). Also note that it doesn't matter whether we perform $R_{l_1}$ first or $R_{l_2}$ first, so these transformations commute.\\[0.2cm]
+If there is a fixed point $[K^*]$ for the RG transformation, then $[K^*] = R_l [K^*]$. Under $R_l$, the length scales are reduced by factor $l$ and the correlation length of the rescaled couplings will be $\xi[K'] = \xi[K]/l$. For the fixed point,
+$$\xi[K^*] = \frac{\xi[K^*]}{l} \implies \xi[K^*] = 0 \quad \text{or}\quad \xi[K^*] \to \infty$$
+The fixed point where $\xi\to \infty$ is called the \textit{critical fixed point} (since correlation diverges at the critical point) while those with $\xi=0$ will be called the \textit{trivial fixed point}.\\[0.2cm]
+Let us consider the fixed point $\vb{K}^* \equiv (K_1^*, K_2^*,\cdots )$ and some deviation $\boldsymbol{\delta K}=(\delta K_1, \delta K_2,\ldots)$ from this fixed point. We now Taylour expand the quantity:
+$$K_n'(\{K_n\}) = K_n'(\{K_n^*+\delta K_n\}) = K_n^* +\sum\limits_m \pdv{K'_n}{K_m}\Bigg|_{K_m^*} \cdot \delta K_m + \Theta((\delta K)^2)$$
+Now we can also write $K_n' = K^*_n  + \delta K_n'$ in the vicinity of the fixed point. Equating both we get,
+\begin{align*}
+    \delta K_n' = \sum\limits_{n} M_{mn} K_n \qquad \qquad \text{where } M_{mn} \equiv \pdv{K'_m}{K_n}\Bigg|_{\vb{K}^*} 
+\end{align*}
+The matrix $M^{(l)} \equiv [M_{mn}]$ is the linearised RG transformation where the superscript now denote the length scale of the transformation. Let us focus only only one coupling for the moment. Then the matrix $M$ becomes just a scalar number, let us denote it by $\Lambda^{(l)}$. Using the semi-group property, we have:
+\begin{equation}\label{semigroup}
+    \Lambda^{(l)} \Lambda^{(l')} = \Lambda^{(ll')}
+\end{equation}
+This is a functional equation in $l$ and $l'$. To solve it, let us first differentiate the above equation w.r.t $l'$ for a fixed $l$ and then put $l'=1$,
+$$\Lambda^{(l)}\dv{ \Lambda^{(l')}}{l'} = \dv{\Lambda^{(ll')}}{(ll')}\cdot \dv{(ll')}{l'} \implies c\cdot \Lambda^{(l)} =l \dv{\Lambda^{(ll')}}{(ll')} =l \dv{\Lambda^{(l)}}{l} $$
+where $c=\dv{ \Lambda^{(l')}}{l'}$ at $l'=1$. In the last step, we replaced the variable $ll' \to l$, since the function and derivative are both w.r.t the variable $(ll')$.  Doing this we obtain the differential equation,
+$$c\cdot \frac{\dd l}{l}  =  \frac{\dd \Lambda^{(l)}}{\Lambda^{(l)}} \implies  \ln \Lambda^{(l)}=c\ln l +d \implies \Lambda^{(l)} = \Lambda^{(l)}\tund{0}l^c$$
+The condition in Eq. \eqref{semigroup} implies that $\Lambda^{(l)}\tund{0}=1$ for non-trivial result and hence we obtain that $\Lambda^{(l)} = l^c$ where $c$ is a number independent of $l$ and we will see its implications later.
