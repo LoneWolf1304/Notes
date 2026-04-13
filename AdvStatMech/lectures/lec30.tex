@@ -1,0 +1,125 @@
+\refstepcounter{section}
+\section*{Lecture 30: More on RG}
+\addcontentsline{toc}{section}{Lecture 30: More on RG}
+Let us continue our discussion on RG and focus on some other things. Previously we saw that, for a \textit{critical} fixed point $\vb{K}^*$, we should have the correlation length $\xi^*$ either zero or infinite. However, we know that under successive RG transformations with say $R_l$, the correlation length only \textit{decreases} (since $l>1$) from $\xi\to \xi' = \xi/l$. This implies that, starting from $\vb{K}\tund{0}$ and on successive transformations, $\xi^*\to\infty$ at $\vb{K}^*$ can only happen if $\xi\to \infty$ also at $\vb{K}$ (and also in any intermediate point of flow from $\vb{K}$ to $\vb{K}^*$). \\[0.2cm]
+This constitutes a surface, called the \textit{critical surface} (or a \textit{critical manifold}, if we want to sound cool!), say $\mathcal{C}$, such that if $\vb{K}\in \mathcal{C}$ then $\vb{K}$ converges to $\vb{K}^*$. Any $\vb{K}\notin \mathcal{C}$ will move away from $\vb{K}^*$ (even if initially it moves towards it). \\[0.2cm]
+What is physically means is that, there are infinite directions in which, if we start, then we will not converge to the fixed point. Only starting on the particular \textit{critical} surface will lead us to the fixed point.\\[0.2cm]
+Now, let us rediscuss about the linearisation of RG, from Eq. \eqref{RGlinear}. Let us denote the eigenvalue and eigenvector set of $M$ with $\qty{\lambda_{\sigma}, \hat{\vb{e}}_{\sigma}}$. Negating all pathologies, we assume that the eigenvectors form a complete set and hence we can expand any vector in terms of these eigenvectors, using which we get:
+\begin{align}
+    \begin{split}
+        \bs{\delta K} = \sum\limits_{\sigma} u_{\sigma}\hat{\vb{e}}_{\sigma} \qquad  \bs{\delta K}' = \sum\limits_{\sigma} {u'}_{\sigma}\hat{\vb{e}}_{\sigma}
+    \end{split}
+\end{align}
+Substituting this in Eq. \eqref{RGlinear} we get, 
+$$\sum\limits_{\sigma} {u'}_{\sigma}\hat{\vb{e}}_{\sigma} = M\qty[\sum\limits_{\sigma} u_{\sigma}\hat{\vb{e}}_{\sigma}] = \sum\limits_{\sigma} \lambda_{\sigma}u_{\sigma}\hat{\vb{e}}_{\sigma}$$
+Since the eigenvectors are complete, these form a linearly independent set from which we get ${u'}_{\sigma} = \lambda_{\sigma}u_{\sigma} $. The quantities $\qty{u_{\sigma}}$ are called \textit{scaling fields} of the given problem and are crucial to understand critical behaviour. Under successive transformations, $u_{\sigma}\mapsto \qty[\lambda_{\sigma}]^n u_{\sigma}$\\[0.2cm]
+Since $u_{\sigma}$ is directly related to $\bs{\delta K}$ then we can have three possibilities:
+\begin{itemize}
+    \item[\triangleright] If $\abs{\lambda_{\sigma}}>1$ then $u_{\sigma}$ grows under successive transformations and hence $\bs{\delta K}$ ``increases'' along these directions, denoting the flow away from the fixed point. The scaling field is then referred to as \textit{relevant}. 
+    \item[\triangleright]  If $\abs{\lambda_{\sigma}}<1$ then $u_{\sigma}$ decays under successive transformations and the scaling field is referred to as \textit{irrelevant}.
+    \item[\triangleright] If $\abs{\lambda_{\sigma}}=1$ then $u_{\sigma} \sim \SO(1)$ and remains mostly constant, upto the linear approximation. It does not affect the `critical behaviour' much but can introduce logarithmic factors. We then called this \textit{marginal} scaling field.
+\end{itemize}
+On the critical surface, we have all the relevant variables equal to zero and hence, everything flows to the fixed point. Thus, only the irrelevant eigenvectors span this space.\\[0.2cm]
+Away from the critical surface, we have both relevant and irrelevant fields; the former drive the system away from the fixed point while the latter bring it closer to the fixed point. The net result is an initial approach to the fixed point but a final recession away from it.\\[0.2cm]
+The number of relevant eigenvalues is called the \textit{codimension} of the critical surface, denoted by $c$ and is equal to the difference in the dimension of the coupling constant space and the dimension of the critical surface. 
+\begin{figure}[t]
+    \centering 
+    \input{pics/critical_surf.tex}
+    \caption{\textbf{RG flow in K-space.} The blue arrows denote the relevant flows, outside of the critical surface while the green arrows show the irrelevant flows towards the fixed point (red marker), on the critical surface. The critical surface is denoted by the yellow region.}
+\end{figure}
+
+\subsection{RG for 2D Ising Model on sqaure lattice}
+Let us see RG in play for the zero-field 2D Ising model, whose Hamiltonian is given by 
+\begin{align}\label{ising2dham}
+    -\beta \SH = K \sum\limits_{\avg{ij}} \sigma_i \sigma_j
+\end{align}
+where $K=\beta J$. Then the partition function becomes,
+$$\SZ = \sum\limits_{\{\sigma_k\}} \exp\qty[K \sum\limits_{\avg{ij}} \sigma_i \sigma_j] = \sum\limits_{\{\sigma_k\}}\prod\limits_{\avg{ij}} \exp\qty[K  \sigma_i \sigma_j]$$
+As before, let us take a particular spin, say $\sigma_{(i,j)}$ (where $(i,j)$ represents the coordinate on the lattice), and then trace it out. The term $\sigma_{(i,j)}$ appears in: 
+\begin{align*}
+    \SZ_N &=\qty{\sum\limits_{\substack{\sigma_{p\neq i,\, q\neq j}\\ = \pm 1}}} \sum\limits_{\substack{\sigma_{(i,j)}\\ = \pm 1}}\cdots \exp\qty[K\sigma_{(i,j-1)}\sigma_{(i,j)}]\cdot\exp\qty[K\sigma_{(i,j+1)}\sigma_{(i,j)}]\cdot\exp\qty[K\sigma_{(i,j)}\sigma_{(i-1,j)}]\cdot\exp\qty[K\sigma_{(i,j)}\sigma_{(i+1,j)}]\cdots\\
+&=\sum\limits_{\sigma_{p\neq i, q\neq j}= \pm 1}\cdots \cdot\qty[2\cosh \qty(K(\sigma_{(i,j+1)}+\sigma_{(i,j-1)}+\sigma_{(i+1,j)}+\sigma_{(i-1,j)}))]\cdots
+\end{align*}
+\begin{figure}[t]
+    \centering 
+    \input{pics/RG2D.tex}
+    \caption{\textbf{Decimation of the 2D Ising model}. The hollowed out spins are the ones traced out, leaving behind a decimated system, which when rotated by $\frac{\pi}{4}$ and scaled appropriately, resembles the original system, specially in the thermodynamic limit.}
+\end{figure}
+\noindent
+Again, we need to convert the resulting expression in the form of the original Hamiltonian with respect to these spins, as much as we can. Note that this will not be that much easy as in the case of the 1D counterpart, since there are now a total of $16$ possibilities for the terms in $\qty[2\cosh \qty(K(\sigma_{(i,j+1)}+\sigma_{(i,j-1)}+\sigma_{(i+1,j)}+\sigma_{(i-1,j)}))]$. Note that all the $16$ possibilities will not yield a unique sum, some will be repeated. Only $4$ cases turn out to be non-equivalent: 
+\begin{itemize}
+    \item When all are equal, \textit{i.e.} $\sigma_{i-1,j}=\sigma_{i+1,j}=\sigma_{i,j+1}=\sigma_{i,j-1}$.
+    \item When one is $-1$, \textit{i.e.} $\sigma_{i-1,j}=\sigma_{i+1,j}=\sigma_{i,j+1}=-\sigma_{i,j-1}$.
+    \item When two are $-1$, which has two cases,
+    \begin{itemize}
+        \item[\triangleright] $\sigma_{i-1,j}=\sigma_{i+1,j}=-\sigma_{i,j+1}=-\sigma_{i,j-1}$
+        \item[\triangleright] $\sigma_{i-1,j}=-\sigma_{i+1,j}=-\sigma_{i,j+1}=\sigma_{i,j-1}$
+    \end{itemize}
+\end{itemize}
+Now, if we want the decimated system to be of the form of the original Hamiltonian \textit{viz.} the nearest-neighbour 2D Ising model, then the term in the partition function involved with these spins would be, 
+$$e^{A}\cdot e^{B\qty(K(\sigma_{(i,j+1)}+\sigma_{(i,j-1)}+\sigma_{(i+1,j)}+\sigma_{(i-1,j)}))}$$
+which will be an issue since the given $4$ possibilities of these spins exceed the number of parameters $A$ and $B$ to fix. We can make this work by considering higher order interactions, giving us, 
+\begin{align*}
+2\cosh\Big(K(\sigma_{(i,j+1)}+\sigma_{(i,j-1)}+\sigma_{(i+1,j)}+\sigma_{(i-1,j)})\Big) &= e^{K_0'} \exp\Bigg[
+\frac{K'}{2}\Big(
+\sigma_{(i,j-1)}\sigma_{(i-1,j)}
++ \sigma_{(i,j-1)}\sigma_{(i+1,j)} \\
+&\quad\qquad\qquad\qquad
++ \sigma_{(i-1,j)}\sigma_{(i,j+1)}
++ \sigma_{(i,j+1)}\sigma_{(i+1,j)}
+\Big) \\
+&\quad\qquad \qquad\qquad + L'\Big(
+\sigma_{(i+1,j)}\sigma_{(i-1,j)}
++ \sigma_{(i,j-1)}\sigma_{(i,j+1)}
+\Big) \\
+&\quad\qquad \qquad\qquad + M'\,
+\sigma_{(i-1,j)}\sigma_{(i+1,j)}
+\sigma_{(i,j+1)}\sigma_{(i,j-1)}
+\Bigg]
+\end{align*}
+where $L'$ and $M'$ are new couplings which are introduced. Imposing the spin possibilities gives us four equations relating the new and old couplings,
+\begin{align}
+    \begin{split}
+        2\cosh(4K) &= e^{K_0' + 2K' + 2L'+M}\qquad  2\cosh(2K) = e^{K_0'- M}\\
+      2 &= e^{K_0'- 2K'+2L'+M'}    \qquad 2 = e^{K_0'- 2L'+M'}\\
+    \end{split}
+\end{align}
+After a few manipulations, we would obtain: 
+\begin{equation}\label{recrel2d}
+\begin{alignedat}{2}
+K_0' &= \ln 2 + \frac{1}{2}\ln \cosh 2K + \frac{1}{8}\ln \cosh 4K 
+\qquad & M' &= \frac{1}{8}\ln \cosh 4K - \frac{1}{2}\ln \cosh 2K \\
+K' &= \frac{1}{4}\ln \cosh 4K 
+\qquad & L' &= \frac{1}{8}\ln \cosh 4K
+\end{alignedat}
+\end{equation}
+Now take another value of the spin to trace over, say $\sigma_{(i+2,j)}$,  and repeat the process. The process continues till all $N/2$ spins are summed over. Note that, the nearest neighbour interaction term $\sigma_{(i+1,j)}\sigma_{(i,j+1)}$ with coupling $K'$ will appear when we trace out spins $\sigma_{(i,j)}$ and also when we trace out $\sigma_{(i+1,j+1)}$. This terms then appear exactly twice in the decimation process and hence we had taken $\frac{K'}{2}$ when we wrote the new couplings. Doing the decimation process until $N/2$ spins are traced out, will give us a partition funciton of the form,
+$$\SZ_N = e^{N' K_0'} \sum\limits_{\sigma'} \exp\qty[\mathcolor{blue}{K'\sum\limits_{\avg{jk}}\sigma'_j \sigma'_k+L'\sum\limits_{\avg{\avg{jk}}}\sigma'_j \sigma'_k+M'\sum\limits_{\text{plaquette}}\sigma'_j \sigma'_k\sigma'_l\sigma'_m}]$$
+with $N'=N/2$ and $\avg{\avg{\cdot}}$ denoting the nearest neighbour coupling and \textit{plaquette} sum denoting the four spin interaction over a square plaquette. There is no exact correspondence between this and Eq. \eqref{ising2dham}. The latter has only nearest neighbour terms while the former has all sort of complicated things going on. Things will only get worse when we do another round of decimation, such that $N'\to N/4$, leading to higher order spin interaction terms. 
+\begin{figure}[H]
+    \centering
+    \input{pics/interactionsRG.tex}
+    \caption{Type of interactions generated after one round of decimation.}
+\end{figure}
+\noindent
+To make a way around this problem of not having a correspondence with the original Hamiltonian, we assume that the initial Hamiltonian was also of the same form, with all these interactions, but the corresponding couplings were $0$. So $L=M=0$ for the original system. Then we can write,
+\begin{align*}
+    \SZ_{N}(\qty{K,0,0}) = e^{N' K_0'}\SZ_{N'}(\qty{K',L',M'}) \implies \zeta(\qty{K,0,0}) = -\frac{1}{2}K_0' + \frac{1}{2}\zeta(\qty{K',L',M'})
+\end{align*}
+The number of parameters will increase after each round of decimation and the problem will become intractable unless we do what we \textit{love} to do: take weird approximations! In here, we will assume that only the nearest ($K$) and the next-nearest neighbour interactions ($L$) are important and further, that these are very small (so $\cosh(x)\approx 1 +\frac{x^2}{2}$ and $\ln \qty(1 +\frac{x^2}{2})\approx \frac{x^2}{2}$), which changes Eq. \eqref{recrel2d} to,
+$$K' = 2K^2\qquad L' = K^2$$
+Furthermore, let us suppose that $L\neq 0$ in the beginning. Then, considering this we would have obtained the transformations as $$K'= 2K^2 + L \qquad L'=K^2$$ 
+Now, we need to find the fixed point of these transformations.
+$$L^* = K^{*2}\qquad K^*=2K^{*2}+L^* = 3K^{*2}$$
+This gives us two set of fixed points, $(K^*,L^*) = (0,0)$ and $(K^*,L^*) = (\sfrac{1}{3},\sfrac{1}{9})$. The first one is the trivial fixed point, corresponding to infinite temperature, while the second one is the one of our interest.\\[0.2cm]
+Considering deviations from the fixed point, $K = K^*+\delta K$ and $L=L^*+\delta L$, we get:
+\begin{align*}
+   K^*+\delta K' \equiv  K' &= 2(K^*+\delta K)^2 + (\delta L + L^*) = \mathcolor{red}{2K^{*2}} + 4K^*\delta K +\delta L + \mathcolor{red}{L^*} = \mathcolor{red}{K^*}+4K^*\delta K+\delta L\\
+   L^*+\delta L' \equiv L' &= \mathcolor{red}{K^{*2}} + 2K^* \delta K = \mathcolor{red}{L^*}+2K^* \delta K
+\end{align*}
+From this, we get the following in matrix form, 
+\begin{equation}
+    \mqty(\delta K' \\ \delta L') = \mqty( 4K^* & 1 \\ 2K^* & 0 ) \mqty(\delta K \\ \delta L)\quad \longrightarrow\quad \boxed{\mqty(\delta K' \\ \delta L') =\mqty( \sfrac{4}{3} & 1 \\ \sfrac{2}{3} & 0 ) \mqty(\delta K \\ \delta L)}
+\end{equation}
+Before the transformation, we have the lattice spacing as $a$ and after transformation, the lattice spacing becomes $a'= a\sqrt{2}$ which implies that $l=\sqrt{2}$. The linearised RG is thus, 
+$$\mathrm{M}^{(\sqrt{2})} \equiv \mqty( \sfrac{4}{3} & 1 \\ \sfrac{2}{3} & 0 ) $$

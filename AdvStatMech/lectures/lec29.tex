@@ -44,7 +44,7 @@ Now, finally let us plot the cobweb diagrams for different values of $\mu$ which
 \subsection{Stability in RG}
 As seen in the previous discussions, the recursion relations, like say Eq. \eqref{recRG}, are called \textit{RG transformations} and for a general system with a set of coupling constants $\vb{K}\equiv [K]$, is denoted by
 $$[K'] = R_l [K]\qquad l>1$$
-where $R_l$ is the non-linear recursion relation. The subscript $l$ refers to the change in length scale after such transformation. Like in Fig. \ref{decimationfig}, if the initial spacing between two spins was $a$, after decimation, the spacing between two spins become $a'=2a$. The physical length remains same, which implies $A = a = \frac{a'}{2}$, hence $l=2$ in this case. \\[0.2cm]
+where $R_l$ is the non-linear transformation defining a ``flow'' from $\vb{K}$ to $\vb{K}'$. The subscript $l$ refers to the change in length scale after such transformation. Like in Fig. \ref{decimationfig}, if the initial spacing between two spins was $a$, after decimation, the spacing between two spins become $a'=2a$. The physical length remains same, which implies $A = a = \frac{a'}{2}$, hence $l=2$ in this case. \\[0.2cm]
 There cannot be an inverse transformation in general, because we are tracing out degrees of freedom after each decimation step and there is no way to get that information back again. If we do successive transformations $R_{l_1}$ and $R_{l_2}$, we get 
 $$[K'] = R_{l_1}[K]\qquad [K''] = R_{l_2}[K'] =R_{l_2}\cdot R_{l_1}[K] \equiv R_{l_1l_2}[K] $$
 Hence, product of two transformations is equal to another transformation and thus exhibits a `semi-group' structure (it's not a group since the inverse does not exist in general). Also note that it doesn't matter whether we perform $R_{l_1}$ first or $R_{l_2}$ first, so these transformations commute.\\[0.2cm]
@@ -54,9 +54,9 @@ The fixed point where $\xi\to \infty$ is called the \textit{critical fixed point
 Let us consider the fixed point $\vb{K}^* \equiv (K_1^*, K_2^*,\cdots )$ and some deviation $\boldsymbol{\delta K}=(\delta K_1, \delta K_2,\ldots)$ from this fixed point. We now Taylour expand the quantity:
 $$K_n'(\{K_n\}) = K_n'(\{K_n^*+\delta K_n\}) = K_n^* +\sum\limits_m \pdv{K'_n}{K_m}\Bigg|_{K_m^*} \cdot \delta K_m + \Theta((\delta K)^2)$$
 Now we can also write $K_n' = K^*_n  + \delta K_n'$ in the vicinity of the fixed point. Equating both we get,
-\begin{align*}
-    \delta K_n' = \sum\limits_{n} M_{mn} K_n \qquad \qquad \text{where } M_{mn} \equiv \pdv{K'_m}{K_n}\Bigg|_{\vb{K}^*} 
-\end{align*}
+\begin{align}\label{RGlinear}
+    \delta K_m' = \sum\limits_{n} M_{mn} K_n \qquad \qquad \text{where } M_{mn} \equiv \pdv{K'_m}{K_n}\Bigg|_{\vb{K}^*} 
+\end{align}
 The matrix $M^{(l)} \equiv [M_{mn}]$ is the linearised RG transformation where the superscript now denote the length scale of the transformation. Let us focus only only one coupling for the moment. Then the matrix $M$ becomes just a scalar number, let us denote it by $\Lambda^{(l)}$. Using the semi-group property, we have:
 \begin{equation}\label{semigroup}
     \Lambda^{(l)} \Lambda^{(l')} = \Lambda^{(ll')}
