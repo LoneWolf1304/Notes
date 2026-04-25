@@ -2,7 +2,7 @@
 \section*{Lecture 14: Spontaneous Symmetry Breaking}
 \addcontentsline{toc}{section}{Lecture 14: Spontaneous Symmetry Breaking}
 Let us re-visit the spontaneous symmetry breaking seen earlier, through the perspective of Landau theory. SSB, as stated before, refers to the fact that in some regime, the ground state does not respect the symmetry of the Hamiltonian. For a finite system, we observe no SSB since everything is analytic. In the thermodynamic limit, we had seen, 
-$$ m =- \lim\limits_{h\to 0} \pdv{h}\qty[\lim\limits_{N\to \infty} \qty(\frac{1}{N}\pdv{F}{h})] \neq - \lim\limits_{N\to \infty} \pdv{h}\qty[\lim\limits_{h\to 0} \qty(\frac{1}{N}\pdv{F}{h})]$$
+$$ m =- \lim\limits_{h\to 0} \pdv{h}\qty[\lim\limits_{N\to \infty} \frac{F}{N}] \neq - \lim\limits_{N\to \infty} \qty[\lim\limits_{h\to 0} \qty(\frac{1}{N}\pdv{F}{h})]$$
 With the definition of the partition function using $\SL$, we can write the free energy from Eq. \eqref{landpart} as, 
 \begin{equation}
     F = -\kb T \ln \qty[\int\limits_{-\infty}^{\infty} \dd m e^{-\beta N \SL}]

@@ -5,22 +5,37 @@ Till now, we focussed on a scalar order parameter, with only one component. Prev
 $$\boldsymbol{\phi}(\vb{x}) \equiv \mqty[\phi_1(\vb{x})\\ \phi_2(\vb{x})\\ \phi_3(\vb{x})\\ \vdots\\ \phi_N(\vb{x})]$$
 Since there are $N$ components in the order parameter, the simplest way to impose symmetry is to consider a free energy which is invariant under $\mathrm{O}(N)$ transformation, that is, 
 $$\phi_\alpha \to \phi_\alpha = \tensor{R}{^\beta _\alpha} \phi_\beta \qquad R^{\top}R=\iden$$
-where $R\in \mathrm{O}(N)$ is the orthogonal group. We have suppressed the position dependence in $\phi$ above, since this is an \textit{internal symmetry}, where the spatial points are not varied under the symmetry transformation. The free energy will be constructed out of \textit{scalars} which are invariant under this transformation. The simplest such case is, 
+where $R\in \mathrm{O}(N)$, the orthogonal group. We have suppressed the position dependence in $\phi$ above, since this is an \textit{internal symmetry}, where the spatial points are not varied under the symmetry transformation. The free energy will be constructed out of \textit{scalars} which are invariant under this transformation. The simplest such case is, 
 \begin{equation}
     \SL[\bphi(\vb{x})] = \int \dd^dx\ \qty[\frac{\gamma}{2}\underbrace{\grad \bphi \cdot \grad\bphi }_{\text{gradient part}}+ \frac{a_2}{2}\underbrace{(T-T_c)(\bphi \cdot \bphi) + \frac{a_4}{4}(\bphi \cdot \bphi)^2+\ldots}_{\text{homogenous part}}]
  \end{equation}
- where $\grad \bphi \cdot \grad\bphi \equiv \partial_i\phi_j\partial_i\phi_j$ where the sum is over the repeated indices. The homogenous part is analogous to the `potential energy' while the gradient part is analogous to the `kinetic energy'. The Landau free energy depends only on $\abs{\bphi}$ and hence if we minimise it with respect to the norm, we obtain: 
+ where $\grad \bphi \cdot \grad\bphi \equiv \partial_i\phi_j\partial_i\phi_j$ where the sum is over the repeated indices. The homogenous part is analogous to the `potential energy' while the gradient part is analogous to the `kinetic energy'. The Landau free energy is invariant under any $\mathrm{O}(N)$ transformation by construction, so the symmetry of $\SL$ is $G\equiv \mathrm{O}(N)$.\\[0.2cm]
+ The homogenous part depends only on $\abs{\bphi}$ and hence if we minimise it with respect to the norm, we obtain: 
  $$\fdv{\SL}{\abs{\bphi}}=0\implies a_2(T-T_c)\abs{\bphi} + a_4\abs{\bphi}^3 = 0$$ 
- Thus we obtain $\abs{\bphi} = 0$ for $T>T_c$ and $\abs{\bphi} = \sqrt{\frac{a_2}{a_4}(T_c-T)}$ for $T<T_c$. Note that minimisation of the free-energy fixed the magnitude of $\bphi$, however, it still can have any orbitrary direction for $T<T_c$ (for $T>T_c$, $\vb{\phi}=0$ since norm of a vector is zero iff the vector itself is zero). The minimisation condition gives us one constraint in the symmetry broken phase ($T<T_c$),
+ Thus we obtain $\abs{\bphi} = 0$ for $T>T_c$ and $\abs{\bphi} = \sqrt{\frac{a_2}{a_4}(T_c-T)}$ for $T<T_c$. Note that minimisation of the free-energy fixed the magnitude of $\bphi$, however, it still can have any orbitrary direction for $T<T_c$ (for $T>T_c$, ${\bphi}=0$ since norm of a vector is zero iff the vector itself is zero). The minimisation condition gives us one constraint in the symmetry broken phase ($T<T_c$),
  $$\phi_1^2+\phi_2^2+\cdots+\phi_N^2 = \frac{a_2}{a_4}(T_c-T)$$
- In other words, $\bphi\in \mathbb{S}^{N-1}$, the $(N-1)$ dimensional sphere. This implies that any $\bphi$ in the symmetry broken phase is invariant under $\mathrm{O}(N-1)$ transformation. Thus, the $\mathrm{O}(N)$ symmetry of the theory is spontaneously broken down to its $\mathrm{O}(N-1)$ subgroup.\\[0.2cm] The Ising model possessed $\inte_2$ symmetry where there were two degenerate ground states and the system had to choose one of them. In here, we have the ground state over the entire sphere, all having the same energy. Hence, there are \textit{infinitely} many degenerate ground states to choose from. 
+In other words, $\bphi\in \mathbb{S}^{N-1}$, the $(N-1)$ dimensional sphere embedded in the $N$ dimensional order parameter space. What happens is, when $T<T_c$, the system `chooses' a particular direction along the sphere, in which the ground state $\bphi$ points, which we call as \textit{spontaneous symmetry breaking}. Let us choose the ground state to be $\bphi\tund{0} = (m\tund{0},0,0,0,\ldots)$ (any other point on the sphere would have been equivalent but the calculations would be messier). If $H$ is the symmetry of the ground state, then for any $R\in H$ we would have the invariance, $R\bphi\tund{0} = \bphi\tund{0}$. Now, note that:
+$$(\underbrace{R\bphi\tund{0}}_{\bphi\tund{0} } )^{\top} (\underbrace{R\bphi\tund{0}}_{\bphi\tund{0} }) = (\bphi\tund{0} )^{\top}(R^\top R )(\bphi\tund{0} ) = (\bphi\tund{0} )^\top (\bphi\tund{0} ) $$
+which implies that $R$ is a orthogonal matrix. Now, from our choice of $\bphi\tund{0} $ we have:
+$$(\bphi\tund{0} )_j = (R\bphi\tund{0} )_j = \sum\limits_k R_{jk}(\bphi\tund{0} )_k = R_{j1}m\tund{0}$$
+From this we observe that if $j\neq 1$ then $R_{j1} =0$ and for $j=1$ we have $R_{11}=1$. This implies that the first column of the matrix is just $(1,0,0,0,\ldots)^\top$. As $R$ is an orthogonal matrix, then each row must also have unit norm. Since $R_{11}=1$ already, the remaining elements of the first row must be all zeroes, to maintain a unit norm. Now we have the structure of the matrix as, 
+\begin{align*}
+  R \equiv  \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)})
+\end{align*}
+We now again use the orthogonality of $R$ to obtain,
+\begin{align*}
+  R^\top R =  \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)})^\top \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}) &= \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}^\top)\mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}) \\
+  &=\mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}^\top\mathbb{M}_{(n-1)\times (n-1)}) \equiv \iden
+\end{align*}
+which implies that $\mathbb{M}^\top \mathbb{M}= \iden$ and hence $\mathbb{M} \in \mathrm{O}(N-1)$. This implies that the symmetry of the ground state $H=\mathrm{O}(n-1)$. Thus, the $\mathrm{O}(N)$ symmetry of the theory is spontaneously broken down to its $\mathrm{O}(N-1)$ subgroup.\\[0.2cm]
+Recall that the Ising model possessed $\inte_2$ symmetry where there were two degenerate ground states and the system had to choose one of them. In here, we have the ground state space to be the entire sphere, all having the same energy. Hence, there are \textit{infinitely} many degenerate ground states to choose from in the symmetry broken phase.
  \begin{figure}[H]
     \centering
   \includegraphics[width=0.34\textwidth]{pics/goldstone.pdf}
-  \caption{Homogenous part of the Landau functional for $n=2$. This is the famous \textit{Mexican hat potential}.}
+  \caption{Homogenous part of the Landau functional for $n=2$. This is the famous \textit{Mexican hat potential}. The minima is spherically symmetric.}
 \end{figure}
  \subsection{Fluctuations}
- Let us choose one particular ground state $\vb{m}\tund{0} = (m\tund{0}\ 0\ 0\ \cdots\ 0)^\top$ and we consider some fluctuating field $\bpsi$ such that, 
+ Let us choose the particular ground state $\vb{m}\tund{0} = (m\tund{0}\ 0\ 0\ \cdots\ 0)^\top$ and now we consider some fluctuating field $\bpsi$ such that, 
  $$\bphi \equiv \vb{m}\tund{0} + \bpsi = \mqty[m\tund{0}+\psi_1 \\ \psi_2\\ \vdots \\ \psi_N]$$ 
  For simplicity, let us take $N=2$ and thus we have $\vb{m} = ({m}\tund{0}+\psi_1, \psi_2)$, where $\psi_1$ is \textit{parallel} to ${m}\tund{0}$ while $\psi_2$ is in the \textit{transverse} direction.  Substituting this in the Landau functional and doing calculation for $T<T_c$, where $m\tund{0}^2 = -\frac{a_2}{a_4}(T-T_c)$ we have:
  \begin{align*}
@@ -41,5 +56,12 @@ We see that the coefficient of $\widetilde{\psi}_{\vb{k}}^{(1)}$ has a term $2a_
   \SG_{\parallel}(\vb{k}) \sim \frac{1}{\gamma k^2 + 2a_2(T_c-T)} 
   \qquad \SG_{\perp}(\vb{k}) \sim  \frac{1}{\gamma k^2}
 \end{equation}
-The transverse correlation function $\SG_{\perp}(r)$ in real-space is then the Coulomb potential ($\sim 1/r$) and hence has a power-law decay with infinite correlation length, while the paralle one $\SG_{\parallel}(r)$ in real-space is the Yukawa potential, with an exponential decay and correlation length $\xi^{-2} = 2a_2(T_c-T)$.\\[0.2cm]
-We also have a pole in $\SG_{\perp}(k)$ at $k=0$, which is called the \textit{Goldstone mode} (which is \textit{gapless}). If general for the $\mathrm{O}(N)$ model in the symmetry broken phase, if we had taken a general $N=n$, in each of the $(n-1)$ transverse components, we would have gotten transverse modes with infinite correlation length and only $1$ mode with a finite correlation length. The mode with finite correlation length is called the \textit{Higgs' mode} (which is \textit{gapped}).
+The transverse correlation function $\SG_{\perp}(r)$ in real-space is then the Coulomb potential ($\sim 1/r$) and hence has a power-law decay with infinite correlation length, while the paralle one $\SG_{\parallel}(r)$ in real-space is the Yukawa potential, with an exponential decay and correlation length $\xi^{-2} = 2a_2(T_c-T)$.\\
+
+We also have a pole in $\SG_{\perp}(k)$ at $k=0$, which is called the \textit{Goldstone mode} (which is \textit{gapless}). If general for the $\mathrm{O}(N)$ model in the symmetry broken phase, if instead of $2$ components, we had taken a general $N$, component order parameter, in each of the $(N-1)$ transverse components, we would have gotten transverse modes with infinite correlation length and only $1$ mode with a finite correlation length. The mode with finite correlation length is called the \textit{Higgs' mode} (which is \textit{gapped}). \\
+
+The above is the manifestation of \textit{Goldstone's Theorem} which roughly says that to each broken generator corresponds a massless field \footnote{This is in the context of QFT where propagators of a field have the form $D(k) \sim \frac{1}{k^2+m^2}$ where $m$ is interpreted as the mass of the particle.}. Well, \textit{broken generator} means those generators $g$ of $G$ which do not keep the ground state invariant, that is, $g$ is not a generator of $H$. Since the number of generators of a group is equal to its dimension, we have the number of Goldstone bosons to be, 
+$$\mathfrak{n} = \mathrm{dim}\ G - \mathrm{dim}\ H = \dim \ \mathrm{O}(N) - \dim \ \mathrm{O}(N-1) = \frac{1}{2}N(N-1) - \frac{1}{2}(N-1)(N-2)= (N-1)$$
+which is exactly what we found from the correlation function thing. Now, note that any broken generator will not keep the ground state invariant and will take to some other vector on the sphere. This new vector is also another ground state, since its magnitude is the same as before.\\
+
+Thus, any broken generator shifts us from one ground state to another, without costing `energy' (since the Goldstone modes are gapless). From this, we see that the dimension of the space of the ground state is equal to the number of Goldstone bosons. For example, the ground state belongs to $\mathbb{S}^{N-1}$ whose dimension is $(N-1)$ which is equal to the number of Goldstone bosons that we found.

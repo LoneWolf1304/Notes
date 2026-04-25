@@ -1,0 +1,32 @@
+\refstepcounter{section}
+\section*{Lecture 31: More on RG}
+\addcontentsline{toc}{section}{Lecture 31: More on RG}
+As a final thing, we will find the eigenvalues of the linearised RG matrix around the fixed point $\vb{K} = (\sfrac{1}{3},\sfrac{1}{9})$. Let us diagonalise the matrix, 
+\begin{align*}
+    \det(\mathrm{M}^{(\sqrt{2})} - \lambda \iden) = 0 \implies \det\mqty( \sfrac{4}{3}-\lambda & 1 \\ \sfrac{2}{3} & -\lambda )=0 \implies \lambda \qty(\lambda - \frac{4}{3}) =\frac{2}{3} \implies 3\lambda^2 - 4 \lambda -2 = 0
+\end{align*}
+which gives us $\lambda_\pm = \frac{1}{6}\qty(4\pm \sqrt{40}) \approx 1.7207, -0.3874$. Thus, $\abs{\lambda_+}>1$ and hence it is a \textit{relevant} eigenvalue, while $\abs{\lambda_+}<1$, rendering it \textit{irrelevant}. The corresponding eigenvectors are,
+\begin{align*}
+    \boldsymbol{u_+} =\mqty( 1\\ \frac{\sqrt{10}-2}{3} ) \approx  \mqty( 1\\ 0.387 )  \qquad  \boldsymbol{u_-} = \mqty(   1\\ -\frac{\sqrt{10}+2}{3} )  \approx \mqty( 1\\ -1.7207 ) 
+\end{align*}
+$\boldsymbol{u_+}$ is a relevant direction while $\boldsymbol{u_-}$ is an irrelevant direction which defines the critical surface.
+Suppose we start initially at the point $(K_0,L_0)$ and successively apply the recursion formula. Upto linear approximation, we can expand the deviation $(K_0-K^*,L_0-L^*)$ in terms of the eigenvectors, that is, 
+\begin{align}
+    \mqty(K_0\\ L_0) = \mqty(K^*\\ L^*) + c_+ \boldsymbol{u_+} +c_-\boldsymbol{u_-} \quad \xrightarrow{l\ \text{transformations}} \quad \mqty(K_l\\ L_l) =\mqty(K^*\\ L^*) + \lambda_+^l c_+ \boldsymbol{u_+} +\lambda_-^l c_-\boldsymbol{u_-}
+\end{align}
+Now, suppose that after $l$ transformations, we want to reach the fixed point as much as possible. This cannot happen if $c_+$ is non-zero to begin with, as then, after the transformations, the deviation will grow along $u_+$. \\[0.2cm]
+As an example, consider the original Ising model with nearest neighbour interaction only, that is, $L_0=0 $. We start from some $K_0 = K_c \neq 0$ and we have to take $c_+ = 0$ (since we want to go to the fixed point eventually). Then the above equation tells us, 
+\begin{align*}
+  \mqty(K_c\\ 0) = \mqty(\sfrac{1}{3}\\ \sfrac{1}{9}) + 0\cdot \boldsymbol{u_+} + c_-\mqty(   1\\ -\sfrac{\qty(\sqrt{10}+2)}{3} ) 
+\end{align*} 
+From which we obtain $c_-=\frac{1}{3\qty(2+\sqrt{10})}$ which implies $K_c = \frac{1}{3}+\frac{1}{3\qty(2+\sqrt{10})} \approx 0.3979$. This is the critical point for the nearest neighbour 2D Ising model, however, this is quite off from Onsager's exact solution $K_c = 0.4406$. Then starting from $(K_c,0)$ we will always go to the fixed point.
+\begin{figure}[H]
+    \centering
+    \input{pics/relevantrg.tex}
+\end{figure}
+\noindent 
+Now, suppose we have $K_0\neq K_c$ which implies that, after $l$ transformations we no longer go to the fixed point.
+\begin{figure}[H]
+    \centering
+  \includegraphics[width=0.6\textwidth]{codes/2D_Ising_RG.pdf}
+\end{figure}

@@ -1,6 +1,6 @@
 \refstepcounter{section}
-\section*{Lecture 30: More on RG}
-\addcontentsline{toc}{section}{Lecture 30: More on RG}
+\section*{Lecture 30: RG for 2D Ising Model}
+\addcontentsline{toc}{section}{Lecture 30: RG for 2D Ising Model}
 Let us continue our discussion on RG and focus on some other things. Previously we saw that, for a \textit{critical} fixed point $\vb{K}^*$, we should have the correlation length $\xi^*$ either zero or infinite. However, we know that under successive RG transformations with say $R_l$, the correlation length only \textit{decreases} (since $l>1$) from $\xi\to \xi' = \xi/l$. This implies that, starting from $\vb{K}\tund{0}$ and on successive transformations, $\xi^*\to\infty$ at $\vb{K}^*$ can only happen if $\xi\to \infty$ also at $\vb{K}$ (and also in any intermediate point of flow from $\vb{K}$ to $\vb{K}^*$). \\[0.2cm]
 This constitutes a surface, called the \textit{critical surface} (or a \textit{critical manifold}, if we want to sound cool!), say $\mathcal{C}$, such that if $\vb{K}\in \mathcal{C}$ then $\vb{K}$ converges to $\vb{K}^*$. Any $\vb{K}\notin \mathcal{C}$ will move away from $\vb{K}^*$ (even if initially it moves towards it). \\[0.2cm]
 What is physically means is that, there are infinite directions in which, if we start, then we will not converge to the fixed point. Only starting on the particular \textit{critical} surface will lead us to the fixed point.\\[0.2cm]
@@ -28,7 +28,7 @@ The number of relevant eigenvalues is called the \textit{codimension} of the cri
     \caption{\textbf{RG flow in K-space.} The blue arrows denote the relevant flows, outside of the critical surface while the green arrows show the irrelevant flows towards the fixed point (red marker), on the critical surface. The critical surface is denoted by the yellow region.}
 \end{figure}
 
-\subsection{RG for 2D Ising Model on sqaure lattice}
+\subsection{RG for 2D Ising Model on square lattice}
 Let us see RG in play for the zero-field 2D Ising model, whose Hamiltonian is given by 
 \begin{align}\label{ising2dham}
     -\beta \SH = K \sum\limits_{\avg{ij}} \sigma_i \sigma_j

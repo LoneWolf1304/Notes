@@ -2,7 +2,7 @@
 \section*{Lecture 26: Further Scaling}
 \addcontentsline{toc}{section}{Lecture 26: Further Scaling}
 The scaling forms used in the previous lectures all come by assuming that the thermodynamic quantities are generalised homogenous functions. So let us discuss a bit about homogenous functions in general. A function $f:\re \to \re$ is called \textit{homogenous} if $$f(\lambda x) = g(\lambda) f(x)$$ 
-where $g(\lambda)$ is some function. A simple example for $p=2$ is, $f(x) = x^2$ since $f(\lambda x) = \lambda^2 x^2 = \lambda^2  f(x)$, with $g(\lambda) = \lambda^2$. Note that, $g(\lambda)$ cannot be any arbitrary function, it must satisfy some properties. For this, note: 
+where $g(\lambda)$ is some function. A simple example is, $f(x) = x^2$ since $f(\lambda x) = \lambda^2 x^2 = \lambda^2  f(x)$, with $g(\lambda) = \lambda^2$. Note that, $g(\lambda)$ cannot be any arbitrary function, it must satisfy some properties. For this, note: 
 $$f(\lambda (\mu x)) = g(\lambda) g(\mu)f(x) = f((\lambda \mu)x) = g(\lambda \mu) f(x)$$
 which imposes the condition $g(x) g(y) = g(xy)\ \forall \ x,y$. This eventually forces the form $g(x) = x^\rho$ which has an elegant proof, considering $g$ to be differentiable. 
 \begin{proposition}
@@ -19,8 +19,8 @@ where $\{a_i\}$ and $k$ are some arbitrary numbers. Note that these are not inde
 $$f(\mu^{a_1/k} x_1,\mu^{a_2/k} x_2  ,\ldots, \mu^{a_n/k}x_n) = \mu f(x_1, x_2 ,\ldots, x_n)$$
 Then all $a_i \mapsto a_i/k$ which is just a rescaling. The GHF can thus be defined by always choosing $k=1$ and hence the final definition,
 $$f(\lambda^{a_1} x_1,\lambda^{a_2} x_2  ,\ldots, \lambda^{a_n}x_n) = \lambda f(x_1, x_2 ,\ldots, x_n)$$
-Let us now focus only on the two variable case, which is $f(\lambda x)$. The static scaling hypothesis states that the thermodynamic potentials are GHFs near the critical point $T_c$. Then the free energy can be written as, 
-$$F(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h) = \lambda F(t,h)\quad \longrightarrow \quad -\pdv{h}\qty[F(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h)] = -\pdv{h}\qty[F(t,h)] \implies \lambda^{a\tund{h}-1} m(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h) =m(t,h)$$
+Let us now focus only on the two variable case, which is $F(t,h)$. The static scaling hypothesis states that the thermodynamic potentials are GHFs near the critical point $T_c$. Then the free energy can be written as, 
+$$F(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h) = \lambda F(t,h)\quad \longrightarrow \quad -\pdv{h}\qty[F(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h)] = -\lambda \pdv{h}\qty[F(t,h)] \implies \lambda^{a\tund{h}-1} m(\lambda^{a\tund{t}}t, \lambda^{a\tund{h}}h) =m(t,h)$$
 Now, suppose we take $T>T_c$. Then we choose $\lambda$ such that $\lambda^{a\tund{t}} = -\frac{1}{t}\implies \lambda = (-t)^{-1/a\tund{t}}$. Taking the zero-field limit we get: 
 $$(-t)^{\beta} \sim m(t,0) = (-t)^{-(a\tund{h}-1)/a\tund{t}}m(1,0) \implies \boxed{\beta = \frac{1-a\tund{h}}{a\tund{t}}}$$ 
 Now, suppose we take $T=T_c $ and choose $\lambda$ such that $\lambda^{a\tund{h}}=\frac{1}{h}\implies \lambda = h^{-1/a\tund{h}}$. Substituting this in the scaling form above, we get:
