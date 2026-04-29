@@ -27,9 +27,9 @@ Since the field $\phi(\vb{x})\in \re$, we have  $\widetilde{\phi}_{-\vb{k}} = \w
      \int \dd^d x\ f(\vb{x}) &=\frac{1}{2V}\sum\limits_{\vb{k}, \vb{k}'}\qty[-\gamma\vb{k}\cdot\vb{k}' + a\tund{2}(T-T_c)]\widetilde{\phi}_{\vb{k}}\widetilde{\phi}_{\vb{k}'}\delta_{\vb{k}+\vb{k}',0} = \frac{1}{2V}\sum\limits_{\vb{k}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2
 \end{align*}
 Observe that $\phi({\vb{x}} )= \widetilde{\phi}_{0} +\sum\limits_{\vb{k}\neq 0} e^{i\vb{k}\cdot \vb{x}\widetilde{\phi}_{\vb{k}}}$ which implies that, $\vb{k} = 0$ is the uniform mean field solution while $\vb{k}\neq 0$ denotes the fluctuations. Previously we had performed a coarse-graining to define the Landau-Ginzburg theory, which imposed a mesoscopic length scale $l$. Thus, $\abs{\vb{r}}\gg l \implies \abs{\vb{k}}\ll \frac{1}{l}$. Hence, there is a cutoff for the momenta, let us call it $\Lambda$. Thus the sum is restricted to only those momenta $\vb{k}$ which satisfies $\abs{\vb{k}}<\Lambda$.
-\begin{equation*}
+\begin{equation}\label{gausslandau}
     \SL[\{\widetilde{\phi}_{\vb{k}}\}] = \frac{1}{2V}\sum\limits_{\substack{\vb{k}\\ \abs{\vb{k}}<\Lambda}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2
-\end{equation*}
+\end{equation}
 Now, divide the k-space into two halves, $\Omega$ and $\Omega'$ such that if $\vb{k}\in \Omega$ then $-\vb{k}\in \Omega'$\footnote{One way to construct these regions can be to choose any arbitrary vector $\vb{a}$ and define $\Omega:= \{\vb{k} | \vb{k}\cdot \vb{a} >0\}$ and $\Omega':= \{\vb{k} | \vb{k}\cdot \vb{a} <0\}$}. We need to focus only on one half, since if $\vb{k}\in \Omega$ then $-\vb{k}\in \Omega'$ and these are not indepedent. Then the Landau functional becomes, 
 \begin{equation}\label{flucland}
     \boxed{ \SL[\{\widetilde{\phi}_{\vb{k}}\}] = \frac{1}{V}\sum\limits_{\substack{\vb{k}\in \Omega\\ \abs{\vb{k}}<\Lambda}}\qty[\gamma k^2 + a\tund{2}(T-T_c)]\abs{\widetilde{\phi}_{\vb{k}}}^2}

@@ -20,14 +20,14 @@ which implies that $R$ is a orthogonal matrix. Now, from our choice of $\bphi\tu
 $$(\bphi\tund{0} )_j = (R\bphi\tund{0} )_j = \sum\limits_k R_{jk}(\bphi\tund{0} )_k = R_{j1}m\tund{0}$$
 From this we observe that if $j\neq 1$ then $R_{j1} =0$ and for $j=1$ we have $R_{11}=1$. This implies that the first column of the matrix is just $(1,0,0,0,\ldots)^\top$. As $R$ is an orthogonal matrix, then each row must also have unit norm. Since $R_{11}=1$ already, the remaining elements of the first row must be all zeroes, to maintain a unit norm. Now we have the structure of the matrix as, 
 \begin{align*}
-  R \equiv  \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)})
+  R \equiv  \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(N-1)\times (N-1)})
 \end{align*}
 We now again use the orthogonality of $R$ to obtain,
 \begin{align*}
-  R^\top R =  \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)})^\top \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}) &= \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}^\top)\mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}) \\
-  &=\mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(n-1)\times (n-1)}^\top\mathbb{M}_{(n-1)\times (n-1)}) \equiv \iden
+  R^\top R =  \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(N-1)\times (N-1)})^\top \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(N-1)\times (N-1)}) &= \mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(N-1)\times (N-1)}^\top)\mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(N-1)\times (N-1)}) \\
+  &=\mqty(1 && \mathbf{0} \\ \mathbf{0} && \mathbb{M}_{(N-1)\times (N-1)}^\top\mathbb{M}_{(N-1)\times (N-1)}) \equiv \iden
 \end{align*}
-which implies that $\mathbb{M}^\top \mathbb{M}= \iden$ and hence $\mathbb{M} \in \mathrm{O}(N-1)$. This implies that the symmetry of the ground state $H=\mathrm{O}(n-1)$. Thus, the $\mathrm{O}(N)$ symmetry of the theory is spontaneously broken down to its $\mathrm{O}(N-1)$ subgroup.\\[0.2cm]
+which implies that $\mathbb{M}^\top \mathbb{M}= \iden$ and hence $\mathbb{M} \in \mathrm{O}(N-1)$. This implies that the symmetry of the ground state $H=\mathrm{O}(N-1)$. Thus, the $\mathrm{O}(N)$ symmetry of the theory is spontaneously broken down to its $\mathrm{O}(N-1)$ subgroup.\\[0.2cm]
 Recall that the Ising model possessed $\inte_2$ symmetry where there were two degenerate ground states and the system had to choose one of them. In here, we have the ground state space to be the entire sphere, all having the same energy. Hence, there are \textit{infinitely} many degenerate ground states to choose from in the symmetry broken phase.
  \begin{figure}[H]
     \centering
@@ -48,9 +48,9 @@ Recall that the Ising model possessed $\inte_2$ symmetry where there were two de
   &=\int \dd^d x \ \qty[\frac{\gamma}{2}\qty[(\grad\psi_1)^2+(\grad\psi_2)^2] +\frac{1}{2}[2a_2(T_c-T)]\psi_1^2 ] - \SL\tund{0}
  \end{align*}
  where $\SL\tund{0}$ represents the $\psi$ independent part of the functional. Except for the gradient, there is no quadratic term for $\psi_2$. We now write this in the Fourier space as before,
-\begin{equation*}
+\begin{equation}\label{landaucontsymm}
   \SL = \frac{1}{2V}\sum\limits_{\abs{\vb{k}}<\Lambda} \qty[\gamma k^2 + 2a_2(T_c-T)]\abs{\widetilde{\psi}_{\vb{k}}^{(1)}}^2 + \gamma k^2\abs{\widetilde{\psi}_{\vb{k}}^{(2)}}^2 - \SL\tund{0}
-\end{equation*}
+\end{equation}
 We see that the coefficient of $\widetilde{\psi}_{\vb{k}}^{(1)}$ has a term $2a_2(T_c-T)$ other than the $k^2$ while no such thing occurs for $\widetilde{\psi}_{\vb{k}}^{(2)}$ term. We can find the correlation function in the parallel and transverse directions (using say the equipartition theorem),
 \begin{equation}
   \SG_{\parallel}(\vb{k}) \sim \frac{1}{\gamma k^2 + 2a_2(T_c-T)} 
