@@ -30,7 +30,7 @@ For this `block' Hamiltonian, the lattice spacing is $la$ and this also has fewe
 \end{align*}
 This says that the block spins are further away from criticality than the original system, which implies that the system is now at a new effective reduced temperature $t_l$. \\[0.2cm]
 Since the block spin Hamiltonian is of the same form, the total free energy should also be the same for both. Note that we consider only the singular part of the free energy (which actually determines the critical behaviour).
-\begin{equation}
+\begin{equation}\label{joseph1}
     N f(t,h) = N' f(t_l,h_l) = N l^{-d}f(t_l,h_l) \implies f(t,h) = l^{-d}f(t_l,h_l)
 \end{equation}
 where $f(t,h)$ is the free energy per spin. We now assume that the new couplings are related to the original ones by,
@@ -81,4 +81,22 @@ Now, $rt^{1/y_t} $ should be dimensionless and define $\xi \equiv t^{-1/y_t}$ an
 \begin{align*}
    t^{-\gamma}= \chi\tund{T} \sim \int\limits_{V_\xi}\dd^d r \  \SG({r}) \sim \int\limits_0^\xi \dd r\  r^{d-1} \cdot r^{-(\eta+d-2)} = \int\limits_0^\xi \dd r\   \cdot r^{1-\eta} \sim \xi^{2-\eta}  \sim t^{-(2-\eta)\nu}
 \end{align*}
-Equating this, we get $\gamma=(2-\eta)\nu$ which is another scaling relation. 
+Equating this, we get $\gamma=(2-\eta)\nu$ which is another scaling relation. We can derive a \textit{hyperscaling relation}, which is explicitly dependent on the dimension $d$ of the system. For this, consider Eq. \eqref{joseph1}
+\begin{align*}
+   f(t,h) = l^{-d} f(tl^{y_t},hl^{y_h}) \implies C_v(t,h) = l^{-d}\cdot l^{2y_t}C_v(tl^{y_t},hl^{y_h})
+\end{align*}
+Choosing $tl^{y_t}=1 \rightarrow l = t^{-1/y_t}$ we get,
+\begin{align*}
+    C_v(t,h) = t^{(d-2y_t)/y_t} C_v(\frac{h}{t^{y_h/y_t}}) \xrightarrow{h\to 0} C_v(t) = t^{(d-2y_t)/y_t} C_v(0) \implies \alpha = \frac{2y_t-d}{y_t}
+\end{align*}
+And from the correlation function we saw that $y_t=\frac{1}{\nu}$. Then, substituting this we finally obtain,
+\begin{align*}
+    \alpha =\nu \cdot \qty(\frac{2}{\nu}-d) = 2-d\nu \implies d\nu = 2-\alpha
+\end{align*}
+which is called the \textit{Josephson scaling law} and is dependent on the dimension $d$ of the system. Note that, for the mean field exponents, $\alpha=0$ and $\nu=\frac{1}{2}$, we have $d=4$ and hence, this is not valid for any $d$. The thing is, Josephson relation does not hold good for $d>d_c$ where $d_c$ is the upper critical dimension (note that mean field exponents are valid only for $d>d_c$ and hence the hyperscaling law does not hold for the mean field exponents). Let us summarise all the scaling laws that we had found so far:
+\begin{itemize}
+    \item $\alpha +2\beta+\gamma =2 $ (Rushbrooke) 
+    \item $\beta + \gamma = \beta \delta  $ (Widom)
+    \item $d\nu = 2-\alpha$ (Josephson)
+    \item $\gamma = (2-\eta)\nu$ (Fisher)
+\end{itemize}
