@@ -2,6 +2,7 @@
 \usepackage{graphicx, physics, enumitem} % Required for inserting images
 \usepackage[margin=1.4cm]{geometry}
 \usepackage{tikz, float,cancel,xfrac}
+\usepackage{upgreek}
 \newcommand{\tund}[1]{_{\text{\tiny #1}}}
 \usepackage{fixltx2e,graphicx}
 \newcommand{\SE}{\mathcal{E}}
@@ -25,6 +26,7 @@
 \newcommand{\kdup}{\vk'\uparrow}
 \newcommand{\kddown}{\sm\vk'\downarrow}
 \newcommand{\cks}{c_{\vks}}
+\newcommand{\Tc}{T\tund{c}^{\sm}}
 \newcommand{\cd}{c^\dagger}
 \newcommand{\ek}{\eta_{\vk}}
 \newcommand{\gk}{\gamma_{\vk}}
@@ -206,10 +208,56 @@ This is a self-consistent equation since both LHS and RHS consists of $\Delta_{\
 Now, let us assume that the potential is constant in a thin shell around the Fermi surface of thickness $\sim \hbar \omega\tund{D}$ where $\omega\tund{D}$ is the Debye frequency cutoff, and zero otherwise, 
 \begin{equation}
     V_{\vk\vkd} = \begin{cases}
-        -V & \abs{\vk}, \abs{\vkd}\leq \hbar \omega\tund{D}\\
+        -V & \abs{\xi_{\vkd}}, \abs{\xi_{\vk}}\leq \hbar \omega\tund{D}\\
         0 & \text{else}
     \end{cases}
 \end{equation}
+Then the simplified gap equation becomes,
+\begin{equation}
+    \frac{\Delta_{\vk}}{V} = \sum\limits_{\substack{\vk \in \text{thin}\\\text{\ \ \ \ shell}}} \frac{\tanh(\beta E_{\vkd}/2)}{2E_{\vkd}}\Delta_{\vkd}
+\end{equation}
+Note that, the RHS is independent of $\vk$ thus, $\Delta_{\vk}$ is not a function of $\vk$ and hence, is a constant, say $\Delta\tund{0}$. Now, note that $\Delta\tund{0}=0$ is a trivial solution, satisfying the above equation. If $\Delta\tund{0}\neq 0$ we can cancel it from both sides giving us, 
+\begin{equation}
+    \frac{1}{V} = \sum\limits_{\substack{\vk \in \text{thin}\\\text{\ \ \ \ shell}}} \frac{\tanh(\beta E_{\vkd}/2)}{2E_{\vkd}}
+\end{equation}
+Let us now examine what happens in the limit of zero temperature, that is, $\beta\to \infty$.\\[0.2cm]
+\textbf{\underline{Zero temperature limit}:}\\[0.2cm]
+In this case, $\tanh(x)\to 1$ since $x\sim \beta$ is very large. We now change the finite sum over $\vkd$ to an integral near the Fermi surface where the density of states is approximately constant$\sim \mathcal{N}(\SE\tund{F})$,
+\begin{equation}
+    \frac{1}{V} = \int\limits_{-\hbar \omega\tund{D}}^{\hbar \omega\tund{D}}\mathcal{N}({\xi}) \dd \xi\ \frac{1}{2\sqrt{\Delta^2 + \xi^2}} \simeq \frac{1}{2}\mathcal{N}(\SE\tund{F})  \int\limits_{-\hbar \omega\tund{D}}^{\hbar \omega\tund{D}}\ \frac{\dd \xi}{\sqrt{\Delta^2 + \xi^2}} = \mathcal{N}(\SE\tund{F}) \int\limits_{0}^{\hbar \omega\tund{D}}\ \frac{\dd \xi}{\sqrt{\Delta^2 + \xi^2}}
+\end{equation}
+Let us define $\xi = \Delta x$ and $\lambda = V \mathcal{N}(\SE\tund{F})$. Then, the integral becomes,
+\begin{equation}
+    \frac{1}{\lambda} = \int\limits_{0}^{\hbar \omega\tund{D}/\Delta}\frac{\dd x}{\sqrt{1+x^2}}= \sinh^{-1}\qty(\frac{\hbar \omega\tund{D}}{\Delta})
+\end{equation}
+If $\lambda\ll 1$, the RHS becomes very large which happens in the limit $\hbar \omega\tund{D} \gg 1$. In that case, note that, 
+\begin{equation}
+    \sinh(x) = \frac{e^x-e^{-x}}{2}\xrightarrow{x\gg 1} \frac{e^x}{2}\implies \sinh^{-1}(x) \approx \ln(2x)\qquad \text{for large $x$}
+\end{equation}
+Using this approxmation we obtain,
+\begin{equation}
+    \frac{1}{\lambda} \approx \ln\qty(\frac{2\hbar \omega\tund{D}}{\Delta}) \implies \boxed{\Delta\tund{0} = 2\hbar \omega\tund{D} e^{-1/\lambda}}\longrightarrow \text{finite}
+\end{equation}
+\textbf{\underline{Infinite temperature limit}:}\\[0.2cm]
+In this case, $\beta\to 0$ and hence the gap equation becomes $\Delta\tund{0} = 0$. Thus, in the infinite temperature limit, $\Delta\tund{0}=0$ is the only solution. 
+
+This fact tells us that there is a transition temperature $T\tund{c}$ where the behaviour of the gap parameter changes from being finite to zero. Let us consider the case when $T\to \Tc$ such that $\Delta\to 0$, which gives us, $E_{\vk} = \xi_{\vk}$. Then changing the sum to integral gives us, 
+\begin{equation}
+    \frac{1}{\lambda} = \int\limits_{0}^{\hbar \omega\tund{D}}\dd\xi\ \frac{\tanh(\beta\tund{c} \xi)}{\xi}\quad \xrightarrow[\text{by parts}]{\text{integration}}\quad -\int\limits_{0}^{\beta\tund{c} \hbar \omega\tund{D}/2} \dd x \ \frac{\ln x}{\cosh^2 x} + \tanh\qty(\beta\omega\tund{D}/2)\ln\qty(\beta\omega\tund{D}/2)
+\end{equation}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{bcs.pdf}
+\end{figure}
+Now, look at the plot of $\frac{\ln x}{\cosh^2 x}$ above, which has most of the contributions near $x\to 0$ and falls pretty fast to zero as we increase $x$. Hence in the above integral, we can safely extend the upper limit upto $\infty$, with negligible contributions. The integral gives us $\upgamma - \ln\qty(\pi/4)$ where $\upgamma\approx 0.577215\ldots$ is the \textit{Euler-Mascheroni constant}. Also, taking the argument $\beta\omega\tund{D}$ to be large, (giving us $\tanh\qty(\beta\omega\tund{D}/2)\to 1$), we finally obtain: 
+\begin{equation}
+    \frac{1}{\lambda} = \upgamma - \ln\qty(\pi/4) + \ln\qty(\beta\omega\tund{D}/2)\implies \frac{1}{\lambda} = \ln\qty[\frac{\beta\omega\tund{D}e^{\upgamma}}{\pi/2}] = \ln \qty[\frac{2\beta\tund{c}\omega\tund{D}}{\pi}e^{\upgamma}]\implies \boxed{k\tund{B}T\tund{c} = \frac{2e^{\upgamma}}{\pi}\omega\tund{D}e^{-1/\lambda}}
+\end{equation}
+which gives us the expression of the transition temperature. Note that both the results at zero temperature and at the transition temperature has an $e^{-1/\lambda}$ term which has an essential singularity as $\lambda\to 0$ which is the perturbative regime. Hence, these results cannot be obtained perturbatively. Moreover, $\lambda$ being a microscopic parameter of the particular model, cannot be determined experimentally. However, we can divide both the results to obtain,
+\begin{equation}
+    \frac{2\Delta(T=0)}{k\tund{B}T\tund{c}} = \frac{2\pi}{e^{\upgamma}} \approx 3.52 \ \longrightarrow\text{ universal constant}
+\end{equation}
+\textbf{\underline{Generalized Gap Equation}:}\\[0.2cm]
 
 \end{document}
 
