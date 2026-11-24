@@ -8,6 +8,7 @@
 \newcommand{\SE}{\mathcal{E}}
 \usepackage[dvipsnames]{xcolor}
 \newcommand{\SH}{\mathcal{H}}
+\newcommand{\spi}[2]{S_{#1}^{#2}}
 \newcommand{\SF}{\mathcal{F}}
 \newcommand{\vk}{\vb{k}}
 \newcommand{\sm}{\mathord{\scalebox{0.6}[1]{$-$}}}
@@ -197,11 +198,12 @@ Now, note that using $E_{\vk} = \sqrt{\xi_{\vk}^2+\Delta_{\vk}^2}$, we get $\sfr
 \textcolor{red}{check the missing factor of $2$!!}\\
 The minimization gives us, 
 \begin{equation}
-    b_{\vk}^* = \Delta_{\vk}\qty[\frac{\tanh(\beta E_{\vk}/2)}{2E_{\vk}}] \equiv \Delta_{\vk}\chi_{\vk}
+    b_{\vk}^* = \Delta_{\vk}\qty[\frac{\tanh(\beta E_{\vk}/2)}{2E_{\vk}}] \equiv \Delta_{\vk}\upchi_{\vk}
 \end{equation}
 where $\xi_{\vk}$ is called the \textit{piar susceptibility} and denotes the ability to form Cooper pair. Then, the superconducting gap becomes, 
 \begin{equation}
     \Delta_{\vk} = - \sum\limits_{\vkd}V_{\vk \vkd} b_{\vkd} = - \sum\limits_{\vkd}V_{\vk \vkd}\qty[\frac{\tanh(\beta E_{\vkd}/2)}{2E_{\vkd}}]\Delta_{\vkd}
+    \label{eqn:gapeq}
 \end{equation}
 This is a self-consistent equation since both LHS and RHS consists of $\Delta_{\vk}$. This is the famous \textit{BCS gap equation} and it applies to any superconductor, irrespective of the origin of the effective electron-electron attraction (though we derived this using phononic degrees of freedom of the lattice).\\[0.2cm]
 \textbf{\underline{s-wave superconductor}}:\\[0.2cm]
@@ -258,6 +260,56 @@ which gives us the expression of the transition temperature. Note that both the 
     \frac{2\Delta(T=0)}{k\tund{B}T\tund{c}} = \frac{2\pi}{e^{\upgamma}} \approx 3.52 \ \longrightarrow\text{ universal constant}
 \end{equation}
 \textbf{\underline{Generalized Gap Equation}:}\\[0.2cm]
-
+We now forego the origin of attraction completely and focus only on the fact that the Cooper pairs are already formed. The electron movies in a crystal which has some underlying \textit{symmetries}. These symmetries must be reflected in any physical quantity that we consider and should be explainable in a complete set of functions, say $\{g_\beta(\vk)\}$ reflecting that symmetry. In that, we assume that the interaction potential is factorizable, that is,
+\begin{equation}
+    V_{\vk\vkd} = \sum\limits_{\beta} V_{\beta}\ g_\beta(\vk)g_\beta(\vkd)
+\end{equation}
+where $V_{\beta}$ denotes the strength of the interaction in the $\beta\sm$channel. We then substitute this expression in the gap equation Eq. \eqref{eqn:gapeq},
+\begin{equation}
+    \Delta_{\vk} = -\sum\limits_{\vkd,\beta} V_{\beta}\ g_\beta(\vk)g_\beta(\vkd)\Delta_{\vkd}\upchi_{\vkd} =-\sum\limits_{\beta} V_{\beta}\ g_\beta(\vk) \underbrace{\sum\limits_{\vkd} g_\beta(\vkd)\Delta_{\vkd}\upchi_{\vkd}}_{-\sfrac{\Delta_{\beta}}{V_{\beta}}}\equiv \sum\limits_{\beta}\Delta_{\beta}g_{\beta}(\vk)
+\end{equation}
+Thus, we see that the gap parameter is also expandable in the function $\{g_{\beta}\}$ with coefficients $\{\Delta_{\beta}\}$ which depend on the temperature. From our definition above we have,
+\begin{align}
+    \begin{split}
+        \Delta_{\beta} &= -V_\beta\sum\limits_{\vkd}g_\beta(\vkd)\upchi_{\vkd}\mathcolor{red}{\Delta_{\vkd}}= -V_\beta\sum\limits_{\vkd,\mathcolor{red}{\alpha}}g_\beta(\vkd)\upchi_{\vkd}\mathcolor{red}{g_{\alpha}(\vkd)\Delta_{\alpha}}\implies \Delta_{\beta}\equiv \sum\limits_{\alpha}\mathcal{M}_{\beta\alpha}\Delta_{\alpha}
+    \end{split}
+\end{align}
+where the matrix element, $\mathcal{M}_{\beta\alpha} := -V_\beta\sum\limits_{\vkd} g_{\alpha}(\vkd)g_{\beta}(\vk)\upchi_{\vkd}$. Let us try to see this in an example, which we consider it to be a simplified version of the \textbf{t-J model}, given by the Hamiltonian,
+\begin{equation}
+    \SH = -t \sum\limits_{\expval{ij}, \sigma} c_{i\sigma}^\dagger c_{j\sigma} + c_{j\sigma}^\dagger c_{i\sigma} + J\sum\limits_{\expval{ij}} \qty(\vb{S}_{i}\cdot \vb{S}_j - \frac{1}{4}n_{i}n_{j} )
+\end{equation}
+where $n_i$ is the spin-resolved number operator given by $n_i := n_{i\uparrow} + n_{i\downarrow}$. First let us simplify the above term,
+\begin{align}
+    \vb{S}_{i}\cdot \vb{S}_j =\mathcolor{red}{ \spi{i}{x}\spi{j}{x}+\spi{i}{y}\spi{j}{y}}+\spi{i}{z}\spi{j}{z}
+\end{align}
+We also define the spin raising and lowering operators, 
+\begin{align}
+    \spi{i}{\pm}:= \spi{i}{x}\pm \spi{i}{y} \implies \spi{i}{x}= \frac{1}{2}\qty(\spi{i}{+} + \spi{i}{-}) \qquad  \spi{i}{y}= \frac{1}{2i}\qty(\spi{i}{+} - \spi{i}{-})
+\end{align}
+Using this, the red terms become, 
+\begin{align}
+   \begin{split}
+     \frac{1}{4}\qty(\spi{i}{+}+\spi{i}{-})\qty(\spi{j}{+}+\spi{j}{-})- \frac{1}{4}\qty(\spi{i}{+}-\spi{i}{-})\qty(\spi{j}{+}-\spi{j}{-}) &= \frac{1}{4}\qty[\cancel{\spi{i}{+}\spi{j}{+}}+\spi{i}{+}\spi{j}{-}+\spi{i}{-}\spi{j}{+}+\cancel{\spi{i}{-}\spi{j}{-}} - \cancel{\spi{i}{+}\spi{j}{+}} +\spi{i}{+}\spi{j}{-}+\spi{i}{-}\spi{j}{+} -\cancel{\spi{i}{-}\spi{j}{-}}]\\
+    &=\frac{1}{2}\qty(\spi{i}{+}\spi{j}{-}+\spi{i}{-}\spi{j}{+})
+   \end{split}
+\end{align}
+Then the second term in the Hamiltonian becomes, 
+\begin{equation}
+    \qty[\frac{1}{2}\qty(\spi{i}{+}\spi{j}{-}+\spi{i}{-}\spi{j}{+}) +\spi{i}{z}\spi{j}{z}]  - \frac{1}{4}n_in_j
+\end{equation}
+Now, note that we can write the spin operators in a second-quantized manner, 
+\begin{equation}
+    \spi{i}{+} = c_{i\uparrow}^{\dagger}c_{i\downarrow}\qquad \spi{i}{-} = c_{i\downarrow}^{\dagger}c_{i\uparrow}\qquad \spi{i}{z} = \frac{1}{2}(n_{i\uparrow}-n_{i\downarrow})
+\end{equation}
+using which gives us a terrible looking expression,
+\begin{align}
+    &\frac{1}{2}\qty[c_{i\uparrow}^{\dagger}c_{i\downarrow}c_{j\downarrow}^{\dagger}c_{j\uparrow}  +c_{i\downarrow}^{\dagger}c_{i\uparrow} c_{j\uparrow}^{\dagger}c_{j\downarrow}] + \frac{1}{4}\qty(n_{i\uparrow}-n_{i\downarrow})\qty(n_{j\uparrow}-n_{j\downarrow}) -\frac{1}{4}\qty(n_{i\uparrow}+n_{i\downarrow})\qty(n_{j\uparrow}+n_{j\downarrow})\\[0.1cm]
+    =&\frac{1}{2}\qty[c_{i\uparrow}^{\dagger}c_{i\downarrow}c_{j\downarrow}^{\dagger}c_{j\uparrow}  +c_{i\downarrow}^{\dagger}c_{i\uparrow} c_{j\uparrow}^{\dagger}c_{j\downarrow} - \qty(n_{i\uparrow}n_{j\downarrow} + n_{i\downarrow}n_{j\uparrow})]
+\end{align}
+Then we perform a Fourier transform of these creation and annihilation operators (which I am not going to do for obvious reasons), the interaction term in Fourier space becomes,
+\begin{equation}
+    V_{\vk\vkd} = \frac{J}{4}\qty(\gk\gamma_{\vkd} + \ek\eta_{\vkd}) + 2J\qty(\sin k\tund{x}\sin k'\tund{x}+\sin k\tund{y}\sin k'\tund{y})
+\end{equation}
+This is a factorizable interaction term that we had formalized earlier. We can now use this to find a generalized gap equation, where the gap parameter is not constant but depends on $\vk$.
 \end{document}
 
