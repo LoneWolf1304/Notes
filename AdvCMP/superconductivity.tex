@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{graphicx, physics, enumitem} % Required for inserting images
+\usepackage{graphicx, physics, enumitem, gensymb} % Required for inserting images
 \usepackage[margin=1.4cm]{geometry}
 \usepackage{tikz, float,cancel,xfrac}
 \usepackage{upgreek}
@@ -310,6 +310,46 @@ Then we perform a Fourier transform of these creation and annihilation operators
 \begin{equation}
     V_{\vk\vkd} = \frac{J}{4}\qty(\gk\gamma_{\vkd} + \ek\eta_{\vkd}) + 2J\qty(\sin k\tund{x}\sin k'\tund{x}+\sin k\tund{y}\sin k'\tund{y})
 \end{equation}
-This is a factorizable interaction term that we had formalized earlier. We can now use this to find a generalized gap equation, where the gap parameter is not constant but depends on $\vk$.
+where $\ek = 2(\cos k\tund{x} - \cos k\tund{y})$ and $\gk = 2(\cos k\tund{x} + \cos k\tund{y})$. This is a factorizable interaction term that we had formalized earlier. We can now use this to find a generalized gap equation, where the gap parameter is not constant but depends on $\vk$.\\[0.3cm]
+While considering the Cooper pair, we focussed on two electrons on the opposite side of the Fermi surface, with momenta and spin: $(\vk, \uparrow)$ and $(-\vk, \downarrow)$. Thus, the wavefunction is formed of an orbital part and a spin part, 
+\begin{equation}
+    \mathrm{Cooper\ \ pair}\ \rightarrow\  \mathrm{orbital}\otimes\mathrm{spin}
+\end{equation}
+The complete two electron wavefunction should be anti-symmetric under electronic exchanges. Now consider two cases,\\[0.2cm]
+\textbf{\underline{Singlet pairing}:}\\[0.2cm]
+$$\ket{S=0} = \frac{1}{\sqrt{2}}\qty(\ket{\uparrow\downarrow} - \ket{\downarrow \uparrow}) $$
+Note that the singlet state is anti-symmetric under the exchange of the up and the down spins, hence the orbital part should be \textit{symmetric} under exchange of the electron,
+\begin{equation}
+    \Psi\tund{orb}(1,2) = + \Psi\tund{orb}(2,1)
+\end{equation}
+\textbf{\underline{Triplet pairing}:}\\[0.2cm]
+Consider any of the triplet states,
+$$\ket{\uparrow\uparrow}\qquad\frac{\ket{\uparrow\downarrow} + \ket{\downarrow\uparrow}}{\sqrt{2}}\qquad\ket{\downarrow\downarrow}$$
+Under any of the electron exchanges, these remain unchanged, hence the orbital part should be \textit{anti-symmetric} in this case. 
+\begin{equation}
+    \Psi\tund{orb}(1,2) = - \Psi\tund{orb}(2,1)
+\end{equation}
+In general, depending on the spin, the orbital part can be written as, 
+\begin{align}
+\begin{array}{cc}
+\Psi_{\rm orb}(\vb r)=(-1)^l\Psi_{\rm orb}(-\vb r)
+&
+\begin{array}{l}
+\circ\ \text{singlet} \to l\text{ even}: \quad
+\overset{s}{0},\overset{d}{2},\overset{g}{4},\ldots \\[0.3em]
+\circ\ \text{triplet} \to l\text{ odd}: \quad
+\overset{p}{1},\overset{f}{3},\overset{h}{5},\ldots
+\end{array}
+\end{array}
+\end{align}
+Consider the interaction that we found out for the t-J model. Since $\sin(k_i)$ is odd under the exchange of $\vk$, it belongs to the odd parity sector. Then for considering the singlet case, we can safely drop the sin terms, giving us,
+\begin{equation}
+    V_{\vk\vkd}^{(s)} = \frac{J}{4}\qty(\gk\gamma_{\vkd}+\ek\eta_{\vkd})
+\end{equation}
+where the superscript $(s)$ stands for singlet. Now, consider a $90\degree$ rotation denoted by $\mathrm{R}$, of $\vk$ which changes $(k\tund{x},k\tund{y})\overset{\mathrm{R}}{\mapsto} (-k\tund{y}, k\tund{x})$. This rotation is a symmetry for the \textit{square lattice} and we note that $\gamma_{R\vk} = \cos(-k\tund{y}) + \cos k\tund{x} = \gk $ is invariant. This is called the \textit{extended s-wave}. Also, note that $\eta_{R\vk} = \cos(-k\tund{y}) - \cos(k\tund{x}) = -\ek$ which is called the \textit{d-wave}.  \\[0.3cm]
+Now, let us derive the self-consistency equations for the t-J model. For that, let us consider the $T\to 0$ case where $\tanh(\beta E_{\vk})\to 1$ and then the gap equation becomes,
+\begin{equation}
+    \Delta_{\vk} = \frac{J}{4N} \sum\limits_{\vb{q}}\qty(\gk \gamma_{\vb{q}} +\ek \eta_{\vb{q}} ) \frac{\Delta_{\vb{q}}}{2E_{\vb{q}}}
+\end{equation}
 \end{document}
 
