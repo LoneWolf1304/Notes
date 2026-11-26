@@ -330,6 +330,8 @@ Under any of the electron exchanges, these remain unchanged, hence the orbital p
     \Psi\tund{orb}(1,2) = - \Psi\tund{orb}(2,1)
 \end{equation}
 In general, depending on the spin, the orbital part can be written as, 
+
+
 \begin{align}
 \begin{array}{cc}
 \Psi_{\rm orb}(\vb r)=(-1)^l\Psi_{\rm orb}(-\vb r)
@@ -342,6 +344,8 @@ In general, depending on the spin, the orbital part can be written as,
 \end{array}
 \end{array}
 \end{align}
+
+
 Consider the interaction that we found out for the t-J model. Since $\sin(k_i)$ is odd under the exchange of $\vk$, it belongs to the odd parity sector. Then for considering the singlet case, we can safely drop the sin terms, giving us,
 \begin{equation}
     V_{\vk\vkd}^{(s)} = \frac{J}{4}\qty(\gk\gamma_{\vkd}+\ek\eta_{\vkd})
@@ -351,5 +355,24 @@ Now, let us derive the self-consistency equations for the t-J model. For that, l
 \begin{equation}
     \Delta_{\vk} = \frac{J}{4N} \sum\limits_{\vb{q}}\qty(\gk \gamma_{\vb{q}} +\ek \eta_{\vb{q}} ) \frac{\Delta_{\vb{q}}}{2E_{\vb{q}}}
 \end{equation}
+We previously said that the gap can be expanded in terms of complete function set, which in this case is $\gk$ and $\ek$. Thus we propose the ansatz, 
+\begin{align}
+    \Delta_{\vk} = \Delta_{\gamma} \gk + \Delta_{\eta}\ek = (\Delta_{\gamma}+\Delta_{\eta})\cos k\tund{x} + (\Delta_{\gamma}-\Delta_{\eta})\cos k\tund{y}
+\end{align}
+We substitute this in the gap equation which then gives us,
+\begin{align}
+    \Delta_{\vk} &=\frac{J}{4N}\sum\limits_{\vb{q}} \frac{1}{2E_{\vb{q}}}\qty(\gk \gamma_{\vb{q}} +\ek \eta_{\vb{q}} ) \qty(\Delta_{\gamma} \gk + \Delta_{\eta}\ek) \\
+    &=\frac{J}{4N}\qty[\gk \sum\limits_{\vb{q}} \frac{\gamma_{\vb{q}}^2\Delta_{\gamma} + \mathcolor{OliveGreen}{\gamma_{\vb{q}}\eta_{\vb{q}}\Delta_{\eta}}}{2E_{\vb{q}}} + \ek\sum\limits_{q}\frac{\mathcolor{OliveGreen}{\eta_{\vb{q}}\gamma_{\vb{q}} \Delta_{\gamma}} + \eta_{\vb{q}}^2\Delta_{\eta}}{2E_{\vb{q}}}]
+\end{align}
+Let us focus on the green cross-terms. Under the symmetry transformation of the square lattice, $\vb{q}\equiv (q\tund{x}, q\tund{y}) \mapsto \vb{q}' \equiv (q\tund{y}, q\tund{x})$,
+$$\gamma_{\vb{q}} = \gamma_{\vb{q}'}\qquad \eta_{\vb{q}} = -\eta_{\vb{q}'}\implies \gamma_{\vb{q}'}\eta_{\vb{q}'} = -\gamma_{\vb{q}}\eta_{\vb{q}}$$
+Hence, the cross term at $\vb{q}$ is cancelled exactly by the term at $\vb{q}'$ and since the sum is over all values of $\vb{q}$, the cross-terms indeed vanish in the sum. On the LHS also, we substitute $\Delta_{\vk} = \Delta_{\gamma} \gk + \Delta_{\eta}\ek $ and then combining like terms, we get:
+\begin{align}
+    \cancel{\Delta_{\gamma}} = \frac{J}{4N} \sum\limits_{\vb{q}}\frac{\gamma_{\vb{q}}^2\cancel{\Delta_{\gamma}} }{2E_{\vb{q}}}\qquad\qquad  \cancel{\Delta_{\eta}} = \frac{J}{4N} \sum\limits_{\vb{q}}\frac{\eta_{\vb{q}}^2\cancel{\Delta_{\eta}} }{2E_{\vb{q}}}
+\end{align}
+From this we obtain the self-consistent equations, 
+\begin{align}
+    \frac{4J}{N} =   \sum\limits_{\vb{q}}\frac{\gamma_{\vb{q}}^2}{2E_{\vb{q}}} = \sum\limits_{\vb{q}}\frac{\eta_{\vb{q}}^2}{2E_{\vb{q}}}
+\end{align}
 \end{document}
 
